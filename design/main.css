@@ -1,0 +1,12 @@
+
+.body {
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    max-width: 1920px;
+}
+
+.main-container {
+    height: auto;
+    width: auto;
+}
