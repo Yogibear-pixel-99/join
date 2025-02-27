@@ -10,3 +10,9 @@
     height: auto;
     width: auto;
 }
+
+.navbar {
+    background-color: var(--navbar-bg-color);
+    width: 232px;
+
+}
