@@ -9,9 +9,10 @@
 .main-container {
     height: 100vh;
     /* width: auto; */
+    box-sizing: border-box;
 }
 
-.navbar {
+.navbar-container {
     background-color: var(--navbar-bg-color);
     width: 232px;
     color: var(--linkbar-color);
@@ -20,13 +21,24 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 66px;
+}
+
+.navbar-link-container {
+    color: var(--linkbar-color);
 }
 
 .navbar a {
     color: var(--linkbar-color);
 }
 
+.navbar img {
+    width: 30px;
+    height: 30px;
+}
+
 .logo-navbar {
     width: 100px;
     height: 122px;
+    padding: 66px;
 }
