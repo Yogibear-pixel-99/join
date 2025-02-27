@@ -29,6 +29,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    gap: 20px;
 }
 
 
@@ -36,25 +37,32 @@ body {
     width: 232px;
     height: 46px;
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    gap: 8px;
+    font-size: 16px;
+    font-family: inter;
+    color: var(--linkbar-color);
+}
+
+.empty-space {
+    width: 56px;
 }
 
 .navbar-link-container div{
     color: var(--linkbar-color);
 }
 
-.navbar a {
-    color: var(--linkbar-color);
-}
-
 .navba-logo {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
+    align-self: center;
 }
 
 .logo-navbar {
     width: 100px;
     height: 122px;
     padding: 66px;
+}
+
+.center {
+    align-self: center;
 }
