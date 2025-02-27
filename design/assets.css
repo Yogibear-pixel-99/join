@@ -3,7 +3,14 @@
 :root {
     --navbar-bg-color: #2A3647;
     --linkbar-color: white;
-    --link-hover-color: #29ABE2;
+   
+
+    --light-blue: #29ABE2;
+    
+    --main-background: #F6F7F8;
+    --grey-hover: #D9D9D9;
+    --hover-darkblue: #2A3D59;
+    --navbar-active: #091931;
 }
 
 

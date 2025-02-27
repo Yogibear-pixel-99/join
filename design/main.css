@@ -6,18 +6,24 @@ body {
     box-sizing: border-box;
     scroll-behavior: smooth;
     max-width: 1920px;
+    font-family: inter;
 }
 
 .main-container {
     height: 100dvh;
 }
 
+
+
 .navbar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
     box-sizing: border-box;
     background-color: var(--navbar-bg-color);
     width: 232px;
     color: var(--linkbar-color);
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -46,7 +52,8 @@ body {
     color: var(--linkbar-color);
 }
 .navbar-link-container a:hover{
-background-color: rgb(9, 25, 49);
+background-color: var(--hover-darkblue);
+transition: ease-in-out 300ms;
 }
 
 .empty-space {
@@ -79,7 +86,20 @@ background-color: rgb(9, 25, 49);
 }
 
 .policy-legal-content div:hover {
-    color: var(--link-hover-color);
+    color: var(--light-blue);
     cursor: pointer;
     font-weight: 500;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 232px;
+    top: 100px;
+    background-color: var(--join-background);
+    
 }

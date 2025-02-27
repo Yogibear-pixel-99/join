@@ -1,0 +1,56 @@
+
+
+.header-container {
+    height: 96px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 232px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 66px;
+    padding-right: 20px;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0px 1px 4px 2px rgb(202, 202, 202);
+}
+
+.header-text {
+    cursor: default;
+}
+
+.header-logos-right {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-logo {
+    width: 20px;
+    height: 20px;
+}
+
+.help-logo:hover {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.header-initial {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid black 3px;
+    border-radius: 50%;
+    color: var(--light-blue);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-initial:hover {
+    background-color: var(--grey-hover);
+    cursor: pointer;
+}
