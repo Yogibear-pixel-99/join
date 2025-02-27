@@ -74,3 +74,9 @@ body {
     padding: 8px;
     height: 35px;
 }
+
+.policy-legal-content div:hover {
+    color: var(--link-hover-color);
+    cursor: pointer;
+    font-weight: 500;
+}
