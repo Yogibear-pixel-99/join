@@ -45,6 +45,9 @@ body {
     
     color: var(--linkbar-color);
 }
+.navbar-link-container a:hover{
+background-color: rgb(9, 25, 49);
+}
 
 .empty-space {
     width: 56px;
