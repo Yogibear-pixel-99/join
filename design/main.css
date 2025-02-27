@@ -7,12 +7,17 @@
 }
 
 .main-container {
-    height: auto;
-    width: auto;
+    height: 100vh;
+    /* width: auto; */
 }
 
 .navbar {
     background-color: var(--navbar-bg-color);
     width: 232px;
+    color: var(--linkbar-color);
+    height: 100%;
+}
 
+.navbar a {
+    color: var(--linkbar-color);
 }
