@@ -23,6 +23,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 66px;
+    font-size: 16px;
+    font-family: inter;
+    font-weight: 400;
 }
 
 .navbar-link-container {
@@ -30,6 +33,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     gap: 20px;
+    padding-top: 66px;
 }
 
 
@@ -38,8 +42,7 @@ body {
     height: 46px;
     display: flex;
     gap: 8px;
-    font-size: 16px;
-    font-family: inter;
+    
     color: var(--linkbar-color);
 }
 
@@ -65,4 +68,9 @@ body {
 
 .center {
     align-self: center;
+}
+
+.policy-legal-content div {
+    padding: 8px;
+    height: 35px;
 }
