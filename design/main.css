@@ -1,5 +1,7 @@
 
-.body {
+
+
+body {
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -7,12 +9,11 @@
 }
 
 .main-container {
-    height: 100vh;
-    /* width: auto; */
-    box-sizing: border-box;
+    height: 100dvh;
 }
 
 .navbar-container {
+    box-sizing: border-box;
     background-color: var(--navbar-bg-color);
     width: 232px;
     color: var(--linkbar-color);
@@ -25,6 +26,21 @@
 }
 
 .navbar-link-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.navbar-link-container a{
+    width: 232px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.navbar-link-container div{
     color: var(--linkbar-color);
 }
 
@@ -32,9 +48,9 @@
     color: var(--linkbar-color);
 }
 
-.navbar img {
-    width: 30px;
-    height: 30px;
+.navba-logo {
+    width: 25px;
+    height: 25px;
 }
 
 .logo-navbar {
