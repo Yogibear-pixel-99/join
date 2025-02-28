@@ -66,8 +66,8 @@
 
 .login-button-container {
     height: 48px;
-    width: 322px;
     display: flex;
+    justify-content: space-between;
     gap: 35px;
 }
 
