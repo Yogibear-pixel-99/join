@@ -5,44 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
 
-    <link rel="stylesheet" href="./design/assets.css">
-    <link rel="stylesheet" href="./design/footer.css">
-    <link rel="stylesheet" href="./design/header.css">
-    <link rel="stylesheet" href="./design/main.css">
+    <link rel="stylesheet" href="../design/assets.css">
+    <link rel="stylesheet" href="../design/footer.css">
+    <link rel="stylesheet" href="../design/header.css">
+    <link rel="stylesheet" href="../design/main.css">
  
-    <link rel="icon" type="x-icon/favicon" href="./assets/icons/favicon.svg">
+    <link rel="icon" type="x-icon/favicon" href="../assets/icons/favicon.svg">
 
     <script src="./scripts/script.js"></script>
     <script src="./scripts/templates.js"></script>
     <script src="./scripts/objects.js"></script>
 </head>
 <body>
-    <header class="header-container">Join</header>
+    
+
     <main class="main-container">
-        <div class="navbar">
-            <img src="" alt="">
-            <a href="">
-                <img src="" alt="">
-                <div>Summary</div>
+        <header class="header-container">
+            <span class="header-text">Kanban Project Management Tool</span>
+            <div class="header-logos-right">
+                <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo">
+                <div onclick="toggleDropdown()" class="header-initial" >SM</div>
+            </div>
+        </header>
+        <div class="dropdown-menu d-none" id="dropdown">
+            <a href="./legalnotice.html">
+                <div class="dropdown-text">Legal Notice</div>
             </a>
-            <a href="">
-                <img src="" alt="">
-                <div>Add Task</div>
+            <a href="./Privacypolicy.html">
+                <div class="dropdown-text">Privacy Policy</div>
             </a>
-            <a href="">
-                <img src="" alt="">
-                <div>Board</div>
+            <a href="./login.html">
+                <div class="dropdown-text">Log out</div>
             </a>
-            <a href="">
-                <img src="" alt="">
-                <div>Contacts</div>
-            </a>
-
-            <div>Privacy Policy</div>
-            <div>Legal notice</div>
-
         </div>
+
+        <div id="main-content" class="main-content">
+        </div>
+
+
+
+        <div class="navbar-container">
+            <div>
+            <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
+                <navbar class="navbar-link-container">
+                <a href="./summary.html">
+                    <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
+                    <div class="center">Summary</div>
+                </a>
+                <a href="./addtask.html">
+                    <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
+                    <div class="center">Add Task</div>
+                </a>
+                <a href="./board.html" class="active-button">
+                    <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
+                    <div class="center">Board</div>
+                </a>
+                <a href="./contacts.html">
+                    <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
+                    <div class="center">Contacts</div>
+                </a>
+                </navbar>
+            </div>
+            <div class="policy-legal-content">
+                <a href="./Privacypolicy.html">Privacy Policy</a>
+                <a href="./legalnotice.html">Legal notice</a>
+            </div>
+        </div>
+
+    
+        
     </main>
-    <footer class="footer-container"></footer>
 </body>
 </html>
