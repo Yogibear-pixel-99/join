@@ -41,6 +41,7 @@
 .form-header {
     font-size: 60px;
     font-weight: 700;
+    margin-bottom: 40px;
 }
 
 .form-container {
@@ -56,3 +57,5 @@
     padding: 48px 115px;
     border-radius: 30px;
 }
+
+.login-input-field
