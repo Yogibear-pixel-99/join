@@ -1,4 +1,4 @@
-function toggleDropdown(params) {
+function toggleDropdown() {
     let dropdownREF = document.getElementById("dropdown");
-    dropdownREF.classList.toggle("d-none")
+    dropdownREF.classList.toggle("d-none");
 }
