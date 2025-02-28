@@ -1,5 +1,33 @@
 
 
-.join-logo {
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-logo {
+    position: absolute;
+    top: 66px;
+    left: 66px;
+}
+
+.login-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 66px 120px;
+    gap: 40px;
+}
+
+.login-header span {
+    display: inline-flex;
+    align-items: center;    
+}
+
+.login-footer {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
     padding: 66px;
 }
