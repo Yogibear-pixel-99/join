@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board</title>
+    <title>Join</title>
 
     <link rel="stylesheet" href="../design/assets.css">
     <link rel="stylesheet" href="../design/footer.css">
     <link rel="stylesheet" href="../design/header.css">
     <link rel="stylesheet" href="../design/main.css">
+    <link rel="stylesheet" href="../design/board.css">
+    <link rel="stylesheet" href="../design/login.css">
  
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/favicon.svg">
 
@@ -17,6 +19,7 @@
     <script src="../scripts/objects.js"></script>
 </head>
 <body>
+    
     
 
 
@@ -29,7 +32,6 @@
             </div>
         </header>
         <div class="dropdown-menu d-none" id="dropdown">
-
             <a href="./legalnotice.html">
                 <div class="dropdown-text">Legal Notice</div>
             </a>
@@ -37,12 +39,85 @@
                 <div class="dropdown-text">Privacy Policy</div>
             </a>
             <a href="../login.html">
-
                 <div class="dropdown-text">Log out</div>
             </a>
         </div>
 
         <div id="main-content" class="main-content">
+
+            <div class="top-board"> 
+                <h2 class="summary-header">Board</h2>
+                <div class="board-top-right">
+                    <div class="input-field-container">
+                        <input class="board-search-bar" type="text" required placeholder="Find Task">
+                        <button class="searchbar-button-container">
+                            <div class="searchbar-separator"></div>
+                            <div class="flex-ctr-ctr search-logo-wrapper">
+                                <img class="search-logo" src="../assets/icons/search.svg">
+                            </div>
+                        </button>
+                    </div>
+                    <button class="dark-button">Add Task +</button>
+                </div>
+            </div>
+
+            <div class="bottom-board">
+                <div class="board-single-task-container">
+                    <div class="board-task-header-container">
+                        <span>To do</span>
+                        <div class="board-add-task-icon-wrapper">
+                            <svg class="board-add-icon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                                <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                    </div>
+                    <div id="boardToDo">
+                        Javascript Template
+                    </div>
+                </div>
+                <div class="board-single-task-container">
+                    <div class="board-task-header-container">
+                        <span>In progress</span>
+                            <div class="board-add-task-icon-wrapper">
+                            <svg class="board-add-icon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                                <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        
+                    </div>
+                    <div id="boardInProgress">
+                        Javascript Template
+                    </div>
+                </div>
+                <div class="board-single-task-container">
+                    <div class="board-task-header-container">
+                        <span>Await feedback</span>
+                        <div class="board-add-task-icon-wrapper">
+                            <svg class="board-add-icon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                                <path d="M12 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 12.5754L8 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                    </div>
+                    <div id="boardAwaitFeedback">
+                        Javascript Template
+                    </div>
+                </div>
+                <div class="board-single-task-container">
+                    <div class="board-task-header-container">
+                        <span>Done</span>
+                        
+                    </div>
+                    <div id="boardDone">
+                        Javascript Template
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -51,8 +126,7 @@
             <div>
             <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
                 <navbar class="navbar-link-container">
-
-                <a href="./summary.html">
+                <a href="./summary.html" class="active-button">
                     <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
                     <div class="center">Summary</div>
                 </a>
@@ -60,23 +134,19 @@
                     <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
                     <div class="center">Add Task</div>
                 </a>
-                <a href="./board.html" class="active-button">
+                <a href="./board.html">
                     <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
                     <div class="center">Board</div>
                 </a>
                 <a href="./contacts.html">
-
-                
                     <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
                     <div class="center">Contacts</div>
                 </a>
                 </navbar>
             </div>
             <div class="policy-legal-content">
-
                 <a href="./Privacypolicy.html" class="policy-legal-area">Privacy Policy</a>
                 <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
-
             </div>
         </div>
 

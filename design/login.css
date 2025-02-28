@@ -98,19 +98,7 @@
     top: 50%;
     transform: translateY(-50%);
 }
-/* 
-input[type="checkbox"] {
-    margin-right: 20px;
-    height: 16px;
-    width: 16px;
-    border: solid 2px var(--join-dark);
-    background-color: white;
-    border-radius: 2px;
-}
 
-input[type="checkbox"]:hover {
-    cursor: pointer;
-} */
 
 input[type="checkbox"] {
     width: 20px; /* Breite */
