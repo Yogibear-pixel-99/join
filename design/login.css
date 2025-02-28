@@ -41,7 +41,13 @@
 .form-header {
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 40px;
+}
+
+.login-separator {
+    width: 40%;
+    height: 3px;
+    background-color: var(--light-blue);
+    margin: 20px;
 }
 
 .form-container {
@@ -64,7 +70,6 @@
 }
 
 .login-input-field {
-    /* position: relative; */
     border: 1px solid var(--input-field-grey);
     border-radius: 10px;
     padding: 12px 21px;
