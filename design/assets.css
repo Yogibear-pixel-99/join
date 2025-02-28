@@ -2,6 +2,7 @@
 
 
 :root {
+    --white: white;
     --navbar-bg-color: #2A3647;
     --linkbar-color: white;
    
@@ -49,12 +50,19 @@ a {
     border: none;
 }
 
+.dark-button-signup:hover {
+    cursor: pointer;
+    background-color: var(--light-blue);
+    box-shadow: var(--button-shadow);
+}
+
+
 .dark-button {
     background-color: var(--join-dark);
     color: white;
     border-radius: 8px;
     font-weight: 700;
-    /* padding: 15px 16px; */
+    padding: 15px 16px; 
     font-size: 16px;
     font-family: inter;
     border: none;
@@ -68,4 +76,22 @@ a {
 
 input {
     /* padding: 0; */
+}
+
+.light-button {
+    background-color: var(--white);
+    color: var(--join-dark);
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 15px 16px;
+    font-size: 16px;
+    font-family: inter;
+    border: 1px solid var(--join-dark);
+}
+
+.light-button:hover {
+    cursor: pointer;
+    border: 1px solid var(--light-blue);
+    color: var(--light-blue);
+    box-shadow: var(--button-shadow);
 }
