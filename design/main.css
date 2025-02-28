@@ -75,11 +75,14 @@ body {
 .policy-legal-content{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width: 232px;
 }
 
 .policy-legal-content a {
   padding: 8px;
   height: 25px;
+  padding-left: 56px;
   color: var(--navbar-color);
 }
 
@@ -92,6 +95,7 @@ body {
 .active-button{
     background-color: var(--navbar-active);
 }
+
 
 
 /* MAIN CONTENT */
