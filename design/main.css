@@ -72,7 +72,7 @@ body {
   align-self: center;
 }
 
-.policy-legal-content div {
+.policy-legal-content a {
   padding: 8px;
   height: 35px;
 }
