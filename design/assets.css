@@ -77,10 +77,6 @@ a {
     box-shadow: var(--button-shadow);
 }
 
-input {
-    /* padding: 0; */
-}
-
 .light-button {
     background-color: var(--white);
     color: var(--join-dark);
@@ -102,4 +98,14 @@ input {
     border: 1px solid var(--light-blue);
     color: var(--light-blue);
     box-shadow: var(--button-shadow);
+}
+
+.lightblue-text {
+    color: var(--light-blue);
+}
+
+.flex-ctr-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

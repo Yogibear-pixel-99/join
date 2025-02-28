@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join - Log in</title>
+    <title>Join - Sign up</title>
 
     <link rel="stylesheet" href="./design/assets.css">
     <link rel="stylesheet" href="./design/footer.css">
@@ -25,15 +25,18 @@
     <main class="main-container">
             
         <div class="login-header">
-            <span>Not a Join user?</span>
-            <button class="dark-button-signup">Sign up</button>
+            
         </div>
 
         <div class="form-container">
-        <span class="form-header">Log in</span>
+        <span class="form-header">Sign up</span>
         <div class="login-separator"></div>
         <form class="login-form" action="submit">
             
+            <div class="input-field-container">
+                <input class="login-input-field" type="text" required placeholder="Name">
+                <img class="input-logo" src="./assets/icons/person.svg">
+            </div>
             <div class="input-field-container">
                 <input class="login-input-field" type="email" required placeholder="Email">
                 <img class="input-logo" src="./assets/icons/mail.svg">
@@ -42,11 +45,18 @@
                 <input class="login-input-field" type="password" required placeholder="Password">
                 <img class="input-logo" src="./assets/icons/lock.svg">
             </div>
-
-            <div class="login-button-container">
-                <button class="dark-button">Log in</button>
-                <button class="light-button">Guest Log in</button>
+            <div class="input-field-container">
+                <input class="login-input-field" type="password" required placeholder="Confirm Password">
+                <img class="input-logo" src="./assets/icons/lock.svg">
             </div>
+            
+            <div class="flex-ctr-ctr accept-policy-login">
+            <input type="checkbox" id="accept-privacy" name="accept-privacy">
+            <label for="accept-privacy">I accept the <a class="lightblue-text" href="">Privacy policy</a></label>
+            </div>
+
+            <button class="dark-button" type="submit">Sign up</button>
+            
         </form>
 
         </div>
