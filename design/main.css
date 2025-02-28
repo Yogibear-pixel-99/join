@@ -58,15 +58,12 @@ transition: ease-in-out 300ms;
     color: var(--linkbar-color);
 }
 
-.navba-logo {
+.join-logo {
     width: 30px;
     height: 30px;
-    align-self: center;
 }
 
-.logo-navbar {
-    width: 100px;
-    height: 122px;
+.join-logo-navbar {
     padding: 66px;
 }
 
