@@ -72,15 +72,25 @@ body {
   align-self: center;
 }
 
-.policy-legal-content a {
-  padding: 8px;
-  height: 35px;
+.policy-legal-content{
+    display: flex;
+    flex-direction: column;
 }
 
-.policy-legal-content div:hover {
+.policy-legal-content a {
+  padding: 8px;
+  height: 25px;
+  color: var(--navbar-color);
+}
+
+.policy-legal-content a:hover {
   color: var(--light-blue);
   cursor: pointer;
   font-weight: 500;
+}
+
+.active-button{
+    background-color: var(--navbar-active);
 }
 
 /* MAIN CONTENT */
@@ -93,3 +103,4 @@ body {
     top: 100px;
     background-color: var(--join-background);
 }
+
