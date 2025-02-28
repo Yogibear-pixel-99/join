@@ -58,4 +58,13 @@
     border-radius: 30px;
 }
 
-.login-input-field
+.login-button-container {
+    height: 48px;
+    width: 322px;
+    display: flex;
+    gap: 10px;
+}
+
+.login-input-field {
+    
+}
