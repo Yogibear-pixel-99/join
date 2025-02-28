@@ -25,9 +25,14 @@
     align-items: center;    
 }
 
-.login-footer {
+.login-policy-legal {
     display: flex;
     justify-content: center;
     gap: 80px;
     padding: 66px;
+}
+
+.login-policy-legal span:hover {
+    color: var(--light-blue);
+    cursor: pointer;
 }

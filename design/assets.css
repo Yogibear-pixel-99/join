@@ -1,5 +1,6 @@
 
 
+
 :root {
     --navbar-bg-color: #2A3647;
     --linkbar-color: white;
@@ -13,13 +14,19 @@
     --navbar-active: #091931;
 
     --join-dark: #2A3647;
+
+    --button-shadow: 0px 3px 3px 2px rgb(165, 164, 164);
 }
 
+* {
+    transition: 150ms;
+}
 
 body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
 
 a {
@@ -39,4 +46,11 @@ a {
     padding: 15px 16px;
     font-size: 16px;
     font-family: inter;
+    border: none;
+}
+
+.dark-button:hover {
+    cursor: pointer;
+    background-color: var(--light-blue);
+    box-shadow: var(--button-shadow);
 }
