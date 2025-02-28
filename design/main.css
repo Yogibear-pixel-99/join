@@ -133,6 +133,10 @@ background-color: var(--hover-darkblue);
 /* MAIN CONTENT */
 
 .main-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 80px;
     position: fixed;
     right: 0;
     bottom: 0;
@@ -141,3 +145,27 @@ background-color: var(--hover-darkblue);
     background-color: var(--join-background);
 }
 
+.top-summary{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-summary h2{
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.summary-header{
+    font-size: 61px !important;
+    font-weight: 700 !important;
+}
+
+
+
+.line{
+    background-color: var(--light-blue);
+    width: 2px;
+    height: 50px;
+    margin-right: 10px;
+}
