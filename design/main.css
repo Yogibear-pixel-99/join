@@ -42,22 +42,16 @@ body {
     padding-top: 66px;
 }
 
-
 .navbar-link-container a{
-    width: 232px;
     height: 46px;
     display: flex;
     gap: 8px;
-    
+    padding-left: 56px;
     color: var(--linkbar-color);
 }
 .navbar-link-container a:hover{
 background-color: var(--hover-darkblue);
 transition: ease-in-out 300ms;
-}
-
-.empty-space {
-    width: 56px;
 }
 
 .navbar-link-container div{
