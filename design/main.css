@@ -1,5 +1,8 @@
 
-
+html {
+    margin: 0;
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -49,6 +52,7 @@ body {
     padding-left: 56px;
     color: var(--linkbar-color);
 }
+
 .navbar-link-container a:hover{
 background-color: var(--hover-darkblue);
 transition: ease-in-out 300ms;
@@ -59,8 +63,8 @@ transition: ease-in-out 300ms;
 }
 
 .join-logo {
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 122px;
 }
 
 .join-logo-navbar {
