@@ -1,0 +1,18 @@
+.info-input-field-container {
+    height: 376px;
+    width: 440px;
+    top: 327px;
+    left: 328px;
+}
+
+hr {
+    border: none;
+    border-top:1px solid #de5656; ;
+    margin: 20px 0;
+}
+
+.info-input-field-container {
+    display: flex;
+    justify-content: center;
+    
+}
