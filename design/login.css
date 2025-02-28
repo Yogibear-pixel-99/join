@@ -68,7 +68,7 @@
     height: 48px;
     width: 322px;
     display: flex;
-    gap: 10px;
+    gap: 35px;
 }
 
 .input-field-container {
@@ -90,5 +90,4 @@
     right: 21px;
     top: 50%;
     transform: translateY(-50%);
->>>>>>> 720399fcfbce6419405b44e7b5920e1c08ba3795
 }

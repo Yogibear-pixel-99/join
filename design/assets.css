@@ -67,6 +67,8 @@ a {
     font-size: 16px;
     font-family: inter;
     border: none;
+    width: 110px;
+    height: 48px;
 }
 
 .dark-button:hover {
@@ -88,6 +90,11 @@ input {
     font-size: 16px;
     font-family: inter;
     border: 1px solid var(--join-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 177px;
+    height: 48px;
 }
 
 .light-button:hover {
