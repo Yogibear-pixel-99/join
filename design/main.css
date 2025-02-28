@@ -1,91 +1,87 @@
-
 html {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    max-width: 1920px;
-    font-family: inter;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  max-width: 1920px;
+  font-family: inter;
 }
 
 .main-container {
-    height: 100dvh;
+  height: 100dvh;
 }
 
-
-
 .navbar-container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    background-color: var(--navbar-bg-color);
-    width: 232px;
-    color: var(--linkbar-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 66px;
-    font-size: 16px;
-    font-family: inter;
-    font-weight: 400;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  background-color: var(--navbar-bg-color);
+  width: 232px;
+  color: var(--linkbar-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 66px;
+  font-size: 16px;
+  font-family: inter;
+  font-weight: 400;
 }
 
 .navbar-link-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 66px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 66px;
 }
 
-.navbar-link-container a{
-    height: 46px;
-    display: flex;
-    gap: 8px;
-    padding-left: 56px;
-    color: var(--linkbar-color);
+.navbar-link-container a {
+  height: 46px;
+  display: flex;
+  gap: 8px;
+  padding-left: 56px;
+  color: var(--linkbar-color);
 }
 
-.navbar-link-container a:hover{
-background-color: var(--hover-darkblue);
-transition: ease-in-out 300ms;
+.navbar-link-container a:hover {
+  background-color: var(--hover-darkblue);
+  transition: ease-in-out 300ms;
 }
 
-.navbar-link-container div{
-    color: var(--linkbar-color);
+.navbar-link-container div {
+  color: var(--linkbar-color);
 }
 
 .join-logo {
-    width: 100px;
-    height: 122px;
+  width: 100px;
+  height: 122px;
 }
 
 .join-logo-navbar {
-    padding: 66px;
+  padding: 66px;
 }
 
 .center {
-    align-self: center;
+  align-self: center;
 }
 
 .policy-legal-content div {
-    padding: 8px;
-    height: 35px;
+  padding: 8px;
+  height: 35px;
 }
 
 .policy-legal-content div:hover {
-    color: var(--light-blue);
-    cursor: pointer;
-    font-weight: 500;
+  color: var(--light-blue);
+  cursor: pointer;
+  font-weight: 500;
 }
-
 
 /* MAIN CONTENT */
 
