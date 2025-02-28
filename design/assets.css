@@ -11,6 +11,8 @@
     --grey-hover: #D9D9D9;
     --hover-darkblue: rgb(42, 61, 89);
     --navbar-active: #091931;
+
+    --join-dark: #2A3647;
 }
 
 
@@ -30,5 +32,11 @@ a {
 }
 
 .dark-button {
-    
+    background-color: var(--join-dark);
+    color: white;
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 15px 16px;
+    font-size: 16px;
+    font-family: inter;
 }
