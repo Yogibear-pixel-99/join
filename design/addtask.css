@@ -57,3 +57,36 @@ hr {
   font-size: 16px;           
   box-sizing: border-box;   
 }
+
+.btn-importance-container {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-importance {
+    background-color: var(--white);
+    color: var(--join-dark);
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 16px 10px;
+    font-size: 16px;
+    font-family: inter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border: 0px;
+    gap: 5px;
+}
+
+.btn-importance img {
+    margin-right: 8px;
+    height: 10px;
+}
+
+#medium-color {
+    background: #FFA800;
+    width: 10px;;
+
+}
+

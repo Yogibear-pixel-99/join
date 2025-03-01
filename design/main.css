@@ -145,6 +145,8 @@ background-color: var(--hover-darkblue);
     top: 100px;
     background-color: var(--join-background);
     height: 100%;
+    background: #F6F7F8;
+
 }
 
 .top-summary{
