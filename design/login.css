@@ -101,8 +101,8 @@
 
 
 input[type="checkbox"] {
-    width: 20px; /* Breite */
-    height: 20px; /* Höhe */
+    width: 20px;
+    height: 20px;
     border: 2px solid var(--join-dark);
     appearance: none;
     -webkit-appearance: none;
