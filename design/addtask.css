@@ -14,4 +14,46 @@ hr {
 .info-input-field-container {
     display: flex;
     justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.addtask-header {
+    font-size: 32px;
+    margin: 20px 0;
+
+}
+
+.info-input-field-container-left {
+    border-right: 1px   solid #ccc;
+    padding-right: 40px;
+}
+
+.info-input-field-container input {
+    width: 100%;              
+  padding: 10px;             
+  margin-bottom: 20px;      
+  border: 1px solid #ddd;    
+  border-radius: 4px;       
+  font-size: 16px;           
+  box-sizing: border-box;  
+}
+.info-input-field-container textarea {
+    width: 100%;              
+  padding: 10px;             
+  margin-bottom: 20px;      
+  border: 1px solid #ddd;    
+  border-radius: 4px;       
+  font-size: 16px;           
+  box-sizing: border-box;  
+}
+.info-input-field-container select {
+  width: 100%;              
+  padding: 10px;             
+  margin-bottom: 20px;      
+  border: 1px solid #ddd;    
+  border-radius: 4px;       
+  font-size: 16px;           
+  box-sizing: border-box;   
 }

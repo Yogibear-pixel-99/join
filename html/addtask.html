@@ -40,10 +40,11 @@
             </a>
         </div>
 
-        <form id="main-content" class="main-content">
-            <div>
+        <div id="main-content" class="main-content">
+            <div class="addtask-header">
                 <h2>Add Task</h2>
             </div>
+            <form>
         <div class="info-input-field-container">
             <div class="info-input-field-container-left">
                 <div>
@@ -52,19 +53,18 @@
                 </div>
            
                 <div>   
-                    <label for="description">Description</label>
-                    <input type="text" placeholder="Enter a description">
+                    <label for="description">Description*</label>
+                    <textarea name="description" id=""placeholder="Enter a description"></textarea>
                 </div>
 
 
                 <div>
-                    <label for="assigned">assigned to</label>
+                    <label for="assigned">Assigned to*</label>
                     <select name="" id="">
                     <option value="" disabled selected>Select contacts to assign    </option>
                     </select>
                 </div>
             </div>
-            <hr> 
             <div class="info-input-field-container-right">
                 <div>
                     <label for="due-date">Due date*</label>
@@ -92,6 +92,7 @@
             </div>
         </div>
         </form>
+        </div>
 
 
 
