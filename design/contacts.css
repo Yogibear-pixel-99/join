@@ -1,0 +1,88 @@
+
+
+.main-content {
+    padding-left: 0;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.board-container-wrapper {
+    padding-left: 64px;
+}
+
+.contact-container-wrapper {
+    width: 456px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container-inner-wrapper {
+    box-sizing: border-box;
+    width: 400px;
+    height: 100%;
+    padding: 24px;
+}
+
+.add-contact-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+}
+
+.add-person-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-person-icon-wrapper img {
+    width: 29px;
+    height: 21px;
+}
+
+.contacts-content {
+    margin: 24px 0;
+}
+
+.contacts-first-letter {
+    font-size: 20px;
+    padding: 17px 36px;
+}
+
+.contacts-separator {
+    height: 1px;
+    margin: 8px 0;
+    background: var(--input-separator-color);
+}
+
+.single-contact {
+    padding: 15px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.contact-list-initals {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    background-color: orange;
+    color: white;
+}
+
+.contact-name {
+    font-size: 20px;
+}
+
+.contact-email {
+    color: var(--email-color);
+}

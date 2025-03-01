@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join - Contacts</title>
+    <title>Join - Board</title>
 
     <link rel="stylesheet" href="../design/assets.css">
     <link rel="stylesheet" href="../design/footer.css">
     <link rel="stylesheet" href="../design/header.css">
     <link rel="stylesheet" href="../design/main.css">
+    <link rel="stylesheet" href="../design/board.css">
+    <link rel="stylesheet" href="../design/login.css">
+    <link rel="stylesheet" href="../design/contacts.css">
  
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/favicon.svg">
 
@@ -17,7 +20,9 @@
     <script defer src="../scripts/objects.js"></script>
 </head>
 <body>
-   
+    
+    
+
 
     <main class="main-container">
         <header class="header-container">
@@ -38,8 +43,46 @@
                 <div class="dropdown-text">Log out</div>
             </a>
         </div>
+        
+            
+        <div id="main-content" class="main-content flex-row">
+            <div class="contact-container-wrapper">
+                <div class="contact-container-inner-wrapper">
+                    <button class="dark-button add-contact-button">
+                        <span>Add new contact</span>
+                            <div class="add-person-icon-wrapper">
+                                <img src="./assets/icons/person_add.svg" alt="add person icon">
+                            </div>
+                    </button>
+                    <div id="contacts-content" class="contacts-content">
+                        <!-- START DESIGN FOR SORTED BY LETTER CONTAINER FOR JAVASCRIPT -->
+                        <div class="contacts-first-letter">
+                            <span>J</span>
+                        </div>
+                        <div class="contacts-separator"></div>
+                        <div id="filterd-contacts-container">
+                                <!-- START DESIGN SINGLE CONTACT FOR JAVASCRIPT -->
+                            <div class="single-contact">
+                                <div class="contact-list-initals flex-ctr-ctr">JP</div>
+                                <div class="flex-col flex1">
+                                    <span class="contact-name">Joachim Pürcher</span>
+                                    <span class="contact-email">test@gmail.com</span>
+                                </div>
+                            </div>
+                                <!-- END OF DESIGN FOR SINGLE CONTACT -->
+                        </div>
+                        <!-- END OF DESIGN FOR SORTED BY LETTER FOR JAVASCRIPT -->
+                    </div>
+                </div>
+            </div>
 
-        <div id="main-content" class="main-content">
+            <div class="board-container-wrapper">
+                <div class="top-board"> 
+                    <h2 class="summary-header">Contacts</h2>
+                </div>
+                <div class="bottom-board">
+                </div>
+            </div>
         </div>
 
 
@@ -56,11 +99,11 @@
                     <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
                     <div class="center">Add Task</div>
                 </a>
-                <a href="./board.html">
+                <a href="./board.html" class="active-button">
                     <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
                     <div class="center">Board</div>
                 </a>
-                <a href="./contacts.html" class="active-button">
+                <a href="./contacts.html">
                     <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
                     <div class="center">Contacts</div>
                 </a>
