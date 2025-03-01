@@ -85,12 +85,7 @@ hr {
 .btn-importance img {
     margin-right: 8px;
     height: 10px;
-}
-
-#medium-color {
-    background: #FFA800;
-    width: 10px;;
-
+    width: 18px;
 }
 
 label {
