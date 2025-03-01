@@ -1,0 +1,238 @@
+.top-summary {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.top-summary h2 {
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.summary-header {
+  font-size: 61px !important;
+  font-weight: 700 !important;
+}
+
+.line {
+  background-color: var(--light-blue);
+  width: 2px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.bottom-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.bottom-top-summary {
+  display: flex;
+  gap: 30px;
+}
+
+.to-do-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 264px;
+  height: 120px;
+  border-radius: 30px;
+  padding-top: 38px;
+  padding-left: 19px;
+  padding-right: 19px;
+  padding-bottom: 38px;
+  box-shadow: #0000001a;
+  border: 3px solid #0000001a;
+  background-color: white;
+  transform-origin: left center;
+  transition: transform 0.2s ease;
+}
+
+.to-do-summary:hover {
+  transform: scale(1.07);
+  background-color: var(--join-dark);
+}
+
+.to-do-summary:hover .to-do-circle-summary {
+  fill: white;
+}
+
+.to-do-summary:hover .to-do-path-summary {
+  fill: var(--join-dark);
+}
+
+.to-do-summary:hover .quantity-summary {
+  color: white;
+}
+
+.to-do-summary:hover .text-summary {
+  color: white;
+}
+
+.to-do-summary img {
+  width: 69px;
+  height: 69px;
+}
+
+.content-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity-summary {
+  font-size: 64px;
+  font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.text-summary {
+  font-size: 20px;
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.done-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 264px;
+  height: 120px;
+  border-radius: 30px;
+  padding-top: 38px;
+  padding-left: 19px;
+  padding-right: 19px;
+  padding-bottom: 38px;
+  border: 3px solid var(--summary-border);
+  background-color: white;
+  transform-origin: right center;
+  transition: transform 0.2s ease;
+}
+
+.done-summary:hover {
+  transform: scale(1.07);
+  background-color: var(--join-dark);
+}
+
+.done-summary:hover .done-circle-summary {
+  fill: white;
+}
+
+.done-summary:hover .done-path-summary {
+  stroke: var(--join-dark);
+}
+
+.done-summary:hover .quantity-summary {
+  color: white;
+}
+
+.done-summary:hover .text-summary {
+  color: white;
+}
+
+.bottom-middle-summary {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.urgent-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+  width: 600px;
+  height: 120px;
+  border-radius: 30px;
+  padding-top: 38px;
+  padding-left: 19px;
+  padding-right: 19px;
+  padding-bottom: 38px;
+  background-color: white;
+  box-shadow: #0000001a;
+  border: 3px solid #0000001a;
+  transform-origin: left top;
+}
+
+.urgent-left-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.urgent-line-summary {
+  background-color: var(--summary-border);
+  width: 2px;
+  height: 102.02px;
+  margin-right: 10px;
+}
+
+.urgent-summary:hover {
+  transform: scale(1.02);
+  background-color: var(--join-dark);
+}
+
+.urgent-summary:hover .quantity-summary {
+  color: white;
+}
+
+.urgent-summary:hover .text-summary {
+  color: white;
+}
+
+.urgent-summary:hover .urgent-line-summary {
+  background-color: white;
+}
+
+.urgent-summary:hover .date-summary {
+    color: white; 
+}
+.urgent-summary:hover .deadline-summary{
+    color: white;
+}
+
+.date-summary {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--join-dark);
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.deadline-summary {
+  font-size: 16px;
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.welcome-summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-text-summary{
+    font-size: 67px;
+    font-weight: 500;
+    color: var(--join-dark);
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.welcome-name-summary{
+    font-size: 84px;
+    font-weight: 700;
+    color: var(--light-blue);
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
