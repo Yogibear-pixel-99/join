@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.header-initial {
+.header-initials {
     width: 56px;
     height: 56px;
     display: flex;
@@ -50,7 +50,7 @@
     font-weight: 600;
 }
 
-.header-initial:hover {
+.header-initials:hover {
     background-color: var(--grey-hover);
     cursor: pointer;
 }

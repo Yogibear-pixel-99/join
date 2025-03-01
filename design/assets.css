@@ -86,6 +86,7 @@ input:focus {
 }
 
 .light-button {
+    box-sizing: border-box;
     background-color: var(--white);
     color: var(--join-dark);
     border-radius: 8px;

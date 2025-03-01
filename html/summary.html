@@ -12,9 +12,9 @@
  
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/favicon.svg">
 
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/templates.js"></script>
-    <script src="../scripts/objects.js"></script>
+    <script defer src="../scripts/script.js"></script>
+    <script defer src="../scripts/templates.js"></script>
+    <script defer src="../scripts/objects.js"></script>
 </head>
 <body>
     
@@ -26,7 +26,7 @@
             <span class="header-text">Kanban Project Management Tool</span>
             <div class="header-logos-right">
                 <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo">
-                <div onclick="toggleDropdown()" class="header-initial" >SM</div>
+                <div onclick="toggleDropdown()" id="header-initials" class="header-initials" >SM</div>
             </div>
         </header>
         <div class="dropdown-menu d-none" id="dropdown">
