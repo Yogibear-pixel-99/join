@@ -13,7 +13,7 @@ hr {
 
 .info-input-field-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 40px;
     margin-top: 20px;
     width: 100%;
@@ -31,8 +31,9 @@ hr {
 }
 
 .info-input-field-container input {
-    width: 100%;              
-  padding: 10px;             
+  width: 100%;              
+  padding: 10px;    
+  margin-top: 5px;         
   margin-bottom: 20px;      
   border: 1px solid #ddd;    
   border-radius: 4px;       
@@ -40,8 +41,9 @@ hr {
   box-sizing: border-box;  
 }
 .info-input-field-container textarea {
-    width: 100%;              
-  padding: 10px;             
+  width: 100%;              
+  padding: 10px;     
+  margin-top: 5px;        
   margin-bottom: 20px;      
   border: 1px solid #ddd;    
   border-radius: 4px;       
@@ -50,7 +52,8 @@ hr {
 }
 .info-input-field-container select {
   width: 100%;              
-  padding: 10px;             
+  padding: 10px; 
+  margin-top: 5px;            
   margin-bottom: 20px;      
   border: 1px solid #ddd;    
   border-radius: 4px;       
@@ -88,5 +91,12 @@ hr {
     background: #FFA800;
     width: 10px;;
 
+}
+
+label {
+    font-family: Inter;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 24px;
 }
 
