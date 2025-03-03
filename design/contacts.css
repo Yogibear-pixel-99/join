@@ -175,21 +175,34 @@
     gap: 8px;
 }
 
-.edit-delete-wrapper {
+.floating-edit-delete-wrapper {
     display: flex;
     gap: 16px;
     height: 24px;
 }
 
-.edit-delete-wrapper div{
+.floating-edit-delete-wrapper div{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.edit-delete-wrapper img {
+.floating-edit-delete-wrapper svg {
     margin-right: 13px;
 }
+
+.floating-edit-wrapper:hover > div,
+.floating-delete-wrapper:hover > div {
+    color: var(--light-blue);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.floating-edit-wrapper:hover > div > svg *,
+.floating-delete-wrapper:hover > div > svg * {
+    fill: var(--light-blue);
+}
+
 
 
 .contact-info {
