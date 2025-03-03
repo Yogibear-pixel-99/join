@@ -8,17 +8,23 @@
     flex-direction: row;
 }
 
+.top-contacts {
+    margin-top: 110px;
+}
+
 .board-container-wrapper {
     padding-left: 64px;
 }
 
 .contact-container-wrapper {
     width: 456px;
-    height: 100%;
+    height: calc(100% - 96px);
     display: flex;
     justify-content: center;
-    box-shadow: 1px 0 4px 2px rgb(202, 202, 202);
+    box-shadow: 1px 5px 4px 2px rgb(202, 202, 202);
     overflow-y:auto;
+    background-color: white;
+    transform: translateY(-4px);
 }
 
 .contact-container-wrapper:hover {
@@ -30,6 +36,7 @@
     width: 400px;
     height: 100%;
     padding: 24px;
+    background-color: white;
 }
 
 .add-contact-button {
@@ -52,10 +59,6 @@
 .add-person-icon-wrapper img {
     width: 29px;
     height: 21px;
-}
-
-.contacts-content {
-    margin: 24px 0;
 }
 
 .contacts-first-letter {
@@ -98,3 +101,31 @@
 .contact-email {
     color: var(--email-color);
 }
+
+.contact-container-wrapper::-webkit-scrollbar {
+    background: white;
+    width: 24px;
+  
+}
+
+.contact-container-wrapper::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border: solid 8px transparent;
+    border-radius: 16px;
+    background-clip: content-box;
+}
+
+.contact-container-wrapper::-webkit-scrollbar-button {
+   display: block;
+    height: 30px;
+}
+
+
+/* .contact-container-wrapper::-webkit-scrollbar-button:vertical:decrement {
+    -webkit-appearance: scrollbarbutton-up;
+}
+
+
+.contact-container-wrapper::-webkit-scrollbar-button:vertical:increment {
+    -webkit-appearance: scrollbarbutton-down;
+} */

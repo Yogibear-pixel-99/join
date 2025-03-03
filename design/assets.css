@@ -26,6 +26,8 @@
     --summary-border: #0000001a;
 
     --hover-effect-contacts: linear-gradient(0deg, rgb(218, 218, 218) 0%, rgba(249,249,249,1) 100%);
+
+    --scrollbar-color: #A8A8A8;
 }
 
 * {
@@ -41,6 +43,10 @@ body {
 
 a {
     text-decoration: none;
+}
+
+h2 {
+    margin: 0;
 }
 
 .flex-col {
