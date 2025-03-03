@@ -129,3 +129,62 @@
 .contact-container-wrapper::-webkit-scrollbar-button:vertical:increment {
     -webkit-appearance: scrollbarbutton-down;
 } */
+
+
+/* DETAILS FOR FULL CONTACT */
+
+.floating-contact-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.floating-contact-header {
+    display: flex;
+    gap: 54px;
+}
+
+.floating-initials-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.floating-initials {
+    font-size: 47px;
+    font-weight: 500;
+    color: white;
+
+}
+
+.floating-initials,
+.floating-full-name {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.floating-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-delete-wrapper {
+    display: flex;
+    gap: 16px;
+    height: 24px;
+}
+
+.edit-delete-wrapper div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-delete-wrapper img {
+    margin-right: 13px;
+}
