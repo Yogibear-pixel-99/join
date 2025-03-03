@@ -48,26 +48,31 @@
         <div class="info-input-field-container">
             <div class="info-input-field-container-left">
                 <div>
-                    <label for="title">Title*</label>
+                    <label for="title">Title<span class="red-asterisk">*</span></label>
                     <input required type="text" placeholder="Enter a title">
                 </div>
            
                 <div>   
-                    <label for="description">Description*</label>
+                    <label for="description">Description<span class="red-asterisk">*</span></label>
                     <textarea name="description" id=""placeholder="Enter a description"></textarea>
                 </div>
 
-
                 <div>
-                    <label for="assigned">Assigned to*</label>
-                    <select name="" id="">
-                    <option value="" disabled selected>Select contacts to assign    </option>
+                    <label for="assigned">Assigned to<span class="red-asterisk">*</span></label>
+                    <select name="assigned" id="assigned">
+                      <option value="" disabled selected>Select contacts to assign</option>
+                      <option value="john-doe">John Doe</option>
+                      <option value="jane-smith">Jane Smith</option>
+                      <option value="alice-jones">Alice Jones</option>
+                      <option value="bob-roberts">Bob Roberts</option>
+                      <option value="chris-lee">Chris Lee</option>
                     </select>
-                </div>
+                  </div>
+                  
             </div>
             <div class="info-input-field-container-right">
                 <div>
-                    <label for="due-date">Due date*</label>
+                    <label for="due-date">Due date<span class="red-asterisk">*</span></label>
                     <input required type="text" placeholder="dd//mm/yyyy">
                 </div>
                 <div>
@@ -76,7 +81,7 @@
                        <button class="btn-importance">Urgent
                         <img src="../assets/icons/Prio alta.svg" alt="">
                        </button>
-                       <button class="btn-importance">Medium
+                       <button class="btn-importance-orange">Medium
                         <img id="medium-color" src="../assets/icons/Capa 2.svg" alt="">
                        </button>
                        <button class="btn-importance">Low
@@ -85,20 +90,38 @@
                     </div>
                 </div>
                 <div>
-                    <label for="category">Category*</label>
-                    <select name="" id="">
-                        <option value="">Select task category</option>
+                    <label for="category">
+                      Category<span class="red-asterisk">*</span>
+                    </label>
+                    <select name="category" id="category">
+                      <option value="" disabled selected>Select task category</option>
+                      <option value="technical-task">Technical Task</option>
+                      <option value="user-story">User Story</option>
                     </select>
-                </div>
-                <div>
-                    <label for="subtasks">Subtasks*</label>
-                    <input type="text">
-                    <button>Add new subtask</button>
-                </div>
+                  </div>
+                  
+                <div class="subtask-input-wrapper">
+                    <input class="subtask-input" type="text" placeholder="Add new subtask">
+                    <div class="plus-icon"></div>
+                  </div>
+                  
             </div>
+        </div>
+        <div class="addTask-button-container">
+            <div>
+             <span><span class="red-asterisk">*</span>This field is required</span>
+            </div>
+            <div class="addTask-button-container-btns">
+             <button class="light-button">Clear <img src="../assets/icons/Vector (1).svg" alt=""></button>
+             <button class="dark-button">Create Task <img src="../assets/icons/check.svg" ></button>
+            </div>
+
         </div>
         </form>
         </div>
+
+    
+        
 
 
 

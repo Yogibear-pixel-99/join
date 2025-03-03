@@ -36,17 +36,20 @@ hr {
   margin-top: 5px;         
   margin-bottom: 20px;      
   border: 1px solid #ddd;    
-  border-radius: 4px;       
+  border-radius: 10px;       
   font-size: 16px;           
   box-sizing: border-box;  
+  display: flex;
 }
+
 .info-input-field-container textarea {
+  height: 120px;
   width: 100%;              
   padding: 10px;     
   margin-top: 5px;        
   margin-bottom: 20px;      
   border: 1px solid #ddd;    
-  border-radius: 4px;       
+  border-radius: 10px;       
   font-size: 16px;           
   box-sizing: border-box;  
 }
@@ -56,14 +59,20 @@ hr {
   margin-top: 5px;            
   margin-bottom: 20px;      
   border: 1px solid #ddd;    
-  border-radius: 4px;       
+  border-radius: 10px;       
   font-size: 16px;           
   box-sizing: border-box;   
 }
 
+.red-asterisk {
+    color: red; 
+  }
+
 .btn-importance-container {
     display: flex;
     gap: 16px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .btn-importance {
@@ -82,6 +91,32 @@ hr {
     gap: 5px;
 }
 
+.btn-importance-orange {
+    background-color: #FFA800;
+    color: var(--join-dark);
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 16px 10px;
+    font-size: 16px;
+    font-family: inter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border: 0px;
+    gap: 5px;
+}
+
+.btn-importance-orange:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-importance:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .btn-importance img {
     margin-right: 8px;
     height: 10px;
@@ -94,4 +129,45 @@ label {
     font-size: 20px;
     line-height: 24px;
 }
+
+.subtask-input-wrapper {
+    position: relative;   
+  }
+
+.subtask-input {
+    padding-right: 40px;  
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+  
+.plus-icon {
+    position: absolute;
+    top: 50%;                 
+    right: 10px;            
+    transform: translateY(-50%);
+    width: 24px;            
+    height: 24px;
+    background-image: url("../assets/icons/Subtasks icons11.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px 16px; 
+    cursor: pointer;            
+    border-radius: 50%;        
+    transition: background-color 0.2s ease; 
+  }
+  
+.plus-icon:hover {
+    background-color: #ccc;
+  }
+
+.addTask-button-container {
+    display: flex
+    ;
+        justify-content: space-between;
+}
+
+  
 
