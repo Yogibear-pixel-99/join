@@ -136,6 +136,7 @@
 .floating-contact-container {
     display: flex;
     flex-direction: column;
+    gap: 21px;
 }
 
 .floating-contact-header {
@@ -188,3 +189,23 @@
 .edit-delete-wrapper img {
     margin-right: 13px;
 }
+
+.contact-info {
+    font-size: 20px;
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+
+
+.floating-mail-phone-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.floating-mail-phone {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
