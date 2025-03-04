@@ -52,10 +52,14 @@
 }
 
 .add-contact-overlay-content-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 745px;
     height: 594px;
     background-color: white;
     border-radius: 0 30px 30px 0;
+    flex: 1;
 }
 
 .add-contact-overlay-img-wrapper {
@@ -64,7 +68,7 @@
     background-color: #D1D1D1;
     border-radius: 70px;
     border: solid 3px white;
-    margin: 0 40px;
+    margin: 0 40px 38px 80px;
 }
 
 .add-contact-overlay-img-wrapper svg {
@@ -121,7 +125,29 @@
     padding: 13px 21px;
     font-size: 20px;
     display: flex;
-    width: 422px;
     justify-content: space-between;
     align-items: center;
+}
+
+.add-contact-formular-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-right: 40px;
+}
+
+.close-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 56px;
+    align-self: self-end;
+}
+
+.close-icon-wrapper:hover {
+    background-color: #D1D1D1;
+    cursor: pointer;
+}
+
+.add-contact-overlay-form-button-wrapper > button > span {
+    font-size: 20px;
 }
