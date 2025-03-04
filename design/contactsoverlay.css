@@ -62,7 +62,9 @@
     width: 120px;
     height: 120px;
     background-color: #D1D1D1;
-    border-radius: 50%;
+    border-radius: 70px;
+    border: solid 3px white;
+    margin: 0 40px;
 }
 
 .add-contact-overlay-img-wrapper svg {
@@ -72,4 +74,54 @@
 
 .add-contact-overlay-img-wrapper svg path {
     fill: white;
+}
+
+.add-contact-overlay-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 422px;
+}
+
+.form-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 16px;
+    border-radius: 10px;
+    height: 56px;
+}
+
+.svg-wrapper {
+    width: 24px;
+    height: 24px;
+}
+
+.cancel-button {
+    width: 126px;
+}
+
+.create-button {
+    width: 214px;
+}
+
+.add-contact-overlay-form-button-wrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.no-border {
+    border: none;
+}
+
+.input-wrapper {
+    border: 1px solid var(--input-field-grey);
+    border-radius: 10px;
+    padding: 13px 21px;
+    font-size: 20px;
+    display: flex;
+    width: 422px;
+    justify-content: space-between;
+    align-items: center;
 }

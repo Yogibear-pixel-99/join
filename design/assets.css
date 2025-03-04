@@ -63,6 +63,10 @@ h2 {
     flex: 1;
 }
 
+.no-border {
+    border: none;
+}
+
 @font-face {
     font-family: inter;
     src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf);
