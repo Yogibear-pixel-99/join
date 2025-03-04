@@ -1,5 +1,13 @@
 
 
+.add-contact-overlay-hide {
+    transform: translate(100%, -50%) !important;
+}
+
+.main-container {
+    overflow: hidden !important;
+}
+
 .add-contact-overlay * {
     box-sizing: border-box;
 }
@@ -10,6 +18,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
+    overflow: hidden;
 }
 
 .add-contact-overlay-content-left {
@@ -103,6 +112,7 @@
 }
 
 .cancel-button {
+    transition: 100ms ease-in-out;
     width: 126px;
 }
 
@@ -148,6 +158,23 @@
     cursor: pointer;
 }
 
-.add-contact-overlay-form-button-wrapper > button > span {
-    font-size: 20px;
+.create-button > span {
+    font-size: 21px;
+    font-weight: 700;
 }
+
+.cancel-button > span {
+    font-size: 20px;
+    font-weight: 400;
+    transition: 200ms !important;
+    transition: ease !important;
+}
+
+
+.cancel-button:hover,
+.cancel-button:hover > div > svg *{
+    fill: var(--light-blue);
+    border-color: var(--light-blue);
+    color: var(--light-blue);
+}
+
