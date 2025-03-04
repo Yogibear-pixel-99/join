@@ -1,11 +1,10 @@
 
+body {
+    overflow: hidden;
+}
 
 .add-contact-overlay-hide {
     transform: translate(100%, -50%) !important;
-}
-
-.main-container {
-    overflow: hidden !important;
 }
 
 .add-contact-overlay * {
@@ -18,7 +17,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    overflow: hidden;
 }
 
 .add-contact-overlay-content-left {
