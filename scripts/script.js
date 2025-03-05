@@ -1,4 +1,5 @@
 
+MAIN_URL = 'https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/'
 
 function toggleDropdown() {
     let dropdownREF = document.getElementById("dropdown");
@@ -19,6 +20,7 @@ function toggleOverlayMenu(containerId, overlayClass){
 }
 
 
+
 function toggleAddTaskOverlay() {
     let addtaskREF = document.getElementById("addtask-overlay");
     addtaskREF.classList.toggle("d-none")
@@ -28,3 +30,36 @@ function toggleAddTaskOverlay() {
 function noClose(event) {
     event.stopPropagation();
   }
+
+  
+async function initContacts(){
+    await getContactsFromServer();
+    renderContacts();
+          
+}
+
+async function getContactsFromServer() {
+    try {
+        let response = await fetch (MAIN_URL + 'contacts');
+        if (!response.ok)
+    } catch (error) {
+        
+    }
+    
+}
+
+// CONTACTS --------------------------------------
+
+
+
+
+// USERS --------------------------------------------
+
+// USERS --------------------------------------------
+
+
+
+
+// TASKS --------------------------------------------
+
+// TASKS --------------------------------------------

@@ -1,0 +1,37 @@
+
+
+{
+    "users" : [
+        
+
+    ],
+
+
+    "contacts": [
+        {"id": "1", "name": "Anton Richter", "email": "anton.richter@example.com", "phone": "+436763674199"},
+        {"id": "2", "name": "Lisa Meier", "email": "lisa.meier@example.com", "phone": "+4915123456789"},
+        {"id": "3", "name": "Tom Berger", "email": "tom.berger@example.com", "phone": "+4915223344556"},
+        {"id": "4", "name": "Sarah Fischer", "email": "sarah.fischer@example.com", "phone": "+4915738392021"},
+        {"id": "5", "name": "Paul Wagner", "email": "paul.wagner@example.com", "phone": "+4917429384756"},
+        {"id": "6", "name": "Anna Hoffmann", "email": "anna.hoffmann@example.com", "phone": "+4916329473829"},
+        {"id": "7", "name": "Michael Klein", "email": "michael.klein@example.com", "phone": "+4917293847561"},
+        {"id": "8", "name": "Julia Schmid", "email": "julia.schmid@example.com", "phone": "+4915273849201"},
+        {"id": "9", "name": "David Lehmann", "email": "david.lehmann@example.com", "phone": "+4916374859202"},
+        {"id": "10", "name": "Nina Bauer", "email": "nina.bauer@example.com", "phone": "+4917283948573"},
+        {"id": "11", "name": "Markus Steiner", "email": "markus.steiner@example.com", "phone": "+4916372839457"},
+        {"id": "12", "name": "Laura Zimmermann", "email": "laura.zimmermann@example.com", "phone": "+4915283947201"},
+        {"id": "13", "name": "Stefan Krüger", "email": "stefan.krueger@example.com", "phone": "+4916374859201"},
+        {"id": "14", "name": "Katharina Schulz", "email": "katharina.schulz@example.com", "phone": "+4917283947502"},
+        {"id": "15", "name": "Patrick Neumann", "email": "patrick.neumann@example.com", "phone": "+4916374859203"},
+        {"id": "16", "name": "Sandra König", "email": "sandra.koenig@example.com", "phone": "+4915273849205"},
+        {"id": "17", "name": "Tim Hoffmann", "email": "tim.hoffmann@example.com", "phone": "+4916374859207"},
+        {"id": "18", "name": "Vanessa Schröder", "email": "vanessa.schroeder@example.com", "phone": "+4917283947563"},
+        {"id": "19", "name": "Kevin Becker", "email": "kevin.becker@example.com", "phone": "+4916374859209"},
+        {"id": "20", "name": "Melanie Richter", "email": "melanie.richter@example.com", "phone": "+4915283947501"}
+      ],
+
+
+    "tasks" : [
+
+    ]
+}
