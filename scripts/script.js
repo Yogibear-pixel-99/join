@@ -68,3 +68,19 @@ async function getContactsFromServer() {
 // TASKS --------------------------------------------
 
 // TASKS --------------------------------------------
+
+
+function toggleAddedToBoard() {
+    let addedToBoardREF = document.getElementById("task-added");
+    addedToBoardREF.classList.toggle("d-none");
+    loadingToBoard();
+}
+
+function loadingToBoard() {
+    return setTimeout(() => {
+        let addtaskREF = document.getElementById("addtask-overlay");
+        let addedToBoardREF = document.getElementById("task-added");
+        addedToBoardREF.classList.toggle("d-none");
+        addtaskREF.classList.toggle("d-none")
+        }, 3000);
+      }
