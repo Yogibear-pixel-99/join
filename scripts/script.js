@@ -22,14 +22,19 @@ function toggleOverlayMenu(containerId, overlayClass){
 
 async function initContacts(){
     await getContactsFromServer();
-    renderContacts();
+    // renderContacts();
           
 }
 
 async function getContactsFromServer() {
     try {
         let response = await fetch (MAIN_URL + 'contacts');
-        if (!response.ok)
+        if (!response.ok) {
+            throw new Error('no answere from server');
+        } else {
+            let data = response.json();
+            console.log(data);
+        }
     } catch (error) {
         
     }
