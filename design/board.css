@@ -114,13 +114,12 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-
   height: 100%;
   width: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.226);
   overscroll-behavior: contain;
-  z-index: 100;
+  z-index: 10;
 }
 
 @keyframes slideInFromRight {
@@ -173,6 +172,36 @@
   background-color: rgba(124, 124, 124, 0.16);
 }
 
-.d-none {
-  display: none;
+.task-added-overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  overscroll-behavior: contain;
+  z-index: 11;
 }
+
+.task-added-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 226px;
+    height: 34px;
+    background-color: var(--join-dark);
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    border-radius: 20px;
+}
+
+.task-added-message h2{
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+}
+
+.d-none {
+    display: none;
+  }
