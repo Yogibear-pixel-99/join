@@ -40,7 +40,7 @@ async function initContacts(){
 
 async function getContactsFromServer() {
     try {
-        let response = await fetch (MAIN_URL + 'contacts');
+        let response = await fetch (MAIN_URL);
         if (!response.ok) {
             throw new Error('no answere from server');
         } else {
@@ -48,7 +48,7 @@ async function getContactsFromServer() {
             console.log(data);
         }
     } catch (error) {
-        
+        console.log(error);
     }
     
 }
