@@ -1,5 +1,5 @@
 
-MAIN_URL = 'https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/'
+MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function toggleDropdown() {
     let dropdownREF = document.getElementById("dropdown");
@@ -28,32 +28,40 @@ function toggleAddTaskOverlay() {
 }
 
 
-
-
 function noClose(event) {
     event.stopPropagation();
-  }
-
-  
-async function initContacts(){
-    await getContactsFromServer();
-    // renderContacts();
-          
 }
 
-async function getContactsFromServer() {
-    try {
-        let response = await fetch (MAIN_URL);
-        if (!response.ok) {
-            throw new Error('no answere from server');
-        } else {
-            let data = response.json();
-            console.log(data);
-        }
-    } catch (error) {
-        console.log(error);
-    }
+
+// async function getContactsFromServer() {
+//     try {
+//         let response = await fetch (MAIN_URL + "contacts" + ".json");
+//         if (!response.ok) {
+//             throw new Error('no answere from server');
+//         } else {
+//             let data = response.json();
+//             console.log(data);
+//             renderContacts(data);
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
     
+// }
+
+// function renderContacts(data){
+//     for (let contactIndex = 0; contactIndex < data.length; contactIndex++) {
+//         const initials = data[contactIndex];
+//         const name = data[contactIndex].name;
+//         const email = data[contactIndex].email;
+
+        
+//     }
+// }
+
+function openContactInFloatinMenu(position){
+    const contentRef = document.getElementById('bottom-board');
+          contentRef.innerHTML = getContactFloatingContentTemp(position);
 }
 
 // CONTACTS --------------------------------------
