@@ -17,3 +17,14 @@ function toggleOverlayMenu(containerId, overlayClass){
     let container = document.getElementById(containerId);
         container.classList.toggle(overlayClass);
 }
+
+
+function toggleAddTaskOverlay() {
+    let addtaskREF = document.getElementById("addtask-overlay");
+    addtaskREF.classList.toggle("d-none")
+}
+
+
+function noClose(event) {
+    event.stopPropagation();
+  }
