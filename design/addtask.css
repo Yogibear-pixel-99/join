@@ -183,5 +183,10 @@ label {
     gap: 4px;
 }
 
+.addtask-header-overlay{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
   
 

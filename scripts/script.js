@@ -20,6 +20,18 @@ function toggleOverlayMenu(containerId, overlayClass){
 }
 
 
+
+function toggleAddTaskOverlay() {
+    let addtaskREF = document.getElementById("addtask-overlay");
+    addtaskREF.classList.toggle("d-none")
+}
+
+
+function noClose(event) {
+    event.stopPropagation();
+  }
+
+  
 async function initContacts(){
     await getContactsFromServer();
     // renderContacts();
