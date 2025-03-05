@@ -59,6 +59,7 @@
   transform: scale(1.07);
   background-color: var(--join-dark);
   box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
+  cursor: pointer;
 }
 
 .to-do-summary:hover .to-do-circle-summary {
@@ -125,6 +126,7 @@
   transform: scale(1.07);
   background-color: var(--join-dark);
   box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
+  cursor: pointer;
 }
 
 .done-summary:hover .done-circle-summary {
@@ -186,6 +188,7 @@
   transform: scale(1.02);
   background-color: var(--join-dark);
   box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
+  cursor: pointer;
 }
 
 .urgent-summary:hover .quantity-summary {
@@ -284,6 +287,7 @@
   transform: scale(1.07);
   background-color: var(--join-dark);
   box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
+  cursor: pointer;
 }
 
 .bottom-end-left-box-summary:hover .end-quantity-summary {
@@ -313,6 +317,7 @@
   transform: scale(1.07);
   background-color: var(--join-dark);
   box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
+  cursor: pointer;
 }
 
 .bottom-end-middle-box-summary:hover .end-quantity-summary {
@@ -343,6 +348,7 @@
   transform: scale(1.07);
   background-color: var(--join-dark);
   box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
+  cursor: pointer;
 }
 
 .bottom-end-right-box-summary:hover .end-quantity-summary {

@@ -19,7 +19,7 @@
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
   </head>
-  <body onload="initBoard()">
+  <body>
     <section
       onclick="toggleAddTaskOverlay()"
       id="addtask-overlay"
@@ -141,7 +141,7 @@
               <button class="light-button btns-addtask">
                 Clear <img src="../assets/icons/Vector (1).svg" alt="" />
               </button>
-              <button class="dark-button btns-addtask">
+              <button onclick="toggleAddedToBoard()" class="dark-button btns-addtask">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>
@@ -169,16 +169,16 @@
         <a href="./Privacypolicy.html">
           <div class="dropdown-text">Privacy Policy</div>
         </a>
-        <a href="../login.html">
+        <a href="./login.html">
           <div class="dropdown-text">Log out</div>
         </a>
       </div>
 
       <div id="main-content" class="main-content">
         <div class="top-board">
-          <h2 class="summary-header">Board</h2>
+          <h2 class="main-header">Board</h2>
           <div class="board-top-right">
-            <div class="input-field-container">
+            <div class="find-task-wrapper">
               <input
                 class="board-search-bar"
                 type="text"
@@ -192,7 +192,7 @@
                 </div>
               </button>
             </div>
-            <button class="dark-button">Add Task +</button>
+            <button class="dark-button add-task-button">Add Task <img src="../assets/icons/add.svg" alt=""></button>
           </div>
         </div>
 

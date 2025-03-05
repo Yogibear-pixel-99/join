@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 110px;
+  margin-bottom: 80px;
 }
 
 .bottom-board {
@@ -20,11 +22,27 @@
 }
 
 .board-search-bar {
+  box-sizing: border-box;
   border: 1px solid var(--input-field-grey);
   border-radius: 10px;
   padding: 12px 21px;
-  font-size: 24px;
+  font-size: 20px;
   z-index: 100;
+  width: 312px;
+}
+
+.add-task-button {
+  padding: 8px 16px;
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-task-button img {
+  margin-left: 17px;
+  width: 19px;
+  height: 19px;
 }
 
 .board-search-bar:focus {
@@ -95,13 +113,12 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-
   height: 100%;
   width: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.226);
   overscroll-behavior: contain;
-  z-index: 100;
+  z-index: 10;
 }
 
 @keyframes slideInFromRight {
@@ -111,6 +128,10 @@
   100% {
     transform: translateX(0);
   }
+}
+
+.find-task-wrapper {
+  position: relative;
 }
 
 .addtask-content {
@@ -150,42 +171,36 @@
   background-color: rgba(124, 124, 124, 0.16);
 }
 
+.task-added-overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  overscroll-behavior: contain;
+  z-index: 11;
+}
+
+.task-added-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 226px;
+    height: 34px;
+    background-color: var(--join-dark);
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    border-radius: 20px;
+}
+
+.task-added-message h2{
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+}
+
 .d-none {
   display: none;
 }
-
-
-
-.inprogress-card-content {
-  background-color: #ffffff;         
-  border-radius: 8px;                  
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15); 
-  margin-bottom: 16px;                
-  padding: 16px;                      
-  font-family: 'Inter', sans-serif;    
-  display: flex;
-  flex-direction: column;
-  gap: 8px;                            
-}
-
-.inprogress-card-content h3 {
-  margin: 0;                
-  font-size: 18px;          
-  font-weight: 600;          
-}
-
-
-.inprogress-card-content p {
-  margin: 0;
-  font-size: 14px;
-  color: #4a4a4a;          
-}
-
-.subtask-info {
-  color: #9a9a9a;
-  font-size: 12px;
-}
-
-
-
-
