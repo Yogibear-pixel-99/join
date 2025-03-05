@@ -19,7 +19,7 @@
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
   </head>
-  <body>
+  <body onload="initBoard()">
     <section
       onclick="toggleAddTaskOverlay()"
       id="addtask-overlay"
@@ -273,7 +273,13 @@
                 </svg>
               </div>
             </div>
-            <div id="boardInProgress">Javascript Template</div>
+            <div  id="inprogress-card" class="inprogress-card">
+             
+              </div>
+
+
+
+            </div>
           </div>
           <div class="board-single-task-container">
             <div class="board-task-header-container">

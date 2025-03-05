@@ -68,3 +68,45 @@ async function getContactsFromServer() {
 // TASKS --------------------------------------------
 
 // TASKS --------------------------------------------
+
+
+
+
+// 
+
+let task = [
+    {
+        title: 'User Story #1',
+        description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
+        status: 'inprogress'
+    }
+];
+
+function initBoard() {
+    renderBoard();
+}
+
+function renderBoard() {
+    let boardInProgress = document.getElementById('inprogress-card');
+    boardInProgress.innerHTML = '';
+    task.forEach(task => {
+        if (task.status === 'inprogress') {
+            let taskHTML = ` <div class="inprogress-card-content">
+                <div>
+                  <h3>${task.title}</h3>
+                </div>
+                <div>
+                  <p>${task.description}</p>
+                </div>
+                <div>
+                  <p>1/2 Subtask</p>
+                </div>
+                <div>
+                  <img src="" alt="">
+                  <img src="" alt="">
+                </div>`;
+            boardInProgress.innerHTML += taskHTML;
+        }
+    });
+}
+

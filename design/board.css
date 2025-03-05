@@ -6,7 +6,6 @@
 
 .bottom-board {
   display: flex;
-  justify-content: space-between;
   flex: 1;
 }
 
@@ -154,3 +153,39 @@
 .d-none {
   display: none;
 }
+
+
+
+.inprogress-card-content {
+  background-color: #ffffff;         
+  border-radius: 8px;                  
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15); 
+  margin-bottom: 16px;                
+  padding: 16px;                      
+  font-family: 'Inter', sans-serif;    
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                            
+}
+
+.inprogress-card-content h3 {
+  margin: 0;                
+  font-size: 18px;          
+  font-weight: 600;          
+}
+
+
+.inprogress-card-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #4a4a4a;          
+}
+
+.subtask-info {
+  color: #9a9a9a;
+  font-size: 12px;
+}
+
+
+
+
