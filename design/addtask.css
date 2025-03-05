@@ -52,6 +52,7 @@ hr {
   border-radius: 10px;       
   font-size: 16px;           
   box-sizing: border-box;  
+  resize: none;
 }
 .info-input-field-container select {
   width: 100%;              
