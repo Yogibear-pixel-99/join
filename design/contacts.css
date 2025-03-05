@@ -115,20 +115,11 @@
     background-clip: content-box;
 }
 
-/* .contact-container-wrapper::-webkit-scrollbar-button {
-   display: block;
-    height: 30px;
-} */
-
-
-
-
 .contact-container-wrapper::-webkit-scrollbar-button:start {
     display: flex;
     justify-content: center;
     background-image: url(../assets/icons/scroll-up-arrow.svg);
     background-repeat: no-repeat;
-    /* object-fit: contain; */
     background-position: center 20px;
     height: 77px;
 }

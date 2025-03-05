@@ -17,6 +17,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
+    transition: 400ms ease-in-out;
 }
 
 .add-contact-overlay-content-left {

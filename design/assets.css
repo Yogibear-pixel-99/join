@@ -77,6 +77,10 @@ input:focus {
     border-color: var(--light-blue);
 }
 
+.deactivate-content {
+    pointer-events: none;
+    filter:brightness(50%);
+}
 
 .dark-button-signup {
     background-color: var(--join-dark);
