@@ -50,7 +50,7 @@
         <div id="main-content" class="main-content flex-row">
             <div class="contact-container-wrapper">
                 <div class="contact-container-inner-wrapper">
-                    <button class="dark-button add-contact-button" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-overlay-hide')">
+                    <button class="dark-button add-contact-button" onclick="toggleAddContactsOverlay('add-contact-overlay', 'add-contact-overlay-hide')">
                         <span>Add new contact</span>
                             <div class="add-person-icon-wrapper">
                                 <img src="../assets/icons/person_add.svg" alt="add person icon">
@@ -168,6 +168,9 @@
     
         
     </main>
+
+<section class="mask-container d-none" id="mask-container" onclick="toggleAddContactsOverlay()"></section>
+
     <section class="add-contact-overlay  add-contact-overlay-hide d-none" id="add-contact-overlay">
         <div class="add-contact-overlay-content-left">
             <img class="add-contact-overlay-join-logo" src="../assets/icons/capa2.svg" alt="join logo">
@@ -187,7 +190,7 @@
             </div>
             
             <div class="add-contact-formular-wrapper">
-                <div class="close-icon-wrapper flex-ctr-ctr">
+                <div class="close-icon-wrapper flex-ctr-ctr" onclick="toggleAddContactsOverlay()">
                     <img src="../assets/icons/close-overlay.svg">
                 </div>
                  <form onsubmit="" class="add-contact-overlay-form">

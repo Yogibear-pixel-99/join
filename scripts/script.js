@@ -9,14 +9,17 @@ function toggleDropdown() {
 
 // CONTACTS -----------------------------------
 /**
- * Used to open an overlay menu.
+ * Opens the overlay to add a contact, disable the background buttons and darkens the background.
  * 
- * @param {string} containerId - This is the selected container menu.
- * @param {string} className - Adds the specified class to the container to open the menu.
  */
-function toggleOverlayMenu(containerId, className){
-    let overlay = document.getElementById(containerId);
-        overlay.classList.toggle(className);
+function toggleAddContactsOverlay(){
+    const overlay = document.getElementById('add-contact-overlay');
+    const mask = document.getElementById('mask-container');
+    const mainContent = document.getElementById('main-container');
+        overlay.classList.toggle('add-contact-overlay-hide');
+        mask.classList.toggle('d-none');
+        mainContent.classList.toggle('disable-pointer-events');
+        mainContent.classList.toggle('brightness-50');
 }
 
 function toggleAddTaskOverlay() {

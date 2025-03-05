@@ -67,6 +67,14 @@ h2 {
     border: none;
 }
 
+.disable-pointer-events {
+    pointer-events: none;
+}
+
+.brightness-50 {
+    filter: brightness(50%);
+}
+
 @font-face {
     font-family: inter;
     src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf);
