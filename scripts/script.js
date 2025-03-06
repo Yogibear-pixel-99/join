@@ -84,13 +84,16 @@ function initBoard() {
             status: 'inprogress'
         }
     ] 
+
+    renderBoard();
 }
 
 function renderBoard() {
     let boardInProgress = document.getElementById('inprogress-card');
     boardInProgress.innerHTML = '';
+
     tasks.forEach(task=> {
-        if (tasks.status === 'inprogress') {
+        if (task.status === 'inprogress') {
             let taskHTML = ` <div class="inprogress-card-content">
                 <div>
                   <h3>${task.title}</h3>
