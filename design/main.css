@@ -142,13 +142,10 @@ background-color: var(--hover-darkblue);
     justify-content: flex-start;
     flex-direction: column;
     padding: 80px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 232px;
-    top: 100px;
+    margin-left: 232px; 
+    margin-top: 100px;    
+    padding: 80px;
     background-color: var(--join-background);
-    height: 100%;
     background: #F6F7F8;
 }
 
