@@ -57,23 +57,40 @@ function loadingToBoard() {
 
 // 
 
-let task = [
-    {
-        title: 'User Story #1',
-        description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
-        status: 'inprogress'
-    }
-];
+let tasks = [];
 
 function initBoard() {
     renderBoard();
+
+    tasks = [
+        {
+            title: 'User Story #1',
+            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
+            status: 'inprogress'
+        },
+        {
+            title: 'User Story #1',
+            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
+            status: 'inprogress'
+        },
+        {
+            title: 'User Story #1',
+            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
+            status: 'inprogress'
+        },
+        {
+            title: 'User Story #1',
+            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
+            status: 'inprogress'
+        }
+    ] 
 }
 
 function renderBoard() {
     let boardInProgress = document.getElementById('inprogress-card');
     boardInProgress.innerHTML = '';
-    task.forEach(task => {
-        if (task.status === 'inprogress') {
+    tasks.forEach(task=> {
+        if (tasks.status === 'inprogress') {
             let taskHTML = ` <div class="inprogress-card-content">
                 <div>
                   <h3>${task.title}</h3>

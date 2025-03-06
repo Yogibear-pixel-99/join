@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Board</title>
 
+    <!-- CSS-Dateien -->
     <link rel="stylesheet" href="../design/assets.css" />
     <link rel="stylesheet" href="../design/footer.css" />
     <link rel="stylesheet" href="../design/header.css" />
@@ -15,11 +16,12 @@
 
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/favicon.svg" />
 
+    <!-- JavaScript-Dateien -->
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
   </head>
-  <body onload="initBoard()" >    >
+  <body onload="initBoard()">
     <section
       onclick="toggleAddTaskOverlay()"
       id="addtask-overlay"
@@ -192,11 +194,14 @@
                 </div>
               </button>
             </div>
-            <button class="dark-button add-task-button">Add Task <img src="../assets/icons/add.svg" alt=""></button>
+            <button class="dark-button add-task-button">
+              Add Task <img src="../assets/icons/add.svg" alt="" />
+            </button>
           </div>
         </div>
 
         <div class="bottom-board">
+          <!-- 1) To do -->
           <div class="board-single-task-container">
             <div class="board-task-header-container">
               <span>To do</span>
@@ -234,8 +239,10 @@
                 </svg>
               </div>
             </div>
-            <div id="boardToDo">Javascript Template</div>
+            <div id="boardToDo"></div>
           </div>
+
+          <!-- 2) In progress -->
           <div class="board-single-task-container">
             <div class="board-task-header-container">
               <span>In progress</span>
@@ -273,14 +280,10 @@
                 </svg>
               </div>
             </div>
-            <div  id="inprogress-card" class="inprogress-card">
-             
-              </div>
-
-
-
-            </div>
+            <div id="inprogress-card" class="inprogress-card"></div>
           </div>
+
+          <!-- 3) Await feedback -->
           <div class="board-single-task-container">
             <div class="board-task-header-container">
               <span>Await feedback</span>
@@ -318,70 +321,70 @@
                 </svg>
               </div>
             </div>
-            <div id="boardAwaitFeedback">Javascript Template</div>
+            <div id="boardAwaitFeedback"></div>
           </div>
+
+          <!-- 4) Done -->
           <div class="board-single-task-container">
             <div class="board-task-header-container">
               <span>Done</span>
             </div>
-            <div id="boardDone">Javascript Template</div>
+            <div id="boardDone"></div>
           </div>
         </div>
-      </div>
 
-      <div class="navbar-container">
-        <div>
-          <img
-            class="join-logo-navbar join-logo"
-            src="../assets/icons/capa2.svg"
-            alt="join logo"
-          />
-          <navbar class="navbar-link-container">
-            <a href="./summary.html">
-              <img
-                class="navbar-logo"
-                src="../assets/icons/summary.svg"
-                alt="summary icon"
-              />
-              <div class="center">Summary</div>
-            </a>
-            <a href="./addtask.html">
-              <img
-                class="navbar-logo"
-                src="../assets/icons/addTask.svg"
-                alt="add task icon"
-              />
-              <div class="center">Add Task</div>
-            </a>
-            <a href="./board.html" class="active-button">
-              <img
-                class="navbar-logo"
-                src="../assets/icons/board.svg"
-                alt="board icon"
-              />
-              <div class="center">Board</div>
-            </a>
-            <a href="./contacts.html">
-              <img
-                class="navbar-logo"
-                src="../assets/icons/contacts.svg"
-                alt="contacts icon"
-              />
-              <div class="center">Contacts</div>
-            </a>
-          </navbar>
-        </div>
-        <div class="policy-legal-content">
-          <a href="./Privacypolicy.html" class="policy-legal-area"
-            >Privacy Policy</a
-          >
-          <a href="./legalnotice.html" class="policy-legal-area"
-            >Legal notice</a
-          >
+        <div class="navbar-container">
+          <div>
+            <img
+              class="join-logo-navbar join-logo"
+              src="../assets/icons/capa2.svg"
+              alt="join logo"
+            />
+            <navbar class="navbar-link-container">
+              <a href="./summary.html">
+                <img
+                  class="navbar-logo"
+                  src="../assets/icons/summary.svg"
+                  alt="summary icon"
+                />
+                <div class="center">Summary</div>
+              </a>
+              <a href="./addtask.html">
+                <img
+                  class="navbar-logo"
+                  src="../assets/icons/addTask.svg"
+                  alt="add task icon"
+                />
+                <div class="center">Add Task</div>
+              </a>
+              <a href="./board.html" class="active-button">
+                <img
+                  class="navbar-logo"
+                  src="../assets/icons/board.svg"
+                  alt="board icon"
+                />
+                <div class="center">Board</div>
+              </a>
+              <a href="./contacts.html">
+                <img
+                  class="navbar-logo"
+                  src="../assets/icons/contacts.svg"
+                  alt="contacts icon"
+                />
+                <div class="center">Contacts</div>
+              </a>
+            </navbar>
+          </div>
+          <div class="policy-legal-content">
+            <a href="./Privacypolicy.html" class="policy-legal-area"
+              >Privacy Policy</a
+            >
+            <a href="./legalnotice.html" class="policy-legal-area"
+              >Legal notice</a
+            >
+          </div>
         </div>
       </div>
     </main>
   </body>
 </html>
-
-
