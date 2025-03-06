@@ -20,12 +20,13 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
+    <script defer src="../scripts/contacts.js"></script>
+    <script defer src="../scripts/contactsTemp.js"></script>
 </head>
-<body onload="getContactsFromServer()">
-    
-    
 
 
+
+<body onload="initContacts()">
     <main class="main-container" id="main-container">
         <header class="header-container">
             <span class="header-text">Kanban Project Management Tool</span>
@@ -57,25 +58,7 @@
                             </div>
                     </button>
                     <div id="contacts-content" class="contacts-content">
-                        <!-- START DESIGN FOR SORTED BY LETTER CONTAINER FOR JAVASCRIPT -->
-                        <div class="contacts-first-letter">
-                            <span>J</span>
-                        </div>
-                        <div class="contacts-separator"></div>
-                        <div id="filterd-contacts-container">
-                                <!-- START DESIGN SINGLE CONTACT FOR JAVASCRIPT -->
-                            <div class="single-contact">
-                                <div class="contact-list-initals flex-ctr-ctr">JP</div>
-                                <div class="flex-col flex1">
-                                    <span class="contact-name">Joachim Pürcher</span>
-                                    <span class="contact-email">test@gmail.com</span>
-                                </div>
-                            </div>
-                                <!-- END OF DESIGN FOR SINGLE CONTACT -->
-                        </div>
-
-                        
-                        <!-- END OF DESIGN FOR SORTED BY LETTER FOR JAVASCRIPT -->
+                        <!-- CONTAINER FOR WHOLE CONTACT LIST -->
                     </div>
                 </div>
             </div>
