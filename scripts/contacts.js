@@ -26,6 +26,7 @@ function toggleAddContactsOverlay(){
 async function initContacts(){
     await getContactsFromServer();
           sortAllContactsByFirstLetter();
+          renderAllContacts();
 }
 
 async function getContactsFromServer() {
@@ -51,25 +52,34 @@ function sortAllContactsByFirstLetter(){
             };
         },
             {});
-            console.log(sortedContactsArrayByFirstLetter);
-            }
+}
 
 
 
-// function renderContacts(data){
-//     const contentRef = document.getElementById('contacts-content');
-//           contentRef.innerHTML = '';
-//     for (let contactIndex = 0; contactIndex < data.length; contactIndex++) {
-//         const initials = data[contactIndex];
-//         const name = data[contactIndex].name;
-//         const email = data[contactIndex].email;
-//         contentRef.innerHTML += getSingleContactTempForContactList(name, email);
-//     }
-// }
+function renderAllContacts(){
 
-// function openContactInFloatinMenu(position){
-//     const contentRef = document.getElementById('bottom-board');
-//           contentRef.innerHTML = getContactFloatingContentTemp(position);
-// }
+    let firstLetterArray = Object.keys(sortedContactsArrayByFirstLetter);
+    const contentRef = document.getElementById('contacts-content');
+          contentRef.innerHTML = '';
+          firstLetterArray.forEach(element => {
+            contentRef.innerHTML += firstLetterContainerTemp(element);
+    
+          
+          })
+
+
+
+          
+        // const initials = data[contactIndex];
+        // const name = data[contactIndex].name;
+        // const email = data[contactIndex].email;
+        // contentRef.innerHTML += getSingleContactTempForContactList(name, email);
+    
+}
+
+function openContactInFloatinMenu(position){
+    const contentRef = document.getElementById('bottom-board');
+          contentRef.innerHTML = getContactFloatingContentTemp(position);
+}
 
 // CONTACTS --------------------------------------
