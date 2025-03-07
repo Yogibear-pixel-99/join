@@ -4,19 +4,19 @@
 
 function firstLetterContainerTemp(element){
     return `<div class="contacts-first-letter">
-                <span>${element}</span></div>
-                    <div class="contacts-separator"></div>
-                    <div id="contact-id-${element}">           
-            </div>`
+                <span>${element}</span>
+            </div>
+            <div class="contacts-separator"></div>
+            <div>${getSingleContact(element)}</div>`
 }
 
 
-function singleContactTemp(){
+function getSingleContactTemp(nameRow){
     return `<div class="single-contact">
                 <div class="contact-list-initals flex-ctr-ctr">JP</div>
                 <div class="flex-col flex1">
-                    <span class="contact-name">Joachim Pürcher</span>
-                    <span class="contact-email">test@gmail.com</span>
+                    <span class="contact-name">${nameRow.name}</span>
+                    <span class="contact-email">${nameRow.email}</span>
                 </div>
             </div>`
 }

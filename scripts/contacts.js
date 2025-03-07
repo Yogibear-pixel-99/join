@@ -26,7 +26,7 @@ function toggleAddContactsOverlay(){
 async function initContacts(){
     await getContactsFromServer();
           sortAllContactsByFirstLetter();
-          renderAllContacts();
+          renderContactsHeaderLetter();
 }
 
 async function getContactsFromServer() {
@@ -56,26 +56,24 @@ function sortAllContactsByFirstLetter(){
 
 
 
-function renderAllContacts(){
-
+function renderContactsHeaderLetter(){
     let firstLetterArray = Object.keys(sortedContactsArrayByFirstLetter);
     const contentRef = document.getElementById('contacts-content');
           contentRef.innerHTML = '';
           firstLetterArray.forEach(element => {
             contentRef.innerHTML += firstLetterContainerTemp(element);
-    
-          
           })
-
-
-
-          
-        // const initials = data[contactIndex];
-        // const name = data[contactIndex].name;
-        // const email = data[contactIndex].email;
-        // contentRef.innerHTML += getSingleContactTempForContactList(name, email);
-    
 }
+
+
+function getSingleContact(element){
+    let content = '';
+    sortedContactsArrayByFirstLetter[element].forEach(nameRow => {
+                content += getSingleContactTemp(nameRow);
+    })
+    return content;
+}
+
 
 function openContactInFloatinMenu(position){
     const contentRef = document.getElementById('bottom-board');
