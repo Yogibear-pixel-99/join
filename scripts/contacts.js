@@ -4,7 +4,7 @@ MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
 
 // GLOBAL ARRAYS ---------------------------------------
 let allContactsFromApi = [];
-let sortedContactListByFirstLetter = [];
+let sortedContactsArrayByFirstLetter = [];
 // GLOBAL ARRAYS ---------------------------------------
 
 
@@ -43,14 +43,18 @@ async function getContactsFromServer() {
     console.log(allContactsFromApi);
 }
 
-// function sortAllContactsByFirstLetter(){
-//     allContactsFromApi.forEach(element => {
-//         let firstLetter = '';
-//             firstLetter = element.name.slice(1, 1);
-//             console.log(firstLetter);
+function sortAllContactsByFirstLetter(){
+    sortedContactsArrayByFirstLetter = allContactsFromApi.reduce((newArray, element) => {
+        const firstLetter = element.name.slice(0, 1);
+            return {...newArray,
+                [firstLetter] : [...(newArray[firstLetter] || []), element]
+            };
+        },
+            {});
+            console.log(sortedContactsArrayByFirstLetter);
+            }
 
-//     })
-// }
+
 
 // function renderContacts(data){
 //     const contentRef = document.getElementById('contacts-content');
