@@ -2,12 +2,12 @@
 
 
 
-function firstLetterContainerTemp(element){
+function firstLetterContainerTemp(firstLetterArray){
     return `<div class="contacts-first-letter">
-                <span>${element}</span>
+                <span>${firstLetterArray}</span>
             </div>
             <div class="contacts-separator"></div>
-            <div>${getSingleContact(element)}</div>`
+            <div>${getSingleContact(firstLetterArray)}</div>`
 }
 
 

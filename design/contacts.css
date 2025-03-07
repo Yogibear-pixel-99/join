@@ -86,7 +86,9 @@
 }
 
 .contact-list-initals {
+    min-height: 42px;
     height: 42px;
+    min-width: 42px;
     width: 42px;
     border-radius: 50%;
     background-color: orange;
