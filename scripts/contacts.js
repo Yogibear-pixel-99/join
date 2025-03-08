@@ -25,8 +25,39 @@ function toggleAddContactsOverlay(){
 
 async function initContacts(){
     await getContactsFromServer();
+          createInitialsForEachName();
           sortAllContactsByFirstLetter();
           renderContactsHeaderLetter();
+}
+
+
+
+/**
+ * Iterate through the whole object and calls a function to create the initials.
+ * 
+ */
+function createInitialsForEachName(){
+    allContactsFromApi.forEach(element => {
+        element['initials'] = getInitialsForObject(element);
+    })
+}
+
+
+/**
+ * Create the initials from the full name element and add them to the object.
+ * 
+ * @param {object} element - The object position of the needed data in the array.
+ * @returns - Returns the first letter of the first and last name. The initials.
+ */
+function getInitialsForObject(element){
+    const name = element.name;
+    const regExp = /\b\w/g;
+    const initialArray = name.match(regExp);
+    let initials = '';
+        for (let index = 0; index < initialArray.length; index++) {
+             initials += `${initialArray[index]}`;
+        }
+    return initials;
 }
 
 
@@ -61,12 +92,11 @@ function sortAllContactsByFirstLetter(){
             };
         },
             {});
-            console.log(sortedContactsArrayByFirstLetter);
 }
 
 
 /**
- * Sort and render the first letter to the html content - contacts.
+ * Get the keys from an array, sort and render the first letter to the html content - contacts.
  * 
  */
 function renderContactsHeaderLetter(){
@@ -77,7 +107,6 @@ function renderContactsHeaderLetter(){
           firstLetterArray.forEach(firstLetterArray => {
             contentRef.innerHTML += firstLetterContainerTemp(firstLetterArray);
           })
-          console.log(firstLetterArray);
 }
 
 
@@ -101,5 +130,3 @@ function openContactInFloatMenu(contactId){
     const contact = allContactsFromApi.find(element => element.id === contactId); 
           contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact);         
 }
-
-// CONTACTS --------------------------------------
