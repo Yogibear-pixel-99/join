@@ -50,7 +50,7 @@ async function getContactsFromServer() {
 
 
 /**
- * Sorts all the fetched contacts from the API and puts them in an array specified by the first letter.
+ * Get all the fetched contacts from the API and puts them in an array specified by the first letter.
  * 
  */
 function sortAllContactsByFirstLetter(){
@@ -61,20 +61,23 @@ function sortAllContactsByFirstLetter(){
             };
         },
             {});
+            console.log(sortedContactsArrayByFirstLetter);
 }
 
 
 /**
- * Renders the first letter to the html content - contacts.
+ * Sort and render the first letter to the html content - contacts.
  * 
  */
 function renderContactsHeaderLetter(){
     let firstLetterArray = Object.keys(sortedContactsArrayByFirstLetter);
+        firstLetterArray.sort();
     const contentRef = document.getElementById('contacts-content');
           contentRef.innerHTML = '';
           firstLetterArray.forEach(firstLetterArray => {
             contentRef.innerHTML += firstLetterContainerTemp(firstLetterArray);
           })
+          console.log(firstLetterArray);
 }
 
 
@@ -93,9 +96,19 @@ function getSingleContact(firstLetterArray){
 }
 
 
-// function openContactInFloatinMenu(position){
-//     const contentRef = document.getElementById('bottom-board');
-//           contentRef.innerHTML = getContactFloatingContentTemp(position);
-// }
+function openContactInFloatMenu(contactId){
+    const contentRef = document.getElementById('bottom-board');
+          allContactsFromApi.forEach(element => {
+            switch (contactId) {
+            case element.id : contentRef.innerHTML = getSingleContactForFloatingMenuTemp(element);
+                break;
+          
+            default:
+                break;
+          }
+
+          })
+          
+}
 
 // CONTACTS --------------------------------------
