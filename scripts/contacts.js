@@ -98,17 +98,8 @@ function getSingleContact(firstLetterArray){
 
 function openContactInFloatMenu(contactId){
     const contentRef = document.getElementById('bottom-board');
-          allContactsFromApi.forEach(element => {
-            switch (contactId) {
-            case element.id : contentRef.innerHTML = getSingleContactForFloatingMenuTemp(element);
-                break;
-          
-            default:
-                break;
-          }
-
-          })
-          
+    const contact = allContactsFromApi.find(element => element.id === contactId); 
+          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact);         
 }
 
 // CONTACTS --------------------------------------

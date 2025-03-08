@@ -22,7 +22,7 @@ function getSingleContactTemp(nameRow){
 }
 
     
-    function getContactFloatingContentTemp(){
+    function getSingleContactForFloatingMenuTemp(contact){
         return `<div id="floating-contact-container" class="floating-contact-container">
                             <!-- Dynamic Rendering for following contacts, javascript template -->
                             
