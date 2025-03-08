@@ -125,6 +125,11 @@ function getSingleContact(firstLetterArray){
 }
 
 
+/**
+ * Render the selected contact name in the floating contacts menu.
+ * 
+ * @param {string} contactId - The exact id in the users name object to get the informations.
+ */
 function openContactInFloatMenu(contactId){
     const contentRef = document.getElementById('bottom-board');
     const contact = allContactsFromApi.find(element => element.id === contactId); 
