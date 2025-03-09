@@ -137,16 +137,26 @@
 
 /* DETAILS FOR FULL CONTACT */
 
+/* .board-container-wrapper {
+    flex: 1;
+}
+
+.bottom-board {
+    position: relative;
+}
+
 .floating-contact-container {
+    position: absolute;
+    top: 0;
+    right: -50%;
     display: flex;
     flex-direction: column;
     gap: 21px;
-    transform: translateX(300%);
     transition: 400ms ease-in-out;
 }
 
-/* .floating-contact-container-open {
-    transform: translateX(-300%);
+.floating-contact-container-open {
+    right: auto;
 } */
 
 .floating-contact-header {

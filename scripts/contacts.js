@@ -133,9 +133,19 @@ function getSingleContact(firstLetterArray){
  * @param {string} contactId - The exact id in the users name object to get the informations.
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
-function openContactInFloatMenu(contactId, colorLetter){
-    const contentRef = document.getElementById('bottom-board');
-    const contact = allContactsFromApi.find(element => element.id === contactId); 
-          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
-        //   contentRef.classList.toggle('floating-contact-container-open');         
-}
+// function openContactInFloatMenu(contactId, colorLetter){
+            
+
+
+
+
+//     const contentRef = document.getElementById('bottom-board');
+//     const contact = allContactsFromApi.find(element => element.id === contactId); 
+//           contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
+//     const menuRef = document.getElementById('floating-contact-container');
+//         if (menuRef.classList.contains('floatin-contact-container-open')) {
+//             menuRef.classList.remove('floating-contact-container-open');
+//         } else {
+//           menuRef.classList.add('floating-contact-container-open'); 
+//         }        
+// }
