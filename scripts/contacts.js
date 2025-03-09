@@ -113,13 +113,13 @@ function renderContactsHeaderLetter(){
 /**
  * Iterate through the contact list and render every single contact to the contact list to the html site contacts.
  * 
- * @param {string} firstLetterArray - The first letter to select the right array to render the names. 
+ * @param {string} firstLetterArray - The first letter to select the right array to render the names and set the background color to the initials.
  * @returns - Returns the whole contats sorted by specified letter.
  */
 function getSingleContact(firstLetterArray){
     let content = '';
     sortedContactsArrayByFirstLetter[firstLetterArray].forEach(nameRow => {
-                content += getSingleContactTemp(nameRow);
+                content += getSingleContactTemp(nameRow, firstLetterArray);
     })
     return content;
 }
@@ -129,9 +129,10 @@ function getSingleContact(firstLetterArray){
  * Render the selected contact name in the floating contacts menu.
  * 
  * @param {string} contactId - The exact id in the users name object to get the informations.
+ * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
-function openContactInFloatMenu(contactId){
+function openContactInFloatMenu(contactId, colorLetter){
     const contentRef = document.getElementById('bottom-board');
     const contact = allContactsFromApi.find(element => element.id === contactId); 
-          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact);         
+          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);         
 }
