@@ -57,6 +57,8 @@ function getInitialsForObject(element){
         for (let index = 0; index < initialArray.length; index++) {
              initials += `${initialArray[index]}`;
         }
+        initials = initials.replace(/[a-z]/g, '');
+        console.log(initials);
     return initials;
 }
 
@@ -134,5 +136,6 @@ function getSingleContact(firstLetterArray){
 function openContactInFloatMenu(contactId, colorLetter){
     const contentRef = document.getElementById('bottom-board');
     const contact = allContactsFromApi.find(element => element.id === contactId); 
-          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);         
+          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
+        //   contentRef.classList.toggle('floating-contact-container-open');         
 }
