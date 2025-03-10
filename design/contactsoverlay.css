@@ -11,23 +11,27 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    /* background-color: rgba(0, 0, 0, 0.5); */
+    height: 100vh;
+    width: 100vw;
     z-index: 900;
     transition: 400ms ease-in-out;
-}
-
-.add-contact-overlay-hide {
-    transform: translate(100%, -50%) !important;
-    z-index: 1000;
 }
 
 .add-contact-overlay * {
     box-sizing: border-box;
 }
 
-.add-contact-overlay {
+.add-contact-overlay-hide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(100vw, -50%);
+    display: flex;
+    transition: 400ms ease-in-out;
+    z-index: 1000;
+}
+
+.add-contact-overlay-open {
     position: absolute;
     top: 50%;
     left: 50%;

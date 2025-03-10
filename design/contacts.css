@@ -16,8 +16,6 @@
     padding-left: 64px;
 }
 
-
-
 .contact-container-wrapper:hover {
     cursor:pointer;
 }
@@ -31,10 +29,6 @@
     background-color: white;
     height: calc(100% - 96px);
     overflow-y: scroll;
-}
-
-.contacts-content {
-    
 }
 
 .add-contact-button {

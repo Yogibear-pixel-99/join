@@ -17,6 +17,7 @@ function toggleAddContactsOverlay(){
     const mask = document.getElementById('mask-container');
     const mainContent = document.getElementById('main-container');
         overlay.classList.toggle('add-contact-overlay-hide');
+        overlay.classList.toggle('add-contact-overlay-open');
         mask.classList.toggle('d-none');
         mainContent.classList.toggle('disable-pointer-events');
         mainContent.classList.toggle('brightness-50');

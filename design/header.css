@@ -1,7 +1,10 @@
 
 
 .header-container {
+    box-sizing: border-box;
     height: 96px;
+    width: calc(1920px - 232px);
+    max-width: 1920px;
     position: fixed;
     top: 0;
     right: 0;
