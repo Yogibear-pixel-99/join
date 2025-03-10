@@ -133,19 +133,23 @@ function getSingleContact(firstLetterArray){
  * @param {string} contactId - The exact id in the users name object to get the informations.
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
-// function openContactInFloatMenu(contactId, colorLetter){
-            
+function openContactInFloatMenu(contactId, colorLetter){
+    const contentRef = document.getElementById('bottom-board');
+    const contact = allContactsFromApi.find(element => element.id === contactId); 
+          contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
+        animateContactMenu();
+}
+
+/**
+ * Animate the contact details to slide from the right outside under the contacts header.
+ * 
+ */
+function animateContactMenu(){
+ const menuRef = document.getElementById('bottom-board');
+          requestAnimationFrame(() => {
+            menuRef.classList.add('floating-contact-container-open');
+          });
+}
 
 
-
-
-//     const contentRef = document.getElementById('bottom-board');
-//     const contact = allContactsFromApi.find(element => element.id === contactId); 
-//           contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
-//     const menuRef = document.getElementById('floating-contact-container');
-//         if (menuRef.classList.contains('floatin-contact-container-open')) {
-//             menuRef.classList.remove('floating-contact-container-open');
-//         } else {
-//           menuRef.classList.add('floating-contact-container-open'); 
-//         }        
-// }
+// Have to change the overlay with the same function like the floating menu. requestAnimation and 100vw.

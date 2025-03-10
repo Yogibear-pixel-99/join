@@ -23,7 +23,7 @@ function getSingleContactTemp(nameRow, firstLetterArray){
 
     
     function getSingleContactForFloatingMenuTemp(contact, colorLetter){
-        return `<div id="floating-contact-container" class="floating-contact-container">                 
+        return `<div id="floating-contact-container">                 
                     <div class="floating-contact-header">
                         <div class="floating-initials-wrapper initials-bg-color-${colorLetter}">
                             <span class="floating-initials">${contact.initials}</span>
