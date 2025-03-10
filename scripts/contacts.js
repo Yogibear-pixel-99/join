@@ -1,12 +1,7 @@
 
 
-MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-// GLOBAL ARRAYS ---------------------------------------
-let allContactsFromApi = [];
 let sortedContactsArrayByFirstLetter = [];
-// GLOBAL ARRAYS ---------------------------------------
-
 
 /**
  * Opens the overlay to add a contact, disable the background buttons and darkens the background.
@@ -24,63 +19,13 @@ function toggleAddContactsOverlay(){
 }
 
 
-async function initContacts(){
-    await getContactsFromServer();
-          createInitialsForEachName();
-          sortAllContactsByFirstLetter();
-          renderContactsHeaderLetter();
+async function sortAndRenderContacts(){
+    await initContacts();
+    sortAllContactsByFirstLetter();
+    renderContactsHeaderLetter();
 }
 
 
-
-/**
- * Iterate through the whole object and calls a function to create the initials.
- * 
- */
-function createInitialsForEachName(){
-    allContactsFromApi.forEach(element => {
-        element['initials'] = getInitialsForObject(element);
-    })
-}
-
-
-/**
- * Create the initials from the full name element and add them to the object.
- * 
- * @param {object} element - The object position of the needed data in the array.
- * @returns - Returns the first letter of the first and last name. The initials.
- */
-function getInitialsForObject(element){
-    const name = element.name;
-    const regExp = /\b\w/g;
-    const initialArray = name.match(regExp);
-    let initials = '';
-        for (let index = 0; index < initialArray.length; index++) {
-             initials += `${initialArray[index]}`;
-        }
-        initials = initials.replace(/[a-z]/g, '');
-        console.log(initials);
-    return initials;
-}
-
-
-/**
- * Fetches all contact from the specified API (Firebase).
- * 
- */
-async function getContactsFromServer() {
-    try {
-        let response = await fetch (MAIN_URL + "contacts" + ".json");
-        if (!response.ok) {
-            throw new Error('no answere from server');
-        } else {
-            let data = await response.json();
-            allContactsFromApi = data;
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 
 /**
@@ -88,7 +33,7 @@ async function getContactsFromServer() {
  * 
  */
 function sortAllContactsByFirstLetter(){
-    sortedContactsArrayByFirstLetter = allContactsFromApi.reduce((newArray, element) => {
+    sortedContactsArrayByFirstLetter = contactsFromApi.reduce((newArray, element) => {
         const firstLetter = element.name.slice(0, 1);
             return {...newArray,
                 [firstLetter] : [...(newArray[firstLetter] || []), element]
@@ -136,7 +81,7 @@ function getSingleContact(firstLetterArray){
  */
 function openContactInFloatMenu(contactId, colorLetter){
     const contentRef = document.getElementById('bottom-board');
-    const contact = allContactsFromApi.find(element => element.id === contactId); 
+    const contact = contactsFromApi.find(element => element.id === contactId); 
           contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
         animateContactMenu();
 }
@@ -151,6 +96,3 @@ function animateContactMenu(){
             menuRef.classList.add('floating-contact-container-open');
           });
 }
-
-
-// Have to change the overlay with the same function like the floating menu. requestAnimation and 100vw.

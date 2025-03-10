@@ -1,5 +1,72 @@
 
 
+MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
+
+// GLOBAL ARRAYS ---------------------------------------
+let contactsFromApi = [];
+let tasksFromApi = [];
+let usersFromApi = [];
+// GLOBAL ARRAYS ---------------------------------------
+
+
+// GLOBALE FUNKTIONEN
+async function initContacts(){
+    await getDataFromServer('contacts', contactsFromApi);
+    await getDataFromServer('tasks', tasksFromApi);
+    await getDataFromServer('users', usersFromApi);
+          createInitialsForEachName();  
+}
+// GLOBALE FUNKTIONEN
+
+/**
+ * Fetches all contact from the specified API (Firebase).
+ * 
+ * 
+ */
+async function getDataFromServer(objName, destination) {
+    try {
+        let response = await fetch (MAIN_URL + objName + ".json");
+        if (!response.ok) {
+            throw new Error('no answere from server');
+        } else {
+            let data = await response.json();
+            destination.splice(0, 0, ...data);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+/**
+ * Create the initials from the full name element and add them to the object.
+ * 
+ * @param {object} element - The object position of the needed data in the array.
+ * @returns - Returns the first letter of the first and last name. The initials.
+ */
+function getInitialsForObject(element){
+    const name = element.name;
+    const regExp = /\b\w/g;
+    const initialArray = name.match(regExp);
+    let initials = '';
+        for (let index = 0; index < initialArray.length; index++) {
+             initials += `${initialArray[index]}`;
+        }
+        initials = initials.replace(/[a-z]/g, '');
+        console.log(initials);
+    return initials;
+}
+
+/**
+ * Iterate through the whole object and calls a function to create the initials.
+ * 
+ */
+function createInitialsForEachName(){
+    contactsFromApi.forEach(element => {
+        element['initials'] = getInitialsForObject(element);
+    })
+}
+// GLOBALE FUNKTION
+
 
 
 function toggleDropdown() {
@@ -57,32 +124,11 @@ function loadingToBoard() {
 
 // 
 
-let tasks = [];
+
 
 function initBoard() {
 
-    tasks = [
-        {
-            title: 'User Story #1',
-            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
-            status: 'inprogress'
-        },
-        {
-            title: 'User Story #1',
-            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
-            status: 'inprogress'
-        },
-        {
-            title: 'User Story #1',
-            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
-            status: 'awaitfeedback'
-        },
-        {
-            title: 'User Story #1',
-            description: 'Als User möchte uch ein einfaches Kanban-Board testen.',
-            status: 'done'
-        }
-    ] 
+
 
     renderBoard();
 }

@@ -19,7 +19,7 @@ body {
 }
 
 .add-contact-overlay-hide {
-    transform: translate(100%, -50%) !important;
+    transform: translate(100vw, -50%) !important;
     z-index: 1000;
 }
 

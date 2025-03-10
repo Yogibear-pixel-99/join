@@ -7,6 +7,7 @@
   align-items: center;
   gap: 25px;
   height: 120px;
+  margin-bottom: 50px;
 }
 
 .top-summary h2 {
@@ -153,7 +154,7 @@
 
 .urgent-summary {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
   gap: 30px;
@@ -161,8 +162,6 @@
   height: 120px;
   border-radius: 30px;
   padding-top: 38px;
-  padding-left: 19px;
-  padding-right: 19px;
   padding-bottom: 38px;
   background-color: white;
   border: 3px solid #0000001a;
@@ -181,7 +180,6 @@
   background-color: var(--summary-border);
   width: 2px;
   height: 102.02px;
-  margin-right: 10px;
 }
 
 .urgent-summary:hover {
