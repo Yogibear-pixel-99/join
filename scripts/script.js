@@ -9,15 +9,6 @@ let usersFromApi = [];
 // GLOBAL ARRAYS ---------------------------------------
 
 
-// GLOBALE FUNKTIONEN
-async function initContacts(){
-    await getDataFromServer('contacts', contactsFromApi);
-    await getDataFromServer('tasks', tasksFromApi);
-    await getDataFromServer('users', usersFromApi);
-          createInitialsForEachName();  
-}
-// GLOBALE FUNKTIONEN
-
 /**
  * Fetches data from Firebase to specified arrays.
  * 

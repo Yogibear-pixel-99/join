@@ -19,8 +19,13 @@ function toggleAddContactsOverlay(){
 }
 
 
+/**
+ * Get contacts from API firebase, create initials from first- and lastname, sort contacts by first letter and render the contacst header letter to HTML.
+ * 
+ */
 async function sortAndRenderContacts(){
-    await initContacts();
+    await getDataFromServer('contacts', contactsFromApi);
+    createInitialsForEachName();  
     sortAllContactsByFirstLetter();
     renderContactsHeaderLetter();
 }
