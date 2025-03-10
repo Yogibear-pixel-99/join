@@ -28,15 +28,44 @@
 
 
 <body onload="sortAndRenderContacts()">
-    <main class="main-container" id="main-container">
-        <header class="header-container">
+
+
+    <div class="navbar-container">
+        <div>
+        <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
+            <navbar class="navbar-link-container">
+            <a href="./summary.html">
+                <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
+                <div class="center">Summary</div>
+            </a>
+            <a href="./addtask.html">
+                <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
+                <div class="center">Add Task</div>
+            </a>
+            <a href="./board.html">
+                <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
+                <div class="center">Board</div>
+            </a>
+            <a href="./contacts.html" class="active-button">
+                <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
+                <div class="center">Contacts</div>
+            </a>
+            </navbar>
+        </div>
+        <div class="policy-legal-content">
+            <a href="./Privacypolicy.html" class="policy-legal-area">Privacy Policy</a>
+            <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
+        </div>
+    </div>
+
+
+<header class="header-container">
             <span class="header-text">Kanban Project Management Tool</span>
             <div class="header-logos-right">
                 <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo">
                 <div onclick="toggleDropdown()" class="header-initials" >SM</div>
             </div>
-        </header>
-        <div class="dropdown-menu d-none" id="dropdown">
+            <div class="dropdown-menu d-none" id="dropdown">
             <a href="./legalnotice.html">
                 <div class="dropdown-text">Legal Notice</div>
             </a>
@@ -47,73 +76,47 @@
                 <div class="dropdown-text">Log out</div>
             </a>
         </div>
-        
+        </header>
+
+
+
+
+<main class="main-container" id="main-container">
+
+
+
+    <div id="main-content" class="main-content flex-row no-padding">
             
-        <div id="main-content" class="main-content flex-row no-padding">
-            
-                <div class="contact-container-wrapper">
-                    <button class="dark-button add-contact-button" onclick="toggleAddContactsOverlay('add-contact-overlay', 'add-contact-overlay-hide')">
-                        <span>Add new contact</span>
-                            <div class="add-person-icon-wrapper">
-                                <img src="../assets/icons/person_add.svg" alt="add person icon">
-                            </div>
-                    </button>
-                    <div id="contacts-content" class="contacts-content">
-                        <!-- CONTAINER FOR WHOLE CONTACT LIST -->
-                    </div>
+            <div class="contact-container-wrapper">
+                <button class="dark-button add-contact-button" onclick="toggleAddContactsOverlay('add-contact-overlay', 'add-contact-overlay-hide')">
+                    <span>Add new contact</span>
+                        <div class="add-person-icon-wrapper">
+                            <img src="../assets/icons/person_add.svg" alt="add person icon">
+                        </div>
+                </button>
+                <div id="contacts-content" class="contacts-content">
+                   
                 </div>
-            
-
-            <div class="board-container-wrapper">
-                <div class="top-summary top-contacts">
-                    <h2 class="main-header">Contacts</h2>
-                    <div class="line"></div>
-                    <h2>Better with a team</h2>
-                  </div>
-                <div class="bottom-board" id="bottom-board">
-                    
-           </div>
-        </div>
-
-
-
-        <div class="navbar-container">
-            <div>
-            <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
-                <navbar class="navbar-link-container">
-                <a href="./summary.html">
-                    <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
-                    <div class="center">Summary</div>
-                </a>
-                <a href="./addtask.html">
-                    <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
-                    <div class="center">Add Task</div>
-                </a>
-                <a href="./board.html">
-                    <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
-                    <div class="center">Board</div>
-                </a>
-                <a href="./contacts.html" class="active-button">
-                    <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
-                    <div class="center">Contacts</div>
-                </a>
-                </navbar>
             </div>
-            <div class="policy-legal-content">
-                <a href="./Privacypolicy.html" class="policy-legal-area">Privacy Policy</a>
-                <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
-            </div>
-        </div>
-
-
-
-    
         
+
+        <div class="board-container-wrapper">
+            <div class="top-summary top-contacts">
+                <h2 class="main-header">Contacts</h2>
+                <div class="line"></div>
+                <h2>Better with a team</h2>
+              </div>
+            <div class="bottom-board" id="bottom-board">
+                
+       </div>
+    </div>
+
     </main>
+
 
 <section class="mask-container d-none" id="mask-container" onclick="toggleAddContactsOverlay()"></section>
 
-    <section class="add-contact-overlay  add-contact-overlay-hide" id="add-contact-overlay">
+    <section class="add-contact-overlay  add-contact-overlay-hide d-none" id="add-contact-overlay">
         <div class="add-contact-overlay-content-left">
             <img class="add-contact-overlay-join-logo" src="../assets/icons/capa2.svg" alt="join logo">
             <div class="add-contact-overlay-header-wrapper">
@@ -149,11 +152,11 @@
                         <img class="input-logo" src="../assets/icons/call.svg">
                     </div>
                     <div class="add-contact-overlay-form-button-wrapper">
-                        <div class="light-button form-button cancel-button" onclick="toggleAddContactsOverlay()"><span>Cancel</span><div class="svg-wrapper flex-ctr-ctr"><svg class="cancel-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button class="light-button form-button cancel-button"><span>Cancel</span><div class="svg-wrapper flex-ctr-ctr"><svg class="cancel-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z" fill="#2A3647"/>
                             </svg>
                             </div>
-                        </div>
+                            </button>
                         <button class="dark-button form-button create-button"><span>Create contact</span><div class="svg-wrapper flex-ctr-ctr"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_291235_6193" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
                             <rect x="0.248535" width="24" height="24" fill="#D9D9D9"/>
