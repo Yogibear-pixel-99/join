@@ -19,9 +19,10 @@ async function initContacts(){
 // GLOBALE FUNKTIONEN
 
 /**
- * Fetches all contact from the specified API (Firebase).
+ * Fetches data from Firebase to specified arrays.
  * 
- * 
+ * @param {string} objName - The name of the needed object in firebase.
+ * @param {array} destination - Storage place of the fetched array.
  */
 async function getDataFromServer(objName, destination) {
     try {
