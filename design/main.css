@@ -149,4 +149,9 @@ background-color: var(--hover-darkblue);
 
 .main-container {
   box-sizing: border-box;
+  flex: 1;
+}
+
+.main-log-in-container {
+  height: 100%;
 }
