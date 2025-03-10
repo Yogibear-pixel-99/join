@@ -15,7 +15,7 @@ function toggleAddContactsOverlay(){
         overlay.classList.toggle('add-contact-overlay-open');
         mask.classList.toggle('d-none');
         mainContent.classList.toggle('disable-pointer-events');
-        mainContent.classList.toggle('brightness-50');
+        // mainContent.classList.toggle('brightness-50');
 }
 
 

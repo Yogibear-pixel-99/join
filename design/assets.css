@@ -73,10 +73,6 @@ h2 {
     pointer-events: none;
 }
 
-.brightness-50 {
-    filter: brightness(50%);
-}
-
 .no-padding {
     padding: 0;
 }
