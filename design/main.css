@@ -1,26 +1,18 @@
-
-
-
-
 html {
-  margin: 0 auto;
+  margin: 0;
   box-sizing: border-box;
-  max-width: 1920px;
 }
 
 body {
-  position: relative;
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
   max-width: 1920px;
-  width: 100vw;
   font-family: inter;
-  margin: 0 auto;
 }
 
 .main-container {
-  height: 100dvh; 
+  height: 100dvh;
 }
 
 .main-header {
@@ -156,4 +148,3 @@ background-color: var(--hover-darkblue);
     background: #F6F7F8;
     height: 100%;
 }
-
