@@ -201,10 +201,6 @@
     color: white;
 }
 
-.d-none {
-  display: none;
-}
-
 .no-tasks {
   background-color: #ffffff;         
   border-radius: 8px;              

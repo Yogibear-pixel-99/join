@@ -1,0 +1,79 @@
+
+
+
+.navbar-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: var(--navbar-bg-color);
+    width: 232px;
+    color: var(--linkbar-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 66px;
+    font-size: 16px;
+    font-family: inter;
+    font-weight: 400;
+  }
+  
+  .navbar-link-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 66px;
+  }
+  
+  .navbar-link-container a {
+    height: 46px;
+    display: flex;
+    gap: 8px;
+    padding-left: 56px;
+    color: var(--linkbar-color);
+  }
+  
+  .navbar-link-container a:hover {
+    background-color: var(--hover-darkblue);
+    transition: ease-in-out 300ms;
+  }
+  
+  .navbar-link-container div {
+    color: var(--linkbar-color);
+  }
+  
+  .join-logo {
+    width: 100px;
+    height: 122px;
+  }
+  
+  .join-logo-navbar {
+    padding: 66px;
+  }
+
+  .policy-legal-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 232px;
+}
+
+.policy-legal-content a {
+  padding: 8px;
+  height: 25px;
+  padding-left: 56px;
+  color: var(--navbar-color);
+}
+
+.policy-legal-content a:hover {
+  color: var(--light-blue);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.active-button{
+    background-color: var(--navbar-active);
+}

@@ -50,5 +50,5 @@ function checkValuesFromSignUpFields(name, email, password, passwordConfirm, pri
 
 
 function fetchNewUserToDatabase(name, email, password, passwordConfirm, privacyCheck){
-    
+    console.log('ready to fetch');
 }
