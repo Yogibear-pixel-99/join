@@ -22,8 +22,13 @@ async function signUpNewUser(event){
     } else {
         getNewUserTemp();
         collectFormInformation();
-        await postNewUserDataToApi();
+        await postDataToApi('users', newUserData);
+        showSignUpButton();
+        setTimeout(() => redirectToLogInPage(), 1000);
     }
+
+
+
 // TODO: Change the comparisation because of security lecks. - just/email???
 // Add user ID Nr. from the length of the existing users
 }
@@ -67,11 +72,10 @@ async function checkIfUserAlreadyExists(){
             for (let userIndex = 0; userIndex < data.length; userIndex++) {
                 const element = data[userIndex].email;
                       allUserDataEmail.push(element);
-                      console.log(allUserDataEmail);
             }
         }
     } catch (error) {
-        
+        console.log('Error:', error.message);
     }
     if (allUserDataEmail.some(element => element === userEmail)) {
             return true;
@@ -90,3 +94,24 @@ function checkIfPasswordIsSameAsConfirm(){
         return false;
     }
 }
+
+async function postDataToApi(objName, newData){
+    try {
+    const response = await fetch (MAIN_URL + objName + '.json', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+    });
+    if (!response.ok) {
+        throw new Error(`Fehler beim übertragen! - ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Erfolgreich', data);
+    }
+    catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
