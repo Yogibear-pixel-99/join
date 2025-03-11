@@ -31,8 +31,6 @@ async function sortAndRenderContacts(){
 }
 
 
-
-
 /**
  * Get all the fetched contacts from the API and puts them in an array specified by the first letter.
  * 
