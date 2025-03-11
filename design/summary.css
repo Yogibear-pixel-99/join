@@ -1,11 +1,11 @@
 .summary {
-  padding-top: 80px;
+  padding-top: 50px;
 }
 
 .bottom-summary {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .bottom-top-summary {
@@ -19,7 +19,7 @@
   align-items: center;
   gap: 20px;
   width: 264px;
-  height: 100px;
+  height: 90px;
   border-radius: 30px;
   padding-top: 38px;
   padding-left: 19px;
@@ -86,7 +86,7 @@
   align-items: center;
   gap: 20px;
   width: 264px;
-  height: 100px;
+  height: 90px;
   border-radius: 30px;
   padding-top: 38px;
   padding-left: 19px;
@@ -132,11 +132,11 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  width: 635px;
-  height: 120px;
+  width: 638px;
+  height: 110px;
   border-radius: 30px;
-  padding-top: 38px;
-  padding-bottom: 38px;
+  padding-top: 28px;
+  padding-bottom: 28px;
   background-color: white;
   border: 3px solid #0000001a;
   transform-origin: left top;
@@ -248,7 +248,7 @@
   flex-direction: row;
   gap: 30px;
   width: 197px;
-  height: 150px;
+  height: 140px;
   border-radius: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -280,7 +280,7 @@
   flex-direction: row;
   gap: 30px;
   width: 197px;
-  height: 150px;
+  height: 140px;
   border-radius: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -311,7 +311,7 @@
   flex-direction: row;
   gap: 30px;
   width: 197px;
-  height: 150px;
+  height: 140px;
   border-radius: 30px;
   padding-top: 25px;
   padding-bottom: 25px;
