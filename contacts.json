@@ -283,7 +283,7 @@
       "description": "Build start page with recipe recommendation.",
       "date": "12/05/2023",
       "priority": "Medium",
-      "assignTo": [],
+      "assignTo": ["sofia@mueller.com"],
       "subtasks": []
     },
 
@@ -294,7 +294,7 @@
       "description": "Create reusable HTML base templates.",
       "date": "10/05/2023",
       "priority": "Low",
-      "assignTo": [],
+      "assignTo": ["lukas@schmidt.com","felix@braun.com","stefan@krueger.com"],
       "subtasks": []
     },
 
@@ -305,7 +305,7 @@
       "description": "Define CSS naming conventions and structure.",
       "date": "25/05/2023",
       "priority": "Urgent",
-      "assignTo": [],
+      "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
       "subtasks": []
     },
 
@@ -316,7 +316,7 @@
       "description": "Implement daily recipe and portion calculator.",
       "date": "01/05/2023",
       "priority": "Urgent",
-      "assignTo": [],
+      "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
       "subtasks": []
     }
   ]
