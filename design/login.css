@@ -130,3 +130,29 @@ input[type="checkbox"] {
   .main-log-in-container {
     height: 100%;
   }
+
+  .sign-up-success-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100vh);
+    height: auto;
+    z-index: 2000;
+    transition: 250ms ease-out;
+  }
+
+  .sign-up-success-button-show {
+    transform: translate(-50%, -50%);
+  }
+
+  .darken-background {
+    animation-name: brightness50;
+    animation-duration: 150ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes brightness50 {
+    0% {filter: brightness(100%)}
+    100% {filter: brightness(50%)}
+  }

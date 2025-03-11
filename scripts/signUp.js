@@ -23,14 +23,10 @@ async function signUpNewUser(event){
         getNewUserTemp();
         collectFormInformation();
         await postDataToApi('users', newUserData);
+        mainContentBrightness50();
         showSignUpButton();
         setTimeout(() => redirectToLogInPage(), 1000);
     }
-
-
-
-// TODO: Change the comparisation because of security lecks. - just/email???
-// Add user ID Nr. from the length of the existing users
 }
 
 
@@ -115,3 +111,16 @@ async function postDataToApi(objName, newData){
     }
 }
 
+function mainContentBrightness50(){
+    const ref = document.getElementById('main-container');
+          ref.classList.add('darken-background');
+}
+
+function showSignUpButton(){
+    const ref = document.getElementById('sign-up-success-button');
+          ref.classList.add('sign-up-success-button-show');
+}
+
+function redirectToLogInPage(){
+    window.location.href = '../html/login.html';
+}

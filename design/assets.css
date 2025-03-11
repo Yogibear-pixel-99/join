@@ -36,11 +36,9 @@
     padding: 0;
 }
 
-
 .center {
     align-self: center;
   }
-  
 
 input:focus {
     outline: none;

@@ -18,7 +18,7 @@
     <script defer src="../scripts/signUp.js"></script>
   </head>
   <body>
-    <main class="main-container main-log-in-container">
+    <main id="main-container" class="main-container main-log-in-container">
       <div class="login-header"></div>
 
       <div class="form-container">
@@ -76,7 +76,7 @@
             >
           </div>
 
-          <button class="dark-button" type="submit">
+          <button class="dark-button" onclick="showSignUpButton()" type="submit">
             Sign up
           </button>
         </form>
@@ -91,5 +91,8 @@
         src="../assets/icons/join-logo-login.svg"
         alt="join logo" />
     </main>
+
+    <section id="sign-up-success-button" class="dark-button sign-up-success-button">You Signed Up successfully</section>
+
   </body>
 </html>
