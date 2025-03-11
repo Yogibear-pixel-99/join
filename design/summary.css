@@ -132,8 +132,7 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  gap: 30px;
-  width: 600px;
+  width: 635px;
   height: 120px;
   border-radius: 30px;
   padding-top: 38px;
@@ -141,6 +140,7 @@
   background-color: white;
   border: 3px solid #0000001a;
   transform-origin: left top;
+  transition: transform 0.2s ease;
 }
 
 .urgent-left-summary {
@@ -238,6 +238,7 @@
   background-color: white;
   border: 3px solid #0000001a;
   transform-origin: left top;
+  transition: transform 0.2s ease;
 }
 
 .bottom-end-left-box-summary {
@@ -254,6 +255,7 @@
   background-color: white;
   border: 3px solid #0000001a;
   transform-origin: left center;
+  transition: transform 0.2s ease;
 }
 
 .bottom-end-left-box-summary:hover {
@@ -284,6 +286,7 @@
   padding-bottom: 25px;
   background-color: white;
   border: 3px solid #0000001a;
+  transition: transform 0.2s ease;
 }
 
 .bottom-end-middle-box-summary:hover {
@@ -315,6 +318,7 @@
   background-color: white;
   border: 3px solid #0000001a;
   transform-origin: right center;
+  transition: transform 0.2s ease;
 }
 
 .bottom-end-right-box-summary:hover {
