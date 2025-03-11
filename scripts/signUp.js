@@ -1,8 +1,3 @@
-
-
-
-
-
 // get infos from: value
 
 // name
@@ -10,15 +5,12 @@
 // password
 // confirm password
 
-
-
-// function who checks if 
+// function who checks if
 
 // password and confirm is same
 // privacy is checked
 // user allready exists
 // email allready exists
-
 
 // then update data to firebase
 
@@ -26,47 +18,47 @@
 
 // directed to log in page
 
-let formInputTest = [];
+let newUserData = [];
+let allUserData = [];
 
-function signUpNewUser() {
-    let newUserData = {};
-    // if (checkPasswordAndConfirmPasswordIsSame()) {
-        
-    // }
-    // ;
+async function signUpNewUser(event) {
+  event.preventDefault();
+  getNewUserTemp();
+  await getDataFromServer('users', allUserData);
+  collectFormInformation();
 
-    let formInfos = document.getElementById('sign-up-form');
-    let data = new FormData(formInfos);
-
-    newUserData = Object.fromEntries(data);
-
-
-    console.log(formInputTest);
+  console.log(newUserData);
+  console.log(allUserData);
 }
 
 
 
-// function signUpNewUser(){
-//     const name = document.getElementById('sign-up-name').value;
-//     const email = document.getElementById('sign-up-email').value;
-
-//     const privacyCheck = document.getElementById('accept-privacy');
-//         if (checkValuesFromSignUpFields(name, email, password, passwordConfirm, privacyCheck)) {
-//             fetchNewUserToDatabase(name, email, password, passwordConfirm, privacyCheck);
-//         } 
-        
-
-// }
 
 
-// function checkValuesFromSignUpFields(name, email, password, passwordConfirm, privacyCheck){
-//     if (name != '' && email != '' && password != '' && (password === passwordConfirm) && privacyCheck.checked) {
-//         return true;
-//     }
-// }
+function collectFormInformation() {
+  let formInfos = document.getElementById("sign-up-form");
+  let data = new FormData(formInfos);
+  for (const [key, value] of data.entries()) {
+    if (newUserData.hasOwnProperty(key)) {
+      newUserData[key] = value;
+    }
+  }
+}
 
 
-// function fetchNewUserToDatabase(name, email, password, passwordConfirm, privacyCheck){
-// function fetchNewUserToDatabase(){
-//     console.log('ready to fetch');
-// }
+
+
+
+function getNewUserTemp() {
+  newUserData = `{
+    name: "",
+    email: "",
+    password: "",
+    toDo: "",
+    done: "",
+    priority: [{ urgent: "" }, { medium: "" }, { low: "" }],
+    tasksInBoard: "",
+    tasksInProgress: "",
+    awaitingFeedback: "",
+  }`;
+}
