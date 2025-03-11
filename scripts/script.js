@@ -207,17 +207,28 @@ function renderAssignedUsers(task) {
 
    
 
-function createTaskCard(task) {
+  function createTaskCard(task) {
     let assignedHTML = renderAssignedUsers(task);
+  
     return `
       <div class="task-card">
-        <h3>${task.title}</h3>
-        <p>${task.description}</p>
-        <p>Due: ${task.date || '-'}</p>
-        <p>Priority: ${task.priority || '-'}</p>
-         <div class="assigned-users">
-        ${assignedHTML}
+      <div>
+      <div class="task-type">${task.task}</div>
       </div>
+        
+        <div>
+        <div class="task-title">${task.title}</div>
+        <div class="task-description">${task.description}</div>
+        </div>
+        
+        <div class="task-meta">
+          <span class="task-date">Due: ${task.date}</span>
+        </div>
+        <div class="task-assigned-users">
+          ${assignedHTML}
+          <span class="task-priority">Priority: ${task.priority}</span>
+        </div>
       </div>
     `;
   }
+  
