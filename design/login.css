@@ -1,12 +1,7 @@
 
 
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--main-background);
-}
+
 
 .login-logo {
     position: absolute;

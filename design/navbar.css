@@ -2,10 +2,6 @@
 
 
 .navbar-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
     box-sizing: border-box;
     background-color: var(--navbar-bg-color);
     width: 232px;
