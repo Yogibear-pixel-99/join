@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join - Board</title>
+
+    <link rel="stylesheet" href="../design/main.css" />
+    <link rel="stylesheet" href="../design/assets.css" />
+    <link rel="stylesheet" href="../design/colors.css" />
+    <link rel="stylesheet" href="../design/board.css" />
+    <link rel="stylesheet" href="../design/addtask.css" />
+    <link rel="stylesheet" href="../design/header.css" />
+    <link rel="stylesheet" href="../design/navbar.css" />
+
+    <link rel="icon" type="x-icon/favicon" href="../assets/icons/favicon.svg" />
+
+    <script defer src="../scripts/script.js"></script>
+    <script defer src="../scripts/templates.js"></script>
+    <script defer src="../scripts/objects.js"></script>
+  </head>
+  <body onload="initBoard()">
+
+
+    <div class="navbar-container">
+      <div>
+        <img
+          class="join-logo-navbar join-logo"
+          src="../assets/icons/capa2.svg"
+          alt="join logo"
+        />
+        <navbar class="navbar-link-container">
+          <a href="./summary.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/summary.svg"
+              alt="summary icon"
+            />
+            <div class="center">Summary</div>
+          </a>
+          <a href="./addtask.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/addTask.svg"
+              alt="add task icon"
+            />
+            <div class="center">Add Task</div>
+          </a>
+          <a href="./board.html" class="active-button">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/board.svg"
+              alt="board icon"
+            />
+            <div class="center">Board</div>
+          </a>
+          <a href="./contacts.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/contacts.svg"
+              alt="contacts icon"
+            />
+            <div class="center">Contacts</div>
+          </a>
+        </navbar>
+      </div>
+      <div class="policy-legal-content">
+        <a href="./Privacypolicy.html" class="policy-legal-area"
+          >Privacy Policy</a
+        >
+        <a href="./legalnotice.html" class="policy-legal-area"
+          >Legal notice</a
+        >
+      </div>
+    </div>
+
+
+    <main class="main-container">
+      <header class="header-container">
+        <span class="header-text">Kanban Project Management Tool</span>
+        <div class="header-logos-right">
+          <img
+            class="help-logo"
+            src="../assets/icons/help.svg"
+            alt="helplogo"
+          />
+          <div onclick="toggleDropdown()" class="header-initials">SM</div>
+        </div>
+      </header>
+      <div class="dropdown-menu d-none" id="dropdown">
+        <a href="./legalnotice.html">
+          <div class="dropdown-text">Legal Notice</div>
+        </a>
+        <a href="./Privacypolicy.html">
+          <div class="dropdown-text">Privacy Policy</div>
+        </a>
+        <a href="./login.html">
+          <div class="dropdown-text">Log out</div>
+        </a>
+      </div>
+
+      <div id="main-content" class="main-content">
+        <div class="top-board">
+          <h2 class="main-header">Board</h2>
+          <div class="board-top-right">
+            <div class="find-task-wrapper">
+              <input
+                class="board-search-bar"
+                type="text"
+                required
+                placeholder="Find Task"
+              />
+              <button class="searchbar-button-container">
+                <div class="searchbar-separator"></div>
+                <div class="flex-ctr-ctr search-logo-wrapper">
+                  <img class="search-logo" src="../assets/icons/search.svg" />
+                </div>
+              </button>
+            </div>
+            <button class="dark-button add-task-button">
+              Add Task <img src="../assets/icons/add.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <div class="bottom-board">
+          <!-- 1) To do -->
+          <div class="board-single-task-container">
+            <div class="board-task-header-container">
+              <span>To do</span>
+              <div class="board-add-task-icon-wrapper">
+                <svg
+                  onclick="toggleAddTaskOverlay()"
+                  class="board-add-icon"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="1"
+                    y="1.5"
+                    width="22"
+                    height="22"
+                    rx="7"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 8.5V16.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M16 12.5754L8 12.5754"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div id="boardToDoCard"></div>
+          </div>
+
+          <!-- 2) In progress -->
+          <div class="board-single-task-container">
+            <div class="board-task-header-container">
+              <span>In progress</span>
+              <div class="board-add-task-icon-wrapper">
+                <svg
+                  onclick="toggleAddTaskOverlay()"
+                  class="board-add-icon"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="1"
+                    y="1.5"
+                    width="22"
+                    height="22"
+                    rx="7"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 8.5V16.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M16 12.5754L8 12.5754"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div id="boardInprogressCard" class="inprogress-card"></div>
+          </div>
+
+          <!-- 3) Await feedback -->
+          <div class="board-single-task-container">
+            <div class="board-task-header-container">
+              <span>Await feedback</span>
+              <div class="board-add-task-icon-wrapper">
+                <svg
+                  onclick="toggleAddTaskOverlay()"
+                  class="board-add-icon"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="1"
+                    y="1.5"
+                    width="22"
+                    height="22"
+                    rx="7"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 8.5V16.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M16 12.5754L8 12.5754"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div id="boardAwaitFeedbackCard"></div>
+          </div>
+
+          <!-- 4) Done -->
+          <div class="board-single-task-container">
+            <div class="board-task-header-container">
+              <span>Done</span>
+            </div>
+            <div id="boardDoneCard"></div>
+          </div>
+        </div>
+
+
+      </div>
+    </main>
+
+
+
+
+
+
+
+
+
+    
+    <section
+      onclick="toggleAddTaskOverlay()"
+      id="addtask-overlay"
+      class="addtask-overlay d-none"
+    >
+      <div onclick="noClose(event)" class="addtask-content addtask-content-hide">
+        <div class="addtask-header addtask-header-overlay d-none">
+          <h2>Add Task</h2>
+          <svg
+            onclick="toggleAddTaskOverlay()"
+            class="addtask-close-button"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="#2A3647"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z"
+              fill="#2A3647"
+            />
+          </svg>
+        </div>
+        <form>
+          <div class="info-input-field-container">
+            <div class="info-input-field-container-left">
+              <div>
+                <label for="title"
+                  >Title<span class="red-asterisk">*</span></label
+                >
+                <input required type="text" placeholder="Enter a title" />
+              </div>
+
+              <div>
+                <label for="description"
+                  >Description<span class="red-asterisk">*</span></label
+                >
+                <textarea
+                  name="description"
+                  id=""
+                  placeholder="Enter a description"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="assigned"
+                  >Assigned to<span class="red-asterisk">*</span></label
+                >
+                <select name="assigned" id="assigned">
+                  <option value="" disabled selected>
+                    Select contacts to assign
+                  </option>
+                  <option value="john-doe">John Doe</option>
+                  <option value="jane-smith">Jane Smith</option>
+                  <option value="alice-jones">Alice Jones</option>
+                  <option value="bob-roberts">Bob Roberts</option>
+                  <option value="chris-lee">Chris Lee</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-input-field-container-right">
+              <div>
+                <label for="due-date"
+                  >Due date<span class="red-asterisk">*</span></label
+                >
+                <input required type="text" placeholder="dd//mm/yyyy" />
+              </div>
+              <div>
+                <label for="prio">Prio</label>
+                <div class="btn-importance-container">
+                  <button class="btn-importance">
+                    Urgent
+                    <img src="../assets/icons/Prio alta.svg" alt="" />
+                  </button>
+                  <button class="btn-importance-orange">
+                    Medium
+                    <img
+                      id="medium-color"
+                      src="../assets/icons/Capa 2.svg"
+                      alt=""
+                    />
+                  </button>
+                  <button class="btn-importance">
+                    Low
+                    <img src="../assets/icons/Capa 1.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label for="category">
+                  Category<span class="red-asterisk">*</span>
+                </label>
+                <select name="category" id="category">
+                  <option value="" disabled selected>
+                    Select task category
+                  </option>
+                  <option value="technical-task">Technical Task</option>
+                  <option value="user-story">User Story</option>
+                </select>
+              </div>
+
+              <div class="subtask-input-wrapper">
+                <input
+                  class="subtask-input"
+                  type="text"
+                  placeholder="Add new subtask"
+                />
+                <div class="plus-icon"></div>
+              </div>
+            </div>
+          </div>
+          <div class="addTask-button-container">
+            <div>
+              <span
+                ><span class="red-asterisk">*</span>This field is required</span
+              >
+            </div>
+            <div class="addTask-button-container-btns">
+              <button class="light-button btns-addtask">
+                Clear <img src="../assets/icons/Vector (1).svg" alt="" />
+              </button>
+              <button onclick="toggleAddedToBoard()" class="dark-button btns-addtask">
+                Create Task <img src="../assets/icons/check.svg" />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    
+  </body>
+</html>
