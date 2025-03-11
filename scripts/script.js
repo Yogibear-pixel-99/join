@@ -123,6 +123,7 @@ function initBoard() {
 }
 
 async function loadAndRenderTasks() {
+    await getDataFromServer('users', usersFromApi);
     await getDataFromServer('tasks', tasksFromApi);
     renderBoard();
 }
@@ -171,15 +172,58 @@ function checkEmptyColums(todo, prog, feed, done) {
         done.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
 }
+
+function getInitialsForName(fullName) {
+    if (!fullName) return '';
+    let parts = fullName.trim().split(' ');
+    // Falls nur ein einzelner Name
+    if (parts.length < 2) {
+        return fullName.charAt(0).toUpperCase();
+    }
+    // Nimm den 1. Buchstaben von Vorname + 1. Buchstaben von Nachname
+    return (
+      parts[0].charAt(0).toUpperCase() +
+      parts[1].charAt(0).toUpperCase()
+    );
+}
+
+
+function renderAssignedUsers(task) {
+    // Wenn kein assignTo-Feld oder leeres Array => kein HTML
+    if (!task.assignTo || !task.assignTo.length) {
+      return '';
+    }
+  
+    // Erzeuge pro E-Mail einen Div mit den Initialen
+    return task.assignTo.map(email => {
+      let user = usersFromApi.find(u => u.email === email);
+  
+      // Falls User gefunden => zeige Initialen
+      if (user) {
+        let initials = getInitialsForName(user.name);
+        return `<div class="contact-list-initals">${initials}</div>`;
+      } else {
+        // Sonst "??"
+        return `<div class="contact-list-initals">??</div>`;
+      }
+    }).join('');
+  }
+  
+    
+
    
 
 function createTaskCard(task) {
+    let assignedHTML = renderAssignedUsers(task);
     return `
       <div class="task-card">
         <h3>${task.title}</h3>
         <p>${task.description}</p>
         <p>Due: ${task.date || '-'}</p>
         <p>Priority: ${task.priority || '-'}</p>
+         <div class="assigned-users">
+        ${assignedHTML}
+      </div>
       </div>
     `;
   }
