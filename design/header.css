@@ -13,7 +13,7 @@
     align-items: center;
     font-size: 20px;
     background-color: white;
-    box-shadow: 0px 5px 4px 2px rgb(202, 202, 202);
+    box-shadow: 0px 5px 4px -1px rgb(202, 202, 202);
 }
 
 .header-text {
