@@ -18,21 +18,20 @@
 
 // directed to log in page
 
-let newUserData = [];
+let newUserData = {};
 let allUserData = [];
 
 async function signUpNewUser(event) {
   event.preventDefault();
   getNewUserTemp();
-  await getDataFromServer('users', allUserData);
   collectFormInformation();
+//   check if PW and CONFIRM is same
+  await getDataFromServer('users', allUserData);
+  checkIfUserAlreadyExists();
 
   console.log(newUserData);
   console.log(allUserData);
 }
-
-
-
 
 
 function collectFormInformation() {
@@ -46,11 +45,8 @@ function collectFormInformation() {
 }
 
 
-
-
-
 function getNewUserTemp() {
-  newUserData = `{
+  newUserData = {
     name: "",
     email: "",
     password: "",
@@ -60,5 +56,22 @@ function getNewUserTemp() {
     tasksInBoard: "",
     tasksInProgress: "",
     awaitingFeedback: "",
-  }`;
+  };
+}
+
+
+function checkIfUserAlreadyExists(){
+    let newUserEmail = newUserData.email;
+        if (checkIfEmailIsInUse(newUserEmail)) {
+            alert(`user already excists. ${newUserEmail} is already in use!`)
+        } else {
+            console.log('user will be pushed');
+        }
+}
+
+function checkIfEmailIsInUse(newUserEmail){
+    allUserData.find(element => {
+        if (element.email === newUserEmail)
+        return true;
+    })
 }
