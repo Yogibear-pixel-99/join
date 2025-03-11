@@ -115,10 +115,9 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 10;
+  z-index: 801;
   background-color: rgba(0, 0, 0, 0.226);
   overscroll-behavior: contain;
-  z-index: 10;
 }
 
 @keyframes slideInFromRight {
