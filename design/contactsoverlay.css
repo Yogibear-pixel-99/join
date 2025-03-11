@@ -3,10 +3,6 @@ body {
     overflow: hidden;
 }
 
-/* TODO include in main.css */
-/* .main-container {
-    z-index: 800;
-} */
 
 .mask-container {
     position: absolute;

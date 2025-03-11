@@ -121,3 +121,10 @@ input:focus {
     justify-content: center;
     align-items: center;
 }
+
+.line {
+    background-color: var(--light-blue);
+    width: 2px;
+    height: 50px;
+    margin-right: 10px;
+  }

@@ -1,8 +1,6 @@
 
 
-.main-content {
-    padding-left: 0;
-}
+
 
 .flex-row {
     flex-direction: row;
@@ -12,8 +10,8 @@
     margin-top: 110px;
 }
 
-.board-container-wrapper {
-    padding-left: 64px;
+.single-contact-container-wrapper {
+    padding: 80px;
 }
 
 .contact-container-wrapper:hover {
