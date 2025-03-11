@@ -44,6 +44,7 @@ body {
     padding: 80px;
     background-color: var(--join-background);
     background: #F6F7F8;
+    height: 100%;
 }
 
 

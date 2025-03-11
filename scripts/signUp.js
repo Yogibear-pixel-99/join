@@ -26,9 +26,10 @@ async function signUpNewUser(event) {
   getNewUserTemp();
   collectFormInformation();
 //   check if PW and CONFIRM is same
+// Change the comparisation because of security lecks. - just/email?
   await getDataFromServer('users', allUserData);
   checkIfUserAlreadyExists();
-
+// Add user ID Nr. from the length of the existing users
   console.log(newUserData);
   console.log(allUserData);
 }
