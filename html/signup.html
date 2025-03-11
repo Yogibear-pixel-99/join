@@ -15,6 +15,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
+    <script defer src="../scripts/signUp.js"></script>
   </head>
   <body>
     <main class="main-container main-log-in-container">
@@ -23,13 +24,14 @@
       <div class="form-container">
         <span class="form-header">Sign up</span>
         <div class="login-separator"></div>
-        <form class="login-form" onsubmit="">
+        <form id="sign-up-form" class="login-form" onsubmit="signUpNewUser(); return false">
           <div class="input-field-container">
             <input
               id="sign-up-name"
               class="login-input-field"
               type="text"
               required
+              name="name" 
               placeholder="Name" />
             <img class="input-logo" src="../assets/icons/person.svg" />
           </div>
@@ -38,6 +40,7 @@
               id="sign-up-email"
               class="login-input-field"
               type="email"
+              name="email"
               required
               placeholder="Email" />
             <img class="input-logo" src="../assets/icons/mail.svg" />
@@ -47,6 +50,7 @@
               id="sign-up-password"
               class="login-input-field"
               type="password"
+              name="password"
               required
               placeholder="Password" />
             <img class="input-logo" src="../assets/icons/lock.svg" />
@@ -65,7 +69,6 @@
             <input
               type="checkbox"
               id="accept-privacy"
-              name="accept-privacy"
               required />
             <label for="accept-privacy"
               >I accept the
@@ -73,7 +76,7 @@
             >
           </div>
 
-          <button class="dark-button" onclick="singUpNewUser()" type="submit">
+          <button class="dark-button" type="submit">
             Sign up
           </button>
         </form>
