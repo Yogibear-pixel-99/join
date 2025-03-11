@@ -130,56 +130,56 @@ async function loadAndRenderTasks() {
 
 
 function renderBoard() {
-    let boardToDo = document.getElementById('boardToDoCard');
-    let boardInProgress = document.getElementById('boardInprogressCard');
-    let boardAwaitFeedback = document.getElementById('boardAwaitFeedbackCard');
-    let boardDone = document.getElementById('boardDoneCard');
+    let todo = document.getElementById('boardToDoCard');
+    let prog = document.getElementById('boardInprogressCard');
+    let feed = document.getElementById('boardAwaitFeedbackCard');
+    let done = document.getElementById('boardDoneCard');
 
-    boardToDo.innerHTML = '';
-    boardInProgress.innerHTML = '';
-    boardAwaitFeedback.innerHTML = '';
-    boardDone.innerHTML = '';
+    clearBoardColums(todo, prog, feed, done);
+    fillBaordColums(tasksFromApi,todo, prog, feed, done);
+    checkEmptyColums(todo, prog, feed, done);
+}
 
+function clearBoardColums(todo, prog, feed, done) {
+    todo.innerHTML = '';
+    prog.innerHTML = '';
+    feed.innerHTML = '';
+    done.innerHTML = '';
+}
+
+function fillBaordColums(tasks, todo, prog, feed, done) {
     tasks.forEach(task => {
+        let cardHtml = createTaskCard(task);
+        if (task.status === 'toDo') todo.innerHTML += cardHtml;
+        if (task.status === 'inProgress') prog.innerHTML += cardHtml;
+        if (task.status === 'awaitFeedback') feed.innerHTML += cardHtml;
+        if (task.status === 'done') done.innerHTML += cardHtml;
+    })
+}
 
-        let taskCard = createTaskCard(task);
-        if (task.status === 'todo') {
-            boardToDo.innerHTML += taskCard;
-        }else if (task.status === 'inprogress') {
-            boardInProgress.innerHTML += taskCard;
-        } else if (task.status === 'awaitfeedback') {
-            boardAwaitFeedback.innerHTML += taskCard;
-        } else if (task.status === 'done') {
-            boardDone.innerHTML += taskCard;
-        }
-    });
-
-    if (!boardToDo.innerHTML.trim()) {
-        boardToDo.innerHTML = '<div class="no-tasks">No tasks to do</div>';
+function checkEmptyColums(todo, prog, feed, done) {
+    if(!todo.innerHTML.trim()) {
+        todo.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
-
-    if (!boardInProgress.innerHTML.trim()) {
-        boardInProgress.innerHTML = '<div class="no-tasks">No tasks in progress</div>';
+    if(!prog.innerHTML.trim()) {
+        prog.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
-    if (!boardAwaitFeedback.innerHTML.trim()) {
-        boardAwaitFeedback.innerHTML = '<div class="no-tasks">No tasks awaiting feedback</div>';
+    if(!feed.innerHTML.trim()) {
+        feed.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
-    if (!boardDone.innerHTML.trim()) {
-        boardDone.innerHTML = '<div class="no-tasks">No tasks done</div>';
+    if(!done.innerHTML.trim()) {
+        done.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
 }
+   
 
 function createTaskCard(task) {
     return `
-         <div class="no-tasks">
-      <h3>${task.title}</h3>
-      <p>${task.description}</p>
-      <p>1/2 Subtasks</p>
-      <!-- Beispiel: Avatare oder Initialen -->
-      <div class="assigned-images">
-        <img src="" alt="Avatar 1" />
-        <img src="" alt="Avatar 2" />
+      <div class="task-card">
+        <h3>${task.title}</h3>
+        <p>${task.description}</p>
+        <p>Due: ${task.date || '-'}</p>
+        <p>Priority: ${task.priority || '-'}</p>
       </div>
-    </div>
     `;
-}
+  }
