@@ -176,11 +176,9 @@ function checkEmptyColums(todo, prog, feed, done) {
 function getInitialsForName(fullName) {
     if (!fullName) return '';
     let parts = fullName.trim().split(' ');
-    // Falls nur ein einzelner Name
     if (parts.length < 2) {
         return fullName.charAt(0).toUpperCase();
     }
-    // Nimm den 1. Buchstaben von Vorname + 1. Buchstaben von Nachname
     return (
       parts[0].charAt(0).toUpperCase() +
       parts[1].charAt(0).toUpperCase()
@@ -189,21 +187,17 @@ function getInitialsForName(fullName) {
 
 
 function renderAssignedUsers(task) {
-    // Wenn kein assignTo-Feld oder leeres Array => kein HTML
     if (!task.assignTo || !task.assignTo.length) {
       return '';
     }
   
-    // Erzeuge pro E-Mail einen Div mit den Initialen
     return task.assignTo.map(email => {
       let user = usersFromApi.find(u => u.email === email);
   
-      // Falls User gefunden => zeige Initialen
       if (user) {
         let initials = getInitialsForName(user.name);
         return `<div class="contact-list-initals">${initials}</div>`;
       } else {
-        // Sonst "??"
         return `<div class="contact-list-initals">??</div>`;
       }
     }).join('');
