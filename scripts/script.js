@@ -119,11 +119,15 @@ function loadingToBoard() {
 
 
 function initBoard() {
+ loadAndRenderTasks();
+}
 
-
-
+async function loadAndRenderTasks() {
+    await getDataFromServer('tasks', tasksFromApi);
     renderBoard();
 }
+
+
 
 function renderBoard() {
     let boardToDo = document.getElementById('boardToDoCard');
