@@ -176,11 +176,9 @@ function checkEmptyColums(todo, prog, feed, done) {
 function getInitialsForName(fullName) {
     if (!fullName) return '';
     let parts = fullName.trim().split(' ');
-    // Falls nur ein einzelner Name
     if (parts.length < 2) {
         return fullName.charAt(0).toUpperCase();
     }
-    // Nimm den 1. Buchstaben von Vorname + 1. Buchstaben von Nachname
     return (
       parts[0].charAt(0).toUpperCase() +
       parts[1].charAt(0).toUpperCase()
@@ -189,21 +187,17 @@ function getInitialsForName(fullName) {
 
 
 function renderAssignedUsers(task) {
-    // Wenn kein assignTo-Feld oder leeres Array => kein HTML
     if (!task.assignTo || !task.assignTo.length) {
       return '';
     }
   
-    // Erzeuge pro E-Mail einen Div mit den Initialen
     return task.assignTo.map(email => {
       let user = usersFromApi.find(u => u.email === email);
   
-      // Falls User gefunden => zeige Initialen
       if (user) {
         let initials = getInitialsForName(user.name);
         return `<div class="contact-list-initals">${initials}</div>`;
       } else {
-        // Sonst "??"
         return `<div class="contact-list-initals">??</div>`;
       }
     }).join('');
@@ -213,17 +207,28 @@ function renderAssignedUsers(task) {
 
    
 
-function createTaskCard(task) {
+  function createTaskCard(task) {
     let assignedHTML = renderAssignedUsers(task);
+  
     return `
       <div class="task-card">
-        <h3>${task.title}</h3>
-        <p>${task.description}</p>
-        <p>Due: ${task.date || '-'}</p>
-        <p>Priority: ${task.priority || '-'}</p>
-         <div class="assigned-users">
-        ${assignedHTML}
+      <div>
+      <div class="task-type">${task.task}</div>
       </div>
+        
+        <div>
+        <div class="task-title">${task.title}</div>
+        <div class="task-description">${task.description}</div>
+        </div>
+        
+        <div class="task-meta">
+          <span class="task-date">Due: ${task.date}</span>
+        </div>
+        <div class="task-assigned-users">
+          ${assignedHTML}
+          <span class="task-priority">Priority: ${task.priority}</span>
+        </div>
       </div>
     `;
   }
+  
