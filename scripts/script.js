@@ -203,12 +203,24 @@ function renderAssignedUsers(task) {
     }).join('');
   }
   
-    
-
+  function getPriorityIconHTML(priority) {
+    if (!priority) return '';
+  
+    let prio = priority.toLowerCase();
+    if (prio === 'urgent') {
+      return `<img src="../assets/icons/prio-urgent.svg" class="task-priority-icon" alt="Urgent" />`;
+    } else if (prio === 'medium') {
+      return `<img src="../assets/icons/prio-medium.svg" class="task-priority-icon" alt="Medium" />`;
+    } else if (prio === 'low') {
+      return `<img src="../assets/icons/prio-low.svg" class="task-priority-icon" alt="Low" />`;
+    }
+    return '';
+  }
    
 
   function createTaskCard(task) {
     let assignedHTML = renderAssignedUsers(task);
+    let priorityHTML = getPriorityIconHTML(task.priority);
   
     return `
       <div class="task-card">
@@ -226,7 +238,7 @@ function renderAssignedUsers(task) {
       </div>
       <div class="task-meta-assignend-user-container"> 
       <div class="task-meta">
-        <span class="task-priority">Priority: ${task.priority}</span>
+        ${priorityHTML}
       </div>
       <div class="task-assigned-users">
         ${assignedHTML}
