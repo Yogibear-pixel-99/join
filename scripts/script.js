@@ -71,6 +71,10 @@ function toggleDropdown() {
 
 function toggleAddTaskOverlay() {
     let addtaskREF = document.getElementById("addtask-overlay");
+    let maskREF = document.getElementById("mask-container");
+    let addtaskHideREF = document.getElementById("addtask-content");
+    addtaskHideREF.classList.toggle("addtask-content-hide")
+    maskREF.classList.toggle("d-none")
     addtaskREF.classList.toggle("d-none")
 }
 

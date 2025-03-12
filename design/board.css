@@ -109,37 +109,20 @@
 }
 
 .addtask-overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 801;
-  background-color: rgba(0, 0, 0, 0.226);
+  z-index: 1001;
   overscroll-behavior: contain;
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInToLeft {
-  100% {
-    transform: translateX(0);
-  }
-  0% {
-    transform: translateX(100%);
-  }
 }
 
 .find-task-wrapper {
   position: relative;
+}
+
+.addtask-content-hide {
+    transform: translate(100vw, -50%) !important;
+    z-index: 1500;
 }
 
 .addtask-content {
@@ -148,33 +131,21 @@
   flex-direction: column;
   width: 816px;
   height: 770px !important;
-  transition: right 0.3s ease-in-out;
   border-radius: 30px;
   padding-top: 48px;
   padding-left: 64px;
   padding-right: 64px;
   padding-bottom: 0;
-  position: fixed;
+  position: absolute;
   background-color: var(--join-background);
   height: 100%;
   background: #f6f7f8;
   overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.1s ease-in-out;
-}
-
-.addtask-content {
-  transform: translateX(100%); 
-  transition: opacity 0.1s ease-in-out; 
-}
-
-.addtask-overlay:not(.d-none) .addtask-content {
-  animation: slideInFromRight 0.1s forwards; 
-}
-
-.addtask-overlay.d-none .addtask-content {
-  animation: slideOutToRight 0.1s forwards; 
-  opacity: 0; 
+  z-index: 2200;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transition: 400ms ease-in-out;
 }
 
 .addtask-close-button {

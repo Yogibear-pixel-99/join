@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../design/main.css" />
     <link rel="stylesheet" href="../design/assets.css" />
     <link rel="stylesheet" href="../design/colors.css" />
+    <link rel="stylesheet" href="../design/contactsoverlay.css">
     <link rel="stylesheet" href="../design/board.css" />
     <link rel="stylesheet" href="../design/addtask.css" />
     <link rel="stylesheet" href="../design/header.css" />
@@ -270,12 +271,12 @@
 
     
     <section
-      onclick="toggleAddTaskOverlay()"
+    onclick="toggleAddTaskOverlay()"
       id="addtask-overlay"
       class="addtask-overlay d-none"
     >
-      <div onclick="noClose(event)" class="addtask-content addtask-content-hide">
-        <div class="addtask-header addtask-header-overlay d-none">
+      <div onclick="noClose(event)" class="addtask-content addtask-content-hide" id="addtask-content">
+        <div class="addtask-header addtask-header-overlay">
           <h2>Add Task</h2>
           <svg
             onclick="toggleAddTaskOverlay()"
@@ -398,7 +399,7 @@
         </form>
       </div>
     </section>
-
+    <section class="mask-container d-none" id="mask-container"  onclick="toggleAddTaskOverlay()"></section>
     
   </body>
 </html>
