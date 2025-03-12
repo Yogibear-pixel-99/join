@@ -212,23 +212,29 @@ function renderAssignedUsers(task) {
   
     return `
       <div class="task-card">
-      <div>
+      <div class="task-type-container">
       <div class="task-type">${task.task}</div>
       </div>
-        
-        <div>
-        <div class="task-title">${task.title}</div>
-        <div class="task-description">${task.description}</div>
+      <div class="task-title">${task.title}</div>
+      <div class="task-description">${task.description}</div>
+      <div class="task-subtask-info">
+        <div class="subtask-progressbar">
+          <!-- width: 50% hier nur beispielhaft statisch -->
+          <div class="subtask-progress" style="width: 50%;"></div>
         </div>
-        
-        <div class="task-meta">
-          <span class="task-date">Due: ${task.date}</span>
-        </div>
-        <div class="task-assigned-users">
-          ${assignedHTML}
-          <span class="task-priority">Priority: ${task.priority}</span>
-        </div>
+        <span class="subtask-count">1/2 Subtasks</span>
       </div>
+      <div class="task-meta-assignend-user-container"> 
+      <div class="task-meta">
+        <span class="task-priority">Priority: ${task.priority}</span>
+      </div>
+      <div class="task-assigned-users">
+        ${assignedHTML}
+      </div>
+      </div>
+      
+    </div>
+
     `;
   }
   
