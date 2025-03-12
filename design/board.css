@@ -129,6 +129,15 @@
   }
 }
 
+@keyframes slideInToLeft {
+  100% {
+    transform: translateX(0);
+  }
+  0% {
+    transform: translateX(100%);
+  }
+}
+
 .find-task-wrapper {
   position: relative;
 }
@@ -154,8 +163,18 @@
   transition: transform 0.1s ease-in-out;
 }
 
+.addtask-content {
+  transform: translateX(100%); 
+  transition: opacity 0.1s ease-in-out; 
+}
+
 .addtask-overlay:not(.d-none) .addtask-content {
-  animation: slideInFromRight 0.1s forwards;
+  animation: slideInFromRight 0.1s forwards; 
+}
+
+.addtask-overlay.d-none .addtask-content {
+  animation: slideOutToRight 0.1s forwards; 
+  opacity: 0; 
 }
 
 .addtask-close-button {
