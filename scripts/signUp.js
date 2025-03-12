@@ -1,16 +1,9 @@
-// get infos from: value
 
-// name
-// email
-// password
-// confirm password
 
 // function who checks if
 
-// password and confirm is same
-// privacy is checked
-// user allready exists
-// email allready exists
+
+
 
 // then update data to firebase
 
@@ -19,19 +12,21 @@
 // directed to log in page
 
 let newUserData = {};
-let allUserData = [];
 
-async function signUpNewUser(event) {
-  event.preventDefault();
-  getNewUserTemp();
-  collectFormInformation();
-//   check if PW and CONFIRM is same
-// Change the comparisation because of security lecks. - just/email?
-  await getDataFromServer('users', allUserData);
-  checkIfUserAlreadyExists();
-// Add user ID Nr. from the length of the existing users
-  console.log(newUserData);
-  console.log(allUserData);
+async function signUpNewUser(event){
+    event.preventDefault();
+    if (await checkIfUserAlreadyExists()) {
+        console.log('user existiert bereits')
+    } else if (checkIfPasswordIsSameAsConfirm()) {
+        console.log('Passwort stimmt nicht überein')
+    } else {
+        getNewUserTemp();
+        collectFormInformation();
+        await postDataToApi('users', newUserData);
+        mainContentBrightness50();
+        showSignUpButton();
+        setTimeout(() => redirectToLogInPage(), 1000);
+    }
 }
 
 
@@ -60,19 +55,72 @@ function getNewUserTemp() {
   };
 }
 
-
-function checkIfUserAlreadyExists(){
-    let newUserEmail = newUserData.email;
-        if (checkIfEmailIsInUse(newUserEmail)) {
-            alert(`user already excists. ${newUserEmail} is already in use!`)
+async function checkIfUserAlreadyExists(){
+    const userEmail = document.getElementById('sign-up-email').value;
+    let allUserDataEmail = [];
+    try {
+        const response = await fetch(MAIN_URL + 'users' + '.json' );
+        console.log(response);
+        if (!response.ok) {
+            throw new Error("error loading users");
         } else {
-            console.log('user will be pushed');
+        let data = await response.json();
+            for (let userIndex = 0; userIndex < data.length; userIndex++) {
+                const element = data[userIndex].email;
+                      allUserDataEmail.push(element);
+            }
+        }
+    } catch (error) {
+        console.log('Error:', error.message);
+    }
+    if (allUserDataEmail.some(element => element === userEmail)) {
+            return true;
+        } else {
+            return false;
         }
 }
 
-function checkIfEmailIsInUse(newUserEmail){
-    allUserData.find(element => {
-        if (element.email === newUserEmail)
+
+function checkIfPasswordIsSameAsConfirm(){
+    const newUserPassword = document.getElementById('sign-up-password').value;
+    const newUserPasswordConfirm = document.getElementById('sign-up-password-confirm').value;
+    if (newUserPassword !== newUserPasswordConfirm) {
         return true;
-    })
+    } else {
+        return false;
+    }
+}
+
+async function postDataToApi(objName, newData){
+    try {
+    const response = await fetch (MAIN_URL + objName + '.json', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+    });
+    if (!response.ok) {
+        throw new Error(`Fehler beim übertragen! - ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Erfolgreich', data);
+    }
+    catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+function mainContentBrightness50(){
+    const ref = document.getElementById('main-container');
+          ref.classList.add('darken-background');
+}
+
+function showSignUpButton(){
+    const ref = document.getElementById('sign-up-success-button');
+          ref.classList.add('sign-up-success-button-show');
+}
+
+function redirectToLogInPage(){
+    window.location.href = '../html/login.html';
 }
