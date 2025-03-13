@@ -65,10 +65,8 @@ async function checkIfUserAlreadyExists(){
             throw new Error("error loading users");
         } else {
         let data = await response.json();
-            for (let userIndex = 0; userIndex < data.length; userIndex++) {
-                const element = data[userIndex].email;
-                      allUserDataEmail.push(element);
-            }
+        console.log(data);
+        allUserDataEmail = Object.values(data).map((element) => element.email);
         }
     } catch (error) {
         console.log('Error:', error.message);
