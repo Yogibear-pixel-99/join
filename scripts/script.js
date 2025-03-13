@@ -19,7 +19,7 @@ async function getDataFromServer(objName, destination) {
     try {
         let response = await fetch (MAIN_URL + objName + ".json");
         if (!response.ok) {
-            throw new Error('no answere from server');
+            throw new Error('no answer from server');
         } else {
             let data = await response.json();
             destination.splice(0, 0, ...data);
