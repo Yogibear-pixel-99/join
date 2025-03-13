@@ -162,6 +162,7 @@ input[type="checkbox"] {
   .input-alert-message {
     font-family: poppins;
     font-size: 12px;
+    color: white;
   }
 
   .red-border-inputfield{

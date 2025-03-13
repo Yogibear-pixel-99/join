@@ -11,16 +11,16 @@ let newUserData = {};
 async function signUpNewUser(event) {
   event.preventDefault();
   if (checkIfPasswordIsSameAsConfirm()) {
-    
+    addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
   } else if (await checkIfUserAlreadyExists()) {
-    showOverlayButton("sign-up-success-button", "User existiert bereits");
-    setTimeout(() => hideOverlayButton("sign-up-success-button"), 2500);
+    removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
+    addRedBorderAndTextFalseInput('sign-up-email', 'input-alert-message', "User/email already exists. Please try again.");
   } else {
     getNewUserTemp();
     collectFormInformation();
     await postDataToApi("users", newUserData);
     mainContentBrightness50();
-    showSignUpButton("You Signed Up successfully");
+    showOverlayButton("sign-up-success-button", "You Signed Up successfully");
     setTimeout(() => redirectToLogInPage(), 1000);
   }
 }
@@ -124,16 +124,15 @@ function redirectToLogInPage() {
   window.location.href = "../html/login.html";
 }
 
-addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
-
-function addRedBorderAndTextFalseInput(borderContainer, messageContainer){
+function addRedBorderAndTextFalseInput(borderContainer, messageContainer, errorMessage){
     const contentRef = document.getElementById(borderContainer).parentElement;
     const textRef = document.getElementById(messageContainer);
           contentRef.classList.add('red-border-inputfield');
+          textRef.innerText = errorMessage;
           textRef.style.color = 'red';
 }
 
-function removeRedBorderAndTextFalseInput(borderContainer, messageContainer, redBorderClass){
+function removeRedBorderAndTextFalseInput(borderContainer, messageContainer){
     const contentRef = document.getElementById(borderContainer).parentElement;
     const textRef = document.getElementById(messageContainer);
           contentRef.classList.remove('red-border-inputfield');
