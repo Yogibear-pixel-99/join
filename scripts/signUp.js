@@ -10,12 +10,14 @@ let newUserData = {};
 
 async function signUpNewUser(event) {
   event.preventDefault();
+  removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
+  removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message');
   if (checkIfPasswordIsSameAsConfirm()) {
     addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
-  } else if (await checkIfUserAlreadyExists()) {
-    removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
-    addRedBorderAndTextFalseInput('sign-up-email', 'input-alert-message', "User/email already exists. Please try again.");
+  } else if (await checkIfDataAlreadyExists("user-email-input", "users")) {
+    addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
   } else {
+    removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
     getNewUserTemp();
     collectFormInformation();
     await postDataToApi("users", newUserData);
@@ -47,23 +49,6 @@ function getNewUserTemp() {
     tasksInProgress: "",
     awaitingFeedback: "",
   };
-}
-
-async function checkIfUserAlreadyExists() {
-  const userEmail = document.getElementById("sign-up-email").value;
-  try {
-    const response = await fetch(MAIN_URL + "users" + ".json");
-    console.log(response);
-    if (!response.ok) {
-      throw new Error("error loading users");
-    } else {
-      let data = await response.json();
-      console.log(data);
-      return Object.values(data).some((element) => element.email === userEmail);
-    }
-  } catch (error) {
-    console.log("Error:", error.message);
-  }
 }
 
 function checkIfPasswordIsSameAsConfirm() {
@@ -117,17 +102,3 @@ function redirectToLogInPage() {
   window.location.href = "../html/login.html";
 }
 
-function addRedBorderAndTextFalseInput(borderContainer, messageContainer, errorMessage){
-    const contentRef = document.getElementById(borderContainer).parentElement;
-    const textRef = document.getElementById(messageContainer);
-          contentRef.classList.add('red-border-inputfield');
-          textRef.innerText = errorMessage;
-          textRef.style.color = 'red';
-}
-
-function removeRedBorderAndTextFalseInput(borderContainer, messageContainer){
-    const contentRef = document.getElementById(borderContainer).parentElement;
-    const textRef = document.getElementById(messageContainer);
-          contentRef.classList.remove('red-border-inputfield');
-          textRef.style.color = 'white';
-}

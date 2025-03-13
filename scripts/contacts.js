@@ -15,7 +15,6 @@ function toggleAddContactsOverlay(){
         overlay.classList.toggle('add-contact-overlay-open');
         mask.classList.toggle('d-none');
         mainContent.classList.toggle('disable-pointer-events');
-        // mainContent.classList.toggle('brightness-50');
 }
 
 
@@ -98,4 +97,23 @@ function animateContactMenu(){
           requestAnimationFrame(() => {
             menuRef.classList.add('floating-contact-container-open');
           });
+}
+
+// contact function
+
+
+
+// change post function that the response calls the message.
+
+function createNewContact(){
+    
+    // check if user exists - no go further - yes = call error border and text!
+
+// set template for new contact
+// get infos from form
+// push to API
+// get info button "contact successfully added"
+// get alle Contacts
+// highlight new contact in contacts list
+// open new contact in float menu
 }
