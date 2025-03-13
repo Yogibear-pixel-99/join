@@ -156,3 +156,14 @@ input[type="checkbox"] {
     0% {filter: brightness(100%)}
     100% {filter: brightness(50%)}
   }
+
+  /* SIGN UP */
+
+  .input-alert-message {
+    font-family: poppins;
+    font-size: 12px;
+  }
+
+  .red-border-inputfield{
+    border-color: red;
+  }

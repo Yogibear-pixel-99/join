@@ -55,16 +55,18 @@
               placeholder="Password" />
             <img class="input-logo" src="../assets/icons/lock.svg" />
           </div>
-          <div class="input-field-container">
-            <input
-              id="sign-up-password-confirm"
-              class="login-input-field"
-              type="password"
-              required
-              placeholder="Confirm Password" />
-            <img class="input-logo" src="../assets/icons/lock.svg" />
+          <div class="password-confirm-wrapper">
+            <div class="input-field-container">
+              <input
+                id="sign-up-password-confirm"
+                class="login-input-field"
+                type="password"
+                required
+                placeholder="Confirm Password" />
+              <img class="input-logo" src="../assets/icons/lock.svg" />
+            </div>
+            <span id="input-alert-message" class="input-alert-message">Your passwords don't match. Please try again.</span>
           </div>
-
           <div class="flex-ctr-ctr accept-policy-login">
             <input
               type="checkbox"

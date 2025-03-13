@@ -11,12 +11,7 @@ let newUserData = {};
 async function signUpNewUser(event) {
   event.preventDefault();
   if (checkIfPasswordIsSameAsConfirm()) {
-    showOverlayButton(
-      "sign-up-success-button",
-      "Passwort stimmt nicht überein"
-    );
-    setTimeout(() => hideOverlayButton("sign-up-success-button"), 2500);
-    console.log("Passwort stimmt nicht überein");
+    
   } else if (await checkIfUserAlreadyExists()) {
     showOverlayButton("sign-up-success-button", "User existiert bereits");
     setTimeout(() => hideOverlayButton("sign-up-success-button"), 2500);
@@ -129,7 +124,18 @@ function redirectToLogInPage() {
   window.location.href = "../html/login.html";
 }
 
-function addRedBorderAndTextFalseInput(containerId, redBorderClass, alertText){
-    const ref = document.getElementById(containerId);
-          ref.classList.add(redBorrderClass);
+addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
+
+function addRedBorderAndTextFalseInput(borderContainer, messageContainer){
+    const contentRef = document.getElementById(borderContainer).parentElement;
+    const textRef = document.getElementById(messageContainer);
+          contentRef.classList.add('red-border-inputfield');
+          textRef.style.color = 'red';
+}
+
+function removeRedBorderAndTextFalseInput(borderContainer, messageContainer, redBorderClass){
+    const contentRef = document.getElementById(borderContainer).parentElement;
+    const textRef = document.getElementById(messageContainer);
+          contentRef.classList.remove('red-border-inputfield');
+          textRef.style.color = 'white';
 }
