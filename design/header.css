@@ -85,3 +85,7 @@
 .dropdown-menu a:hover{
 background-color: var(--hover-darkblue);
 }
+
+.privacy-policy-header {
+    padding-top: 50px;
+}
