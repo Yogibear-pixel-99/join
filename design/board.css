@@ -241,7 +241,19 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;                        
+  gap: 10px; 
+  cursor: grab;
+  transition: transform 0.2s ease-in-out;  
+}
+
+.task-card:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+.drag-over {
+  background-color: rgba(0, 0, 255, 0.1);
+  border: 2px dashed blue;
 }
 
 .task-type-container {
