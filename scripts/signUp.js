@@ -51,7 +51,6 @@ function getNewUserTemp() {
 
 async function checkIfUserAlreadyExists() {
   const userEmail = document.getElementById("sign-up-email").value;
-  let allUserDataEmail = [];
   try {
     const response = await fetch(MAIN_URL + "users" + ".json");
     console.log(response);
@@ -60,15 +59,10 @@ async function checkIfUserAlreadyExists() {
     } else {
       let data = await response.json();
       console.log(data);
-      allUserDataEmail = Object.values(data).map((element) => element.email);
+      return Object.values(data).some((element) => element.email === userEmail);
     }
   } catch (error) {
     console.log("Error:", error.message);
-  }
-  if (allUserDataEmail.some((element) => element === userEmail)) {
-    return true;
-  } else {
-    return false;
   }
 }
 
@@ -116,7 +110,6 @@ function showOverlayButton(buttonId, buttonText) {
 
 function hideOverlayButton(buttonId) {
   const ref = document.getElementById(buttonId);
-  //   ref.innerText = '';
   ref.classList.remove("overlay-button-show");
 }
 
