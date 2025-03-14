@@ -152,6 +152,11 @@ body {
     align-items: center;
 }
 
+.input-wrapper input {
+    flex: 1;
+    font-size: 20px;
+}
+
 .add-contact-formular-wrapper {
     display: flex;
     flex-direction: column;

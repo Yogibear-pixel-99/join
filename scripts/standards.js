@@ -1,6 +1,28 @@
 
 
 
+
+
+
+async function postDataToApi(objName, newData) {
+  try {
+    const response = await fetch(MAIN_URL + objName + ".json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    });
+    if (!response.ok) {
+      throw new Error(`Fehler beim übertragen! - ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("Erfolgreich", data);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
 /**
  * Check if data in the inputfield is already in the realtime database and returns a boolean.
  * 

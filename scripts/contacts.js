@@ -113,9 +113,9 @@ async function createNewContact(event){
         setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 5000);
     } else {
     console.log('go further');
-    // fill template with formData
-    // add id to template
-    // push to API
+    await postDataToApi('contacts', collectedFormInfos);
+    toggleAddContactsOverlay();
+    sortAndRenderContacts();
     // get info button "contact successfully added"
     // get alle Contacts
     // highlight new contact in contacts list
@@ -149,4 +149,3 @@ async function getMaxlengthOfEntriesFromApi(objName){
 
 // TEXT INPUT FIELD DESIGN!!
 // change post function that the response calls the message.
-// WIDTH of input fields in overlay flex 1.

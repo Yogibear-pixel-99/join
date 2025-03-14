@@ -6,6 +6,7 @@ MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
 let contactsFromApi = [];
 let tasksFromApi = [];
 let usersFromApi = [];
+let collectedFormInfos = {};
 // GLOBAL ARRAYS ---------------------------------------
 
 
@@ -22,7 +23,8 @@ async function getDataFromServer(objName, destination) {
             throw new Error('no answer from server');
         } else {
             let data = await response.json();
-            destination.splice(0, 0, ...data);
+            destination.splice(0, destination.length, ...Object.values(data));
+            console.log(destination);
         }
     } catch (error) {
         console.log(error);
