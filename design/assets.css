@@ -38,6 +38,10 @@
   padding: 0;
 }
 
+.scrollable-auto {
+    overflow: auto;
+}
+
 .center {
   align-self: center;
 }

@@ -127,6 +127,8 @@
 }
 
 
+
+
 /* DETAILS FOR FULL CONTACT */
 
 .board-container-wrapper {
@@ -234,3 +236,29 @@
     font-weight: 700;
 }
 
+.highlight-contact {
+    background-color: var(--join-dark);
+    color: var(--white);
+}
+
+.highlight-contact:hover {
+    background: var(--join-dark);
+    color: var(--white);
+}
+
+.contact-created-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-top: 60px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-weight: 400;
+    transform: translateX(100vw);
+    transition: 300ms ease-in-out;
+}
+
+.contact-created-button-show {
+    transform: translateX(0);
+}

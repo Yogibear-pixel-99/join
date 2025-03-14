@@ -36,7 +36,8 @@ async function sortAndRenderContacts(){
  */
 function sortAllContactsByFirstLetter(){
     sortedContactsArrayByFirstLetter = contactsFromApi.reduce((newArray, element) => {
-        const firstLetter = element.name.slice(0, 1);
+        const firstLetter = element.name.slice(0, 1).toUpperCase();
+              
             return {...newArray,
                 [firstLetter] : [...(newArray[firstLetter] || []), element]
             };
@@ -86,6 +87,7 @@ function openContactInFloatMenu(contactId, colorLetter){
     const contact = contactsFromApi.find(element => element.id === contactId); 
           contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter);
         animateContactMenu();
+        addBackgroundToSelectedContact(contactId);
 }
 
 /**
@@ -99,10 +101,6 @@ function animateContactMenu(){
           });
 }
 
-// contact function
-
-
-
 
 async function createNewContact(event){
     event.preventDefault();
@@ -112,14 +110,14 @@ async function createNewContact(event){
         addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', 'Contact/Email already exists!');
         setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 5000);
     } else {
-    console.log('go further');
     await postDataToApi('contacts', collectedFormInfos);
     toggleAddContactsOverlay();
-    sortAndRenderContacts();
+    await sortAndRenderContacts();
+    openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
+    showContactAddedSuccessButton();
+
     // get info button "contact successfully added"
-    // get alle Contacts
-    // highlight new contact in contacts list
-    // open new contact in float menu
+    // switch to position in contact list
     }
 }   
 
@@ -134,18 +132,22 @@ async function getNewContactTemp(){
 }
 
 
-async function getMaxlengthOfEntriesFromApi(objName){
-    try {
-        let response = await fetch(MAIN_URL + objName + '.json');
-        if (!response.ok) {
-            throw new Error('Now answer from server!')
-        }
-        let data = await response.json();
-        return data.length;
-    } catch (error) {
-        console.log(error);
-    }
+function addBackgroundToSelectedContact(containerId){
+    const otherRef = document.querySelectorAll('.single-contact');
+    const ref = document.getElementById(`contact-${containerId}`);
+          otherRef.forEach(element => {
+            element.classList.remove('highlight-contact');
+          })
+          ref.classList.add('highlight-contact');
+}
+
+
+function showContactAddedSuccessButton(){
+    const ref = document.getElementById('contact-created-button');
+          setTimeout(() => ref.classList.add('contact-created-button-show'), 400);
+          setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
 
 // TEXT INPUT FIELD DESIGN!!
 // change post function that the response calls the message.
+// lower case name automatic to upper case first letter

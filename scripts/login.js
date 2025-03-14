@@ -1,59 +1,49 @@
 /* 
 const loginREF = document.getElementById("login"); */
-let emailUserList = [];
-let passwordUserList = [];
+let loginInfoList = [];
 
 async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
-  getAllEmail();
-  getAllPasswords();
-  
-  
+  getAllLoginInfo();
 }
 
-function getAllEmail() {
+function getAllLoginInfo() {
+    loginInfoList = [];
     for (let index = 0; index < usersFromApi.length; index++) {
-       emailUserList.push(usersFromApi[index].email); 
+       loginInfoList.push({
+          email: usersFromApi[index].email,
+          password:usersFromApi[index].password
+       }); 
     }
-    console.log(emailUserList);
-    
-    let position = emailUserList[1].includes('lukas@schmidt.com')
-    console.log(position);
-    
-    
+    console.log(loginInfoList);
 }
-
-function getAllPasswords() {
-    for (let index = 0; index < usersFromApi.length; index++) {
-        passwordUserList.push(usersFromApi[index].password); 
-     }
-     console.log(passwordUserList);
-     
-}
-
-
 
 function checkLogin(event) {
+  getUserInfo();
+  event.preventDefault();
   checkEmail(event);
 }
 
 function checkEmail(event) {
-  const emailREF = document.getElementById("email").value;
-  let emailChecked = emailUserList.includes(emailREF);
-  if (emailChecked == true) {
-    let emailIndex = emailUserList.indexOf(emailREF);
+  let emailREF = document.getElementById("email").value;
+  let emailChecked = loginInfoList.some(item => item.email === emailREF);
+  console.log(emailChecked);
+  
+  if (emailChecked === true) {
+    let emailIndex = loginInfoList.findIndex(item => item.email === emailREF);
+    console.log(emailIndex);
     checkPassword(emailIndex, event);
-  } else {
-    event.preventDefault();
-  }
+  } 
 }
 
 function checkPassword(emailIndex, event) {
   const passwordREF = document.getElementById("password").value;
-  let passwordChecked= passwordUserList[emailIndex].includes(passwordREF);
-  if (passwordChecked === false) {
-    event.preventDefault();
+  let passwordChecked= loginInfoList.findIndex(item => item.password === passwordREF);
+  console.log(passwordChecked);
+  
+  if (passwordChecked == emailIndex) {
+    window.location.href = "summary.html"
   }
+  
 }
 
-getUserInfo();
