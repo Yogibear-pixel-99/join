@@ -30,3 +30,7 @@ function setActive(button, priority) {
   }
   
   
+  function resetForm(formId){
+    const ref = document.getElementById(formId);
+          ref.reset();
+  }

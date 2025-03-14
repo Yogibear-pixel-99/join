@@ -209,9 +209,3 @@ label {
 }
   
 
-input[type="reset"] {
-    border: none;
-    background: white;
-    font-family: inter;
-    font-size: 16px;
-}

@@ -1,171 +1,206 @@
 <!DOCTYPE html>
 <html lang="en-de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Add task</title>
 
-    <link rel="stylesheet" href="../design/assets.css">
-    <link rel="stylesheet" href="../design/colors.css">
-    <link rel="stylesheet" href="../design/header.css">
-    <link rel="stylesheet" href="../design/main.css">
-    <link rel="stylesheet" href="../design/navbar.css">
-    <link rel="stylesheet" href="../design/addtask.css">
-    
-    <link rel="icon" type="x-icon/favicon" href="../assets/icons/join-logo-login.svg">
+    <link rel="stylesheet" href="../design/assets.css" />
+    <link rel="stylesheet" href="../design/colors.css" />
+    <link rel="stylesheet" href="../design/header.css" />
+    <link rel="stylesheet" href="../design/main.css" />
+    <link rel="stylesheet" href="../design/navbar.css" />
+    <link rel="stylesheet" href="../design/addtask.css" />
+
+    <link
+      rel="icon"
+      type="x-icon/favicon"
+      href="../assets/icons/join-logo-login.svg" />
 
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
     <script defer src="../scripts/standards.js"></script>
-    <script defer src="../scripts/addtask.js"></script>
-</head>
-<body>
-    
-    
+    <!-- <script defer src="../scripts/addtask.js"></script> -->
+  </head>
+  <body>
     <div class="navbar-container">
-        <div>
-        <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
-            <navbar class="navbar-link-container">
-            <a href="./summary.html">
-                <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
-                <div class="center">Summary</div>
-            </a>
-            <a href="./addtask.html" class="active-button">
-                <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
-                <div class="center">Add Task</div>
-            </a>
-            <a href="./board.html">
-                <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
-                <div class="center">Board</div>
-            </a>
-            <a href="./contacts.html">
-                <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
-                <div class="center">Contacts</div>
-            </a>
-            </navbar>
-        </div>
-        <div class="policy-legal-content">
-            <a href="./Privacypolicy.html" class="policy-legal-area">Privacy Policy</a>
-            <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
-        </div>
+      <div>
+        <img
+          class="join-logo-navbar join-logo"
+          src="../assets/icons/capa2.svg"
+          alt="join logo" />
+        <navbar class="navbar-link-container">
+          <a href="./summary.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/summary.svg"
+              alt="summary icon" />
+            <div class="center">Summary</div>
+          </a>
+          <a href="./addtask.html" class="active-button">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/addTask.svg"
+              alt="add task icon" />
+            <div class="center">Add Task</div>
+          </a>
+          <a href="./board.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/board.svg"
+              alt="board icon" />
+            <div class="center">Board</div>
+          </a>
+          <a href="./contacts.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/contacts.svg"
+              alt="contacts icon" />
+            <div class="center">Contacts</div>
+          </a>
+        </navbar>
+      </div>
+      <div class="policy-legal-content">
+        <a href="./Privacypolicy.html" class="policy-legal-area"
+          >Privacy Policy</a
+        >
+        <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
+      </div>
     </div>
 
     <main class="main-container">
-        <header class="header-container">
-            <span class="header-text">Kanban Project Management Tool</span>
-            <div class="header-logos-right">
-                <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo">
-                <div onclick="toggleDropdown()" class="header-initials" >SM</div>
-            </div>
-        </header>
-        <div class="dropdown-menu d-none" id="dropdown">
-            <a href="./legalnotice.html">
-                <div class="dropdown-text">Legal Notice</div>
-            </a>
-            <a href="./Privacypolicy.html">
-                <div class="dropdown-text">Privacy Policy</div>
-            </a>
-            <a href="./login.html">
-                <div class="dropdown-text">Log out</div>
-            </a>
+      <header class="header-container">
+        <span class="header-text">Kanban Project Management Tool</span>
+        <div class="header-logos-right">
+          <img
+            class="help-logo"
+            src="../assets/icons/help.svg"
+            alt="helplogo" />
+          <div onclick="toggleDropdown()" class="header-initials">SM</div>
         </div>
+      </header>
+      <div class="dropdown-menu d-none" id="dropdown">
+        <a href="./legalnotice.html">
+          <div class="dropdown-text">Legal Notice</div>
+        </a>
+        <a href="./Privacypolicy.html">
+          <div class="dropdown-text">Privacy Policy</div>
+        </a>
+        <a href="./login.html">
+          <div class="dropdown-text">Log out</div>
+        </a>
+      </div>
 
-        <div id="main-content" class="main-content">
-            <div class="addtask-header">
-                <h1>Add Task</h1>
-            </div>
-            <form>
-        <div class="info-input-field-container">
+      <div id="main-content" class="main-content">
+        <div class="addtask-header">
+          <h1>Add Task</h1>
+        </div>
+        <form id="add-task-form">
+          <div class="info-input-field-container">
             <div class="info-input-field-container-left">
-                <div>
-                    <label for="title">Title<span class="red-asterisk">*</span></label>
-                    <input required type="text" placeholder="Enter a title">
-                </div>
-           
-                <div>   
-                    <label for="description">Description<span class="red-asterisk">*</span></label>
-                    <textarea name="description" id=""placeholder="Enter a description"></textarea>
-                </div>
-                <div>
-                    <label for="due-date">Due date<span class="red-asterisk">*</span></label>
-                    <input required type="text" placeholder="dd//mm/yyyy">
-                </div>
-  
+              <div>
+                <label for="title"
+                  >Title<span class="red-asterisk">*</span></label
+                >
+                <input required type="text" placeholder="Enter a title" />
+              </div>
+
+              <div>
+                <label for="description"
+                  >Description<span class="red-asterisk">*</span></label
+                >
+                <textarea
+                  name="description"
+                  id=""
+                  placeholder="Enter a description"></textarea>
+              </div>
+              <div>
+                <label for="due-date"
+                  >Due date<span class="red-asterisk">*</span></label
+                >
+                <input required type="text" placeholder="dd//mm/yyyy" />
+              </div>
             </div>
             <div class="info-input-field-container-right">
-                <div>
-                    <label for="prio">Prio</label>
-                    <div class="btn-importance-container">
-                      <button class="btn-importance prio" onclick="setActive(this, 'prio')">
-                        Urgent
-                        <img src="../assets/icons/prio-urgent.svg" alt="">
-                      </button>
-                      <button class="btn-importance medium" onclick="setActive(this, 'medium')">
-                        Medium
-                        <img src="../assets/icons/prio-medium.svg" alt="">
-                      </button>
-                      <button class="btn-importance low" onclick="setActive(this, 'low')">
-                        Low
-                        <img src="../assets/icons/prio-low.svg" alt=""> 
-                      </button>
-                    </div>
-                  </div>
-                  
-                  
-                <div>
-                    <label for="assigned">Assigned to<span class="red-asterisk">*</span></label>
-                    <select name="assigned" id="assigned">
-                      <option value="" disabled selected>Select contacts to assign</option>
-                      <option value="john-doe">John Doe</option>
-                      <option value="jane-smith">Jane Smith</option>
-                      <option value="alice-jones">Alice Jones</option>
-                      <option value="bob-roberts">Bob Roberts</option>
-                      <option value="chris-lee">Chris Lee</option>
-                    </select>
+              <div>
+                <label for="prio">Prio</label>
+                <div class="btn-importance-container">
+                  <button class="btn-importance">
+                    Urgent
+                    <img
+                      src="../assets/icons/prio-urgent.svg
+                        "
+                      alt="" />
+                  </button>
+                  <button class="btn-importance">
+                    Medium
+                    <img
+                      id="medium-color"
+                      src="../assets/icons/prio-medium.svg"
+                      alt="" />
+                  </button>
+                  <button class="btn-importance">
+                    Low
+                    <img src="../assets/icons/prio-low.svg" alt="" />
+                  </button>
                 </div>
-                <div>
-                    <label for="category">
-                      Category<span class="red-asterisk">*</span>
-                    </label>
-                    <select name="category" id="category">
-                      <option value="" disabled selected>Select task category</option>
-                      <option value="technical-task">Technical Task</option>
-                      <option value="user-story">User Story</option>
-                    </select>
-                  </div>
-                  
-                <div class="subtask-input-wrapper">
-                    <label for="subtask">Subtasks</label>
-                    <input class="subtask-input" type="text" placeholder="Add new subtask">
-                    <div class="plus-icon"></div>
-                  </div>
-                  
+              </div>
+              <div>
+                <label for="assigned"
+                  >Assigned to<span class="red-asterisk">*</span></label
+                >
+                <select name="assigned" id="assigned">
+                  <option value="" disabled selected>
+                    Select contacts to assign
+                  </option>
+                  <option value="john-doe">John Doe</option>
+                  <option value="jane-smith">Jane Smith</option>
+                  <option value="alice-jones">Alice Jones</option>
+                  <option value="bob-roberts">Bob Roberts</option>
+                  <option value="chris-lee">Chris Lee</option>
+                </select>
+              </div>
+              <div>
+                <label for="category">
+                  Category<span class="red-asterisk">*</span>
+                </label>
+                <select name="category" id="category">
+                  <option value="" disabled selected>
+                    Select task category
+                  </option>
+                  <option value="technical-task">Technical Task</option>
+                  <option value="user-story">User Story</option>
+                </select>
+              </div>
+
+              <div class="subtask-input-wrapper">
+                <label for="subtask">Subtasks</label>
+                <input
+                  class="subtask-input"
+                  type="text"
+                  placeholder="Add new subtask" />
+                <div class="plus-icon"></div>
+              </div>
             </div>
-        </div>
-        <div class="addTask-button-container">
+          </div>
+          <div class="addTask-button-container">
             <div>
-                <span><span class="red-asterisk">*</span>This field is required</span>
+              <span
+                ><span class="red-asterisk">*</span>This field is required</span
+              >
             </div>
-            <div class="addTask-button-container-btns flex-ctr-ctr">
-                <div class="light-button btns-addtask" ><input type="reset" value="Clear"><img src="../assets/icons/Vector (1).svg" alt=""></input></div>
-                <button class="dark-button btns-addtask flex-ctr-ctr">Create Task <img src="../assets/icons/check.svg" ></button>
+            <div class="addTask-button-container-btns">
+              <div class="light-button btns-addtask" onclick="resetForm('add-task-form')">
+                Clear <img src="../assets/icons/Vector (1).svg" alt="" />
+              </div>
+              <button class="dark-button btns-addtask">
+                Create Task <img src="../assets/icons/check.svg" />
+              </button>
             </div>
-
-        </div>
+          </div>
         </form>
-        </div>
-
-    
-        
-
-
-
-
-    
-
-    
-        
+      </div>
     </main>
-</body>
+  </body>
 </html>
