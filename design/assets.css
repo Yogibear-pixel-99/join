@@ -1,133 +1,139 @@
-
-
-
 @font-face {
-    font-family: inter;
-    src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf);
+  font-family: inter;
+  src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf);
 }
 
 @font-face {
-    font-family: poppins;
-    src: url(../assets/fonts/Poppins-Regular.ttf);
+  font-family: poppins;
+  src: url(../assets/fonts/Poppins-Regular.ttf);
 }
 
-.d-none{
-    display: none !important;
+.d-none {
+  display: none !important;
 }
 
 .flex-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .flex1 {
-    flex: 1;
+  flex: 1;
 }
 
 .no-border {
-    border: none;
+  border: none;
 }
 
 .disable-pointer-events {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .no-padding {
-    padding: 0;
+  padding: 0;
 }
 
 .center {
-    align-self: center;
-  }
+  align-self: center;
+}
+
+.input-alert-message {
+  font-family: poppins;
+  font-size: 12px;
+  color: white;
+}
+
+.red-border-inputfield {
+  border-color: red !important;
+}
 
 input:focus {
-    outline: none;
-    border-color: var(--light-blue);
+  outline: none;
+  border-color: var(--light-blue);
 }
 
 .deactivate-content {
-    pointer-events: none;
-    filter:brightness(50%);
+  pointer-events: none;
+  filter: brightness(50%);
 }
 
 .dark-button-signup {
-    background-color: var(--join-dark);
-    color: white;
-    border-radius: 8px;
-    font-weight: 700;
-    padding: 15px 16px;
-    font-size: 16px;
-    font-family: inter;
-    border: none;
+  background-color: var(--join-dark);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 15px 16px;
+  font-size: 16px;
+  font-family: inter;
+  border: none;
 }
 
 .dark-button-signup:hover {
-    cursor: pointer;
-    background-color: var(--light-blue);
-    box-shadow: var(--button-shadow);
+  cursor: pointer;
+  background-color: var(--light-blue);
+  box-shadow: var(--button-shadow);
 }
 
-
 .dark-button {
-    background-color: var(--join-dark);
-    color: white;
-    border-radius: 8px;
-    font-weight: 700;
-    padding: 15px 24px; 
-    font-size: 16px;
-    font-family: inter;
-    border: none;
-    height: 48px;
+  background-color: var(--join-dark);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 15px 24px;
+  font-size: 16px;
+  font-family: inter;
+  border: none;
+  height: 48px;
 }
 
 .dark-button:hover {
-    cursor: pointer;
-    background-color: var(--light-blue);
-    box-shadow: var(--button-shadow);
+  cursor: pointer;
+  background-color: var(--light-blue);
+  box-shadow: var(--button-shadow);
 }
 
 .light-button {
-    box-sizing: border-box;
-    background-color: var(--white);
-    color: var(--join-dark);
-    border-radius: 8px;
-    font-weight: 700;
-    padding: 15px 16px;
-    font-size: 16px;
-    font-family: inter;
-    border: 1px solid var(--join-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 177px;
-    height: 48px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  color: var(--join-dark);
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 15px 16px;
+  font-size: 16px;
+  font-family: inter;
+  border: 1px solid var(--join-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 177px;
+  height: 48px;
 }
 
 .light-button:hover {
-    cursor: pointer;
-    border: 1px solid var(--light-blue);
-    color: var(--light-blue);
-    box-shadow: var(--button-shadow);
+  cursor: pointer;
+  border: 1px solid var(--light-blue);
+  color: var(--light-blue);
+  box-shadow: var(--button-shadow);
 }
 
 .lightblue-text {
-    color: var(--light-blue);
+  color: var(--light-blue);
 }
 
 .flex-ctr-ctr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .line {
-    background-color: var(--light-blue);
-    width: 2px;
-    height: 50px;
-    margin-right: 10px;
-  }
+  background-color: var(--light-blue);
+  width: 2px;
+  height: 50px;
+  margin-right: 10px;
+}

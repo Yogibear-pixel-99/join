@@ -190,3 +190,6 @@ body {
     border-color: var(--light-blue);
     color: var(--light-blue);
 }
+.contact-overlay-alert {
+    height: 32px;
+}

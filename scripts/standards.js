@@ -12,12 +12,10 @@ async function checkIfDataAlreadyExists(userContainerId, objName) {
     const userEmail = document.getElementById(userContainerId).value;
     try {
       const response = await fetch(MAIN_URL + objName + ".json");
-      console.log(response);
       if (!response.ok) {
         throw new Error("error loading users");
       } else {
         let data = await response.json();
-        console.log(data);
         return Object.values(data).some((element) => element.email === userEmail);
       }
     } catch (error) {
@@ -81,7 +79,6 @@ async function getMaxlengthOfEntriesFromApi(objName){
           throw new Error('Now answer from server!')
       }
       let data = await response.json();
-      console.log(data.length);
       return data.length;
   } catch (error) {
       console.log(error);

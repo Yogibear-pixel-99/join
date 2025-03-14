@@ -108,7 +108,11 @@ async function createNewContact(event){
     event.preventDefault();
     await getNewContactTemp();
     collectFormInformation('new-contact-form');
-    // check if user exists - no: go further - yes = call error border and text!
+    if (await checkIfDataAlreadyExists('user-email-input', 'contacts')) {
+        addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', 'Contact/Email already exists!');
+        setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 5000);
+    } else {
+    console.log('go further');
     // fill template with formData
     // add id to template
     // push to API
@@ -116,7 +120,8 @@ async function createNewContact(event){
     // get alle Contacts
     // highlight new contact in contacts list
     // open new contact in float menu
-}
+    }
+}   
 
 
 async function getNewContactTemp(){
@@ -136,7 +141,6 @@ async function getMaxlengthOfEntriesFromApi(objName){
             throw new Error('Now answer from server!')
         }
         let data = await response.json();
-        console.log(data.length);
         return data.length;
     } catch (error) {
         console.log(error);
@@ -145,3 +149,4 @@ async function getMaxlengthOfEntriesFromApi(objName){
 
 // TEXT INPUT FIELD DESIGN!!
 // change post function that the response calls the message.
+// WIDTH of input fields in overlay flex 1.
