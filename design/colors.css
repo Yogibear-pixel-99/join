@@ -30,6 +30,9 @@
 
     --scrollbar-color: #A8A8A8;
 
+    --priority-urgent: #FF3D00;
+    --priority-medium: #FFA800;
+    --priority-low: #7AE229;
 
 }
 
