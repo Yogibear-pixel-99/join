@@ -12,7 +12,7 @@ function firstLetterContainerTemp(firstLetterArray){
 
 
 function getSingleContactTemp(nameRow, firstLetterArray){
-    return `<div class="single-contact" onclick="openContactInFloatMenu('${nameRow.id}', '${firstLetterArray}')">
+    return `<div class="single-contact" id="contact-${nameRow.id}" onclick="openContactInFloatMenu('${nameRow.id}', '${firstLetterArray}')">
                 <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${firstLetterArray}">${nameRow.initials}</div>
                 <div class="flex-col flex1">
                     <span class="contact-name">${nameRow.name}</span>

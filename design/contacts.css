@@ -127,6 +127,8 @@
 }
 
 
+
+
 /* DETAILS FOR FULL CONTACT */
 
 .board-container-wrapper {
@@ -234,3 +236,11 @@
     font-weight: 700;
 }
 
+.highlight-contact {
+    background-color: var(--join-dark);
+    color: var(--white);
+}
+
+.highlight-contact:hover {
+    background-color: var(--join-dark) !important;
+}

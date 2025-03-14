@@ -92,7 +92,7 @@ function collectFormInformation(formContainer) {
  * Returns the length of the specified array in firebase to create the next id integer.
  * 
  * @param {string} objName - The needed array in the firebase API.
- * @returns 
+ * @returns The length of the array in the choosen API.
  */
 async function getMaxlengthOfEntriesFromApi(objName){
   try {
@@ -101,7 +101,7 @@ async function getMaxlengthOfEntriesFromApi(objName){
           throw new Error('Now answer from server!')
       }
       let data = await response.json();
-      return data.length;
+      return Object.keys(data).length;
   } catch (error) {
       console.log(error);
   }

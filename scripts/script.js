@@ -37,16 +37,12 @@ async function getDataFromServer(objName, destination) {
  * @param {object} element - The object position of the needed data in the array.
  * @returns - Returns the first letter of the first and last name. The initials.
  */
+
 function getInitialsForObject(element){
-    const name = element.name;
-    const regExp = /\b\w/g;
-    const initialArray = name.match(regExp);
-    let initials = '';
-        for (let index = 0; index < initialArray.length; index++) {
-             initials += `${initialArray[index]}`;
-        }
-        initials = initials.replace(/[a-z]/g, '');
-    return initials;
+    const name = element.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+    const regExp = /\b\p{L}/gu;
+    const initialsArray = name.match(regExp);
+    return initialsArray.join("");
 }
 
 /**
