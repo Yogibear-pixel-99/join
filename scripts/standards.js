@@ -67,3 +67,23 @@ function collectFormInformation(formContainer) {
     }
   }
 }
+
+/**
+ * Returns the length of the specified array in firebase to create the next id integer.
+ * 
+ * @param {string} objName - The needed array in the firebase API.
+ * @returns 
+ */
+async function getMaxlengthOfEntriesFromApi(objName){
+  try {
+      let response = await fetch(MAIN_URL + objName + '.json');
+      if (!response.ok) {
+          throw new Error('Now answer from server!')
+      }
+      let data = await response.json();
+      console.log(data.length);
+      return data.length;
+  } catch (error) {
+      console.log(error);
+  }
+}

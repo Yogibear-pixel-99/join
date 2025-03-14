@@ -104,9 +104,9 @@ function animateContactMenu(){
 
 
 
-function createNewContact(event){
+async function createNewContact(event){
     event.preventDefault();
-    getNewContactTemp();
+    await getNewContactTemp();
     collectFormInformation('new-contact-form');
     // check if user exists - no: go further - yes = call error border and text!
     // fill template with formData
@@ -119,9 +119,9 @@ function createNewContact(event){
 }
 
 
-function getNewContactTemp(){
+async function getNewContactTemp(){
     collectedFormInfos =     {
-        "id": `${getUniqueIdForUser()}`,
+        "id": `${await getMaxlengthOfEntriesFromApi('contacts') + 1}`,
         "name": "",
         "email": "",
         "phone": ""
@@ -129,8 +129,18 @@ function getNewContactTemp(){
 }
 
 
-function getUniqueIdForUser(){
-    
+async function getMaxlengthOfEntriesFromApi(objName){
+    try {
+        let response = await fetch(MAIN_URL + objName + '.json');
+        if (!response.ok) {
+            throw new Error('Now answer from server!')
+        }
+        let data = await response.json();
+        console.log(data.length);
+        return data.length;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // TEXT INPUT FIELD DESIGN!!
