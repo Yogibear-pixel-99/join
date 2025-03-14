@@ -17,8 +17,9 @@ function getAllEmail() {
     }
     console.log(emailUserList);
     
-    let position = emailUserList.indexOf('lukas@schmidt.com')
+    let position = emailUserList[1].includes('lukas@schmidt.com')
     console.log(position);
+    
     
 }
 
@@ -26,23 +27,33 @@ function getAllPasswords() {
     for (let index = 0; index < usersFromApi.length; index++) {
         passwordUserList.push(usersFromApi[index].password); 
      }
+     console.log(passwordUserList);
      
 }
 
 
 
-function checkLogin() {
-  const passwordREF = document.getElementById("password").value;
-  checkEmail();
+function checkLogin(event) {
+  checkEmail(event);
 }
 
-function checkEmail() {
+function checkEmail(event) {
   const emailREF = document.getElementById("email").value;
- 
+  let emailChecked = emailUserList.includes(emailREF);
+  if (emailChecked == true) {
+    let emailIndex = emailUserList.indexOf(emailREF);
+    checkPassword(emailIndex, event);
+  } else {
+    event.preventDefault();
+  }
 }
 
-function checkPassword() {
+function checkPassword(emailIndex, event) {
   const passwordREF = document.getElementById("password").value;
+  let passwordChecked= passwordUserList[emailIndex].includes(passwordREF);
+  if (passwordChecked === false) {
+    event.preventDefault();
+  }
 }
 
 getUserInfo();
