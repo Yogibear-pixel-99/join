@@ -143,6 +143,8 @@ function renderBoard() {
     clearBoardColums(todo, prog, feed, done);
     fillBaordColums(tasksFromApi,todo, prog, feed, done);
     checkEmptyColums(todo, prog, feed, done);
+
+    setupDragAndDrop();
 }
 
 function clearBoardColums(todo, prog, feed, done) {
@@ -225,9 +227,10 @@ function renderAssignedUsers(task) {
   function createTaskCard(task) {
     let assignedHTML = renderAssignedUsers(task);
     let priorityHTML = getPriorityIconHTML(task.priority);
+    
   
     return `
-      <div class="task-card">
+      <div class="task-card" id="task-${task.title.replace(/\s+/g, '-')}" draggable="true" data-status="${task.status}">
       <div class="task-type-container">
       <div class="task-type">${task.task}</div>
       </div>
@@ -254,3 +257,52 @@ function renderAssignedUsers(task) {
     `;
   }
   
+
+  // drag and drop 
+
+document.addEventListener("DOMContentLoaded", () => {
+    let columns = document.querySelectorAll(".board-single-task-container");
+
+    columns.forEach(column => {
+        column.addEventListener("dragover", dragover);
+        column.addEventListener("drop", dropTask);
+    });
+
+    document.addEventListener("dragstart", dragstart);
+    document.addEventListener("dragend", dragend);
+});
+
+function dragstart(event) {
+    if (!event.target.classList.contains("task-card")) return;
+    event.dataTransfer.setData("text/plain", event.target.id);
+    event.target.classList.add("dragging");
+}
+
+function dragover(event) {
+    event.preventDefault();
+    let column = event.currentTarget;
+    let draggingCard = document.querySelector(".dragging");
+    if (draggingCard && !column.contains(draggingCard)) {
+        column.appendChild(draggingCard);
+    }
+}
+
+function dropTask(event) {
+    event.preventDefault();
+    let taskId = event.dataTransfer.getData("text/plain");
+    let taskCard = document.getElementById(taskId);
+    let column = event.currentTarget;
+
+    if (taskCard && column) {
+        let newStatus = column.querySelector("span").innerText.toLowerCase().replace(" ", "");
+        taskCard.dataset.status = newStatus;
+
+        console.log(`Task ${taskId} moved to ${newStatus}`);
+    }
+
+    taskCard.classList.remove("dragging");
+}
+
+function dragend(event) {
+    event.target.classList.remove("dragging");
+}

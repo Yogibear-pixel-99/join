@@ -128,10 +128,14 @@ input[type="checkbox"] {
   }
 
   .main-log-in-container {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .sign-up-success-button {
+
+
+  .overlay-button {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -141,7 +145,7 @@ input[type="checkbox"] {
     transition: 250ms ease-out;
   }
 
-  .sign-up-success-button-show {
+  .overlay-button-show {
     transform: translate(-50%, -50%);
   }
 
@@ -155,4 +159,16 @@ input[type="checkbox"] {
   @keyframes brightness50 {
     0% {filter: brightness(100%)}
     100% {filter: brightness(50%)}
+  }
+
+  /* SIGN UP */
+
+  .input-alert-message {
+    font-family: poppins;
+    font-size: 12px;
+    color: white;
+  }
+
+  .red-border-inputfield{
+    border-color: red;
   }

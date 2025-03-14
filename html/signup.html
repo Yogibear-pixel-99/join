@@ -16,6 +16,7 @@
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
     <script defer src="../scripts/signUp.js"></script>
+    <script defer src="../scripts/standards.js"></script>
   </head>
   <body>
     <main id="main-container" class="main-container main-log-in-container">
@@ -35,9 +36,10 @@
               placeholder="Name" />
             <img class="input-logo" src="../assets/icons/person.svg" />
           </div>
+          <!-- <div class="email-wrapper"> -->
           <div class="input-field-container">
             <input
-              id="sign-up-email"
+              id="user-email-input"
               class="login-input-field"
               type="email"
               name="email"
@@ -55,16 +57,18 @@
               placeholder="Password" />
             <img class="input-logo" src="../assets/icons/lock.svg" />
           </div>
-          <div class="input-field-container">
-            <input
-              id="sign-up-password-confirm"
-              class="login-input-field"
-              type="password"
-              required
-              placeholder="Confirm Password" />
-            <img class="input-logo" src="../assets/icons/lock.svg" />
+          <div class="password-confirm-wrapper">
+            <div class="input-field-container">
+              <input
+                id="sign-up-password-confirm"
+                class="login-input-field"
+                type="password"
+                required
+                placeholder="Confirm Password" />
+              <img class="input-logo" src="../assets/icons/lock.svg" />
+            </div>
+            <span id="input-alert-message" class="input-alert-message">Your passwords don't match. Please try again.</span>
           </div>
-
           <div class="flex-ctr-ctr accept-policy-login">
             <input
               type="checkbox"
@@ -92,7 +96,7 @@
         alt="join logo" />
     </main>
 
-    <section id="sign-up-success-button" class="dark-button sign-up-success-button">You Signed Up successfully</section>
+    <section id="sign-up-success-button" class="dark-button overlay-button"></section>
 
   </body>
 </html>

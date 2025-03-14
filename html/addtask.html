@@ -17,6 +17,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
+    <script defer src="../scripts/standards.js"></script>
 </head>
 <body>
     
@@ -71,7 +72,7 @@
 
         <div id="main-content" class="main-content">
             <div class="addtask-header">
-                <h2>Add Task</h2>
+                <h1>Add Task</h1>
             </div>
             <form>
         <div class="info-input-field-container">
@@ -85,25 +86,13 @@
                     <label for="description">Description<span class="red-asterisk">*</span></label>
                     <textarea name="description" id=""placeholder="Enter a description"></textarea>
                 </div>
-
-                <div>
-                    <label for="assigned">Assigned to<span class="red-asterisk">*</span></label>
-                    <select name="assigned" id="assigned">
-                      <option value="" disabled selected>Select contacts to assign</option>
-                      <option value="john-doe">John Doe</option>
-                      <option value="jane-smith">Jane Smith</option>
-                      <option value="alice-jones">Alice Jones</option>
-                      <option value="bob-roberts">Bob Roberts</option>
-                      <option value="chris-lee">Chris Lee</option>
-                    </select>
-                  </div>
-                  
-            </div>
-            <div class="info-input-field-container-right">
                 <div>
                     <label for="due-date">Due date<span class="red-asterisk">*</span></label>
                     <input required type="text" placeholder="dd//mm/yyyy">
                 </div>
+  
+            </div>
+            <div class="info-input-field-container-right">
                 <div>
                     <label for="prio">Prio</label>
                     <div class="btn-importance-container">
@@ -120,6 +109,17 @@
                     </div>
                 </div>
                 <div>
+                    <label for="assigned">Assigned to<span class="red-asterisk">*</span></label>
+                    <select name="assigned" id="assigned">
+                      <option value="" disabled selected>Select contacts to assign</option>
+                      <option value="john-doe">John Doe</option>
+                      <option value="jane-smith">Jane Smith</option>
+                      <option value="alice-jones">Alice Jones</option>
+                      <option value="bob-roberts">Bob Roberts</option>
+                      <option value="chris-lee">Chris Lee</option>
+                    </select>
+                </div>
+                <div>
                     <label for="category">
                       Category<span class="red-asterisk">*</span>
                     </label>
@@ -131,6 +131,7 @@
                   </div>
                   
                 <div class="subtask-input-wrapper">
+                    <label for="subtask">Subtasks</label>
                     <input class="subtask-input" type="text" placeholder="Add new subtask">
                     <div class="plus-icon"></div>
                   </div>

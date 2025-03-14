@@ -23,6 +23,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
+    <script defer src="../scripts/standards.js"></script>
   </head>
   <body onload="initBoard()">
     <div class="navbar-container">
@@ -128,7 +129,7 @@
 
         <div class="bottom-board">
           <!-- 1) To do -->
-          <div class="board-single-task-container">
+          <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>To do</span>
               <div class="board-add-task-icon-wrapper">
@@ -165,11 +166,11 @@
                 </svg>
               </div>
             </div>
-            <div id="boardToDoCard"></div>
+            <div id="boardToDoCard" class="task-column"></div>
           </div>
 
           <!-- 2) In progress -->
-          <div class="board-single-task-container">
+          <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>In progress</span>
               <div class="board-add-task-icon-wrapper">
@@ -206,11 +207,11 @@
                 </svg>
               </div>
             </div>
-            <div id="boardInprogressCard" class="inprogress-card"></div>
+            <div id="boardInprogressCard" class="inprogress-card task-column"></div>
           </div>
 
           <!-- 3) Await feedback -->
-          <div class="board-single-task-container">
+          <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>Await feedback</span>
               <div class="board-add-task-icon-wrapper">
@@ -247,15 +248,15 @@
                 </svg>
               </div>
             </div>
-            <div id="boardAwaitFeedbackCard"></div>
+            <div id="boardAwaitFeedbackCard" class="task-column"></div>
           </div>
 
           <!-- 4) Done -->
-          <div class="board-single-task-container">
+          <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>Done</span>
             </div>
-            <div id="boardDoneCard"></div>
+            <div id="boardDoneCard" class="task-column"></div>
           </div>
         </div>
       </div>
@@ -274,7 +275,7 @@
       id="addtask-content"
     >
         <div class="addtask-header addtask-header-overlay">
-          <h2>Add Task</h2>
+          <h1>Add Task</h1>
           <svg
             onclick="toggleAddTaskOverlay()"
             class="addtask-close-button"
