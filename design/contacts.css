@@ -242,5 +242,23 @@
 }
 
 .highlight-contact:hover {
-    background-color: var(--join-dark) !important;
+    background: var(--join-dark);
+    color: var(--white);
+}
+
+.contact-created-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-top: 60px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-weight: 400;
+    transform: translateX(100vw);
+    transition: 300ms ease-in-out;
+}
+
+.contact-created-button-show {
+    transform: translateX(0);
 }

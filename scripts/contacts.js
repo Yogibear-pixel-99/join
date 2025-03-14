@@ -114,10 +114,10 @@ async function createNewContact(event){
     toggleAddContactsOverlay();
     await sortAndRenderContacts();
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
+    showContactAddedSuccessButton();
 
-    // open new contact in float menu
     // get info button "contact successfully added"
-    // highlight new contact in contacts list
+    // switch to position in contact list
     }
 }   
 
@@ -139,6 +139,13 @@ function addBackgroundToSelectedContact(containerId){
             element.classList.remove('highlight-contact');
           })
           ref.classList.add('highlight-contact');
+}
+
+
+function showContactAddedSuccessButton(){
+    const ref = document.getElementById('contact-created-button');
+          setTimeout(() => ref.classList.add('contact-created-button-show'), 400);
+          setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
 
 // TEXT INPUT FIELD DESIGN!!

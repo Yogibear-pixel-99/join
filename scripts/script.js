@@ -24,7 +24,6 @@ async function getDataFromServer(objName, destination) {
         } else {
             let data = await response.json();
             destination.splice(0, destination.length, ...Object.values(data));
-            console.log(destination);
         }
     } catch (error) {
         console.log(error);
