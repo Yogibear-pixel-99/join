@@ -116,6 +116,11 @@
   overscroll-behavior: contain;
 }
 
+.addtask-header-overlay h1{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 .find-task-wrapper {
   position: relative;
 }
@@ -132,7 +137,7 @@
   width: 816px;
   height: 770px !important;
   border-radius: 30px;
-  padding-top: 48px;
+  padding-top: 28px;
   padding-left: 64px;
   padding-right: 64px;
   padding-bottom: 0;
@@ -140,7 +145,6 @@
   background-color: var(--join-background);
   height: 100%;
   background: #f6f7f8;
-  overflow-y: auto;
   z-index: 2200;
   transform: translate(-50%, -50%);
   top: 50%;
