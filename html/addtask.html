@@ -100,32 +100,39 @@
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div>
-                <label for="title"
+                <label for="form-title"
                   >Title<span class="red-asterisk">*</span></label
                 >
-                <input required type="text" placeholder="Enter a title" />
+                <input
+                  id="form-title"
+                  name="title"
+                  required
+                  type="text"
+                  placeholder="Enter a title" />
               </div>
 
               <div>
-                <label for="description"
+                <label for="form-description"
                   >Description<span class="red-asterisk">*</span></label
                 >
                 <textarea
                   name="description"
-                  id=""
+                  id="form-description"
                   placeholder="Enter a description"></textarea>
               </div>
               <div>
                 <label for="due-date"
                   >Due date<span class="red-asterisk">*</span></label
                 >
-                <input required type="text" placeholder="dd//mm/yyyy" />
+                <input id="due-date" name="date" required type="text" placeholder="dd//mm/yyyy" />
               </div>
             </div>
             <div class="info-input-field-container-right">
               <div>
-                <label for="prio">Prio</label>
-                <div class="btn-importance-container">
+                <label for="priority">Prio</label>
+                <div id="priority" class="btn-importance-container">
+
+                    <!-- CHANGE TO RADIO BUTTONS -->
                   <button class="btn-importance">
                     Urgent
                     <img
@@ -144,16 +151,24 @@
                     Low
                     <img src="../assets/icons/prio-low.svg" alt="" />
                   </button>
+
+
+
                 </div>
               </div>
+
+
+
+              
               <div>
-                <label for="assigned"
+                <label for="assignTo"
                   >Assigned to<span class="red-asterisk">*</span></label
                 >
-                <select name="assigned" id="assigned">
+                <select name="assigned" id="assignTo">
                   <option value="" disabled selected>
                     Select contacts to assign
                   </option>
+                  <!-- GET USERS FROM API -->
                   <option value="john-doe">John Doe</option>
                   <option value="jane-smith">Jane Smith</option>
                   <option value="alice-jones">Alice Jones</option>
@@ -161,6 +176,10 @@
                   <option value="chris-lee">Chris Lee</option>
                 </select>
               </div>
+
+
+
+
               <div>
                 <label for="category">
                   Category<span class="red-asterisk">*</span>
@@ -174,12 +193,16 @@
                 </select>
               </div>
 
+
               <div class="subtask-input-wrapper">
-                <label for="subtask">Subtasks</label>
+                <label for="subtasks">Subtasks</label>
                 <input
-                  class="subtask-input"
+                  class="subtasks-input"
+                  id="subtasks-input"
                   type="text"
+                  name="subtasks"
                   placeholder="Add new subtask" />
+                  <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                 <div class="plus-icon"></div>
               </div>
             </div>
@@ -191,8 +214,10 @@
               >
             </div>
             <div class="addTask-button-container-btns">
-              <div class="light-button btns-addtask" onclick="resetForm('add-task-form')">
-                Clear <img src="../assets/icons/Vector (1).svg" alt="" />
+              <div
+                class="light-button btns-addtask"
+                onclick="resetForm('add-task-form')">
+                Clear <img src="../assets/icons/Vector (1).svg" />
               </div>
               <button class="dark-button btns-addtask">
                 Create Task <img src="../assets/icons/check.svg" />
