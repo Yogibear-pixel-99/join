@@ -68,15 +68,16 @@ hr {
     color: red; 
   }
 
+/* Allgemeines Styling für die Buttons */
 .btn-importance-container {
     display: flex;
     gap: 16px;
     margin-top: 5px;
     margin-bottom: 20px;
-}
-
-.btn-importance {
-    background-color: var(--white);
+  }
+  
+  .btn-importance {
+    background-color: #ffffff;
     color: var(--join-dark);
     border-radius: 8px;
     font-weight: 400;
@@ -89,39 +90,58 @@ hr {
     height: 48px;
     border: 0px;
     gap: 5px;
-}
+  }
+  
+  .prio,
+  .low {
+    background-color: #ffffff; 
+  }
+  
+  .medium {
+    background-color: #FFA800 
+  }
+  
 
-.btn-importance-orange {
-    background-color: #FFA800;
-    color: var(--join-dark);
-    border-radius: 8px;
-    font-weight: 400;
-    padding: 16px 10px;
-    font-size: 16px;
-    font-family: inter;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 48px;
-    border: 0px;
-    gap: 5px;
-}
-
-.btn-importance-orange:hover {
+  .btn-importance:hover {
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+  }
+  
 
-.btn-importance:hover {
-    cursor: pointer;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.btn-importance img {
+  .btn-importance img {
     margin-right: 8px;
     height: 10px;
     width: 18px;
-}
+    transition: filter 0.3s;
+  }
+  
+
+  .btn-importance.active {
+    background-color: #ffffff;
+  }
+  
+  .prio.active {
+    background-color: red;
+  }
+  
+  .medium.active {
+    background-color: #FFA800;
+  }
+  
+  .low.active {
+    background-color: green; 
+  }
+  
+
+  .medium:not(.active) img {
+    filter: hue-rotate(30deg) saturate(100%);
+  }
+  
+  .btn-importance img.active {
+    filter: brightness(0) saturate(100%) invert(1); 
+  }
+  
+  
 
 label {
     font-family: Inter;

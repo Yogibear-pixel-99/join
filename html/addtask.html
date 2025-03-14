@@ -18,6 +18,7 @@
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
     <script defer src="../scripts/standards.js"></script>
+    <script defer src="../scripts/addtask.js"></script>
 </head>
 <body>
     
@@ -96,18 +97,22 @@
                 <div>
                     <label for="prio">Prio</label>
                     <div class="btn-importance-container">
-                       <button class="btn-importance">Urgent
-                        <img src="../assets/icons/prio-urgent.svg
-                        " alt="">
-                       </button>
-                       <button class="btn-importance-orange">Medium
-                        <img id="medium-color" src="../assets/icons/prio-medium.svg" alt="">
-                       </button>
-                       <button class="btn-importance">Low
+                      <button class="btn-importance prio" onclick="setActive(this, 'prio')">
+                        Urgent
+                        <img src="../assets/icons/prio-urgent.svg" alt="">
+                      </button>
+                      <button class="btn-importance medium" onclick="setActive(this, 'medium')">
+                        Medium
+                        <img src="../assets/icons/prio-medium.svg" alt="">
+                      </button>
+                      <button class="btn-importance low" onclick="setActive(this, 'low')">
+                        Low
                         <img src="../assets/icons/prio-low.svg" alt=""> 
-                       </button>
+                      </button>
                     </div>
-                </div>
+                  </div>
+                  
+                  
                 <div>
                     <label for="assigned">Assigned to<span class="red-asterisk">*</span></label>
                     <select name="assigned" id="assigned">
