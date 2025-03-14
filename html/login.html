@@ -15,7 +15,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
-    <script src="../scripts/login.js"></script>
+    <script defer src="../scripts/login.js"></script>
 </head>
 <body>
     
@@ -44,7 +44,7 @@
             </div>
 
             <div class="login-button-container">
-                <button class="dark-button" id="login">Log in</button>
+                <button onclick="checkLogin()" class="dark-button" id="login">Log in</button>
                 <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login">Guest Log in</a>
             </div>
         </form>
@@ -59,5 +59,7 @@
         <img class="join-logo login-logo" src="../assets/icons/join-logo-login.svg" alt="join logo">
     </main>
    
+
 </body>
+
 </html>
