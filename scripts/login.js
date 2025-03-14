@@ -1,44 +1,34 @@
 /* 
 const loginREF = document.getElementById("login"); */
-let emailUserList = [];
-let passwordUserList = [];
+let loginInfoList = [];
 
 async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
-  getAllEmail();
-  getAllPasswords();
-  
-  
+  getAllLoginInfo();
 }
 
-function getAllEmail() {
+function getAllLoginInfo() {
     for (let index = 0; index < usersFromApi.length; index++) {
-       emailUserList.push(usersFromApi[index].email); 
+       loginInfoList.push({
+          email: usersFromApi[index].email,
+          password:usersFromApi[index].password
+       }); 
     }
-    console.log(emailUserList);
-    
-    let position = emailUserList[1].includes('lukas@schmidt.com')
-    console.log(position);
-    
-    
+    console.log(loginInfoList);
+    let position = loginInfoList.findIndex(item => item.email === "lukas@schmidt.com")
+    console.log(position); 
 }
-
-function getAllPasswords() {
-    for (let index = 0; index < usersFromApi.length; index++) {
-        passwordUserList.push(usersFromApi[index].password); 
-     }
-     console.log(passwordUserList);
-     
-}
-
-
 
 function checkLogin(event) {
+  getUserInfo();
+  event.preventDefault();
   checkEmail(event);
 }
 
 function checkEmail(event) {
-  const emailREF = document.getElementById("email").value;
+  let emailREF = document.getElementById("email");
+  let emailValue = "";
+    emailValue = emailREF.value;
   let emailChecked = emailUserList.includes(emailREF);
   if (emailChecked == true) {
     let emailIndex = emailUserList.indexOf(emailREF);
@@ -49,11 +39,12 @@ function checkEmail(event) {
 }
 
 function checkPassword(emailIndex, event) {
+    event.preventDefault();
   const passwordREF = document.getElementById("password").value;
+  let passwordValue = passwordREF.value
   let passwordChecked= passwordUserList[emailIndex].includes(passwordREF);
   if (passwordChecked === false) {
-    event.preventDefault();
+    
   }
 }
 
-getUserInfo();
