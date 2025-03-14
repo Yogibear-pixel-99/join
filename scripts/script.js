@@ -44,7 +44,6 @@ function getInitialsForObject(element){
              initials += `${initialArray[index]}`;
         }
         initials = initials.replace(/[a-z]/g, '');
-        console.log(initials);
     return initials;
 }
 

@@ -6,7 +6,7 @@
 
 // directed to log in page
 
-let newUserData = {};
+let collectedFormInfos = {};
 
 async function signUpNewUser(event) {
   event.preventDefault();
@@ -19,26 +19,18 @@ async function signUpNewUser(event) {
   } else {
     removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
     getNewUserTemp();
-    collectFormInformation();
-    await postDataToApi("users", newUserData);
+    collectFormInformation("sign-up-form");
+    await postDataToApi("users", collectedFormInfos);
     mainContentBrightness50();
     showOverlayButton("sign-up-success-button", "You Signed Up successfully");
     setTimeout(() => redirectToLogInPage(), 1000);
   }
 }
 
-function collectFormInformation() {
-  let formInfos = document.getElementById("sign-up-form");
-  let data = new FormData(formInfos);
-  for (const [key, value] of data.entries()) {
-    if (newUserData.hasOwnProperty(key)) {
-      newUserData[key] = value;
-    }
-  }
-}
+
 
 function getNewUserTemp() {
-  newUserData = {
+  collectedFormInfos = {
     name: "",
     email: "",
     password: "",

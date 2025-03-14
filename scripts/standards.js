@@ -53,3 +53,17 @@ function removeRedBorderAndTextFalseInput(borderContainer, messageContainer){
           textRef.style.color = 'white';
 }
 
+/**
+ * Global function to collect form data and put it in the collectedFormInfos variable. Needs to set a template before to collectedFormInfos.
+ * 
+ * @param {string} formContainer - The id of the form container to collect the infos.
+ */
+function collectFormInformation(formContainer) {
+  let formInfos = document.getElementById(formContainer);
+  let data = new FormData(formInfos);
+  for (const [key, value] of data.entries()) {
+    if (collectedFormInfos.hasOwnProperty(key)) {
+      collectedFormInfos[key] = value;
+    }
+  }
+}

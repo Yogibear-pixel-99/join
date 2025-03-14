@@ -103,17 +103,35 @@ function animateContactMenu(){
 
 
 
-// change post function that the response calls the message.
 
-function createNewContact(){
-    
-    // check if user exists - no go further - yes = call error border and text!
-
-// set template for new contact
-// get infos from form
-// push to API
-// get info button "contact successfully added"
-// get alle Contacts
-// highlight new contact in contacts list
-// open new contact in float menu
+function createNewContact(event){
+    event.preventDefault();
+    getNewContactTemp();
+    collectFormInformation('new-contact-form');
+    // check if user exists - no: go further - yes = call error border and text!
+    // fill template with formData
+    // add id to template
+    // push to API
+    // get info button "contact successfully added"
+    // get alle Contacts
+    // highlight new contact in contacts list
+    // open new contact in float menu
 }
+
+
+function getNewContactTemp(){
+    collectedFormInfos =     {
+        "id": `${getUniqueIdForUser()}`,
+        "name": "",
+        "email": "",
+        "phone": ""
+      }
+}
+
+
+function getUniqueIdForUser(){
+    
+}
+
+// TEXT INPUT FIELD DESIGN!!
+// change post function that the response calls the message.
