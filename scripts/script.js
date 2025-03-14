@@ -80,22 +80,6 @@ function noClose(event) {
 }
 
 
-
-
-
-
-// USERS --------------------------------------------
-
-// USERS --------------------------------------------
-
-
-
-
-// TASKS --------------------------------------------
-
-// TASKS --------------------------------------------
-
-
 function toggleAddedToBoard() {
     let addedToBoardREF = document.getElementById("task-added");
     addedToBoardREF.classList.toggle("d-none");
@@ -110,12 +94,6 @@ function loadingToBoard() {
         addtaskREF.classList.toggle("d-none")
         }, 3000);
       }
-
-
-
-
-// 
-
 
 
 function initBoard() {
