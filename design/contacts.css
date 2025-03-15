@@ -66,10 +66,11 @@
 .single-contact {
     padding: 15px 24px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     gap: 35px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .single-contact:hover {
@@ -82,7 +83,7 @@
     min-width: 42px;
     width: 42px;
     border-radius: 50%;
-    background-color: orange;
+    
     color: white;
     border: solid 2px white;
 }
@@ -158,8 +159,11 @@
     align-items: center;
     width: 120px;
     height: 120px;
-    background-color: orange;
     border-radius: 50%;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-width: 120px;
 }
 
 .floating-initials {
