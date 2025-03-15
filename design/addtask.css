@@ -190,7 +190,7 @@ label {
 .mini-separator {
   width: 1px;
   height: 80%;
-  background-color: var(--join-dark);
+  background-color: var(--input-separator-color);
   margin: 0 6px;
 }
 
