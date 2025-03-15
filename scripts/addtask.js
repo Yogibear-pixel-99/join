@@ -25,6 +25,10 @@ function showSubtasksInputMenu(){
         focusIcons.classList.remove('d-none');
 }
 
+function delayHideSubtasksInputMenu(){
+  setTimeout(() => hideSubtasksInputMenu(), 100);
+}
+
 function hideSubtasksInputMenu(){
   const plusIcon = document.getElementById('subtasks-plus');
   const focusIcons = document.getElementById('subtasks-on-focus-icons');
