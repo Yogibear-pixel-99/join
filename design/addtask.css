@@ -133,15 +133,9 @@ hr {
     font-size: 21px;
   }
 
-  
-  .prio-urgent-svg path {
-    fill: var(--priority-urgent)
-  }
-  .prio-medium-svg path {
-    fill: var(--priority-medium)
-  }
-  .prio-low-svg path {
-    fill: var(--priority-low)
+
+  .prio-svg path {
+    fill: white;
   }
   
 
