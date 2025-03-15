@@ -1,5 +1,5 @@
-/* 
-const loginREF = document.getElementById("login"); */
+const emailREF = document.getElementById("email");
+const passwordREF = document.getElementById("password");
 let loginInfoList = [];
 
 async function getUserInfo() {
@@ -25,25 +25,30 @@ function checkLogin(event) {
 }
 
 function checkEmail(event) {
-  let emailREF = document.getElementById("email").value;
-  let emailChecked = loginInfoList.some(item => item.email === emailREF);
+  let emailChecked = loginInfoList.some(item => item.email === emailREF.value);
   console.log(emailChecked);
-  
+
   if (emailChecked === true) {
-    let emailIndex = loginInfoList.findIndex(item => item.email === emailREF);
+    let emailIndex = loginInfoList.findIndex(item => item.email === emailREF.value);
     console.log(emailIndex);
     checkPassword(emailIndex, event);
-  } 
+  } else {
+    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
+    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
+  }
 }
 
 function checkPassword(emailIndex, event) {
-  const passwordREF = document.getElementById("password").value;
-  let passwordChecked= loginInfoList.findIndex(item => item.password === passwordREF);
+  let passwordChecked= loginInfoList.findIndex(item => item.password === passwordREF.value);
   console.log(passwordChecked);
   
   if (passwordChecked == emailIndex) {
     window.location.href = "summary.html"
+    removeRedBorderAndTextFalseInput("email", "login-error-message");
+    removeRedBorderAndTextFalseInput("password", "login-error-message");
+  } else {
+    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
+    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
   }
-  
 }
 
