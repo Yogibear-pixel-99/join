@@ -53,14 +53,23 @@ function checkPassword(emailIndex, event) {
   }
 }
 
-/* passwordREF.onchange = function () {
-    
-}  */
+passwordREF.onkeydown = function () {
+    if (passwordREF.innerText = "") {
+        inputLogoREF.src = "../assets/icons/lock.svg"
+   } else {
+      inputLogoREF.src = "../assets/icons/visibility-off.svg"
+   }
+   
+} 
 
 inputLogoREF.onclick = function () {
+    
     if (password.type == "password" ) {
-        password.type = "text"
+        password.type = "text";
+        inputLogoREF.src = "../assets/icons/visibility-eye.svg"
+
     } else {
-        password.type = "password"
+        password.type = "password";
+        inputLogoREF.src = "../assets/icons/visibility-off.svg"
     }
 }
