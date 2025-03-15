@@ -143,7 +143,7 @@
                     id="priority-urgent"
                     name="priority" />
                   <label
-                    class="prio-urgent flex-ctr-ctr"
+                    class="prio-urgent flex-ctr-ctr prio-button"
                     onclick="setPriorityButtonColor(this)"
                     for="priority-urgent"
                     ><span>Urgent</span
@@ -180,7 +180,7 @@
                     name="priority"
                     checked />
                   <label
-                    class="prio-medium active flex-ctr-ctr"
+                    class="prio-medium active flex-ctr-ctr prio-button"
                     onclick="setPriorityButtonColor(this)"
                     for="priority-medium"
                     ><span>Medium</span
@@ -206,7 +206,7 @@
                     id="priority-low"
                     name="priority" />
                   <label
-                    class="prio-low flex-ctr-ctr"
+                    class="prio-low flex-ctr-ctr prio-button"
                     onclick="setPriorityButtonColor(this)"
                     for="priority-low"
                     ><span>Low</span
@@ -261,7 +261,7 @@
                   >Subtasks
                   <input
                     onfocus="showSubtasksInputMenu()"
-                    
+                    onblur="delayHideSubtasksInputMenu()"
                     class="subtasks-input"
                     id="subtasks-input"
                     type="text"
