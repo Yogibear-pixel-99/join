@@ -253,15 +253,25 @@
                 </select>
               </div>
               <div class="subtask-input-wrapper">
-                <label for="subtasks-input">Subtasks</label>
+                <label for="subtasks-input">Subtasks
                 <input
+                  onfocus="showSubtasksInputMenu()"
+                  onblur="hideSubtasksInputMenu()"
                   class="subtasks-input"
                   id="subtasks-input"
                   type="text"
                   name="subtasks"
                   placeholder="Add new subtask" />
                 <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
-                <div class="plus-icon"></div>
+                <div id="subtasks-plus" class="plus-icon subtasks-icon">
+                  <img src="../assets/icons/Subtasks icons11.svg">
+                </div>
+              </label>
+                <div id="subtasks-on-focus-icons" class="subtasks-icons-wrapper flex-ctr-ctr d-none">
+                    <div class="subtasks-icon-container flex-ctr-ctr"><img class="subtasks-icon-x" src="../assets/icons/clear-x.svg"></div>
+                    <div class="mini-separator"></div>
+                    <div class="subtasks-icon-container flex-ctr-ctr"><img class="subtasks-icon" src="../assets/icons/check-icon-dark.svg"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -275,7 +285,7 @@
               <div
                 class="light-button btns-addtask"
                 onclick="resetForm('add-task-form')">
-                Clear <img src="../assets/icons/Vector (1).svg" />
+                Clear <img src="../assets/icons/clear-x.svg" />
               </div>
               <button class="dark-button btns-addtask">
                 Create Task <img src="../assets/icons/check.svg" />

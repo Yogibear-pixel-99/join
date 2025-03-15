@@ -176,23 +176,50 @@ label {
     outline: none;
   }
 
-.plus-icon {
+.plus-icon,
+.subtasks-icons-wrapper {
     position: absolute;
     top: 55%;                 
     right: 10px;            
     transform: translateY(-50%);
-    width: 24px;            
-    height: 24px;
-    background-image: url("../assets/icons/Subtasks icons11.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 16px 16px; 
     cursor: pointer;            
     border-radius: 50%;        
-    transition: background-color 0.2s ease; 
+  
   }
   
+.mini-separator {
+  width: 1px;
+  height: 80%;
+  background-color: var(--join-dark);
+  margin: 0 6px;
+}
+
 .plus-icon:hover {
+    background-color: #ccc;
+  }
+
+  .subtasks-icons-wrapper {
+    display: flex;
+    height: 24px;
+  }
+
+  .subtasks-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sub-task-icon-x {
+    width: 18px;
+    height: 18px;
+  }
+
+.subtasks-icon-container {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;;
+}
+
+  .subtasks-icon-container:hover {
     background-color: #ccc;
   }
 
