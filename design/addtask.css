@@ -118,6 +118,15 @@ hr {
     font-size: 20px;
     font-weight: 400;
   }
+
+  .prio-button {
+    background-color: white;
+  }
+
+  .prio-button:hover {
+    box-shadow: var(--button-shadow);
+    cursor: pointer;
+  }
   
   .prio-urgent.active {
     background-color: var(--priority-urgent);
