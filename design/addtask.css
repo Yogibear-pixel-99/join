@@ -92,15 +92,6 @@ hr {
     gap: 5px;
   }
   
-  .prio,
-  .low {
-    background-color: #ffffff; 
-  }
-  
-  .medium {
-    background-color: #FFA800 
-  }
-  
 
   .btn-importance:hover {
     cursor: pointer;
@@ -108,28 +99,49 @@ hr {
   }
   
 
-  .btn-importance img {
-    margin-right: 8px;
-    height: 10px;
-    width: 18px;
-    transition: filter 0.3s;
-  }
-  
-
   .btn-importance.active {
     background-color: #ffffff;
   }
-  
-  .prio.active {
-    background-color: red;
+
+  .btn-importance-container label {
+    width: 136px;
+    height: 56px;
+    border-radius: 10px;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 400;
   }
   
-  .medium.active {
-    background-color: #FFA800;
+  .prio-urgent.active {
+    background-color: var(--priority-urgent);
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
   }
   
-  .low.active {
-    background-color: green; 
+  .prio-medium.active {
+    background-color: var(--priority-medium);
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+  }
+  
+  .prio-low.active {
+    background-color: var(--priority-low);
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+  }
+
+  
+  .prio-urgent-svg path {
+    fill: var(--priority-urgent)
+  }
+  .prio-medium-svg path {
+    fill: var(--priority-medium)
+  }
+  .prio-low-svg path {
+    fill: var(--priority-low)
   }
   
 
