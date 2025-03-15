@@ -101,6 +101,10 @@
     width: 24px;
 }
 
+.input-logo:hover {
+  cursor: pointer;
+}
+
 .login-error-message {
   position: absolute;
   top: 300px;
