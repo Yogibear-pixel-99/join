@@ -1,5 +1,6 @@
 const emailREF = document.getElementById("email");
 const passwordREF = document.getElementById("password");
+const inputLogoREF = document.getElementById("input-logo");
 let loginInfoList = [];
 
 async function getUserInfo() {
@@ -52,3 +53,14 @@ function checkPassword(emailIndex, event) {
   }
 }
 
+/* passwordREF.onchange = function () {
+    
+}  */
+
+inputLogoREF.onclick = function () {
+    if (password.type == "password" ) {
+        password.type = "text"
+    } else {
+        password.type = "password"
+    }
+}
