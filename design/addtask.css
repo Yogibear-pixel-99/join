@@ -243,16 +243,34 @@ label {
 
 .subtask-single-wrapper {
   margin: 0 ;
-  border: none ;
+  /* border: none ; */
   margin-bottom: 4px ;
   height: 30px;
   width: 100%;
   background-color: var(--main-background);
   border-radius: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+}
+.subtask-single-wrapper input {
+  flex: 1;
+  height: 80%;
+  border: none;
+  background-color: var(--main-background);
 }
 
-.subtask-single-wrapper:hover {
+
+
+.subtask-single-wrapper:hover,
+.subtask-single-wrapper input:hover {
   background-color: #e4e4e4;
+}
+
+.single-task-icon-wrapper {
+  dis
 }
 
 .subtask-single-input:focus {
