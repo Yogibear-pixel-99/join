@@ -263,6 +263,7 @@ label {
   align-items: center;
   padding: 0 12px;
 }
+
 .subtask-single-wrapper input {
   flex: 1;
   height: 80%;
@@ -270,8 +271,24 @@ label {
   background-color: var(--main-background);
 }
 
+.subtask-single-wrapper input:focus + .single-task-icon-wrapper-before{
+  display: none !important;
+}
+
+.single-task-icon-wrapper-after {
+  display: none;
+}
+
+.subtask-single-wrapper input:focus ~ .single-task-icon-wrapper-after{
+  display: flex !important;
+}
+
 .added-subtasks {
   width: 100%;
+}
+
+.subtask-single-wrapper:hover .single-task-icon-wrapper-before {
+  display: flex !important;
 }
 
 .subtask-single-wrapper:hover,
@@ -280,8 +297,14 @@ label {
   background-color: #eeeeee;
 }
 
-.single-task-icon-wrapper {
+.single-task-icon-wrapper-before, 
+.single-task-icon-wrapper-after {
   gap: 4px;
+}
+
+.single-subtask-icon {
+  width: 16px;
+  height: 16px;
 }
 
 .separator-dark {
