@@ -39,16 +39,22 @@ let allSubtasks = [];
 function addSubtaskValueToArray() {
   let subtaskOutput = document.getElementById("added-subtasks");
   let subtaskInput = document.getElementById("subtasks-input");
+  let allSubtasks = Array.from(document.getElementsByClassName('subtask-input'), element => element.value);
   const userInput = subtaskInput.value;
-  userInput == ""
-    ? getAddSubtaskError(subtaskInput)
-    : (subtaskOutput.innerHTML += renderSubtaskInForm(userInput));
+  console.log(allSubtasks);
+  if ((allSubtasks.length != 0) && (allSubtasks.some((element) => element === userInput))) {
+    getAddSubtaskError(subtaskInput, 'Subtask already exists');
+  }  else if (userInput == "") {
+    getAddSubtaskError(subtaskInput, 'Type in a subtask');
+  } else {
+    subtaskOutput.innerHTML += renderSubtaskInForm(userInput);
+  }
   subtaskInput.value = "";
 }
 
-function getAddSubtaskError(subtaskInput) {
+function getAddSubtaskError(subtaskInput, errorMessage) {
   subtaskInput.classList.add("subtask-input-error");
-  subtaskInput.setAttribute("placeholder", "Nothing typed in");
+  subtaskInput.setAttribute("placeholder", errorMessage);
   setTimeout(() => clearSubtaskError(subtaskInput), 2000);
 }
 
@@ -57,13 +63,21 @@ function clearSubtaskError(subtaskInput) {
   subtaskInput.setAttribute("placeholder", "Add new subtask");
 }
 
+function deleteSubtask(containerId){
+  let contentRef = document.getElementById(containerId);
+      console.log(contentRef);
+      contentRef.remove();
+}
+
 function renderSubtaskInForm(subtask) {
-  return `<div class="subtask-container-wrapper">
-            <span class="hide-on-focus subtask-dot">&#8226</span>
-            <input 
+  return `<div id="${subtask}" class="subtask-container-wrapper">
+            
+            <input
+              class="subtask-input" 
               type="text" 
               name="subtask" 
               value="${subtask}">
+            <span class="hide-on-focus subtask-dot">&#8226</span>
             <div class="single-task-icon-wrapper-before flex-ctr-ctr d-none hide-on-focus">
               <div class="single-subtask-small-icon-wrapper-right flex-ctr-ctr">
             <svg class="single-subtask-icon" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,14 +85,14 @@ function renderSubtaskInForm(subtask) {
               </svg></div>
               <div class="mini-separator separator-dark"></div>
               <div class="single-subtask-small-icon-wrapper-right flex-ctr-ctr">
-              <svg class="single-subtask-icon" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg onclick="deleteSubtask('${subtask}')" class="single-subtask-icon" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 18C2.45 18 1.97917 17.8042 1.5875 17.4125C1.19583 17.0208 1 16.55 1 16V3C0.716667 3 0.479167 2.90417 0.2875 2.7125C0.0958333 2.52083 0 2.28333 0 2C0 1.71667 0.0958333 1.47917 0.2875 1.2875C0.479167 1.09583 0.716667 1 1 1H5C5 0.716667 5.09583 0.479167 5.2875 0.2875C5.47917 0.0958333 5.71667 0 6 0H10C10.2833 0 10.5208 0.0958333 10.7125 0.2875C10.9042 0.479167 11 0.716667 11 1H15C15.2833 1 15.5208 1.09583 15.7125 1.2875C15.9042 1.47917 16 1.71667 16 2C16 2.28333 15.9042 2.52083 15.7125 2.7125C15.5208 2.90417 15.2833 3 15 3V16C15 16.55 14.8042 17.0208 14.4125 17.4125C14.0208 17.8042 13.55 18 13 18H3ZM3 3V16H13V3H3ZM5 13C5 13.2833 5.09583 13.5208 5.2875 13.7125C5.47917 13.9042 5.71667 14 6 14C6.28333 14 6.52083 13.9042 6.7125 13.7125C6.90417 13.5208 7 13.2833 7 13V6C7 5.71667 6.90417 5.47917 6.7125 5.2875C6.52083 5.09583 6.28333 5 6 5C5.71667 5 5.47917 5.09583 5.2875 5.2875C5.09583 5.47917 5 5.71667 5 6V13ZM9 13C9 13.2833 9.09583 13.5208 9.2875 13.7125C9.47917 13.9042 9.71667 14 10 14C10.2833 14 10.5208 13.9042 10.7125 13.7125C10.9042 13.5208 11 13.2833 11 13V6C11 5.71667 10.9042 5.47917 10.7125 5.2875C10.5208 5.09583 10.2833 5 10 5C9.71667 5 9.47917 5.09583 9.2875 5.2875C9.09583 5.47917 9 5.71667 9 6V13Z" fill="#2A3647"/>
               </svg>
               </div>
             </div>
             <div class="single-task-icon-wrapper-after flex-ctr-ctr show-on-focus">
               <div class="single-subtask-small-icon-wrapper-right flex-ctr-ctr">
-              <svg class="single-subtask-icon" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg onclick="deleteSubtask('${subtask}')" class="single-subtask-icon" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 18C2.45 18 1.97917 17.8042 1.5875 17.4125C1.19583 17.0208 1 16.55 1 16V3C0.716667 3 0.479167 2.90417 0.2875 2.7125C0.0958333 2.52083 0 2.28333 0 2C0 1.71667 0.0958333 1.47917 0.2875 1.2875C0.479167 1.09583 0.716667 1 1 1H5C5 0.716667 5.09583 0.479167 5.2875 0.2875C5.47917 0.0958333 5.71667 0 6 0H10C10.2833 0 10.5208 0.0958333 10.7125 0.2875C10.9042 0.479167 11 0.716667 11 1H15C15.2833 1 15.5208 1.09583 15.7125 1.2875C15.9042 1.47917 16 1.71667 16 2C16 2.28333 15.9042 2.52083 15.7125 2.7125C15.5208 2.90417 15.2833 3 15 3V16C15 16.55 14.8042 17.0208 14.4125 17.4125C14.0208 17.8042 13.55 18 13 18H3ZM3 3V16H13V3H3ZM5 13C5 13.2833 5.09583 13.5208 5.2875 13.7125C5.47917 13.9042 5.71667 14 6 14C6.28333 14 6.52083 13.9042 6.7125 13.7125C6.90417 13.5208 7 13.2833 7 13V6C7 5.71667 6.90417 5.47917 6.7125 5.2875C6.52083 5.09583 6.28333 5 6 5C5.71667 5 5.47917 5.09583 5.2875 5.2875C5.09583 5.47917 5 5.71667 5 6V13ZM9 13C9 13.2833 9.09583 13.5208 9.2875 13.7125C9.47917 13.9042 9.71667 14 10 14C10.2833 14 10.5208 13.9042 10.7125 13.7125C10.9042 13.5208 11 13.2833 11 13V6C11 5.71667 10.9042 5.47917 10.7125 5.2875C10.5208 5.09583 10.2833 5 10 5C9.71667 5 9.47917 5.09583 9.2875 5.2875C9.09583 5.47917 9 5.71667 9 6V13Z" fill="#2A3647"/>
               </svg></div>
               <div class="mini-separator separator-dark"></div>

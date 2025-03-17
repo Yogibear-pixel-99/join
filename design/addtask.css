@@ -250,13 +250,12 @@ label {
 }
 
 .subtask-container-wrapper {
-  margin: 0 ;
+  margin: 6px 0;
   box-sizing: border-box;
-  margin-bottom: 4px ;
   height: 30px;
   width: 100%;
   background-color: var(--main-background);
-  border-radius: 10px;
+  /* border-radius: 20px; */
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -264,7 +263,7 @@ label {
   position: relative;
 }
 
-.subtask-container-wrapper input {
+.subtask-container-wrapper .subtask-input {
   padding-left: 24px;
   height: 80%;
   border: none !important;
@@ -273,7 +272,7 @@ label {
   width: 100%;
 }
 
-.subtask-container-wrapper input:focus {
+.subtask-container-wrapper .subtask-input:focus {
   border-bottom: solid 1px var(--light-blue) !important;
   border-radius: none !important;
 }
@@ -297,20 +296,20 @@ label {
 
 
 
-.subtask-container-wrapper input:focus + .single-task-icon-wrapper-before{
-  display: none;
+.subtask-container-wrapper .subtask-input:focus ~ .single-task-icon-wrapper-before{
+  display: none !important;
 }
 
 .subtask-container-wrapper .single-task-icon-wrapper-after {
   display: none;
 }
 
-.subtask-container-wrapper input:focus ~ .single-task-icon-wrapper-after{
+.subtask-container-wrapper .subtask-input:focus ~ .single-task-icon-wrapper-after{
   display: flex;
 }
 
-.subtask-container-wrapper input:focus + .subtask-dot {
-  display: none;
+.subtask-container-wrapper .subtask-input:focus + .subtask-dot {
+  display: none !important;
 }
 
 .added-subtasks {
@@ -318,11 +317,11 @@ label {
 }
 
 .subtask-container-wrapper:hover .single-task-icon-wrapper-before {
-  display: flex;
+  display: flex !important;
 }
 
 .subtask-container-wrapper:hover,
-.subtask-container-wrapper:hover input
+.subtask-container-wrapper:hover .subtask-input
  {
   background-color: #eeeeee;
 }
@@ -335,7 +334,6 @@ label {
 }
 
   .single-subtask-small-icon-wrapper-right:hover {
-  
   background-color: #ccc;
 }
 
