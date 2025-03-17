@@ -297,14 +297,27 @@ label {
   background-color: #eeeeee;
 }
 
-.single-task-icon-wrapper-before, 
-.single-task-icon-wrapper-after {
-  gap: 4px;
+
+.single-subtask-icon-wrapper-right {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  /* padding:8px; */
+}
+
+  .single-subtask-icon-wrapper-right:hover {
+  
+  background-color: #ccc;
 }
 
 .single-subtask-icon {
   width: 16px;
   height: 16px;
+}
+
+.single-subtask-icon-hook {
+  width: 22px;
+  height: 22px;
 }
 
 .separator-dark {
