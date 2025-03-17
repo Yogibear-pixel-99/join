@@ -30,7 +30,7 @@ hr {
     padding-right: 40px;
 }
 
-.info-input-field-container input {
+.addTask-input-field {
   width: 100%;              
   padding: 10px;    
   margin-top: 5px;         
@@ -172,29 +172,38 @@ label {
     line-height: 24px;
 }
 
+.subtasks-wrapper {
+  position: relative;
+}
+
 .subtask-input-wrapper {
     position: relative;   
   }
 
-.subtask-input {
-    padding-right: 40px;  
-    font-size: 16px;
-    border-radius: 4px;
-    height: 40px;
+.subtasks-input {
+    margin-bottom: 0;
     box-sizing: border-box;
-    outline: none;
   }
 
-.plus-icon,
-.subtasks-icons-wrapper {
+.plus-icon {
     position: absolute;
-    top: 55%;                 
+    top: calc(50% + 2.5px);                 
     right: 10px;            
     transform: translateY(-50%);
     cursor: pointer;            
     border-radius: 50%;        
   
   }
+
+
+.subtasks-icons-wrapper {
+  position: absolute;
+  top: calc(50% + 15px);                 
+  right: 10px;            
+  transform: translateY(-50%);
+  cursor: pointer;            
+  border-radius: 50%;     
+}
   
 .mini-separator {
   width: 1px;
@@ -231,6 +240,25 @@ label {
   .subtasks-icon-container:hover {
     background-color: #ccc;
   }
+
+.subtask-single-wrapper {
+  margin: 0 ;
+  border: none ;
+  margin-bottom: 4px ;
+  height: 30px;
+  width: 100%;
+  background-color: var(--main-background);
+  border-radius: 10px;
+}
+
+.subtask-single-wrapper:hover {
+  background-color: #e4e4e4;
+}
+
+.subtask-single-input:focus {
+  border-bottom: solid 1px var(--light-blue) ;
+  border-radius: 0px ;
+}
 
 .addTask-button-container {
     display: flex;

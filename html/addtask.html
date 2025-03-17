@@ -104,6 +104,7 @@
                   >Title<span class="red-asterisk">*</span></label
                 >
                 <input
+                  class="addTask-input-field"
                   id="form-title"
                   name="title"
                   required
@@ -125,6 +126,7 @@
                   >Due date<span class="red-asterisk">*</span></label
                 >
                 <input
+                class="addTask-input-field"
                   id="due-date"
                   name="date"
                   required
@@ -259,10 +261,11 @@
               <div class="subtask-input-wrapper">
                 <label for="subtasks-input"
                   >Subtasks
+                  <div class="subtasks-wrapper">
                   <input
                     onfocus="showSubtasksInputMenu()"
                     onblur="delayHideSubtasksInputMenu()"
-                    class="subtasks-input"
+                    class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
                     name="subtasks"
@@ -270,6 +273,7 @@
                   <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
                     <img src="../assets/icons/Subtasks icons11.svg" />
+                  </div>
                   </div>
                 </label>
                 <div
@@ -285,14 +289,14 @@
                         >
                     <img
                     
-                    onclick="addSubtaskInputInForm()"
+                    onclick="addSubtaskValueToArray()"
                       class="subtasks-icon"
                       src="../assets/icons/check-icon-dark.svg" />
                   </div>
                 </div>
               </div>
 
-              <div id="added-subtasks"></div>
+              <ul id="added-subtasks"></ul>
             </div>
           </div>
           <div class="addTask-button-container">
