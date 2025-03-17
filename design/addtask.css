@@ -241,9 +241,17 @@ label {
     background-color: #ccc;
   }
 
+.subtask-input-error {
+  border: solid 1px red;
+}
+
+.subtask-input-error::placeholder {
+  color: red;
+}
+
 .subtask-single-wrapper {
   margin: 0 ;
-  /* border: none ; */
+  box-sizing: border-box;
   margin-bottom: 4px ;
   height: 30px;
   width: 100%;
@@ -262,15 +270,24 @@ label {
   background-color: var(--main-background);
 }
 
-
+.added-subtasks {
+  width: 100%;
+}
 
 .subtask-single-wrapper:hover,
-.subtask-single-wrapper input:hover {
-  background-color: #e4e4e4;
+.subtask-single-wrapper:hover input
+ {
+  background-color: #eeeeee;
 }
 
 .single-task-icon-wrapper {
-  dis
+  gap: 4px;
+}
+
+.separator-dark {
+  /* background-color: var(--join-dark); */
+  width: 1px;
+  height: 20px;
 }
 
 .subtask-single-input:focus {
