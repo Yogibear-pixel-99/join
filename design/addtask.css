@@ -321,3 +321,38 @@ label {
 }
   
 
+
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropdown-label {
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-content {
+  /*display: none;*/
+  position: absolute;
+  background-color: white;
+  min-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+
+
+
