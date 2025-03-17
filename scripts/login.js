@@ -9,14 +9,16 @@ async function getUserInfo() {
 }
 
 function getAllLoginInfo() {
-    loginInfoList = [];
-    for (let index = 0; index < usersFromApi.length; index++) {
-       loginInfoList.push({
-          email: usersFromApi[index].email,
-          password:usersFromApi[index].password
-       }); 
-    }
-    console.log(loginInfoList);
+  loginInfoList = [];
+  for (let index = 0; index < usersFromApi.length; index++) {
+    loginInfoList.push({
+      name: usersFromApi[index].name,
+      email: usersFromApi[index].email,
+      password: usersFromApi[index].password,
+    });
+  }
+  console.log(loginInfoList);
+  
 }
 
 function checkLogin(event) {
@@ -26,50 +28,70 @@ function checkLogin(event) {
 }
 
 function checkEmail(event) {
-  let emailChecked = loginInfoList.some(item => item.email === emailREF.value);
+  let emailChecked = loginInfoList.some(
+    (item) => item.email === emailREF.value
+  );
   console.log(emailChecked);
 
   if (emailChecked === true) {
-    let emailIndex = loginInfoList.findIndex(item => item.email === emailREF.value);
+    let emailIndex = loginInfoList.findIndex(
+      (item) => item.email === emailREF.value
+    );
     console.log(emailIndex);
     checkPassword(emailIndex, event);
   } else {
-    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
-    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
+    addRedBorderAndTextFalseInput(
+      "email",
+      "login-error-message",
+      "Check your email and password. Please try again. "
+    );
+    addRedBorderAndTextFalseInput(
+      "password",
+      "login-error-message",
+      "Check your email and password. Please try again. "
+    );
   }
 }
 
 function checkPassword(emailIndex, event) {
-  let passwordChecked= loginInfoList.findIndex(item => item.password === passwordREF.value);
+  let passwordChecked = loginInfoList.findIndex(
+    (item) => item.password === passwordREF.value
+  );
   console.log(passwordChecked);
-  
   if (passwordChecked == emailIndex) {
-    window.location.href = "summary.html"
+    window.location.href = "summary.html";
+    summaryLoginData(emailIndex, loginInfoList);
     removeRedBorderAndTextFalseInput("email", "login-error-message");
     removeRedBorderAndTextFalseInput("password", "login-error-message");
   } else {
-    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
-    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
+    addRedBorderAndTextFalseInput(
+      "email",
+      "login-error-message",
+      "Check your email and password. Please try again. "
+    );
+    addRedBorderAndTextFalseInput(
+      "password",
+      "login-error-message",
+      "Check your email and password. Please try again. "
+    );
   }
 }
 
 passwordREF.onkeydown = function () {
-    if (passwordREF.innerText = "") {
-        inputLogoREF.src = "../assets/icons/lock.svg"
-   } else {
-      inputLogoREF.src = "../assets/icons/visibility-off.svg"
-   }
-   
-} 
+  if ((passwordREF.innerText = "")) {
+    inputLogoREF.src = "../assets/icons/lock.svg";
+  } else {
+    inputLogoREF.src = "../assets/icons/visibility-off.svg";
+  }
+};
 
 inputLogoREF.onclick = function () {
-    
-    if (password.type == "password" ) {
-        password.type = "text";
-        inputLogoREF.src = "../assets/icons/visibility-eye.svg"
+  if (password.type == "password") {
+    password.type = "text";
+    inputLogoREF.src = "../assets/icons/visibility-eye.svg";
+  } else {
+    password.type = "password";
+    inputLogoREF.src = "../assets/icons/visibility-off.svg";
+  }
+};
 
-    } else {
-        password.type = "password";
-        inputLogoREF.src = "../assets/icons/visibility-off.svg"
-    }
-}
