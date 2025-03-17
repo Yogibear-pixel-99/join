@@ -249,7 +249,7 @@ label {
   color: red;
 }
 
-.subtask-single-wrapper {
+.subtask-container-wrapper {
   margin: 0 ;
   box-sizing: border-box;
   margin-bottom: 4px ;
@@ -261,38 +261,97 @@ label {
   gap: 8px;
   justify-content: center;
   align-items: center;
-  padding: 0 12px;
+  position: relative;
 }
-.subtask-single-wrapper input {
-  flex: 1;
+
+.subtask-container-wrapper input {
+  padding-left: 24px;
   height: 80%;
-  border: none;
+  border: none !important;
   background-color: var(--main-background);
+  
+  width: 100%;
+}
+
+.subtask-container-wrapper input:focus {
+  border-bottom: solid 1px var(--light-blue) !important;
+  border-radius: none !important;
+}
+
+.subtask-dot {
+  position: absolute;
+  left: 8px;
+}
+
+
+
+
+.single-task-icon-wrapper-after,
+.single-task-icon-wrapper-before {
+  position: absolute;
+  right: 16px;
+}
+
+
+
+
+
+
+.subtask-container-wrapper input:focus + .single-task-icon-wrapper-before{
+  display: none;
+}
+
+.subtask-container-wrapper .single-task-icon-wrapper-after {
+  display: none;
+}
+
+.subtask-container-wrapper input:focus ~ .single-task-icon-wrapper-after{
+  display: flex;
+}
+
+.subtask-container-wrapper input:focus + .subtask-dot {
+  display: none;
 }
 
 .added-subtasks {
   width: 100%;
 }
 
-.subtask-single-wrapper:hover,
-.subtask-single-wrapper:hover input
+.subtask-container-wrapper:hover .single-task-icon-wrapper-before {
+  display: flex;
+}
+
+.subtask-container-wrapper:hover,
+.subtask-container-wrapper:hover input
  {
   background-color: #eeeeee;
 }
 
-.single-task-icon-wrapper {
-  gap: 4px;
+
+.single-subtask-small-icon-wrapper-right {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+  .single-subtask-small-icon-wrapper-right:hover {
+  
+  background-color: #ccc;
+}
+
+.single-subtask-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.single-subtask-icon-hook {
+  width: 22px;
+  height: 22px;
 }
 
 .separator-dark {
-  /* background-color: var(--join-dark); */
   width: 1px;
   height: 20px;
-}
-
-.subtask-single-input:focus {
-  border-bottom: solid 1px var(--light-blue) ;
-  border-radius: 0px ;
 }
 
 .addTask-button-container {
