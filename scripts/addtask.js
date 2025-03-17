@@ -57,18 +57,7 @@ function clearSubtaskError(subtaskInput){
   subtaskInput.setAttribute('placeholder', 'Add new subtask');
   
 }
-// function renderSubtasksFromArrayToForm() {
-//   let subtaskContent = document.getElementById("added-subtasks");
-//   subtaskContent.innerHTML = "";
-//   for (
-//     let subtaskIndex = 0;
-//     subtaskIndex < allSubtasks.length;
-//     subtaskIndex++
-//   ) {
-//     const element = allSubtasks[subtaskIndex];
-//     subtaskContent.innerHTML += getSubtaskToFormTemp(element, subtaskIndex);
-//   }
-// }
+
 
 function renderSubtaskInForm(subtask) {
   return `<div class="subtask-single-wrapper" >
