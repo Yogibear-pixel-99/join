@@ -1,3 +1,5 @@
+
+
 function resetForm(formId) {
   const ref = document.getElementById(formId);
   ref.reset();
@@ -23,9 +25,6 @@ function showSubtasksInputMenu() {
   focusIcons.classList.remove("d-none");
 }
 
-function delayHideSubtasksInputMenu() {
-  setTimeout(() => hideSubtasksInputMenu(), 150);
-}
 
 function hideSubtasksInputMenu() {
   const plusIcon = document.getElementById("subtasks-plus");
@@ -83,7 +82,7 @@ function renderSubtaskInForm(subtask) {
               type="text" 
               name="subtask" 
               value="${subtask}">
-            <span class="hide-on-focus subtask-dot">&#8226</span>
+            <div class="hide-on-focus subtask-dot">&#8226</div>
             <div class="single-task-icon-wrapper-before flex-ctr-ctr d-none hide-on-focus">
               <div class="single-subtask-small-icon-wrapper-right flex-ctr-ctr">
             <svg onclick="focusToSubtaskInput('input-${subtask}')" class="single-subtask-icon" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
