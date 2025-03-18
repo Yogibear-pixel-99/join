@@ -258,7 +258,7 @@
                   <div class="subtasks-wrapper">
                   <input
                     onfocus="showSubtasksInputMenu()"
-                    onblur="delayHideSubtasksInputMenu()"
+                    onblur="hideSubtasksInputMenu()"
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
@@ -283,7 +283,7 @@
                         >
                     <img
                     
-                    onclick="addSubtaskValueToArray()"
+                    onmousedown="addSubtaskValueToArray()"
                       class="subtasks-icon"
                       src="../assets/icons/check-icon-dark.svg" />
                   </div>
