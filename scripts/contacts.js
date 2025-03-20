@@ -110,7 +110,6 @@ function animateContactMenu(){
  * @param {object} event - Default object to prevent the form to refresh the page.
  */
 async function createNewContact(event){
-    getTheNextFreeIdNumber('contacts');
     event.preventDefault();
     await getNewContactTemp();
     collectFormInformation('new-contact-form');
@@ -131,12 +130,11 @@ async function createNewContact(event){
  */
 async function getNewContactTemp(){
     collectedFormInfos =     {
-        "id": `${await getMaxlengthOfEntriesFromApi('contacts') + 1}`,
+        "id": `${await getTheNextFreeIdNumberFromApi('contacts')}`,
         "name": "",
         "email": "",
         "phone": ""
       }
-
 }
 
 /**

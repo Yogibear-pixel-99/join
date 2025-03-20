@@ -88,26 +88,8 @@ function collectFormInformation(formContainer) {
   }
 }
 
-/**
- * Returns the length of the specified array in firebase to create the next id integer.
- * 
- * @param {string} objName - The needed array in the firebase API.
- * @returns The length of the array in the choosen API.
- */
-async function getMaxlengthOfEntriesFromApi(objName){
-  try {
-      let response = await fetch(MAIN_URL + objName + '.json');
-      if (!response.ok) {
-          throw new Error('No answer from server!')
-      }
-      let data = await response.json();
-      return Object.keys(data).length;
-  } catch (error) {
-      console.log(error);
-  }
-}
 
-async function getTheNextFreeIdNumber(objName){
+async function getTheNextFreeIdNumberFromApi(objName){
   try {
     let response = await fetch(MAIN_URL + objName + '.json');
     console.log(response);
@@ -115,39 +97,29 @@ async function getTheNextFreeIdNumber(objName){
       throw new Error('No answer from server!');
     }
     let data = await response.json();
-    console.log(data);
-
-    let arrayFromData = Object.values(data);
-    console.log(arrayFromData);
-    let allIdArray = arrayFromData.map(element => element.id);
-    console.log(allIdArray);
-    allIdArray.sort((a, b) => a - b);
-    console.log(allIdArray);
-    for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
-      const element = allIdArray[idIndex];
-        if (element != idIndex + 1) {
-          console.log(idIndex + 1);
-          break;
-        }
-
-    }
-
-
+    let newId = sortDataFromApiAndGetFreeIdNumber(data);
+    return newId;
   } catch (error) {
     console.log(error);
   }
 }
 
+function sortDataFromApiAndGetFreeIdNumber(data){
+    let arrayFromData = Object.values(data);
+    let allIdArray = arrayFromData.map(element => element.id);
+    let newId = allIdArray.length + 1;
+    allIdArray.sort((a, b) => a - b);
+    for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
+      const element = allIdArray[idIndex];
+        if (element != idIndex + 1) {
+          newId = (idIndex + 1);
+          break
+        }
+    }
+    return newId;
+}
 
-    // for (let index = 0; index < idArrayTest3.length;) {
-    //   const element = array[index];
-    //     if (element === index) {
-    //       index++
-    //     } else {
-    //       return index;
-    //     }
-    // }
-    
+
 getUserSummaryInfo();
 
 function initialsChange() {
