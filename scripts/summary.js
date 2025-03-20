@@ -1,7 +1,11 @@
 let userInfoList = [];
 
 function initSummary() {
-    loadSummaryGuest();
+    if (emailIndex >= 0) {
+        summaryLoginData();
+    } else {
+        loadSummaryGuest();
+    }
     getUserSummaryInfo();
 }
 
@@ -24,14 +28,13 @@ function loadUserArray() {
 function loadSummaryGuest() {
     let mainSummaryREF = document.getElementById("summary-main");
     mainSummaryREF.innerHTML += summaryTemplateGuest(); 
+    console.log(emailIndex);
+    
 }
 
-function summaryLoginData(userIndex, loginInfoList) {
-    userInfoList = loginInfoList;
-    console.log(userInfoList);
-    
+function summaryLoginData() {  
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[userIndex].name)
+    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name)
 }
 
 function summaryTemplateGuest() {

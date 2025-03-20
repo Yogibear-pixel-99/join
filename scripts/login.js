@@ -1,6 +1,7 @@
 const emailREF = document.getElementById("email");
 const passwordREF = document.getElementById("password");
 const inputLogoREF = document.getElementById("input-logo");
+let emailIndex = -1;
 let loginInfoList = [];
 
 async function getUserInfo() {
@@ -34,7 +35,7 @@ function checkEmail(event) {
   console.log(emailChecked);
 
   if (emailChecked === true) {
-    let emailIndex = loginInfoList.findIndex(
+    emailIndex = loginInfoList.findIndex(
       (item) => item.email === emailREF.value
     );
     console.log(emailIndex);
@@ -59,8 +60,8 @@ function checkPassword(emailIndex, event) {
   );
   console.log(passwordChecked);
   if (passwordChecked == emailIndex) {
+    console.log(emailIndex);
     window.location.href = "summary.html";
-    summaryLoginData(emailIndex, loginInfoList);
     removeRedBorderAndTextFalseInput("email", "login-error-message");
     removeRedBorderAndTextFalseInput("password", "login-error-message");
   } else {
