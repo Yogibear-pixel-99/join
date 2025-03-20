@@ -1,11 +1,8 @@
 let userInfoList = [];
 
 function initSummary() {
-    if (emailIndex >= 0) {
-        summaryLoginData();
-    } else {
-        loadSummaryGuest();
-    }
+    console.log(sessionStorage.getItem("indexOfUser"));
+    emailIndex = sessionStorage.getItem("indexOfUser");
     getUserSummaryInfo();
 }
 
@@ -23,6 +20,15 @@ function loadUserArray() {
       password: usersFromApi[index].password,
     });
   }  
+  loadSummary();
+}
+
+function loadSummary() {
+    if (emailIndex >= 0) {
+        summaryLoginData();
+    } else {
+        loadSummaryGuest();
+    }
 }
 
 function loadSummaryGuest() {
@@ -197,7 +203,7 @@ function summaryTemplate(name) {
             alt="helplogo"
           />
         </a>
-          <div onclick="toggleDropdown()" class="header-initials">SM</div>
+          <div onclick="toggleDropdown()" class="header-initials">${name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()}</div>
         </div>
       </header>
       <div class="dropdown-menu d-none" id="dropdown">
