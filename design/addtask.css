@@ -250,7 +250,6 @@ label {
 }
 
 .subtask-container-wrapper {
-  box-sizing: border-box;
   height: 30px;
   width: 100%;
   display: flex;

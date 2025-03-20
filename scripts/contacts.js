@@ -3,16 +3,18 @@
 
 let sortedContactsArrayByFirstLetter = [];
 
+
+
 /**
- * Opens the overlay to add a contact, disable the background buttons and darkens the background.
+ * Toggles a specified overlaymenu with the given id.
  * 
+ * @param {string} overlayId - The id of the overlay menu to show up.
  */
-function toggleAddContactsOverlay(){
-    const overlay = document.getElementById('add-contact-overlay');
+function toggleOverlayMenu(overlayId){
+    const overlay = document.getElementById(overlayId);
     const mask = document.getElementById('mask-container');
     const mainContent = document.getElementById('main-container');
-        overlay.classList.toggle('add-contact-overlay-hide');
-        overlay.classList.toggle('add-contact-overlay-open');
+        overlay.classList.toggle('standard-overlay-hide');
         mask.classList.toggle('d-none');
         mainContent.classList.toggle('disable-pointer-events');
 }
