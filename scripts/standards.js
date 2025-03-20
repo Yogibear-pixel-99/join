@@ -140,3 +140,28 @@ async function getTheNextFreeIdNumber(objName){
     //       return index;
     //     }
     // }
+    
+getUserSummaryInfo();
+
+function initialsChange() {
+  let headerInitialsREF = document.getElementById("header-initials");
+  headerInitialsREF.innerText = userInfoList[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
+}
+
+async function getUserSummaryInfo() {
+  await getDataFromServer("users", usersFromApi);
+  loadUserArray();
+}
+
+function loadUserArray() {
+  emailIndex = sessionStorage.getItem("indexOfUser");
+  userInfoList = [];
+for (let index = 0; index < usersFromApi.length; index++) {
+  userInfoList.push({
+    name: usersFromApi[index].name,
+    email: usersFromApi[index].email,
+    password: usersFromApi[index].password,
+  });
+}
+initialsChange(); 
+}
