@@ -98,7 +98,7 @@ async function getMaxlengthOfEntriesFromApi(objName){
   try {
       let response = await fetch(MAIN_URL + objName + '.json');
       if (!response.ok) {
-          throw new Error('Now answer from server!')
+          throw new Error('No answer from server!')
       }
       let data = await response.json();
       return Object.keys(data).length;
@@ -106,3 +106,37 @@ async function getMaxlengthOfEntriesFromApi(objName){
       console.log(error);
   }
 }
+
+async function getTheNextFreeIdNumber(objName){
+  try {
+    let response = await fetch(MAIN_URL + objName + '.json');
+    console.log(response);
+    if (!response.ok) {
+      throw new Error('No answer from server!');
+    }
+    let data = await response.json();
+    console.log(data);
+
+    let arrayFromData = Object.values(data);
+    console.log(arrayFromData);
+    let allIdArray = arrayFromData.map(element => element.id);
+    console.log(allIdArray);
+    allIdArray.sort((a, b) => a - b);
+    console.log(allIdArray);
+
+
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+    // for (let index = 0; index < idArrayTest3.length;) {
+    //   const element = array[index];
+    //     if (element === index) {
+    //       index++
+    //     } else {
+    //       return index;
+    //     }
+    // }

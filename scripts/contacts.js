@@ -110,6 +110,7 @@ function animateContactMenu(){
  * @param {object} event - Default object to prevent the form to refresh the page.
  */
 async function createNewContact(event){
+    getTheNextFreeIdNumber('contacts');
     event.preventDefault();
     await getNewContactTemp();
     collectFormInformation('new-contact-form');
@@ -118,7 +119,7 @@ async function createNewContact(event){
         setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 5000);
     } else {
     await postDataToApi('contacts', collectedFormInfos);
-    toggleAddContactsOverlay();
+    toggleOverlayMenu('add-contact-overlay');
     await sortAndRenderContacts();
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
     showContactAddedSuccessButton();
@@ -135,6 +136,7 @@ async function getNewContactTemp(){
         "email": "",
         "phone": ""
       }
+
 }
 
 /**
