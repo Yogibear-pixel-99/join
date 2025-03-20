@@ -123,7 +123,14 @@ async function getTheNextFreeIdNumber(objName){
     console.log(allIdArray);
     allIdArray.sort((a, b) => a - b);
     console.log(allIdArray);
+    for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
+      const element = allIdArray[idIndex];
+        if (element != idIndex + 1) {
+          console.log(idIndex + 1);
+          break;
+        }
 
+    }
 
 
   } catch (error) {
