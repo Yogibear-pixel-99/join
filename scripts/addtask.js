@@ -1,7 +1,20 @@
+
+
 function resetForm(formId) {
   const ref = document.getElementById(formId);
+  const priorityRef = document.getElementById('standard-prio');
   ref.reset();
+  setPriorityButtonColor(priorityRef);
+  deleteSubtasksContent();
 }
+
+
+function deleteSubtasksContent(){
+  document.getElementById("added-subtasks").innerHTML = '';
+  allSubtasks = [];
+
+}
+
 
 function setPriorityButtonColor(selected) {
   const labelRef = document.querySelectorAll("#priority-wrapper label");
@@ -16,6 +29,7 @@ function setPriorityButtonColor(selected) {
   });
 }
 
+
 function showSubtasksInputMenu() {
   const plusIcon = document.getElementById("subtasks-plus");
   const focusIcons = document.getElementById("subtasks-on-focus-icons");
@@ -23,9 +37,6 @@ function showSubtasksInputMenu() {
   focusIcons.classList.remove("d-none");
 }
 
-function delayHideSubtasksInputMenu() {
-  setTimeout(() => hideSubtasksInputMenu(), 150);
-}
 
 function hideSubtasksInputMenu() {
   const plusIcon = document.getElementById("subtasks-plus");
@@ -47,10 +58,11 @@ function addSubtaskValueToArray() {
   }  else if (userInput == "") {
     getAddSubtaskError(subtaskInput, 'Type in a subtask');
   } else {
-    subtaskOutput.innerHTML += renderSubtaskInForm(userInput);
+    subtaskOutput.innerHTML += renderSubtaskTemp(userInput);
   }
   subtaskInput.value = "";
 }
+
 
 function getAddSubtaskError(subtaskInput, errorMessage) {
   subtaskInput.classList.add("subtask-input-error");
@@ -58,10 +70,12 @@ function getAddSubtaskError(subtaskInput, errorMessage) {
   setTimeout(() => clearSubtaskError(subtaskInput), 2000);
 }
 
+
 function clearSubtaskError(subtaskInput) {
   subtaskInput.classList.remove("subtask-input-error");
   subtaskInput.setAttribute("placeholder", "Add new subtask");
 }
+
 
 function deleteSubtask(containerId){
   let contentRef = document.getElementById(containerId);
@@ -69,12 +83,14 @@ function deleteSubtask(containerId){
       contentRef.remove();
 }
 
+
 function focusToSubtaskInput(containerId){
   let ref = document.getElementById(containerId);
       ref.focus();
 }
 
-function renderSubtaskInForm(subtask) {
+
+function renderSubtaskTemp(subtask) {
   return `<div id="${subtask}" class="subtask-container-wrapper">
             
             <input
@@ -83,7 +99,7 @@ function renderSubtaskInForm(subtask) {
               type="text" 
               name="subtask" 
               value="${subtask}">
-            <span class="hide-on-focus subtask-dot">&#8226</span>
+            <div class="hide-on-focus subtask-dot">&#8226</div>
             <div class="single-task-icon-wrapper-before flex-ctr-ctr d-none hide-on-focus">
               <div class="single-subtask-small-icon-wrapper-right flex-ctr-ctr">
             <svg onclick="focusToSubtaskInput('input-${subtask}')" class="single-subtask-icon" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,14 +131,3 @@ function renderSubtaskInForm(subtask) {
             </div>
            </div>`;
 }
-
-// collect info from subtask field
-// put the info to a container below
-// get a unorderd list template
-// the template should have an edit and erase symbol
-// on edit i should be able to edit the information
-// on erase the info should delete
-// on hover there should be a grey background
-// only on hover the symbols for editing and delete should appear
-
-// maybe i collect the infos in an array and render dynamically

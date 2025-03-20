@@ -250,30 +250,30 @@ label {
 }
 
 .subtask-container-wrapper {
-  margin: 6px 0;
-  box-sizing: border-box;
   height: 30px;
   width: 100%;
-  background-color: var(--main-background);
   display: flex;
   gap: 8px;
   justify-content: center;
   align-items: center;
   position: relative;
+  border-radius: 16px;
+  z-index: 0;
 }
 
-.subtask-container-wrapper .subtask-input {
+.subtask-input {
   padding-left: 24px;
-  height: 80%;
-  border: none !important;
+  height: 100%;
   background-color: var(--main-background);
-  
   width: 100%;
+  border: none;
+  border-radius: 16px;
 }
 
 .subtask-container-wrapper .subtask-input:focus {
-  border-bottom: solid 1px var(--light-blue) !important;
-  border-radius: none !important;
+  border: none;
+  border-bottom: solid 1px var(--light-blue);
+  border-radius: none;
 }
 
 .subtask-dot {
@@ -281,19 +281,11 @@ label {
   left: 8px;
 }
 
-
-
-
 .single-task-icon-wrapper-after,
 .single-task-icon-wrapper-before {
   position: absolute;
   right: 16px;
 }
-
-
-
-
-
 
 .subtask-container-wrapper .subtask-input:focus ~ .single-task-icon-wrapper-before{
   display: none !important;
@@ -307,12 +299,20 @@ label {
   display: flex;
 }
 
+.subtask-container-wrapper .subtask-input:focus {
+  border-radius: 0 !important;
+}
+
 .subtask-container-wrapper .subtask-input:focus + .subtask-dot {
   display: none !important;
 }
 
 .added-subtasks {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
 }
 
 .subtask-container-wrapper:hover .single-task-icon-wrapper-before {
@@ -323,8 +323,8 @@ label {
 .subtask-container-wrapper:hover .subtask-input
  {
   background-color: #eeeeee;
+  cursor: pointer;
 }
-
 
 .single-subtask-small-icon-wrapper-right {
   width: 26px;
