@@ -165,3 +165,9 @@ function getInfosForEditMenu(contactId){
     document.getElementById('edit-user-email-input').value = contact.email;
     document.getElementById('edit-user-phone-input').value = contact.phone;
 }
+
+function saveEditedContact(event){
+    event.preventDefault();
+    pullDataToApi();
+}
+
