@@ -104,7 +104,7 @@ async function createNewContact(event){
         setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 3000);
     } else {
     await postDataToApi('contacts', collectedFormInfos);
-    toggleOverlayMenu('add-contact-overlay');
+    toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container');
     await sortAndRenderContacts();
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
     showContactAddedSuccessButton();
@@ -149,7 +149,7 @@ function showContactAddedSuccessButton(){
 
 
 function openEditContact(){
-    toggleOverlayMenu('edit-contact-overlay');
+    toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
 }
 
 // NEW IDS FROM EDIT OVERLAY:
