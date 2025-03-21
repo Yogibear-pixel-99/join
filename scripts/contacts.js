@@ -106,6 +106,7 @@ async function createNewContact(event){
     await postDataToApi('contacts', collectedFormInfos);
     toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container');
     await sortAndRenderContacts();
+    scrollToNewContact(`contact-${collectedFormInfos.id}`)
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
     showContactAddedSuccessButton();
     document.getElementById('new-contact-form').reset();
@@ -146,6 +147,11 @@ function showContactAddedSuccessButton(){
           setTimeout(() => ref.classList.add('contact-created-button-show'), 400);
           setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
+
+function scrollToNewContact(contactId){
+    document.getElementById(contactId).scrollIntoView({behavior: "smooth", block: "end"});
+}
+
 
 
 function openEditContact(){
