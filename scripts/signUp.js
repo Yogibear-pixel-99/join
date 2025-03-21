@@ -71,3 +71,16 @@ function redirectToLogInPage() {
   window.location.href = "../html/login.html";
 }
 
+function toggleSignUpButton(){
+  const checkPrivacy = document.getElementById('accept-privacy');
+  const buttonRef = document.getElementById('sign-up-button');
+    if (checkPrivacy.checked) {
+      buttonRef.disabled = false;
+      buttonRef.classList.add('dark-button');
+      buttonRef.classList.remove('dark-button-signup');
+    } else {
+      buttonRef.disabled = true;
+      buttonRef.classList.remove('dark-button');
+      buttonRef.classList.add('dark-button-signup');
+    }
+}

@@ -33,12 +33,12 @@ async function getDataFromServer(objName, destination) {
 /**
  * Create the initials from the full name element and add them to the object.
  * 
- * @param {object} element - The object position of the needed data in the array.
+ * @param {object} user - The user of the needed data in the array.
  * @returns - Returns the first letter of the first and last name. The initials.
  */
 
-function getInitialsForObject(element){
-    const name = element.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+function getInitialsForObject(user){
+    const name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
     const regExp = /\b\p{L}/gu;
     const initialsArray = name.match(regExp);
     return initialsArray.join("");
@@ -280,4 +280,47 @@ function dropTask(event) {
 function dragend(event) {
     event.target.classList.remove("dragging");
 }
+
+async function loadAndRenderUsers() {
+    await getDataFromServer('users', usersFromApi);
+    createInitialsForEachName();
+    renderUserDropdown();
+}
+
+
+function createInitialsForEachName() {
+    usersFromApi.forEach(user => {
+        user['initials'] = getInitialsForObject(user);
+    });
+}
+
+function getInitialsForObject(user) {
+    let name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+    let parts = name.split(" ");
+    return parts[0].charAt(0) + parts[1].charAt(0);
+}
+
+function renderUserDropdown() {
+    let dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.innerHTML = ''; 
+    usersFromApi.forEach(user => {
+        let userItem = document.createElement("div");
+        userItem.classList.add("dropdown-item");
+        userItem.innerHTML =`
+            <div class="user-item">
+                <div class="initials-circle">${user.initials}</div>
+                <span>${user.name}</span>
+                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox">
+            </div>
+        `;
+        dropdownContent.appendChild(userItem);
+    });
+
+    document.querySelectorAll(".user-checkbox").forEach(checkbox => {
+        checkbox.addEventListener("change", handleCheckboxChange);
+    });
+    
+}
+
+
 

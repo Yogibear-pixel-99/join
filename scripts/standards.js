@@ -88,21 +88,75 @@ function collectFormInformation(formContainer) {
   }
 }
 
-/**
- * Returns the length of the specified array in firebase to create the next id integer.
- * 
- * @param {string} objName - The needed array in the firebase API.
- * @returns The length of the array in the choosen API.
- */
-async function getMaxlengthOfEntriesFromApi(objName){
+
+async function getTheNextFreeIdNumberFromApi(objName){
   try {
-      let response = await fetch(MAIN_URL + objName + '.json');
-      if (!response.ok) {
-          throw new Error('Now answer from server!')
-      }
-      let data = await response.json();
-      return Object.keys(data).length;
+    let response = await fetch(MAIN_URL + objName + '.json');
+    console.log(response);
+    if (!response.ok) {
+      throw new Error('No answer from server!');
+    }
+    let data = await response.json();
+    let newId = sortDataFromApiAndGetFreeIdNumber(data);
+    return newId;
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
+}
+
+function sortDataFromApiAndGetFreeIdNumber(data){
+    let arrayFromData = Object.values(data);
+    let allIdArray = arrayFromData.map(element => element.id);
+    let newId = allIdArray.length + 1;
+    allIdArray.sort((a, b) => a - b);
+    for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
+      const element = allIdArray[idIndex];
+        if (element != idIndex + 1) {
+          newId = (idIndex + 1);
+          break
+        }
+    }
+    return newId;
+}
+
+
+/**
+ * Toggles a specified overlaymenu with the given id.
+ * 
+ * @param {string} overlayId - The id of the overlay menu to show up.
+ * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
+ */
+function toggleOverlayMenu(overlayId, maskId){
+  const overlay = document.getElementById(overlayId);
+  const mask = document.getElementById(maskId);
+  const mainContent = document.getElementById('main-container');
+      overlay.classList.toggle('standard-overlay-hide');
+      mask.classList.toggle('d-none');
+      mainContent.classList.toggle('disable-pointer-events');
+}
+
+
+getUserSummaryInfo();
+
+function initialsChange() {
+  let headerInitialsREF = document.getElementById("header-initials");
+  headerInitialsREF.innerText = userInfoList[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
+}
+
+async function getUserSummaryInfo() {
+  await getDataFromServer("users", usersFromApi);
+  loadUserArray();
+}
+
+function loadUserArray() {
+  emailIndex = sessionStorage.getItem("indexOfUser");
+  userInfoList = [];
+for (let index = 0; index < usersFromApi.length; index++) {
+  userInfoList.push({
+    name: usersFromApi[index].name,
+    email: usersFromApi[index].email,
+    password: usersFromApi[index].password,
+  });
+}
+initialsChange(); 
 }

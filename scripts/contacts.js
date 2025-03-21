@@ -3,19 +3,7 @@
 
 let sortedContactsArrayByFirstLetter = [];
 
-/**
- * Opens the overlay to add a contact, disable the background buttons and darkens the background.
- * 
- */
-function toggleAddContactsOverlay(){
-    const overlay = document.getElementById('add-contact-overlay');
-    const mask = document.getElementById('mask-container');
-    const mainContent = document.getElementById('main-container');
-        overlay.classList.toggle('add-contact-overlay-hide');
-        overlay.classList.toggle('add-contact-overlay-open');
-        mask.classList.toggle('d-none');
-        mainContent.classList.toggle('disable-pointer-events');
-}
+
 
 
 /**
@@ -101,37 +89,46 @@ function animateContactMenu(){
           });
 }
 
-
+/**
+ * Check if the contact already exists in the database. Shows a red border and a text message if yes.
+ * Fetches the new contact to the database and shows it in the floating menu.
+ * 
+ * @param {object} event - Default object to prevent the form to refresh the page.
+ */
 async function createNewContact(event){
     event.preventDefault();
     await getNewContactTemp();
     collectFormInformation('new-contact-form');
     if (await checkIfDataAlreadyExists('user-email-input', 'contacts')) {
         addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', 'Contact/Email already exists!');
-        setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 5000);
+        setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 3000);
     } else {
     await postDataToApi('contacts', collectedFormInfos);
-    toggleAddContactsOverlay();
+    toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container');
     await sortAndRenderContacts();
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
     showContactAddedSuccessButton();
-
-    // get info button "contact successfully added"
-    // switch to position in contact list
+    document.getElementById('new-contact-form').reset();
     }
 }   
 
-
+/**
+ * Fills the empty object collectedFormInfos with am template and the next id number from the database.
+ */
 async function getNewContactTemp(){
     collectedFormInfos =     {
-        "id": `${await getMaxlengthOfEntriesFromApi('contacts') + 1}`,
+        "id": `${await getTheNextFreeIdNumberFromApi('contacts')}`,
         "name": "",
         "email": "",
         "phone": ""
       }
 }
 
-
+/**
+ * After fetching the new contact data to the database, highlights the new fetched contact in the contact list.
+ * 
+ * @param {string} containerId - The id off the specified contact in the contact list.
+ */
 function addBackgroundToSelectedContact(containerId){
     const otherRef = document.querySelectorAll('.single-contact');
     const ref = document.getElementById(`contact-${containerId}`);
@@ -141,13 +138,23 @@ function addBackgroundToSelectedContact(containerId){
           ref.classList.add('highlight-contact');
 }
 
-
+/**
+ * Displays a short overlay message in a button, if the contact successfully added to the database.
+ */
 function showContactAddedSuccessButton(){
     const ref = document.getElementById('contact-created-button');
           setTimeout(() => ref.classList.add('contact-created-button-show'), 400);
           setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
 
-// TEXT INPUT FIELD DESIGN!!
-// change post function that the response calls the message.
-// lower case name automatic to upper case first letter
+
+function openEditContact(){
+    getInfosForEditMenu();
+    toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
+}
+
+function getInfosForEditMenu(){
+    document.getElementById('edit-user-name-input').value = "1";
+    document.getElementById('edit-user-email-input').value = "2";
+    document.getElementById('edit-user-phone-input').value = "3";
+}

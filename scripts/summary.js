@@ -1,7 +1,6 @@
 let userInfoList = [];
 
 function initSummary() {
-    loadSummaryGuest();
     getUserSummaryInfo();
 }
 
@@ -11,6 +10,8 @@ async function getUserSummaryInfo() {
   }
 
 function loadUserArray() {
+    console.log(sessionStorage.getItem("indexOfUser"));
+    emailIndex = sessionStorage.getItem("indexOfUser");
     userInfoList = [];
   for (let index = 0; index < usersFromApi.length; index++) {
     userInfoList.push({
@@ -19,19 +20,27 @@ function loadUserArray() {
       password: usersFromApi[index].password,
     });
   }  
+  loadSummary();
+}
+
+function loadSummary() {
+    if (emailIndex >= 0) {
+        summaryLoginData();
+    } else {
+        loadSummaryGuest();
+    }
 }
 
 function loadSummaryGuest() {
     let mainSummaryREF = document.getElementById("summary-main");
     mainSummaryREF.innerHTML += summaryTemplateGuest(); 
+    console.log(emailIndex);
+    
 }
 
-function summaryLoginData(userIndex, loginInfoList) {
-    userInfoList = loginInfoList;
-    console.log(userInfoList);
-    
+function summaryLoginData() {  
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[userIndex].name)
+    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name)
 }
 
 function summaryTemplateGuest() {
@@ -194,7 +203,7 @@ function summaryTemplate(name) {
             alt="helplogo"
           />
         </a>
-          <div onclick="toggleDropdown()" class="header-initials">SM</div>
+          <div onclick="toggleDropdown()" class="header-initials">${name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()}</div>
         </div>
       </header>
       <div class="dropdown-menu d-none" id="dropdown">

@@ -69,7 +69,9 @@
             <span id="input-alert-message" class="input-alert-message">Your passwords don't match. Please try again.</span>
           </div>
           <div class="flex-ctr-ctr accept-policy-login">
+            
             <input
+              onclick="toggleSignUpButton()"
               type="checkbox"
               id="accept-privacy"
               required />
@@ -79,7 +81,7 @@
             >
           </div>
 
-          <button class="dark-button" type="submit">
+          <button class="dark-button-signup" id="sign-up-button" type="submit" disabled>
             Sign up
           </button>
         </form>
