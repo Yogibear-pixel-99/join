@@ -12,7 +12,7 @@ let sortedContactsArrayByFirstLetter = [];
  */
 async function sortAndRenderContacts(){
     await getDataFromServer('contacts', contactsFromApi);
-    createInitialsForEachName();  
+    createInitialsForEachName(contactsFromApi);  
     sortAllContactsByFirstLetter();
     renderContactsHeaderLetter();
 }

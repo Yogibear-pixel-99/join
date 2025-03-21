@@ -48,8 +48,8 @@ function getInitialsForObject(user){
  * Iterate through the whole object and calls a function to create the initials.
  * 
  */
-function createInitialsForEachName(){
-    contactsFromApi.forEach(element => {
+function createInitialsForEachName(destinationArray){
+    destinationArray.forEach(element => {
         element['initials'] = getInitialsForObject(element);
     })
 }
@@ -283,22 +283,23 @@ function dragend(event) {
 
 async function loadAndRenderUsers() {
     await getDataFromServer('users', usersFromApi);
-    createInitialsForEachName();
+    createInitialsForEachName(usersFromApi);
     renderUserDropdown();
 }
 
+// Exists already in row 51
+// function createInitialsForEachName(destinationArray) {
+//     destinationArray.forEach(user => {
+//         user['initials'] = getInitialsForObject(user);
+//     });
+// }
 
-function createInitialsForEachName() {
-    usersFromApi.forEach(user => {
-        user['initials'] = getInitialsForObject(user);
-    });
-}
-
-function getInitialsForObject(user) {
-    let name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
-    let parts = name.split(" ");
-    return parts[0].charAt(0) + parts[1].charAt(0);
-}
+// Exists already in row 40
+// function getInitialsForObject(user) {
+//     let name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+//     let parts = name.split(" ");
+//     return parts[0].charAt(0) + parts[1].charAt(0);
+// }
 
 function renderUserDropdown() {
     let dropdownContent = document.getElementById("dropdownContent");
