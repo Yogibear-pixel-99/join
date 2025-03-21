@@ -120,6 +120,34 @@ function sortDataFromApiAndGetFreeIdNumber(data){
 }
 
 
+
+
+/**
+ * Toggles a specified overlaymenu with the given id.
+ * 
+ * @param {string} overlayId - The id of the overlay menu to show up.
+ */
+function toggleOverlayMenu(overlayId){
+  const overlay = document.getElementById(overlayId);
+  const mask = document.getElementById('mask-container');
+  const mainContent = document.getElementById('main-container');
+      overlay.classList.toggle('standard-overlay-hide');
+      mask.classList.toggle('d-none');
+      mainContent.classList.toggle('disable-pointer-events');
+}
+
+
+
+function closeOverlayOnMaskClick(){
+  const overlay = document.querySelectorAll('.overlay-menu-mask-close');
+  const mask = document.getElementById('mask-container');
+  const mainContent = document.getElementById('main-container');
+    overlay.forEach(element => element.classList.add('standard-overlay-hide'))
+    mask.classList.add('d-none');
+    mainContent.classList.remove('disable-pointer-events');
+}
+
+
 getUserSummaryInfo();
 
 function initialsChange() {

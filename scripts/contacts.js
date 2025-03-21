@@ -5,20 +5,6 @@ let sortedContactsArrayByFirstLetter = [];
 
 
 
-/**
- * Toggles a specified overlaymenu with the given id.
- * 
- * @param {string} overlayId - The id of the overlay menu to show up.
- */
-function toggleOverlayMenu(overlayId){
-    const overlay = document.getElementById(overlayId);
-    const mask = document.getElementById('mask-container');
-    const mainContent = document.getElementById('main-container');
-        overlay.classList.toggle('standard-overlay-hide');
-        mask.classList.toggle('d-none');
-        mainContent.classList.toggle('disable-pointer-events');
-}
-
 
 /**
  * Get contacts from API firebase, create initials from first- and lastname, sort contacts by first letter and render the contacst header letter to HTML.
@@ -115,13 +101,14 @@ async function createNewContact(event){
     collectFormInformation('new-contact-form');
     if (await checkIfDataAlreadyExists('user-email-input', 'contacts')) {
         addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', 'Contact/Email already exists!');
-        setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 5000);
+        setTimeout(() => removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message'), 3000);
     } else {
     await postDataToApi('contacts', collectedFormInfos);
     toggleOverlayMenu('add-contact-overlay');
     await sortAndRenderContacts();
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
     showContactAddedSuccessButton();
+    document.getElementById('new-contact-form').reset();
     }
 }   
 
@@ -159,3 +146,13 @@ function showContactAddedSuccessButton(){
           setTimeout(() => ref.classList.add('contact-created-button-show'), 400);
           setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
+
+
+function openEditContact(){
+    toggleOverlayMenu('edit-contact-overlay');
+}
+
+// NEW IDS FROM EDIT OVERLAY:
+// FORM - edit-contact-form
+// EMAIL - edit-user-email-input
+// ALERTMESSAGE - edit-alert-message
