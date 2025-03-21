@@ -149,10 +149,12 @@ function showContactAddedSuccessButton(){
 
 
 function openEditContact(){
+    getInfosForEditMenu();
     toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
 }
 
-// NEW IDS FROM EDIT OVERLAY:
-// FORM - edit-contact-form
-// EMAIL - edit-user-email-input
-// ALERTMESSAGE - edit-alert-message
+function getInfosForEditMenu(){
+    document.getElementById('edit-user-name-input').value = "1";
+    document.getElementById('edit-user-email-input').value = "2";
+    document.getElementById('edit-user-phone-input').value = "3";
+}
