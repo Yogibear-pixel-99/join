@@ -154,13 +154,14 @@ function scrollToNewContact(contactId){
 
 
 
-function openEditContact(){
-    getInfosForEditMenu();
+function openEditContact(contactId){
+    getInfosForEditMenu(contactId);
     toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
 }
 
-function getInfosForEditMenu(){
-    document.getElementById('edit-user-name-input').value = "1";
-    document.getElementById('edit-user-email-input').value = "2";
-    document.getElementById('edit-user-phone-input').value = "3";
+function getInfosForEditMenu(contactId){
+    const contact = contactsFromApi.find(element => element.id === contactId);
+    document.getElementById('edit-user-name-input').value = contact.name;
+    document.getElementById('edit-user-email-input').value = contact.email;
+    document.getElementById('edit-user-phone-input').value = contact.phone;
 }
