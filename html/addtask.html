@@ -232,15 +232,22 @@
               </div>
               <div class="">
                 <label for="customDropdown">Assigned to<span class="red-asterisk">*</span></label>
-                  <div class="custom-dropdown" id="customDropdown">
-                    <div class="dropdown-label" id="dropdownLabel" onclick="renderDropdown()">Select contacts to assign
-                      <img src="../assets/icons/arrow_drop_downaa.png" alt="">
+                <div class="custom-dropdown" id="customDropdown">
+                    <div class="dropdown-label" id="dropdownLabel" onclick="toggleDropdown()">Select contacts to assign
+                        <img src="../assets/icons/arrow_drop_downaa.png" alt="">
                     </div>
-                    
+            
+                    <!-- Das Input-Feld für die Suche -->
+                    <input type="text" id="searchInput" placeholder="Select contacts to assign" onkeyup="startSearchingContacts()" />
+            
                     <div class="dropdown-content" id="dropdownContent"></div>
                 </div>
-                <div class="add-selected-contacts"></div>
-              </div>
+            
+                <div class="add-selected-contacts" id="addSelectedContacts">
+                    <!-- Hier erscheinen die hinzugefügten Kontakte -->
+                </div>
+            </div>
+            
               <div>
                 <label for="category">
                   Category<span class="red-asterisk">*</span>

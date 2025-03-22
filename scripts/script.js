@@ -281,46 +281,93 @@ function dragend(event) {
     event.target.classList.remove("dragging");
 }
 
-async function loadAndRenderUsers() {
-    await getDataFromServer('users', usersFromApi);
-    createInitialsForEachName();
-    renderUserDropdown();
+
+// assigned to
+function toggleDropdown() {
+    let dropdownREF = document.getElementById("dropdown");
+    if (dropdownREF.classList.contains("d-none")) {
+        dropdownREF.classList.remove("d-none");
+        renderDropdown();
+    } else {
+        dropdownREF.classList.add("d-none");
+    }
 }
 
-
-function createInitialsForEachName() {
-    usersFromApi.forEach(user => {
-        user['initials'] = getInitialsForObject(user);
-    });
+function toggleDropdown() {
+    let dropdownREF = document.getElementById("dropdown");
+    if (dropdownREF.classList.contains("d-none")) {
+        dropdownREF.classList.remove("d-none");
+        renderDropdown();
+    } else {
+        dropdownREF.classList.add("d-none");
+    }
 }
+function renderDropdown() {
+    let dropdownContent = document.getElementById('dropdownContent');
+    dropdownContent.innerHTML = '';
 
-function getInitialsForObject(user) {
-    let name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
-    let parts = name.split(" ");
-    return parts[0].charAt(0) + parts[1].charAt(0);
-}
-
-function renderUserDropdown() {
-    let dropdownContent = document.getElementById("dropdownContent");
-    dropdownContent.innerHTML = ''; 
     usersFromApi.forEach(user => {
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
-        userItem.innerHTML =`
+        userItem.innerHTML = `
             <div class="user-item">
-                <div class="initials-circle">${user.initials}</div>
+                <div class="initials-circle">${getInitialsForObject(user)}</div>
                 <span>${user.name}</span>
-                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox">
+                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
             </div>
         `;
         dropdownContent.appendChild(userItem);
     });
+}
 
-    document.querySelectorAll(".user-checkbox").forEach(checkbox => {
-        checkbox.addEventListener("change", handleCheckboxChange);
+function getInitialsForObject(user) {
+    let name = user.name.split(' ');
+    return name[0].charAt(0).toUpperCase() + name[1].charAt(0).toUpperCase();
+}
+
+function startSearchingContacts() {
+    let searchInput = document.getElementById('searchInput').value.toLowerCase();
+    let filteredUsers = usersFromApi.filter(user => user.name.toLowerCase().includes(searchInput));
+    renderDropdownWithSearchResults(filteredUsers);
+}
+function renderDropdownWithSearchResults(filteredUsers) {
+    let dropdownContent = document.getElementById('dropdownContent');
+    dropdownContent.innerHTML = ''; 
+
+    filteredUsers.forEach(user => {
+        let userItem = document.createElement("div");
+        userItem.classList.add("dropdown-item");
+        userItem.innerHTML = `
+            <div class="user-item">
+                <div class="initials-circle">${getInitialsForObject(user)}</div>
+                <span>${user.name}</span>
+                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
+            </div>
+        `;
+        dropdownContent.appendChild(userItem);
     });
-    
 }
 
 
-
+function handleCheckboxChange(event) {
+    const userEmail = event.target.getAttribute("data-user-id");
+    const user = usersFromApi.find(u => u.email === userEmail); 
+    const addSelectedContactsDiv = document.getElementById("addSelectedContacts");
+    if (event.target.checked) {
+        const selectedDiv = document.createElement("div");
+        selectedDiv.classList.add("selected-contact");
+        selectedDiv.innerHTML = `
+            <div class="initials-circle">${getInitialsForObject(user)}</div>
+            <span>${user.name}</span>
+            <input type="checkbox" data-user-id="${userEmail}" class="user-checkbox" checked onclick="handleCheckboxChange(event)">
+        `;
+        addSelectedContactsDiv.appendChild(selectedDiv);
+    } else {
+        const selectedDivs = addSelectedContactsDiv.querySelectorAll(".selected-contact");
+        selectedDivs.forEach(div => {
+            if (div.querySelector("input").getAttribute("data-user-id") === userEmail) {
+                div.remove();
+            }
+        });
+    }
+}
