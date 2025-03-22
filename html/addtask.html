@@ -233,12 +233,10 @@
               <div class="">
                 <label for="customDropdown">Assigned to<span class="red-asterisk">*</span></label>
                 <div class="custom-dropdown" id="customDropdown">
-                    <div class="dropdown-label" id="dropdownLabel" onclick="toggleDropdown()">Select contacts to assign
-                        <img src="../assets/icons/arrow_drop_downaa.png" alt="">
-                    </div>
-            
-                    <input type="text" id="searchInput" placeholder="Select contacts to assign" onkeyup="startSearchingContacts()" />
-            
+                    
+                  <input class="dropdown-label" type="text" id="searchInput" placeholder="Select contacts to assign ▼" onkeyup="startSearchingContacts()" onfocus="toggleDropdown()" />
+
+                   
                     <div class="dropdown-content" id="dropdownContent"></div>
                 </div>
             
