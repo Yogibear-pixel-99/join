@@ -283,15 +283,6 @@ function dragend(event) {
 
 
 // assigned to
-function toggleDropdown() {
-    let dropdownREF = document.getElementById("dropdown");
-    if (dropdownREF.classList.contains("d-none")) {
-        dropdownREF.classList.remove("d-none");
-        renderDropdown();
-    } else {
-        dropdownREF.classList.add("d-none");
-    }
-}
 
 function toggleDropdown() {
     let dropdownREF = document.getElementById("dropdown");
