@@ -48,8 +48,8 @@ function getInitialsForObject(user){
  * Iterate through the whole object and calls a function to create the initials.
  * 
  */
-function createInitialsForEachName(){
-    contactsFromApi.forEach(element => {
+function createInitialsForEachName(destinationArray){
+    destinationArray.forEach(element => {
         element['initials'] = getInitialsForObject(element);
     })
 }

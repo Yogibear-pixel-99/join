@@ -12,7 +12,7 @@ let sortedContactsArrayByFirstLetter = [];
  */
 async function sortAndRenderContacts(){
     await getDataFromServer('contacts', contactsFromApi);
-    createInitialsForEachName();  
+    createInitialsForEachName(contactsFromApi);  
     sortAllContactsByFirstLetter();
     renderContactsHeaderLetter();
 }
@@ -106,6 +106,7 @@ async function createNewContact(event){
     await postDataToApi('contacts', collectedFormInfos);
     toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container');
     await sortAndRenderContacts();
+    scrollToNewContact(`contact-${collectedFormInfos.id}`)
     openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
     showContactAddedSuccessButton();
     document.getElementById('new-contact-form').reset();
@@ -147,14 +148,26 @@ function showContactAddedSuccessButton(){
           setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
 
+function scrollToNewContact(contactId){
+    document.getElementById(contactId).scrollIntoView({behavior: "smooth", block: "end"});
+}
 
-function openEditContact(){
-    getInfosForEditMenu();
+
+
+function openEditContact(contactId){
+    getInfosForEditMenu(contactId);
     toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
 }
 
-function getInfosForEditMenu(){
-    document.getElementById('edit-user-name-input').value = "1";
-    document.getElementById('edit-user-email-input').value = "2";
-    document.getElementById('edit-user-phone-input').value = "3";
+function getInfosForEditMenu(contactId){
+    const contact = contactsFromApi.find(element => element.id === contactId);
+    document.getElementById('edit-user-name-input').value = contact.name;
+    document.getElementById('edit-user-email-input').value = contact.email;
+    document.getElementById('edit-user-phone-input').value = contact.phone;
 }
+
+function saveEditedContact(event){
+    event.preventDefault();
+    pullDataToApi();
+}
+
