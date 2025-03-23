@@ -1,5 +1,6 @@
 let userInfoList = [];
 
+
 function initSummary() {
     getUserSummaryInfo();
 }
@@ -10,7 +11,6 @@ async function getUserSummaryInfo() {
   }
 
 function loadUserArray() {
-    console.log(sessionStorage.getItem("indexOfUser"));
     emailIndex = sessionStorage.getItem("indexOfUser");
     userInfoList = [];
   for (let index = 0; index < usersFromApi.length; index++) {
@@ -24,10 +24,10 @@ function loadUserArray() {
 }
 
 function loadSummary() {
-    if (emailIndex >= 0) {
-        summaryLoginData();
-    } else {
+    if (emailIndex === null) {
         loadSummaryGuest();
+    } else {
+        summaryLoginData();
     }
 }
 

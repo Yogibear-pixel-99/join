@@ -1,6 +1,7 @@
 const emailREF = document.getElementById("email");
 const passwordREF = document.getElementById("password");
 const inputLogoREF = document.getElementById("input-logo");
+const questLoginREF = document.getElementById("quest-login");
 let emailIndex = -1;
 let loginInfoList = [];
 
@@ -83,7 +84,7 @@ passwordREF.onkeydown = function () {
   if ((passwordREF.innerText = "")) {
     inputLogoREF.src = "../assets/icons/lock.svg";
   } else {
-    inputLogoREF.src = "../assets/icons/visibility-off.svg";
+    inputLogoREF.src = "../assets/icons/visibility_off.svg";
   }
 };
 
@@ -93,7 +94,11 @@ inputLogoREF.onclick = function () {
     inputLogoREF.src = "../assets/icons/visibility-eye.svg";
   } else {
     password.type = "password";
-    inputLogoREF.src = "../assets/icons/visibility-off.svg";
+    inputLogoREF.src = "../assets/icons/visibility_off.svg";
   }
 };
 
+
+questLoginREF.onclick = function () {
+    sessionStorage.removeItem("indexOfUser");
+}

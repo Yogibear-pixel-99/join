@@ -140,7 +140,13 @@ getUserSummaryInfo();
 
 function initialsChange() {
   let headerInitialsREF = document.getElementById("header-initials");
-  headerInitialsREF.innerText = userInfoList[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
+  console.log(emailIndex);
+  if (emailIndex === null) {
+    headerInitialsREF.innerText = "G";
+  } else {
+    headerInitialsREF.innerText = userInfoList[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
+  }
+  
 }
 
 async function getUserSummaryInfo() {
