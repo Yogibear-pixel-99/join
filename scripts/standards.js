@@ -106,8 +106,12 @@ async function getTheNextFreeIdNumberFromApi(objName){
 
 function sortDataFromApiAndGetFreeIdNumber(data){
     let arrayFromData = Object.values(data);
-    let allIdArray = arrayFromData.map(element => element.id);
-    let newId = allIdArray.length + 1;
+
+    let allIdArray = arrayFromData.map((element) => {
+      if (element != null) {
+        return element.id;}
+      })
+    let newId;
     allIdArray.sort((a, b) => a - b);
     for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
       const element = allIdArray[idIndex];
