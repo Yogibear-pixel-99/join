@@ -80,25 +80,31 @@ function checkPassword(emailIndex, event) {
   }
 }
 
-passwordREF.onkeydown = function () {
+if (passwordREF) {
+passwordREF.onkeyup = function () {
   if ((passwordREF.innerText = "")) {
     inputLogoREF.src = "../assets/icons/lock.svg";
   } else {
     inputLogoREF.src = "../assets/icons/visibility_off.svg";
   }
 };
-
-inputLogoREF.onclick = function () {
-  if (password.type == "password") {
-    password.type = "text";
-    inputLogoREF.src = "../assets/icons/visibility-eye.svg";
-  } else {
-    password.type = "password";
-    inputLogoREF.src = "../assets/icons/visibility_off.svg";
-  }
-};
-
-
-questLoginREF.onclick = function () {
-    sessionStorage.removeItem("indexOfUser");
 }
+
+if (inputLogoREF) {
+    inputLogoREF.onclick = function () {
+        if (password.type == "password") {
+          password.type = "text";
+          inputLogoREF.src = "../assets/icons/visibility-eye.svg";
+        } else {
+          password.type = "password";
+          inputLogoREF.src = "../assets/icons/visibility_off.svg";
+        }
+      };
+}
+
+if (questLoginREF) {
+    questLoginREF.onclick = function () {
+        sessionStorage.removeItem("indexOfUser");
+    }
+}
+
