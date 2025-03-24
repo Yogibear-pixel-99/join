@@ -8,6 +8,7 @@ function searchForTask() {
  findTask(inputTaskValue);
 }
 
+
 function findTask(inputTaskValue) {
     for (let index = 1; index < 4; index++) {
        let titleTaskREF = document.getElementById("titleTask" + index)
