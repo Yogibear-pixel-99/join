@@ -118,7 +118,6 @@ function renderBoard() {
     fillBaordColums(tasksFromApi,todo, prog, feed, done);
     checkEmptyColums(todo, prog, feed, done);
 
-    setupDragAndDrop();
 }
 
 function clearBoardColums(todo, prog, feed, done) {
@@ -286,15 +285,11 @@ function dragend(event) {
 
 // assigned to
 
-function toggleDropdown() {
-    let dropdownREF = document.getElementById("dropdown");
-    if (dropdownREF.classList.contains("d-none")) {
-        dropdownREF.classList.remove("d-none");
-        renderDropdown();
-    } else {
-        dropdownREF.classList.add("d-none");
-    }
-}
+function toggleAssignedDropdown() {
+    const dropdown = document.getElementById("dropdownContent");
+    dropdown.classList.toggle("d-none");
+    renderDropdown();
+  }
 function renderDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
