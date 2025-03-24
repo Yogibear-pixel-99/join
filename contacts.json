@@ -272,19 +272,21 @@
         "name": "Melanie Richter",
         "email": "melanie.richter@example.com",
         "phone": "+4915283947501"
+        
       }
     ],
 
     "tasks": [
       {
-        "status": "inprogress",
+        "status": "inProgress",
         "task": "User Story",
         "title": "Kochwelt Page & Recipe Recommender",
         "description": "Build start page with recipe recommendation.",
         "date": "12/05/2023",
         "priority": "Medium",
         "assignTo": ["sofia@mueller.com"],
-        "subtasks": []
+        "subtasks": [],
+        "id": "1"
       },
 
       {
@@ -295,7 +297,8 @@
         "date": "10/05/2023",
         "priority": "Low",
         "assignTo": ["lukas@schmidt.com","felix@braun.com","stefan@krueger.com"],
-        "subtasks": []
+        "subtasks": [],
+        "id": "2"
       },
 
       {
@@ -306,7 +309,8 @@
         "date": "25/05/2023",
         "priority": "Urgent",
         "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
-        "subtasks": []
+        "subtasks": [],
+        "id": "3"
       },
 
       {
@@ -317,7 +321,20 @@
         "date": "01/05/2023",
         "priority": "Urgent",
         "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
-        "subtasks": []
+        "subtasks": [],
+        "id": "4"
+      },
+
+      {
+        "status": "done",
+        "task": "User Story",
+        "title": "Join Summary",
+        "description": "Implement an overview.",
+        "date": "22/07/2023",
+        "priority": "Urgent",
+        "assignTo": ["sofia@mueller", "bart@springfield.com"],
+        "subtasks": [],
+        "id": "5"
       }
     ]
   }

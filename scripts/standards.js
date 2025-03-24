@@ -118,6 +118,8 @@ function sortDataFromApiAndGetFreeIdNumber(data){
         if (element != idIndex + 1) {
           newId = (idIndex + 1);
           break
+        } else {
+          newId = allIdArray.length + 1;
         }
     }
     return newId;
