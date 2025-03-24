@@ -165,6 +165,7 @@ function getInfosForEditMenu(contactId){
     document.getElementById('edit-user-name-input').value = contact.name;
     document.getElementById('edit-user-email-input').value = contact.email;
     document.getElementById('edit-user-phone-input').value = contact.phone;
+    document.getElementById('save-contact-button').setAttribute('onclick', `saveEditedContact('${contactId}')`);
 }
 
 async function saveEditedContact(event){
@@ -205,7 +206,21 @@ async function saveEditedContact(event){
     }
 
     async function saveContactToApi(contactKey){
+        if (contactKey != undefined) {
         try {
-            
+            let response = await fetch(MAIN_URL + "contacts" + contactKey + ".json", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(contactData),
+            })
+            if (!response.ok) {
+                throw new Error('Contact not found in Database!')
+            } else {
+                console.log(response);
+            }
+        } catch(error) {
+            console.log(error);
         }
-    }
+        }}
