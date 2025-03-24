@@ -25,6 +25,7 @@ function loadUserArray() {
 
 function loadSummary() {
     if (emailIndex === null) {
+        sessionStorage.setItem("userLoggedIn", false)
         loadSummaryGuest();
     } else {
         summaryLoginData();
