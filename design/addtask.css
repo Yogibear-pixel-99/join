@@ -415,3 +415,7 @@ label {
   display: flex;
 }
 
+.add-selected-contacts {
+  display: flex;
+  gap: 10px;
+}
