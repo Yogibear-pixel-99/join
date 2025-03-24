@@ -1,9 +1,35 @@
 
+.task-color-T {
+    background-color: #0038FF;
+}
+
+.task-color-U {
+    background-color: #1FD7C1;
+}
 
 
+.task-overlay-container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px 40px;
+    border-radius: 30px;
+    width: 525px;
+    background-color: var(--task-overlay-bg-color);
+}
 
-.test {
-    width: 200px;
-    height: 200px;
-    background-color: blue;
+.overlay-header-wrapper {
+    width: 100%;
+}
+
+.overlay-task-header-text {
+    border-radius: 8px;
+    padding: 4px 24px;
+    font-size: 23px;
+    font-weight: 400px;
+    color: white;
+}
+
+.close-icon-wrapper {
+    width: 32px;
+    height: 32px;
 }

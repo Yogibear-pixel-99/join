@@ -26,6 +26,12 @@
   flex: 1;
 }
 
+.flex-ctr-spbtw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .no-border {
   border: none;
 }
