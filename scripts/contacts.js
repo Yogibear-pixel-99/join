@@ -166,6 +166,7 @@ function getInfosForEditMenu(contactId){
     document.getElementById('edit-user-email-input').value = contact.email;
     document.getElementById('edit-user-phone-input').value = contact.phone;
     document.getElementById('save-contact-button').setAttribute('onclick', `saveEditedContact(event, '${contactId}')`);
+    document.getElementById('delete-contact-button').setAttribute('onclick', `deleteContact('${contactId}')`);
 }
 
 async function saveEditedContact(event, contactId){
@@ -179,13 +180,15 @@ async function saveEditedContact(event, contactId){
         openContactInFloatMenu(contactId, editedContact.name.charAt(0).toUpperCase());
 }
 
-// function deleteContact()
-    // delete selected contact
-    // empty floating menu
-
-
-
-
+async function deleteContact(contactId){
+    let contactKey = await getContactKeyFromApi(contactId);
+    await deleteContactFromApi(contactKey);
+    await sortAndRenderContacts();
+    if (!document.getElementById('edit-contact-overlay').classList.contains('standard-overlay-hide')) {
+        toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container')
+    };
+    emptyFloatMenu();
+}
 
     async function getContactKeyFromApi(contactId){
         let contactKey = '';        try {
@@ -194,7 +197,9 @@ async function saveEditedContact(event, contactId){
                 throw new Error ("No answer from server");
             } else {
                 let data = await response.json();
-                const contactNameObject = Object.entries(data).find(([key, element]) => element.id === contactId);
+                const contactNameObject = Object.entries(data).find(([key, element]) => {
+                    if (element !== null) {
+                        return element.id == contactId }});
                 contactKey = contactNameObject[0];
             }
         } catch(error) {
@@ -202,6 +207,7 @@ async function saveEditedContact(event, contactId){
         }
         return contactKey;
     }
+
 
     async function saveContactToApi(contactKey){
         let contactName = document.getElementById('edit-user-name-input').value;
@@ -229,3 +235,23 @@ async function saveEditedContact(event, contactId){
             console.log(error);
         }
         }}
+
+
+        async function deleteContactFromApi(contactKey){
+            if (contactKey != "") {
+            try {
+                await fetch (MAIN_URL + "contacts/" + contactKey + ".json", {
+                    method: "DELETE",
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            console.log("contactKey is empty!");
+        }}
+
+
+        function emptyFloatMenu(){
+            const menuRef = document.getElementById('bottom-board');
+                  menuRef.classList.remove('floating-contact-container-open');
+        }
