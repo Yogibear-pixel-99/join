@@ -297,7 +297,7 @@ function renderDropdown() {
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
             <div class="user-item">
-                <div class="initials-circle">${getInitialsForObject(user)}</div>
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}</div>
                 <span>${user.name}</span>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
             </div>
@@ -327,7 +327,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
             <div class="user-item">
-                <div class="initials-circle">${getInitialsForObject(user)}</div>
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}</div>
                 <span>${user.name}</span>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
             </div>
@@ -335,7 +335,6 @@ function renderDropdownWithSearchResults(filteredUsers) {
         dropdownContent.appendChild(userItem);
     });
 }
-
 
 function handleCheckboxChange(event) {
     const userEmail = event.target.getAttribute("data-user-id");
@@ -345,20 +344,21 @@ function handleCheckboxChange(event) {
         const selectedDiv = document.createElement("div");
         selectedDiv.classList.add("selected-contact");
         selectedDiv.innerHTML = `
-            <div class="initials-circle">${getInitialsForObject(user)}</div>
-            <span>${user.name}</span>
-            <input type="checkbox" data-user-id="${userEmail}" class="user-checkbox" checked onclick="handleCheckboxChange(event)">
+            <div class="initials-circle">${getInitialsForObjectContacts(user)}</div>
         `;
         addSelectedContactsDiv.appendChild(selectedDiv);
+
     } else {
         const selectedDivs = addSelectedContactsDiv.querySelectorAll(".selected-contact");
         selectedDivs.forEach(div => {
-            if (div.querySelector("input").getAttribute("data-user-id") === userEmail) {
+            let divCheckbox = div.querySelector("input");
+            if (divCheckbox.getAttribute("data-user-id") === userEmail) {
                 div.remove();
             }
         });
     }
-}
+  }
+  
 
 function userLoggedIn() {
   let userNavbarREF = document.getElementById("user-navbar");
