@@ -297,7 +297,7 @@ function renderDropdown() {
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
             <div class="user-item">
-                <div class="initials-circle">${getInitialsForObject(user)}</div>
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}</div>
                 <span>${user.name}</span>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
             </div>
@@ -327,7 +327,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
             <div class="user-item">
-                <div class="initials-circle">${getInitialsForObject(user)}</div>
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}</div>
                 <span>${user.name}</span>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
             </div>
