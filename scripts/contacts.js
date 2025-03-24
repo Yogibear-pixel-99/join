@@ -148,6 +148,7 @@ function showContactAddedSuccessButton(){
           setTimeout(() => ref.classList.remove('contact-created-button-show'), 2000);
 }
 
+
 function scrollToNewContact(contactId){
     document.getElementById(contactId).scrollIntoView({behavior: "smooth", block: "end"});
 }
@@ -166,8 +167,45 @@ function getInfosForEditMenu(contactId){
     document.getElementById('edit-user-phone-input').value = contact.phone;
 }
 
-function saveEditedContact(event){
+async function saveEditedContact(event){
     event.preventDefault();
-    pullDataToApi();
+    let contactKey = await getContactKeyFromApi();
+        saveContactToApi(contactKey);
+        
+    
+    // put data to api
+    // close overlay
+    // show edited contact
+    // pullDataToApi();
 }
 
+// function deleteContact()
+    // delete selected contact
+    // empty floating menu
+
+
+
+
+
+    async function getContactKeyFromApi(){
+        const contact = document.getElementById('edit-user-name-input').value;
+        let contactKey = '';        try {
+            let response = await fetch (MAIN_URL + "contacts.json");
+            if (!response.ok) {
+                throw new Error ("No answer from server");
+            } else {
+                let data = await response.json();
+                const contactNameObject = Object.entries(data).find(([key, element]) => element.name === contact);
+                contactKey = contactNameObject[0];
+            }
+        } catch(error) {
+            console.log(error);
+        }
+        return contactKey;
+    }
+
+    async function saveContactToApi(contactKey){
+        try {
+            
+        }
+    }

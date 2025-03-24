@@ -146,7 +146,6 @@ function initialsChange() {
   } else {
     headerInitialsREF.innerText = userInfoList[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
   }
-  
 }
 
 async function getUserSummaryInfo() {
