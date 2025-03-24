@@ -144,7 +144,6 @@ getUserSummaryInfo();
 
 function initialsChange() {
   let headerInitialsREF = document.getElementById("header-initials");
-  console.log(emailIndex);
   if (emailIndex === null) {
     headerInitialsREF.innerText = "G";
   } else {
