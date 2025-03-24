@@ -173,13 +173,10 @@ async function saveEditedContact(event, contactId){
     let contactKey = await getContactKeyFromApi(contactId);
         await saveContactToApi(contactKey);
         await sortAndRenderContacts();
+    let editedContact = contactsFromApi.find(element => element.id === contactId);
         toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
-
         scrollToNewContact(`contact-${contactId}`)
-        openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
-  
-    // show edited contact
-    // pullDataToApi();
+        openContactInFloatMenu(contactId, editedContact.name.charAt(0).toUpperCase());
 }
 
 // function deleteContact()

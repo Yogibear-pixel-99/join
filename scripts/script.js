@@ -23,7 +23,9 @@ async function getDataFromServer(objName, destination) {
             throw new Error('no answer from server');
         } else {
             let data = await response.json();
-            destination.splice(0, destination.length, ...Object.values(data));
+            let dataArray = [];
+            dataArray.splice(0, destination.length, ...Object.values(data));
+            destination.splice(0, destination.length, ...dataArray.filter(element => element != null));
         }
     } catch (error) {
         console.log(error);
@@ -49,20 +51,16 @@ function getInitialsForObjectContacts(user){
  * 
  */
 function createInitialsForEachName(destinationArray){
-    destinationArray.forEach(element => {
+    destinationArray.forEach(element => { 
         element['initials'] = getInitialsForObjectContacts(element);
     })
 }
+
 // GLOBALE FUNKTION
-
-
-
 function toggleDropdown() {
     let dropdownREF = document.getElementById("dropdown");
     dropdownREF.classList.toggle("d-none");
 }
-
-
 
 
 function toggleAddTaskOverlay() {
@@ -313,10 +311,12 @@ function renderDropdown() {
     });
 }
 
+
 function getInitialsForObject(user) {
     let name = user.name.split(' ');
     return name[0].charAt(0).toUpperCase() + name[1].charAt(0).toUpperCase();
 }
+
 
 function startSearchingContacts() {
     let searchInput = document.getElementById('searchInput').value.toLowerCase();
