@@ -107,7 +107,7 @@
           <div class="board-top-right">
             <div class="find-task-wrapper">
               <input
-                onkeydown="searchForTask()"
+                onkeyup="searchForTask()"
                 class="board-search-bar"
                 type="text"
                 required
@@ -116,7 +116,7 @@
               />
               <button class="searchbar-button-container">
                 <div class="searchbar-separator"></div>
-                <div class="flex-ctr-ctr search-logo-wrapper">
+                <div onclick="searchForTask()" class="flex-ctr-ctr search-logo-wrapper">
                   <img class="search-logo" src="../assets/icons/search.svg" />
                 </div>
               </button>
