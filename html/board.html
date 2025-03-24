@@ -23,6 +23,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
+    <script defer src="../scripts/board.js"></script>
     <script defer src="../scripts/standards.js"></script>
   </head>
   <body onload="initBoard()">
@@ -106,10 +107,12 @@
           <div class="board-top-right">
             <div class="find-task-wrapper">
               <input
+                onkeydown="searchForTask()"
                 class="board-search-bar"
                 type="text"
                 required
                 placeholder="Find Task"
+                id="find-task"
               />
               <button class="searchbar-button-container">
                 <div class="searchbar-separator"></div>

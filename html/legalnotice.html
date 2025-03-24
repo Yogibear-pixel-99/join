@@ -17,14 +17,14 @@
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/objects.js"></script>
 </head>
-<body>
+<body onload="userLoggedIn()">
     
 
 
   <div class="navbar-container">
     <div>
     <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
-        <navbar class="navbar-link-container">
+        <navbar class="navbar-link-container d-none" id="user-navbar">
         <a href="./summary.html">
             <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
             <div class="center">Summary</div>
@@ -42,6 +42,11 @@
             <div class="center">Contacts</div>
         </a>
         </navbar>
+        <navbar class="navbar-link-container d-none" id="quest-navbar">
+          <a href="./login.html">
+             <img class="navbar-logo" src="../assets/icons/login.svg" alt="">
+             <div class="center">Log In</div>
+          </a>
     </div>
     <div class="policy-legal-content">
         <a href="./Privacypolicy.html" class="policy-legal-area">Privacy Policy</a>

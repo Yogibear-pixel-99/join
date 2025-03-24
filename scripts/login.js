@@ -61,8 +61,8 @@ function checkPassword(emailIndex, event) {
   );
   console.log(passwordChecked);
   if (passwordChecked == emailIndex) {
-    console.log(emailIndex);
     sessionStorage.setItem("indexOfUser", emailIndex);
+    sessionStorage.setItem("userLoggedIn", true)
     window.location.href = "summary.html";
     removeRedBorderAndTextFalseInput("email", "login-error-message");
     removeRedBorderAndTextFalseInput("password", "login-error-message");

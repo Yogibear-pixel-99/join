@@ -127,8 +127,10 @@ function clearBoardColums(todo, prog, feed, done) {
 }
 
 function fillBaordColums(tasks, todo, prog, feed, done) {
+  let input = -1;
     tasks.forEach(task => {
-        let cardHtml = createTaskCard(task);
+        input ++;
+        let cardHtml = createTaskCard(task, input);
         if (task.status === 'toDo') todo.innerHTML += cardHtml;
         if (task.status === 'inProgress') prog.innerHTML += cardHtml;
         if (task.status === 'awaitFeedback') feed.innerHTML += cardHtml;
@@ -196,7 +198,7 @@ function renderAssignedUsers(task) {
   }
    
 
-  function createTaskCard(task) {
+  function createTaskCard(task, input) {
     let assignedHTML = renderAssignedUsers(task);
     let priorityHTML = getPriorityIconHTML(task.priority);
     
@@ -206,8 +208,8 @@ function renderAssignedUsers(task) {
       <div class="task-type-container">
       <div class="task-type">${task.task}</div>
       </div>
-      <div class="task-title">${task.title}</div>
-      <div class="task-description">${task.description}</div>
+      <div class="task-title" id="titleTask${input}">${task.title}</div>
+      <div class="task-description" id="titleDescription${input}">${task.description}</div>
       <div class="task-subtask-info">
         <div class="subtask-progressbar">
           <!-- width: 50% hier nur beispielhaft statisch -->
@@ -361,4 +363,16 @@ function handleCheckboxChange(event) {
             }
         });
     }
+}
+
+function userLoggedIn() {
+  let userNavbarREF = document.getElementById("user-navbar");
+  let questNavbarREF = document.getElementById("quest-navbar");
+  let checkUserLoggedIn = sessionStorage.getItem("userLoggedIn");
+  
+  if (checkUserLoggedIn == "true") {
+    userNavbarREF.classList.toggle("d-none");
+  } else {
+    questNavbarREF.classList.toggle("d-none");
+  }
 }
