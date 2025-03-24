@@ -116,7 +116,6 @@ function renderBoard() {
     fillBaordColums(tasksFromApi,todo, prog, feed, done);
     checkEmptyColums(todo, prog, feed, done);
 
-    setupDragAndDrop();
 }
 
 function clearBoardColums(todo, prog, feed, done) {
