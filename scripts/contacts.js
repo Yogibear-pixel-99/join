@@ -165,17 +165,19 @@ function getInfosForEditMenu(contactId){
     document.getElementById('edit-user-name-input').value = contact.name;
     document.getElementById('edit-user-email-input').value = contact.email;
     document.getElementById('edit-user-phone-input').value = contact.phone;
-    document.getElementById('save-contact-button').setAttribute('onclick', `saveEditedContact('${contactId}')`);
+    document.getElementById('save-contact-button').setAttribute('onclick', `saveEditedContact(event, '${contactId}')`);
 }
 
-async function saveEditedContact(event){
+async function saveEditedContact(event, contactId){
     event.preventDefault();
-    let contactKey = await getContactKeyFromApi();
-        saveContactToApi(contactKey);
-        
-    
-    // put data to api
-    // close overlay
+    let contactKey = await getContactKeyFromApi(contactId);
+        await saveContactToApi(contactKey);
+        await sortAndRenderContacts();
+        toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container');
+
+        scrollToNewContact(`contact-${contactId}`)
+        openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`, );
+  
     // show edited contact
     // pullDataToApi();
 }
@@ -188,15 +190,14 @@ async function saveEditedContact(event){
 
 
 
-    async function getContactKeyFromApi(){
-        const contact = document.getElementById('edit-user-name-input').value;
+    async function getContactKeyFromApi(contactId){
         let contactKey = '';        try {
             let response = await fetch (MAIN_URL + "contacts.json");
             if (!response.ok) {
                 throw new Error ("No answer from server");
             } else {
                 let data = await response.json();
-                const contactNameObject = Object.entries(data).find(([key, element]) => element.name === contact);
+                const contactNameObject = Object.entries(data).find(([key, element]) => element.id === contactId);
                 contactKey = contactNameObject[0];
             }
         } catch(error) {
@@ -206,14 +207,21 @@ async function saveEditedContact(event){
     }
 
     async function saveContactToApi(contactKey){
+        let contactName = document.getElementById('edit-user-name-input').value;
+        let contactMail = document.getElementById('edit-user-email-input').value;
+        let contactPhone = document.getElementById('edit-user-phone-input').value;
         if (contactKey != undefined) {
         try {
-            let response = await fetch(MAIN_URL + "contacts" + contactKey + ".json", {
-                method: "PUT",
+            let response = await fetch(MAIN_URL + "contacts/" + contactKey + ".json", {
+                method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(contactData),
+                body: JSON.stringify({
+                    name: contactName,
+                    email: contactMail,
+                    phone: contactPhone,
+                }),
             })
             if (!response.ok) {
                 throw new Error('Contact not found in Database!')
