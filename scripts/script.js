@@ -37,7 +37,7 @@ async function getDataFromServer(objName, destination) {
  * @returns - Returns the first letter of the first and last name. The initials.
  */
 
-function getInitialsForObject(user){
+function getInitialsForObjectContacts(user){
     const name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
     const regExp = /\b\p{L}/gu;
     const initialsArray = name.match(regExp);
@@ -50,7 +50,7 @@ function getInitialsForObject(user){
  */
 function createInitialsForEachName(destinationArray){
     destinationArray.forEach(element => {
-        element['initials'] = getInitialsForObject(element);
+        element['initials'] = getInitialsForObjectContacts(element);
     })
 }
 // GLOBALE FUNKTION
