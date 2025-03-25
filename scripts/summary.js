@@ -34,17 +34,28 @@ function loadSummary() {
 
 function loadSummaryGuest() {
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML += summaryTemplateGuest(); 
-    console.log(emailIndex);
+    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime()); 
     
 }
 
+function getTime() {
+    let time = new Date().getHours();
+    let greeting;
+    if (time < 15) {
+        greeting = "Good morning";
+    } else if (time <20) {
+        greeting = "Good afternoon"
+    } else {
+        greeting = "Good evening "
+    }
+    return greeting;
+}
 function summaryLoginData() {  
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name)
+    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime())
 }
 
-function summaryTemplateGuest() {
+function summaryTemplateGuest(time) {
     return `  <header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -164,7 +175,7 @@ function summaryTemplateGuest() {
               </div>
             </div>
             <div class="welcome-summary">
-              <h2 class="welcome-text-summary">Good morning</h2>
+              <h2 class="welcome-text-summary">${time}</h2>
             </div>
           </div>
 
@@ -193,7 +204,7 @@ function summaryTemplateGuest() {
 }
 
 
-function summaryTemplate(name) {
+function summaryTemplate(name, time) {
     return `<header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -313,7 +324,7 @@ function summaryTemplate(name) {
               </div>
             </div>
             <div class="welcome-summary">
-              <h2 class="welcome-text-summary">Good morning,</h2>
+              <h2 class="welcome-text-summary">${time},</h2>
               <h2 class="welcome-name-summary">${name}</h2>
             </div>
           </div>
