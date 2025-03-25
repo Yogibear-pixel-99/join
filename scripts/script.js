@@ -296,14 +296,14 @@ function renderDropdown() {
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
-            <div class="user-item">
+            <label class="user-item">
             <div class="user-itmen-names">
                 <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
                 </div>
                 <span>${user.name}</span>
                 </div>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
-            </div>
+            </label>
         `;
         dropdownContent.appendChild(userItem);
     });
@@ -326,11 +326,14 @@ function renderDropdownWithSearchResults(filteredUsers) {
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
-            <div class="user-item">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}</div>
+             <label class="user-item">
+            <div class="user-itmen-names">
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
+                </div>
                 <span>${user.name}</span>
+                </div>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
-            </div>
+            </label>
         `;
         dropdownContent.appendChild(userItem);
     });
