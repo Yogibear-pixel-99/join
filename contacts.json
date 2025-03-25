@@ -1,340 +1,347 @@
-  {
-    "users": [
-      {
-        "name": "Sofia Müller",
-        "email": "sofia@mueller.com",
-        "password": "mypassword123",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Lukas Schmidt",
-        "email": "lukas@schmidt.com",
-        "password": "securepass456",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Hannah Fischer",
-        "email": "hannah@fischer.com",
-        "password": "pass123secure",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Maximilian Weber",
-        "email": "max@weber.com",
-        "password": "maxpass789",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Laura Becker",
-        "email": "laura@becker.com",
-        "password": "beckerpass321",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Jonas Wagner",
-        "email": "jonas@wagner.com",
-        "password": "wagner007",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Nina Hoffmann",
-        "email": "nina@hoffmann.com",
-        "password": "hoffpass098",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Felix Braun",
-        "email": "felix@braun.com",
-        "password": "braunkey2023",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "Emma Keller",
-        "email": "emma@keller.com",
-        "password": "kelleremma456",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      },
-      {
-        "name": "David Lehmann",
-        "email": "david@lehmann.com",
-        "password": "lehmannpass567",
-        "toDo": "",
-        "done": "",
-        "priority": [
-          {"urgent": ""},
-          {"medium": ""},
-          {"low": ""}
-        ],
-        "tasksInBoard": "",
-        "tasksInProgress": "",
-        "awaitingFeedback": ""
-      }
-    ],
+{
+  "users": [
+    {
+      "name": "Sofia Müller",
+      "email": "sofia@mueller.com",
+      "password": "mypassword123",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Lukas Schmidt",
+      "email": "lukas@schmidt.com",
+      "password": "securepass456",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Hannah Fischer",
+      "email": "hannah@fischer.com",
+      "password": "pass123secure",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Maximilian Weber",
+      "email": "max@weber.com",
+      "password": "maxpass789",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Laura Becker",
+      "email": "laura@becker.com",
+      "password": "beckerpass321",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Jonas Wagner",
+      "email": "jonas@wagner.com",
+      "password": "wagner007",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Nina Hoffmann",
+      "email": "nina@hoffmann.com",
+      "password": "hoffpass098",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Felix Braun",
+      "email": "felix@braun.com",
+      "password": "braunkey2023",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "Emma Keller",
+      "email": "emma@keller.com",
+      "password": "kelleremma456",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    },
+    {
+      "name": "David Lehmann",
+      "email": "david@lehmann.com",
+      "password": "lehmannpass567",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
+    }
+  ],
 
-    "contacts": [
-      {
-        "id": "1",
-        "name": "Anton Richter",
-        "email": "anton.richter@example.com",
-        "phone": "+436763674199"
-      },
-      {
-        "id": "2",
-        "name": "Lisa Meier",
-        "email": "lisa.meier@example.com",
-        "phone": "+4915123456789"
-      },
-      {
-        "id": "3",
-        "name": "Tom Berger",
-        "email": "tom.berger@example.com",
-        "phone": "+4915223344556"
-      },
-      {
-        "id": "4",
-        "name": "Sarah Fischer",
-        "email": "sarah.fischer@example.com",
-        "phone": "+4915738392021"
-      },
-      {
-        "id": "5",
-        "name": "Paul Wagner",
-        "email": "paul.wagner@example.com",
-        "phone": "+4917429384756"
-      },
-      {
-        "id": "6",
-        "name": "Anna Hoffmann",
-        "email": "anna.hoffmann@example.com",
-        "phone": "+4916329473829"
-      },
-      {
-        "id": "7",
-        "name": "Michael Klein",
-        "email": "michael.klein@example.com",
-        "phone": "+4917293847561"
-      },
-      {
-        "id": "8",
-        "name": "Julia Schmid",
-        "email": "julia.schmid@example.com",
-        "phone": "+4915273849201"
-      },
-      {
-        "id": "9",
-        "name": "David Lehmann",
-        "email": "david.lehmann@example.com",
-        "phone": "+4916374859202"
-      },
-      {
-        "id": "10",
-        "name": "Nina Bauer",
-        "email": "nina.bauer@example.com",
-        "phone": "+4917283948573"
-      },
-      {
-        "id": "11",
-        "name": "Markus Steiner",
-        "email": "markus.steiner@example.com",
-        "phone": "+4916372839457"
-      },
-      {
-        "id": "12",
-        "name": "Laura Zimmermann",
-        "email": "laura.zimmermann@example.com",
-        "phone": "+4915283947201"
-      },
-      {
-        "id": "13",
-        "name": "Stefan Krüger",
-        "email": "stefan.krueger@example.com",
-        "phone": "+4916374859201"
-      },
-      {
-        "id": "14",
-        "name": "Katharina Schulz",
-        "email": "katharina.schulz@example.com",
-        "phone": "+4917283947502"
-      },
-      {
-        "id": "15",
-        "name": "Patrick Neumann",
-        "email": "patrick.neumann@example.com",
-        "phone": "+4916374859203"
-      },
-      {
-        "id": "16",
-        "name": "Sandra König",
-        "email": "sandra.koenig@example.com",
-        "phone": "+4915273849205"
-      },
-      {
-        "id": "17",
-        "name": "Tim Hoffmann",
-        "email": "tim.hoffmann@example.com",
-        "phone": "+4916374859207"
-      },
-      {
-        "id": "18",
-        "name": "Vanessa Schröder",
-        "email": "vanessa.schroeder@example.com",
-        "phone": "+4917283947563"
-      },
-      {
-        "id": "19",
-        "name": "Kevin Becker",
-        "email": "kevin.becker@example.com",
-        "phone": "+4916374859209"
-      },
-      {
-        "id": "20",
-        "name": "Melanie Richter",
-        "email": "melanie.richter@example.com",
-        "phone": "+4915283947501"
-        
-      }
-    ],
+  "contacts": [
+    {
+      "id": "1",
+      "name": "Anton Richter",
+      "email": "anton.richter@example.com",
+      "phone": "+436763674199"
+    },
+    {
+      "id": "2",
+      "name": "Lisa Meier",
+      "email": "lisa.meier@example.com",
+      "phone": "+4915123456789"
+    },
+    {
+      "id": "3",
+      "name": "Tom Berger",
+      "email": "tom.berger@example.com",
+      "phone": "+4915223344556"
+    },
+    {
+      "id": "4",
+      "name": "Sarah Fischer",
+      "email": "sarah.fischer@example.com",
+      "phone": "+4915738392021"
+    },
+    {
+      "id": "5",
+      "name": "Paul Wagner",
+      "email": "paul.wagner@example.com",
+      "phone": "+4917429384756"
+    },
+    {
+      "id": "6",
+      "name": "Anna Hoffmann",
+      "email": "anna.hoffmann@example.com",
+      "phone": "+4916329473829"
+    },
+    {
+      "id": "7",
+      "name": "Michael Klein",
+      "email": "michael.klein@example.com",
+      "phone": "+4917293847561"
+    },
+    {
+      "id": "8",
+      "name": "Julia Schmid",
+      "email": "julia.schmid@example.com",
+      "phone": "+4915273849201"
+    },
+    {
+      "id": "9",
+      "name": "David Lehmann",
+      "email": "david.lehmann@example.com",
+      "phone": "+4916374859202"
+    },
+    {
+      "id": "10",
+      "name": "Nina Bauer",
+      "email": "nina.bauer@example.com",
+      "phone": "+4917283948573"
+    },
+    {
+      "id": "11",
+      "name": "Markus Steiner",
+      "email": "markus.steiner@example.com",
+      "phone": "+4916372839457"
+    },
+    {
+      "id": "12",
+      "name": "Laura Zimmermann",
+      "email": "laura.zimmermann@example.com",
+      "phone": "+4915283947201"
+    },
+    {
+      "id": "13",
+      "name": "Stefan Krüger",
+      "email": "stefan.krueger@example.com",
+      "phone": "+4916374859201"
+    },
+    {
+      "id": "14",
+      "name": "Katharina Schulz",
+      "email": "katharina.schulz@example.com",
+      "phone": "+4917283947502"
+    },
+    {
+      "id": "15",
+      "name": "Patrick Neumann",
+      "email": "patrick.neumann@example.com",
+      "phone": "+4916374859203"
+    },
+    {
+      "id": "16",
+      "name": "Sandra König",
+      "email": "sandra.koenig@example.com",
+      "phone": "+4915273849205"
+    },
+    {
+      "id": "17",
+      "name": "Tim Hoffmann",
+      "email": "tim.hoffmann@example.com",
+      "phone": "+4916374859207"
+    },
+    {
+      "id": "18",
+      "name": "Vanessa Schröder",
+      "email": "vanessa.schroeder@example.com",
+      "phone": "+4917283947563"
+    },
+    {
+      "id": "19",
+      "name": "Kevin Becker",
+      "email": "kevin.becker@example.com",
+      "phone": "+4916374859209"
+    },
+    {
+      "id": "20",
+      "name": "Melanie Richter",
+      "email": "melanie.richter@example.com",
+      "phone": "+4915283947501"
+    }
+  ],
 
-    "tasks": [
-      {
-        "status": "inProgress",
-        "task": "User Story",
-        "title": "Kochwelt Page & Recipe Recommender",
-        "description": "Build start page with recipe recommendation.",
-        "date": "12/05/2023",
-        "priority": "Medium",
-        "assignTo": ["sofia@mueller.com"],
-        "subtasks": ["Implement Recipe Recommendation", "Start Page Layout"],
-        "id": "1"
-      },
+  "tasks": [
+    {
+      "status": "inProgress",
+      "task": "User Story",
+      "title": "Kochwelt Page & Recipe Recommender",
+      "description": "Build start page with recipe recommendation.",
+      "date": "12/05/2023",
+      "priority": "Medium",
+      "assignTo": ["sofia@mueller.com"],
+      "subtasks": [
+        {
+          "subtaskName": "Implement Recipe Recommendation",
+          "finished": "false"
+        },
+        { "subtaskName": "Start Page Layout",
+          "finished": "false" }
+      ],
+      "id": "1"
+    },
 
-      {
-        "status": "toDo",
-        "task": "Technical Task",
-        "title": "HTML Base Template",
-        "description": "Create reusable HTML base templates.",
-        "date": "10/05/2023",
-        "priority": "Low",
-        "assignTo": ["lukas@schmidt.com","felix@braun.com","stefan@krueger.com"],
-        "subtasks": ["Subtask 1", "Subtask 2", "Subtask 3"],
-        "id": "2"
+    {
+      "status": "toDo",
+      "task": "Technical Task",
+      "title": "HTML Base Template",
+      "description": "Create reusable HTML base templates.",
+      "date": "10/05/2023",
+      "priority": "Low",
+      "assignTo": [
+        "lukas@schmidt.com",
+        "felix@braun.com",
+        "stefan@krueger.com"
+      ],
+      "subtasks": [ {
+        "subtaskName": "Subtask 1",
+        "finished": "false"
       },
+      { "subtaskName": "Subtask 2",
+        "finished": "true" },
+        { "subtaskName": "Subtask 3",
+        "finished": "false" }],
+      "id": "2"
+    },
 
-      {
-        "status": "awaitFeedback",
-        "task": "Technical Task",
-        "title": "CSS Architecture Planning",
-        "description": "Define CSS naming conventions and structure.",
-        "date": "25/05/2023",
-        "priority": "Urgent",
-        "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
-        "subtasks": ["Establish CSS Methodology", "Setup Base Styles"],
-        "id": "3"
+    {
+      "status": "awaitFeedback",
+      "task": "Technical Task",
+      "title": "CSS Architecture Planning",
+      "description": "Define CSS naming conventions and structure.",
+      "date": "25/05/2023",
+      "priority": "Urgent",
+      "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
+      "subtasks": [
+        {"subtaskName" : "Establish CSS Methodology",
+          "finished": "true"}, 
+          {"subtaskName" :"Setup Base Styles"}
+        ],
+      "id": "3"
+    },
+
+    {
+      "status": "done",
+      "task": "User Story",
+      "title": "Daily Kochwelt Recipe",
+      "description": "Implement daily recipe and portion calculator.",
+      "date": "01/05/2023",
+      "priority": "Urgent",
+      "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
+      "subtasks": [ {
+        "subtaskName": "Subtask 1",
+        "finished": "false"
       },
+      { "subtaskName": "Subtask 2",
+        "finished": "true" },
+        { "subtaskName": "Subtask 3",
+        "finished": "false" }],
+      "id": "4"
+    },
 
-      {
-        "status": "done",
-        "task": "User Story",
-        "title": "Daily Kochwelt Recipe",
-        "description": "Implement daily recipe and portion calculator.",
-        "date": "01/05/2023",
-        "priority": "Urgent",
-        "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
-        "subtasks": ["Subtask 1", "Subtask 2", "Subtask 3"],
-        "id": "4"
+    {
+      "status": "done",
+      "task": "User Story",
+      "title": "Join Summary",
+      "description": "Implement an overview.",
+      "date": "22/07/2023",
+      "priority": "Urgent",
+      "assignTo": ["sofia@mueller", "bart@springfield.com"],
+      "subtasks": [ {
+        "subtaskName": "Subtask 1",
+        "finished": "false"
       },
-
-      {
-        "status": "done",
-        "task": "User Story",
-        "title": "Join Summary",
-        "description": "Implement an overview.",
-        "date": "22/07/2023",
-        "priority": "Urgent",
-        "assignTo": ["sofia@mueller", "bart@springfield.com"],
-        "subtasks": ["Subtask 1", "Subtask 2", "Subtask 3", "Subtask4"],
-        "id": "5"
-      }
-    ]
-  }
+      { "subtaskName": "Subtask 2",
+        "finished": "true" },
+        { "subtaskName": "Subtask 3",
+        "finished": "false" },
+        { "subtaskName": "Subtask 4",
+        "finished": "true" }],
+      "id": "5"
+    }
+  ]
+}
