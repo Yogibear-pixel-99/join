@@ -42,7 +42,21 @@
     font-weight: 400;
 }
 
-.overlay-task-body div span {
+.overlay-task-body-left {
     display: inline-block;
     width: 120px;
+}
+
+.task-user-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 7px 16px;
+    gap: 16px;
+}
+
+.task-overlay-initials {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    color: white;
 }

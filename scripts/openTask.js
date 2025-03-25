@@ -29,11 +29,11 @@ async function getTaskOverlayTemp(task){
                 <div>${task.description}</div>
                 
                 <div>
-                    <span>Due date:</span>
+                    <span class="overlay-task-body-left">Due date:</span>
                     <span>${task.date}</span>
                 </div>
                 <div>
-                    <span>Priority:</span>
+                    <span class="overlay-task-body-left">Priority:</span>
                     <span>${task.priority}
                         <img src="../assets/icons/${getPriorityIconForTaskOverlay(task)}"
                     </span>
@@ -92,13 +92,11 @@ async function getTaskAssignedUsers(task){
         // assign checked user to content with a temp
         // pickup color class for initials background
         // return content
-
-
 }
 
 function getAssignedUserTemp(name, initials){
-    return `<div class="task-user-wrapper">
-                    <div class="task-overlay-initials">${initials}</div>
+    return `<span class="task-user-wrapper">
+                    <span class="task-overlay-initials flex-ctr-ctr initials-bg-color-${name.charAt(0)}">${initials}</span>
                     <span class="assigned-user-task-overlay">${name}</span>
-            </div>`
+            </span>`
 }
