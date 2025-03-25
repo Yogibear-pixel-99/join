@@ -285,7 +285,7 @@
         "date": "12/05/2023",
         "priority": "Medium",
         "assignTo": ["sofia@mueller.com"],
-        "subtasks": [],
+        "subtasks": ["Implement Recipe Recommendation", "Start Page Layout"],
         "id": "1"
       },
 
@@ -297,7 +297,7 @@
         "date": "10/05/2023",
         "priority": "Low",
         "assignTo": ["lukas@schmidt.com","felix@braun.com","stefan@krueger.com"],
-        "subtasks": [],
+        "subtasks": ["Subtask 1", "Subtask 2", "Subtask 3"],
         "id": "2"
       },
 
@@ -309,7 +309,7 @@
         "date": "25/05/2023",
         "priority": "Urgent",
         "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
-        "subtasks": [],
+        "subtasks": ["Establish CSS Methodology", "Setup Base Styles"],
         "id": "3"
       },
 
@@ -321,7 +321,7 @@
         "date": "01/05/2023",
         "priority": "Urgent",
         "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
-        "subtasks": [],
+        "subtasks": ["Subtask 1", "Subtask 2", "Subtask 3"],
         "id": "4"
       },
 
@@ -333,7 +333,7 @@
         "date": "22/07/2023",
         "priority": "Urgent",
         "assignTo": ["sofia@mueller", "bart@springfield.com"],
-        "subtasks": [],
+        "subtasks": ["Subtask 1", "Subtask 2", "Subtask 3", "Subtask4"],
         "id": "5"
       }
     ]

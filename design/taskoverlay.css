@@ -47,6 +47,14 @@
     width: 120px;
 }
 
+.assigned-users-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 170px;
+    overflow: auto;
+}
+
 .task-user-wrapper {
     display: flex;
     align-items: center;
