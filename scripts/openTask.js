@@ -1,6 +1,6 @@
 
 
-
+let assignedUsersArray = [];
 
 async function openTask(taskId){
     let taskRef = document.getElementById('task-overlay-menu');
@@ -8,14 +8,14 @@ async function openTask(taskId){
     console.log(tasksFromApi);
     let task = tasksFromApi.find(element => element.id === taskId);
     console.log(task);
-    taskRef.innerHTML = getTaskOverlayTemp(task);
+    taskRef.innerHTML = await getTaskOverlayTemp(task);
     // render infos to overlay
     toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
     // open overlay
     // close overlay
 }
 
-function getTaskOverlayTemp(task){
+async function getTaskOverlayTemp(task){
     return `<header class="flex-ctr-spbtw overlay-header-wrapper">
                 <div class="overlay-task-header-text task-color-${task.task.charAt(0)}">${task.task}</div>
                 <div class="close-icon-wrapper flex-ctr-ctr">
@@ -24,5 +24,81 @@ function getTaskOverlayTemp(task){
                     </svg>
                 </div>
             </header>
-            <h1>${task.title}</h1>`
+            <h1>${task.title}</h1>
+            <section class="overlay-task-body">
+                <div>${task.description}</div>
+                
+                <div>
+                    <span>Due date:</span>
+                    <span>${task.date}</span>
+                </div>
+                <div>
+                    <span>Priority:</span>
+                    <span>${task.priority}
+                        <img src="../assets/icons/${getPriorityIconForTaskOverlay(task)}"
+                    </span>
+                </div>
+                <span>Assigned To:</span>
+                    ${await getTaskAssignedUsers(task)}
+            </section>
+    
+            `
+}
+
+function getPriorityIconForTaskOverlay(task){
+    let iconSrc = "";
+    switch (task.priority) {
+        case "Urgent": iconSrc = "prio-urgent.svg";
+            break;
+
+        case "Medium": iconSrc = "prio-medium.svg"
+            break;
+
+        case "Low": iconSrc = "prio-low.svg"
+            break;
+    }
+    return iconSrc;
+}
+
+async function getTaskAssignedUsers(task){
+    let content = '';
+    let name = '';
+    let initials = '';
+        await getDataFromServer('users', usersFromApi);
+        if (task.assignTo && task.assignTo.length > 0) {
+        for (let userIndex = 0; userIndex < task.assignTo.length; userIndex++) {
+            const userEmail = task.assignTo[userIndex];
+                usersFromApi.find((element) => {
+                    if (element.email === userEmail) {
+                        name = element.name;
+                        initials = getInitialsForObjectContacts(element);
+                        content += getAssignedUserTemp(name, initials);
+                    }
+                })   
+            }
+        if (content == '' || content == undefined) {
+        return 'No user assigned to task!'; 
+        } else {
+            return content;
+        }
+    }
+
+
+        // get assigned users to array
+        // get alle users to array
+        // check wich user is asigned
+        // create an array
+        // create initials for assigned user
+        // assign checked user to content with a temp
+        // pickup color class for initials background
+        // return content
+
+
+}
+
+function getAssignedUserTemp(name, initials){
+    return `<div class="task-user-wrapper">
+                    <div class="task-overlay-initials">${initials}</div>
+                    <span class="assigned-user-task-overlay">${name}</span>
+            </div>`
 }
