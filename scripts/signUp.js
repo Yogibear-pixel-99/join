@@ -22,7 +22,6 @@ async function signUpNewUser(event) {
 }
 
 
-
 function getNewUserTemp() {
   collectedFormInfos = {
     name: "",
