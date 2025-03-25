@@ -413,9 +413,54 @@ label {
 
 .user-item {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.user-item:not(.checked-row):hover {
+  background-color: #f1f1f1;
+}
+
+.checked-row {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  border: 10px;
+}
+
+.user-itmen-names {
+  display: flex;
+  align-items: center;
 }
 
 .add-selected-contacts {
   display: flex;
   gap: 10px;
+}
+
+
+.flex-ctr-ctr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contact-list-initals {
+  min-height: 32px;
+  height: 42px;
+  min-width: 32px;
+  width: 42px;
+  border-radius: 50%;
+  color: white;
+  border: solid 2px white;
+}
+
+.addTask-input-field-img {
+  background-image: url(../assets/icons/arrow_drop_downaa.png);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position-x: 98%;
 }

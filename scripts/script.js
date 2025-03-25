@@ -78,6 +78,158 @@ function noClose(event) {
 }
 
 
+function toggleAddedToBoard() {
+    let addedToBoardREF = document.getElementById("task-added");
+    addedToBoardREF.classList.toggle("d-none");
+    loadingToBoard();
+}
+
+function loadingToBoard() {
+    return setTimeout(() => {
+        let addtaskREF = document.getElementById("addtask-overlay");
+        let addedToBoardREF = document.getElementById("task-added");
+        addedToBoardREF.classList.toggle("d-none");
+        addtaskREF.classList.toggle("d-none")
+        }, 3000);
+      }
+
+
+function initBoard() {
+ loadAndRenderTasks();
+}
+
+async function loadAndRenderTasks() {
+    await getDataFromServer('users', usersFromApi);
+    await getDataFromServer('tasks', tasksFromApi);
+    renderBoard();
+}
+
+
+
+function renderBoard() {
+    let todo = document.getElementById('boardToDoCard');
+    let prog = document.getElementById('boardInprogressCard');
+    let feed = document.getElementById('boardAwaitFeedbackCard');
+    let done = document.getElementById('boardDoneCard');
+
+    clearBoardColums(todo, prog, feed, done);
+    fillBaordColums(tasksFromApi,todo, prog, feed, done);
+    checkEmptyColums(todo, prog, feed, done);
+
+}
+
+function clearBoardColums(todo, prog, feed, done) {
+    todo.innerHTML = '';
+    prog.innerHTML = '';
+    feed.innerHTML = '';
+    done.innerHTML = '';
+}
+
+function fillBaordColums(tasks, todo, prog, feed, done) {
+  let input = -1;
+    tasks.forEach(task => {
+        input ++;
+        let cardHtml = createTaskCard(task, input);
+        if (task.status === 'toDo') todo.innerHTML += cardHtml;
+        if (task.status === 'inProgress') prog.innerHTML += cardHtml;
+        if (task.status === 'awaitFeedback') feed.innerHTML += cardHtml;
+        if (task.status === 'done') done.innerHTML += cardHtml;
+    })
+}
+
+function checkEmptyColums(todo, prog, feed, done) {
+    if(!todo.innerHTML.trim()) {
+        todo.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+    }
+    if(!prog.innerHTML.trim()) {
+        prog.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+    }
+    if(!feed.innerHTML.trim()) {
+        feed.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+    }
+    if(!done.innerHTML.trim()) {
+        done.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+    }
+}
+
+function getInitialsForName(fullName) {
+    if (!fullName) return '';
+    let parts = fullName.trim().split(' ');
+    if (parts.length < 2) {
+        return fullName.charAt(0).toUpperCase();
+    }
+    return (
+      parts[0].charAt(0).toUpperCase() +
+      parts[1].charAt(0).toUpperCase()
+    );
+}
+
+
+function renderAssignedUsers(task) {
+    if (!task.assignTo || !task.assignTo.length) {
+      return '';
+    }
+  
+    return task.assignTo.map(email => {
+      let user = usersFromApi.find(u => u.email === email);
+  
+      if (user) {
+        let initials = getInitialsForName(user.name);
+        return `<div class="contact-list-initals">${initials}</div>`;
+      } else {
+        return `<div class="contact-list-initals">??</div>`;
+      }
+    }).join('');
+  }
+  
+  function getPriorityIconHTML(priority) {
+    if (!priority) return '';
+  
+    let prio = priority.toLowerCase();
+    if (prio === 'urgent') {
+      return `<img src="../assets/icons/prio-urgent.svg" class="task-priority-icon" alt="Urgent" />`;
+    } else if (prio === 'medium') {
+      return `<img src="../assets/icons/prio-medium.svg" class="task-priority-icon" alt="Medium" />`;
+    } else if (prio === 'low') {
+      return `<img src="../assets/icons/prio-low.svg" class="task-priority-icon" alt="Low" />`;
+    }
+    return '';
+  }
+   
+
+  function createTaskCard(task, input) {
+    let assignedHTML = renderAssignedUsers(task);
+    let priorityHTML = getPriorityIconHTML(task.priority);
+    
+  
+    return `
+      <div class="task-card" id="task-${task.title.replace(/\s+/g, '-')}" draggable="true" data-status="${task.status}">
+      <div class="task-type-container">
+      <div class="task-type">${task.task}</div>
+      </div>
+      <div class="task-title" id="titleTask${input}">${task.title}</div>
+      <div class="task-description" id="titleDescription${input}">${task.description}</div>
+      <div class="task-subtask-info">
+        <div class="subtask-progressbar">
+          <!-- width: 50% hier nur beispielhaft statisch -->
+          <div class="subtask-progress" style="width: 50%;"></div>
+        </div>
+        <span class="subtask-count">1/2 Subtasks</span>
+      </div>
+      <div class="task-meta-assignend-user-container"> 
+      <div class="task-meta">
+        ${priorityHTML}
+      </div>
+      <div class="task-assigned-users">
+        ${assignedHTML}
+      </div>
+      </div>
+      
+    </div>
+
+    `;
+  }
+  
 
   // drag and drop 
 
@@ -145,8 +297,11 @@ function renderDropdown() {
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
             <div class="user-item">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}</div>
+            <div class="user-itmen-names">
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
+                </div>
                 <span>${user.name}</span>
+                </div>
                 <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
             </div>
         `;
@@ -154,12 +309,10 @@ function renderDropdown() {
     });
 }
 
-
 function getInitialsForObject(user) {
     let name = user.name.split(' ');
     return name[0].charAt(0).toUpperCase() + name[1].charAt(0).toUpperCase();
 }
-
 
 function startSearchingContacts() {
     let searchInput = document.getElementById('searchInput').value.toLowerCase();
@@ -169,7 +322,6 @@ function startSearchingContacts() {
 function renderDropdownWithSearchResults(filteredUsers) {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = ''; 
-
     filteredUsers.forEach(user => {
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
@@ -186,28 +338,46 @@ function renderDropdownWithSearchResults(filteredUsers) {
 
 function handleCheckboxChange(event) {
     const userEmail = event.target.getAttribute("data-user-id");
-    const user = usersFromApi.find(u => u.email === userEmail); 
-    const addSelectedContactsDiv = document.getElementById("addSelectedContacts");
+    const user = usersFromApi.find(u => u.email === userEmail);
+    const userItem = event.target.closest('.user-item');
+    if (!user || !userItem) return;
+  
     if (event.target.checked) {
-        const selectedDiv = document.createElement("div");
-        selectedDiv.classList.add("selected-contact");
-        selectedDiv.innerHTML = `
-            <div class="initials-circle">${getInitialsForObjectContacts(user)}</div>
-        `;
-        addSelectedContactsDiv.appendChild(selectedDiv);
-
+      userItem.classList.add('checked-row');
+      addSelectedContact(user);
     } else {
-        const selectedDivs = addSelectedContactsDiv.querySelectorAll(".selected-contact");
-        selectedDivs.forEach(div => {
-            let divCheckbox = div.querySelector("input");
-            if (divCheckbox.getAttribute("data-user-id") === userEmail) {
-                div.remove();
-            }
-        });
+      userItem.classList.remove('checked-row');
+      removeSelectedContact(userEmail);
     }
   }
   
-
+  
+  function addSelectedContact(user) {
+    let container = document.getElementById("addSelectedContacts");
+    let userEmail = user.email;
+    let existing = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
+    if (!existing) {
+      const selectedDiv = document.createElement("div");
+      selectedDiv.classList.add("selected-contact");
+      selectedDiv.setAttribute("data-user-id", userEmail);
+  
+      selectedDiv.innerHTML = `
+        <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">
+          ${getInitialsForObjectContacts(user)}
+        </div>
+      `;
+      container.appendChild(selectedDiv);
+    }
+  }
+  
+  function removeSelectedContact(userEmail) {
+    let container = document.getElementById("addSelectedContacts");
+    let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
+    if (existingDiv) {
+      existingDiv.remove();
+    }
+  }
+  
 function userLoggedIn() {
   let userNavbarREF = document.getElementById("user-navbar");
   let questNavbarREF = document.getElementById("quest-navbar");
