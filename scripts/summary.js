@@ -9,7 +9,6 @@ async function getUserSummaryInfo() {
     await getDataFromServer("users", usersFromApi);
     await getDataFromServer('tasks', tasksFromApi);
     loadUserArray();
-    console.log(tasksFromApi);
   }
 
 function loadUserArray() {
@@ -54,6 +53,7 @@ function getTime() {
     }
     return greeting;
 }
+
 function summaryLoginData() {  
     let mainSummaryREF = document.getElementById("summary-main");
     mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter())
