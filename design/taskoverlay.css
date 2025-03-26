@@ -77,11 +77,11 @@
     display: flex;
     gap: 16px;
     width: fit-content;
-    /* display: inline; */
     font-weight: 400;
     font-size: 16px;
     padding: 6px 16px;
     transition: ease-in-out 200ms;
+    cursor: pointer;
 }
 
 .overlay-task-body label:hover {

@@ -122,10 +122,6 @@ function loadingToBoard() {
       }
 
 
-
-
-
-// SEARCH TASKS ----------------------------------------------------------
 function searchForTask() {
  let inputTaskREF = document.getElementById("find-task");
  let inputTaskValue = inputTaskREF.value.toLowerCase();

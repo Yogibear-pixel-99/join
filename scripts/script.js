@@ -11,7 +11,7 @@ let collectedFormInfos = {};
 
 
 /**
- * Fetches data from Firebase to specified arrays.
+ * Fetches data from Firebase to specified arrays and gets the destination key for firebase.
  * 
  * @param {string} objName - The name of the needed object in firebase.
  * @param {array} destination - Storage place of the fetched array.
@@ -26,10 +26,21 @@ async function getDataFromServer(objName, destination) {
             let dataArray = [];
             dataArray.splice(0, destination.length, ...Object.values(data));
             destination.splice(0, destination.length, ...dataArray.filter(element => element != null));
+            let keys = Object.entries(data);
+            console.log(keys);
+            getKeysToArray(destination, keys);
         }
     } catch (error) {
         console.log(error);
     }
+}
+
+function getKeysToArray(destination, keys){
+    for (let keyIndex = 0; keyIndex < keys.length; keyIndex++) {
+        const element = keys[keyIndex][0];
+        destination[keyIndex].apiKey = element;
+    }
+    console.log(destination);
 }
 
 /**

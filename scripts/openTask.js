@@ -4,14 +4,12 @@ let assignedUsersArray = [];
 
 async function openTask(taskId){
     let taskRef = document.getElementById('task-overlay-menu');
-    await getDataFromServer("tasks", tasksFromApi);
+    await getDataFromServer("contacts", tasksFromApi);
     console.log(tasksFromApi);
     let task = tasksFromApi.find(element => element.id === taskId);
     console.log(task);
     taskRef.innerHTML = await getTaskOverlayTemp(task);
-    // render infos to overlay
     toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
-    // close overlay
 }
 
 async function getTaskOverlayTemp(task){
@@ -96,22 +94,22 @@ function getAssignedUserTemp(name, initials){
 
 function getSubtasksForTaskOverlay(task){
     let content = '';
-        task.subtasks.forEach(element => 
-            content += getSubtaskTemp(element)
-        );
-    // get subtasks from api
-    // render subtasks to content
+        for (let subtaskIndex = 0; subtaskIndex < task.subtasks.length; subtaskIndex++) {
+            const subtask = task.subtasks[subtaskIndex];
+            content += getSubtaskTemp(subtask, subtaskIndex);
+        }
     return content;
 }
 
-function getSubtaskTemp(element){
-    return `<label>
-                <input type="checkbox" ${checkIfSubtaskIsDone(element)}>
-                <span>${element.subtaskName}</span>
+function getSubtaskTemp(subtask, subtaskIndex){
+    return `<label onclick="changeSubTaskCheckedApi(${subtaskIndex})">
+                <input type="checkbox" ${checkIfSubtaskIsDone(subtask)}>
+                <span>${subtask.subtaskName}</span>
             </label>
             `
 }
 
-function checkIfSubtaskIsDone(element){
-    return element.finished == "true" ? "checked" : "";
+function checkIfSubtaskIsDone(subtask){
+    return subtask.finished == "true" ? "checked" : "";
 }
+
