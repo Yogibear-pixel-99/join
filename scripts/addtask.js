@@ -132,10 +132,6 @@ function renderSubtaskTemp(subtask) {
            </div>`;
 }
 
-async function initAddTask() {
-  await getDataFromServer('users', usersFromApi);
-  console.log("Anzahl geladener User:", usersFromApi.length, usersFromApi);
-}
 
 function toggleAssignedDropdown() {
     const dropdown = document.getElementById("dropdownContent");
