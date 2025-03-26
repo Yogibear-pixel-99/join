@@ -7,7 +7,9 @@ function initSummary() {
 
 async function getUserSummaryInfo() {
     await getDataFromServer("users", usersFromApi);
+    await getDataFromServer('tasks', tasksFromApi);
     loadUserArray();
+    console.log(tasksFromApi);
   }
 
 function loadUserArray() {
@@ -34,7 +36,9 @@ function loadSummary() {
 
 function loadSummaryGuest() {
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime()); 
+    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime(), toDoCounter()); 
+    console.log(toDoCounter());
+    
     
 }
 
@@ -52,10 +56,20 @@ function getTime() {
 }
 function summaryLoginData() {  
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime())
+    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter())
 }
 
-function summaryTemplateGuest(time) {
+function toDoCounter() {
+    let toDoCounter = 0;
+    for (let index = 0; index < tasksFromApi.length; index++) {
+        if (tasksFromApi[index].status == "toDo") {
+            toDoCounter++;
+        } 
+    }
+    return toDoCounter;
+}
+
+function summaryTemplateGuest(time, toDo) {
     return `  <header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -124,7 +138,7 @@ function summaryTemplateGuest(time) {
                 </g>
               </svg>
               <div class="content-summary">
-                <h2 class="quantity-summary">1</h2>
+                <h2 class="quantity-summary">${toDo}</h2>
                 <h2 class="text-summary">To-do</h2>
               </div>
             </div>
