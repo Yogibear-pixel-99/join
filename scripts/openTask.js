@@ -42,7 +42,7 @@ async function getTaskOverlayTemp(task){
                     <div class="subtasks-overlay-wrapper">
                         <span>Subtasks</span>
                         ${await getSubtasksForTaskOverlay(task)}
-                    < class="task-overlay-footer-buttons">
+                    <div class="task-overlay-footer-buttons">
                             <div class="task-overlay-button-wrapper" onclick="overlayEditTask(task)">
                                 <div>
                                     <svg class="floating-edit-icon" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,7 +137,7 @@ async function changeSubTaskCheckedApi(location, id){
     let isChecked = {};
     inputRef.checked ? isChecked = {"finished":"true"} : isChecked = {"finished":"false"};
     console.log(isChecked);
-    await patchDataToApi(isChecked, location);
+    await putDataToApi(isChecked, location);
 }
 
 function overlayDeleteTask(apiKey){
