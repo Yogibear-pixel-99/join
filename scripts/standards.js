@@ -142,7 +142,7 @@ function toggleOverlayMenu(overlayId, maskId){
 }
 
 
-getUserSummaryInfo();
+// getUserSummaryInfo();
 
 function initialsChange() {
   let headerInitialsREF = document.getElementById("header-initials");
