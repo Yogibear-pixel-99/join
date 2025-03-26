@@ -203,7 +203,7 @@ function setOnclickEditAndDeleteToButtons(contactKey){
 async function saveEditedContact(event, contactKey) {
   event.preventDefault();
   getContactInfosToFetch();
-  await saveContactToApi(contactKey);
+  await patchDataToApi(collectedFormInfos, `contacts/${contactKey}`);
   await sortAndRenderContacts();
   let editedContact = contactsFromApi.find(
     (element) => element.apiKey === contactKey
@@ -243,36 +243,6 @@ async function deleteContact(contactKey) {
   emptyFloatMenu();
 }
 
-
-/**
- * Get the new information from the input fields and patch them to the database.
- * 
- * @param {string} contactKey - The keyvalue for the database to patch the payload.
- */
-async function saveContactToApi(contactKey) {
-
-  if (contactKey != undefined) {
-    try {
-      let response = await fetch(
-        MAIN_URL + "contacts/" + contactKey + ".json",
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(collectedFormInfos),
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Contact not found in Database!");
-      } else {
-        console.log(response);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-}
 
 /**
  * 

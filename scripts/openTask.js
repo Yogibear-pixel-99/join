@@ -41,7 +41,7 @@ async function getTaskOverlayTemp(task){
                     </div>
                     <div class="subtasks-overlay-wrapper">
                         <span>Subtasks</span>
-                        ${getSubtasksForTaskOverlay(task)}
+                        ${await getSubtasksForTaskOverlay(task)}
                     <div>
             </section>`
 }
@@ -92,18 +92,20 @@ function getAssignedUserTemp(name, initials){
             </span>`
 }
 
-function getSubtasksForTaskOverlay(task){
+async function getSubtasksForTaskOverlay(task){
     let content = '';
-        for (let subtaskIndex = 0; subtaskIndex < task.subtasks.length; subtaskIndex++) {
-            const subtask = task.subtasks[subtaskIndex];
-            content += getSubtaskTemp(subtask, subtaskIndex);
-        }
+    await getDataFromServer(`tasks/${task.apiKey}/subtasks`, subtasksFromApi);
+        console.log(subtasksFromApi);
+            subtasksFromApi.forEach(subtask => content += getSubtaskTemp(task, subtask));
     return content;
 }
 
-function getSubtaskTemp(subtask, subtaskIndex){
-    return `<label onclick="changeSubTaskCheckedApi(${subtaskIndex})">
-                <input type="checkbox" ${checkIfSubtaskIsDone(subtask)}>
+function getSubtaskTemp(task, subtask){
+    return `<label>
+                <input 
+                    id="subtask-${subtask.apiKey}"
+                    onclick="changeSubTaskCheckedApi('tasks/${task.apiKey}/subtasks/${subtask.apiKey}', 'subtask-${subtask.apiKey}')" 
+                    type="checkbox" ${checkIfSubtaskIsDone(subtask)}>
                 <span>${subtask.subtaskName}</span>
             </label>
             `
@@ -113,3 +115,14 @@ function checkIfSubtaskIsDone(subtask){
     return subtask.finished == "true" ? "checked" : "";
 }
 
+async function changeSubTaskCheckedApi(location, id){
+    let inputRef = document.getElementById(id);
+    let isChecked = {};
+    inputRef.checked ? isChecked = {"finished":"true"} : isChecked = {"finished":"false"};
+    console.log(isChecked);
+    await patchDataToApi(isChecked, location);
+    // let isChecked;
+    // this.checked ? isChecked = true : isChecked = false;
+    // console.log(isChecked);
+    // let subtaskRef = document.getElement
+}

@@ -6,34 +6,41 @@ MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
 let contactsFromApi = [];
 let tasksFromApi = [];
 let usersFromApi = [];
+let subtasksFromApi = [];
 let collectedFormInfos = {};
 // GLOBAL ARRAYS ---------------------------------------
 
-
 /**
- * Fetches data from Firebase to specified arrays and gets the destination key for firebase.
+ * Get the new information from the input fields and patch them to the database.
  * 
- * @param {string} objName - The name of the needed object in firebase.
- * @param {array} destination - Storage place of the fetched array.
+ * @param {object} contactKey - The data to patch.
+ * @param {string} contactKey - The keyvalue for the database to patch the payload.
  */
-// async function getDataFromServer(objName, destination) {
-//     try {
-//         let response = await fetch (MAIN_URL + objName + ".json");
-//         if (!response.ok) {
-//             throw new Error('no answer from server');
-//         } else {
-//             let data = await response.json();
-//             let dataArray = [];
-//             dataArray.splice(0, destination.length, ...Object.values(data));
-//             destination.splice(0, destination.length, ...dataArray.filter(element => element != null));
-//             let keys = Object.entries(data);
-//             console.log(keys);
-//             getKeysToArray(destination, keys);
-//         }
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+async function patchDataToApi(payload, contactKey) {
+
+    if (contactKey != undefined) {
+      try {
+        let response = await fetch(
+          MAIN_URL + contactKey + ".json",
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Contact not found in Database!");
+        } else {
+          console.log(response);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
 /**
  * Fetches data from Firebase to specified arrays and gets the destination key for firebase.
  * 
