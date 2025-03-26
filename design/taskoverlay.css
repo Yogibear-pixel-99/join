@@ -17,6 +17,10 @@
     background-color: var(--task-overlay-bg-color);
 }
 
+.task-overlay-container h1 {
+    margin: 0;
+}
+
 .overlay-header-wrapper {
     width: 100%;
 }
@@ -47,6 +51,14 @@
     width: 120px;
 }
 
+.assigned-users-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 170px;
+    overflow: auto;
+}
+
 .task-user-wrapper {
     display: flex;
     align-items: center;
@@ -59,4 +71,30 @@
     width: 42px;
     height: 42px;
     color: white;
+}
+
+.overlay-task-body label {
+    display: flex;
+    gap: 16px;
+    width: fit-content;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 6px 16px;
+    transition: ease-in-out 200ms;
+    cursor: pointer;
+}
+
+.overlay-task-body label:hover {
+    background-color: var(--grey-hover);
+    border-radius: 16px;
+}
+
+.subtasks-overlay-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.overlay-task-body label input {
+    margin: 0;
 }
