@@ -146,27 +146,16 @@ function toggleOverlayMenu(overlayId, maskId){
 
 function initialsChange() {
   let headerInitialsREF = document.getElementById("header-initials");
+  emailIndex = sessionStorage.getItem("indexOfUser");
+  userInfoList = [];
   if (emailIndex === null) {
     headerInitialsREF.innerText = "G";
   } else {
-    headerInitialsREF.innerText = userInfoList[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
+    headerInitialsREF.innerText = usersFromApi[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
   }
 }
 
-async function getUserSummaryInfo() {
+async function getUserInitialInfo() {
   await getDataFromServer("users", usersFromApi);
-  loadUserArray();
-}
-
-function loadUserArray() {
-  emailIndex = sessionStorage.getItem("indexOfUser");
-  userInfoList = [];
-for (let index = 0; index < usersFromApi.length; index++) {
-  userInfoList.push({
-    name: usersFromApi[index].name,
-    email: usersFromApi[index].email,
-    password: usersFromApi[index].password,
-  });
-}
-initialsChange(); 
+  initialsChange();
 }
