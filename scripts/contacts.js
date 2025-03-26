@@ -183,7 +183,7 @@ function getInfosForEditMenu(contactKey) {
 /**
  * Set the onclick functions to the buttons with specified parameters.
  * 
- * @param {string} contactId - The id of the contact parameter.
+ * @param {string} contactKey - The key of the contact parameter.
  */
 function setOnclickEditAndDeleteToButtons(contactKey){
     document
@@ -231,7 +231,7 @@ function getContactInfosToFetch(){
  * @param {string} contactId - The id of the selected contact.
  */
 async function deleteContact(contactKey) {
-  await deleteDataFromApi(contactKey);
+  await deleteDataFromApi("contacts/", contactKey);
   await sortAndRenderContacts();
   if (
     !document
@@ -246,12 +246,13 @@ async function deleteContact(contactKey) {
 
 /**
  * 
- * @param {string} contactKey - The keyvalue to delete the user in the database.
+ * @param {string} objPos - The header in the database.
+ * @param {string} contactKey - The keyvalue to delete the data in the database.
  */
-async function deleteDataFromApi(contactKey) {
-  if (contactKey != "") {
+async function deleteDataFromApi(objPos, apiKey) {
+  if (apiKey != "" || apiKey != undefined) {
     try {
-      await fetch(MAIN_URL + "contacts/" + contactKey + ".json", {
+      await fetch(MAIN_URL + objPos + apiKey + ".json", {
         method: "DELETE",
       });
     } catch (error) {

@@ -10,7 +10,6 @@ function initBoard() {
    async function loadAndRenderTasks() {
        await getDataFromServer('users', usersFromApi);
        await getDataFromServer('tasks', tasksFromApi);
-
        renderBoard();
    }
    

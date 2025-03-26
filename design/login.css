@@ -124,11 +124,11 @@ input[type="checkbox"] {
     margin-right: 20px;
   }
   
-  input[type="checkbox"]:checked {
+  /* input[type="checkbox"]:checked {
     background-color: white;
     border-color: black;
-    content: "✔";
-  }
+    content: "A";
+  } */
   
   input[type="checkbox"]:checked::after {
     content: "✔";
