@@ -97,28 +97,14 @@ async function createNewContact(event) {
   await getNewContactTemp();
   collectFormInformation("new-contact-form");
   if (await checkIfDataAlreadyExists("user-email-input", "contacts")) {
-    addRedBorderAndTextFalseInput(
-      "user-email-input",
-      "input-alert-message",
-      "Contact/Email already exists!"
-    );
-    setTimeout(
-      () =>
-        removeRedBorderAndTextFalseInput(
-          "user-email-input",
-          "input-alert-message"
-        ),
-      3000
-    );
+    addRedBorderAndTextFalseInput("user-email-input", "input-alert-message", "Contact/Email already exists!");
+    setTimeout(() => removeRedBorderAndTextFalseInput("user-email-input", "input-alert-message"), 3000);
   } else {
     await postDataToApi("contacts", collectedFormInfos);
     toggleOverlayMenu("add-contact-overlay", "add-contact-mask-container");
     await sortAndRenderContacts();
     scrollToNewContact(`contact-${collectedFormInfos.id}`);
-    openContactInFloatMenu(
-      `${collectedFormInfos.id}`,
-      `${collectedFormInfos.name.slice(0, 1)}`
-    );
+    openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`);
     showContactAddedSuccessButton();
     document.getElementById("new-contact-form").reset();
   }
@@ -175,9 +161,9 @@ function scrollToNewContact(contactId) {
  * 
  * @param {string} contactId - The id of the contact to edit.
  */
-function openEditContact(contactId) {
-  getInfosForEditMenu(contactId);
-  setOnclickEditAndDeleteToButtons(contactId);
+function openEditContact(contactKey) {
+  getInfosForEditMenu(contactKey);
+  setOnclickEditAndDeleteToButtons(contactKey);
   toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
 }
 
@@ -186,8 +172,8 @@ function openEditContact(contactId) {
  * 
  * @param {string} contactId - The id of the contact to edit.
  */
-function getInfosForEditMenu(contactId) {
-  const contact = contactsFromApi.find((element) => element.id === contactId);
+function getInfosForEditMenu(contactKey) {
+  const contact = contactsFromApi.find((element) => element.apiKey === contactKey);
   document.getElementById("edit-user-name-input").value = contact.name;
   document.getElementById("edit-user-email-input").value = contact.email;
   document.getElementById("edit-user-phone-input").value = contact.phone;
@@ -199,13 +185,13 @@ function getInfosForEditMenu(contactId) {
  * 
  * @param {string} contactId - The id of the contact parameter.
  */
-function setOnclickEditAndDeleteToButtons(contactId){
+function setOnclickEditAndDeleteToButtons(contactKey){
     document
     .getElementById("save-contact-button")
-    .setAttribute("onclick", `saveEditedContact(event, '${contactId}')`);
+    .setAttribute("onclick", `saveEditedContact(event, '${contactKey}')`);
   document
     .getElementById("delete-contact-button")
-    .setAttribute("onclick", `deleteContact('${contactId}')`);
+    .setAttribute("onclick", `deleteContact('${contactKey}')`);
 }
 
 /**
@@ -214,17 +200,29 @@ function setOnclickEditAndDeleteToButtons(contactId){
  * @param {*} event - For prevent the default function from the button.
  * @param {string} contactId - The id of the contact to save.
  */
-async function saveEditedContact(event, contactId) {
+async function saveEditedContact(event, contactKey) {
   event.preventDefault();
-  let contactKey = await getContactKeyFromApi(contactId);
+  getContactInfosToFetch();
   await saveContactToApi(contactKey);
   await sortAndRenderContacts();
   let editedContact = contactsFromApi.find(
-    (element) => element.id === contactId
+    (element) => element.apiKey === contactKey
   );
   toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
-  scrollToNewContact(`contact-${contactId}`);
-  openContactInFloatMenu(contactId, editedContact.name.charAt(0).toUpperCase());
+  scrollToNewContact(`contact-${editedContact.id}`);
+  openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
+}
+
+/**
+ * Collect infos from form edit user.
+ */
+function getContactInfosToFetch(){
+  collectedFormInfos = {
+    name: document.getElementById("edit-user-name-input").value,
+    email: document.getElementById("edit-user-email-input").value,
+    phone: document.getElementById("edit-user-phone-input").value,
+  };
+  console.log(collectedFormInfos);
 }
 
 /**
@@ -232,9 +230,8 @@ async function saveEditedContact(event, contactId) {
  * 
  * @param {string} contactId - The id of the selected contact.
  */
-async function deleteContact(contactId) {
-  let contactKey = await getContactKeyFromApi(contactId);
-  await deleteContactFromApi(contactKey);
+async function deleteContact(contactKey) {
+  await deleteDataFromApi(contactKey);
   await sortAndRenderContacts();
   if (
     !document
@@ -246,32 +243,6 @@ async function deleteContact(contactId) {
   emptyFloatMenu();
 }
 
-/**
- * Returns the key value as a string, from the specified contact id.
- * 
- * @param {string} contactId - The contact id of the selected contact.
- * @returns - Returns the key from the contact in the database as a string.
- */
-async function getContactKeyFromApi(contactId) {
-  let contactKey = "";
-  try {
-    let response = await fetch(MAIN_URL + "contacts.json");
-    if (!response.ok) {
-      throw new Error("No answer from server");
-    } else {
-      let data = await response.json();
-      const contactNameObject = Object.entries(data).find(([key, element]) => {
-        if (element !== null) {
-          return element.id == contactId;
-        }
-      });
-      contactKey = contactNameObject[0];
-    }
-  } catch (error) {
-    console.log(error);
-  }
-  return contactKey;
-}
 
 /**
  * Get the new information from the input fields and patch them to the database.
@@ -279,9 +250,7 @@ async function getContactKeyFromApi(contactId) {
  * @param {string} contactKey - The keyvalue for the database to patch the payload.
  */
 async function saveContactToApi(contactKey) {
-  let contactName = document.getElementById("edit-user-name-input").value;
-  let contactMail = document.getElementById("edit-user-email-input").value;
-  let contactPhone = document.getElementById("edit-user-phone-input").value;
+
   if (contactKey != undefined) {
     try {
       let response = await fetch(
@@ -291,11 +260,7 @@ async function saveContactToApi(contactKey) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            name: contactName,
-            email: contactMail,
-            phone: contactPhone,
-          }),
+          body: JSON.stringify(collectedFormInfos),
         }
       );
       if (!response.ok) {
@@ -313,7 +278,7 @@ async function saveContactToApi(contactKey) {
  * 
  * @param {string} contactKey - The keyvalue to delete the user in the database.
  */
-async function deleteContactFromApi(contactKey) {
+async function deleteDataFromApi(contactKey) {
   if (contactKey != "") {
     try {
       await fetch(MAIN_URL + "contacts/" + contactKey + ".json", {

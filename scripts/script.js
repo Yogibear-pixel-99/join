@@ -49,7 +49,6 @@ async function getDataFromServer(objName, destination) {
         } else {
             let data = await response.json();
             let dataArray = Object.entries(data);
-            console.log(dataArray);
             for (let dataIndex = 0; dataIndex < dataArray.length; dataIndex++) {
                 const element = dataArray[dataIndex];
             destination.push(element[1]);

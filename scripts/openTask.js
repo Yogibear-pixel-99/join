@@ -4,7 +4,7 @@ let assignedUsersArray = [];
 
 async function openTask(taskId){
     let taskRef = document.getElementById('task-overlay-menu');
-    await getDataFromServer("contacts", tasksFromApi);
+    await getDataFromServer("tasks", tasksFromApi);
     console.log(tasksFromApi);
     let task = tasksFromApi.find(element => element.id === taskId);
     console.log(task);
