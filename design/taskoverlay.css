@@ -113,12 +113,6 @@ input[type="checkbox"] {
     margin-right: 20px;
   }
   
-  /* input[type="checkbox"]:checked {
-    background-color: white;
-    border-color: black;
-    content: "A";
-  } */
-  
   input[type="checkbox"]:checked::after {
     content: "✔";
     font-size: 16px;
@@ -127,3 +121,5 @@ input[type="checkbox"] {
     text-align: center;
     line-height: 12px;
   }
+
+  

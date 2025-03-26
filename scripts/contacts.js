@@ -244,31 +244,3 @@ async function deleteContact(contactKey) {
   }
   emptyFloatMenu();
 }
-
-
-/**
- * 
- * @param {string} objPos - The header in the database.
- * @param {string} contactKey - The keyvalue to delete the data in the database.
- */
-async function deleteDataFromApi(objPos, apiKey) {
-  if (apiKey != "" || apiKey != undefined) {
-    try {
-      await fetch(MAIN_URL + objPos + apiKey + ".json", {
-        method: "DELETE",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    console.log("contactKey is empty!");
-  }
-}
-
-/**
- * Close the deleted contact in the float menu.
- */
-function emptyFloatMenu() {
-  const menuRef = document.getElementById("bottom-board");
-  menuRef.classList.remove("floating-contact-container-open");
-}
