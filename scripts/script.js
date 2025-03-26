@@ -16,19 +16,45 @@ let collectedFormInfos = {};
  * @param {string} objName - The name of the needed object in firebase.
  * @param {array} destination - Storage place of the fetched array.
  */
+// async function getDataFromServer(objName, destination) {
+//     try {
+//         let response = await fetch (MAIN_URL + objName + ".json");
+//         if (!response.ok) {
+//             throw new Error('no answer from server');
+//         } else {
+//             let data = await response.json();
+//             let dataArray = [];
+//             dataArray.splice(0, destination.length, ...Object.values(data));
+//             destination.splice(0, destination.length, ...dataArray.filter(element => element != null));
+//             let keys = Object.entries(data);
+//             console.log(keys);
+//             getKeysToArray(destination, keys);
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+/**
+ * Fetches data from Firebase to specified arrays and gets the destination key for firebase.
+ * 
+ * @param {string} objName - The name of the needed object in firebase.
+ * @param {array} destination - Storage place of the fetched array.
+ */
 async function getDataFromServer(objName, destination) {
+    destination.splice(0, destination.length);
     try {
         let response = await fetch (MAIN_URL + objName + ".json");
         if (!response.ok) {
             throw new Error('no answer from server');
         } else {
             let data = await response.json();
-            let dataArray = [];
-            dataArray.splice(0, destination.length, ...Object.values(data));
-            destination.splice(0, destination.length, ...dataArray.filter(element => element != null));
-            let keys = Object.entries(data);
-            console.log(keys);
-            getKeysToArray(destination, keys);
+            let dataArray = Object.entries(data);
+            console.log(dataArray);
+            for (let dataIndex = 0; dataIndex < dataArray.length; dataIndex++) {
+                const element = dataArray[dataIndex];
+            destination.push(element[1]);
+            destination[dataIndex]["apiKey"] = element[0];
+        }
         }
     } catch (error) {
         console.log(error);
