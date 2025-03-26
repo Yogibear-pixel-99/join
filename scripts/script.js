@@ -434,4 +434,4 @@ function userLoggedIn() {
   } else {
     questNavbarREF.classList.toggle("d-none");
   }
-}}
+}
