@@ -185,7 +185,6 @@ function checkEmptyColums(todo, prog, feed, done) {
         todo.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
     if(!prog.innerHTML.trim()) {
-        prog.innerHTML = <div class="no-tasks">no-task in progress</div>;
         prog.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
     }
     if(!feed.innerHTML.trim()) {
@@ -435,4 +434,4 @@ function userLoggedIn() {
   } else {
     questNavbarREF.classList.toggle("d-none");
   }
-}}
+}
