@@ -11,6 +11,9 @@ async function getUserSummaryInfo() {
     loadUserArray();
   }
 
+function directToBoard() {
+  window.location.href = "board.html";
+}
 function loadUserArray() {
     emailIndex = sessionStorage.getItem("indexOfUser");
     userInfoList = [];
@@ -35,10 +38,8 @@ function loadSummary() {
 
 function loadSummaryGuest() {
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime(), toDoCounter()); 
-    console.log(toDoCounter());
-    
-    
+    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter()); 
+    console.log(toDoCounter()); 
 }
 
 function getTime() {
@@ -56,7 +57,7 @@ function getTime() {
 
 function summaryLoginData() {  
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter())
+    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter())
 }
 
 function toDoCounter() {
@@ -65,11 +66,53 @@ function toDoCounter() {
         if (tasksFromApi[index].status == "toDo") {
             toDoCounter++;
         } 
+        console.log(tasksFromApi[index]);   
     }
     return toDoCounter;
 }
 
-function summaryTemplateGuest(time, toDo) {
+function doneCounter() {
+  let doneCounter = 0;
+  for (let index = 0; index < tasksFromApi.length; index++) {
+      if (tasksFromApi[index].status == "done") {
+          doneCounter++;
+      } 
+  }
+  return doneCounter;
+}
+
+function inProgressCounter() {
+  let inProgressCounter = 0;
+  for (let index = 0; index < tasksFromApi.length; index++) {
+      if (tasksFromApi[index].status == "inProgress") {
+        inProgressCounter++;
+      } 
+  }
+  return inProgressCounter;
+}
+
+function awaitFeedbackCounter() {
+  let awaitFeedbackCounter = 0;
+  for (let index = 0; index < tasksFromApi.length; index++) {
+      if (tasksFromApi[index].status == "awaitFeedback") {
+        awaitFeedbackCounter++;
+      } 
+  }
+  return awaitFeedbackCounter;
+}
+
+function urgentCounter() {
+  let urgentCounter = 0;
+  for (let index = 0; index < tasksFromApi.length; index++) {
+      if (tasksFromApi[index].priority == "Urgent") {
+        urgentCounter++;
+      } 
+  }
+  return urgentCounter;
+}
+
+
+function summaryTemplateGuest(time, toDo, done, inProgress, awaitFeedback, urgent) {
     return `  <header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -103,7 +146,7 @@ function summaryTemplateGuest(time, toDo) {
         </div>
         <div class="bottom-summary">
           <div class="bottom-top-summary">
-            <div class="to-do-summary">
+            <div onclick="directToBoard()" class="to-do-summary">
               <svg
                 width="69"
                 height="70"
@@ -142,7 +185,7 @@ function summaryTemplateGuest(time, toDo) {
                 <h2 class="text-summary">To-do</h2>
               </div>
             </div>
-            <div class="done-summary">
+            <div onclick="directToBoard()" class="done-summary">
               <svg
                 width="70"
                 height="70"
@@ -167,18 +210,18 @@ function summaryTemplateGuest(time, toDo) {
                 />
               </svg>
               <div class="content-summary">
-                <h2 class="quantity-summary">1</h2>
+                <h2 class="quantity-summary">${done}</h2>
                 <h2 class="text-summary">Done</h2>
               </div>
             </div>
           </div>
 
           <div class="bottom-middle-summary">
-            <div class="urgent-summary">
+            <div onclick="directToBoard()" class="urgent-summary">
               <div class="urgent-left-summary">
                 <img src="../assets/icons/urgent.svg" alt="" />
                 <div class="content-summary">
-                  <h2 class="quantity-summary">1</h2>
+                  <h2 class="quantity-summary">${urgent}</h2>
                   <h2 class="text-summary">Urgent</h2>
                 </div>
               </div>
@@ -194,21 +237,21 @@ function summaryTemplateGuest(time, toDo) {
           </div>
 
           <div class="bottom-end-summary">
-            <div class="bottom-end-left-box-summary">
+            <div onclick="directToBoard()" class="bottom-end-left-box-summary">
               <div class="content-summary">
-                <h2 class="end-quantity-summary">5</h2>
+                <h2 class="end-quantity-summary">${tasksFromApi.length}</h2>
                 <h2 class="end-text-summary">Tasks in Board</h2>
               </div>
             </div>
-            <div class="bottom-end-middle-box-summary">
+            <div onclick="directToBoard()" class="bottom-end-middle-box-summary">
               <div class="content-summary">
-                <h2 class="end-quantity-summary">2</h2>
+                <h2 class="end-quantity-summary">${inProgress}</h2>
                 <h2 class="end-text-summary">Tasks in Progress</h2>
               </div>
             </div>
-            <div class="bottom-end-right-box-summary">
+            <div onclick="directToBoard()" class="bottom-end-right-box-summary">
               <div class="content-summary">
-                <h2 class="end-quantity-summary">2</h2>
+                <h2 class="end-quantity-summary">${awaitFeedback}</h2>
                 <h2 class="end-text-summary">Awaiting Feedback</h2>
               </div>
             </div>
@@ -218,7 +261,7 @@ function summaryTemplateGuest(time, toDo) {
 }
 
 
-function summaryTemplate(name, time) {
+function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urgent) {
     return `<header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -252,7 +295,7 @@ function summaryTemplate(name, time) {
         </div>
         <div class="bottom-summary">
           <div class="bottom-top-summary">
-            <div class="to-do-summary">
+            <div onclick="directToBoard()" class="to-do-summary">
               <svg
                 width="69"
                 height="70"
@@ -291,7 +334,7 @@ function summaryTemplate(name, time) {
                 <h2 class="text-summary">To-do</h2>
               </div>
             </div>
-            <div class="done-summary">
+            <div onclick="directToBoard()" class="done-summary">
               <svg
                 width="70"
                 height="70"
@@ -316,18 +359,18 @@ function summaryTemplate(name, time) {
                 />
               </svg>
               <div class="content-summary">
-                <h2 class="quantity-summary">1</h2>
+                <h2 class="quantity-summary">${done}</h2>
                 <h2 class="text-summary">Done</h2>
               </div>
             </div>
           </div>
 
           <div class="bottom-middle-summary">
-            <div class="urgent-summary">
+            <div onclick="directToBoard()" class="urgent-summary">
               <div class="urgent-left-summary">
                 <img src="../assets/icons/urgent.svg" alt="" />
                 <div class="content-summary">
-                  <h2 class="quantity-summary">1</h2>
+                  <h2 class="quantity-summary">${urgent}</h2>
                   <h2 class="text-summary">Urgent</h2>
                 </div>
               </div>
@@ -344,21 +387,21 @@ function summaryTemplate(name, time) {
           </div>
 
           <div class="bottom-end-summary">
-            <div class="bottom-end-left-box-summary">
+            <div onclick="directToBoard()" class="bottom-end-left-box-summary">
               <div class="content-summary">
-                <h2 class="end-quantity-summary">5</h2>
+                <h2 class="end-quantity-summary">${tasksFromApi.length}</h2>
                 <h2 class="end-text-summary">Tasks in Board</h2>
               </div>
             </div>
-            <div class="bottom-end-middle-box-summary">
+            <div onclick="directToBoard()" class="bottom-end-middle-box-summary">
               <div class="content-summary">
-                <h2 class="end-quantity-summary">2</h2>
+                <h2 class="end-quantity-summary">${inProgress}</h2>
                 <h2 class="end-text-summary">Tasks in Progress</h2>
               </div>
             </div>
-            <div class="bottom-end-right-box-summary">
+            <div onclick="directToBoard()" class="bottom-end-right-box-summary">
               <div class="content-summary">
-                <h2 class="end-quantity-summary">2</h2>
+                <h2 class="end-quantity-summary">${awaitFeedback}</h2>
                 <h2 class="end-text-summary">Awaiting Feedback</h2>
               </div>
             </div>

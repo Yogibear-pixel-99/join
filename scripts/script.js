@@ -112,7 +112,7 @@ function toggleAddTaskOverlay() {
     let addtaskHideREF = document.getElementById("addtask-content");
     addtaskHideREF.classList.toggle("addtask-content-hide")
     maskREF.classList.toggle("d-none")
-    addtaskREF.classList.toggle("d-none")
+   /*  addtaskREF.classList.toggle("d-none") */
 }
 
 
