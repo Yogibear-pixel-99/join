@@ -35,10 +35,8 @@ function clearBoardColums(todo, prog, feed, done) {
 }
 
 function fillBoardColums(tasks, todo, prog, feed, done) {
-    let input = -1;
       tasks.forEach(task => {
-          input ++;
-          let cardHtml = createTaskCard(task, input);
+          let cardHtml = createTaskCard(task);
           if (task.status === 'toDo') todo.innerHTML += cardHtml;
           if (task.status === 'inProgress') prog.innerHTML += cardHtml;
           if (task.status === 'awaitFeedback') feed.innerHTML += cardHtml;
@@ -137,9 +135,9 @@ function findTask(inputTaskValue) {
        let titleTaskValue = titleTaskREF.innerText.toLowerCase();
        let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
        if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " "  || descriptionValue.includes(inputTaskValue)) {
-        titleTaskREF.parentElement.classList.remove("d-none");
+        titleTaskREF.parentElement.parentElement.classList.remove("d-none");
        } else {
-        titleTaskREF.parentElement.classList.add("d-none");
+        titleTaskREF.parentElement.parentElement.classList.add("d-none");
        }
     }
 }
@@ -159,8 +157,8 @@ function createTaskCard(task, input) {
               data-status="${task.status}">
                   <span class="task-type task-color-${task.task.charAt(0).toUpperCase()}">${task.task}</span>
                   <div class="task-title-description-wrapper">
-                    <div class="task-title" id="titleTask${input}">${task.title}</div>
-                    <div class="task-description" id="titleDescription${input}">${task.description}</div>
+                    <div class="task-title" id="titleTask${task.id}">${task.title}</div>
+                    <div class="task-description" id="titleDescription${task.id}">${task.description}</div>
                   </div>
                   <div class="task-subtask-info">
                   <div class="subtask-progressbar">

@@ -206,10 +206,8 @@ function clearBoardColums(todo, prog, feed, done) {
 }
 
 function fillBaordColums(tasks, todo, prog, feed, done) {
-  let input = -1;
     tasks.forEach(task => {
-        input ++;
-        let cardHtml = createTaskCard(task, input);
+        let cardHtml = createTaskCard(task);
         if (task.status === 'toDo') todo.innerHTML += cardHtml;
         if (task.status === 'inProgress') prog.innerHTML += cardHtml;
         if (task.status === 'awaitFeedback') feed.innerHTML += cardHtml;
@@ -279,7 +277,7 @@ function renderAssignedUsers(task) {
   }
    
 
-  function createTaskCard(task, input) {
+  function createTaskCard(task) {
     let assignedHTML = renderAssignedUsers(task);
     let priorityHTML = getPriorityIconHTML(task.priority);
     
@@ -289,8 +287,8 @@ function renderAssignedUsers(task) {
       <div class="task-type-container">
       <div class="task-type">${task.task}</div>
       </div>
-      <div class="task-title" id="titleTask${input}">${task.title}</div>
-      <div class="task-description" id="titleDescription${input}">${task.description}</div>
+      <div class="task-title" id="titleTask${task.id}">${task.title}</div>
+      <div class="task-description" id="titleDescription${task.id}">${task.description}</div>
       <div class="task-subtask-info">
         <div class="subtask-progressbar">
           <!-- width: 50% hier nur beispielhaft statisch -->
@@ -353,6 +351,7 @@ function dropTask(event) {
         taskCard.dataset.status = newStatus;
 
         console.log(`Task ${taskId} moved to ${newStatus}`);
+
     }
 
     taskCard.classList.remove("dragging");
