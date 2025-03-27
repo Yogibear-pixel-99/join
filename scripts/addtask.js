@@ -225,7 +225,7 @@ function handleCheckboxChange(event) {
     }
   }
   
-  
+
   function removeSelectedContact(userEmail) {
     let container = document.getElementById("addSelectedContacts");
     let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);

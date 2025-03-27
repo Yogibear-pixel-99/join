@@ -119,6 +119,18 @@
       "tasksInProgress": "",
       "awaitingFeedback": "",
       "isSelected": false
+    },
+    {
+      "name": "Stefan Kruger",
+      "email": "stefan@krueger.com",
+      "password": "lehmannpass567",
+      "toDo": "",
+      "done": "",
+      "priority": [{ "urgent": "" }, { "medium": "" }, { "low": "" }],
+      "tasksInBoard": "",
+      "tasksInProgress": "",
+      "awaitingFeedback": "",
+      "isSelected": false
     }
   ],
 
@@ -330,7 +342,7 @@
       "description": "Implement an overview.",
       "date": "22/07/2023",
       "priority": "Urgent",
-      "assignTo": ["sofia@mueller", "bart@springfield.com"],
+      "assignTo": ["sofia@mueller.com", "bart@springfield.com"],
       "subtasks": [ {
         "subtaskName": "Subtask 1",
         "finished": "false"

@@ -323,6 +323,7 @@
 }
 
 .task-meta-assignend-user-container {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -340,17 +341,19 @@
 
 .task-assigned-users {
   display: flex;
-  gap: 8px;
+  gap: -10px;
 }
 
-.contact-list-initals {
+.contact-list-board-initals {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 45px;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
 }
 

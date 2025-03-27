@@ -59,19 +59,23 @@ function fillBoardColums(tasks, todo, prog, feed, done) {
     }
 }
 
-function renderAssignedUsers(task, input) {
-    if (!task.assignTo || !task.assignTo.length) {
+function renderAssignedUsers(task) {
+    if (!task.assignTo || !task.assignTo.length === 0) {
       return '';
     }
-  
-    return task.assignTo.map(email => {
+
+    let existingEmail = task.assignTo.filter((element) => {
+      return usersFromApi.some(email => email.email === element) 
+    })
+    
+    return existingEmail.map(email => {
       let user = usersFromApi.find(u => u.email === email);
   
       if (user) {
         let initials = returnInitials(user.name);
-        return `<div class="contact-list-initals initials-bg-color-${user.name.charAt(0).toUpperCase()}" style="z-index: ${100+input}">${initials}</div>`;
+        return `<div class="contact-list-board-initals initials-bg-color-${user.name.charAt(0).toUpperCase()}">${initials}</div>`;
       } else {
-        return `<div class="contact-list-initals">??</div>`;
+        return `<div class="contact-list-board-initals">??</div>`;
       }
     }).join('');
   }
@@ -129,8 +133,8 @@ function findTask(inputTaskValue) {
 }
 
 
-function createTaskCard(task, input) {
-    let assignedHTML = renderAssignedUsers(task, input);
+function createTaskCard(task) {
+    let assignedHTML = renderAssignedUsers(task);
     let priorityHTML = getPriorityIconHTML(task.priority);
     let allTasksNr = getAllSubtasksLength(task);
     let doneTasksNr = getDoneSubtasksLength(task);
@@ -170,3 +174,7 @@ function createTaskCard(task, input) {
   function getDoneSubtasksLength(task){
     return task.subtasks.filter(subtask => subtask.finished == "true").length;
   }
+
+
+
+  // lösche automatisch leere emaileinträge
