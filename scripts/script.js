@@ -55,18 +55,21 @@ async function getDataFromServer(objName, destination) {
             throw new Error('no answer from server');
         } else {
             let data = await response.json();
-            let dataArray = Object.entries(data);
-            let filteredArray = dataArray.filter(element => element[1] != null);
-            for (let dataIndex = 0; dataIndex < filteredArray.length; dataIndex++) {
-                const element = filteredArray[dataIndex];
-            destination.push(element[1]);
-            destination[dataIndex]["apiKey"] = element[0];
-              
-        }
+            data != null ? filterDataAndKey(data) : console.log('No Data to display!')
         }
     } catch (error) {
         console.log(error);
     }
+}
+
+function filterDataAndKey(data){
+  let dataArray = Object.entries(data);
+  let filteredArray = dataArray.filter(element => element[1] != null);
+  for (let dataIndex = 0; dataIndex < filteredArray.length; dataIndex++) {
+      const element = filteredArray[dataIndex];
+  destination.push(element[1]);
+  destination[dataIndex]["apiKey"] = element[0];
+  }
 }
 
 /**
