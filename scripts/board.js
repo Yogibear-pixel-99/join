@@ -48,16 +48,16 @@ function fillBoardColums(tasks, todo, prog, feed, done) {
 
   function checkEmptyColums(todo, prog, feed, done) {
     if(!todo.innerHTML.trim()) {
-        todo.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+        todo.innerHTML = `<div class="no-tasks">No tasks to do</div>`;
     }
     if(!prog.innerHTML.trim()) {
-        prog.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+        prog.innerHTML = `<div class="no-tasks">No tasks in progress</div>`;
     }
     if(!feed.innerHTML.trim()) {
-        feed.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+        feed.innerHTML = `<div class="no-tasks">No tasks await feedback</div>`;
     }
     if(!done.innerHTML.trim()) {
-        done.innerHTML = `<div class="no-tasks">no-task in progress</div>`;
+        done.innerHTML = `<div class="no-tasks">No tasks done</div>`;
     }
 }
 
@@ -75,7 +75,7 @@ function getInitialsForName(fullName) {
 }
 
 
-function renderAssignedUsers(task) {
+function renderAssignedUsers(task, input) {
     if (!task.assignTo || !task.assignTo.length) {
       return '';
     }
@@ -85,7 +85,7 @@ function renderAssignedUsers(task) {
   
       if (user) {
         let initials = getInitialsForName(user.name);
-        return `<div class="contact-list-initals">${initials}</div>`;
+        return `<div class="contact-list-initals initials-bg-color-${user.name.charAt(0).toUpperCase()}" style="z-index: ${100+input}">${initials}</div>`;
       } else {
         return `<div class="contact-list-initals">??</div>`;
       }
@@ -146,34 +146,43 @@ function findTask(inputTaskValue) {
 
 
 function createTaskCard(task, input) {
-    let assignedHTML = renderAssignedUsers(task);
+    let assignedHTML = renderAssignedUsers(task, input);
     let priorityHTML = getPriorityIconHTML(task.priority);
+    let allTasksNr = getAllSubtasksLength(task);
+    let doneTasksNr = getDoneSubtasksLength(task);
     
   
-    return `
-      <div class="task-card" id="task-${task.title.replace(/\s+/g, '-')}" onclick="openTask('${task.id}')" draggable="true" data-status="${task.status}">
-      <div class="task-type-container">
-      <div class="task-type">${task.task}</div>
-      </div>
-      <div class="task-title" id="titleTask${input}">${task.title}</div>
-      <div class="task-description" id="titleDescription${input}">${task.description}</div>
-      <div class="task-subtask-info">
-        <div class="subtask-progressbar">
-          <!-- width: 50% hier nur beispielhaft statisch -->
-          <div class="subtask-progress" style="width: 50%;"></div>
-        </div>
-        <span class="subtask-count">1/2 Subtasks</span>
-      </div>
-      <div class="task-meta-assignend-user-container"> 
-      <div class="task-meta">
-        ${priorityHTML}
-      </div>
-      <div class="task-assigned-users">
-        ${assignedHTML}
-      </div>
-      </div>
-      
-    </div>
+    return `<div class="task-card" 
+              id="task-${task.title.replace(/\s+/g, '-')}" 
+              onclick="openTask('${task.id}')" 
+              draggable="true" 
+              data-status="${task.status}">
+                  <span class="task-type task-color-${task.task.charAt(0).toUpperCase()}">${task.task}</span>
+                  <div class="task-title-description-wrapper">
+                    <div class="task-title" id="titleTask${input}">${task.title}</div>
+                    <div class="task-description" id="titleDescription${input}">${task.description}</div>
+                  </div>
+                  <div class="task-subtask-info">
+                  <div class="subtask-progressbar">
+                    <div class="subtask-progress" style="width: ${100/allTasksNr*doneTasksNr}%"></div>
+                  </div>
+                  <span class="subtask-count">${doneTasksNr}/${allTasksNr} Subtasks</span>
+                </div>
+                <div class="task-meta-assignend-user-container"> 
+                <div class="task-meta">
+                  ${priorityHTML}
+                </div>
+              <div class="task-assigned-users">
+                ${assignedHTML}
+              </div>
+            </div>
+          </div>`;
+  }
 
-    `;
+  function getAllSubtasksLength(task){
+    return task.subtasks.filter(subtask => subtask != null).length;
+  }
+
+  function getDoneSubtasksLength(task){
+    return task.subtasks.filter(subtask => subtask.finished == "true").length;
   }
