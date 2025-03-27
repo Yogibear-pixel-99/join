@@ -328,7 +328,9 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  height: 32px;
 }
+
 .task-meta {
   display: flex;
   gap: 16px; 
@@ -339,12 +341,8 @@
   color: #888;
 }
 
-.task-assigned-users {
-  display: flex;
-  gap: -10px;
-}
-
 .contact-list-board-initals {
+  position: absolute;
   width: 32px;
   height: 32px;
   border-radius: 45px;
@@ -355,5 +353,6 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 120%;
+  border: solid 1px #FFFFFF;
 }
 

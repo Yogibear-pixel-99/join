@@ -67,16 +67,22 @@ function renderAssignedUsers(task) {
     let existingEmail = task.assignTo.filter((element) => {
       return usersFromApi.some(email => email.email === element) 
     })
-    
+    let initialsPosition = -24;
     return existingEmail.map(email => {
       let user = usersFromApi.find(u => u.email === email);
-  
+      initialsPosition += 24;
       if (user) {
+        
         let initials = returnInitials(user.name);
-        return `<div class="contact-list-board-initals initials-bg-color-${user.name.charAt(0).toUpperCase()}">${initials}</div>`;
+        return `<div class="contact-list-board-initals 
+                            initials-bg-color-${user.name.charAt(0).toUpperCase()}"
+                            style="left: ${initialsPosition}px">
+                            ${initials}
+                </div>`;
       } else {
         return `<div class="contact-list-board-initals">??</div>`;
       }
+      
     }).join('');
   }
   
@@ -160,9 +166,7 @@ function createTaskCard(task) {
                 <div class="task-meta">
                   ${priorityHTML}
                 </div>
-              <div class="task-assigned-users">
                 ${assignedHTML}
-              </div>
             </div>
           </div>`;
   }
@@ -174,7 +178,3 @@ function createTaskCard(task) {
   function getDoneSubtasksLength(task){
     return task.subtasks.filter(subtask => subtask.finished == "true").length;
   }
-
-
-
-  // lösche automatisch leere emaileinträge
