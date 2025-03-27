@@ -179,7 +179,6 @@ function getInfosForEditMenu(contactKey) {
   document.getElementById("edit-user-name-input").value = contact.name;
   document.getElementById("edit-user-email-input").value = contact.email;
   document.getElementById("edit-user-phone-input").value = contact.phone;
-
 }
 
 /**

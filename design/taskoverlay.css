@@ -122,4 +122,32 @@ input[type="checkbox"] {
     line-height: 12px;
   }
 
-  
+  .task-overlay-footer-buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .task-overlay-button-wrapper{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  .task-overlay-button-wrapper:hover {
+    color: var(--light-blue);
+    font-weight: 700;
+  }
+
+  .task-overlay-button-wrapper:hover > svg > path{
+    fill: var(--light-blue);
+  }
+
+
+
+  .task-overlay-button-separator {
+    width: 1px;
+    height: 24px;
+    background-color: var(--input-separator-color);
+  }

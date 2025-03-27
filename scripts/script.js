@@ -56,10 +56,12 @@ async function getDataFromServer(objName, destination) {
         } else {
             let data = await response.json();
             let dataArray = Object.entries(data);
-            for (let dataIndex = 0; dataIndex < dataArray.length; dataIndex++) {
-                const element = dataArray[dataIndex];
+            let filteredArray = dataArray.filter(element => element[1] != null);
+            for (let dataIndex = 0; dataIndex < filteredArray.length; dataIndex++) {
+                const element = filteredArray[dataIndex];
             destination.push(element[1]);
             destination[dataIndex]["apiKey"] = element[0];
+              
         }
         }
     } catch (error) {
