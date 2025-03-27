@@ -323,11 +323,14 @@
 }
 
 .task-meta-assignend-user-container {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  height: 32px;
 }
+
 .task-meta {
   display: flex;
   gap: 16px; 
@@ -338,20 +341,18 @@
   color: #888;
 }
 
-.task-assigned-users {
-  display: flex;
-  gap: 8px;
-}
-
-.contact-list-initals {
+.contact-list-board-initals {
+  position: absolute;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background-color: orange; 
+  border-radius: 45px;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  border: solid 1px #FFFFFF;
 }
 

@@ -136,32 +136,32 @@ function renderSubtaskTemp(subtask) {
 function toggleAssignedDropdown() {
     const dropdown = document.getElementById("dropdownContent");
     dropdown.classList.toggle("d-none");
+    if (dropdown.classList.contains("d-none")) {
     renderDropdown();
+    }
   }
 function renderDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
 
     usersFromApi.forEach(user => {
+      let isChecked = user.isSelected ? 'checked' : '';
+      let rowClass = user.isSelected ? 'checked-row' : '';
+
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
-            <label class="user-item">
+            <label class="user-item ${rowClass}">
             <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
                 </div>
                 <span>${user.name}</span>
                 </div>
-                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
+                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)" ${isChecked}>
             </label>
         `;
         dropdownContent.appendChild(userItem);
     });
-}
-
-function getInitialsForObject(user) {
-    let name = user.name.split(' ');
-    return name[0].charAt(0).toUpperCase() + name[1].charAt(0).toUpperCase();
 }
 
 function startSearchingContacts() {
@@ -169,6 +169,7 @@ function startSearchingContacts() {
     let filteredUsers = usersFromApi.filter(user => user.name.toLowerCase().includes(searchInput));
     renderDropdownWithSearchResults(filteredUsers);
 }
+
 function renderDropdownWithSearchResults(filteredUsers) {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = ''; 
@@ -178,7 +179,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
         userItem.innerHTML = `
              <label class="user-item">
             <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
                 </div>
                 <span>${user.name}</span>
                 </div>
@@ -194,6 +195,7 @@ function handleCheckboxChange(event) {
     const user = usersFromApi.find(u => u.email === userEmail);
     const userItem = event.target.closest('.user-item');
     if (!user || !userItem) return;
+    user.isSelected = event.target.checked;
   
     if (event.target.checked) {
       userItem.classList.add('checked-row');
@@ -215,15 +217,15 @@ function handleCheckboxChange(event) {
       selectedDiv.setAttribute("data-user-id", userEmail);
   
       selectedDiv.innerHTML = `
-        <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">
-          ${getInitialsForObject(user)}
+        <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
+          ${returnInitials(user.name)}
         </div>
       `;
       container.appendChild(selectedDiv);
     }
   }
   
-  
+
   function removeSelectedContact(userEmail) {
     let container = document.getElementById("addSelectedContacts");
     let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
