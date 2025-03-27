@@ -216,12 +216,13 @@ function handleCheckboxChange(event) {
   
       selectedDiv.innerHTML = `
         <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">
-          ${getInitialsForObjectContacts(user)}
+          ${getInitialsForObject(user)}
         </div>
       `;
       container.appendChild(selectedDiv);
     }
   }
+  
   
   function removeSelectedContact(userEmail) {
     let container = document.getElementById("addSelectedContacts");
