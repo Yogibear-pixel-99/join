@@ -55,14 +55,19 @@ async function getDataFromServer(objName, destination) {
             throw new Error('no answer from server');
         } else {
             let data = await response.json();
-            data != null ? filterDataAndKey(data) : console.log('No Data to display!')
+            data != null ? filterDataAndKey(data, destination) : console.log('No Data to display!')
         }
     } catch (error) {
         console.log(error);
     }
 }
 
-function filterDataAndKey(data){
+/**
+ * Filters the fetched data, delete null positions, puts the database key to the data.
+ * 
+ * @param {object} data - Fetched data from server.
+ */
+function filterDataAndKey(data, destination){
   let dataArray = Object.entries(data);
   let filteredArray = dataArray.filter(element => element[1] != null);
   for (let dataIndex = 0; dataIndex < filteredArray.length; dataIndex++) {
