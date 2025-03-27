@@ -119,8 +119,8 @@ function getKeysToArray(destination, keys){
  * @returns - Returns the first letter of the first and last name. The initials.
  */
 
-function getInitialsForObjectContacts(user){
-    const name = user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+function returnInitials(user){
+    const name = user.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
     const regExp = /\b\p{L}/gu;
     const initialsArray = name.match(regExp);
     return initialsArray.join("");
@@ -132,7 +132,7 @@ function getInitialsForObjectContacts(user){
  */
 function createInitialsForEachName(destinationArray){
     destinationArray.forEach(element => { 
-        element['initials'] = getInitialsForObjectContacts(element);
+        element['initials'] = returnInitials(element.name);
     })
 }
 
@@ -448,7 +448,7 @@ function handleCheckboxChange(event) {
   
       selectedDiv.innerHTML = `
         <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">
-          ${getInitialsForObjectContacts(user)}
+          ${getInitialsForObject(user)}
         </div>
       `;
       container.appendChild(selectedDiv);
