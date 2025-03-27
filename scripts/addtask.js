@@ -153,7 +153,7 @@ function renderDropdown() {
         userItem.innerHTML = `
             <label class="user-item ${rowClass}">
             <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${getInitialsForObject(user)}
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
                 </div>
                 <span>${user.name}</span>
                 </div>
@@ -164,16 +164,12 @@ function renderDropdown() {
     });
 }
 
-function getInitialsForObject(user) {
-    let name = user.name.split(' ');
-    return name[0].charAt(0).toUpperCase() + name[1].charAt(0).toUpperCase();
-}
-
 function startSearchingContacts() {
     let searchInput = document.getElementById('searchInput').value.toLowerCase();
     let filteredUsers = usersFromApi.filter(user => user.name.toLowerCase().includes(searchInput));
     renderDropdownWithSearchResults(filteredUsers);
 }
+
 function renderDropdownWithSearchResults(filteredUsers) {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = ''; 
@@ -183,7 +179,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
         userItem.innerHTML = `
              <label class="user-item">
             <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${getInitialsForObject(user)}
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
                 </div>
                 <span>${user.name}</span>
                 </div>
@@ -222,7 +218,7 @@ function handleCheckboxChange(event) {
   
       selectedDiv.innerHTML = `
         <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
-          ${getInitialsForObject(user)}
+          ${returnInitials(user.name)}
         </div>
       `;
       container.appendChild(selectedDiv);

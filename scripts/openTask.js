@@ -86,7 +86,7 @@ async function getTaskAssignedUsers(task){
                 usersFromApi.find((element) => {
                     if (element.email === userEmail) {
                         name = element.name;
-                        initials = getInitialsForObjectContacts(element);
+                        initials = returnInitials(name);
                         content += getAssignedUserTemp(name, initials);
                     }
                 })   
@@ -173,7 +173,7 @@ function getEditTaskTemp(task){
                     </svg>
                 </div>
             </div>
-            
+
     
             `
 }

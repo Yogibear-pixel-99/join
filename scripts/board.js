@@ -59,20 +59,6 @@ function fillBoardColums(tasks, todo, prog, feed, done) {
     }
 }
 
-
-function getInitialsForName(fullName) {
-    if (!fullName) return '';
-    let parts = fullName.trim().split(' ');
-    if (parts.length < 2) {
-        return fullName.charAt(0).toUpperCase();
-    }
-    return (
-      parts[0].charAt(0).toUpperCase() +
-      parts[1].charAt(0).toUpperCase()
-    );
-}
-
-
 function renderAssignedUsers(task, input) {
     if (!task.assignTo || !task.assignTo.length) {
       return '';
@@ -82,7 +68,7 @@ function renderAssignedUsers(task, input) {
       let user = usersFromApi.find(u => u.email === email);
   
       if (user) {
-        let initials = getInitialsForName(user.name);
+        let initials = returnInitials(user.name);
         return `<div class="contact-list-initals initials-bg-color-${user.name.charAt(0).toUpperCase()}" style="z-index: ${100+input}">${initials}</div>`;
       } else {
         return `<div class="contact-list-initals">??</div>`;
