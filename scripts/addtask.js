@@ -136,23 +136,28 @@ function renderSubtaskTemp(subtask) {
 function toggleAssignedDropdown() {
     const dropdown = document.getElementById("dropdownContent");
     dropdown.classList.toggle("d-none");
+    if (dropdown.classList.contains("d-none")) {
     renderDropdown();
+    }
   }
 function renderDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
 
     usersFromApi.forEach(user => {
+      let isChecked = user.isSelected ? 'checked' : '';
+      let rowClass = user.isSelected ? 'checked-row' : '';
+
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
-            <label class="user-item">
+            <label class="user-item ${rowClass}">
             <div class="user-itmen-names">
                 <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
                 </div>
                 <span>${user.name}</span>
                 </div>
-                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
+                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)" ${isChecked}>
             </label>
         `;
         dropdownContent.appendChild(userItem);
@@ -194,6 +199,7 @@ function handleCheckboxChange(event) {
     const user = usersFromApi.find(u => u.email === userEmail);
     const userItem = event.target.closest('.user-item');
     if (!user || !userItem) return;
+    user.isSelected = event.target.checked;
   
     if (event.target.checked) {
       userItem.classList.add('checked-row');
