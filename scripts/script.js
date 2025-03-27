@@ -255,7 +255,7 @@ function renderAssignedUsers(task) {
   
       if (user) {
         let initials = getInitialsForName(user.name);
-        return `<div class="contact-list-initals">${initials}</div>`;
+        return `<div class="contact-list-initals initials-bg-color-${user.name.charAt(0).toUpperCase()}" style="z-index: ${100+input}">${initials}</div>`;
       } else {
         return `<div class="contact-list-initals">??</div>`;
       }
@@ -291,7 +291,6 @@ function renderAssignedUsers(task) {
       <div class="task-description" id="titleDescription${task.id}">${task.description}</div>
       <div class="task-subtask-info">
         <div class="subtask-progressbar">
-          <!-- width: 50% hier nur beispielhaft statisch -->
           <div class="subtask-progress" style="width: 50%;"></div>
         </div>
         <span class="subtask-count">1/2 Subtasks</span>

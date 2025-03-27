@@ -153,7 +153,7 @@ function renderDropdown() {
         userItem.innerHTML = `
             <label class="user-item ${rowClass}">
             <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${getInitialsForObject(user)}
                 </div>
                 <span>${user.name}</span>
                 </div>
@@ -183,7 +183,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
         userItem.innerHTML = `
              <label class="user-item">
             <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">${getInitialsForObject(user)}
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${getInitialsForObject(user)}
                 </div>
                 <span>${user.name}</span>
                 </div>
@@ -221,7 +221,7 @@ function handleCheckboxChange(event) {
       selectedDiv.setAttribute("data-user-id", userEmail);
   
       selectedDiv.innerHTML = `
-        <div class="contact-list-initals flex-ctr-ctr initials-bg-color-A">
+        <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
           ${getInitialsForObject(user)}
         </div>
       `;
