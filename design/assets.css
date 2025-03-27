@@ -32,6 +32,11 @@
   align-items: center;
 }
 
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .no-border {
   border: none;
 }

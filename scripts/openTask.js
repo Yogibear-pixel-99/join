@@ -43,7 +43,7 @@ async function getTaskOverlayTemp(task){
                         <span>Subtasks</span>
                         ${await getSubtasksForTaskOverlay(task)}
                     <div class="task-overlay-footer-buttons">
-                            <div class="task-overlay-button-wrapper" onclick="overlayEditTask(task)">
+                            <div class="task-overlay-button-wrapper" onclick="overlayEditTask('${task.id}')">
                                     <svg class="floating-edit-icon" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 17H3.4L12.025 8.375L10.625 6.975L2 15.6V17ZM16.3 6.925L12.05 2.725L13.45 1.325C13.8333 0.941667 14.3042 0.75 14.8625 0.75C15.4208 0.75 15.8917 0.941667 16.275 1.325L17.675 2.725C18.0583 3.10833 18.2583 3.57083 18.275 4.1125C18.2917 4.65417 18.1083 5.11667 17.725 5.5L16.3 6.925ZM14.85 8.4L4.25 19H0V14.75L10.6 4.15L14.85 8.4Z" fill="#2A3647"/>
                                     </svg>
@@ -145,6 +145,35 @@ async function overlayDeleteTask(apiKey){
     initBoard();
 }
 
-function overlayEditTask(task){
-    console.log(task);
+function overlayEditTask(taskId){
+    let taskRef = document.getElementById('task-overlay-menu');
+    let taskData = tasksFromApi.find(element => element.id === taskId);
+    console.log(taskData);
+    taskRef.innerHTML = getEditTaskTemp(taskData);
+
+    // design edit task container
+    // show edit Task Container
+    // fill edit task container with values
+
+
+
+
+
+    // change values
+    // save values to api
+    // show new values in task overlay
+    // render alltasks from api
+}
+
+function getEditTaskTemp(task){
+    return `<div class="flex-end">
+                <div class="close-icon-wrapper flex-ctr-ctr" onclick="toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')">
+                    <svg width="24" height="24" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z" fill="#2A3647"/>
+                    </svg>
+                </div>
+            </div>
+            
+    
+            `
 }
