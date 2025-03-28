@@ -34,9 +34,9 @@ function clearBoardColums(todo, prog, feed, done) {
 function fillBoardColums(tasks, todo, prog, feed, done) {
       tasks.forEach(task => {
           let cardHtml = createTaskCard(task);
-          if (task.status === 'toDo') todo.innerHTML += cardHtml;
-          if (task.status === 'inProgress') prog.innerHTML += cardHtml;
-          if (task.status === 'awaitFeedback') feed.innerHTML += cardHtml;
+          if (task.status === 'todo') todo.innerHTML += cardHtml;
+          if (task.status === 'inprogress') prog.innerHTML += cardHtml;
+          if (task.status === 'awaitfeedback') feed.innerHTML += cardHtml;
           if (task.status === 'done') done.innerHTML += cardHtml;
       })
   }
