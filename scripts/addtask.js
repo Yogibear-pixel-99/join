@@ -246,3 +246,11 @@ function userLoggedIn() {
   }
 }
 
+function getDate(){
+  let inputRef = document.getElementById('due-date');
+  const newDate = new Date();
+  const day = newDate.getDate();
+  const month = newDate.getMonth();
+  const year = newDate.getFullYear();
+  inputRef.value = day + '/' + month + '/' + year;
+}
