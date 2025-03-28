@@ -78,12 +78,15 @@ input:focus {
 }
 
 .dark-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--join-dark);
   color: white;
   padding: 15px 16px;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 21px;
   font-family: inter;
   border: none;
 }
@@ -101,7 +104,7 @@ input:focus {
   border-radius: 8px;
   font-weight: 700;
   padding: 15px 16px;
-  font-size: 20px;
+  font-size: 21px;
   font-family: inter;
   border: 1px solid var(--join-dark);
   display: flex;
