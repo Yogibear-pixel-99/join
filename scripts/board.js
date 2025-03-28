@@ -125,7 +125,7 @@ function searchForTask() {
 
 
 function findTask(inputTaskValue) {
-    for (let index = 0; index < tasksFromApi.length; index++) {
+    for (let index = 1; index < tasksFromApi.length +1; index++) {
        let titleTaskREF = document.getElementById("titleTask" + index)
        let descriptionTaskREF = document.getElementById("titleDescription" + index)
        let titleTaskValue = titleTaskREF.innerText.toLowerCase();
