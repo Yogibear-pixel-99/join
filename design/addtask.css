@@ -42,7 +42,8 @@ hr {
 }
 
 .info-input-field-container input,
-.info-input-field-container textarea {
+.info-input-field-container textarea,
+.info-input-field-container select {
   width: 100%;
   padding: 12px 21px;
   border: solid 1px var(--input-border);
@@ -61,17 +62,6 @@ hr {
 .info-input-field-container input:focus,
 .info-input-field-container textarea:focus {
   border: solid 1px var(--light-blue);
-}
-
-.info-input-field-container select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 16px;
-  box-sizing: border-box;
 }
 
 .red-asterisk {
@@ -122,6 +112,10 @@ hr {
 .prio-button {
   background-color: white;
   border: solid 1px var(--input-border);
+
+  font-weight: 700;
+  font-size: 21px;
+  border: none;
 }
 
 .prio-button:hover {
@@ -132,22 +126,22 @@ hr {
 .prio-urgent.active {
   background-color: var(--priority-urgent);
   color: white;
-  font-weight: 700;
   font-size: 21px;
+  font-weight: 700;
 }
 
 .prio-medium.active {
   background-color: var(--priority-medium);
   color: white;
-  font-weight: 700;
   font-size: 21px;
+  font-weight: 700;
 }
 
 .prio-low.active {
   background-color: var(--priority-low);
   color: white;
-  font-weight: 700;
   font-size: 21px;
+  font-weight: 700;
 }
 
 .prio-svg path {
