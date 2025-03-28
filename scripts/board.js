@@ -176,19 +176,18 @@ function createTaskCard(task) {
     return task.subtasks.filter(subtask => (subtask.finished == "true" && subtask.subtaskName != undefined)).length;
   }
 
- function getNewStatusInfo(newStatus, apiID) {
+ function getNewStatusInfo(newStatus, taskKey) {
   collectedStatusInfo = {
-    status : newStatus
+    "status" : newStatus
   }
-  console.log(collectedStatusInfo);
-  console.log(apiID.id);
-  console.log(newStatus);
-  
-  
-  
+  patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey.id - 1}`)
  }
 
   async function patchTaskDataToApi(payload, taskKey) {
+    console.log(MAIN_URL + taskKey + ".json");
+    console.log(taskKey );
+    
+    
     if (taskKey != undefined) {
       try {
         let response = await fetch(
