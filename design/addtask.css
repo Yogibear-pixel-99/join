@@ -461,3 +461,7 @@ hr {
   height: 440px;
   background-color: var(--input-border);
 }
+
+.button-wrapper-add-task:hover > svg path {
+  stroke: var(--light-blue);
+}
