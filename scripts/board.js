@@ -172,9 +172,9 @@ function createTaskCard(task) {
   }
 
   function getAllSubtasksLength(task){
-    return task.subtasks.filter(subtask => subtask != null).length;
+    return task.subtasks.filter(subtask => (subtask != null && subtask.subtaskName != undefined)).length;
   }
 
   function getDoneSubtasksLength(task){
-    return task.subtasks.filter(subtask => subtask.finished == "true").length;
+    return task.subtasks.filter(subtask => (subtask.finished == "true" && subtask.subtaskName != undefined)).length;
   }

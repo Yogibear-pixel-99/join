@@ -16,14 +16,14 @@ let collectedFormInfos = {};
  * @param {object} contactKey - The data to patch.
  * @param {string} contactKey - The keyvalue for the database to patch the payload.
  */
-async function putDataToApi(payload, contactKey) {
+async function patchDataToApi(payload, contactKey) {
 
     if (contactKey != undefined) {
       try {
         let response = await fetch(
           MAIN_URL + contactKey + ".json",
           {
-            method: "PUT",
+            method: "PATCH",
             headers: {
               "Content-Type": "application/json",
             },

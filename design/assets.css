@@ -103,16 +103,13 @@ input:focus {
   color: var(--join-dark);
   border-radius: 8px;
   font-weight: 700;
-  padding: 15px 16px;
+  padding: 15px 24px;
   font-size: 21px;
   font-family: inter;
   border: 1px solid var(--join-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 177px;
-  height: 48px;
-  font-weight: 400;
 }
 
 .light-button:hover {

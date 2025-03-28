@@ -168,14 +168,15 @@ input[type="checkbox"] {
   }
 
   .dark-button-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--join-dark);
     color: white;
+    padding: 15px 16px;
     border-radius: 8px;
     font-weight: 700;
-    padding: 15px 24px;
-    font-size: 20px;
+    font-size: 21px;
     font-family: inter;
     border: none;
-    height: 48px;
-    font-weight: 400;
   }
