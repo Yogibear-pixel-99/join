@@ -204,7 +204,7 @@ function setOnclickEditAndDeleteToButtons(contactKey){
 async function saveEditedContact(event, contactKey) {
   event.preventDefault();
   getContactInfosToFetch();
-  await putDataToApi(collectedFormInfos, `contacts/${contactKey}`);
+  await patchDataToApi(collectedFormInfos, `contacts/${contactKey}`);
   await sortAndRenderContacts();
   let editedContact = contactsFromApi.find(
     (element) => element.apiKey === contactKey

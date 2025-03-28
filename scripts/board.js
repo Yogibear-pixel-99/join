@@ -1,8 +1,5 @@
 
 
-
-
-
 function initBoard() {
     loadAndRenderTasks();
    }
@@ -178,3 +175,40 @@ function createTaskCard(task) {
   function getDoneSubtasksLength(task){
     return task.subtasks.filter(subtask => (subtask.finished == "true" && subtask.subtaskName != undefined)).length;
   }
+
+ function getNewStatusInfo(newStatus, apiID) {
+  collectedStatusInfo = {
+    status : newStatus
+  }
+  console.log(collectedStatusInfo);
+  console.log(apiID.id);
+  console.log(newStatus);
+  
+  
+  
+ }
+
+  async function patchTaskDataToApi(payload, taskKey) {
+    if (taskKey != undefined) {
+      try {
+        let response = await fetch(
+          MAIN_URL + taskKey + ".json",
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Contact not found in Database!");
+        } else {
+          console.log(response);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+

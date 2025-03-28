@@ -8,6 +8,7 @@ let tasksFromApi = [];
 let usersFromApi = [];
 let subtasksFromApi = [];
 let collectedFormInfos = {};
+let collectedStatusInfo = {};
 // GLOBAL ARRAYS ---------------------------------------
 
 /**
@@ -209,17 +210,14 @@ function dropTask(event) {
     let taskId = event.dataTransfer.getData("text/plain");
     let taskCard = document.getElementById(taskId);
     let column = event.currentTarget;
-
     if (taskCard && column) {
         let newStatus = column.querySelector("span").innerText.toLowerCase().replace(" ", "");
         taskCard.dataset.status = newStatus;
 
         console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
-        console.log(updateTask.id);
-        
+        getNewStatusInfo(newStatus, updateTask);
     }
-
     taskCard.classList.remove("dragging");
 }
 
