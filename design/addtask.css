@@ -6,11 +6,14 @@
 .add-task-form-content {
   display: flex;
   flex-direction: column;
+  
 }
 
 .info-input-field-container {
   display: flex;
   gap: 40px;
+  justify-content: space-between;
+  max-width: 1000px;
 }
 
 hr {
@@ -441,11 +444,21 @@ hr {
 
 
 .add-task-footer {
+  position: absolute;
+  bottom: 60px;
+  right: 80px;
+  left: 312px;
   display: flex;
   justify-content: space-between;
-  /* width: 900px; */
+  max-width: 1000px;
 }
 
 .required-wrapper {
   align-self: flex-end;
+}
+
+.add-task-separator {
+  width: 1px;
+  height: 440px;
+  background-color: var(--input-border);
 }
