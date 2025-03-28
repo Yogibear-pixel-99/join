@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../design/main.css" />
     <link rel="stylesheet" href="../design/navbar.css" />
     <link rel="stylesheet" href="../design/addtask.css" />
+    <link rel="stylesheet" href="../design/login.css" />
 
     <link
       rel="icon"
@@ -97,7 +98,7 @@
         <form id="add-task-form" class="add-task-form-content">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
-              <div>
+              <div class="flex-col gap8">
                 <label for="form-title"
                   >Title<span class="red-asterisk">*</span></label
                 >
@@ -110,7 +111,7 @@
                   placeholder="Enter a title" />
               </div>
 
-              <div>
+              <div class="flex-col gap8">
                 <label for="form-description"
                   >Description<span class="red-asterisk">*</span></label
                 >
@@ -119,23 +120,25 @@
                   id="form-description"
                   placeholder="Enter a description"></textarea>
               </div>
-              <div>
+              <div class="flex-col gap8 hover-pointer">
                 <label for="due-date"
                   >Due date<span class="red-asterisk">*</span></label
                 >
+                <div class="relative">
                 <input
-                class="addTask-input-field"
+                class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
                   required
                   type="text"
-                  placeholder="dd//mm/yyyy" />
+                  placeholder="dd/mm/yyyy" />
+                  <img class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
+                  </div>
               </div>
             </div>
             <div class="add-task-separator"></div>
             <div class="info-input-field-container-right">
-              <div>
-                <!-- ASSIGN WITH QUERY SELECTOR THE COLOR TO THE BACKGROUND AND THE SVG -->
+              <div class="flex-col gap8">
                 <label>Prio</label>
                 <div id="priority-wrapper" class="btn-importance-container">
                   <input
@@ -229,7 +232,7 @@
                   </label>
                 </div>
               </div>
-              <div class="">
+              <div class="flex-col gap8">
                 <label for="customDropdown">Assigned to<span class="red-asterisk">*</span></label>
                 <div class="custom-dropdown" id="customDropdown">
                     
@@ -245,7 +248,7 @@
                 </div>
             </div>
             
-              <div>
+              <div class="flex-col gap8">
                 <label for="category">
                   Category<span class="red-asterisk">*</span>
                 </label>
@@ -257,9 +260,9 @@
                   <option value="user-story">User Story</option>
                 </select>
               </div>
-              <div class="subtask-input-wrapper">
+              <div class="subtask-input-wrapper flex-col gap8">
                 <label for="subtasks-input"
-                  >Subtasks
+                  >Subtasks  </label>
                   <div class="subtasks-wrapper">
                   <input
                     onfocus="showSubtasksInputMenu()"
@@ -275,7 +278,7 @@
                     <img src="../assets/icons/Subtasks icons11.svg" />
                   </div>
                   </div>
-                </label>
+              
                 <div
                   id="subtasks-on-focus-icons"
                   class="subtasks-icons-wrapper flex-ctr-ctr d-none">

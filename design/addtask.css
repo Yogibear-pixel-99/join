@@ -51,7 +51,6 @@ hr {
   font-size: 20px;
   font-weight: 400;
   font-family: inter;
-  margin-top: 8px;
 }
 
 .info-input-field-container textarea {
@@ -68,11 +67,17 @@ hr {
   color: red;
 }
 
+.date-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* Allgemeines Styling für die Buttons */
 .btn-importance-container {
   display: flex;
   gap: 16px;
-  margin-top: 8px;
 }
 
 .btn-importance {

@@ -17,6 +17,10 @@
   flex-direction: column;
 }
 
+.gap8 {
+  gap: 8px;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -37,6 +41,10 @@
   justify-content: flex-end;
 }
 
+.hover-pointer:hover {
+  cursor: pointer;
+}
+
 .no-border {
   border: none;
 }
@@ -55,6 +63,10 @@
 
 .center {
   align-self: center;
+}
+
+.relative {
+  position: relative;
 }
 
 .input-alert-message {
