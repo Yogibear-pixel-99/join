@@ -27,6 +27,9 @@
     gap: 80px;
     padding: 66px;
 }
+.login-policy-legal a {
+  color: var(--navbar-color);
+}
 
 .login-policy-legal a:hover {
     color: var(--light-blue);
