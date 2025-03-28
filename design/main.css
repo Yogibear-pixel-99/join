@@ -14,6 +14,7 @@ a {
 h1 {
   font-size: 61px;
   font-weight: 700;
+  margin: 0;
 }
 
 h2 {
@@ -55,9 +56,7 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     padding: 80px;
-    padding-top: 30px;
-    background-color: var(--join-background);
-    background: #F6F7F8;
+    background-color: var(--main-background);
     height: 100%;
 }
 

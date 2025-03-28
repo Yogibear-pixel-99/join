@@ -93,10 +93,8 @@
       </div>
 
       <div id="main-content" class="main-content">
-        <div class="addtask-header">
-          <h1>Add Task</h1>
-        </div>
-        <form id="add-task-form">
+          <h1 class="add-task-header">Add Task</h1>
+        <form id="add-task-form" class="add-task-form-content">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div>
@@ -298,14 +296,15 @@
               </div>
 
               <div id="added-subtasks" class="added-subtasks"></div>
+
             </div>
           </div>
+          <div class="add-task-footer">
+          <div class="required-text-container">
+            <div class="required-wrapper"><span>This field is required</span>
+            <span class="red-asterisk">*</span></div>
+          </div>
           <div class="addTask-button-container">
-            <div>
-              <span
-                ><span class="red-asterisk">*</span>This field is required</span
-              >
-            </div>
             <div class="addTask-button-container-btns">
               <div
                 class="light-button btns-addtask"
@@ -316,6 +315,7 @@
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>
+          </div>
           </div>
         </form>
       </div>
