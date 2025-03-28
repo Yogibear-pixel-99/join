@@ -71,16 +71,6 @@ hr {
   box-sizing: border-box;
 }
 
-.required-text-container {
-  display: flex;
-  flex: 1;
-}
-
-.required-wrapper {
-  align-self: flex-end;
-  margin-bottom: 66px;
-}
-
 .red-asterisk {
   color: red;
 }
@@ -353,14 +343,7 @@ hr {
 
 .addTask-button-container {
   display: flex;
-  flex: 1;
-  align-items: flex-end;
-}
-
-.addTask-button-container-btns {
-  display: flex;
   gap: 16px;
-  margin-bottom: 66px;
 }
 
 .btns-addtask {
@@ -394,7 +377,6 @@ hr {
 }
 
 .dropdown-content {
-  /*display: none;*/
   position: absolute;
   background-color: white;
   min-width: 100%;
@@ -461,4 +443,9 @@ hr {
 .add-task-footer {
   display: flex;
   justify-content: space-between;
+  /* width: 900px; */
+}
+
+.required-wrapper {
+  align-self: flex-end;
 }
