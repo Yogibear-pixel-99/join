@@ -110,7 +110,6 @@ function urgentCounter() {
   return urgentCounter;
 }
 
-
 function summaryTemplateGuest(time, toDo, done, inProgress, awaitFeedback, urgent) {
     return `  <header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
