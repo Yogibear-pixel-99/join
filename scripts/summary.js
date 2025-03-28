@@ -42,6 +42,11 @@ function loadSummaryGuest() {
     console.log(toDoCounter()); 
 }
 
+function summaryLoginData() {  
+  let mainSummaryREF = document.getElementById("summary-main");
+  mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter())
+}
+
 function getTime() {
     let time = new Date().getHours();
     let greeting;
@@ -55,18 +60,12 @@ function getTime() {
     return greeting;
 }
 
-function summaryLoginData() {  
-    let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter())
-}
-
 function toDoCounter() {
     let toDoCounter = 0;
     for (let index = 0; index < tasksFromApi.length; index++) {
         if (tasksFromApi[index].status == "toDo") {
             toDoCounter++;
-        } 
-        console.log(tasksFromApi[index]);   
+        }  
     }
     return toDoCounter;
 }

@@ -263,7 +263,7 @@
       "task": "User Story",
       "title": "Kochwelt Page & Recipe Recommender",
       "description": "Build start page with recipe recommendation.",
-      "date": "12/05/2023",
+      "date": "12/05/2025",
       "priority": "Medium",
       "assignTo": ["sofia@mueller.com"],
       "subtasks": [
@@ -282,7 +282,7 @@
       "task": "Technical Task",
       "title": "HTML Base Template",
       "description": "Create reusable HTML base templates.",
-      "date": "10/05/2023",
+      "date": "10/05/2025",
       "priority": "Low",
       "assignTo": [
         "lukas@schmidt.com",
@@ -305,7 +305,7 @@
       "task": "Technical Task",
       "title": "CSS Architecture Planning",
       "description": "Define CSS naming conventions and structure.",
-      "date": "25/05/2023",
+      "date": "25/05/2025",
       "priority": "Urgent",
       "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
       "subtasks": [
@@ -321,7 +321,7 @@
       "task": "User Story",
       "title": "Daily Kochwelt Recipe",
       "description": "Implement daily recipe and portion calculator.",
-      "date": "01/05/2023",
+      "date": "01/05/2025",
       "priority": "Urgent",
       "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
       "subtasks": [ {
@@ -340,7 +340,7 @@
       "task": "User Story",
       "title": "Join Summary",
       "description": "Implement an overview.",
-      "date": "22/07/2023",
+      "date": "22/07/2025",
       "priority": "Urgent",
       "assignTo": ["sofia@mueller.com", "bart@springfield.com"],
       "subtasks": [ {
