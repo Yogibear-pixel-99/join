@@ -63,7 +63,7 @@ function getTime() {
 function toDoCounter() {
     let toDoCounter = 0;
     for (let index = 0; index < tasksFromApi.length; index++) {
-        if (tasksFromApi[index].status == "toDo") {
+        if (tasksFromApi[index].status == "todo") {
             toDoCounter++;
         }  
     }
@@ -83,7 +83,7 @@ function doneCounter() {
 function inProgressCounter() {
   let inProgressCounter = 0;
   for (let index = 0; index < tasksFromApi.length; index++) {
-      if (tasksFromApi[index].status == "inProgress") {
+      if (tasksFromApi[index].status == "inprogress") {
         inProgressCounter++;
       } 
   }
@@ -93,7 +93,7 @@ function inProgressCounter() {
 function awaitFeedbackCounter() {
   let awaitFeedbackCounter = 0;
   for (let index = 0; index < tasksFromApi.length; index++) {
-      if (tasksFromApi[index].status == "awaitFeedback") {
+      if (tasksFromApi[index].status == "awaitfeedback") {
         awaitFeedbackCounter++;
       } 
   }
