@@ -5,9 +5,7 @@ let assignedUsersArray = [];
 async function openTask(taskId){
     let taskRef = document.getElementById('task-overlay-menu');
     await getDataFromServer("tasks", tasksFromApi);
-    console.log(tasksFromApi);
     let task = tasksFromApi.find(element => element.id === taskId);
-    console.log(task);
     taskRef.innerHTML = await getTaskOverlayTemp(task);
     toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
 }
@@ -109,7 +107,6 @@ function getAssignedUserTemp(name, initials){
 async function getSubtasksForTaskOverlay(task){
     let content = '';
     await getDataFromServer(`tasks/${task.apiKey}/subtasks`, subtasksFromApi);
-        console.log(subtasksFromApi);
             subtasksFromApi.forEach(subtask => content += getSubtaskTemp(task, subtask));
     return content;
 }
@@ -133,8 +130,7 @@ async function changeSubTaskCheckedApi(location, id){
     let inputRef = document.getElementById(id);
     let isChecked = {};
     inputRef.checked ? isChecked = {"finished":"true"} : isChecked = {"finished":"false"};
-    console.log(isChecked);
-    await putDataToApi(isChecked, location);
+    await patchDataToApi(isChecked, location);
     initBoard();
 }
 

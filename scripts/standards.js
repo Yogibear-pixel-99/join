@@ -151,7 +151,7 @@ function initialsChange() {
   if (emailIndex === null) {
     headerInitialsREF.innerText = "G";
   } else {
-    headerInitialsREF.innerText = usersFromApi[emailIndex].name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
+    headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name);
   }
 }
 

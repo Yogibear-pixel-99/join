@@ -26,7 +26,7 @@ function getSingleContactTemp(nameRow, firstLetterArray){
         return `<div id="floating-contact-container">                 
                     <div class="floating-contact-header">
                         <div class="floating-initials-wrapper initials-bg-color-${colorLetter}">
-                            <span onclick="testButton()" class="floating-initials">${contact.initials}</span>
+                            <span" class="floating-initials">${contact.initials}</span>
                         </div>
                         <div class="floating-name-wrapper">
                             <div class="floating-full-name">${contact.name}</div>

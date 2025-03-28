@@ -106,7 +106,7 @@ async function createNewContact(event) {
     toggleOverlayMenu("add-contact-overlay", "add-contact-mask-container");
     await sortAndRenderContacts();
     scrollToNewContact(`contact-${collectedFormInfos.id}`);
-    openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1)}`);
+    openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1).toUpperCase()}`);
     showContactAddedSuccessButton();
     document.getElementById("new-contact-form").reset();
   }

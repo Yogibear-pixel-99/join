@@ -48,8 +48,6 @@ function checkIfPasswordIsSameAsConfirm() {
   }
 }
 
-
-
 function mainContentBrightness50() {
   const ref = document.getElementById("main-container");
   ref.classList.add("darken-background");
@@ -83,3 +81,32 @@ function toggleSignUpButton(){
       buttonRef.classList.add('dark-button-signup');
     }
 }
+
+function changePasswordIcons(){
+  let passwordRef = document.getElementById('sign-up-password').value
+  let confirmRef = document.getElementById('sign-up-password-confirm').value
+      passwordRef !== '' && confirmRef !== '' ? 
+      setIconToContent('lock-logo', '../assets/icons/visibility_off.svg') : 
+      setIconToContent('lock-logo', '../assets/icons/visibility_off.svg');
+}
+
+function showHidePassword(textId, logoId){
+  let text = document.getElementById(textId);
+  let logo = document.getElementById(logoId);
+  if (text.value) {
+  switch (text.type == "password") {
+    case true : text.type = "text"; logo.src = '../assets/icons/visibility-eye.svg';
+    break;
+    case false : text.type = "password"; logo.src = '../assets/icons/visibility_off.svg';
+    break;
+    }
+  }
+}
+
+function setIconToContent(iconClassName, source){
+  let icons = document.getElementsByClassName(iconClassName)
+    for (let iconIndex = 0; iconIndex < icons.length; iconIndex++) {
+      icons[iconIndex].src = (source);
+    }
+}
+

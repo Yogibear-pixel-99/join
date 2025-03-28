@@ -48,23 +48,33 @@
           </div>
           <div class="input-field-container">
             <input
+              onkeyup="changePasswordIcons()"
               id="sign-up-password"
               class="login-input-field"
               type="password"
               name="password"
               required
               placeholder="Password" />
-            <img class="input-logo" src="../assets/icons/lock.svg" />
+            <img 
+              id="sign-up-pw-icon"
+              class="input-logo lock-logo" 
+              src="../assets/icons/lock.svg"
+              onclick="showHidePassword('sign-up-password', 'sign-up-pw-icon')" />
           </div>
           <div class="password-confirm-wrapper">
             <div class="input-field-container">
               <input
-                id="sign-up-password-confirm"
-                class="login-input-field"
-                type="password"
-                required
-                placeholder="Confirm Password" />
-              <img class="input-logo" src="../assets/icons/lock.svg" />
+              id="sign-up-password-confirm"
+              class="login-input-field"
+              type="password"
+              required
+              placeholder="Confirm Password"
+              onkeyup="changePasswordIcons()" />
+              <img 
+                id="sign-up-cf-icon"
+                onclick="showHidePassword('sign-up-password-confirm', 'sign-up-cf-icon')"
+                class="input-logo lock-logo" 
+                src="../assets/icons/lock.svg" />
             </div>
             <span id="input-alert-message" class="input-alert-message">Your passwords don't match. Please try again.</span>
           </div>

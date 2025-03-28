@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Log in</title>
 
-    <link rel="stylesheet" href="../design/assets.css">
     <link rel="stylesheet" href="../design/colors.css">
     <link rel="stylesheet" href="../design/login.css">
     <link rel="stylesheet" href="../design/main.css">
+    <link rel="stylesheet" href="../design/assets.css">
  
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/join-logo-login.svg">
 
@@ -17,7 +17,7 @@
     <script defer src="../scripts/objects.js"></script>
     <script defer src="../scripts/summary.js"></script>
     <script defer src="../scripts/login.js"></script>
-   <!--  <script defer src="../scripts/standards.js"></script> -->
+    <script defer src="../scripts/standards.js"></script>
 </head>
 <body onload="getUserInfo()">
     
@@ -47,7 +47,7 @@
               <span id="login-error-message" class="login-error-message"></span>
             <div class="login-button-container">
                 <button onclick="checkLogin(event)" class="dark-button" id="login">Log in</button>
-                <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login" id="quest-login">Guest Log in</a>
+                <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login" id="guest-login">Guest Log in</a>
             </div>
         </form>
 
