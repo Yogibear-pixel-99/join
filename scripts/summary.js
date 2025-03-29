@@ -38,13 +38,12 @@ function loadSummary() {
 
 function loadSummaryGuest() {
     let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter()); 
-    console.log(toDoCounter()); 
+    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate());
 }
 
 function summaryLoginData() {  
   let mainSummaryREF = document.getElementById("summary-main");
-  mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter())
+  mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate())
 }
 
 function getTime() {
@@ -110,7 +109,7 @@ function urgentCounter() {
   return urgentCounter;
 }
 
-function summaryTemplateGuest(time, toDo, done, inProgress, awaitFeedback, urgent) {
+function summaryTemplateGuest(time, toDo, done, inProgress, awaitFeedback, urgent, closestDate) {
     return `  <header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -225,7 +224,7 @@ function summaryTemplateGuest(time, toDo, done, inProgress, awaitFeedback, urgen
               </div>
               <div class="urgent-line-summary"></div>
               <div class="content-summary">
-                <h2 class="date-summary">March 1, 2025</h2>
+                <h2 class="date-summary">${closestDate}</h2>
                 <h2 class="deadline-summary">Upcomming Deadline</h2>
               </div>
             </div>
@@ -259,7 +258,7 @@ function summaryTemplateGuest(time, toDo, done, inProgress, awaitFeedback, urgen
 }
 
 
-function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urgent) {
+function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urgent, closestDate) {
     return `<header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-logos-right">
@@ -374,7 +373,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
               </div>
               <div class="urgent-line-summary"></div>
               <div class="content-summary">
-                <h2 class="date-summary">March 1, 2025</h2>
+                <h2 class="date-summary">${closestDate}</h2>
                 <h2 class="deadline-summary">Upcomming Deadline</h2>
               </div>
             </div>
@@ -407,3 +406,32 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
         </div>
       </div>`
 }
+
+function getClosestDate(){
+  const months = [
+    "Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember"
+    ];
+  let sortedDateArray = tasksFromApi.map(element => element.date.split('/').reverse()).sort((a, b) => a - b);
+  console.log(sortedDateArray);
+  let day = sortedDateArray[0][2];
+  let year = sortedDateArray[0][0]
+  let month = months[getMonthNumber(sortedDateArray[0][1])];
+  return dateTemp(day, month, year);
+}
+
+function getMonthNumber(month){
+    if (month.charAt(0) === '0') {
+    month = month.replace('0', '');
+    console.log(month)
+    return parseInt(month);
+  }
+}
+
+function dateTemp(day, month, year){
+  return `<span>${month}</span>
+          <span>${day},</span>
+          <span>${year}</span>`
+}
+
+
