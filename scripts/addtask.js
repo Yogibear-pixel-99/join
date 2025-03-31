@@ -234,17 +234,7 @@ function handleCheckboxChange(event) {
     }
   }
   
-function userLoggedIn() {
-  let userNavbarREF = document.getElementById("user-navbar");
-  let questNavbarREF = document.getElementById("quest-navbar");
-  let checkUserLoggedIn = sessionStorage.getItem("userLoggedIn");
-  
-  if (checkUserLoggedIn == "true") {
-    userNavbarREF.classList.toggle("d-none");
-  } else {
-    questNavbarREF.classList.toggle("d-none");
-  }
-}
+
 
 function getDate(){
   let inputRef = document.getElementById('due-date');

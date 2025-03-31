@@ -271,7 +271,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
             alt="helplogo"
           />
         </a>
-          <div onclick="toggleDropdown()" class="header-initials">${name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()}</div>
+          <div onclick="toggleDropdown()" class="header-initials">${returnInitials(name)}</div>
         </div>
       </header>
       <div class="dropdown-menu d-none" id="dropdown">

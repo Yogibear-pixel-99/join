@@ -159,3 +159,5 @@ async function getUserInitialInfo() {
   await getDataFromServer("users", usersFromApi);
   initialsChange();
 }
+
+
