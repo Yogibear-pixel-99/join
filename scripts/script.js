@@ -208,12 +208,11 @@ function dragover(event) {
 function dropTask(event) {
     event.preventDefault();
     let taskId = event.dataTransfer.getData("text/plain");
-    let taskCard = document.getElementById(taskId);
+    let taskCard = document.getElementById("boardInprogressCard");
     let column = event.currentTarget;
     if (taskCard && column) {
         let newStatus = column.querySelector("span").innerText.toLowerCase().replace(" ", "");
         taskCard.dataset.status = newStatus;
-
         console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
         getNewStatusInfo(newStatus, updateTask);
