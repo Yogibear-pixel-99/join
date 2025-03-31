@@ -414,11 +414,12 @@ function getClosestDate(){
     "Januar", "Februar", "März", "April", "Mai", "Juni",
     "Juli", "August", "September", "Oktober", "November", "Dezember"
     ];
-  let sortedDateArray = tasksFromApi.map(element => element.date.split('/').reverse()).sort((a, b) => a - b);
-  console.log(sortedDateArray);
-  let day = sortedDateArray[0][2];
-  let year = sortedDateArray[0][0]
-  let month = months[getMonthNumber(sortedDateArray[0][1])];
+  let sortedDateArray = tasksFromApi.map(element => element.date.split('/').reverse().join());
+      sortedDateArray = sortedDateArray.map(element => element.replace(/,/g, '')).sort((a, b) => a - b);
+  let newestDate = sortedDateArray[0];
+  let year = newestDate.slice(0, 4);
+  let month = months[getMonthNumber(newestDate.slice(4, 6)) - 1];
+  let day = newestDate.slice(6, 8);
   return dateTemp(day, month, year);
 }
 

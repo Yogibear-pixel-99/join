@@ -120,12 +120,13 @@
                   id="form-description"
                   placeholder="Enter a description"></textarea>
               </div>
-              <div class="flex-col gap8 hover-pointer" onclick="getDate()">
+              <div class="flex-col gap8 hover-pointer">
                 <label for="due-date"
                   >Due date<span class="red-asterisk">*</span></label
                 >
                 <div class="relative">
                 <input
+                onkeyup="checkDate()"
                 class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
