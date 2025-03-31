@@ -57,19 +57,24 @@ function getTime() {
 }
 
 function toDoCounter() {
+    let userIndex =sessionStorage.getItem("indexOfUser");
+    let currentUser = usersFromApi[userIndex];
     let toDoCounter = 0;
-    for (let index = 0; index < tasksFromApi.length; index++) {
-        if (tasksFromApi[index].status == "todo") {
-            toDoCounter++;
-        }  
+    for (let task of tasksFromApi) {
+      if(task.status === "todo" && task.assigned && task.assigned.some(user => user.email === currentUser.email))
+         {
+        toDoCounter++; 
     }
-    return toDoCounter;
+}
+  return toDoCounter;
 }
 
 function doneCounter() {
+  let userIndex =sessionStorage.getItem("indexOfUser");
+  let currentUser = usersFromApi[userIndex];
   let doneCounter = 0;
-  for (let index = 0; index < tasksFromApi.length; index++) {
-      if (tasksFromApi[index].status == "done") {
+  for (let task of tasksFromApi) {
+      if (task.status == "done" && task.assigned && task.assigned.some(user => user.email === currentUser.email)) {
           doneCounter++;
       } 
   }
@@ -266,7 +271,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
             alt="helplogo"
           />
         </a>
-          <div onclick="toggleDropdown()" class="header-initials">${name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()}</div>
+          <div onclick="toggleDropdown()" class="header-initials">${returnInitials(name)}</div>
         </div>
       </header>
       <div class="dropdown-menu d-none" id="dropdown">
