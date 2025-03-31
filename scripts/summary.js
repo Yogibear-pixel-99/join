@@ -1,6 +1,3 @@
-let userInfoList = [];
-
-
 function initSummary() {
     getUserSummaryInfo();
 }
@@ -8,23 +5,11 @@ function initSummary() {
 async function getUserSummaryInfo() {
     await getDataFromServer("users", usersFromApi);
     await getDataFromServer('tasks', tasksFromApi);
-    loadUserArray();
+    loadSummary();
   }
 
 function directToBoard() {
   window.location.href = "board.html";
-}
-function loadUserArray() {
-    emailIndex = sessionStorage.getItem("indexOfUser");
-    userInfoList = [];
-  for (let index = 0; index < usersFromApi.length; index++) {
-    userInfoList.push({
-      name: usersFromApi[index].name,
-      email: usersFromApi[index].email,
-      password: usersFromApi[index].password,
-    });
-  }  
-  loadSummary();
 }
 
 function loadSummary() {
@@ -36,14 +21,26 @@ function loadSummary() {
     }
 }
 
-function loadSummaryGuest() {
-    let mainSummaryREF = document.getElementById("summary-main");
-    mainSummaryREF.innerHTML += summaryTemplateGuest(getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate());
+function loadSummaryGuest() {  
+  let mainSummaryREF = document.getElementById("summary-main");
+  if (mainSummaryREF) {
+    mainSummaryREF.innerHTML = summaryTemplateGuest(
+      getTime(),toDoCounter(),doneCounter(),inProgressCounter(),awaitFeedbackCounter(),urgentCounter(),getClosestDate()
+    );
+  } else {
+    console.log("Element #summary-main not found");
+  }
 }
 
 function summaryLoginData() {  
+  emailIndex = sessionStorage.getItem("indexOfUser");
   let mainSummaryREF = document.getElementById("summary-main");
-  mainSummaryREF.innerHTML = summaryTemplate(userInfoList[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate())
+  if (usersFromApi[emailIndex]) {
+    mainSummaryREF.innerHTML = summaryTemplate(usersFromApi[emailIndex].name, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate());
+  }else {
+      console.log("User not found");
+      loadSummaryGuest();
+    } 
 }
 
 function getTime() {
