@@ -105,6 +105,7 @@ if (inputLogoREF) {
 if (guestLoginREF) {
     guestLoginREF.onclick = function () {
         sessionStorage.removeItem("indexOfUser");
+        sessionStorage.setItem("userLoggedIn", false)
     }
 }
 

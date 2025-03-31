@@ -200,8 +200,6 @@ function checkEmptyColumsExists() {
   let feed = document.getElementById("boardAwaitFeedbackCard");
   let done = document.getElementById("boardDoneCard");
 
-/*   clearBoardColums(todo, prog, feed, done);
-  fillBoardColums(tasksFromApi, todo, prog, feed, done); */
   checkEmptyColums(todo, prog, feed, done);
 }
 
