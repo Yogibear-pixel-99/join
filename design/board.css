@@ -356,3 +356,6 @@
   border: solid 1px #FFFFFF;
 }
 
+.board-rendered {
+  height: 500px;
+}
