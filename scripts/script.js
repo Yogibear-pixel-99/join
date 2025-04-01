@@ -220,13 +220,25 @@ function dropTask(event) {
         getNewStatusInfo(newStatus, updateTask);
     }
     taskCard.classList.remove("dragging");
+    hideEmptyContentTasks(taskId);
+}
+
+function hideEmptyContentTasks(taskId){
+  let contentRef = document.getElementById(taskId).parentElement.querySelector(".no-tasks");
+  let allContent = document.querySelectorAll('.task-column');
+    allContent.forEach((element) => {
+      if (element.children.length == 1) {
+        element.children[0].classList.remove('d-none');
+      }
+    })
+  if (contentRef) {
+    contentRef.classList.add('d-none');
+  }
 }
 
 function dragend(event) {
     event.target.classList.remove("dragging");
 }
-
-
 
 function userLoggedIn() {
   let userNavbarREF = document.getElementById("user-navbar");

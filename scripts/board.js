@@ -199,9 +199,6 @@ async function checkEmptyColumsExists() {
   let prog = document.getElementById("boardInprogressCard");
   let feed = document.getElementById("boardAwaitFeedbackCard");
   let done = document.getElementById("boardDoneCard");
-
-  clearBoardColums(todo, prog, feed, done);
-  fillBoardNewColums(tasksFromApi, todo, prog, feed, done);
   checkEmptyColums(todo, prog, feed, done);
 }
 
@@ -218,7 +215,6 @@ function fillBoardNewColums(tasks, todo, prog, feed, done) {
 async function resetTaskApi() {
  return await getDataFromServer("tasks", tasksFromApi);
 }
-
 
 async function patchTaskDataToApi(payload, taskKey) {
   if (taskKey != undefined) {

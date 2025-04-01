@@ -11,6 +11,7 @@
   gap: 26px;
   max-height: calc(100vh-240px);
   overflow-y: auto;
+  flex: 1;
 }
 
 .bottom-board::-webkit-scrollbar {
