@@ -128,25 +128,30 @@ hr {
   cursor: pointer;
 }
 
-.prio-urgent.active {
-  background-color: var(--priority-urgent);
+.prio-urgent.active,
+.prio-medium.active,
+.prio-low.active {
   color: white;
   font-size: 21px;
   font-weight: 700;
+}
+
+.prio-urgent.active:hover,
+.prio-medium.active:hover,
+.prio-low.active:hover {
+box-shadow: none;
+}
+
+.prio-urgent.active {
+  background-color: var(--priority-urgent);
 }
 
 .prio-medium.active {
   background-color: var(--priority-medium);
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
 }
 
 .prio-low.active {
   background-color: var(--priority-low);
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
 }
 
 .prio-svg path {
