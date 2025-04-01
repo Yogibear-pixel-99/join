@@ -281,7 +281,6 @@ function showDatePicker(){
     let shownDate = document.getElementById('due-date');
     let hiddenDate = document.getElementById('hidden-date-input').value;
         hiddenDate = hiddenDate.split('-').reverse().join('/');
-    console.log(hiddenDate);
     shownDate.value = hiddenDate;
  }
 
