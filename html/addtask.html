@@ -126,11 +126,12 @@
                 >
                 <div class="relative">
                 <input
-                onkeyup="checkDateInput()"
+                onkeyup="checkDateInput(event)"
                 class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
                   required
+                  pattern="/(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])\d{4}/g"
                   type="text"
                   placeholder="dd/mm/yyyy" />
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
