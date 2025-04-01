@@ -269,11 +269,13 @@ function handleCheckboxChange(event) {
   
   
 
+
+
+
 function showDatePicker(){
   let hiddenDate = document.getElementById('hidden-date-input');
   hiddenDate.showPicker();
 }
-
 
  function putDateToUserInput(){
     let shownDate = document.getElementById('due-date');
@@ -283,18 +285,11 @@ function showDatePicker(){
     shownDate.value = hiddenDate;
  }
 
-
  function checkDateInput(event){
-  console.log(event);
-  console.log(event.code);
   let contentRef = document.getElementById('due-date');
     if (event.keyCode == 8 || event.keyCode == 46) {
       contentRef.value = '';
     } else {
-    
-   
-
-    
       userInput = contentRef.value.replace(/\D/g, '');
       contentRef.value = '';
   let userDay, userMonth, userYear;
@@ -317,7 +312,6 @@ function showDatePicker(){
       userYear = userInput.slice(4, 8);
       contentRef1 += userYear;
     }
-
     contentRef.value = contentRef1;
   }
 }
