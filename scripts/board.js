@@ -202,15 +202,7 @@ async function checkEmptyColumsExists() {
   checkEmptyColums(todo, prog, feed, done);
 }
 
-function fillBoardNewColums(tasks, todo, prog, feed, done) { 
-  tasks.forEach((task) => {
-    let cardHtml = createTaskCard(task);
-    if (task.status === "todo") todo.innerHTML += cardHtml;
-    if (task.status === "inprogress") prog.innerHTML += cardHtml;
-    if (task.status === "awaitfeedback") feed.innerHTML += cardHtml;
-    if (task.status === "done") done.innerHTML += cardHtml;
-  });
-}
+
 
 async function resetTaskApi() {
  return await getDataFromServer("tasks", tasksFromApi);

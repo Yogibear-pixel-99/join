@@ -209,11 +209,10 @@ function dropTask(event) {
     event.preventDefault();
     let taskId = event.dataTransfer.getData("text/plain");
     let taskCard = document.getElementById(taskId);
-    const spanElement = taskCard.closest('.board-single-task-container').querySelector('.board-task-header-container span');
+    let spanElement = taskCard.closest('.board-single-task-container').querySelector('.board-task-header-container span');
     let column = event.currentTarget;
     if (taskCard && column) {
         let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
-        console.log(newStatus);
         taskCard.dataset.status = newStatus;
         console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
