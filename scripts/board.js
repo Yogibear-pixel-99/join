@@ -194,14 +194,31 @@ function getNewStatusInfo(newStatus, taskKey) {
   patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey.id - 1}`);
 }
 
-function checkEmptyColumsExists() {
+async function checkEmptyColumsExists() {
   let todo = document.getElementById("boardToDoCard");
   let prog = document.getElementById("boardInprogressCard");
   let feed = document.getElementById("boardAwaitFeedbackCard");
   let done = document.getElementById("boardDoneCard");
 
+  clearBoardColums(todo, prog, feed, done);
+  fillBoardNewColums(tasksFromApi, todo, prog, feed, done);
   checkEmptyColums(todo, prog, feed, done);
 }
+
+function fillBoardNewColums(tasks, todo, prog, feed, done) { 
+  tasks.forEach((task) => {
+    let cardHtml = createTaskCard(task);
+    if (task.status === "todo") todo.innerHTML += cardHtml;
+    if (task.status === "inprogress") prog.innerHTML += cardHtml;
+    if (task.status === "awaitfeedback") feed.innerHTML += cardHtml;
+    if (task.status === "done") done.innerHTML += cardHtml;
+  });
+}
+
+async function resetTaskApi() {
+ return await getDataFromServer("tasks", tasksFromApi);
+}
+
 
 async function patchTaskDataToApi(payload, taskKey) {
   if (taskKey != undefined) {
@@ -217,6 +234,7 @@ async function patchTaskDataToApi(payload, taskKey) {
         throw new Error("Contact not found in Database!");
       } else {
         console.log(response);
+        await resetTaskApi();
         checkEmptyColumsExists();
       }
     } catch (error) {

@@ -179,7 +179,7 @@ function loadingToBoard() {
   // drag and drop 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let columns = document.querySelectorAll(".board-single-task-container");
+    let columns = document.querySelectorAll(".board-rendered");
 
     columns.forEach(column => {
         column.addEventListener("dragover", dragover);
@@ -208,10 +208,12 @@ function dragover(event) {
 function dropTask(event) {
     event.preventDefault();
     let taskId = event.dataTransfer.getData("text/plain");
-    let taskCard = document.getElementById("boardInprogressCard");
+    let taskCard = document.getElementById(taskId);
+    const spanElement = taskCard.closest('.board-single-task-container').querySelector('.board-task-header-container span');
     let column = event.currentTarget;
     if (taskCard && column) {
-        let newStatus = column.querySelector("span").innerText.toLowerCase().replace(" ", "");
+        let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
+        console.log(newStatus);
         taskCard.dataset.status = newStatus;
         console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
