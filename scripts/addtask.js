@@ -284,31 +284,40 @@ function showDatePicker(){
  }
 
 
- function checkDateInput(){
+ function checkDateInput(event){
+  console.log(event);
+  console.log(event.code);
   let contentRef = document.getElementById('due-date');
+    if (event.keyCode == 8 || event.keyCode == 46) {
+      contentRef.value = '';
+    } else {
+    
+   
+
+    
       userInput = contentRef.value.replace(/\D/g, '');
       contentRef.value = '';
   let userDay, userMonth, userYear;
   let contentRef1 = '';
 
+
     if (userInput.length >= 2) {
       userDay = userInput.slice(0, 2);
-      contentRef.value += userDay + '/';
-    }
+      contentRef1 += userDay + '/';
+    } else {contentRef1 += userInput};
+
     if (userInput.length >= 4) {
-      userMonth = userInput.slice(3, 5);
+      userMonth = userInput.slice(2, 4);
       contentRef1 += userMonth + '/';
+    } else {
+      contentRef1 += userInput.slice(2, 3);
     }
-    if (userInput.length >= 8) {
-      userYear = userInput.slice(6, 10);
+
+    if (userInput.length >= 5) {
+      userYear = userInput.slice(4, 8);
       contentRef1 += userYear;
     }
 
-    
-    console.log(contentRef1);
-
-    // if (userInput.length == 8) {
-    // contentRef.value = userDay + '/' + userMonth + '/' + userYear;
-    // }
-      console.log(userInput);
- }
+    contentRef.value = contentRef1;
+  }
+}
