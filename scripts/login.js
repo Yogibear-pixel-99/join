@@ -3,40 +3,26 @@ const passwordREF = document.getElementById("password");
 const inputLogoREF = document.getElementById("input-logo");
 const guestLoginREF = document.getElementById("guest-login");
 let emailIndex = -1;
-let loginInfoList = [];
 
 async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
-  getAllLoginInfo();
-}
-
-function getAllLoginInfo() {
-  loginInfoList = [];
-  for (let index = 0; index < usersFromApi.length; index++) {
-    loginInfoList.push({
-      name: usersFromApi[index].name,
-      email: usersFromApi[index].email,
-      password: usersFromApi[index].password,
-    });
-  }
-  console.log(loginInfoList);
-  
 }
 
 function checkLogin(event) {
-  getUserInfo();
   event.preventDefault();
-  checkEmail(event);
+  getUserInfo().then(() => {
+   checkEmail(event); 
+  });
 }
 
 function checkEmail(event) {
-  let emailChecked = loginInfoList.some(
+  let emailChecked = usersFromApi.some(
     (item) => item.email === emailREF.value
   );
   console.log(emailChecked);
 
   if (emailChecked === true) {
-    emailIndex = loginInfoList.findIndex(
+    emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value
     );
     console.log(emailIndex);
@@ -56,16 +42,13 @@ function checkEmail(event) {
 }
 
 function checkPassword(emailIndex, event) {
-  let passwordChecked = loginInfoList.findIndex(
-    (item) => item.password === passwordREF.value
-  );
-  console.log(passwordChecked);
-  if (passwordChecked == emailIndex) {
+  let user = usersFromApi[emailIndex];  
+  if (user && user.password === passwordREF.value ) {
     sessionStorage.setItem("indexOfUser", emailIndex);
     sessionStorage.setItem("userLoggedIn", true)
-    window.location.href = "summary.html";
     removeRedBorderAndTextFalseInput("email", "login-error-message");
     removeRedBorderAndTextFalseInput("password", "login-error-message");
+    window.location.href = "summary.html";
   } else {
     addRedBorderAndTextFalseInput(
       "email",
