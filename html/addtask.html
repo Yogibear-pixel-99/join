@@ -240,27 +240,27 @@
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
                   onkeyup="startSearchingContacts()"
                   onclick="toggleAssignedDropdown()" />
-
-                   
                     <div class="dropdown-content" id="dropdownContent"></div>
                 </div>
-            
                 <div class="add-selected-contacts" id="addSelectedContacts">
                 </div>
             </div>
+            <div class="flex-col gap8">
+              <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
+              <div class="custom-dropdown" id="categoryDropdownWrapper">
+                
+                <input
+                  class="dropdown-label addTask-input-field-img"
+                  type="text"
+                  id="categoryDropdown"
+                  placeholder="Select task category"
+                  readonly
+                  onclick="toggleCategoryDropdown()"
+                />
             
-              <div class="flex-col gap8">
-                <label for="category">
-                  Category<span class="red-asterisk">*</span>
-                </label>
-                <select name="category" id="category">
-                  <option value="" disabled selected>
-                    Select task category
-                  </option>
-                  <option value="technical-task">Technical Task</option>
-                  <option value="user-story">User Story</option>
-                </select>
+                <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
               </div>
+            
               <div class="subtask-input-wrapper flex-col gap8">
                 <label for="subtasks-input"
                   >Subtasks  </label>

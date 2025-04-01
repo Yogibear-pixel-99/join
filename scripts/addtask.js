@@ -1,4 +1,5 @@
-
+const staticCategories = ["Technical Task", "User Story"];
+let selectedCategory = null;
 
 function resetForm(formId) {
   const ref = document.getElementById(formId);
@@ -134,7 +135,7 @@ function renderSubtaskTemp(subtask) {
 
 
 function toggleAssignedDropdown() {
-    const dropdown = document.getElementById("dropdownContent");
+    let dropdown = document.getElementById("dropdownContent");
     dropdown.classList.toggle("d-none");
     if (dropdown.classList.contains("d-none")) {
     renderDropdown();
@@ -191,9 +192,9 @@ function renderDropdownWithSearchResults(filteredUsers) {
 }
 
 function handleCheckboxChange(event) {
-    const userEmail = event.target.getAttribute("data-user-id");
-    const user = usersFromApi.find(u => u.email === userEmail);
-    const userItem = event.target.closest('.user-item');
+    let userEmail = event.target.getAttribute("data-user-id");
+    let user = usersFromApi.find(u => u.email === userEmail);
+    let userItem = event.target.closest('.user-item');
     if (!user || !userItem) return;
     user.isSelected = event.target.checked;
   
@@ -212,7 +213,7 @@ function handleCheckboxChange(event) {
     let userEmail = user.email;
     let existing = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
     if (!existing) {
-      const selectedDiv = document.createElement("div");
+      let selectedDiv = document.createElement("div");
       selectedDiv.classList.add("selected-contact");
       selectedDiv.setAttribute("data-user-id", userEmail);
   
@@ -233,6 +234,40 @@ function handleCheckboxChange(event) {
       existingDiv.remove();
     }
   }
+
+  function toggleCategoryDropdown() {
+    let dropdown = document.getElementById("categoryDropdownContent");
+    dropdown.classList.toggle("d-none");
+    if (!dropdown.classList.contains("d-none")) {
+      renderCategoryOptions();
+    }
+  }
+
+  function renderCategoryOptions() {
+    let dropdownContent = document.getElementById("categoryDropdownContent");
+    dropdownContent.innerHTML = ""; 
+    
+    staticCategories.forEach(category => {
+      let option = document.createElement("div");
+      option.classList.add("dropdown-item");
+      option.innerHTML = `
+        <label class="category-item">
+        <div class="category-itmen-names">
+          <span onclick="selectCategory('${category}')">${category}</span>
+        </div>
+        </label>
+      `;
+      dropdownContent.appendChild(option);
+    });
+  }
+
+  function selectCategory(category) {
+    selectedCategory = category;
+    document.getElementById("categoryDropdown").value = category;
+    document.getElementById("categoryDropdownContent").classList.add("d-none");
+  }
+  
+  
 
 
 

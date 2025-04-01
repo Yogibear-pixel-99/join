@@ -465,3 +465,15 @@ hr {
 .button-wrapper-add-task:hover > svg path {
   stroke: var(--light-blue);
 }
+
+.category-itmen-names {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.category-itmen-names:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
