@@ -1,8 +1,15 @@
 
 
-
+.mobile-login-mask {
+  display: none;
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 900;
+}
 
 .login-logo {
+    /* display: block; */
     position: absolute;
     top: 66px;
     left: 66px;
@@ -12,7 +19,7 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-
+    z-index: 1000;
 }
 
 @keyframes main-logo {
