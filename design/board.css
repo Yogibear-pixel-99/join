@@ -9,6 +9,12 @@
   display: flex;
   justify-content: space-between;
   gap: 26px;
+  max-height: calc(100vh-240px);
+  overflow-y: auto;
+}
+
+.bottom-board::-webkit-scrollbar {
+  display: none; 
 }
 
 .board-single-task-container {
