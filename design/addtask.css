@@ -477,3 +477,11 @@ hr {
   background-color: #eeeeee;
   cursor: pointer;
 }
+
+
+
+
+.hidden-date-input {
+  visibility: hidden;
+  position: absolute;
+}

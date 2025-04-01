@@ -269,13 +269,46 @@ function handleCheckboxChange(event) {
   
   
 
+function showDatePicker(){
+  let hiddenDate = document.getElementById('hidden-date-input');
+  hiddenDate.showPicker();
+}
 
+
+ function putDateToUserInput(){
+    let shownDate = document.getElementById('due-date');
+    let hiddenDate = document.getElementById('hidden-date-input').value;
+        hiddenDate = hiddenDate.split('-').reverse().join('/');
+    console.log(hiddenDate);
+    shownDate.value = hiddenDate;
+ }
+
+
+ function checkDateInput(){
+  let contentRef = document.getElementById('due-date');
+      userInput = contentRef.value.replace(/\D/g, '');
+      contentRef.value = '';
+  let userDay, userMonth, userYear;
+  let contentRef1 = '';
+
+    if (userInput.length >= 2) {
+      userDay = userInput.slice(0, 2);
+      contentRef.value += userDay + '/';
+    }
+    if (userInput.length >= 4) {
+      userMonth = userInput.slice(3, 5);
+      contentRef1 += userMonth + '/';
+    }
+    if (userInput.length >= 8) {
+      userYear = userInput.slice(6, 10);
+      contentRef1 += userYear;
+    }
 
     
+    console.log(contentRef1);
 
- 
-
-     
-  
-
-  
+    // if (userInput.length == 8) {
+    // contentRef.value = userDay + '/' + userMonth + '/' + userYear;
+    // }
+      console.log(userInput);
+ }

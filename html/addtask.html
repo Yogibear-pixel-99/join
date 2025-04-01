@@ -126,14 +126,15 @@
                 >
                 <div class="relative">
                 <input
-                onkeyup="checkDate()"
+                onkeyup="checkDateInput()"
                 class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
                   required
                   type="text"
                   placeholder="dd/mm/yyyy" />
-                  <img class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
+                  <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
+                  <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
                   </div>
               </div>
             </div>
