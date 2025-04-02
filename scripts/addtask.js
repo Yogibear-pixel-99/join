@@ -146,8 +146,10 @@ function renderDropdown() {
     dropdownContent.innerHTML = '';
 
     usersFromApi.forEach(user => {
-      let isChecked = user.isSelected ? 'checked' : '';
       let rowClass = user.isSelected ? 'checked-row' : '';
+      let checkboxImg = user.isSelected
+        ? '../assets/icons/Check button checked white.svg'
+        : '../assets/icons/Check button Box.svg';
 
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
@@ -158,7 +160,12 @@ function renderDropdown() {
                 </div>
                 <span>${user.name}</span>
                 </div>
-                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)" ${isChecked}>
+                <img
+                  src="${checkboxImg}"
+                  class="checkbox-img"
+                  data-user-id="${user.email}"
+                  onclick="toggleUserSelection(this)"
+                  alt="checkbox" />
             </label>
         `;
         dropdownContent.appendChild(userItem);
@@ -206,6 +213,17 @@ function handleCheckboxChange(event) {
       removeSelectedContact(userEmail);
     }
   }
+
+  function toggleUserSelection(img) {
+    let userEmail = img.getAttribute('data-user-id');
+    let user = usersFromApi.find(u => u.email === userEmail);
+    if (!user) return;
+  
+    user.isSelected = !user.isSelected;
+    renderDropdown();
+    user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
+  }
+  
   
   
   function addSelectedContact(user) {
