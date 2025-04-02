@@ -1,6 +1,6 @@
 const staticCategories = ["Technical Task", "User Story"];
 let selectedCategory = null;
-
+let collectSubTask = []
 
 function resetForm(formId) {
   const ref = document.getElementById(formId);
