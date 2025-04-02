@@ -3,7 +3,18 @@
 
 @media (max-width: 768px) {
     
+    /* ASSETS */
+    .dark-button,
+    .light-button {
+        padding: 4px;
+        width: 180px;
+        height: 51px;
+        font-size: 16px;
+    }
+
     /* LOGIN */
+
+
 
     @keyframes main-logo {
         0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
@@ -56,25 +67,59 @@
     100% {filter: brightness(100%);}
 }
 
+.form-header {
+    font-size: 47px;
+}
+
+.login-form {
+    gap: 0;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.login-separator {
+    margin: 16px 0 32px;
+    width: 88px;
+    height: 3px;
+}
+
 .form-container {
     margin: 16px auto;
     padding: 32px;
+    height: 475px;
 }
 
 .login-button-container {
     flex-direction: column;
+    margin: 32px 0 0;
 }
 
 .input-field-container {
     width: auto;
 }
 
+.input-bottom-field-container {
+    margin: 32px 0 8px;
+}
+
 .login-error-message {
     position: static;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: start;
+    align-self: flex-start;
 }
 
 .login-button-container {
     gap: 21px;
+}
+
+.login-policy-legal {
+    display: inline-block;
+    gap: 0;
+    justify-content: space-evenly;
+    padding: 40px 0;
+    text-align: center;
 }
 
 }

@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-html {
-  margin: 0;
-  max-width: 1920px;
-}
-
 a {
   text-decoration: none;
 }
@@ -31,12 +26,11 @@ h3 {
 body {
   position: relative;
   display: flex;
-  margin: 0 auto;
+  margin: 0;
   scroll-behavior: smooth;
   font-family: inter;
   overflow: hidden;
   height: 100dvh;
-  /* width: 100vw; */
   max-width: 1920px;
   box-sizing: border-box;
 }

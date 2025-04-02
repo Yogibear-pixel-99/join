@@ -3,8 +3,10 @@
 .mobile-login-mask {
   display: none;
   position: absolute;
-  width: 100dvw;
-  height: 100dvh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 900;
 }
 
@@ -79,7 +81,7 @@
 }
 
 .login-separator {
-    width: 40%;
+    width: 150px;
     height: 3px;
     background-color: var(--light-blue);
     margin: 20px;
@@ -110,7 +112,7 @@
   }
 
 .login-button-container {
-    height: 48px;
+    /* height: 48px; */
     display: flex;
     justify-content: space-between;
     gap: 35px;
