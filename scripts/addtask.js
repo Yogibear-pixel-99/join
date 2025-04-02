@@ -341,6 +341,9 @@ function addTask(event){
 
 console.log(collectedFormInfos);
 
+let formInfos = document.getElementById('add-task-form');
+let data = new FormData(formInfos);
+collectSubTasks(formInfos, data);
 
   // create a template object
   // taskTemplate = getEmptyTaskTemplate();
@@ -348,6 +351,18 @@ console.log(collectedFormInfos);
   // put collected data from form in object
   // fetch the payload to api using existing function
   // render in board
+}
+
+function collectSubTasks(formInfos, data) {
+  
+  data.forEach((value, key) => {
+    if (key === "subtask") {
+        // Subtasks als Array sammeln
+        collectedFormInfos.subtasks.push(value);
+       
+    }
+})
+console.log(collectedFormInfos);
 }
 
 function getEmptyTaskTemplate(){
