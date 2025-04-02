@@ -57,7 +57,7 @@
 }
 
 .form-container {
-    margin: 16px;
+    margin: 16px auto;
     padding: 32px;
 }
 
@@ -69,7 +69,13 @@
     width: auto;
 }
 
-.main-
+.login-error-message {
+    position: static;
+}
+
+.login-button-container {
+    gap: 21px;
+}
 
 }
 

@@ -99,7 +99,7 @@ function renderSubtaskTemp(subtask) {
               id="input-${subtask}"
               class="subtask-input" 
               type="text" 
-              name="subtask" 
+              name="subtasks[]" 
               value="${subtask}">
             <div class="hide-on-focus subtask-dot">&#8226</div>
             <div class="single-task-icon-wrapper-before flex-ctr-ctr d-none hide-on-focus">
