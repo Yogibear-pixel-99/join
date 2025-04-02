@@ -1,6 +1,7 @@
 const staticCategories = ["Technical Task", "User Story"];
 let selectedCategory = null;
 
+
 function resetForm(formId) {
   const ref = document.getElementById(formId);
   const priorityRef = document.getElementById('standard-prio');
@@ -335,11 +336,12 @@ function showDatePicker(){
 
 function addTask(event){
   event.preventDefault();
-  let taskForm = document.getElementById('add-task-form');
-  let newTaskData = new FormData(taskForm);
-  console.log(newTaskData);
-  let test = Object.entries(newTaskData.entries);
-  console.log(test);
+  collectedFormInfos = getEmptyTaskTemplate();
+  collectFormInformation('add-task-form');
+
+console.log(collectedFormInfos);
+
+
   // create a template object
   // taskTemplate = getEmptyTaskTemplate();
   // collect infos from form with newFormData
@@ -348,21 +350,14 @@ function addTask(event){
   // render in board
 }
 
-// function getEmptyTaskTemplate(){
-// return `"status": "inProgress",
-//       "task": "User Story",
-//       "title": "Kochwelt Page & Recipe Recommender",
-//       "description": "Build start page with recipe recommendation.",
-//       "date": "12/05/2025",
-//       "priority": "Medium",
-//       "assignTo": ["sofia@mueller.com"],
-//       "subtasks": [
-//         {
-//           "subtaskName": "Implement Recipe Recommendation",
-//           "finished": "false"
-//         },
-//         { "subtaskName": "Start Page Layout",
-//           "finished": "false" }
-//       ],
-//       "id": "1"`
-// }
+function getEmptyTaskTemplate(){
+return {"status": "",
+      "task": "",
+      "title": "",
+      "description": "",
+      "date": "",
+      "priority": "",
+      "assignTo": [],
+      "subtasks": [],
+      "id": ""}
+}

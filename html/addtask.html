@@ -95,7 +95,7 @@
 
       <div id="main-content" class="main-content">
           <h1 class="add-task-header">Add Task</h1>
-        <form id="add-task-form" class="add-task-form-content" onsubmit="" action="submit">
+        <form id="add-task-form" class="add-task-form-content" onsubmit="">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div class="flex-col gap8">
@@ -326,7 +326,7 @@
                 </svg>
               </div>
               
-              <button class="dark-button btns-addtask" onclick="addTask(event)">
+              <button class="dark-button btns-addtask" type="submit" onclick="addTask(event)">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>
