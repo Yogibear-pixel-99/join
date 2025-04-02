@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="../design/login.css">
     <link rel="stylesheet" href="../design/main.css">
     <link rel="stylesheet" href="../design/assets.css">
+    <link rel="stylesheet" href="../design/769-1024-tablet.css">
     <link rel="stylesheet" href="../design/481-768-mobile.css">
+    <link rel="stylesheet" href="../design/320-480-mobile.css">
+    <link rel="stylesheet" href="../design/height-768.css">
+  
+ 
+   
  
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/join-logo-login.svg">
 
@@ -29,7 +35,7 @@
             
         <div class="login-header animate-show-container">
             <span>Not a Join user?</span>
-            <a href="./signup.html" class="dark-button">Sign up</a>
+            <a href="./signup.html" class="dark-button login-signup-button-mobile">Sign up</a>
         </div>
 
 
@@ -56,7 +62,7 @@
             </div>
               <span id="login-error-message" class="login-error-message"></span>
             <div class="login-button-container">
-                <button onclick="checkLogin(event)" class="dark-button" id="login">Log in</button>
+                <button onclick="checkLogin(event)" class="dark-button mobile-login-button" id="login">Log in</button>
                 <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login" id="guest-login">Guest Log in</a>
             </div>
         </form>

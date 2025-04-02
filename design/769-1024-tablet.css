@@ -1,9 +1,181 @@
 
 
+@media screen and (orientation: landscape) {
+    body {
+        /* position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        background: black;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        z-index: 1500; */
+    }
+
+    .rotate-warning::before {
+        content: "Bitte drehe dein Gerät ins Hochformat";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        background: var(--join-dark);
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        z-index: 1500;
+    }
+}
+
 
 @media (max-width: 1024px) {
-
+  
+    
+        /* ASSETS */
+        .guest-login,
+        .mobile-login-button {
+            padding: 4px;
+            width: 180px;
+            height: 51px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+    
+        /* LOGIN */
+    
+        .main-container {
+            justify-content: flex-end;
+        }
+    
+        .login-signup-button-mobile {
+            font-size: 16px;
+            padding: 15px 16px;
+        }
+    
+        .login-header {
+            padding: 0;
+            justify-content: center;
+        }
+    
+        @keyframes main-logo {
+            0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+            40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+            100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+          }
+    
+    .mobile-login-mask {
+        background-color: var(--join-dark);
+        display: block;
+        animation-name: login-mask;
+        animation-duration: 800ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        filter: opacity(100%);
+    }
+    
+    @keyframes login-mask {
+        0% {filter: opacity(100%);}
+        40% {filter: opacity(100%);}
+        100% {filter: opacity(0%); display: none;}
+    }
+    
+    .join-logo-color-change {
+        fill: white;
+        animation-name: logo-color;
+        animation-duration: 1100ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+    }
+    
+    @keyframes logo-color {
+        0% {fill: #FFFFFF;}
+        20% {fill: #FFFFFF;}
+        100% {fill: #2A3647;}
+    }
+    
+    .mobile-login-maincontainer-dark {
+        animation-name: bg-mobile-dark;
+        animation-duration: 1200ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+    }
+    
+    @keyframes bg-mobile-dark {
+        0% {filter: brightness(0%);}
+        100% {filter: brightness(100%);}
+    }
+    
+    .form-header {
+        font-size: 47px;
+    }
+    
+    .login-form {
+        gap: 0;
+        flex: 1;
+        justify-content: flex-start;
+    }
+    
+    .login-separator {
+        margin: 16px 0 32px;
+        width: 88px;
+        height: 3px;
+    }
+    
+    .form-container {
+        margin: 16px auto;
+        padding: 32px;
+        /* height: 475px; */
+        transform: translate(-50%, -55%);
+    }
+    
+    .login-button-container {
+        flex-direction: column;
+        margin: 32px 0 0;
+    }
+    
+    .input-field-container {
+        width: auto;
+    }
+    
+    .input-bottom-field-container {
+        margin: 32px 0 8px;
+    }
+    
+    .login-error-message {
+        position: static;
+        font-size: 12px;
+        font-weight: 400;
+        text-align: start;
+        align-self: flex-start;
+    }
+    
+    .login-button-container {
+        gap: 21px;
+    }
+    
+    .login-policy-legal {
+        display: flex;
+        gap: 0;
+        justify-content: center;
+        padding: 30px 0;
+        text-align: center;
+        gap: 32px;
+    }
 }
+
 
 
 /* LOGIN */

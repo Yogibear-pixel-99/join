@@ -1,9 +1,22 @@
 
 
 
-@media (max-width: 768px) {
+
+
+
+@media (max-height: 768px) {
     /* LOGIN */
- 
+
+    @keyframes main-logo {
+        0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+        40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+        100% {top: 20px; left: 20px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+      }
+
+.form-container {
+    margin: 0;
+    padding: 16px;
+}
 
 
 }
