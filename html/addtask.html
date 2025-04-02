@@ -95,7 +95,7 @@
 
       <div id="main-content" class="main-content">
           <h1 class="add-task-header">Add Task</h1>
-        <form id="add-task-form" class="add-task-form-content">
+        <form id="add-task-form" class="add-task-form-content" onsubmit="" action="submit">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div class="flex-col gap8">
@@ -145,6 +145,7 @@
                 <label>Prio</label>
                 <div id="priority-wrapper" class="btn-importance-container">
                   <input
+                  value="Urgent"
                     class="d-none"
                     type="radio"
                     id="priority-urgent"
@@ -181,6 +182,7 @@
                     </svg>
                   </label>
                   <input
+                  value="Medium"
                     class="d-none"
                     type="radio"
                     id="priority-medium"
@@ -209,6 +211,7 @@
                     </svg>
                   </label>
                   <input
+                  value="Low"
                     class="d-none"
                     type="radio"
                     id="priority-low"
@@ -236,7 +239,7 @@
                 </div>
               </div>
               <div class="flex-col gap8">
-                <label for="customDropdown">Assigned to<span class="red-asterisk">*</span></label>
+                <label for="searchInput">Assigned to<span class="red-asterisk">*</span></label>
                 <div class="custom-dropdown" id="customDropdown">
                     
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
@@ -311,9 +314,10 @@
               <span class="red-asterisk">*</span>
               <span>This field is required</span>
             </div>
-            <div class="addTask-button-container" onclick="resetForm('add-task-form')">
+            <div class="addTask-button-container">
               <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
                 <div
+                  onclick="resetForm('add-task-form')"
                   class="">
                   Clear
                 </div>
@@ -322,7 +326,7 @@
                 </svg>
               </div>
               
-              <button class="dark-button btns-addtask">
+              <button class="dark-button btns-addtask" onclick="addTask(event)">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>

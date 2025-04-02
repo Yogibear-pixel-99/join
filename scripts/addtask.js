@@ -333,30 +333,36 @@ function showDatePicker(){
   }
 }
 
-function addTask(){
-  taskTemplate = getEmptyTaskTemplate();
+function addTask(event){
+  event.preventDefault();
+  let taskForm = document.getElementById('add-task-form');
+  let newTaskData = new FormData(taskForm);
+  console.log(newTaskData);
+  let test = Object.entries(newTaskData.entries);
+  console.log(test);
   // create a template object
+  // taskTemplate = getEmptyTaskTemplate();
   // collect infos from form with newFormData
   // put collected data from form in object
   // fetch the payload to api using existing function
   // render in board
 }
 
-function getEmptyTaskTemplate(){
-return `      "status": "inProgress",
-      "task": "User Story",
-      "title": "Kochwelt Page & Recipe Recommender",
-      "description": "Build start page with recipe recommendation.",
-      "date": "12/05/2025",
-      "priority": "Medium",
-      "assignTo": ["sofia@mueller.com"],
-      "subtasks": [
-        {
-          "subtaskName": "Implement Recipe Recommendation",
-          "finished": "false"
-        },
-        { "subtaskName": "Start Page Layout",
-          "finished": "false" }
-      ],
-      "id": "1"`
-}
+// function getEmptyTaskTemplate(){
+// return `"status": "inProgress",
+//       "task": "User Story",
+//       "title": "Kochwelt Page & Recipe Recommender",
+//       "description": "Build start page with recipe recommendation.",
+//       "date": "12/05/2025",
+//       "priority": "Medium",
+//       "assignTo": ["sofia@mueller.com"],
+//       "subtasks": [
+//         {
+//           "subtaskName": "Implement Recipe Recommendation",
+//           "finished": "false"
+//         },
+//         { "subtaskName": "Start Page Layout",
+//           "finished": "false" }
+//       ],
+//       "id": "1"`
+// }
