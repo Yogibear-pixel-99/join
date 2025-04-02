@@ -106,7 +106,8 @@
     padding: 48px 115px;
     border-radius: 30px;
     box-shadow: 0 0 14px 3px #0000000A;
-}
+    z-index: 820;
+  }
 
 .login-button-container {
     height: 48px;
