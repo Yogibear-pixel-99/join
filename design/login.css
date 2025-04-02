@@ -23,9 +23,9 @@
 }
 
 @keyframes main-logo {
-  0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px;}
-  40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px;}
-  100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 100px;}
+  0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px; height: 334px;}
+  40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px; height: 334px;}
+  100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 100px; height: 122px;}
 }
 
 @keyframes show-content {
@@ -43,6 +43,8 @@
   animation-timing-function: ease-in-out;
 
 }
+
+
 
 .login-header {
     display: flex;
@@ -103,6 +105,7 @@
     background-color: white;
     padding: 48px 115px;
     border-radius: 30px;
+    box-shadow: 0 0 14px 3px #0000000A;
 }
 
 .login-button-container {
