@@ -237,7 +237,7 @@ function handleCheckboxChange(event) {
       selectedDiv.setAttribute("data-user-id", userEmail);
   
       selectedDiv.innerHTML = `
-        <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
+        <div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
           ${returnInitials(user.name)}
         </div>
       `;
@@ -343,8 +343,8 @@ console.log(collectedFormInfos);
 
 let formInfos = document.getElementById('add-task-form');
 let data = new FormData(formInfos);
-collectSubTasks(formInfos, data);
-
+collectSubTasks(data);
+collectAssingTo();
   // create a template object
   // taskTemplate = getEmptyTaskTemplate();
   // collect infos from form with newFormData
@@ -353,7 +353,7 @@ collectSubTasks(formInfos, data);
   // render in board
 }
 
-function collectSubTasks(formInfos, data) {
+function collectSubTasks(data) {
   
   data.forEach((value, key) => {
     if (key === "subtask") {
@@ -363,6 +363,16 @@ function collectSubTasks(formInfos, data) {
     }
 })
 console.log(collectedFormInfos);
+}
+
+function collectAssingTo() {
+  let userREF = document;
+  console.log(usersFromApi[1].name);
+  for (let index = 0; index < usersFromApi.length; index++) {
+    if (userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !== null) {
+     collectedFormInfos.assignTo.push(usersFromApi[index].name)
+    } 
+  }
 }
 
 function getEmptyTaskTemplate(){
