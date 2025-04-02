@@ -174,7 +174,7 @@
         text-align: center;
         gap: 32px;
     }
-}
+
 
 
 
@@ -197,3 +197,5 @@
 769px — 1024px: Small screens, laptops
 1025px — 1200px: Desktops, large screens
 1201px and more —  Extra large screens, TV */
+
+}
