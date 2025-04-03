@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../design/colors.css" />
     <link rel="stylesheet" href="../design/main.css" />
     <link rel="stylesheet" href="../design/login.css" />
+    <link rel="stylesheet" href="../design/769-1024-tablet.css">
+    <link rel="stylesheet" href="../design/481-768-mobile.css">
+    <link rel="stylesheet" href="../design/320-480-mobile.css">
+    <link rel="stylesheet" href="../design/height-768.css">
 
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/join-logo-login.svg">
 
@@ -22,10 +26,10 @@
     <main id="main-container" class="main-container main-log-in-container">
       <div class="login-header"></div>
 
-      <div class="form-container">
+      <div class="form-container sign-up-container">
         <span class="form-header">Sign up</span>
         <div class="login-separator"></div>
-        <form id="sign-up-form" class="login-form" onsubmit="signUpNewUser(event)">
+        <form id="sign-up-form" class="login-form sign-up-form" onsubmit="signUpNewUser(event)">
           <div class="input-field-container">
             <input
               id="sign-up-name"
@@ -102,7 +106,7 @@
         <a href="../html/legalnotice.html">Legal notice</a>
       </div>
       <img
-        class="join-logo login-logo"
+        class="join-logo login-logo sign-up-join-logo"
         src="../assets/icons/join-logo-login.svg"
         alt="join logo" />
     </main>
