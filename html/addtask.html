@@ -252,7 +252,12 @@
             </div>
             <div class="flex-col gap8">
               <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
-              <div class="custom-dropdown" id="categoryDropdownWrapper">
+              <select name="categoryDropdown" id="category" >
+                  <option value="">Select Task Category</option>
+                  <option value="Technical Task">Technical Task</option>
+                  <option value="User Story">User Story</option>
+              </select>
+              <!-- <div class="custom-dropdown" id="categoryDropdownWrapper">
                 
                 <input
                   class="dropdown-label addTask-input-field-img"
@@ -264,7 +269,7 @@
                 />
             
                 <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
-              </div>
+              </div> -->
             
               <div class="subtask-input-wrapper flex-col gap8">
                 <label for="subtasks-input"
