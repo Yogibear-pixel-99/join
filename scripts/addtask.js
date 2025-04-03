@@ -356,7 +356,7 @@ collectAssingTo();
 function collectSubTasks(data) {
   
   data.forEach((value, key) => {
-    if (key === "subtask") {
+    if (key === "subtasks[]") {
         // Subtasks als Array sammeln
         collectedFormInfos.subtasks.push(value);
        
