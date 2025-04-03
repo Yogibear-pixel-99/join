@@ -370,30 +370,6 @@ box-shadow: none;
   width: 100%;
 }
 
-.dropdown-label {
-  padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.dropdown-content {
-  position: absolute;
-  background-color: white;
-  min-width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  z-index: 1;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
 .user-item {
   display: flex;
   align-items: center;
@@ -438,14 +414,6 @@ box-shadow: none;
   color: white;
   border: solid 2px white;
 }
-
-.addTask-input-field-img {
-  background-image: url(../assets/icons/arrow_drop_downaa.png);
-  background-repeat: no-repeat;
-  background-position-y: 50%;
-  background-position-x: 98%;
-}
-
 
 .add-task-footer {
   position: absolute;

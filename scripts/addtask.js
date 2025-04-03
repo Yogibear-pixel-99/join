@@ -245,20 +245,12 @@ function handleCheckboxChange(event) {
     }
   }
   
-
   function removeSelectedContact(userEmail) {
     let container = document.getElementById("addSelectedContacts");
     let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
     if (existingDiv) {
       existingDiv.remove();
     }
-  }
-
-
-  function selectCategory(category) {
-    selectedCategory = category;
-    document.getElementById("categoryDropdown").value = category;
-    document.getElementById("categoryDropdownContent").classList.add("d-none");
   }
   
   function changeTextColorCategory(){
