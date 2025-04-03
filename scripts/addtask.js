@@ -254,31 +254,6 @@ function handleCheckboxChange(event) {
     }
   }
 
-  function toggleCategoryDropdown() {
-    let dropdown = document.getElementById("categoryDropdownContent");
-    dropdown.classList.toggle("d-none");
-    if (!dropdown.classList.contains("d-none")) {
-      renderCategoryOptions();
-    }
-  }
-
-  function renderCategoryOptions() {
-    let dropdownContent = document.getElementById("categoryDropdownContent");
-    dropdownContent.innerHTML = ""; 
-    
-    staticCategories.forEach(category => {
-      let option = document.createElement("div");
-      option.classList.add("dropdown-item");
-      option.innerHTML = `
-        <label class="category-item">
-        <div onclick="selectCategory('${category}')" class="category-itmen-names">
-          <span>${category}</span>
-        </div>
-        </label>
-      `;
-      dropdownContent.appendChild(option);
-    });
-  }
 
   function selectCategory(category) {
     selectedCategory = category;
@@ -286,11 +261,11 @@ function handleCheckboxChange(event) {
     document.getElementById("categoryDropdownContent").classList.add("d-none");
   }
   
+  function changeTextColorCategory(){
+    let contentRef = document.getElementById('category');
+        contentRef.style.color = "black";
+  }
   
-
-
-
-
 function showDatePicker(){
   let hiddenDate = document.getElementById('hidden-date-input');
   hiddenDate.showPicker();
