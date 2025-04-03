@@ -17,7 +17,7 @@ async function signUpNewUser(event) {
     await postDataToApi("users", collectedFormInfos);
     mainContentBrightness50();
     showOverlayButton("sign-up-success-button", "You Signed Up successfully");
-    setTimeout(() => redirectToLogInPage(), 1000);
+    setTimeout(() => redirectToLogInPage(), 800);
   }
 }
 

@@ -149,14 +149,21 @@ input[type="checkbox"] {
   }
 
   .overlay-button {
+    width: 312px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 100vh);
-    height: auto;
     z-index: 2000;
     transition: 250ms ease-out;
+    border-radius: 20px;
+    height: 74px;
+    padding: 0 25px;
+    font-weight: 400;
+    font-size: 20px;
   }
+
+
 
   .overlay-button-show {
     transform: translate(-50%, -50%);
