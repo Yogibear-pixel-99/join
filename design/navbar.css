@@ -73,3 +73,7 @@
 .active-button{
     background-color: var(--navbar-active);
 }
+
+.mobile-navbar {
+  display: none;
+}

@@ -60,16 +60,21 @@
             <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
         </div>
     </section>
-    <section class="navbar-container mobile-navbar d-none">
-        <div>
+
+
+
+
+
+
+        <!-- <div>
             <navbar class="navbar-link-container">
             <a href="./summary.html">
                 <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
-                <div class="center">Summary-mobile</div>
+                <div class="center">Summary</div>
             </a>
             <a href="./addtask.html">
                 <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
-                <div class="center">Adddd Task</div>
+                <div class="center">Add Task</div>
             </a>
             <a href="./board.html">
                 <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
@@ -80,38 +85,38 @@
                 <div class="center">Contacts</div>
             </a>
             </navbar>
-        </div>
-    </section>
+        </div> -->
+ 
 <main class="main-container" id="main-container">
-<header class="header-container">
-            <span class="header-text">Kanban Project Management Tool</span>
+    <header class="header-container">
+        <span class="header-text">Kanban Project Management Tool</span>
             <div class="header-logos-right">
                 <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo">
                 <div onclick="toggleDropdown()" class="header-initials" id="header-initials"></div>
             </div>
             <div class="dropdown-menu d-none" id="dropdown">
-            <a href="./legalnotice.html">
-                <div class="dropdown-text">Legal Notice</div>
-            </a>
-            <a href="./Privacypolicy.html">
-                <div class="dropdown-text">Privacy Policy</div>
-            </a>
-            <a href="./login.html">
-                <div class="dropdown-text">Log out</div>
-            </a>
-        </div>
+                <a href="./legalnotice.html">
+                    <div class="dropdown-text">Legal Notice</div>
+                </a>
+                <a href="./Privacypolicy.html">
+                    <div class="dropdown-text">Privacy Policy</div>
+                </a>
+                <a href="./login.html">
+                    <div class="dropdown-text">Log out</div>
+                </a>
+            </div>
     </header>
     <div id="main-content" class="main-content flex-row no-padding">
-            <div class="contact-container-wrapper">
-                <button class="dark-button add-contact-button" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container')">
-                    <span>Add new contact</span>
-                        <div class="add-person-icon-wrapper">
-                            <img src="../assets/icons/person_add.svg" alt="add person icon">
-                        </div>
-                </button>
-                <div id="contacts-content" class="contacts-content">
+        <div class="contact-container-wrapper">
+            <button class="dark-button add-contact-button" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container')">
+                <span>Add new contact</span>
+                <div class="add-person-icon-wrapper">
+                    <img src="../assets/icons/person_add.svg" alt="add person icon">
                 </div>
-            </div>
+            </button>
+            <div id="contacts-content" class="contacts-content"></div>
+                
+        </div>
         <div class="single-contact-container-wrapper">
             <div class="main-content-header">
                 <h1>Contacts</h1>
@@ -121,6 +126,13 @@
             <div class="bottom-board" id="bottom-board">
        </div>
     </div>
+    <section class="mobile-navbar">
+        <a href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
+        <a href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
+        <a href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
+        <a href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
+    </section>
+
 </main>
 
 
