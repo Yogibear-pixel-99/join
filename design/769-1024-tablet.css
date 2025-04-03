@@ -148,6 +148,11 @@
 }
 
 
+/* NAVBAR */
+
+.desktop-navbar {
+    display: none;
+}
 
 /* SUMMARY */
 /* ADD TASK */

@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="../design/contactsoverlay.css">
     <link rel="stylesheet" href="../design/colors.css">
     <link rel="stylesheet" href="../design/contacts.css">
+    <link rel="stylesheet" href="../design/1025-1200-desktop.css">
+    <link rel="stylesheet" href="../design/769-1024-tablet.css">
+    <link rel="stylesheet" href="../design/481-768-mobile.css">
+    <link rel="stylesheet" href="../design/320-480-mobile.css">
+    <link rel="stylesheet" href="../design/800-height.css">
     
     <link rel="icon" type="x-icon/favicon" href="../assets/icons/join-logo-login.svg">
 
@@ -28,7 +33,7 @@
 <body onload="sortAndRenderContacts()">
 
 
-    <div class="navbar-container">
+    <section class="navbar-container desktop-navbar">
         <div>
         <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
             <navbar class="navbar-link-container">
@@ -54,7 +59,29 @@
             <a href="./Privacypolicy.html" class="policy-legal-area">Privacy Policy</a>
             <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
         </div>
-    </div>
+    </section>
+    <section class="navbar-container mobile-navbar d-none">
+        <div>
+            <navbar class="navbar-link-container">
+            <a href="./summary.html">
+                <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
+                <div class="center">Summary-mobile</div>
+            </a>
+            <a href="./addtask.html">
+                <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
+                <div class="center">Adddd Task</div>
+            </a>
+            <a href="./board.html">
+                <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
+                <div class="center">Board</div>
+            </a>
+            <a href="./contacts.html" class="active-button">
+                <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
+                <div class="center">Contacts</div>
+            </a>
+            </navbar>
+        </div>
+    </section>
 <main class="main-container" id="main-container">
 <header class="header-container">
             <span class="header-text">Kanban Project Management Tool</span>
