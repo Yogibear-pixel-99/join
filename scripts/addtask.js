@@ -1,6 +1,7 @@
 const staticCategories = ["Technical Task", "User Story"];
 let selectedCategory = null;
 let collectSubTask = []
+let categoryIndex = 0;
 
 function resetForm(formId) {
   const ref = document.getElementById(formId);
@@ -310,6 +311,7 @@ console.log(collectedFormInfos);
 
 let formInfos = document.getElementById('add-task-form');
 let data = new FormData(formInfos);
+collectCategory();
 collectSubTasks(data);
 collectAssingTo();
   // create a template object
@@ -344,7 +346,7 @@ function collectAssingTo() {
 
 function getEmptyTaskTemplate(){
 return {"status": "",
-      "task": "",
+      "category": "",
       "title": "",
       "description": "",
       "date": "",
@@ -352,4 +354,17 @@ return {"status": "",
       "assignTo": [],
       "subtasks": [],
       "id": ""}
+}
+
+
+function collectCategory() {
+  let categoryREF = document.getElementById("category");
+  
+  if (categoryREF.value == "Technical Task") {
+    collectedFormInfos.category = categoryREF.value ;
+  } else if (categoryREF.value == "User Story") {
+    collectedFormInfos.category = categoryREF.value;
+  } else{
+    console.log("Missing Category");
+  }
 }

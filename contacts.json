@@ -260,7 +260,7 @@
   "tasks": [
     {
       "status": "inProgress",
-      "task": "User Story",
+      "category": "User Story",
       "title": "Kochwelt Page & Recipe Recommender",
       "description": "Build start page with recipe recommendation.",
       "date": "12/05/2025",
@@ -279,7 +279,7 @@
 
     {
       "status": "toDo",
-      "task": "Technical Task",
+      "category": "Technical Task",
       "title": "HTML Base Template",
       "description": "Create reusable HTML base templates.",
       "date": "10/05/2025",
@@ -302,7 +302,7 @@
 
     {
       "status": "awaitFeedback",
-      "task": "Technical Task",
+      "category": "Technical Task",
       "title": "CSS Architecture Planning",
       "description": "Define CSS naming conventions and structure.",
       "date": "25/05/2025",
@@ -318,7 +318,7 @@
 
     {
       "status": "done",
-      "task": "User Story",
+      "category": "User Story",
       "title": "Daily Kochwelt Recipe",
       "description": "Implement daily recipe and portion calculator.",
       "date": "01/05/2025",
@@ -337,7 +337,7 @@
 
     {
       "status": "done",
-      "task": "User Story",
+      "category": "User Story",
       "title": "Join Summary",
       "description": "Implement an overview.",
       "date": "22/07/2025",
