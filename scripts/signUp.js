@@ -71,13 +71,19 @@ function redirectToLogInPage() {
 function toggleSignUpButton(){
   const checkPrivacy = document.getElementById('accept-privacy');
   const buttonRef = document.getElementById('sign-up-button');
-    if (checkPrivacy.checked) {
+    if (checkPrivacy.checked && window.innerWidth > 1025) {
       buttonRef.disabled = false;
       buttonRef.classList.add('dark-button');
       buttonRef.classList.remove('dark-button-signup');
-    } else {
+    } else if (checkPrivacy.checked && window.innerWidth <= 1024) {
+    buttonRef.disabled = false;
+    buttonRef.classList.add('dark-signup-mobile-button');
+    // buttonRef.classList.add('dark-button');
+    buttonRef.classList.remove('dark-button-signup');
+  } else {
       buttonRef.disabled = true;
       buttonRef.classList.remove('dark-button');
+      buttonRef.classList.remove('dark-signup-mobile-button');
       buttonRef.classList.add('dark-button-signup');
     }
 }

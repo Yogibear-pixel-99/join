@@ -73,7 +73,6 @@
   }
 
 .login-button-container {
-    /* height: 48px; */
     display: flex;
     justify-content: space-between;
     gap: 35px;
@@ -144,7 +143,10 @@ input[type="checkbox"] {
     justify-content: space-between;
   }
 
-
+  .input-alert-message {
+    display: inline-block;
+    height: 20px;
+  }
 
   .overlay-button {
     position: absolute;
@@ -185,3 +187,4 @@ input[type="checkbox"] {
     font-family: inter;
     border: none;
   }
+  
