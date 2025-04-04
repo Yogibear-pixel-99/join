@@ -67,6 +67,10 @@ function getSingleContact(firstLetterArray) {
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
 function openContactInFloatMenu(contactId, colorLetter) {
+  if (window.innerWidth <= 1025) {
+    hideContainerWithStyleDisplayNone('contacts-container-wrapper');
+    showContainerWithStyleDisplayBlock('floating-contact-container');
+  }
   const contentRef = document.getElementById("bottom-board");
   const contact = contactsFromApi.find((element) => element.id === contactId);
   contentRef.innerHTML = getSingleContactForFloatingMenuTemp(

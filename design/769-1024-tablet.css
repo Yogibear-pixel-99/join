@@ -217,6 +217,30 @@
 .floating-contact-container-wrapper {
     display: none;
 }
+
+.contact-container-wrapper {
+    width: 100vw;
+}
+
+.contacts-content {
+    padding: 40px 100px;
+}
+
+.add-contact-button-desktop {
+    display: none;
+}
+
+.add-contact-button-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 46px;
+    position: absolute;
+    right: 40px;
+    bottom: 116px;
+}
 /* CONTACTS FLOAT */
 /* CONTACTS EDIT/ADD */
 /* HELP */
