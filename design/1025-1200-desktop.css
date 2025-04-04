@@ -12,6 +12,17 @@
 /* SIGN UP */
 /* SUMMARY */
 /* ADD TASK */
+.main-container {
+    overflow: hidden;
+}
+.add-task-content {
+    width: 100%;
+    max-width: 978px;
+    padding: 0 clamp(1rem, 4vw, 6rem);
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 1200px;
+}
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
 /* CONTACTS FLOAT */
