@@ -1,5 +1,56 @@
 
 
+@media (max-width: 1350px) {
+
+.floating-contact-container-wrapper {
+    padding: 80px 40px;
+    width: 400px;
+}
+
+.main-content-header {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+}
+
+.line-desktop {
+   display: none;
+}
+
+.line-mobile {
+    display: block;
+    height: 2px;
+    width: 100px;
+}
+
+.contacts-content,
+.contacts-first-letter,
+.single-contact {
+    padding: 10px;
+}
+
+.contacts-separator {
+    width: 100%;
+}
+
+.floating-contact-header {
+    gap: 32px;
+}
+
+.floating-full-name {
+    font-size: 40px;;
+}
+
+.floating-initials-wrapper {
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.floating-initials {
+    font-size: 40px;
+}
 
 
 @media (max-width: 1200px) {
@@ -25,6 +76,22 @@
 }
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
+
+.add-contact-button {
+    width: 280px;
+}
+.contact-container-wrapper {
+    width: 380px;
+}
+
+.single-contact {
+    gap : 20px;
+    height: auto;
+}
+
+.floating-contact-container-wrapper {
+    padding: 80px 20px;
+}
 /* CONTACTS FLOAT */
 /* CONTACTS EDIT/ADD */
 /* HELP */

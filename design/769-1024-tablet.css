@@ -71,7 +71,6 @@
     .form-container {
         margin: 16px auto;
         padding: 32px;
-        /* height: 475px; */
         transform: translate(-50%, -55%);
     }
     
@@ -188,10 +187,22 @@
     background-color: var(--navbar-active-link);
 }
 
+
+/* HEADER */
+
+.help-logo,
+.header-text {
+    display: none;
+}
+
 /* SUMMARY */
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
+
+.floating-contact-container-wrapper {
+    display: none;
+}
 /* CONTACTS FLOAT */
 /* CONTACTS EDIT/ADD */
 /* HELP */

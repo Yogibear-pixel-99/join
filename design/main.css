@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+html {
+  max-height: 100dvh;
+  /* width: 100vw; */
+}
+
 a {
   text-decoration: none;
 }

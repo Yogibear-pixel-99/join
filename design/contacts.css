@@ -10,8 +10,8 @@
     margin-top: 110px;
 }
 
-.single-contact-container-wrapper {
-    padding: 80px;
+.floating-contact-container-wrapper {
+    padding: 80px 40px 80px 80px;
 }
 
 .contact-container-wrapper:hover {
@@ -50,6 +50,16 @@
 .add-person-icon-wrapper img {
     width: 29px;
     height: 21px;
+}
+
+.line-mobile {
+    display: none;
+}
+
+.contacts-content,
+.contacts-first-letter,
+.single-contact {
+    width: 100%;
 }
 
 .contacts-first-letter {
