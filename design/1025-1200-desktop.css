@@ -95,10 +95,13 @@
 }
 /* CONTACTS FLOAT */
 
-/* .floating-contact-container-wrapper,
+.floating-contact-container-wrapper {
+    display: block;
+}
+
 .contacts-container-wrapper {
-    display: flex;
-} */
+    display: flex !important;
+}
 
 /* CONTACTS EDIT/ADD */
 /* HELP */

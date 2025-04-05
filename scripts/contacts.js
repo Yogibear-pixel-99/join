@@ -69,7 +69,7 @@ function getSingleContact(firstLetterArray) {
 function openContactInFloatMenu(contactId, colorLetter) {
   if (window.innerWidth <= 1024) {
     hideContainerWithStyleDisplayNone('contacts-container-wrapper');
-    showContainerWithStyleDisplayFlex('floating-contact-container');
+    showContainerWithStyleDisplayBlock('floating-contact-container');
   }
   const contentRef = document.getElementById("bottom-board");
   const contact = contactsFromApi.find((element) => element.id === contactId);
@@ -249,10 +249,13 @@ async function deleteContact(contactKey) {
 }
 
 
-// window.onresize
-//   if (window.innerWidth > 1024) {
-//     showContainerWithStyleDisplayFlex('contacts-container-wrapper');
-//     showContainerWithStyleDisplayFlex('floating-contact-container');
-//   } else {
-//     hideContainerWithStyleDisplayNone('floating-contact-container-wrapper');
-//   }
+window.onresize = function(){
+  if (window.innerWidth > 1024) {
+    showContainerWithStyleDisplayFlex('contacts-container-wrapper');
+    showContainerWithStyleDisplayBlock('floating-contact-container');
+  }
+   else {
+    hideContainerWithStyleDisplayNone('floating-contact-container');
+    showContainerWithStyleDisplayFlex('contacts-container-wrapper');
+  }
+}
