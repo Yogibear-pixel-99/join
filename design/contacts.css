@@ -167,17 +167,23 @@
     gap: 54px;
 }
 
+.contacts-text {
+    font-size: 27px;
+    font-weight: 400;
+}
+
 .floating-initials-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 70px;
     min-width: 120px;
     max-width: 120px;
     min-height: 120px;
     max-width: 120px;
+    border: solid 3px white;
 }
 
 .floating-initials {
@@ -279,4 +285,18 @@
 
 .contact-created-button-show {
     transform: translateX(0);
+}
+
+.floating-menu-back-button,
+.floating-menu-options-edit-delete-button {
+    display: none;
+    position: absolute;
+    right: 40px;
+    width: 56px;
+    height: 56px;
+}
+
+.floating-menu-options-edit-delete-button {
+    bottom: 116px;
+    border-radius: 56px;
 }

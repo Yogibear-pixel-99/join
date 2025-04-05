@@ -216,6 +216,12 @@
 
 .floating-contact-container-wrapper {
     display: none;
+    padding: 48px;
+    width: fit-content;
+}
+
+.main-contant-header {
+    height: 600px;
 }
 
 .contact-container-wrapper {
@@ -241,7 +247,38 @@
     right: 40px;
     bottom: 116px;
 }
+
+
 /* CONTACTS FLOAT */
+
+.main-content-header-contacts-mobile {
+    gap: 16px;
+}
+
+.floating-initials-wrapper {
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
+}
+
+.floating-full-name {
+    font-size: 47px;
+}
+
+.floating-contact-header {
+    gap: 54px;
+}
+
+.floating-edit-delete-wrapper {
+    display: none;
+}
+
+.floating-menu-back-button,
+.floating-menu-options-edit-delete-button {
+    display: flex;
+
+
 /* CONTACTS EDIT/ADD */
 /* HELP */
 /* PRIVACY */

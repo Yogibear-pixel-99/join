@@ -51,7 +51,7 @@
 .floating-initials {
     font-size: 40px;
 }
-
+}
 
 @media (max-width: 1200px) {
     
@@ -66,6 +66,7 @@
 .main-container {
     overflow: hidden;
 }
+
 .add-task-content {
     width: 100%;
     max-width: 978px;
@@ -93,6 +94,12 @@
     padding: 80px 20px;
 }
 /* CONTACTS FLOAT */
+
+/* .floating-contact-container-wrapper,
+.contacts-container-wrapper {
+    display: flex;
+} */
+
 /* CONTACTS EDIT/ADD */
 /* HELP */
 /* PRIVACY */

@@ -67,9 +67,9 @@ function getSingleContact(firstLetterArray) {
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
 function openContactInFloatMenu(contactId, colorLetter) {
-  if (window.innerWidth <= 1025) {
+  if (window.innerWidth <= 1024) {
     hideContainerWithStyleDisplayNone('contacts-container-wrapper');
-    showContainerWithStyleDisplayBlock('floating-contact-container');
+    showContainerWithStyleDisplayFlex('floating-contact-container');
   }
   const contentRef = document.getElementById("bottom-board");
   const contact = contactsFromApi.find((element) => element.id === contactId);
@@ -247,3 +247,12 @@ async function deleteContact(contactKey) {
   }
   emptyFloatMenu();
 }
+
+
+// window.onresize
+//   if (window.innerWidth > 1024) {
+//     showContainerWithStyleDisplayFlex('contacts-container-wrapper');
+//     showContainerWithStyleDisplayFlex('floating-contact-container');
+//   } else {
+//     hideContainerWithStyleDisplayNone('floating-contact-container-wrapper');
+//   }

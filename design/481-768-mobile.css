@@ -22,7 +22,57 @@
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
+
+
 /* CONTACTS FLOAT */
+
+.header-contacts-floatin-mobile {
+    font-size: 47px;
+}
+
+.contacts-text {
+    font-size: 20px;
+}
+
+.line-mobile {
+    width: 90px;
+}
+
+.floating-initials-wrapper {
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.floating-full-name {
+    font-size: 47px;
+}
+
+.floating-contact-header {
+    gap: 20px;
+}
+
+.floating-full-name {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.floating-single-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.contact-info {
+    margin: 0;
+}
+
+.floating-mail-phone {
+    gap: 22px;
+}
+
+
 /* CONTACTS EDIT/ADD */
 /* HELP */
 /* PRIVACY */
