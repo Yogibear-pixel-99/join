@@ -108,6 +108,7 @@
 
 .contact-email {
     color: var(--email-color);
+    word-break: break-word;
 }
 
 .contact-container-wrapper::-webkit-scrollbar {
