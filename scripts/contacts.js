@@ -92,11 +92,16 @@ function openContactInFloatMenu(contactId, colorLetter) {
 }
 
 
+window.onresize = function() {
+if (window.innerWidth >= 1025) {
+  switchFloatingContactAndContactsInMobile();
+}}
+
+
 function switchFloatingContactAndContactsInMobile(){
   const allContactsRef = document.getElementById('contacts-container-wrapper');
   const contactsFloatRef = document.getElementById('floating-contact-container');
   const floatComputedStyle = window.getComputedStyle(contactsFloatRef);
-  const contactsComputedStyle = window.getComputedStyle(allContactsRef);
   
   switch (floatComputedStyle.display) {
     case 'none':  contactsFloatRef.classList.add('d-block');
