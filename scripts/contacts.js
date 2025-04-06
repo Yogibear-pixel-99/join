@@ -67,19 +67,51 @@ function getSingleContact(firstLetterArray) {
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
 function openContactInFloatMenu(contactId, colorLetter) {
-  if (window.innerWidth <= 1024) {
-    hideContainerWithStyleDisplayNone('contacts-container-wrapper');
-    showContainerWithStyleDisplayBlock('floating-contact-container');
-  }
   const contentRef = document.getElementById("bottom-board");
   const contact = contactsFromApi.find((element) => element.id === contactId);
   contentRef.innerHTML = getSingleContactForFloatingMenuTemp(
     contact,
     colorLetter
   );
+
+
+
+    switchFloatingContactAndContactsInMobile();
+
+
+
+  // if (contactsFloatRef.display == 'none') {
+  //   contactsFloatRef.
+  // }
+  // if (float menu is display none) {
+  // set display to block and contacts to hide
+  // if contacts display none set contactas to flex and float to none
+// }
   animateContactMenu();
   addBackgroundToSelectedContact(contactId);
 }
+
+
+function switchFloatingContactAndContactsInMobile(){
+  const allContactsRef = document.getElementById('contacts-container-wrapper');
+  const contactsFloatRef = document.getElementById('floating-contact-container');
+  const floatComputedStyle = window.getComputedStyle(contactsFloatRef);
+  const contactsComputedStyle = window.getComputedStyle(allContactsRef);
+  
+  switch (floatComputedStyle.display) {
+    case 'none':  contactsFloatRef.classList.add('d-block');
+                  allContactsRef.classList.add('d-none');
+      break;
+
+    case 'block': contactsFloatRef.classList.remove('d-block');
+                  allContactsRef.classList.remove('d-none');
+      break;
+  
+    default:
+      break;
+  }
+}
+
 
 /**
  * Animate the contact details to slide from the right outside under the contacts header.
@@ -246,16 +278,4 @@ async function deleteContact(contactKey) {
     toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   }
   emptyFloatMenu();
-}
-
-
-window.onresize = function(){
-  if (window.innerWidth > 1024) {
-    showContainerWithStyleDisplayFlex('contacts-container-wrapper');
-    showContainerWithStyleDisplayBlock('floating-contact-container');
-  }
-   else {
-    hideContainerWithStyleDisplayNone('floating-contact-container');
-    showContainerWithStyleDisplayFlex('contacts-container-wrapper');
-  }
 }

@@ -270,14 +270,6 @@
     gap: 54px;
 }
 
-.floating-edit-delete-wrapper {
-    display: none;
-}
-
-.floating-menu-back-button,
-.floating-menu-options-edit-delete-button {
-    display: flex;
-
 
 /* CONTACTS EDIT/ADD */
 /* HELP */

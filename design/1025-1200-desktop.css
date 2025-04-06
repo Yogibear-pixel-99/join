@@ -90,18 +90,13 @@
     height: auto;
 }
 
-.floating-contact-container-wrapper {
-    padding: 80px 20px;
-}
+
 /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
-    display: block;
+    padding: 80px 20px;
 }
 
-.contacts-container-wrapper {
-    display: flex !important;
-}
 
 /* CONTACTS EDIT/ADD */
 /* HELP */

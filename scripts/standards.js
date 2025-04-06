@@ -160,20 +160,3 @@ async function getUserInitialInfo() {
   initialsChange();
 }
 
-
-function hideContainerWithStyleDisplayNone(containerId) {
-  let ref = document.getElementById(containerId);
-  ref.style.display = 'none';
-}
-
-
-function showContainerWithStyleDisplayFlex(containerId){
-  let ref = document.getElementById(containerId);
-  ref.style.display = 'flex';
-}
-
-
-function showContainerWithStyleDisplayBlock(containerId){
-  let ref = document.getElementById(containerId);
-  ref.style.display = 'block';
-}
