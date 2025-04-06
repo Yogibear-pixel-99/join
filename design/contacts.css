@@ -43,7 +43,9 @@
     display: none;
 }
 
-.add-person-icon-wrapper {
+.add-person-icon-wrapper,
+.floating-menu-options-edit-delete-button,
+.floating-menu-back-button {
     width: 32px;
     height: 32px;
     display: flex;
@@ -288,16 +290,23 @@
     transform: translateX(0);
 }
 
-.floating-menu-back-button,
-.floating-menu-options-edit-delete-button {
-    display: none;
+.floating-menu-back-button {
+    /* display: none; */
     position: absolute;
     right: 40px;
-    width: 56px;
-    height: 56px;
+    width: 32px;
+    height: 32px;
+}
+
+.floating-menu-back-icon {
+    width: 32px;
 }
 
 .floating-menu-options-edit-delete-button {
     bottom: 116px;
     border-radius: 56px;
+    position: absolute;
+    right: 40px;
+    width: 56px;
+    height: 56px;
 }
