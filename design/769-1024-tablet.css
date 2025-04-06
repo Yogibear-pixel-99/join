@@ -270,6 +270,22 @@
     gap: 54px;
 }
 
+.floating-menu-back-button,
+.floating-menu-options-edit-delete-button {
+    display: flex;
+}
+
+.floating-menu-back-button {
+    padding: 4px;
+}
+
+.floating-edit-delete-wrapper {
+    display: none;
+}
+
+.floating-edit-delete-wrapper-mobile {
+    display: flex;
+}
 
 /* CONTACTS EDIT/ADD */
 /* HELP */

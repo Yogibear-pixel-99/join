@@ -284,3 +284,9 @@ async function deleteContact(contactKey) {
   }
   emptyFloatMenu();
 }
+
+
+function toggleEditDeleteContactMenuMobile(){
+  let ref = document.getElementById('floating-edit-delete-wrapper-mobile');
+      ref.classList.toggle('show-floating-edit-delete-wrapper-mobile')
+}
