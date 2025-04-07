@@ -287,6 +287,10 @@ async function deleteContact(contactKey) {
 
 
 function toggleEditDeleteContactMenuMobile(){
-  let ref = document.getElementById('floating-edit-delete-wrapper-mobile');
-      ref.classList.toggle('show-floating-edit-delete-wrapper-mobile')
+  const menuRef = document.getElementById('floating-edit-delete-wrapper-mobile');
+  // const maskRef = document.getElementById('floating-contact-mobile-mask');
+  // const mainRef = document.getElementById('floating-contact-mobile-mask');
+        menuRef.classList.toggle('show-floating-edit-delete-wrapper-mobile');
+        // maskRef.classList.toggle('d-none');
+        // mainRef.classList.toggle('disable-pointer-events');
 }

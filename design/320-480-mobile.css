@@ -26,6 +26,10 @@
     padding: 0 8px;
 }
 
+.contact-container-wrapper {
+    min-width: 280px;
+}
+
 
 /* SIGN UP */
 /* SIGN UP */
@@ -33,6 +37,8 @@
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
+
+
 /* CONTACTS FLOAT */
 /* CONTACTS EDIT/ADD */
 /* HELP */

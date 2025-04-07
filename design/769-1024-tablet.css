@@ -217,7 +217,6 @@
 .floating-contact-container-wrapper {
     display: none;
     padding: 48px;
-    width: fit-content;
 }
 
 .main-contant-header {
@@ -247,6 +246,7 @@
     right: 40px;
     bottom: 116px;
 }
+
 
 
 /* CONTACTS FLOAT */

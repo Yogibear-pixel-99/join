@@ -12,6 +12,15 @@
 
 .floating-contact-container-wrapper {
     padding: 80px 40px 80px 80px;
+    width: 100%;
+}
+
+.floating-cotact-mobile-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .contact-container-wrapper:hover {
@@ -22,7 +31,7 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    width: 456px;
+    min-width: 456px;
     padding: 24px;
     background-color: white;
     height: calc(100% - 96px);
@@ -51,6 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1600;
 }
 
 .floating-menu-back-button:active {
@@ -255,10 +265,11 @@
     box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
     transform: translateX(100vw);
     transition: 125ms ease-in-out;
+    z-index: 2000;
 }
 
 .show-floating-edit-delete-wrapper-mobile {
-    transform: translateX(0);
+    transform: translateX(calc(100% - 10px));
 }
 
 .floating-edit-wrapper-mobile,

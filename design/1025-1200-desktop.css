@@ -4,7 +4,6 @@
 
 .floating-contact-container-wrapper {
     padding: 80px 40px;
-    width: 400px;
 }
 
 .main-content-header {
@@ -82,7 +81,7 @@
     width: 280px;
 }
 .contact-container-wrapper {
-    width: 380px;
+    min-width: 380px;
 }
 
 .single-contact {
