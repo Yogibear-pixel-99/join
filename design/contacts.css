@@ -271,6 +271,7 @@
     transform: translateX(100vw);
     transition: 125ms ease-in-out;
     z-index: 2000;
+    cursor: pointer;
 }
 
 .show-floating-edit-delete-wrapper-mobile {
@@ -283,6 +284,17 @@
     gap: 8px;
     padding: 8px;
     color: var(--join-dark);
+}
+
+.floating-edit-wrapper-mobile:active,
+.floating-delete-wrapper-mobile:active {
+    font-weight: 700;
+    color: var(--light-blue);
+}
+
+.floating-edit-wrapper-mobile:active > div > svg > path,
+.floating-delete-wrapper-mobile:active > div > svg > path {
+    fill: var(--light-blue);
 }
 
 .contact-info {

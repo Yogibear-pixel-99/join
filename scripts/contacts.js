@@ -300,3 +300,8 @@ function toggleEditDeleteContactMenuMobile(){
         maskRef.classList.toggle('d-none');
         mainRef.classList.toggle('disable-pointer-events');
 }
+
+
+function switchToAllContactsMobile(){
+  switchFloatingContactAndContactsInMobile();
+}
