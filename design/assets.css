@@ -77,6 +77,10 @@
   position: relative;
 }
 
+.height-32 {
+  height: 32px;
+}
+
 .input-alert-message {
   font-family: poppins;
   font-size: 12px;
