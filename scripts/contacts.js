@@ -75,7 +75,7 @@ function openContactInFloatMenu(contactId, colorLetter) {
   );
 
 
-
+    getMobileEditDeleteMenu(contact);
     switchFloatingContactAndContactsInMobile();
 
 
@@ -89,6 +89,12 @@ function openContactInFloatMenu(contactId, colorLetter) {
 // }
   animateContactMenu();
   addBackgroundToSelectedContact(contactId);
+}
+
+
+function getMobileEditDeleteMenu(contact){
+  let contentRef = document.getElementById('floating-edit-delete-wrapper-mobile');
+        contentRef.innerHTML = getEditDeleteMobileMenuTemp(contact);
 }
 
 

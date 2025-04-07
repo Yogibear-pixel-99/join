@@ -216,7 +216,7 @@
 
 .floating-contact-container-wrapper {
     display: none;
-    padding: 48px;
+    padding: 48px 0 48px 48px;
 }
 
 .main-contant-header {
