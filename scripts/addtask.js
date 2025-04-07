@@ -1,7 +1,7 @@
 const staticCategories = ["Technical Task", "User Story"];
 let selectedCategory = null;
 let collectSubTask = []
-let categoryIndex = 0;
+let savedCategory;
 
 function resetForm(formId) {
   const ref = document.getElementById(formId);
@@ -254,6 +254,38 @@ function handleCheckboxChange(event) {
     }
   }
   
+  function selectCategory(category) {
+    selectedCategory = category;
+    document.getElementById("categoryDropdown").value = category;
+    document.getElementById("categoryDropdownContent").classList.add("d-none");
+  }
+
+  function toggleCategoryDropdown() {
+    let dropdown = document.getElementById("categoryDropdownContent");
+    dropdown.classList.toggle("d-none");
+    if (!dropdown.classList.contains("d-none")) {
+      renderCategoryOptions();
+    }
+  }
+
+  function renderCategoryOptions() {
+    let dropdownContent = document.getElementById("categoryDropdownContent");
+    dropdownContent.innerHTML = ""; 
+    
+    staticCategories.forEach(category => {
+      let option = document.createElement("div");
+      option.classList.add("dropdown-item");
+      option.innerHTML = `
+        <label onclick="formDataCategory('${category}')" class="category-item">
+        <div onclick="selectCategory('${category}')" class="category-itmen-names">
+          <span>${category}</span>
+        </div>
+        </label>
+      `;
+      dropdownContent.appendChild(option);
+    });
+  }
+
   function changeTextColorCategory(){
     let contentRef = document.getElementById('category');
         contentRef.style.color = "black";
@@ -357,14 +389,10 @@ return {"status": "",
 }
 
 
+function formDataCategory(category) {
+  savedCategory = category;
+}
+
 function collectCategory() {
-  let categoryREF = document.getElementById("category");
-  
-  if (categoryREF.value == "Technical Task") {
-    collectedFormInfos.category = categoryREF.value ;
-  } else if (categoryREF.value == "User Story") {
-    collectedFormInfos.category = categoryREF.value;
-  } else{
-    console.log("Missing Category");
-  }
+  collectedFormInfos.category = savedCategory;
 }
