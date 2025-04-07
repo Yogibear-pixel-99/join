@@ -310,7 +310,6 @@
     justify-self: center;
     align-items: center;
     width: 396px;
-    height: 352px;
     border-radius: 0 0 30px 30px;
     padding: 66px 24px;
 }
@@ -360,28 +359,45 @@
 .add-contact-overlay-img-wrapper {
     display: flex;
     position: absolute;
-    top: 50%;
+    top: 352px;
     left: 50%;
     margin: 0;
     transform: translate(-50%, -50%);
 }
 
 .add-contact-formular-wrapper {
-    width: 364px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     padding: 0;
 }
 
 .add-contact-overlay-form {
     width: 364px;
     padding: 0;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
 }
 
 .input-wrapper {
-    width: 100%;
+    height: 41px;
+    padding: 13px 21px;
 }
 
 .cancel-button {
     display: none;
+}
+
+.placeholder-alert-message {
+    display: none;
+}
+
+.create-button {
+    padding: 18px 10px;
+    justify-self: center;
+    margin-top: 15px;
 }
 
 /* HELP */

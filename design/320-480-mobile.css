@@ -37,10 +37,21 @@
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
-
-
 /* CONTACTS FLOAT */
+
+
 /* CONTACTS EDIT/ADD */
+
+.add-contact-overlay-content-left,
+.add-contact-overlay-content-right {
+    max-width: 396px;
+    width: 90vw;
+    padding: 66px 24px;
+}
+
+.add-contact-overlay-form {
+    width: 100%;
+}
 /* HELP */
 /* PRIVACY */
 /* LEGAL NOTICE */
