@@ -214,6 +214,7 @@ function openEditContact(contactKey) {
   getInfosForEditMenu(contactKey);
   setOnclickEditAndDeleteToButtons(contactKey);
   toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+  setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper');
 }
 
 /**
@@ -307,14 +308,13 @@ function switchToAllContactsMobile(){
 }
 
 
-function setInitialsToNewContactContainer(){
-  let input = document.getElementById('add-contact-input-field');
+function setInitialsToNewContactContainer(inputId, destinationId){
+  let input = document.getElementById(inputId);
   let initials = returnInitials(input.value);
-  let contentRef = document.getElementById('add-contact-overlay-initals-wrapper');
-  if (initials != '') {
-    contentRef.innerText = initials.slice(0, 3);
-    contentRef.classList.add(`initials-bg-color-${initials.charAt(0).toUpperCase()}`);
-  } else {
+  let contentRef = document.getElementById(destinationId);
+  contentRef.innerText = initials.slice(0, 3);
+  contentRef.classList.add(`initials-bg-color-${initials.charAt(0).toUpperCase()}`);
+    if (initials == '') {
       let classes = [...contentRef.classList];
           classes.forEach((element) => {
             if (element.startsWith('initials-bg-color-')) {
