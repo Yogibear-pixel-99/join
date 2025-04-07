@@ -87,6 +87,9 @@ body {
     border-radius: 70px;
     border: solid 3px white;
     margin: 0 40px 38px 80px;
+    font-size: 47px;
+    font-weight: 500;
+    color: white;
 }
 
 .add-contact-overlay-img-wrapper svg {
