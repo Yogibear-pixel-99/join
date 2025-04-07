@@ -69,32 +69,80 @@
 /* SIGN UP */
 /* SUMMARY */
 /* ADD TASK */
-.main-container {
-    overflow: hidden;
-}
-
-.add-task-content {
-    width: 100%;
-    max-width: 978px;
-    padding: 0 clamp(1rem, 4vw, 6rem);
-    margin: 0 auto;
-    box-sizing: border-box;
-    max-width: 1200px;
-}
-/* ADD/EDIT TASKS OVERLAY */
-/* CONTACTS */
-
-.add-contact-button {
-    width: 280px;
-}
-.contact-container-wrapper {
-    min-width: 380px;
-}
-
-.single-contact {
-    gap : 20px;
-    height: auto;
-}
+@media (min-width: 1201px) {
+    .main-content {
+      padding: 100px 120px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  
+    .info-input-field-container {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 80px;
+    }
+  
+    .info-input-field-container-left,
+    .info-input-field-container-right {
+      width: 48%;
+    }
+  
+    .add-task-separator {
+      display: block;
+      width: 1px;
+      background-color: var(--input-border);
+      height: auto;
+    }
+  
+    .add-task-footer {
+      left: 312px;
+      right: 80px;
+      bottom: 80px;
+      max-width: 1200px;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .addTask-button-container {
+      gap: 24px;
+    }
+  
+    .addTask-button-container .dark-button,
+    .addTask-button-container .light-button {
+      font-size: 18px;
+      padding: 14px 24px;
+    }
+  
+    .prio-button {
+      font-size: 22px;
+      padding: 16px 18px;
+    }
+  
+    .add-task-header {
+      font-size: 64px;
+      margin-bottom: 60px;
+    }
+  
+    .info-input-field-container input,
+    .info-input-field-container textarea,
+    .info-input-field-container select {
+      font-size: 22px;
+      padding: 14px 24px;
+    }
+  
+    .dropdown-content {
+      font-size: 20px;
+    }
+  
+    .subtasks-input {
+      font-size: 20px;
+    }
+  
+    .added-subtasks {
+      max-height: 160px;
+    }
+  }
 
 
 /* CONTACTS FLOAT */
