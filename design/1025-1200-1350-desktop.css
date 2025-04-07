@@ -1,6 +1,17 @@
 
 
 @media (max-width: 1350px) {
+    
+    /* LOGIN */
+    /* SIGN UP */
+    /* SIGN UP */
+    /* SUMMARY */
+    /* ADD TASK */
+    /* ADD/EDIT TASKS OVERLAY */
+    /* CONTACTS */
+
+
+    /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
     padding: 80px 40px;
@@ -53,8 +64,24 @@
 }
 
 
+/* CONTACTS EDIT/ADD */
 
+/* .add-contact-overlay-content-left {
+    padding: 66px 24px;
+} */
 
+.add-contact-overlay-content-right {
+    padding-right: 24px;
+    width: 700px;
+}
+
+.add-contact-overlay-img-wrapper {
+    margin: 0 24px 38px 60px;
+}
+
+/* HELP */
+/* PRIVACY */
+/* LEGAL NOTICE */
 
 
 
@@ -153,6 +180,24 @@
 
 
 /* CONTACTS EDIT/ADD */
+
+.add-contact-overlay-img-wrapper {
+    display: none;
+}
+
+.add-contact-overlay-content-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 540px;
+}
+
+.add-contact-formular-wrapper {
+    padding-right: 28px;
+}
+
+
+
 /* HELP */
 /* PRIVACY */
 /* LEGAL NOTICE */

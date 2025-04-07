@@ -98,6 +98,10 @@
     background: var(--input-separator-color);
 }
 
+.add-contact-overlay-separator-mobile {
+    display: none;
+}
+
 .single-contact {
     padding: 15px 24px;
     display: flex;

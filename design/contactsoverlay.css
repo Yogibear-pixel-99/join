@@ -146,6 +146,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .input-wrapper input {
@@ -172,6 +173,10 @@ body {
     cursor: pointer;
 }
 
+.close-icon-white {
+    display: none;
+}
+
 .create-button > span {
     font-size: 21px;
     font-weight: 700;
@@ -191,6 +196,11 @@ body {
     border-color: var(--light-blue);
     color: var(--light-blue);
 }
+
 .contact-overlay-alert {
+    position: absolute;
     height: 32px;
+    bottom: 0;
+    width: 300px;
+    transform: translate(-12px, 34px);
 }

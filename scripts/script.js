@@ -121,10 +121,14 @@ function getKeysToArray(destination, keys){
  */
 
 function returnInitials(user){
+  if (user) {
     const name = user.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
     const regExp = /\b\p{L}/gu;
     const initialsArray = name.match(regExp);
     return initialsArray.join("");
+  } else {
+    return '';
+  }
 }
 
 /**
