@@ -172,6 +172,10 @@ body {
     cursor: pointer;
 }
 
+.close-icon-white {
+    display: none;
+}
+
 .create-button > span {
     font-size: 21px;
     font-weight: 700;
