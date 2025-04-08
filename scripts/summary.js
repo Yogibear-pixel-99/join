@@ -140,7 +140,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
         <div class="summary-content-header">
           <h1>Join 360</h1>
           <div class="line"></div>
-          <span class="header-text">Key Metrics at a Glance</span>
+          <span class="summary-header-text">Key Metrics at a Glance</span>
         </div>
         <div class="bottom-summary">
 
