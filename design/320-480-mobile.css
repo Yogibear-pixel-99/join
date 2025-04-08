@@ -33,7 +33,20 @@
 
 /* SIGN UP */
 /* SIGN UP */
+
 /* SUMMARY */
+
+.main-content-summary {
+    padding: 8px;
+}
+
+.bottom-top-summary,
+.bottom-middle-summary,
+.bottom-end-summary {
+    width: 100%;
+}
+
+
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
