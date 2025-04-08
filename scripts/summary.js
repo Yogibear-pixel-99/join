@@ -1,4 +1,5 @@
 function initSummary() {
+    showGreeting();
     getUserSummaryInfo();
 }
 
@@ -303,3 +304,15 @@ function dateTemp(day, month, year){
 }
 
 
+function showGreeting(){
+  // let userLoggedIn = 
+
+
+  if (window.innerWidth <= 1024) {
+  let greetRef = document.getElementById('summary-greeting-text-overlay');
+  greetRef.innerText = getTime();
+  let overlayRef = document.getElementById('summary-greeting-overlay');
+  overlayRef.classList.remove('d-none');
+  overlayRef.classList.add('summary-greeting-animation');
+  setTimeout(() => {overlayRef.classList.add('d-none')}, 3000);
+}}

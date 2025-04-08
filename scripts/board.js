@@ -231,3 +231,11 @@ async function patchTaskDataToApi(payload, taskKey) {
     }
   }
 }
+
+
+function switchToBoard(){
+  if (window.innerWidth >= 1025) {
+    console.log(window.location)
+    // window.location
+  }
+}

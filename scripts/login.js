@@ -92,3 +92,15 @@ if (guestLoginREF) {
     }
 }
 
+
+function switchToBoard(){
+  window.location.href = '../html/summary.html';
+  setTimeout(() => {console.log('time')}, 100);
+  console.log(window.location.href);
+  
+  // open greeting container
+  // add animation fade
+  // switch to summary
+  // setInitialsToGuest();
+}
+
