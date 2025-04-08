@@ -334,7 +334,7 @@ function showDatePicker(){
 
 async function addTask(event){
   event.preventDefault();
-  collectedFormInfos = getEmptyTaskTemplate();
+ collectedFormInfos = await getEmptyTaskTemplate();
   collectFormInformation('add-task-form');
 let formInfos = document.getElementById('add-task-form');
 let data = new FormData(formInfos);
