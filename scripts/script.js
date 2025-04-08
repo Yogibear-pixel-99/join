@@ -223,7 +223,7 @@ function dropTask(event) {
         console.log(updateTask.apiKey);
         console.log(MAIN_URL + `tasks/${updateTask.apiKey}` + ".json");
         
-        getNewStatusInfo(newStatus, updateTask.apikey);
+        getNewStatusInfo(newStatus, updateTask);
     }
     taskCard.classList.remove("dragging");
     hideEmptyContentTasks(taskId);
