@@ -346,12 +346,12 @@ await postDataToApi("tasks", collectedFormInfos)
 }
 
 function collectSubTasks(data) {
-  
   data.forEach((value, key) => {
     if (key === "subtasks[]") {
-        // Subtasks als Array sammeln
-        collectedFormInfos.subtasks.push(value);
-       
+        collectedFormInfos.subtasks.push({
+          "subtaskName": value,
+          "finished": "false"
+      });
     }
 })
 console.log(collectedFormInfos);

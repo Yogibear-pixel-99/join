@@ -5,8 +5,7 @@ function initBoard() {
 async function loadAndRenderTasks() {
   await getDataFromServer("users", usersFromApi);
   await getDataFromServer("tasks", tasksFromApi);
-  console.log(tasksFromApi);
-  
+  console.log(tasksFromApi[1].subtasks);
   initialsChange();
   renderBoard();
 }
