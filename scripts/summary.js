@@ -136,12 +136,13 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
         </a>
       </div>
 
-      <div id="main-content" class="main-content summary">
-        <div class="summary-content-header">
-          <h1>Join 360</h1>
-          <div class="line"></div>
-          <span class="summary-header-text">Key Metrics at a Glance</span>
-        </div>
+      <div id="main-content" class="main-content-summary">
+        <div class="main-content-header-summary main-content-header-summary-mobile">
+                <h1 class="header-contacts-floatin-mobile">Join 360</h1>
+                <div class="line line-summary line-summary-desktop"></div>
+                <span class="contacts-text">Better with a team</span>
+                <div class="line line-summary line-summary-mobile"></div>
+              </div>
         <div class="bottom-summary">
 
           <div class="summary-wrapper">

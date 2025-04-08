@@ -216,6 +216,33 @@
     display: none;
 }
 
+.main-content-summary {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 40px;
+    align-items: center;
+}
+
+.main-content-header-summary {
+    align-self: flex-start;
+}
+
+.bottom-summary {
+    width: 100%;
+}
+
+.summary-wrapper {
+    width: 100%;
+    align-items: center;
+}
+
+.bottom-top-summary,
+.bottom-middle-summary,
+.bottom-end-summary {
+    width: 80%;
+    justify-content: space-between;
+}
 
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
