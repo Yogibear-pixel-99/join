@@ -367,7 +367,7 @@ function collectAssingTo() {
   }
 }
 
-function getEmptyTaskTemplate(){
+async function getEmptyTaskTemplate(){
 return {"status": "",
       "category": "",
       "title": "",
@@ -376,7 +376,7 @@ return {"status": "",
       "priority": "",
       "assignTo": [],
       "subtasks": [],
-      "id": ""}
+      "id": `${await getTheNextFreeIdNumberFromApi("tasks")}`}
 }
 
 
