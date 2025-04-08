@@ -121,6 +121,19 @@ function switchFloatingContactAndContactsInMobile(){
     default:
       break;
   }
+
+  showAddContactButtonInMobile();
+}
+
+
+function showAddContactButtonInMobile(){
+  let contactsRef = document.getElementById('contacts-container-wrapper');
+  let buttonRef = document.getElementById('add-contact-button-mobile');
+      if (contactsRef.classList.contains('d-none')) {
+        buttonRef.classList.add('d-none')
+      } else {
+        buttonRef.classList.remove('d-none');
+      }
 }
 
 
