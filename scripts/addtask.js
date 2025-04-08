@@ -156,7 +156,7 @@ function renderDropdown() {
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = `
-            <label class="user-item ${rowClass}">
+            <label onclick="toggleUserSelection('${user.email}')" class="user-item ${rowClass}">
             <div class="user-itmen-names">
                 <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
                 </div>
@@ -166,7 +166,6 @@ function renderDropdown() {
                   src="${checkboxImg}"
                   class="checkbox-img"
                   data-user-id="${user.email}"
-                  onclick="toggleUserSelection(this)"
                   alt="checkbox" />
             </label>
         `;
@@ -216,8 +215,7 @@ function handleCheckboxChange(event) {
     }
   }
 
-  function toggleUserSelection(img) {
-    let userEmail = img.getAttribute('data-user-id');
+  function toggleUserSelection(userEmail) {
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
   
@@ -338,14 +336,12 @@ function addTask(event){
   event.preventDefault();
   collectedFormInfos = getEmptyTaskTemplate();
   collectFormInformation('add-task-form');
-
-console.log(collectedFormInfos);
-
 let formInfos = document.getElementById('add-task-form');
 let data = new FormData(formInfos);
 collectCategory();
 collectSubTasks(data);
 collectAssingTo();
+collectedFormInfos.status = "todo";
   // create a template object
   // taskTemplate = getEmptyTaskTemplate();
   // collect infos from form with newFormData
