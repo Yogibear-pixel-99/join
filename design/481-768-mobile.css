@@ -19,6 +19,78 @@
 }
 
 /* SUMMARY */
+
+
+
+.main-content-summary {
+    padding: 20px;
+    
+}
+
+.main-content-header-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 60px;
+}
+
+.line-summary-desktop {
+    display: none;
+}
+
+.line-summary-mobile {
+    display: block;
+    height: 3px;
+    width: 50px;
+}
+
+.bottom-top-summary,
+.bottom-middle-summary,
+.bottom-end-summary {
+    width: 90%;
+}
+
+.summary-wrapper {
+    gap: 20px;
+}
+
+.summary-wrapper h2{
+    font-size: 47px;
+    font-weight: 600;
+}
+
+.text-summary,
+.deadline-summary,
+.end-text-summary {
+    font-size: 14px;
+}
+
+.date-summary {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.to-do-summary,
+.done-summary,
+.urgent-summary,
+.bottom-end-left-box-summary,
+.bottom-end-middle-box-summary,
+.bottom-end-right-box-summary {
+    border-radius: 20px;
+    gap: 10px;
+    height: 110px;
+}
+
+.content-summary {
+    gap: 0;
+}
+
+.to-do-summary svg,
+.done-summary svg {
+    width: 40px;
+    height: 40px;
+}
+
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */

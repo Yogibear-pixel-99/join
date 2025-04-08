@@ -220,6 +220,9 @@ function dropTask(event) {
         taskCard.dataset.status = newStatus;
         console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
+        console.log(updateTask.apiKey);
+        console.log(MAIN_URL + `tasks/${updateTask.apiKey}` + ".json");
+        
         getNewStatusInfo(newStatus, updateTask);
     }
     taskCard.classList.remove("dragging");

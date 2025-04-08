@@ -184,7 +184,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
               </svg>
               <div class="content-summary">
                 <h2 class="quantity-summary">1</h2>
-                <h2 class="text-summary">To-do</h2>
+                <div class="text-summary">To-do</div>
               </div>
             </div>
             <div onclick="directToBoard()" class="done-summary">
@@ -213,7 +213,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
               </svg>
               <div class="content-summary">
                 <h2 class="quantity-summary">${done}</h2>
-                <h2 class="text-summary">Done</h2>
+                <div class="text-summary">Done</div>
               </div>
             </div>
           </div>
@@ -226,13 +226,13 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
                 <img src="../assets/icons/urgent.svg" alt="" />
                 <div class="content-summary">
                   <h2 class="quantity-summary">${urgent}</h2>
-                  <h2 class="text-summary">Urgent</h2>
+                  <div class="text-summary">Urgent</div>
                 </div>
               </div>
               <div class="urgent-line-summary"></div>
               <div class="content-summary">
-                <h2 class="date-summary">${closestDate}</h2>
-                <h2 class="deadline-summary">Upcomming Deadline</h2>
+                <div class="date-summary">${closestDate}</div>
+                <div class="deadline-summary">Upcomming Deadline</div>
               </div>
             </div>
 
@@ -242,19 +242,19 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
             <div onclick="directToBoard()" class="bottom-end-left-box-summary">
               <div class="content-summary">
                 <h2 class="end-quantity-summary">${tasksFromApi.length}</h2>
-                <h2 class="end-text-summary">Tasks in Board</h2>
+                <div class="end-text-summary">Tasks in Board</div>
               </div>
             </div>
             <div onclick="directToBoard()" class="bottom-end-middle-box-summary">
               <div class="content-summary">
                 <h2 class="end-quantity-summary">${inProgress}</h2>
-                <h2 class="end-text-summary">Tasks in Progress</h2>
+                <div class="end-text-summary">Tasks in Progress</div>
               </div>
             </div>
             <div onclick="directToBoard()" class="bottom-end-right-box-summary">
               <div class="content-summary">
                 <h2 class="end-quantity-summary">${awaitFeedback}</h2>
-                <h2 class="end-text-summary">Awaiting Feedback</h2>
+                <div class="end-text-summary">Awaiting Feedback</div>
               </div>
             </div>
           </div>
@@ -264,7 +264,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
 
                         <div class="welcome-summary">
               <h2 class="welcome-text-summary">${time},</h2>
-              <h2 class="welcome-name-summary">${name}</h2>
+              <div class="welcome-name-summary">${name}</div>
             </div>
 
         </div>
