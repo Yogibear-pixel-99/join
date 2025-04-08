@@ -108,7 +108,7 @@
 
       <div id="main-content" class="main-content">
           <h1 class="add-task-header">Add Task</h1>
-        <form onload="loadCategory" id="add-task-form" class="add-task-form-content" onsubmit="">
+        <form id="add-task-form" class="add-task-form-content" onsubmit="return validateForm(event)">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div class="flex-col gap8">
@@ -144,7 +144,7 @@
                   id="due-date"
                   name="date"
                   required
-                  pattern="/(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])\d{4}/g"
+                  pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"
                   type="text"
                   placeholder="dd/mm/yyyy" />
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
@@ -344,7 +344,7 @@
                 </svg>
               </div>
               
-              <button class="dark-button btns-addtask" type="submit" onclick="addTask(event)">
+              <button class="dark-button btns-addtask" type="submit">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>

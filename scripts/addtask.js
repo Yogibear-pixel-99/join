@@ -386,3 +386,20 @@ function formDataCategory(category) {
 function collectCategory() {
   collectedFormInfos.category = savedCategory;
 }
+
+function validateForm(event) {
+  event.preventDefault();
+  let title = document.getElementById('form-title').value;
+  let dueDate = document.getElementById('due-date').value;
+  let assignedTo = document.getElementById("addSelectedContacts");
+  let category = document.getElementById('categoryDropdown').value;
+  if (title === '' || dueDate === '' || assignedTo.childElementCount == 0 || category === '') {
+    alert('Please fill out all required fields.');
+    event.preventDefault(); 
+    console.log(FALSE);
+    return false;   
+  }
+  addTask(event);
+  return true;
+  
+}
