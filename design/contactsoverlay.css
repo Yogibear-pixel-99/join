@@ -16,7 +16,7 @@ body {
 }
 
 .standard-overlay-hide {
-    transform: translate(-50%, 100vh) !important;
+    transform: translate(100vw, -50%) !important;
     z-index: 1500;
 }
 

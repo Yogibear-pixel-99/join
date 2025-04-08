@@ -36,6 +36,8 @@
     background-color: white;
     height: calc(100% - 96px);
     overflow-y: scroll !important;
+    box-shadow: 4px 0px 6px 0px rgb(0, 0, 0, 0.08);
+    transform: translateY(-4px);
 }
 
 .add-contact-button {

@@ -225,6 +225,8 @@
 
 .contact-container-wrapper {
     width: 100vw;
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 .contacts-content {
@@ -248,7 +250,9 @@
     bottom: 116px;
 }
 
-
+.main-content-contacts-mobile {
+    background-color: white;
+}
 
 
 /* CONTACTS FLOAT */
@@ -291,6 +295,10 @@
 
 
 /* CONTACTS EDIT/ADD */
+
+.standard-overlay-hide {
+    transform: translate(-50%, 100vh) !important;
+}
 
 .add-contact-overlay {
     flex-direction: column;
