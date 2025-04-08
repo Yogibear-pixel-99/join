@@ -371,7 +371,7 @@ function collectAssingTo() {
   console.log(usersFromApi[1].name);
   for (let index = 0; index < usersFromApi.length; index++) {
     if (userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !== null) {
-     collectedFormInfos.assignTo.push(usersFromApi[index].name)
+     collectedFormInfos.assignTo.push(usersFromApi[index].email)
     } 
   }
 }
