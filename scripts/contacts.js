@@ -73,22 +73,10 @@ function openContactInFloatMenu(contactId, colorLetter) {
     contact,
     colorLetter
   );
-
-
     getMobileEditDeleteMenu(contact);
     switchFloatingContactAndContactsInMobile();
-
-
-
-  // if (contactsFloatRef.display == 'none') {
-  //   contactsFloatRef.
-  // }
-  // if (float menu is display none) {
-  // set display to block and contacts to hide
-  // if contacts display none set contactas to flex and float to none
-// }
-  animateContactMenu();
-  addBackgroundToSelectedContact(contactId);
+    animateContactMenu();
+    addBackgroundToSelectedContact(contactId);
 }
 
 
