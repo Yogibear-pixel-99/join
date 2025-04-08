@@ -341,7 +341,6 @@ let data = new FormData(formInfos);
 collectCategory();
 collectSubTasks(data);
 collectAssingTo();
-collectedFormInfos.status = "todo";
 await postDataToApi("tasks", collectedFormInfos)
 }
 
@@ -368,7 +367,7 @@ function collectAssingTo() {
 }
 
 async function getEmptyTaskTemplate(){
-return {"status": "",
+return {"status": "todo",
       "category": "",
       "title": "",
       "description": "",
