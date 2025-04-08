@@ -341,17 +341,16 @@ let data = new FormData(formInfos);
 collectCategory();
 collectSubTasks(data);
 collectAssingTo();
-collectedFormInfos.status = "todo";
 await postDataToApi("tasks", collectedFormInfos)
 }
 
 function collectSubTasks(data) {
-  
   data.forEach((value, key) => {
     if (key === "subtasks[]") {
-        // Subtasks als Array sammeln
-        collectedFormInfos.subtasks.push(value);
-       
+        collectedFormInfos.subtasks.push({
+          "subtaskName": value,
+          "finished": "false"
+      });
     }
 })
 console.log(collectedFormInfos);
@@ -368,7 +367,7 @@ function collectAssingTo() {
 }
 
 async function getEmptyTaskTemplate(){
-return {"status": "",
+return {"status": "todo",
       "category": "",
       "title": "",
       "description": "",
