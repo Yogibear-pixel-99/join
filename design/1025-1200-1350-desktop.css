@@ -2,10 +2,28 @@
 
 @media (max-width: 1350px) {
     
+    /* GLOBAL */
+
+    .main-content,
+    .main-content-summary {
+      padding-left: 40px;
+    }
+
     /* LOGIN */
     /* SIGN UP */
     /* SIGN UP */
+
+
     /* SUMMARY */
+
+    .welcome-text-summary {
+      font-size: 47px;
+    }
+
+    .welcome-name-summary {
+      font-size: 61px;
+    }
+
     /* ADD TASK */
     /* ADD/EDIT TASKS OVERLAY */
     /* CONTACTS */
@@ -94,7 +112,16 @@
 /* LOGIN */
 /* SIGN UP */
 /* SIGN UP */
+
 /* SUMMARY */
+
+.bottom-top-summary,
+.bottom-middle-summary,
+.bottom-end-summary {
+  width: 450px;
+}
+
+
 /* ADD TASK */
 @media (min-width: 1201px) {
     .main-content {

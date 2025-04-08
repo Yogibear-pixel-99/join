@@ -144,7 +144,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
         </div>
         <div class="bottom-summary">
 
-          <div>
+          <div class="summary-wrapper">
 
           <div class="bottom-top-summary">
             <div onclick="directToBoard()" class="to-do-summary">
