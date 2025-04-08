@@ -209,7 +209,14 @@
     display: none;
 }
 
+
 /* SUMMARY */
+
+.welcome-summary {
+    display: none;
+}
+
+
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
