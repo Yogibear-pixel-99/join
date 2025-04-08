@@ -91,19 +91,43 @@
             </div>
     </header>
     <div id="main-content" class="main-content main-content-contacts-mobile flex-row no-padding">
+
+
+
+
+        <div class="add-contact-mobile-button-wrapper">
+            <button id="add-contact-button-mobile" class="dark-button add-contact-button-mobile" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container')">
+                <div class="add-person-icon-wrapper">
+                    <img src="../assets/icons/person_add.svg" alt="add person icon">
+                </div>
+            </button>
+        </div>
+       
+
+
+        
+
+
+
         <div id="contacts-container-wrapper" class="contact-container-wrapper">
+         
+
+
+
+
             <button class="dark-button add-contact-button add-contact-button-desktop" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container')">
                 <span>Add new contact</span>
                 <div class="add-person-icon-wrapper">
                     <img src="../assets/icons/person_add.svg" alt="add person icon">
                 </div>
             </button>
-            <button class="dark-button add-contact-button-mobile" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container')">
-                <div class="add-person-icon-wrapper">
-                    <img src="../assets/icons/person_add.svg" alt="add person icon">
-                </div>
-            </button>
-            <div id="contacts-content" class="contacts-content"></div>
+
+
+
+
+            <div id="contacts-content" class="contacts-content">
+
+            </div>
         </div>
         <div id="floating-contact-container" class="floating-contact-container-wrapper">
             
