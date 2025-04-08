@@ -192,7 +192,7 @@ function getNewStatusInfo(newStatus, taskKey) {
   collectedStatusInfo = {
     status: newStatus,
   };
-  patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey.id - 1}`);
+  patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey}`);
 }
 
 async function checkEmptyColumsExists() {
