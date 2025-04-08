@@ -332,7 +332,7 @@ function showDatePicker(){
   }
 }
 
-function addTask(event){
+async function addTask(event){
   event.preventDefault();
   collectedFormInfos = getEmptyTaskTemplate();
   collectFormInformation('add-task-form');
@@ -342,12 +342,7 @@ collectCategory();
 collectSubTasks(data);
 collectAssingTo();
 collectedFormInfos.status = "todo";
-  // create a template object
-  // taskTemplate = getEmptyTaskTemplate();
-  // collect infos from form with newFormData
-  // put collected data from form in object
-  // fetch the payload to api using existing function
-  // render in board
+await postDataToApi("tasks", collectedFormInfos)
 }
 
 function collectSubTasks(data) {
