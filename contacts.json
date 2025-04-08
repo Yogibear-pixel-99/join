@@ -259,7 +259,7 @@
 
   "tasks": [
     {
-      "status": "inProgress",
+      "status": "inprogress",
       "category": "User Story",
       "title": "Kochwelt Page & Recipe Recommender",
       "description": "Build start page with recipe recommendation.",
@@ -278,7 +278,7 @@
     },
 
     {
-      "status": "toDo",
+      "status": "todo",
       "category": "Technical Task",
       "title": "HTML Base Template",
       "description": "Create reusable HTML base templates.",
@@ -301,7 +301,7 @@
     },
 
     {
-      "status": "awaitFeedback",
+      "status": "awaitfeedback",
       "category": "Technical Task",
       "title": "CSS Architecture Planning",
       "description": "Define CSS naming conventions and structure.",

@@ -5,6 +5,8 @@ function initBoard() {
 async function loadAndRenderTasks() {
   await getDataFromServer("users", usersFromApi);
   await getDataFromServer("tasks", tasksFromApi);
+  console.log(tasksFromApi);
+  
   initialsChange();
   renderBoard();
 }
@@ -147,9 +149,9 @@ function createTaskCard(task) {
               onclick="openTask('${task.id}')" 
               draggable="true" 
               data-status="${task.status}">
-                  <span class="task-type task-color-${task.task
+                  <span class="task-type task-color-${task.category
                     .charAt(0)
-                    .toUpperCase()}">${task.task}</span>
+                    .toUpperCase()}">${task.category}</span>
                   <div class="task-title-description-wrapper">
                     <div class="task-title" id="titleTask${task.id}">${
     task.title
