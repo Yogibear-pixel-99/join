@@ -137,12 +137,15 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
       </div>
 
       <div id="main-content" class="main-content summary">
-        <div class="main-content-header">
+        <div class="summary-content-header">
           <h1>Join 360</h1>
           <div class="line"></div>
           <span class="header-text">Key Metrics at a Glance</span>
         </div>
         <div class="bottom-summary">
+
+          <div>
+
           <div class="bottom-top-summary">
             <div onclick="directToBoard()" class="to-do-summary">
               <svg
@@ -214,6 +217,8 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
             </div>
           </div>
 
+         
+
           <div class="bottom-middle-summary">
             <div onclick="directToBoard()" class="urgent-summary">
               <div class="urgent-left-summary">
@@ -229,10 +234,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
                 <h2 class="deadline-summary">Upcomming Deadline</h2>
               </div>
             </div>
-            <div class="welcome-summary">
-              <h2 class="welcome-text-summary">${time},</h2>
-              <h2 class="welcome-name-summary">${name}</h2>
-            </div>
+
           </div>
 
           <div class="bottom-end-summary">
@@ -255,6 +257,15 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
               </div>
             </div>
           </div>
+
+
+           </div>
+
+                        <div class="welcome-summary">
+              <h2 class="welcome-text-summary">${time},</h2>
+              <h2 class="welcome-name-summary">${name}</h2>
+            </div>
+
         </div>
       </div>`
 }

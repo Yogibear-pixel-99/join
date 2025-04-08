@@ -125,7 +125,7 @@ function sortDataFromApiAndGetFreeIdNumber(data){
     return newId;
 }
 
-
+ 
 /**
  * Toggles a specified overlaymenu with the given id.
  * 
