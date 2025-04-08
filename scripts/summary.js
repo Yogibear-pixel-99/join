@@ -305,7 +305,14 @@ function dateTemp(day, month, year){
 
 
 function showGreeting(){
-  // let userLoggedIn = 
+
+  // check if user logged in - existing function?
+  // set inner Text to guest / user name.
+  // check screensize
+  // showcontainer
+  // fadeContainer
+
+ 
 
 
   if (window.innerWidth <= 1024) {
