@@ -110,15 +110,38 @@
         <a href="./Privacypolicy.html">
           <div class="dropdown-text">Privacy Policy</div>
         </a>
-        <a href="./login.html">
+        <a href="./login.html" onclick="removeSessionStorageUser()">
           <div class="dropdown-text">Log out</div>
         </a>
       </div>
 
+
+
+    
+
+
+
+
+
       <div id="main-content" class="main-content">
-        <div class="top-board">
+        <div class="top-board board-header-hide-desktop">
           <h2 class="main-header">Board</h2>
           <div class="board-top-right">
+            <div class="find-task-wrapper">
+            </div>
+            <button
+              onclick="toggleAddTaskOverlay()"
+              class="dark-button add-task-button add-task-button-mobile">
+              <img src="../assets/icons/add.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+
+
+        <div class="top-board">
+          <h2 class="main-header hide-mobile-768">Board</h2>
+          <div class="board-top-right board-search-bar-wrapper-mobile">
             <div class="find-task-wrapper">
               <input
                 onkeyup="searchForTask()"
@@ -138,11 +161,13 @@
             </div>
             <button
               onclick="toggleAddTaskOverlay()"
-              class="dark-button add-task-button">
+              class="dark-button add-task-button hide-mobile-768">
               Add Task <img src="../assets/icons/add.svg" alt="" />
             </button>
           </div>
         </div>
+
+
 
         <div class="bottom-board">
           <!-- 1) To do -->

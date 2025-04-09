@@ -37,6 +37,14 @@
     
 
         /* LOGIN */
+
+        .guest-login-mobile {
+            display: flex;
+        }
+
+        .guest-login-desktop {
+            display: none;
+        }
     
         .main-container {
             justify-content: flex-end;

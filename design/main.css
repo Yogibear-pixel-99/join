@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 80px 40px;
+    padding: 80px;
     background-color: var(--main-background);
     height: 100%;
 }

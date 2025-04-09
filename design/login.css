@@ -1,6 +1,9 @@
 
 
 
+
+
+
 .login-logo {
   position: absolute;
   top: 66px;
@@ -195,3 +198,7 @@ input[type="checkbox"] {
     border: none;
   }
   
+  .guest-login-mobile {
+    display: none;
+  }
+

@@ -108,7 +108,7 @@
 
       <div id="main-content" class="main-content">
           <h1 class="add-task-header">Add Task</h1>
-        <form id="add-task-form" class="add-task-form-content" onsubmit="return validateForm(event)">
+        <form onload="loadCategory" id="add-task-form" class="add-task-form-content" onsubmit="">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div class="flex-col gap8">
@@ -145,7 +145,7 @@
                   id="due-date"
                   name="date"
                   required
-                  pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"
+                  pattern="/(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])\d{4}/g"
                   type="text"
                   placeholder="dd/mm/yyyy" />
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
@@ -265,12 +265,12 @@
                 </div>
             </div>
             <div class="flex-col gap8">
-              <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
-              <!-- <select onchange="changeTextColorCategory()" style="color: grey" name="categoryDropdown" id="category" >
+            <!--   <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
+              <select onchange="changeTextColorCategory()" style="color: grey" name="categoryDropdown" id="category" >
                   <option style="display: none; color: gray" value="">Select Task Category</option>
                   <option style="color: black" value="Technical Task">Technical Task</option>
                   <option style="color: black" value="User Story">User Story</option>
-              </select> --> 
+              </select> -->
                   <div class="custom-dropdown" id="categoryDropdownWrapper">
                 
                 <input
@@ -345,7 +345,7 @@
                 </svg>
               </div>
               
-              <button class="dark-button btns-addtask" type="submit">
+              <button class="dark-button btns-addtask" type="submit" onclick="addTask(event)">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>

@@ -25,6 +25,9 @@
     }
 
     /* ADD TASK */
+    .info-input-field-container {
+      gap: 0;
+  }
     /* ADD/EDIT TASKS OVERLAY */
     /* CONTACTS */
 
@@ -134,6 +137,7 @@
   max-width: 1000px;
 }
 
+
 /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
@@ -163,12 +167,90 @@
 /* HELP */
 /* PRIVACY */
 /* LEGAL NOTICE */
+}
 
-
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .add-task-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+  
+    .add-task-header {
+      font-size: 48px;
+      padding-bottom: 32px;
+    }
+  
+    .add-task-form {
+      gap: 24px;
+    }
+  
+    .add-task-form-column {
+      max-width: 420px;
+    }
+  
+    .add-task-seperator {
+      margin: 0 16px;
+      width: 1px;
+      background-color: var(--clr-lightGray);
+    }
+  
+    .prio-button {
+      font-size: 14px;
+      padding: 12px 8px;
+      gap: 6px;
+    }
+  
+    .prio-button img {
+      width: 18px;
+      height: 18px;
+    }
+  
+    input,
+    textarea {
+      font-size: 16px;
+      padding: 10px 14px;
+    }
+  
+    .add-task-footer {
+      flex-direction: column;
+      gap: 16px;
+      padding: 32px 0;
+      align-items: stretch;
+    }
+  
+    .add-task-submit-btns {
+      gap: 16px;
+      justify-content: space-between;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  
+    .cancel-img {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .add-task-select-menu {
+      background-size: 18px;
+    }
+  
+    .dropdown-content {
+      max-height: 200px;
+    }
+  
+    .assigned-to-list,
+    .assigned-to-list-content {
+      gap: 6px;
+    }
+  }
+  
 /* 320px — 480px: Mobile devices
 481px — 768px: iPads, Tablets
 769px — 1024px: Small screens, laptops
 1025px — 1200px: Desktops, large screens
 1201px and more —  Extra large screens, TV */
 
-}

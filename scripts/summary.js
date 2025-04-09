@@ -1,5 +1,11 @@
-function initSummary() {
-    getUserSummaryInfo();
+async function initSummary() {
+  await getUserSummaryInfo();
+  showGreeting();
+}
+
+
+async function timeDelay (){
+  new Promise
 }
 
 
@@ -25,7 +31,8 @@ function loadSummary() {
       userName = usersFromApi[emailIndex].name;
     }
   mainSummaryREF.innerHTML = summaryTemplate(userName, getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate());
-  }
+
+}
 
 
 function getTime() {
@@ -131,7 +138,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
         <a href="./Privacypolicy.html">
           <div class="dropdown-text">Privacy Policy</div>
         </a>
-        <a href="./login.html">
+        <a href="./login.html" onclick="removeSessionStorageUser()">
           <div class="dropdown-text">Log out</div>
         </a>
       </div>
@@ -268,7 +275,16 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
             </div>
 
         </div>
-      </div>`
+      </div>
+      
+    <section class="greeting-overlay d-none" id="summary-greeting-overlay-guest">
+      <div class="greeting-text" id="summary-greeting-text-overlay-guest">Good Morning</div>
+    </section>
+
+    <section class="greeting-overlay d-none" id="summary-greeting-overlay-user">
+        <div class="greeting-text" id="summary-greeting-name-overlay-user">Good Morning,</div>
+        <div class="greeting-name" id="summary-greeting-text-overlay-user">${name}</div>
+    </section>`
 }
 
 
@@ -302,4 +318,63 @@ function dateTemp(day, month, year){
           <span>${year}</span>`
 }
 
+
+// SHORTEN - OUTSOURCE IF FUNKTION - USED MORE THAN ONCE.
+function showGreeting(){
+  emailIndex = sessionStorage.getItem("indexOfUser");
+  let userName;
+  if (emailIndex === null) {
+    userName = 'Guest';
+  } else {
+    userName = usersFromApi[emailIndex].name;
+  }
+  
+  if (window.innerWidth <= 1024) {
+    let guestRef = document.getElementById('summary-greeting-overlay-guest');
+    let userRef = document.getElementById('summary-greeting-overlay-user');
+
+    if (userName !== 'Guest' && userName) {
+      userRef.classList.remove('d-none');
+      userRef.classList.add('summary-greeting-animation');
+      setTimeout(() => {userRef.classList.add('d-none')}, 3000);
+      setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
+  } else {
+    guestRef.classList.remove('d-none');
+    guestRef.classList.add('summary-greeting-animation');
+    setTimeout(() => {guestRef.classList.add('d-none')}, 3000);
+    setTimeout(() => {guestRef.classList.remove('summary-greeting-animation')}, 3000);
+  }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+   
+    
+  //   overlayRef.classList.remove('d-none');
+  //   overlayRef.classList.add('summary-greeting-animation');
+  //   setTimeout(() => {overlayRef.classList.add('d-none')}, 3000);
+  //   if (userName !== 'guest' && userName) {
+  //     overlayRef.innerHTML = 
+      
+  //   } else {
+  //     greetRef.innerText = getTime();
+  //   }
+  // }
+
+  // check if user logged in - existing function?
+  // set inner Text to guest / user name.
+  // check screensize
+  // showcontainer
+  // fadeContainer
+
+ 
 

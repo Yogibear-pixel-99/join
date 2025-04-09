@@ -295,3 +295,48 @@ transform-origin: left center;
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
+
+.summary-greeting-animation {
+  animation-name: greeting;
+  animation-duration: 3000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes greeting {
+  0% {filter: opacity(100%);}
+  50% {filter: opacity(100%);}
+  100% {filter: opacity(0%);}
+}
+
+.greeting-overlay {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  bottom: 76px;
+  left: 0;
+  background-color: var(--main-background);
+  z-index: 3500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: opacity(100%);
+}
+
+.greeting-overlay {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.greeting-text {
+  font-size: 36px;
+  color: var(--join-dark);
+}
+
+.greeting-name {
+  font-size: 47px;
+  font-weight: 700;
+  color: var(--light-blue);
+}
