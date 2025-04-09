@@ -4,6 +4,11 @@
 @media (max-width: 768px) {
     
  
+    /* GLOBAL */
+
+    .main-content {
+        padding: 40px 20px;
+    }
 
 
 /* LOGIN */
@@ -94,16 +99,42 @@
 
 /* BOARD */
 
+.top-board {
+    margin: 0 0 26px 0;
+}
+
+.board-header-hide-desktop {
+    margin: 0 0 40px 0;
+}
+
 .hide-mobile-768 {
     display: none;
 }
 
 .add-task-button-mobile {
+    width: 40px;
+    height: 40px;
+}
 
+.search-container-mobile {
+    display: flex;
+    justify-content: center;
 }
 
 .board-search-bar-wrapper-mobile {
+    width: 100%;
+    border: solid 1px rgb(168, 168, 168, 1.0);
+    background-color: white;
+    border-radius: 10px;
+}
 
+.board-search-bar {
+    border: none;
+    width: 100%;
+}
+
+.board-search-bar-wrapper-mobile:focus-within {
+    border: solid 1px var(--light-blue);
 }
 
 .find-task-wrapper {
