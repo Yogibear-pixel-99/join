@@ -338,13 +338,11 @@ function showDatePicker(){
 }
 
 async function addTask(event){
-  event.preventDefault();
- collectedFormInfos = await getEmptyTaskTemplate();
-  collectFormInformation('add-task-form');
-let formInfos = document.getElementById('add-task-form');
-let data = new FormData(formInfos);
+event.preventDefault();
+collectedFormInfos = await getEmptyTaskTemplate();
+collectFormInformation('add-task-form');
 collectCategory();
-collectSubTasks(data);
+collectSubTasks(new FormData(document.getElementById('add-task-form')));
 collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos)
 toggleAddedToBoard(event)
@@ -359,7 +357,6 @@ function collectSubTasks(data) {
       });
     }
 })
-console.log(collectedFormInfos);
 }
 
 function collectAssingTo() {
