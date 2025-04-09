@@ -99,8 +99,19 @@
 }
 
 .add-task-button-mobile {
-    width: 40px;
-    height: 40px;
+
+}
+
+.board-search-bar-wrapper-mobile {
+
+}
+
+.find-task-wrapper {
+    width: 100%;
+}
+
+.add-task-button-mobile img {
+    margin: 0;
 }
 
   .board-header-hide-desktop {
@@ -116,9 +127,9 @@
 }
 
 .board-single-task-container {
-    max-width: 100vw;
-    min-width: auto;
-    width: 100%;
+    /* max-width: 100vw; */
+    /* min-width: auto; */
+    /* width: 100%; */
 }
 
 .task-column {

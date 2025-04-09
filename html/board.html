@@ -124,7 +124,7 @@
 
 
       <div id="main-content" class="main-content">
-        <div class="top-board">
+        <div class="top-board board-header-hide-desktop">
           <h2 class="main-header">Board</h2>
           <div class="board-top-right">
             <div class="find-task-wrapper">
@@ -139,9 +139,9 @@
 
 
 
-        <div class="top-board board-header-hide-desktop">
-          <h2 class="main-header">Board</h2>
-          <div class="board-top-right">
+        <div class="top-board">
+          <h2 class="main-header hide-mobile-768">Board</h2>
+          <div class="board-top-right board-search-bar-wrapper-mobile">
             <div class="find-task-wrapper">
               <input
                 onkeyup="searchForTask()"
@@ -161,7 +161,7 @@
             </div>
             <button
               onclick="toggleAddTaskOverlay()"
-              class="dark-button add-task-button">
+              class="dark-button add-task-button hide-mobile-768">
               Add Task <img src="../assets/icons/add.svg" alt="" />
             </button>
           </div>
