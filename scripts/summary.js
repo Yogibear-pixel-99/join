@@ -128,7 +128,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
             alt="helplogo"
           />
         </a>
-          <div onclick="toggleDropdown()" class="header-initials">${returnInitials(name)}</div>
+          <div onclick="toggleDropdown()" class="header-initials">${returnInitials(name).slice(0, 2)}</div>
         </div>
       </header>
       <div class="dropdown-menu d-none" id="dropdown">

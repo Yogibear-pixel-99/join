@@ -250,11 +250,18 @@ function userLoggedIn() {
   let userNavbarREF = document.getElementById("user-navbar");
   let questNavbarREF = document.getElementById("quest-navbar");
   let checkUserLoggedIn = sessionStorage.getItem("userLoggedIn");
+  let mobileNavbarUser = document.getElementById('mobile-navbar-user');
+  let mobileNavbarGuest = document.getElementById('mobile-navbar-guest');
+ 
+
+
   
   if (checkUserLoggedIn == "true") {
     userNavbarREF.classList.toggle("d-none");
+    mobileNavbarUser.classList.toggle("d-none");
   } else {
     questNavbarREF.classList.toggle("d-none");
+    mobileNavbarGuest.classList.toggle("d-none");
   }
 }
 
