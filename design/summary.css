@@ -324,7 +324,18 @@ transform-origin: left center;
   filter: opacity(100%);
 }
 
+.greeting-overlay {
+  display: flex;
+  flex-direction: column;
+}
+
 .greeting-text {
   font-size: 36px;
   color: var(--join-dark);
+}
+
+.greeting-name {
+  font-size: 47px;
+  font-weight: 700;
+  color: var(--light-blue);
 }

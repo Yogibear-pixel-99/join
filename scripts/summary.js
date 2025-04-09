@@ -282,8 +282,8 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
     </section>
 
     <section class="greeting-overlay d-none" id="summary-greeting-overlay-user">
-        <div class="greeting-name" id="summary-greeting-name-overlay-user">Good Morning,</div>
-        <div class="greeting-text" id="summary-greeting-text-overlay-user">${name}</div>
+        <div class="greeting-text" id="summary-greeting-name-overlay-user">Good Morning,</div>
+        <div class="greeting-name" id="summary-greeting-text-overlay-user">${name}</div>
     </section>`
 }
 
@@ -319,6 +319,7 @@ function dateTemp(day, month, year){
 }
 
 
+// SHORTEN - OUTSOURCE IF FUNKTION - USED MORE THAN ONCE.
 function showGreeting(){
   emailIndex = sessionStorage.getItem("indexOfUser");
   let userName;
