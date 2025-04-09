@@ -364,5 +364,13 @@
 }
 
 .board-rendered {
-  height: 500px;
+  min-height: 300px;
 }
+
+.bord-header-hide-desktop {
+  display: none;
+}
+
+
+
+

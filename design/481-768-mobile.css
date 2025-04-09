@@ -91,6 +91,45 @@
     height: 40px;
 }
 
+
+/* BOARD */
+
+.hide-mobile-768 {
+    display: none;
+}
+
+.add-task-button-mobile {
+    width: 40px;
+    height: 40px;
+}
+
+  .board-header-hide-desktop {
+    display: flex;
+  }
+
+.main-header {
+    font-size: 47px;
+}
+
+.bottom-board {
+    flex-direction: column;
+}
+
+.board-single-task-container {
+    max-width: 100vw;
+    min-width: auto;
+    width: 100%;
+}
+
+.task-column {
+    display: flex;
+}
+
+.task-card {
+    width: 252px;
+}
+
+
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */

@@ -327,6 +327,7 @@ transform-origin: left center;
 .greeting-overlay {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .greeting-text {
