@@ -393,11 +393,19 @@ function validateForm(event) {
   let dueDate = document.getElementById('due-date').value;
   let assignedTo = document.getElementById("addSelectedContacts");
   let category = document.getElementById('categoryDropdown').value;
+  if (title == '') {
+    addRedBorderAndTextFalseInput(
+      "form-title",
+      "title-error-message",
+      "Check your email and password. Please try again. "
+    );
+  }
   if (title === '' || dueDate === '' || assignedTo.childElementCount == 0 || category === '') {
     alert('Please fill out all required fields.');
     event.preventDefault(); 
+  
     console.log(FALSE);
-    return false;   
+     
   }
   addTask(event);
   return true;
