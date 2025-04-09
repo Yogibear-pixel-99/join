@@ -188,9 +188,14 @@ function getAllSubtasksLength(task) {
 }
 
 function getDoneSubtasksLength(task) {
-  return task.subtasks.filter(
-    (subtask) => subtask.finished == "true" && subtask.subtaskName != undefined
-  ).length;
+  if (Array.isArray(task.subtasks)) {
+    return task.subtasks.filter(
+      (subtask) => subtask.finished == "true" && subtask.subtaskName != undefined
+    ).length;
+  }
+  else {
+    return '';
+}
 }
 
 function getNewStatusInfo(newStatus, taskKey) {
