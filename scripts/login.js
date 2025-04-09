@@ -1,3 +1,4 @@
+
 const emailREF = document.getElementById("email");
 const passwordREF = document.getElementById("password");
 const inputLogoREF = document.getElementById("input-logo");
@@ -8,6 +9,7 @@ async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
 }
 
+// SHORTEN THIS FUNCTION
 function checkLogin(event) {
   event.preventDefault();
   getUserInfo().then(() => {
@@ -20,7 +22,7 @@ function checkEmail(event) {
     (item) => item.email === emailREF.value
   );
   console.log(emailChecked);
-
+// DOPPELTE ÜBERPRÜFUNG
   if (emailChecked === true) {
     emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value
@@ -90,5 +92,17 @@ if (guestLoginREF) {
         sessionStorage.removeItem("indexOfUser");
         sessionStorage.setItem("userLoggedIn", false)
     }
+}
+
+
+function switchToBoard(){
+  window.location.href = '../html/summary.html';
+  setTimeout(() => {console.log('time')}, 100);
+  console.log(window.location.href);
+  
+  // open greeting container
+  // add animation fade
+  // switch to summary
+  // setInitialsToGuest();
 }
 

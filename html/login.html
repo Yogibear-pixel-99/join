@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Log in</title>
 
+    <link rel="stylesheet" href="../design/assets.css">
     <link rel="stylesheet" href="../design/colors.css">
     <link rel="stylesheet" href="../design/login.css">
     <link rel="stylesheet" href="../design/main.css">
-    <link rel="stylesheet" href="../design/assets.css">
     <link rel="stylesheet" href="../design/1025-1200-1350-desktop.css">
     <link rel="stylesheet" href="../design/769-1024-tablet.css">
     <link rel="stylesheet" href="../design/481-768-mobile.css">
@@ -29,7 +29,6 @@
     <script defer src="../scripts/standards.js"></script>
 </head>
 <body onload="getUserInfo()">
-    
     
 
 
@@ -65,7 +64,12 @@
               <span id="login-error-message" class="login-error-message"></span>
             <div class="login-button-container">
                 <button onclick="checkLogin(event)" class="dark-button mobile-login-button" id="login">Log in</button>
-                <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login" id="guest-login">Guest Log in</a>
+                
+                
+                <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login guest-login-desktop" id="guest-login">Guest Log in</a>
+                <div onclick="switchToBoard()" href="./summary.html" class="light-button guest-login guest-login-mobile" id="guest-login">Guest Log in</div>
+            
+            
             </div>
         </form>
 
@@ -82,7 +86,7 @@
     </svg>
     
 <section class="mobile-login-mask"></section>
-<navbar class="mobile-navbar"></navbar>
+
 </body>
 
 </html>

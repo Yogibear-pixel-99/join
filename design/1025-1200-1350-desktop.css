@@ -6,7 +6,7 @@
 
     .main-content,
     .main-content-summary {
-      padding-left: 40px;
+      padding: 80px 40px;
     }
 
     /* LOGIN */
@@ -31,6 +31,9 @@
     /* ADD/EDIT TASKS OVERLAY */
     /* CONTACTS */
 
+    .main-content-contacts {
+        padding: 0;
+    }
 
     /* CONTACTS FLOAT */
 
@@ -114,7 +117,7 @@
 
 .main-content,
 .main-content-summary {
-  padding-left: 20px;
+  padding: 40px 20px;
 }
 
 /* LOGIN */
@@ -139,8 +142,12 @@
 
 /* CONTACTS FLOAT */
 
+.main-content-contacts {
+    padding: 0;
+}
+
 .floating-contact-container-wrapper {
-    padding: 80px 40px;
+    padding: 40px 0 0 40px;
 }
 
 
@@ -173,5 +180,14 @@
 769px — 1024px: Small screens, laptops
 1025px — 1200px: Desktops, large screens
 1201px and more —  Extra large screens, TV */
+
+}
+
+
+@media (max-width: 1050px) {
+
+    .board-task-header-container span {
+        font-size: 18px;
+    }
 
 }

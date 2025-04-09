@@ -73,22 +73,10 @@ function openContactInFloatMenu(contactId, colorLetter) {
     contact,
     colorLetter
   );
-
-
     getMobileEditDeleteMenu(contact);
     switchFloatingContactAndContactsInMobile();
-
-
-
-  // if (contactsFloatRef.display == 'none') {
-  //   contactsFloatRef.
-  // }
-  // if (float menu is display none) {
-  // set display to block and contacts to hide
-  // if contacts display none set contactas to flex and float to none
-// }
-  animateContactMenu();
-  addBackgroundToSelectedContact(contactId);
+    animateContactMenu();
+    addBackgroundToSelectedContact(contactId);
 }
 
 
@@ -121,6 +109,19 @@ function switchFloatingContactAndContactsInMobile(){
     default:
       break;
   }
+
+  showAddContactButtonInMobile();
+}
+
+
+function showAddContactButtonInMobile(){
+  let contactsRef = document.getElementById('contacts-container-wrapper');
+  let buttonRef = document.getElementById('add-contact-button-mobile');
+      if (contactsRef.classList.contains('d-none')) {
+        buttonRef.classList.add('d-none')
+      } else {
+        buttonRef.classList.remove('d-none');
+      }
 }
 
 
