@@ -145,7 +145,31 @@ function createTaskCard(task) {
   let doneTasksNr = getDoneSubtasksLength(task);
   
   let subtaskProgressWidth = (100 / allTasksNr) * doneTasksNr
-
+  if (allTasksNr == '') {
+    return `<div class="task-card" 
+              id="task-${task.title.replace(/\s+/g, "-")}" 
+              draggable="true" 
+              data-status="${task.status}">
+                  <span class="task-type task-color-${task.category
+                    .charAt(0)
+                    .toUpperCase()}">${task.category}</span>
+                  <div class="task-title-description-wrapper">
+                    <div class="task-title" id="titleTask${task.id}">${
+    task.title
+  }</div>
+                    <div class="task-description" id="titleDescription${
+                      task.id
+                    }">${task.description}</div>
+                  </div>
+                  
+                <div class="task-meta-assignend-user-container"> 
+                <div class="task-meta">
+                  ${priorityHTML}
+                </div>
+                ${assignedHTML}
+            </div>
+          </div>`;
+  } else {
   return `<div class="task-card" 
               id="task-${task.title.replace(/\s+/g, "-")}" 
               onclick="openTask('${task.id}')" 
@@ -177,18 +201,28 @@ function createTaskCard(task) {
                 ${assignedHTML}
             </div>
           </div>`;
+        }
 }
 
 function getAllSubtasksLength(task) {
-  return task.subtasks.filter(
-    (subtask) => subtask != null && subtask.subtaskName != undefined
-  ).length;
+  if (Array.isArray(task.subtasks)) {
+    return task.subtasks.filter(
+      (subtask) => subtask != null && subtask.subtaskName != undefined
+    ).length;
+  } else {
+    return '';
+}
 }
 
 function getDoneSubtasksLength(task) {
-  return task.subtasks.filter(
-    (subtask) => subtask.finished == "true" && subtask.subtaskName != undefined
-  ).length;
+  if (Array.isArray(task.subtasks)) {
+    return task.subtasks.filter(
+      (subtask) => subtask.finished == "true" && subtask.subtaskName != undefined
+    ).length;
+  }
+  else {
+    return '';
+}
 }
 
 function getNewStatusInfo(newStatus, taskKey) {
