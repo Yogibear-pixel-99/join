@@ -393,21 +393,39 @@ function validateForm(event) {
   let dueDate = document.getElementById('due-date').value;
   let assignedTo = document.getElementById("addSelectedContacts");
   let category = document.getElementById('categoryDropdown').value;
+  if (title === '' || dueDate === '' || assignedTo.childElementCount == 0 || category === '') {
+    event.preventDefault();  
+    titleRedBorder(title);
+    dateRedBorder(dueDate);
+  } else {
+    addTask(event);
+  }
+}
+
+function titleRedBorder(title) {
+  let titleErrorREF = document.getElementById("title-error-essage");
   if (title == '') {
     addRedBorderAndTextFalseInput(
       "form-title",
       "title-error-message",
-      "Check your email and password. Please try again. "
+      "This field is required."
     );
+  } else {
+    removeRedBorderAndTextFalseInput("form-title", "title-error-message");
+    titleErrorREF.innerText = " ";
   }
-  if (title === '' || dueDate === '' || assignedTo.childElementCount == 0 || category === '') {
-    alert('Please fill out all required fields.');
-    event.preventDefault(); 
-  
-    console.log(FALSE);
-     
+}
+
+function dateRedBorder(dueDate) {
+  let dateErrorREF = document.getElementById("date-error-essage");
+  if (dueDate == '') {
+    addRedBorderAndTextFalseInput(
+      "due-date",
+      "date-error-message",
+      "This field is required."
+    );
+  } else {
+    removeRedBorderAndTextFalseInput("due-date", "date-error-message");
+    dateErrorREF.innerHTML = " ";
   }
-  addTask(event);
-  return true;
-  
 }
