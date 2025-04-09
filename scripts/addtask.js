@@ -3,6 +3,7 @@ let selectedCategory = null;
 let collectSubTask = []
 let savedCategory;
 
+
 function resetForm(formId) {
   const ref = document.getElementById(formId);
   const priorityRef = document.getElementById('standard-prio');

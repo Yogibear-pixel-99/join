@@ -188,6 +188,10 @@
     height: fit-content;
 }
 
+.no-tasks {
+    width: 100%;
+  }
+
 
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */

@@ -54,7 +54,7 @@ function toDoCounter() {
     let currentUser = usersFromApi[userIndex];
     let toDoCounter = 0;
     for (let task of tasksFromApi) {
-      if(task.status === "todo" && task.assigned && task.assigned.some(user => user.email === currentUser.email))
+      if(task.status === "todo" && task.assignTo.some(user => user === currentUser.email))
          {
         toDoCounter++; 
     }
@@ -68,7 +68,7 @@ function doneCounter() {
   let currentUser = usersFromApi[userIndex];
   let doneCounter = 0;
   for (let task of tasksFromApi) {
-      if (task.status == "done" && task.assigned && task.assigned.some(user => user.email === currentUser.email)) {
+      if (task.status == "done" && task.assignTo.some(user => user === currentUser.email)) {
           doneCounter++;
       } 
   }
@@ -190,7 +190,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
                 </g>
               </svg>
               <div class="content-summary">
-                <h2 class="quantity-summary">1</h2>
+                <h2 class="quantity-summary">${toDo}</h2>
                 <div class="text-summary">To-do</div>
               </div>
             </div>

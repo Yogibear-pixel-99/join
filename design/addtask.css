@@ -388,17 +388,6 @@ box-shadow: none;
   overflow-y: auto;
 }
 
-.dropdown-content {
-  position: absolute;
-  background-color: white;
-  min-width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  z-index: 1;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
 .custom-dropdown {
   position: relative;
   display: inline-block;
