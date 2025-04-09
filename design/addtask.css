@@ -501,9 +501,11 @@ box-shadow: none;
 }
 
 .date-error-message {
-  height: 22px;
+  height: 12px;
+  font-size: 12px;
 }
 
 .title-error-message {
-  height: 22px;
+  height: 12px;
+  font-size: 12px;
 }
