@@ -191,6 +191,45 @@
 
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
+
+.task-overlay-container {
+    max-width: 396px;
+    width: 396px;
+    padding: 32px 24px;
+}
+
+.task-overlay-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.overlay-task-header-text {
+    font-size: 16px;
+    padding: 4px 16px;
+}
+
+.overlay-task-body {
+    font-size: 16px;
+    font-weight: 400px;
+}
+
+.close-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    top: 34px;
+    right: 
+}
+
+.close-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+}
+
+.font16-weight400-768px {
+    font-size: 16px;
+    font-weight: 400;
+}
+
 /* CONTACTS */
 
 .main-content-contacts {

@@ -21,7 +21,7 @@ async function getTaskOverlayTemp(task){
             </header>
             <h1>${task.title}</h1>
             <section class="overlay-task-body">
-                <div>${task.description}</div>
+                <div class="font16-weight400-768px">${task.description}</div>
                 
                 <div>
                     <span class="overlay-task-body-left">Due date:</span>
