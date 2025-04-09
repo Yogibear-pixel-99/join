@@ -180,9 +180,13 @@ function createTaskCard(task) {
 }
 
 function getAllSubtasksLength(task) {
-  return task.subtasks.filter(
-    (subtask) => subtask != null && subtask.subtaskName != undefined
-  ).length;
+  if (Array.isArray(task.subtasks)) {
+    return task.subtasks.filter(
+      (subtask) => subtask != null && subtask.subtaskName != undefined
+    ).length;
+  } else {
+    return '';
+}
 }
 
 function getDoneSubtasksLength(task) {
