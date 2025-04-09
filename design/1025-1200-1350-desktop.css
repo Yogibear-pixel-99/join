@@ -25,6 +25,9 @@
     }
 
     /* ADD TASK */
+    .info-input-field-container {
+      gap: 0;
+  }
     /* ADD/EDIT TASKS OVERLAY */
     /* CONTACTS */
 
