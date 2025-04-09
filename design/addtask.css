@@ -500,3 +500,10 @@ box-shadow: none;
   position: absolute;
 }
 
+.date-error-message {
+  height: 22px;
+}
+
+.title-error-message {
+  height: 22px;
+}

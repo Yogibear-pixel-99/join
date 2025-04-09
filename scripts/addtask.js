@@ -403,29 +403,40 @@ function validateForm(event) {
 }
 
 function titleRedBorder(title) {
-  let titleErrorREF = document.getElementById("title-error-essage");
   if (title == '') {
-    addRedBorderAndTextFalseInput(
+    addRedBorderAndTextFalseInputAddTask(
       "form-title",
       "title-error-message",
       "This field is required."
     );
   } else {
-    removeRedBorderAndTextFalseInput("form-title", "title-error-message");
-    titleErrorREF.innerText = " ";
+    removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
   }
 }
 
 function dateRedBorder(dueDate) {
-  let dateErrorREF = document.getElementById("date-error-essage");
   if (dueDate == '') {
-    addRedBorderAndTextFalseInput(
+    addRedBorderAndTextFalseInputAddTask(
       "due-date",
       "date-error-message",
       "This field is required."
     );
   } else {
-    removeRedBorderAndTextFalseInput("due-date", "date-error-message");
-    dateErrorREF.innerHTML = " ";
+    removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
   }
+}
+
+function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer, errorMessage){
+  const contentRef = document.getElementById(borderContainer);
+  const textRef = document.getElementById(messageContainer);
+        contentRef.classList.add('red-border-inputfield');
+        textRef.innerText = errorMessage;
+        textRef.style.color = 'red';
+}
+
+function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer){
+  const contentRef = document.getElementById(borderContainer);
+  const textRef = document.getElementById(messageContainer);
+        contentRef.classList.remove('red-border-inputfield');
+        textRef.innerHTML = '';
 }
