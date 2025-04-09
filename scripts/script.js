@@ -257,3 +257,9 @@ function userLoggedIn() {
     questNavbarREF.classList.toggle("d-none");
   }
 }
+
+
+function removeSessionStorageUser(){
+  sessionStorage.removeItem("indexOfUser");
+  sessionStorage.removeItem("userLoggedIn");
+}

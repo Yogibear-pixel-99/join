@@ -1,3 +1,4 @@
+
 const emailREF = document.getElementById("email");
 const passwordREF = document.getElementById("password");
 const inputLogoREF = document.getElementById("input-logo");
@@ -8,6 +9,7 @@ async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
 }
 
+// SHORTEN THIS FUNCTION
 function checkLogin(event) {
   event.preventDefault();
   getUserInfo().then(() => {
@@ -20,7 +22,7 @@ function checkEmail(event) {
     (item) => item.email === emailREF.value
   );
   console.log(emailChecked);
-
+// DOPPELTE ÜBERPRÜFUNG
   if (emailChecked === true) {
     emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value
