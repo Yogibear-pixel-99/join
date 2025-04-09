@@ -46,6 +46,11 @@
     width: 100%;
 }
 
+/* BOARD */
+
+.main-content-board {
+    padding: 8px 8px 160px 8px;
+}
 
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */

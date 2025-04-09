@@ -8,6 +8,7 @@
 
     .main-content {
         padding: 40px 20px;
+        width: 100vw;
     }
 
 
@@ -28,7 +29,7 @@
 
 
 .main-content-summary {
-    padding: 20px;
+    padding: 40px 20px;
     
 }
 
@@ -99,6 +100,10 @@
 
 /* BOARD */
 
+.main-content-board {
+    padding-bottom: 160px;
+}
+
 .top-board {
     margin: 0 0 26px 0;
 }
@@ -158,23 +163,39 @@
 }
 
 .board-single-task-container {
-    /* max-width: 100vw; */
-    /* min-width: auto; */
-    /* width: 100%; */
+    max-width: none;
+    width: auto;
+}
+
+.board-rendered {
+    min-height: auto;
 }
 
 .task-column {
     display: flex;
+    gap: 16px;
+    overflow: auto;
+}
+
+.task-column::-webkit-scrollbar {
+    display: none;
 }
 
 .task-card {
+    min-width: 252px;
+    max-width: 252px;
     width: 252px;
+    height: fit-content;
 }
 
 
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
+
+.main-content-contacts {
+    padding: 40px 0 40px 20px;
+}
 
 .contact-container-wrapper {
     padding: 0;
