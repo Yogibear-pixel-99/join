@@ -171,10 +171,9 @@ function toggleAddedToBoard() {
 
 function loadingToBoard() {
     return setTimeout(() => {
-        let addtaskREF = document.getElementById("addtask-overlay");
         let addedToBoardREF = document.getElementById("task-added");
         addedToBoardREF.classList.toggle("d-none");
-        addtaskREF.classList.toggle("d-none")
+        window.location.href = "board.html";
         }, 3000);
       }
 

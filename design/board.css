@@ -193,16 +193,16 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 10;
+  z-index:0;
   overscroll-behavior: contain;
-  z-index: 11;
+  z-index: 3500;
 }
 
 .task-added-message {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 20px;
     width: 226px;
     height: 34px;
     background-color: var(--join-dark);

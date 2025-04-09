@@ -96,18 +96,21 @@ function getPriorityIconHTML(priority) {
   return "";
 }
 
-function toggleAddedToBoard() {
+async function toggleAddedToBoard(event) {
+  event.preventDefault();
   let addedToBoardREF = document.getElementById("task-added");
   addedToBoardREF.classList.toggle("d-none");
-  loadingToBoard();
+  await loadingToBoard();
 }
 
 function loadingToBoard() {
   return setTimeout(() => {
-    let addtaskREF = document.getElementById("addtask-overlay");
+    let maskREF = document.getElementById("mask-container");
+    let addtaskREF = document.getElementById("addtask-content");
     let addedToBoardREF = document.getElementById("task-added");
     addedToBoardREF.classList.toggle("d-none");
-    addtaskREF.classList.toggle("d-none");
+    maskREF.classList.toggle("d-none")
+    addtaskREF.classList.toggle("addtask-content-hide");
   }, 3000);
 }
 
