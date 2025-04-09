@@ -24,7 +24,7 @@
 @media (max-width: 1024px) {
   
         /* GLOBAL */
-
+    
         .main-content,
         .main-content-summary {
             padding: 40px;
@@ -169,7 +169,7 @@
 }
 
 .mobile-navbar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -259,6 +259,65 @@
 }
 
 /* ADD TASK */
+.add-task-form-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+  }
+
+  .info-input-field-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .info-input-field-container-left,
+  .info-input-field-container-right {
+    width: 100%;
+    padding: 0;
+    gap: 16px;
+  }
+
+  .info-input-field-container input,
+  .info-input-field-container textarea,
+  .info-input-field-container select {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 16px;
+  }
+
+  .add-task-separator {
+    display: none;
+  }
+
+  .add-task-footer {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 20px 100px;
+    width: 100%;
+  }
+
+  .addTask-button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .addTask-button-container button,
+  .light-button.btns-addtask {
+    width: 100%;
+    max-width: 300px;
+    font-size: 18px;
+    padding: 12px;
+  }
+}
+
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
 
