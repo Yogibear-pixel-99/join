@@ -342,6 +342,7 @@ collectCategory();
 collectSubTasks(data);
 collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos)
+toggleAddedToBoard(event)
 }
 
 function collectSubTasks(data) {
@@ -398,6 +399,8 @@ function validateForm(event) {
     titleRedBorder(title);
     dateRedBorder(dueDate);
   } else {
+    titleRedBorder(title);
+    dateRedBorder(dueDate);
     addTask(event);
   }
 }

@@ -93,5 +93,9 @@
      min-width: 310px;
      width: auto;
 }
+
+.mobile-guest-text {
+    width: 80px !important;
+  }
    
 }
