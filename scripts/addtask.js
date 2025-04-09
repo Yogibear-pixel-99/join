@@ -135,13 +135,17 @@ function renderSubtaskTemp(subtask) {
            </div>`;
 }
 
+async function loadDropdown() {
+  await getUserInitialInfo()
+  renderDropdown();
+}
+
+
 
 function toggleAssignedDropdown() {
     let dropdown = document.getElementById("dropdownContent");
     dropdown.classList.toggle("d-none");
-    if (dropdown.classList.contains("d-none")) {
-    renderDropdown();
-    }
+   
   }
 function renderDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
