@@ -148,7 +148,6 @@ function createTaskCard(task) {
   if (allTasksNr == '') {
     return `<div class="task-card" 
               id="task-${task.title.replace(/\s+/g, "-")}" 
-              onclick="openTask('${task.id}')" 
               draggable="true" 
               data-status="${task.status}">
                   <span class="task-type task-color-${task.category
