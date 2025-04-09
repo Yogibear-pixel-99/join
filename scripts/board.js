@@ -140,8 +140,11 @@ function findTask(inputTaskValue) {
 function createTaskCard(task) {
   let assignedHTML = renderAssignedUsers(task);
   let priorityHTML = getPriorityIconHTML(task.priority);
+
   let allTasksNr = getAllSubtasksLength(task);
   let doneTasksNr = getDoneSubtasksLength(task);
+  
+  let subtaskProgressWidth = (100 / allTasksNr) * doneTasksNr
 
   return `<div class="task-card" 
               id="task-${task.title.replace(/\s+/g, "-")}" 
@@ -162,7 +165,7 @@ function createTaskCard(task) {
                   <div class="task-subtask-info">
                   <div class="subtask-progressbar">
                     <div class="subtask-progress" style="width: ${
-                      (100 / allTasksNr) * doneTasksNr
+                      subtaskProgressWidth
                     }%"></div>
                   </div>
                   <span class="subtask-count">${doneTasksNr}/${allTasksNr} Subtasks</span>
@@ -177,14 +180,9 @@ function createTaskCard(task) {
 }
 
 function getAllSubtasksLength(task) {
-  if (Array.isArray(task.subtasks)) {
   return task.subtasks.filter(
     (subtask) => subtask != null && subtask.subtaskName != undefined
   ).length;
-}
-  else {
-    return '';
-  }
 }
 
 function getDoneSubtasksLength(task) {
