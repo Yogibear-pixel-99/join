@@ -55,7 +55,7 @@
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 
-.
+
 
 
 /* CONTACTS */
@@ -85,4 +85,13 @@
 1025px — 1200px: Desktops, large screens
 1201px and more —  Extra large screens, TV */
 
+}
+
+@media (max-width: 400px) {
+
+.task-overlay-container {
+     min-width: 310px;
+     width: auto;
+}
+   
 }
