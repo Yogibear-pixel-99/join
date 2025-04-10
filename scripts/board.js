@@ -109,7 +109,7 @@ function loadingToBoard() {
     let addtaskREF = document.getElementById("addtask-content");
     let addedToBoardREF = document.getElementById("task-added");
     addedToBoardREF.classList.toggle("d-none");
-    maskREF.classList.toggle("d-none")
+    maskREF.classList.toggle("d-none");
     addtaskREF.classList.toggle("addtask-content-hide");
   }, 3000);
 }
@@ -140,40 +140,14 @@ function findTask(inputTaskValue) {
   }
 }
 
+
 function createTaskCard(task) {
   let assignedHTML = renderAssignedUsers(task);
   let priorityHTML = getPriorityIconHTML(task.priority);
-
   let allTasksNr = getAllSubtasksLength(task);
   let doneTasksNr = getDoneSubtasksLength(task);
-  
-  let subtaskProgressWidth = (100 / allTasksNr) * doneTasksNr
-  if (allTasksNr == '') {
+
     return `<div class="task-card" 
-              id="task-${task.title.replace(/\s+/g, "-")}" 
-              draggable="true" 
-              data-status="${task.status}">
-                  <span class="task-type task-color-${task.category
-                    .charAt(0)
-                    .toUpperCase()}">${task.category}</span>
-                  <div class="task-title-description-wrapper">
-                    <div class="task-title" id="titleTask${task.id}">${
-    task.title
-  }</div>
-                    <div class="task-description" id="titleDescription${
-                      task.id
-                    }">${task.description}</div>
-                  </div>
-                  
-                <div class="task-meta-assignend-user-container"> 
-                <div class="task-meta">
-                  ${priorityHTML}
-                </div>
-                ${assignedHTML}
-            </div>
-          </div>`;
-  } else {
-  return `<div class="task-card" 
               id="task-${task.title.replace(/\s+/g, "-")}" 
               onclick="openTask('${task.id}')" 
               draggable="true" 
@@ -182,21 +156,11 @@ function createTaskCard(task) {
                     .charAt(0)
                     .toUpperCase()}">${task.category}</span>
                   <div class="task-title-description-wrapper">
-                    <div class="task-title" id="titleTask${task.id}">${
-    task.title
-  }</div>
-                    <div class="task-description" id="titleDescription${
-                      task.id
+                    <div class="task-title" id="titleTask${task.id}">${task.title}</div>
+                    <div class="task-description" id="titleDescription${task.id
                     }">${task.description}</div>
                   </div>
-                  <div class="task-subtask-info">
-                  <div class="subtask-progressbar">
-                    <div class="subtask-progress" style="width: ${
-                      subtaskProgressWidth
-                    }%"></div>
-                  </div>
-                  <span class="subtask-count">${doneTasksNr}/${allTasksNr} Subtasks</span>
-                </div>
+                    ${allTasksNr != '' ? getFilledSubtaskTemp(allTasksNr, doneTasksNr) : '<div class="d-none"></div>'}
                 <div class="task-meta-assignend-user-container"> 
                 <div class="task-meta">
                   ${priorityHTML}
@@ -204,8 +168,20 @@ function createTaskCard(task) {
                 ${assignedHTML}
             </div>
           </div>`;
-        }
-}
+  }
+
+
+function getFilledSubtaskTemp(allTasksNr, doneTasksNr){
+    return `<div class="task-subtask-info">
+    <div class="subtask-progressbar">
+      <div class="subtask-progress" style="width: ${
+        (100 / allTasksNr) * doneTasksNr
+      }%"></div>
+    </div>
+    <span class="subtask-count">${doneTasksNr}/${allTasksNr} Subtasks</span>
+  </div>`
+} 
+
 
 function getAllSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
@@ -213,19 +189,20 @@ function getAllSubtasksLength(task) {
       (subtask) => subtask != null && subtask.subtaskName != undefined
     ).length;
   } else {
-    return '';
+    return "";
+  }
 }
-}
+
 
 function getDoneSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
     return task.subtasks.filter(
-      (subtask) => subtask.finished == "true" && subtask.subtaskName != undefined
+      (subtask) =>
+        subtask.finished == "true" && subtask.subtaskName != undefined
     ).length;
+  } else {
+    return "";
   }
-  else {
-    return '';
-}
 }
 
 function getNewStatusInfo(newStatus, taskKey) {
@@ -243,10 +220,8 @@ async function checkEmptyColumsExists() {
   checkEmptyColums(todo, prog, feed, done);
 }
 
-
-
 async function resetTaskApi() {
- return await getDataFromServer("tasks", tasksFromApi);
+  return await getDataFromServer("tasks", tasksFromApi);
 }
 
 async function patchTaskDataToApi(payload, taskKey) {
@@ -272,10 +247,9 @@ async function patchTaskDataToApi(payload, taskKey) {
   }
 }
 
-
-function switchToBoard(){
+function switchToBoard() {
   if (window.innerWidth >= 1025) {
-    console.log(window.location)
+    console.log(window.location);
     // window.location
   }
 }
