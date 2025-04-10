@@ -100,6 +100,7 @@ function focusToSubtaskInput(containerId){
 async function loadDropdown() {
   await getUserInitialInfo()
   renderDropdown();
+  renderCategoryOptions();
 }
 
 
@@ -229,15 +230,12 @@ function handleCheckboxChange(event) {
   function toggleCategoryDropdown() {
     let dropdown = document.getElementById("categoryDropdownContent");
     wrapperCategory(dropdown);
-    if (!dropdown.classList.contains("d-none")) {
-      renderCategoryOptions();
-    }
   }
 
  function wrapperCategory(dropdown) {
   let wrapper = document.getElementById("categoryWrapper")
   if (wrapper.classList.contains('category-wrapper-passive')) {
-    wrapper.style.maxHeight = "300px";
+    wrapper.style.maxHeight = "200px";
     wrapper.classList.remove('category-wrapper-passive');
     wrapper.classList.add('category-wrapper-active');
   } else {
@@ -260,7 +258,7 @@ function handleCheckboxChange(event) {
  function timeOutCategoryDropDown(dropdown) {
   return setTimeout(() => {
     dropdown.classList.toggle("d-none");
-  }, 10);
+  }, 1000);
  }
 
   function renderCategoryOptions() {
