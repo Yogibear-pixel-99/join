@@ -2,6 +2,12 @@
 
 
 @media (max-width: 480px) {
+
+    /* GLOBAL */
+    h1 {
+        font-size: 47px;
+        padding: 20px 0;
+    }
     /* LOGIN */
     @keyframes main-logo {
         0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
@@ -180,4 +186,10 @@
     width: 80px !important;
   }
    
+}
+
+@media (max-width: 320px) {
+    h1 {
+        font-size: 47px;
+    }
 }

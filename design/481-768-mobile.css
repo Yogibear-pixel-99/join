@@ -7,7 +7,7 @@
     /* GLOBAL */
 
     .main-content {
-        padding: 40px 20px;
+        padding: 0px 20px;
         width: 100vw;
     }
 
@@ -198,6 +198,8 @@
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    padding-left: 10px;
+    flex-direction: column-reverse;
   }
   
   .add-task-form-content {
