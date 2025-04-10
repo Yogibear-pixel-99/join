@@ -5,9 +5,12 @@ const inputLogoREF = document.getElementById("input-logo");
 const guestLoginREF = document.getElementById("guest-login");
 let emailIndex = -1;
 
+
+
 async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
 }
+
 
 // SHORTEN THIS FUNCTION
 function checkLogin(event) {
@@ -16,6 +19,7 @@ function checkLogin(event) {
    checkEmail(event); 
   });
 }
+
 
 function checkEmail(event) {
   let emailChecked = usersFromApi.some(
@@ -43,6 +47,7 @@ function checkEmail(event) {
   }
 }
 
+
 function checkPassword(emailIndex, event) {
   let user = usersFromApi[emailIndex];  
   if (user && user.password === passwordREF.value ) {
@@ -65,15 +70,17 @@ function checkPassword(emailIndex, event) {
   }
 }
 
+
 if (passwordREF) {
 passwordREF.onkeyup = function () {
-  if ((passwordREF.innerText = "")) {
+  if ((passwordREF.innerText == "")) {
     inputLogoREF.src = "../assets/icons/lock.svg";
   } else {
     inputLogoREF.src = "../assets/icons/visibility_off.svg";
   }
 };
 }
+
 
 if (inputLogoREF) {
     inputLogoREF.onclick = function () {
@@ -87,6 +94,7 @@ if (inputLogoREF) {
       };
 }
 
+
 if (guestLoginREF) {
     guestLoginREF.onclick = function () {
         sessionStorage.removeItem("indexOfUser");
@@ -99,10 +107,5 @@ function switchToBoard(){
   window.location.href = '../html/summary.html';
   setTimeout(() => {console.log('time')}, 100);
   console.log(window.location.href);
-  
-  // open greeting container
-  // add animation fade
-  // switch to summary
-  // setInitialsToGuest();
 }
 
