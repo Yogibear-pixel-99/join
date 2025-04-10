@@ -379,7 +379,7 @@ box-shadow: none;
 }
 
 .dropdown-content {
-  position: absolute;
+  
   background-color: white;
   min-width: 100%;
   border: 1px solid #ddd;
@@ -498,4 +498,34 @@ box-shadow: none;
 .title-error-message {
   height: 12px;
   font-size: 12px;
+}
+
+.add-task-wrapper {
+  overflow: hidden;         
+  transition: max-height 600ms ease-out; 
+}
+
+.add-task-wrapper-passive {
+  max-height: 0;       
+  transition: max-height 600ms ease-out;       
+}
+
+.add-task-wrapper-active {
+  max-height: 500px; 
+  transition: max-height 600ms ease-out;     
+}
+
+.category-wrapper {
+  overflow: hidden;         
+  transition: max-height 600ms ease-out; 
+}
+
+.category-wrapper-passive {
+  max-height: 0;       
+  transition: max-height 600ms ease-out;       
+}
+
+.category.wrapper-active {
+  max-height: 200px; 
+  transition: max-height 600ms ease-out;     
 }
