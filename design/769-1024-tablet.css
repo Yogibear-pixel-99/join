@@ -328,7 +328,7 @@
     font-size: 18px;
     padding: 12px;
   }
-}
+
 
 /* ADD/EDIT TASKS OVERLAY */
 /* CONTACTS */
@@ -541,6 +541,8 @@
     padding: 18px 10px;
     justify-self: center;
     margin-top: 15px;
+}
+
 }
 
 /* HELP */
