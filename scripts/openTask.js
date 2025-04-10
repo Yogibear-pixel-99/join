@@ -38,7 +38,7 @@ async function getTaskAssignedUsers(task){
                     if (element.email === userEmail) {
                         name = element.name;
                         initials = returnInitials(name);
-                        content += getAssignedUserTemp(name, initials);
+                        content += getAssignedUserTaskOverlayTemp(name, initials);
                     }
                 })   
             }
@@ -54,7 +54,7 @@ async function getTaskAssignedUsers(task){
 async function getSubtasksForTaskOverlay(task){
     let content = '';
     await getDataFromServer(`tasks/${task.apiKey}/subtasks`, subtasksFromApi);
-            subtasksFromApi.forEach(subtask => content += getSubtaskTemp(task, subtask));
+            subtasksFromApi.forEach(subtask => content += getSubtaskForTaskOverlayTemp(task, subtask));
     return content;
 }
 

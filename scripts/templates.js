@@ -67,8 +67,8 @@ async function getEmptyTaskTemplate() {
  * Creates the single task cards shown in the board menu.
  * 
  * @param {object} task - The task object from the database.
- * @param {HTMLcontainer} assignedHTML - The initials to see who is assigned to the task.
- * @param {HTMLcontainer} priorityHTML - The selected priority image.
+ * @param {HTMLElement} assignedHTML - The initials to see who is assigned to the task.
+ * @param {HTMLElement} priorityHTML - The selected priority image.
  * @param {integer} allSubTasksNr - All subtasks in thise task.
  * @param {integer} doneSubTasksNr - All finished subtask in this task.
  * @returns - Returns the created single task card shown in board menu.
@@ -115,7 +115,7 @@ function getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) {
  * Creates a user template for the dropdown menu in add task - task assign to.
  * 
  * @param {object} user - The single user object from the database.
- * @param {img src} checkboxImg - The source of the checkbox image.
+ * @param {string} checkboxImg - The source of the checkbox image.
  * @param {string} rowClass - If user is checked, adds a class to visualize the checked user.
  * @returns - Returns the rendered user in the dropdwon menu including initials.
  */
@@ -137,7 +137,7 @@ function getDropDownUserTemp(user, checkboxImg, rowClass){
 
 
 /**
- * Creates a filterd user template in add task, assign to.
+ * Creates a filtered user template in add task, assign to.
  * 
  * @param {object} user 
  * @returns - Returns the filterd user template.
@@ -273,7 +273,12 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
 
 
 
-
+/**
+ * Creats a template for the task overlay, if click on a single task in board menu.
+ * 
+ * @param {object} task - The task object with the needed information from the database.
+ * @returns - Returns the task to the overlay menu including edit and delete onclick function.
+ */
 async function getTaskOverlayTemp(task){
     return `<header class="flex-ctr-spbtw overlay-header-wrapper">
                 <div class="overlay-task-header-text task-color-${task.category.charAt(0)}">${task.category}</div>
@@ -322,7 +327,14 @@ async function getTaskOverlayTemp(task){
 }
 
 
-function getAssignedUserTemp(name, initials){
+/**
+ * Creates a template to see which user is assigned to the task in the task overlay menu.
+ * 
+ * @param {string} name - The assigned user name.
+ * @param {string} initials - The assigned initials of the user.
+ * @returns - Returns a container with the name and the initials of the assigned user.
+ */
+function getAssignedUserTaskOverlayTemp(name, initials){
     return `<span class="task-user-wrapper">
                     <span class="task-overlay-initials flex-ctr-ctr initials-bg-color-${name.charAt(0)}">${initials}</span>
                     <span class="assigned-user-task-overlay">${name}</span>
@@ -330,7 +342,14 @@ function getAssignedUserTemp(name, initials){
 }
 
 
-function getSubtaskTemp(task, subtask){
+/**
+ * Creates a template for all subtasks in the selected task overlay menu.
+ * 
+ * @param {object} task - The task object from the database.
+ * @param {object} subtask - The subtask from the task in the object from the database.
+ * @returns 
+ */
+function getSubtaskForTaskOverlayTemp(task, subtask){
     return `<label>
                 <input 
                     id="subtask-${subtask.apiKey}"
@@ -340,6 +359,7 @@ function getSubtaskTemp(task, subtask){
             </label>
             `
 }
+
 
 // NEEDED AFTER CREATING OVERLAY --> AFTER ADD TASK WORKING
 // function getEditTaskTemp(task){
@@ -353,7 +373,20 @@ function getSubtaskTemp(task, subtask){
 // }
 
 
-function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urgent, closestDate) {
+/**
+ * Creates a template for the whole summary menu.
+ * 
+ * @param {string} name - The name of the logged user. If no user logged in, it is guest.
+ * @param {string} greetingText - The greeting text, depends on the actual time.
+ * @param {integer} toDo - Task who are in the todo sub menu in the board menu.
+ * @param {integer} done - Tasks who are in the done sub menu in the board menu.
+ * @param {integer} inProgress - Tasks who are in the in progress sub menu in the board menu.
+ * @param {integer} awaitFeedback - Tasks who are in the await feedback sub menu in the board menu.
+ * @param {integer} urgent - Tasks who has the priority urgent in the board menu.
+ * @param {HTMLElement} closestDate - Returns a template with the closest due date from all tasks in the database.
+ * @returns - Returns the complete summary with all information to the html site.
+ */
+function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedback, urgent, closestDate) {
     return `<header class="header-container">
                 <span class="header-text">Kanban Project Management Tool</span>
                 <svg class="header-logo-mobile" width="32" height="39" viewBox="0 0 101 122" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="join-logo-color-change" d="M71.6721 0H49.5143V25.4923H71.6721V0Z" fill="#2A3647"/><path class="join-logo-color-change" d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z" fill="#2A3647"/><path d="M38.2137 30.1318H16.0559V52.3884H38.2137V30.1318Z" fill="#29ABE2"/><path class="join-logo-color-change" d="M83.2793 111.522C83.2793 116.265 80.8761 118.815 77.5183 118.815C74.1605 118.815 71.9618 115.785 71.9618 111.762C71.9618 107.739 74.2287 104.554 77.7058 104.554C81.1829 104.554 83.2793 107.687 83.2793 111.522ZM74.5355 111.711C74.5355 114.57 75.6775 116.675 77.6376 116.675C79.5977 116.675 80.7056 114.45 80.7056 111.539C80.7056 108.988 79.6829 106.592 77.6376 106.592C75.5923 106.592 74.5355 108.903 74.5355 111.711Z" fill="#2A3647"/><path class="join-logo-color-change" d="M87.6768 104.76V118.593H85.2224V104.76H87.6768Z" fill="#2A3647"/><path class="join-logo-color-change" d="M90.3358 118.593V104.76H93.0629L95.9946 110.461C96.7493 111.952 97.4207 113.483 98.0058 115.049C97.8524 113.337 97.7843 111.368 97.7843 109.177V104.76H100.034V118.593H97.4945L94.5288 112.772C93.7436 111.243 93.0437 109.671 92.4323 108.064C92.4323 109.776 92.5516 111.711 92.5516 114.09V118.576L90.3358 118.593Z" fill="#2A3647"/></svg>
@@ -438,7 +471,7 @@ function summaryTemplate(name, time, toDo, done, inProgress, awaitFeedback, urge
         </div>
             </div>
                 <div class="welcome-summary">
-                    <h2 class="welcome-text-summary">${time},</h2>
+                    <h2 class="welcome-text-summary">${greetingText},</h2>
                     <div class="welcome-name-summary">${name}</div>
                 </div>
             </div>
