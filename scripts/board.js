@@ -143,9 +143,9 @@ function findTask(inputTaskValue) {
 function createTaskCard(task) {
   let assignedHTML = renderAssignedUsers(task);
   let priorityHTML = getPriorityIconHTML(task.priority);
-  let allTasksNr = getAllSubtasksLength(task);
-  let doneTasksNr = getDoneSubtasksLength(task);
-  let taskTemp = getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allTasksNr, doneTasksNr);
+  let allSubTasksNr = getAllSubtasksLength(task);
+  let doneSubTasksNr = getDoneSubtasksLength(task);
+  let taskTemp = getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubTasksNr, doneSubTasksNr);
   return taskTemp;
   }
 

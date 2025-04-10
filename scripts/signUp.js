@@ -78,7 +78,6 @@ function toggleSignUpButton(){
     } else if (checkPrivacy.checked && window.innerWidth <= 1024) {
     buttonRef.disabled = false;
     buttonRef.classList.add('dark-signup-mobile-button');
-    // buttonRef.classList.add('dark-button');
     buttonRef.classList.remove('dark-button-signup');
   } else {
       buttonRef.disabled = true;
