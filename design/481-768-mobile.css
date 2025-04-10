@@ -194,6 +194,84 @@
 
 
 /* ADD TASK */
+.add-task-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  
+  .add-task-form-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+  }
+  
+  .info-input-field-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 480px;
+  }
+  
+  .info-input-field-container-left,
+  .info-input-field-container-right {
+    width: 100%;
+    gap: 12px;
+    padding: 0;
+  }
+  
+  .info-input-field-container input,
+  .info-input-field-container textarea,
+  .info-input-field-container select {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+  
+  .add-task-separator {
+    display: none;
+  }
+  
+  .add-task-footer {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 20px 96px;
+  }
+  
+  .addTask-button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .addTask-button-container button,
+  .light-button.btns-addtask {
+    width: 100%;
+    max-width: 260px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .subtask-input-wrapper {
+    width: 100%;
+  }
+  
+  .subtask-input {
+    font-size: 16px;
+  }
+  
+  .added-subtasks {
+    height: 100px;
+    max-width: 480px;
+    overflow-y: auto;
+  }
+  
 /* ADD/EDIT TASKS OVERLAY */
 
 .task-overlay-container {
@@ -221,7 +299,6 @@
     width: 24px;
     height: 24px;
     top: 34px;
-    right: 
 }
 
 .close-icon-wrapper svg {

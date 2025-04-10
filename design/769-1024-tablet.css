@@ -28,6 +28,7 @@
         .main-content,
         .main-content-summary {
             padding: 40px;
+            height: 120%;
         }
 
     
@@ -267,6 +268,11 @@
 
 /* ADD TASK */
 
+.add-task-header {
+    display: flex;
+    justify-content: center;
+}
+
 .add-task-main-content {
     overflow-y: auto;
 }
@@ -306,13 +312,16 @@
     display: none;
   }
 
+  .added-subtasks {
+    height: 0;
+  }
   .add-task-footer {
     position: static;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
     padding: 40px 20px 100px;
-    width: 100%;
   }
 
   .addTask-button-container {
