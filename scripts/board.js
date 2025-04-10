@@ -5,7 +5,6 @@ function initBoard() {
 async function loadAndRenderTasks() {
   await getDataFromServer("users", usersFromApi);
   await getDataFromServer("tasks", tasksFromApi);
-  console.log(tasksFromApi[1].subtasks);
   initialsChange();
   renderBoard();
 }
@@ -140,46 +139,17 @@ function findTask(inputTaskValue) {
   }
 }
 
+
 function createTaskCard(task) {
   let assignedHTML = renderAssignedUsers(task);
   let priorityHTML = getPriorityIconHTML(task.priority);
   let allTasksNr = getAllSubtasksLength(task);
   let doneTasksNr = getDoneSubtasksLength(task);
-
-    return `<div class="task-card" 
-              id="task-${task.title.replace(/\s+/g, "-")}" 
-              onclick="openTask('${task.id}')" 
-              draggable="true" 
-              data-status="${task.status}">
-                  <span class="task-type task-color-${task.category
-                    .charAt(0)
-                    .toUpperCase()}">${task.category}</span>
-                  <div class="task-title-description-wrapper">
-                    <div class="task-title" id="titleTask${task.id}">${task.title}</div>
-                    <div class="task-description" id="titleDescription${task.id
-                    }">${task.description}</div>
-                  </div>
-                    ${allTasksNr != '' ? getFilledSubtaskTemp(allTasksNr, doneTasksNr) : '<div class="d-none"></div>'}
-                <div class="task-meta-assignend-user-container"> 
-                <div class="task-meta">
-                  ${priorityHTML}
-                </div>
-                ${assignedHTML}
-            </div>
-          </div>`;
+  let taskTemp = getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allTasksNr, doneTasksNr);
+  return taskTemp;
   }
 
 
-function getFilledSubtaskTemp(allTasksNr, doneTasksNr){
-    return `<div class="task-subtask-info">
-    <div class="subtask-progressbar">
-      <div class="subtask-progress" style="width: ${
-        (100 / allTasksNr) * doneTasksNr
-      }%"></div>
-    </div>
-    <span class="subtask-count">${doneTasksNr}/${allTasksNr} Subtasks</span>
-  </div>`
-} 
 
 
 
@@ -192,6 +162,7 @@ function getAllSubtasksLength(task) {
     return "";
   }
 }
+
 
 function getDoneSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {

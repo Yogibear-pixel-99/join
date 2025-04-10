@@ -121,20 +121,7 @@ function renderDropdown() {
 
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
-        userItem.innerHTML = `
-            <label onclick="toggleUserSelection('${user.email}')" class="user-item ${rowClass}">
-            <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
-                </div>
-                <span>${user.name}</span>
-                </div>
-                <img
-                  src="${checkboxImg}"
-                  class="checkbox-img"
-                  data-user-id="${user.email}"
-                  alt="checkbox" />
-            </label>
-        `;
+        userItem.innerHTML = getDropDownUserTemp(user, checkboxImg, rowClass);
         dropdownContent.appendChild(userItem);
     });
 }
@@ -151,16 +138,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
     filteredUsers.forEach(user => {
         let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
-        userItem.innerHTML = `
-             <label class="user-item">
-            <div class="user-itmen-names">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
-                </div>
-                <span>${user.name}</span>
-                </div>
-                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
-            </label>
-        `;
+        userItem.innerHTML = getDropDownUserFilterdTemp(user);
         dropdownContent.appendChild(userItem);
     });
 }

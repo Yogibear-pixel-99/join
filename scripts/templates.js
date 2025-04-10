@@ -1,8 +1,9 @@
 
 
 
+
 function renderSubtaskTemp(subtask) {
-    return `<div id="${subtask}" class="subtask-container-wrapper">
+  return `<div id="${subtask}" class="subtask-container-wrapper">
               
               <input
                 id="input-${subtask}"
@@ -41,56 +42,97 @@ function renderSubtaskTemp(subtask) {
   
               </div>
              </div>`;
-  }
+}
 
+async function getEmptyTaskTemplate() {
+  return {
+    status: "todo",
+    category: "",
+    title: "",
+    description: "",
+    date: "",
+    priority: "",
+    assignTo: [],
+    subtasks: [],
+    id: `${await getTheNextFreeIdNumberFromApi("tasks")}`,
+  };
+}
 
-//   async function getEmptyTaskTemplate(){
-//     return {"status": "todo",
-//           "category": "",
-//           "title": "",
-//           "description": "",
-//           "date": "",
-//           "priority": "",
-//           "assignTo": [],
-//           "subtasks": [],
-//           "id": `${await getTheNextFreeIdNumberFromApi("tasks")}`}
-//     }
+function getSingleTaskCardForBoardTemp(
+  task,
+  assignedHTML,
+  priorityHTML,
+  allTasksNr,
+  doneTasksNr
+) {
+  return `<div class="task-card" 
+              id="task-${task.title.replace(/\s+/g, "-")}" 
+              onclick="openTask('${task.id}')" 
+              draggable="true" 
+              data-status="${task.status}">
+                  <span class="task-type task-color-${task.category
+                    .charAt(0)
+                    .toUpperCase()}">${task.category}</span>
+                  <div class="task-title-description-wrapper">
+                    <div class="task-title" id="titleTask${task.id}">${
+    task.title
+  }</div>
+                    <div class="task-description" id="titleDescription${
+                      task.id
+                    }">${task.description}</div>
+                  </div>
+                    ${
+                      allTasksNr != ""
+                        ? getFilledSubtaskTemp(allTasksNr, doneTasksNr)
+                        : '<div class="d-none"></div>'
+                    }
+                <div class="task-meta-assignend-user-container"> 
+                <div class="task-meta">
+                  ${priorityHTML}
+                </div>
+                ${assignedHTML}
+            </div>
+          </div>`;
+}
 
-
-//     function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allTasksNr, doneTasksNr){
-//         return `<div class="task-card" 
-//               id="task-${task.title.replace(/\s+/g, "-")}" 
-//               onclick="openTask('${task.id}')" 
-//               draggable="true" 
-//               data-status="${task.status}">
-//                   <span class="task-type task-color-${task.category
-//                     .charAt(0)
-//                     .toUpperCase()}">${task.category}</span>
-//                   <div class="task-title-description-wrapper">
-//                     <div class="task-title" id="titleTask${task.id}">${task.title}</div>
-//                     <div class="task-description" id="titleDescription${task.id
-//                     }">${task.description}</div>
-//                   </div>
-//                     ${allTasksNr != '' ? getFilledSubtaskTemp(allTasksNr, doneTasksNr) : '<div class="d-none"></div>'}
-//                 <div class="task-meta-assignend-user-container"> 
-//                 <div class="task-meta">
-//                   ${priorityHTML}
-//                 </div>
-//                 ${assignedHTML}
-//             </div>
-//           </div>`;
-//     }
-
-
-    function getFilledSubtaskTemp(allTasksNr, doneTasksNr){
-        return `<div class="task-subtask-info">
+function getFilledSubtaskTemp(allTasksNr, doneTasksNr) {
+  return `<div class="task-subtask-info">
         <div class="subtask-progressbar">
           <div class="subtask-progress" style="width: ${
             (100 / allTasksNr) * doneTasksNr
           }%"></div>
         </div>
         <span class="subtask-count">${doneTasksNr}/${allTasksNr} Subtasks</span>
-      </div>`
-    } 
+      </div>`;
+}
 
 
+function getDropDownUserTemp(user, checkboxImg, rowClass){
+    return `<label onclick="toggleUserSelection('${user.email}')" class="user-item ${rowClass}">
+                <div class="user-itmen-names">
+                    <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
+                    </div>
+                    <span>${user.name}</span>
+                </div>
+                <img
+                  src="${checkboxImg}"
+                  class="checkbox-img"
+                  data-user-id="${user.email}"
+                  alt="checkbox" />
+            </label>
+        `;
+}
+
+
+function getDropDownUserFilterdTemp(user){
+    return `
+             <label class="user-item">
+            <div class="user-itmen-names">
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}
+                </div>
+                <span>${user.name}</span>
+                </div>
+                <input type="checkbox" data-user-id="${user.email}" class="user-checkbox" onclick="handleCheckboxChange(event)">
+            </label>
+        `;
+}
