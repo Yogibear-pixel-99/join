@@ -29,7 +29,7 @@
     <script defer src="../scripts/standards.js"></script>
     <script defer src="../scripts/addtask.js"></script>
   </head>
-  <body onload="getUserInitialInfo()">
+  <body onload="loadDropdown()">
     <section class="navbar-container desktop-navbar">
       <div>
         <img
@@ -260,7 +260,7 @@
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
                   onkeyup="startSearchingContacts()"
                   onclick="toggleAssignedDropdown()" />
-                    <div class="dropdown-content" id="dropdownContent"></div>
+                    <div class="dropdown-content d-none" id="dropdownContent"></div>
                 </div>
                 <div class="add-selected-contacts" id="addSelectedContacts">
                 </div>
