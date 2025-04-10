@@ -1,7 +1,3 @@
-
-
-
-
 /**
  * Creates a template for the add subtask function in add task menu.
  * 
@@ -68,14 +64,14 @@ async function getEmptyTaskTemplate() {
 
 
 /**
- * Renders the single task cards shown in the board menu.
+ * Creates the single task cards shown in the board menu.
  * 
  * @param {object} task - The task object from the database.
  * @param {HTMLcontainer} assignedHTML - The initials to see who is assigned to the task.
  * @param {HTMLcontainer} priorityHTML - The selected priority image.
  * @param {integer} allSubTasksNr - All subtasks in thise task.
  * @param {integer} doneSubTasksNr - All finished subtask in this task.
- * @returns - The created single task card shown in board menu.
+ * @returns - Returns the created single task card shown in board menu.
  */
 function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubTasksNr, doneSubTasksNr) {
   return `<div class="task-card" 
@@ -98,11 +94,11 @@ function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubT
 
 
 /**
- * Get the subtask template for every single task shown in the board menu.
+ * Creates a subtask template for every single task shown in the board menu.
  * 
  * @param {integer} allSubTasksNr - All subtasks in thise task.
  * @param {integer} doneSubTasksNr - All finished subtask in this task.
- * @returns - The width value to adjust the progress bar shown in every single task in board menu.
+ * @returns - Returns the width value to adjust the progress bar shown in every single task in board menu.
  */
 function getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) {
   return `<div class="task-subtask-info">
@@ -116,12 +112,12 @@ function getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) {
 
 
 /**
+ * Creates a user template for the dropdown menu in add task - task assign to.
  * 
- * 
- * @param {*} user 
- * @param {*} checkboxImg 
- * @param {*} rowClass 
- * @returns 
+ * @param {object} user - The single user object from the database.
+ * @param {img src} checkboxImg - The source of the checkbox image.
+ * @param {string} rowClass - If user is checked, adds a class to visualize the checked user.
+ * @returns - Returns the rendered user in the dropdwon menu including initials.
  */
 function getDropDownUserTemp(user, checkboxImg, rowClass){
     return `<label onclick="toggleUserSelection('${user.email}')" class="user-item ${rowClass}">
@@ -140,6 +136,12 @@ function getDropDownUserTemp(user, checkboxImg, rowClass){
 }
 
 
+/**
+ * Creates a filterd user template in add task, assign to.
+ * 
+ * @param {object} user 
+ * @returns - Returns the filterd user template.
+ */
 function getDropDownUserFilterdTemp(user){
     return `
              <label class="user-item">
@@ -154,27 +156,49 @@ function getDropDownUserFilterdTemp(user){
 }
 
 
-function firstLetterContainerTemp(firstLetterArray){
+/**
+ * Creates the alphabetical sorted first letter header for 
+ * the all contacts menu and calls a function who gets every single 
+ * contact with first letter of the header letter.
+ * 
+ * @param {string} firstLetterHeader - The header letter for sorting all contacts alphabetical.
+ * @returns - Returns the a container with a header letter and all contacts matching that header letter by name (first letter).
+ */
+function firstLetterContainerTemp(firstLetterHeader){
     return `<div class="contacts-first-letter">
-                <span>${firstLetterArray}</span>
+                <span>${firstLetterHeader}</span>
             </div>
             <div class="contacts-separator"></div>
-            <div>${getSingleContact(firstLetterArray)}</div>`
+            <div>${getSingleContact(firstLetterHeader)}</div>`
 }
 
 
-function getSingleContactTemp(nameRow, firstLetterArray){
-    return `<div class="single-contact" id="contact-${nameRow.id}" onclick="openContactInFloatMenu('${nameRow.id}', '${firstLetterArray}')">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${firstLetterArray}">${nameRow.initials.slice(0, 3)}</div>
+/**
+ * Creates the template for every single contact in the contact list.
+ * 
+ * @param {object} contact - The single contact object from the database.
+ * @param {string} firstLetter - The first letter to add a speciefid css class and a parameter for the floating contact menu to add a specified class.
+ * @returns - Returns the renderd single contact for the contact list.
+ */
+function getSingleContactTemp(contact, firstLetter){
+    return `<div class="single-contact" id="contact-${contact.id}" onclick="openContactInFloatMenu('${contact.id}', '${firstLetter}')">
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${firstLetter}">${contact.initials.slice(0, 3)}</div>
                 <div class="flex-col flex1">
-                    <span class="contact-name">${nameRow.name}</span>
-                    <span class="contact-email">${nameRow.email}</span>
+                    <span class="contact-name">${contact.name}</span>
+                    <span class="contact-email">${contact.email}</span>
                 </div>
             </div>`
 }
 
-    
-    function getSingleContactForFloatingMenuTemp(contact, colorLetter){
+
+/**
+ * Creates the template for the contact in the floating menu after click on a single contact in the contact list.
+ * 
+ * @param {object} contact - The contact object from the database.
+ * @param {string} colorLetter - A letter to specifie a css class with a background color.
+ * @returns - Returns the whole contact including functions to edit and delete in the floating contact menu.
+ */
+function getSingleContactForFloatingMenuTemp(contact, colorLetter){
         return `<div class="floating-single-contact">                 
                     <div class="floating-contact-header">
                         <div class="floating-initials-wrapper initials-bg-color-${colorLetter}">
@@ -221,6 +245,13 @@ function getSingleContactTemp(nameRow, firstLetterArray){
     }
 
 
+/**
+ * Creates template for the mobile edit and delete minimenu sliding 
+ * in after click on options in the floating contact menu.
+ * 
+ * @param {object} contact - The contact object from the database to get the needed api key for the edit and delete function.
+ * @returns - Returns the minimenu including the functions to delete/edit the selected contact.
+ */
     function getEditDeleteMobileMenuTemp(contact){
         return `<div class="floating-edit-wrapper-mobile" onclick="openEditContact('${contact.apiKey}'); toggleEditDeleteContactMenuMobile()">
                     <div>
@@ -241,7 +272,8 @@ function getSingleContactTemp(nameRow, firstLetterArray){
     }
 
 
-    
+
+
 async function getTaskOverlayTemp(task){
     return `<header class="flex-ctr-spbtw overlay-header-wrapper">
                 <div class="overlay-task-header-text task-color-${task.category.charAt(0)}">${task.category}</div>
