@@ -50,11 +50,9 @@ function getTime() {
 
 
 function toDoCounter() {
-    let userIndex =sessionStorage.getItem("indexOfUser");
-    let currentUser = usersFromApi[userIndex];
     let toDoCounter = 0;
     for (let task of tasksFromApi) {
-      if(task.status === "todo" && task.assignTo.some(user => user === currentUser.email))
+      if(task.status === "todo")
          {
         toDoCounter++; 
     }
@@ -64,11 +62,9 @@ function toDoCounter() {
 
 
 function doneCounter() {
-  let userIndex =sessionStorage.getItem("indexOfUser");
-  let currentUser = usersFromApi[userIndex];
   let doneCounter = 0;
   for (let task of tasksFromApi) {
-      if (task.status == "done" && task.assignTo.some(user => user === currentUser.email)) {
+      if (task.status == "done") {
           doneCounter++;
       } 
   }
