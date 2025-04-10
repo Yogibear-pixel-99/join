@@ -7,6 +7,7 @@ async function loadAndRenderTasks() {
   await getDataFromServer("tasks", tasksFromApi);
   initialsChange();
   renderBoard();
+  renderDropdown();
 }
 
 function renderBoard() {
@@ -110,7 +111,13 @@ function loadingToBoard() {
     addedToBoardREF.classList.toggle("d-none");
     maskREF.classList.toggle("d-none");
     addtaskREF.classList.toggle("addtask-content-hide");
+    renderNewBoard();
   }, 3000);
+}
+
+async function renderNewBoard() {
+ await getDataFromServer("tasks", tasksFromApi);
+ renderBoard();
 }
 
 function searchForTask() {

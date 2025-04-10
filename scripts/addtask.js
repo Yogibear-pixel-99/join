@@ -104,11 +104,35 @@ async function loadDropdown() {
 
 
 
-function toggleAssignedDropdown() {
+async function toggleAssignedDropdown() {
     let dropdown = document.getElementById("dropdownContent");
-    dropdown.classList.toggle("d-none");
-   
+    let wrapper = document.getElementById("addTaskWrapper")
+  if (wrapper.classList.contains('add-task-wrapper-passive')) {
+    wrapper.style.maxHeight = "500px";
+    wrapper.classList.remove('add-task-wrapper-passive');
+    wrapper.classList.add('add-task-wrapper-active');
+  } else {
+    wrapper.style.maxHeight = '0';
+    wrapper.classList.remove('add-task-wrapper-active');
+    wrapper.classList.add('add-task-wrapper-passive');
   }
+  closeDropdown(dropdown);
+  }
+
+ function closeDropdown(dropdown) {
+  if (dropdown.classList.contains("d-none")) {
+    dropdown.classList.toggle("d-none");
+  } else {
+    timeOutDropDown(dropdown);
+  }
+ } 
+
+ function timeOutDropDown(dropdown) {
+  return setTimeout(() => {
+    dropdown.classList.toggle("d-none");
+  }, 1000);
+ }
+
 function renderDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
@@ -204,11 +228,40 @@ function handleCheckboxChange(event) {
 
   function toggleCategoryDropdown() {
     let dropdown = document.getElementById("categoryDropdownContent");
-    dropdown.classList.toggle("d-none");
+    wrapperCategory(dropdown);
     if (!dropdown.classList.contains("d-none")) {
       renderCategoryOptions();
     }
   }
+
+ function wrapperCategory(dropdown) {
+  let wrapper = document.getElementById("categoryWrapper")
+  if (wrapper.classList.contains('category-wrapper-passive')) {
+    wrapper.style.maxHeight = "300px";
+    wrapper.classList.remove('category-wrapper-passive');
+    wrapper.classList.add('category-wrapper-active');
+  } else {
+    wrapper.style.maxHeight = '0';
+    wrapper.classList.remove('category-wrapper-active');
+    wrapper.classList.add('category-wrapper-passive');
+  }
+  closeCategoryDropdown(dropdown);
+ }
+
+
+ function closeCategoryDropdown(dropdown) {
+  if (dropdown.classList.contains("d-none")) {
+    dropdown.classList.toggle("d-none");
+  } else {
+    timeOutDropDown(dropdown);
+  }
+ } 
+
+ function timeOutCategoryDropDown(dropdown) {
+  return setTimeout(() => {
+    dropdown.classList.toggle("d-none");
+  }, 10);
+ }
 
   function renderCategoryOptions() {
     let dropdownContent = document.getElementById("categoryDropdownContent");
