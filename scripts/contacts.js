@@ -8,7 +8,7 @@ let sortedContactsArrayByFirstLetter = [];
 async function sortAndRenderContacts() {
   await getDataFromServer("contacts", contactsFromApi);
   await getDataFromServer("users", usersFromApi);
-  createInitialsForEachName(contactsFromApi);
+  // createInitialsForEachName(contactsFromApi);
   sortAllContactsByFirstLetter();
   renderContactsHeaderLetter();
   initialsChange();

@@ -425,3 +425,14 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
         contentRef.classList.remove('red-border-inputfield');
         textRef.innerHTML = '';
 }
+
+
+// NOT FINISHED YET -------------------------------------------------------------------------------------------------------------------------------
+function toggleAddTaskOverlay() {
+  let addtaskREF = document.getElementById("addtask-overlay");
+  let maskREF = document.getElementById("mask-container");
+  let addtaskHideREF = document.getElementById("addtask-content");
+  addtaskHideREF.classList.toggle("addtask-content-hide")
+  maskREF.classList.toggle("d-none")
+ /*  addtaskREF.classList.toggle("d-none") */
+}

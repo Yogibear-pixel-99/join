@@ -66,7 +66,7 @@ async function getEmptyTaskTemplate() {
 /**
  * Creates the single task cards shown in the board menu.
  * 
- * @param {object} task - The task object from the database.
+ * @param {Object} task - The task object from the database.
  * @param {HTMLElement} assignedHTML - The initials to see who is assigned to the task.
  * @param {HTMLElement} priorityHTML - The selected priority image.
  * @param {integer} allSubTasksNr - All subtasks in thise task.
@@ -114,7 +114,7 @@ function getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) {
 /**
  * Creates a user template for the dropdown menu in add task - task assign to.
  * 
- * @param {object} user - The single user object from the database.
+ * @param {Object} user - The single user object from the database.
  * @param {string} checkboxImg - The source of the checkbox image.
  * @param {string} rowClass - If user is checked, adds a class to visualize the checked user.
  * @returns - Returns the rendered user in the dropdwon menu including initials.
@@ -139,7 +139,7 @@ function getDropDownUserTemp(user, checkboxImg, rowClass){
 /**
  * Creates a filtered user template in add task, assign to.
  * 
- * @param {object} user 
+ * @param {Object} user 
  * @returns - Returns the filterd user template.
  */
 function getDropDownUserFilterdTemp(user){
@@ -176,13 +176,13 @@ function firstLetterContainerTemp(firstLetterHeader){
 /**
  * Creates the template for every single contact in the contact list.
  * 
- * @param {object} contact - The single contact object from the database.
+ * @param {Object} contact - The single contact object from the database.
  * @param {string} firstLetter - The first letter to add a speciefid css class and a parameter for the floating contact menu to add a specified class.
  * @returns - Returns the renderd single contact for the contact list.
  */
 function getSingleContactTemp(contact, firstLetter){
     return `<div class="single-contact" id="contact-${contact.id}" onclick="openContactInFloatMenu('${contact.id}', '${firstLetter}')">
-                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${firstLetter}">${contact.initials.slice(0, 3)}</div>
+                <div class="contact-list-initals flex-ctr-ctr initials-bg-color-${firstLetter}">${returnInitials(contact.name).slice(0, 3)}</div>
                 <div class="flex-col flex1">
                     <span class="contact-name">${contact.name}</span>
                     <span class="contact-email">${contact.email}</span>
@@ -194,7 +194,7 @@ function getSingleContactTemp(contact, firstLetter){
 /**
  * Creates the template for the contact in the floating menu after click on a single contact in the contact list.
  * 
- * @param {object} contact - The contact object from the database.
+ * @param {Object} contact - The contact object from the database.
  * @param {string} colorLetter - A letter to specifie a css class with a background color.
  * @returns - Returns the whole contact including functions to edit and delete in the floating contact menu.
  */
@@ -249,7 +249,7 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
  * Creates template for the mobile edit and delete minimenu sliding 
  * in after click on options in the floating contact menu.
  * 
- * @param {object} contact - The contact object from the database to get the needed api key for the edit and delete function.
+ * @param {Object} contact - The contact object from the database to get the needed api key for the edit and delete function.
  * @returns - Returns the minimenu including the functions to delete/edit the selected contact.
  */
     function getEditDeleteMobileMenuTemp(contact){
@@ -276,7 +276,7 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
 /**
  * Creats a template for the task overlay, if click on a single task in board menu.
  * 
- * @param {object} task - The task object with the needed information from the database.
+ * @param {Object} task - The task object with the needed information from the database.
  * @returns - Returns the task to the overlay menu including edit and delete onclick function.
  */
 async function getTaskOverlayTemp(task){
@@ -345,8 +345,8 @@ function getAssignedUserTaskOverlayTemp(name, initials){
 /**
  * Creates a template for all subtasks in the selected task overlay menu.
  * 
- * @param {object} task - The task object from the database.
- * @param {object} subtask - The subtask from the task in the object from the database.
+ * @param {Object} task - The task object from the database.
+ * @param {Object} subtask - The subtask from the task in the object from the database.
  * @returns 
  */
 function getSubtaskForTaskOverlayTemp(task, subtask){
@@ -394,7 +394,7 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
                     <a href="../html/help.html">
                         <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo"/>
                     </a>
-                    <div onclick="toggleDropdown()" class="header-initials">${returnInitials(name).slice(0, 2)}</div>
+                    <div onclick="toggleHeaderDropdownMenu()" class="header-initials">${returnInitials(name).slice(0, 2)}</div>
                 </div>
             </header>
             <div class="dropdown-menu d-none" id="dropdown">

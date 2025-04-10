@@ -96,6 +96,8 @@ function getPriorityIconHTML(priority) {
   return "";
 }
 
+
+// DOPPELTE FUNKTION SCRIPT Zeile 168 und BOARD Zeile 101
 async function toggleAddedToBoard(event) {
   event.preventDefault();
   let addedToBoardREF = document.getElementById("task-added");
@@ -229,4 +231,71 @@ function switchToBoard() {
     console.log(window.location);
     // window.location
   }
+}
+
+
+  // drag and drop 
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let columns = document.querySelectorAll(".board-rendered");
+
+    columns.forEach(column => {
+        column.addEventListener("dragover", dragover);
+        column.addEventListener("drop", dropTask);
+    });
+
+    document.addEventListener("dragstart", dragstart);
+    document.addEventListener("dragend", dragend);
+});
+
+function dragstart(event) {
+    if (!event.target.classList.contains("task-card")) return;
+    event.dataTransfer.setData("text/plain", event.target.id);
+    event.target.classList.add("dragging");
+}
+
+function dragover(event) {
+    event.preventDefault();
+    let column = event.currentTarget;
+    let draggingCard = document.querySelector(".dragging");
+    if (draggingCard && !column.contains(draggingCard)) {
+        column.appendChild(draggingCard);
+    }
+}
+
+function dropTask(event) {
+    event.preventDefault();
+    let taskId = event.dataTransfer.getData("text/plain");
+    let taskCard = document.getElementById(taskId);
+    let spanElement = taskCard.closest('.board-single-task-container').querySelector('.board-task-header-container span');
+    let column = event.currentTarget;
+    if (taskCard && column) {
+        let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
+        taskCard.dataset.status = newStatus;
+        console.log(`Task ${taskId} moved to ${newStatus}`);
+        let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
+        console.log(updateTask.apiKey);
+        console.log(MAIN_URL + `tasks/${updateTask.apiKey}` + ".json");
+        
+        getNewStatusInfo(newStatus, updateTask);
+    }
+    taskCard.classList.remove("dragging");
+    hideEmptyContentTasks(taskId);
+}
+
+function hideEmptyContentTasks(taskId){
+  let contentRef = document.getElementById(taskId).parentElement.querySelector(".no-tasks");
+  let allContent = document.querySelectorAll('.task-column');
+    allContent.forEach((element) => {
+      if (element.children.length == 1) {
+        element.children[0].classList.remove('d-none');
+      }
+    })
+  if (contentRef) {
+    contentRef.classList.add('d-none');
+  }
+}
+
+function dragend(event) {
+    event.target.classList.remove("dragging");
 }

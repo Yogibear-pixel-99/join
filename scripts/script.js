@@ -1,28 +1,68 @@
 
 
 MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
-
-// GLOBAL ARRAYS ---------------------------------------
 let contactsFromApi = [];
 let tasksFromApi = [];
 let usersFromApi = [];
 let subtasksFromApi = [];
 let collectedFormInfos = {};
 let collectedStatusInfo = {};
-// GLOBAL ARRAYS ---------------------------------------
+
 
 /**
- * Get the new information from the input fields and patch them to the database.
+ * Fetches data from the firebase api to the specified array and gets the api key for every entry.
  * 
- * @param {object} contactKey - The data to patch.
- * @param {string} contactKey - The keyvalue for the database to patch the payload.
+ * @param {string} SUB_URL - The name of the needed object in firebase.
+ * @param {Array} destination - Storage place of the fetched array.
  */
-async function patchDataToApi(payload, contactKey) {
+async function getDataFromServer(SUB_URL, destination) {
+    destination.splice(0, destination.length);
+    try {
+        let response = await fetch (MAIN_URL + SUB_URL + ".json");
+        if (!response.ok) {
+            throw new Error('no answer from server');
+        } else {
+            let data = await response.json();
+            data != null ? filterFetchedDataAndKey(data, destination) : console.log('No Data to display!')
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-    if (contactKey != undefined) {
+
+async function postDataToApi(SUB_URL, payload) {
+  try {
+    const response = await fetch(MAIN_URL + SUB_URL + ".json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+      throw new Error(`Fehler beim übertragen! - ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("Erfolgreich", data);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+
+/**
+ * Patch the payload to the firebase api.
+ * 
+ * @param {object} payload - The created data object to patch.
+ * @param {string} SUB_URL - The destination url for the database to patch the payload.
+ */
+async function patchDataToApi(payload, SUB_URL) {
+
+    if (SUB_URL != undefined) {
       try {
         let response = await fetch(
-          MAIN_URL + contactKey + ".json",
+          MAIN_URL + SUB_URL + ".json",
           {
             method: "PATCH",
             headers: {
@@ -33,8 +73,6 @@ async function patchDataToApi(payload, contactKey) {
         );
         if (!response.ok) {
           throw new Error("Contact not found in Database!");
-        } else {
-          console.log(response);
         }
       } catch (error) {
         console.log(error);
@@ -42,33 +80,14 @@ async function patchDataToApi(payload, contactKey) {
     }
   }
 
-/**
- * Fetches data from Firebase to specified arrays and gets the destination key for firebase.
- * 
- * @param {string} objName - The name of the needed object in firebase.
- * @param {array} destination - Storage place of the fetched array.
- */
-async function getDataFromServer(objName, destination) {
-    destination.splice(0, destination.length);
-    try {
-        let response = await fetch (MAIN_URL + objName + ".json");
-        if (!response.ok) {
-            throw new Error('no answer from server');
-        } else {
-            let data = await response.json();
-            data != null ? filterDataAndKey(data, destination) : console.log('No Data to display!')
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 /**
  * Filters the fetched data, delete null positions, puts the database key to the data.
  * 
- * @param {object} data - Fetched data from server.
+ * @param {Object} data - Fetched object from the firebase api.
+ * @param {Array} destination - The array, where the data is saved local.
  */
-function filterDataAndKey(data, destination){
+function filterFetchedDataAndKey(data, destination){
   let dataArray = Object.entries(data);
   let filteredArray = dataArray.filter(element => element[1] != null);
   for (let dataIndex = 0; dataIndex < filteredArray.length; dataIndex++) {
@@ -78,15 +97,16 @@ function filterDataAndKey(data, destination){
   }
 }
 
+
 /**
  * 
- * @param {string} objPos - The header in the database.
- * @param {string} contactKey - The keyvalue to delete the data in the database.
+ * @param {string} SUB_URL - The header in the database.
+ * @param {string} destinationApiKey - The keyvalue to delete the data in the database.
  */
-async function deleteDataFromApi(objPos, apiKey) {
+async function deleteDataFromApi(SUB_URL, destinationApiKey) {
   if (apiKey != "" || apiKey != undefined) {
     try {
-      await fetch(MAIN_URL + objPos + apiKey + ".json", {
+      await fetch(MAIN_URL + SUB_URL + destinationApiKey + ".json", {
         method: "DELETE",
       });
     } catch (error) {
@@ -97,6 +117,7 @@ async function deleteDataFromApi(objPos, apiKey) {
   }
 }
 
+
 /**
  * Close the deleted contact in the float menu.
  */
@@ -105,69 +126,51 @@ function emptyFloatMenu() {
   menuRef.classList.remove("floating-contact-container-open");
 }
 
-function getKeysToArray(destination, keys){
-    for (let keyIndex = 0; keyIndex < keys.length; keyIndex++) {
-        const element = keys[keyIndex][0];
-        destination[keyIndex].apiKey = element;
-    }
-    console.log(destination);
-}
 
 /**
  * Create the initials from the full name element and add them to the object.
  * 
- * @param {object} user - The user of the needed data in the array.
- * @returns - Returns the first letter of the first and last name. The initials.
+ * @param {string} fullName - The full name of the needed initials.
+ * @returns - Returns the first letter of every word.
  */
-
-function returnInitials(user){
-  if (user) {
-    const name = user.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
+function returnInitials(fullName){
+  if (fullName) {
+    const normalizedName = fullName.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase();
     const regExp = /\b\p{L}/gu;
-    const initialsArray = name.match(regExp);
+    const initialsArray = normalizedName.match(regExp);
     return initialsArray.join("");
   } else {
     return '';
   }
 }
 
-/**
- * Iterate through the whole object and calls a function to create the initials.
- * 
- */
-function createInitialsForEachName(destinationArray){
-    destinationArray.forEach(element => { 
-        element['initials'] = returnInitials(element.name);
-    })
-}
 
-// GLOBALE FUNKTION
-function toggleDropdown() {
+/**
+ * Toggles the dropdown menu in the header if click on the initials button.
+ */
+function toggleHeaderDropdownMenu() {
     let dropdownREF = document.getElementById("dropdown");
     dropdownREF.classList.toggle("d-none");
 }
 
 
-function toggleAddTaskOverlay() {
-    let addtaskREF = document.getElementById("addtask-overlay");
-    let maskREF = document.getElementById("mask-container");
-    let addtaskHideREF = document.getElementById("addtask-content");
-    addtaskHideREF.classList.toggle("addtask-content-hide")
-    maskREF.classList.toggle("d-none")
-   /*  addtaskREF.classList.toggle("d-none") */
-}
-
-
+/**
+ * Stopps event bubbling.
+ * 
+ * @param {Object} event - The standard event.
+ */
 function noClose(event) {
     event.stopPropagation();
 }
 
 
+// DOPPELTE FUNKTION SCRIPT Zeile 168 und BOARD Zeile 101
 function toggleAddedToBoard() {
     let addedToBoardREF = document.getElementById("task-added");
     addedToBoardREF.classList.toggle("d-none");
     loadingToBoard();
 }
+
 
 function loadingToBoard() {
     return setTimeout(() => {
@@ -179,71 +182,7 @@ function loadingToBoard() {
 
 
 
-  // drag and drop 
 
-document.addEventListener("DOMContentLoaded", () => {
-    let columns = document.querySelectorAll(".board-rendered");
-
-    columns.forEach(column => {
-        column.addEventListener("dragover", dragover);
-        column.addEventListener("drop", dropTask);
-    });
-
-    document.addEventListener("dragstart", dragstart);
-    document.addEventListener("dragend", dragend);
-});
-
-function dragstart(event) {
-    if (!event.target.classList.contains("task-card")) return;
-    event.dataTransfer.setData("text/plain", event.target.id);
-    event.target.classList.add("dragging");
-}
-
-function dragover(event) {
-    event.preventDefault();
-    let column = event.currentTarget;
-    let draggingCard = document.querySelector(".dragging");
-    if (draggingCard && !column.contains(draggingCard)) {
-        column.appendChild(draggingCard);
-    }
-}
-
-function dropTask(event) {
-    event.preventDefault();
-    let taskId = event.dataTransfer.getData("text/plain");
-    let taskCard = document.getElementById(taskId);
-    let spanElement = taskCard.closest('.board-single-task-container').querySelector('.board-task-header-container span');
-    let column = event.currentTarget;
-    if (taskCard && column) {
-        let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
-        taskCard.dataset.status = newStatus;
-        console.log(`Task ${taskId} moved to ${newStatus}`);
-        let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
-        console.log(updateTask.apiKey);
-        console.log(MAIN_URL + `tasks/${updateTask.apiKey}` + ".json");
-        
-        getNewStatusInfo(newStatus, updateTask);
-    }
-    taskCard.classList.remove("dragging");
-    hideEmptyContentTasks(taskId);
-}
-
-function hideEmptyContentTasks(taskId){
-  let contentRef = document.getElementById(taskId).parentElement.querySelector(".no-tasks");
-  let allContent = document.querySelectorAll('.task-column');
-    allContent.forEach((element) => {
-      if (element.children.length == 1) {
-        element.children[0].classList.remove('d-none');
-      }
-    })
-  if (contentRef) {
-    contentRef.classList.add('d-none');
-  }
-}
-
-function dragend(event) {
-    event.target.classList.remove("dragging");
-}
 
 function userLoggedIn() {
   let userNavbarREF = document.getElementById("user-navbar");
@@ -275,24 +214,10 @@ function removeSessionStorageUser(){
 
 
 
-async function postDataToApi(objName, newData) {
-  try {
-    const response = await fetch(MAIN_URL + objName + ".json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    });
-    if (!response.ok) {
-      throw new Error(`Fehler beim übertragen! - ${response.status}`);
-    }
-    const data = await response.json();
-    console.log("Erfolgreich", data);
-  } catch (error) {
-    console.error("Error:", error.message);
-  }
-}
+
+
+
+
 
 /**
  * Check if data in the inputfield is already in the realtime database and returns a boolean.
@@ -422,7 +347,7 @@ function initialsChange() {
   if (emailIndex === null) {
     headerInitialsREF.innerText = "G";
   } else {
-    headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name);
+    headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name.slice(0, 2));
   }
 }
 
