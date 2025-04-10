@@ -140,7 +140,6 @@ function findTask(inputTaskValue) {
   }
 }
 
-
 function createTaskCard(task) {
   let assignedHTML = renderAssignedUsers(task);
   let priorityHTML = getPriorityIconHTML(task.priority);
@@ -183,6 +182,7 @@ function getFilledSubtaskTemp(allTasksNr, doneTasksNr){
 } 
 
 
+
 function getAllSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
     return task.subtasks.filter(
@@ -192,7 +192,6 @@ function getAllSubtasksLength(task) {
     return "";
   }
 }
-
 
 function getDoneSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
