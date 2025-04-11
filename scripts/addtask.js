@@ -401,6 +401,7 @@ function createNewTask(event) {
   }
 }
 
+
 function titleRedBorder(title) {
   if (title == '') {
     addRedBorderAndTextFalseInputAddTask(
@@ -412,6 +413,7 @@ function titleRedBorder(title) {
     removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
   }
 }
+
 
 function dateRedBorder(dueDate) {
   if (dueDate == '') {
@@ -425,6 +427,7 @@ function dateRedBorder(dueDate) {
   }
 }
 
+
 function categoryRedBorder(category) {
   if (category == '') {
     addRedBorderAndTextFalseInputAddTask(
@@ -433,7 +436,7 @@ function categoryRedBorder(category) {
       "This field is required."
     );
   } else {
-    removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
+    removeRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message");
   }
 }
 
