@@ -381,16 +381,19 @@ function collectCategory() {
   collectedFormInfos.category = savedCategory;
 }
 
-function validateForm(event) {
+function createNewTask(event) {
   event.preventDefault();
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
   let assignedTo = document.getElementById("addSelectedContacts");
   let category = document.getElementById('categoryDropdown').value;
-  if (title === '' || dueDate === '' || assignedTo.childElementCount == 0 || category === '') {
+
+
+  if (title === '' || dueDate === ''|| category === '') {
     event.preventDefault();  
     titleRedBorder(title);
     dateRedBorder(dueDate);
+    categoryRedBorder(category);
   } else {
     titleRedBorder(title);
     dateRedBorder(dueDate);
@@ -415,6 +418,18 @@ function dateRedBorder(dueDate) {
     addRedBorderAndTextFalseInputAddTask(
       "due-date",
       "date-error-message",
+      "This field is required."
+    );
+  } else {
+    removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
+  }
+}
+
+function categoryRedBorder(category) {
+  if (category == '') {
+    addRedBorderAndTextFalseInputAddTask(
+      "categoryDropdown",
+      "category-error-message",
       "This field is required."
     );
   } else {

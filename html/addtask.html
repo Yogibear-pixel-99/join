@@ -253,7 +253,7 @@
                 </div>
               </div>
               <div class="flex-col gap8">
-                <label for="searchInput">Assigned to<span class="red-asterisk">*</span></label>
+                <label for="searchInput">Assigned to</label>
                 <div class="custom-dropdown" id="customDropdown">
                     
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
@@ -268,12 +268,6 @@
                 </div>
             </div>
             <div class="flex-col gap8">
-            <!--   <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
-              <select onchange="changeTextColorCategory()" style="color: grey" name="categoryDropdown" id="category" >
-                  <option style="display: none; color: gray" value="">Select Task Category</option>
-                  <option style="color: black" value="Technical Task">Technical Task</option>
-                  <option style="color: black" value="User Story">User Story</option>
-              </select> -->
               <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
                   <div class="custom-dropdown" id="categoryDropdownWrapper">
                 
@@ -289,7 +283,7 @@
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
                 </div>
               </div>
-                       
+              <span id="category-error-message" class="title-error-message"></span>
               <div class="subtask-input-wrapper flex-col gap8">
                 <label for="subtasks-input"
                   >Subtasks  </label>
@@ -350,7 +344,7 @@
                 </svg>
               </div>
               
-              <button class="dark-button btns-addtask" type="submit" onclick="validateForm(event)">
+              <button class="dark-button btns-addtask" type="submit" onclick="createNewTask(event)">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
             </div>
