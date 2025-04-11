@@ -96,26 +96,18 @@ function getPriorityIconHTML(priority) {
   return "";
 }
 
-
-// DOPPELTE FUNKTION SCRIPT Zeile 168 und BOARD Zeile 101
-async function toggleAddedToBoard(event) {
-  event.preventDefault();
-  let addedToBoardREF = document.getElementById("task-added");
-  addedToBoardREF.classList.toggle("d-none");
-  await loadingToBoard();
-}
-
 function loadingToBoard() {
   return setTimeout(() => {
     let maskREF = document.getElementById("mask-container");
     let addtaskREF = document.getElementById("addtask-content");
-    let addedToBoardREF = document.getElementById("task-added");
+    let addedToBoardREF = document.getElementById("task-added-overlay-button");
     addedToBoardREF.classList.toggle("d-none");
     maskREF.classList.toggle("d-none");
     addtaskREF.classList.toggle("addtask-content-hide");
     renderNewBoard();
   }, 3000);
 }
+
 
 async function renderNewBoard() {
  await getDataFromServer("tasks", tasksFromApi);

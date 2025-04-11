@@ -164,21 +164,6 @@ function noClose(event) {
 }
 
 
-// DOPPELTE FUNKTION SCRIPT Zeile 168 und BOARD Zeile 101
-function toggleAddedToBoard() {
-    let addedToBoardREF = document.getElementById("task-added");
-    addedToBoardREF.classList.toggle("d-none");
-    loadingToBoard();
-}
-
-
-function loadingToBoard() {
-    return setTimeout(() => {
-        let addedToBoardREF = document.getElementById("task-added");
-        addedToBoardREF.classList.toggle("d-none");
-        window.location.href = "board.html";
-        }, 3000);
-      }
 
 
 

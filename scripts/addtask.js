@@ -334,9 +334,19 @@ collectFormInformation('add-task-form');
 collectCategory();
 collectSubTasks(new FormData(document.getElementById('add-task-form')));
 collectAssingTo();
-await postDataToApi("tasks", collectedFormInfos)
-toggleAddedToBoard(event)
+await postDataToApi("tasks", collectedFormInfos);
+toggleAddedToBoardButton();
+setTimeout(toggleAddedToBoardButton, 3000);
+setTimeout(() => {window.location.href = "../html/board.html"}, 3000);
 }
+
+
+function toggleAddedToBoardButton() {
+  let addedToBoardREF = document.getElementById("task-added-overlay-button");
+  addedToBoardREF.classList.toggle("d-none");
+ 
+}
+
 
 function collectSubTasks(data) {
   data.forEach((value, key) => {
@@ -348,6 +358,7 @@ function collectSubTasks(data) {
     }
 })
 }
+
 
 function collectAssingTo() {
   let userREF = document;

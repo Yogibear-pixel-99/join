@@ -202,7 +202,7 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
         return `<div class="floating-single-contact">                 
                     <div class="floating-contact-header">
                         <div class="floating-initials-wrapper initials-bg-color-${colorLetter}">
-                            <span" class="floating-initials">${contact.initials.slice(0, 3)}</span>
+                            <span" class="floating-initials">${returnInitials(contact.name).slice(0, 2)}</span>
                         </div>
                         <div class="floating-name-wrapper">
                             <div class="floating-full-name">${contact.name}</div>
