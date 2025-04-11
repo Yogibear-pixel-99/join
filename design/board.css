@@ -228,6 +228,8 @@
   align-items: center;
   box-shadow: 0 0 4 0 rgba(0, 0, 0, 0.16);
   border: dashed 1px rgba(168, 168, 168, 1.0);
+  padding: 16px 24px;
+  text-align: center;
 }
 
 
