@@ -86,13 +86,7 @@ function overlayEditTask(taskApiKey){
     taskRef.innerHTML = getEditTaskTemp(taskData);
 
     // design edit task container
-    // show edit Task Container
     // fill edit task container with values
-
-
-
-
-
     // change values
     // save values to api
     // show new values in task overlay

@@ -163,7 +163,6 @@ input[type="checkbox"] {
   }
 
   .add-task-footer-overlay {
-    /* position: absolute; */
     display: flex;
     justify-content: space-between;
   }
