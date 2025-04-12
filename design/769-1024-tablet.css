@@ -28,7 +28,6 @@
         .main-content,
         .main-content-summary {
             padding: 20px 40px;
-            height: 120%;
         }
 
     
@@ -269,9 +268,10 @@
 /* ADD TASK */
 
 .add-task-header {
-    display: flex;
-    justify-content: center;
-}
+    max-width: 600px;
+    margin-bottom: 32px;
+    align-self: c;
+  }
 
 .add-task-main-content {
     overflow-y: auto;
@@ -288,9 +288,9 @@
     flex-direction: column;
     align-items: center;
     gap: 0;
-    padding: 0 20px;
     width: 100%;
     max-width: 600px;
+    margin-bottom: 165px;
   }
 
   .info-input-field-container-left,
@@ -312,30 +312,40 @@
     display: none;
   }
 
-  .added-subtasks {
-    height: 0;
+
+
+
+  
+  .required-wrapper {
+    display: none;
   }
+
   .add-task-footer {
     position: static;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 16px;
-    padding: 40px 20px 100px;
+    align-self: flex-end;
+  }
+
+  .added-subtasks {
+    max-height: none;
   }
 
   .addTask-button-container {
-    flex-direction: column;
+    margin-top: 24px;
+    flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 32px;
   }
 
   .addTask-button-container button,
   .light-button.btns-addtask {
-    width: 100%;
-    max-width: 300px;
-    font-size: 18px;
-    padding: 12px;
+
+    font-size: 21px;
+    padding: 16px;
+    font-weight: 700;
   }
 
 

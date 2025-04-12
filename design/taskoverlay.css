@@ -158,11 +158,6 @@ input[type="checkbox"] {
 .add-task-overlay {
     padding: 60px;
     max-width: 1100px;
-    width: 100vw;
+    width: 96vw;
   }
 
-  .add-task-footer-overlay {
-    right: 60px;
-    bottom: 60px;
-    left: 60px;
-  }

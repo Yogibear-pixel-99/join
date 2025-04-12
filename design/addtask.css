@@ -1,4 +1,15 @@
 
+
+
+.main-content-addtask {
+  overflow: auto;
+  margin-bottom: 300px;
+}
+
+.main-content-addtask::-webkit-scrollbar {
+  display: none;
+}
+
 .add-task-header {
   margin-bottom: 40px;
 }
@@ -310,7 +321,8 @@ box-shadow: none;
   flex-direction: column;
   gap: 6px;
   margin-top: 6px;
-  height: 110px;
+  height: auto;
+  max-height: 110px;
   overflow: auto;
 }
 

@@ -39,7 +39,6 @@
 
 /* SIGN UP */
 /* SIGN UP */
-
 /* SUMMARY */
 
 .main-content-summary {
@@ -59,97 +58,22 @@
 }
 
 /* ADD TASK */
-.add-task-header {
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-  
-  .add-task-form-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    gap: 0;
-  }
-  
-  .info-input-field-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 0 8px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .info-input-field-container-left,
-  .info-input-field-container-right {
-    width: 100%;
-    padding: 0;
-    gap: 12px;
-  }
-  
-  .info-input-field-container input,
-  .info-input-field-container textarea,
-  .info-input-field-container select {
-    width: 100%;
-    font-size: 15px;
-    padding: 10px 12px;
-  }
-  
-  textarea {
-    height: 100px;
-  }
-  
-  .add-task-separator {
-    display: none;
-  }
-  
-  .add-task-footer {
-    position: static;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 32px 12px 80px;
-  }
-  
-  .addTask-button-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-  }
-  
-  .addTask-button-container button,
-  .light-button.btns-addtask {
-    width: 100%;
-    font-size: 15px;
-    padding: 10px;
-  }
-  
-  .subtask-input-wrapper {
-    width: 100%;
-  }
-  
-  .subtask-input {
-    font-size: 15px;
-    padding: 10px 12px;
-  }
-  
-  .added-subtasks {
-    max-height: 80px;
-    padding-bottom: 8px;
-    margin-top: 8px;
-    overflow-y: auto;
-    width: 100%;
-  }
+
+.main-content-addtask {
+  padding: 8px;
+}
+
+.btn-importance-container {
+  flex-wrap: wrap;
+}
+
+.add-task-button-container {
+  gap: 16px;
+}
+
 /* ADD/EDIT TASKS OVERLAY */
-
-
-
-
 /* CONTACTS */
 /* CONTACTS FLOAT */
-
-
 /* CONTACTS EDIT/ADD */
 
 .add-contact-overlay-content-left,
@@ -192,4 +116,23 @@
     h1 {
         font-size: 47px;
     }
+}
+
+
+@media (max-width: 340px) {
+  .addTask-button-container button,
+  .btns-addtask {
+    font-size: 16px !important;
+    font-weight: 600;
+  }
+
+  .clear-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .btns-addtask img {
+    width: 22px;
+    height: 22px;
+  }
 }

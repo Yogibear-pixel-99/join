@@ -3,14 +3,9 @@
 @media (max-width: 1350px) {
     
     /* GLOBAL */
-
-   
-
     /* LOGIN */
     /* SIGN UP */
     /* SIGN UP */
-
-
     /* SUMMARY */
 
     .welcome-text-summary {
@@ -27,8 +22,6 @@
   }
     /* ADD/EDIT TASKS OVERLAY */
     /* CONTACTS */
-
-
     /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
@@ -84,10 +77,6 @@
 
 /* CONTACTS EDIT/ADD */
 
-/* .add-contact-overlay-content-left {
-    padding: 66px 24px;
-} */
-
 .add-contact-overlay-content-right {
     padding-right: 24px;
     width: 700px;
@@ -116,7 +105,6 @@
 /* LOGIN */
 /* SIGN UP */
 /* SIGN UP */
-
 /* SUMMARY */
 
 .bottom-top-summary,
@@ -128,9 +116,7 @@
 
 /* ADD TASK */
 .info-input-field-container {
-  display: flex;
   gap: 10px;
-  max-width: 1000px;
 }
 
 
@@ -167,22 +153,16 @@
 
 
 /* addtask */
-@media (min-width: 1025px) and (max-width: 1350px) {
-  .main-content {
-    padding: 20px 48px 64px 48px;
-    overflow-x: hidden;
-  }
+@media (max-width: 1350px) {
+
 
   .add-task-header {
-    font-size: 48px;
+    /* font-size: 48px; */
     margin-bottom: 32px;
   }
 
   .info-input-field-container {
-    flex-direction: row;
-    justify-content: space-between;
     gap: 32px;
-    width: 100%;
   }
 
   .info-input-field-container-left,
@@ -190,54 +170,8 @@
     width: 48%;
   }
 
-  .add-task-separator {
-    width: 1px;
-    height: auto;
-    background-color: var(--input-border);
-  }
-
   .add-task-form-content {
     gap: 48px;
-  }
-
-  .addTask-input-field,
-  .info-input-field-container textarea {
-    font-size: 18px;
-    padding: 10px 16px;
-  }
-
-  .btn-importance-container label {
-    width: 100%;
-    height: 48px;
-    font-size: 18px;
-  }
-
-  .prio-button {
-    font-size: 18px;
-    padding: 12px;
-  }
-
-  .add-task-footer {
-    max-width: 100%;
-    padding-top: 40px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .addTask-button-container {
-    gap: 12px;
-  }
-
-  .dark-button,
-  .light-button {
-    font-size: 18px;
-    padding: 10px 16px;
-  }
-
-  .addTask-button-container img {
-    width: 16px;
-    height: 16px;
   }
 
   .header-container {
