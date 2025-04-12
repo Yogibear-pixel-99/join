@@ -7,7 +7,7 @@ async function loadAndRenderTasks() {
   await getDataFromServer("tasks", tasksFromApi);
   initialsChange();
   renderBoard();
-  renderDropdown();
+  // renderDropdown();
 }
 
 function renderBoard() {
@@ -284,3 +284,23 @@ function hideEmptyContentTasks(taskId){
 function dragend(event) {
     event.target.classList.remove("dragging");
 }
+
+function openAddTaskOverlayAndEmptyEditTaskOverlay(){
+  let ref1 = document.getElementById('addtask-content');
+  let ref2 = document.getElementById('task-overlay-menu');
+      ref1.innerHTML = getAddTaskOverlayTemp(); ref2.innerHTML = '';
+      toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
+}
+
+
+async function openTask(taskId){
+  let addTaskRef = document.getElementById('addtask-content');
+      addTaskRef.innerHTML = '';
+  let taskRef = document.getElementById('task-overlay-menu');
+  await getDataFromServer("tasks", tasksFromApi);
+  let task = tasksFromApi.find(element => element.id === taskId);
+  taskRef.innerHTML = await getTaskOverlayTemp(task);
+  toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
+}
+
+

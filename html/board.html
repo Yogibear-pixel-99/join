@@ -157,7 +157,7 @@
               </button>
             </div>
             <button
-              onclick="toggleAddTaskOverlay()"
+            onclick="openAddTaskOverlayAndEmptyEditTaskOverlay()"
               class="dark-button add-task-button hide-mobile-1024">
               Add Task <img src="../assets/icons/add.svg" alt="" />
           </button>
@@ -171,7 +171,7 @@
           <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>To do</span>
-              <div class="board-add-task-icon-wrapper" onclick="toggleAddTaskOverlay()">
+              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlayAndEmptyEditTaskOverlay()">
                 <svg
                   class="board-add-icon"
                   width="24"
@@ -200,7 +200,7 @@
                 </svg>
               </div>
               <a href="../html/addtask.html">
-              <div class="board-add-task-icon-wrapper-mobile" onclick="toggleAddTaskOverlay()">
+              <div class="board-add-task-icon-wrapper-mobile">
                 <svg
                   class="board-add-icon"
                   width="24"
@@ -237,7 +237,7 @@
           <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>In progress</span>
-              <div class="board-add-task-icon-wrapper" onclick="toggleAddTaskOverlay()">
+              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlayAndEmptyEditTaskOverlay()">
                 <svg
                   class="board-add-icon"
                   width="24"
@@ -268,7 +268,6 @@
               <a href="../html/addtask.html">
               <div class="board-add-task-icon-wrapper-mobile">
                 <svg
-                  onclick="toggleAddTaskOverlay()"
                   class="board-add-icon"
                   width="24"
                   height="25"
@@ -306,9 +305,8 @@
           <div class="board-single-task-container column" >
             <div class="board-task-header-container">
               <span>Await feedback</span>
-              <div class="board-add-task-icon-wrapper">
+              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlayAndEmptyEditTaskOverlay()">
                 <svg
-                  onclick="toggleAddTaskOverlay()"
                   class="board-add-icon"
                   width="24"
                   height="25"
@@ -338,7 +336,6 @@
               <a href="../html/addtask.html">
               <div class="board-add-task-icon-wrapper-mobile">
                 <svg
-                  onclick="toggleAddTaskOverlay()"
                   class="board-add-icon"
                   width="24"
                   height="25"
@@ -369,7 +366,6 @@
             </div>
             <div id="boardAwaitFeedbackCard" class="board-rendered task-column" data-status="todo"></div>
           </div>
-
           <!-- 4) Done -->
           <div class="board-single-task-container column" >
             <div class="board-task-header-container">
@@ -379,14 +375,12 @@
           </div>
         </div>
       </div>
-
       <section class="mobile-navbar">
         <a href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
         <a href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
         <a href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
         <a href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
     </section>
-
     </main>
 
 
@@ -407,63 +401,17 @@
 
 
 
+<!-- BOARD ADD TASK OVERLAY CONTAINER -->
+    <section class="addtask-content standard-overlay-hide add-task-overlay" id="addtask-content"></section>
+    <section class="mask-container d-none" id="addtask-overlay-mask-container" onclick="toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container')"></section>
 
 
 
-
-
-
-<!-- ADD TASK OVERLAY -->
-    <section onclick="noClose(event)" class="addtask-content addtask-content-hide add-task-overlay" id="addtask-content">
-      
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="mask-container d-none" id="mask-container" onclick="toggleAddTaskOverlay()"></section>
+<!-- BOARD SHOW TASK/EDIT TASK OVERLAY CONTAINER -->
     <section class="standard-overlay standard-overlay-hide overlay-menu-mask-close task-overlay-container" id="task-overlay-menu"></section>
-
-
-
-
-
-
-
-    <section
-      class="mask-container d-none"
-      id="task-overlay-mask-container"
-      onclick="toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')"></section>
+<!-- BOARD MASK CONTAINER -->
+    <section class="mask-container d-none" id="task-overlay-mask-container" onclick="toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')"></section>
+<!-- TASK ADDED TO BOARD BUTTON -->
       <section id="task-added-overlay-button" class="task-added-overlay d-none" >
         <div class="task-added-message">
             <h2>Task added to board</h2>
