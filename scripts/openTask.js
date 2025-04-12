@@ -79,9 +79,9 @@ async function overlayDeleteTask(apiKey){
     initBoard();
 }
 
-function overlayEditTask(taskId){
+function overlayEditTask(taskApiKey){
     let taskRef = document.getElementById('task-overlay-menu');
-    let taskData = tasksFromApi.find(element => element.id === taskId);
+    let taskData = tasksFromApi.find(element => element.apiKey === taskApiKey);
     console.log(taskData);
     taskRef.innerHTML = getEditTaskTemp(taskData);
 
