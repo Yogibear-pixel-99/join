@@ -31,6 +31,12 @@ async function getDataFromServer(SUB_URL, destination) {
 }
 
 
+/**
+ * Post the payload to the firebase api.
+ * 
+ * @param {string} SUB_URL - The destination url for the database to patch the payload.
+ * @param {object} payload - The created data object to post.
+ */
 async function postDataToApi(SUB_URL, payload) {
   try {
     const response = await fetch(MAIN_URL + SUB_URL + ".json", {
@@ -164,52 +170,40 @@ function noClose(event) {
 }
 
 
-
-
-
-
-
-function userLoggedIn() {
+/**
+ * Checks if a user is logged in and sets the navbar.
+ */
+function setGuestOrUserNavbar() {
   let userNavbarREF = document.getElementById("user-navbar");
-  let questNavbarREF = document.getElementById("quest-navbar");
+  let guestNavbarREF = document.getElementById("guest-navbar");
   let checkUserLoggedIn = sessionStorage.getItem("userLoggedIn");
   let mobileNavbarUser = document.getElementById('mobile-navbar-user');
   let mobileNavbarGuest = document.getElementById('mobile-navbar-guest');
- 
-
-
-  
-  if (checkUserLoggedIn == "true") {
-    userNavbarREF.classList.toggle("d-none");
-    mobileNavbarUser.classList.toggle("d-none");
-  } else {
-    questNavbarREF.classList.toggle("d-none");
-    mobileNavbarGuest.classList.toggle("d-none");
-  }
+    if (checkUserLoggedIn == "true") {
+      userNavbarREF.classList.toggle("d-none");
+      mobileNavbarUser.classList.toggle("d-none");
+    } else {
+      guestNavbarREF.classList.toggle("d-none");
+      mobileNavbarGuest.classList.toggle("d-none");
+    }
 }
 
 
+/**
+ * Remove the saved session logg in if the logged in user logs out.
+ */
 function removeSessionStorageUser(){
   sessionStorage.removeItem("indexOfUser");
   sessionStorage.removeItem("userLoggedIn");
 }
 
 
-
-
-
-
-
-
-
-
-
 /**
- * Check if data in the inputfield is already in the realtime database and returns a boolean.
+ * Check if data in the inputfield is already in the realtime database.
  * 
  * @param {string} userContainerId - The user input field to collect the data to compare in the database.
  * @param {string} objName - The specified object in the database for comparison.
- * @returns 
+ * @returns - A boolean.
  */
 async function checkIfDataAlreadyExists(userContainerId, objName) {
     const userEmail = document.getElementById(userContainerId).value;
@@ -226,6 +220,7 @@ async function checkIfDataAlreadyExists(userContainerId, objName) {
     }
   }
 
+
 /**
  * Adds a red border to the wrong user input field and displays an error text message.
  * 
@@ -241,6 +236,7 @@ async function checkIfDataAlreadyExists(userContainerId, objName) {
           textRef.style.color = 'red';
 }
 
+
 /**
  * Removes the red border from the user inputfield and hides the error message.
  * 
@@ -253,6 +249,7 @@ function removeRedBorderAndTextFalseInput(borderContainer, messageContainer){
           contentRef.classList.remove('red-border-inputfield');
           textRef.style.color = 'white';
 }
+
 
 /**
  * Global function to collect form data and put it in the collectedFormInfos variable. Needs to set a template before to collectedFormInfos.
@@ -270,9 +267,15 @@ function collectFormInformation(formContainer) {
 }
 
 
-async function getTheNextFreeIdNumberFromApi(objName){
+/**
+ * Check the database for the next free id number.
+ * 
+ * @param {string} SUB_URL - The destination url for the database to fetch data.
+ * @returns - The next free id number in the database.
+ */
+async function getTheNextFreeIdNumberFromApi(SUB_URL){
   try {
-    let response = await fetch(MAIN_URL + objName + '.json');
+    let response = await fetch(MAIN_URL + SUB_URL + '.json');
     console.log(response);
     if (!response.ok) {
       throw new Error('No answer from server!');
@@ -285,23 +288,42 @@ async function getTheNextFreeIdNumberFromApi(objName){
   }
 }
 
+
+/**
+ * Sorts the fetched data from the api without null positions in an array and search for next free id.
+ * 
+ * @param {object} data - The fetched object from the database.
+ * @returns - The next free id integer.
+ */
 function sortDataFromApiAndGetFreeIdNumber(data){
     let arrayFromData = Object.values(data);
-
     let allIdArray = arrayFromData.map((element) => {
       if (element != null) {
-        return element.id;}
-      })
+        return element.id;
+      }})
     let newId;
     allIdArray.sort((a, b) => a - b);
-    for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
-      const element = allIdArray[idIndex];
-        if (element != idIndex + 1) {
-          newId = (idIndex + 1);
-          break
-        } else {
-          newId = allIdArray.length + 1;
-        }
+    newId = checkArrayForNextFreeInteger(allIdArray);
+    return newId;
+}
+
+
+/**
+ * Iterates the array to find the next free id number.
+ * 
+ * @param {Array} allIdArray - The sorted id array.
+ * @returns - The next free id number in the array.
+ */
+function checkArrayForNextFreeInteger(allIdArray){
+  let newId;
+  for (let idIndex = 0; idIndex < allIdArray.length; idIndex++) {
+    const element = allIdArray[idIndex];
+      if (element != idIndex + 1) {
+        newId = (idIndex + 1);
+        break
+      } else {
+        newId = allIdArray.length + 1;
+      }
     }
     return newId;
 }
@@ -323,8 +345,9 @@ function toggleOverlayMenu(overlayId, maskId){
 }
 
 
-// getUserSummaryInfo();
-
+/**
+ * Checks if a user is logged in and sets the initials to the header.
+ */
 function initialsChange() {
   let headerInitialsREF = document.getElementById("header-initials");
   emailIndex = sessionStorage.getItem("indexOfUser");
@@ -334,10 +357,5 @@ function initialsChange() {
   } else {
     headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name.slice(0, 2));
   }
-}
-
-async function getUserInitialInfo() {
-  await getDataFromServer("users", usersFromApi);
-  initialsChange();
 }
 

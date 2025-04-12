@@ -21,7 +21,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
 </head>
-<body onload="userLoggedIn()">
+<body onload="setGuestOrUserNavbar()">
    
         <section class="navbar-container desktop-navbar">
             <div>
@@ -44,7 +44,7 @@
                     <div class="center">Contacts</div>
                 </a>
                 </navbar>
-                <navbar class="navbar-link-container d-none" id="quest-navbar">
+                <navbar class="navbar-link-container d-none" id="guest-navbar">
                      <a href="./login.html">
                         <img class="navbar-logo" src="../assets/icons/login.svg" alt="">
                         <div class="center">Log In</div>
