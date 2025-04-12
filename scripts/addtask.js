@@ -98,6 +98,7 @@ function focusToSubtaskInput(containerId){
 
 
 async function loadDropdown() {
+  await getDataFromServer("users", usersFromApi);
   renderDropdown();
   renderCategoryOptions();
   initialsChange();
