@@ -157,7 +157,7 @@
   justify-content: flex-start;
   flex-direction: column;
   width: 816px;
-  height: 770px !important;
+  height: 770px;
   border-radius: 30px;
   padding-top: 28px;
   padding-left: 64px;
