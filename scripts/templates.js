@@ -585,6 +585,7 @@ function getEditTaskTemp(task){
 
             </div>
           </div>
+          </div>
         </form>
         <div class="add-task-footer-overlay">
           <div class="required-wrapper">

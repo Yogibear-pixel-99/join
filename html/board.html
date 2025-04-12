@@ -300,16 +300,39 @@
 
     </main>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ADD TASK OVERLAY -->
     <section onclick="noClose(event)" class="addtask-content addtask-content-hide add-task-overlay" id="addtask-content">
       <h1 class="add-task-header">Add Task</h1>
-          <form id="add-task-form" class="add-task-form-content">
+        <form id="add-task-form" class="add-task-form-content">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div class="flex-col gap8">
                 <label for="form-title"
-                  >Title<span class="red-asterisk">*</span></label
-                >
+                  >Title<span class="red-asterisk">*</span></label>
                 <input
                   class="addTask-input-field"
                   id="form-title"
@@ -319,7 +342,6 @@
                   placeholder="Enter a title" />
                   <span id="title-error-message" class="title-error-message"></span>
               </div>
-
               <div class="flex-col gap8">
                 <label for="form-description"
                   >Description</label
@@ -493,7 +515,7 @@
                     
                     maxlength="30"
                     placeholder="Add new subtask" />
-                  <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
+              
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
                     <img src="../assets/icons/Subtasks icons11.svg" />
                   </div>
@@ -523,6 +545,7 @@
 
             </div>
           </div>
+          </div>
         </form>
         <div class="add-task-footer-overlay">
           <div class="required-wrapper">
@@ -547,6 +570,40 @@
           </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <section class="mask-container d-none" id="mask-container" onclick="toggleAddTaskOverlay()"></section>
     <section class="standard-overlay standard-overlay-hide overlay-menu-mask-close task-overlay-container" id="task-overlay-menu"></section>
 
