@@ -261,6 +261,15 @@
 
 /* BOARD */
 
+
+.board-add-task-icon-wrapper-mobile {
+    display: flex;
+}
+
+.board-add-task-icon-wrapper {
+    display: none;
+}
+
 .bottom-board {
     gap: 14px;
 }
@@ -312,10 +321,6 @@
     display: none;
   }
 
-
-
-
-  
   .required-wrapper {
     display: none;
   }
@@ -350,6 +355,13 @@
 
 
 /* ADD/EDIT TASKS OVERLAY */
+
+.add-task-overlay {
+    display: none;
+}
+
+
+
 /* CONTACTS */
 
 .main-content-contacts-mobile {

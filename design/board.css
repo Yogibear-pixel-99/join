@@ -382,4 +382,6 @@
   display: none;
 }
 
-
+.board-add-task-icon-wrapper-mobile {
+  display: none;
+}
