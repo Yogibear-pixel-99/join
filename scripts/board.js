@@ -290,6 +290,7 @@ function openAddTaskOverlayAndEmptyEditTaskOverlay(){
       ref1.innerHTML = getAddTaskOverlayTemp(); ref2.innerHTML = '';
       toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
       renderAssignToDropdown();
+      renderCategoryOptions();
 }
 
 

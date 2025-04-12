@@ -78,6 +78,8 @@ function overlayEditTask(taskApiKey){
     let taskData = tasksFromApi.find(element => element.apiKey === taskApiKey);
     console.log(taskData);
     taskRef.innerHTML = getEditTaskTemp(taskData);
+    renderAssignToDropdown();
+    renderCategoryOptions();
 
     // design edit task container
     // fill edit task container with values
