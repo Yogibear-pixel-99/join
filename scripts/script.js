@@ -110,7 +110,7 @@ function filterFetchedDataAndKey(data, destination){
  * @param {string} destinationApiKey - The keyvalue to delete the data in the database.
  */
 async function deleteDataFromApi(SUB_URL, destinationApiKey) {
-  if (apiKey != "" || apiKey != undefined) {
+  if (destinationApiKey != "" || destinationApiKey != undefined) {
     try {
       await fetch(MAIN_URL + SUB_URL + destinationApiKey + ".json", {
         method: "DELETE",

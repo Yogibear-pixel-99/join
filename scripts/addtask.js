@@ -458,8 +458,10 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
 // NOT FINISHED YET -------------------------------------------------------------------------------------------------------------------------------
 function toggleAddTaskOverlay() {
   let addtaskREF = document.getElementById("addtask-overlay");
+      // addtaskREF.innerHTML = getAddTaskOverlayTemp();
   let maskREF = document.getElementById("mask-container");
   let addtaskHideREF = document.getElementById("addtask-content");
+      addtaskHideREF.innerHTML = getAddTaskOverlayTemp();
   addtaskHideREF.classList.toggle("addtask-content-hide")
   maskREF.classList.toggle("d-none")
  /*  addtaskREF.classList.toggle("d-none") */

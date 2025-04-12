@@ -15,6 +15,12 @@
     border-radius: 30px;
     width: 525px;
     background-color: var(--task-overlay-bg-color);
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.task-overlay-container::-webkit-scrollbar {
+  display: none;
 }
 
 .task-overlay-container h1 {
@@ -172,4 +178,89 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
     margin-top: auto;
+  }
+
+.add-task-main-content-edit-task-overlay {
+    overflow-y: auto;
+}
+
+.edit-task-overlay-close-wrapper {
+  margin-left: auto;
+}
+
+.info-input-field-container-edit-task-overlay {
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 600px;
+  /* margin-bottom: 165px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .info-input-field-container-left-edit-task-overlay,
+  .info-input-field-container-right-edit-task-overlay {
+    width: 100%;
+    padding: 0;
+    gap: 16px;
+  }
+
+  .info-input-field-container-edit-task-overlay input,
+  .info-input-field-container-edit-task-overlay textarea,
+  .info-input-field-container-edit-task-overlay select {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 16px;
+  }
+
+  .add-task-separator-edit-task-overlay {
+    display: none;
+  }
+
+  .required-wrapper-edit-task-overlay {
+    display: none;
+  }
+
+  .add-task-footer-edit-task-overlay {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    align-self: flex-end;
+  }
+
+  .added-subtasks-edit-task-overlay {
+    max-height: none;
+  }
+
+  .addTask-button-container-edit-task-overlay {
+    margin-top: 24px;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .addTask-button-container-edit-task-overlay button,
+  .light-button.btns-addtask-edit-task-overlay {
+
+    font-size: 21px;
+    padding: 16px;
+    font-weight: 700;
   }

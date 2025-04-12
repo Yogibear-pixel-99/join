@@ -9,8 +9,7 @@
   display: flex;
   justify-content: space-between;
   gap: 26px;
-  max-height: calc(100vh-240px);
-  overflow-y: auto;
+  max-height: calc(100vh -240px);
   flex: 1;
   margin-bottom: 50px;
   padding-bottom: 20px;
