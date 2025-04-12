@@ -2,13 +2,7 @@
 
 let assignedUsersArray = [];
 
-async function openTask(taskId){
-    let taskRef = document.getElementById('task-overlay-menu');
-    await getDataFromServer("tasks", tasksFromApi);
-    let task = tasksFromApi.find(element => element.id === taskId);
-    taskRef.innerHTML = await getTaskOverlayTemp(task);
-    toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
-}
+
 
 
 function getPriorityIconForTaskOverlay(task){
