@@ -188,10 +188,11 @@ function getMonthNumber(month){
 
 
 /**
+ * Creates a date template for the summary.
  * 
- * @param {*} day 
- * @param {*} month 
- * @param {*} year 
+ * @param {integer} day 
+ * @param {string} month 
+ * @param {integer} year 
  * @returns 
  */
 function dateTemp(day, month, year){
@@ -199,6 +200,7 @@ function dateTemp(day, month, year){
           <span>${day},</span>
           <span>${year}</span>`
 }
+
 
 
 // SHORTEN - OUTSOURCE IF FUNKTION - USED MORE THAN ONCE.
