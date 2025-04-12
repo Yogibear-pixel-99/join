@@ -614,13 +614,15 @@ function getEditTaskTemp(task){
 
 
 function getAddTaskOverlayTemp(){
-    return `<h1 class="add-task-header">Add Task</h1>
-        <form id="add-task-form" class="add-task-form-content">
+    return `
+          <h1 class="add-task-header">Add Task</h1>
+          <form id="add-task-form" class="add-task-form-content" onsubmit action="submit">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
               <div class="flex-col gap8">
                 <label for="form-title"
-                  >Title<span class="red-asterisk">*</span></label>
+                  >Title<span class="red-asterisk">*</span></label
+                >
                 <input
                   class="addTask-input-field"
                   id="form-title"
@@ -654,7 +656,7 @@ function getAddTaskOverlayTemp(){
                   type="text"
                   placeholder="dd/mm/yyyy" />
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
-                  <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg">
+                  <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
                   </div>
                   <span id="date-error-message" class="date-error-message"></span>
               </div>
@@ -803,7 +805,7 @@ function getAddTaskOverlayTemp(){
                     
                     maxlength="30"
                     placeholder="Add new subtask" />
-              
+                  <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
                     <img src="../assets/icons/Subtasks icons11.svg" />
                   </div>
@@ -833,30 +835,31 @@ function getAddTaskOverlayTemp(){
 
             </div>
           </div>
-          </div>
-        </form>
-        <div class="add-task-footer-overlay">
-          <div class="required-wrapper">
-            <span class="red-asterisk">*</span>
-            <span>This field is required</span>
-          </div>
-          <div class="addTask-button-container">
-            <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
-              <div
-                onclick="resetForm('add-task-form')"
-                class="">
-                Clear
-              </div>
-              <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          
+          <div class="add-task-footer">
+            <div class="required-wrapper">
+              <span class="red-asterisk">*</span>
+              <span>This field is required</span>
             </div>
-            
-            <button class="dark-button btns-addtask" onclick="createNewTask(event)">
-              Create Task <img src="../assets/icons/check.svg" />
-            </button>
+            <div class="addTask-button-container">
+              <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
+                <div
+                  onclick="resetForm('add-task-form')"
+                  class="">
+                  Clear
+                </div>
+                <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              
+              <button class="dark-button btns-addtask" type="submit" onclick="createNewTask(event)">
+                Create Task <img src="../assets/icons/check.svg" />
+              </button>
+            </div>
           </div>
-        </div>`
+          </div>
+        </form>`
 }
 
 

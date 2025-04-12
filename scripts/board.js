@@ -7,7 +7,6 @@ async function loadAndRenderTasks() {
   await getDataFromServer("tasks", tasksFromApi);
   initialsChange();
   renderBoard();
-  // renderDropdown();
 }
 
 function renderBoard() {
@@ -290,6 +289,7 @@ function openAddTaskOverlayAndEmptyEditTaskOverlay(){
   let ref2 = document.getElementById('task-overlay-menu');
       ref1.innerHTML = getAddTaskOverlayTemp(); ref2.innerHTML = '';
       toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
+      renderAssignToDropdown();
 }
 
 

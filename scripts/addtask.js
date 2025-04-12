@@ -99,7 +99,7 @@ function focusToSubtaskInput(containerId){
 
 async function loadDropdown() {
   await getDataFromServer("users", usersFromApi);
-  renderDropdown();
+  renderAssignToDropdown();
   renderCategoryOptions();
   initialsChange();
 }
@@ -135,7 +135,7 @@ async function toggleAssignedDropdown() {
   }, 1000);
  }
 
-function renderDropdown() {
+function renderAssignToDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
 
@@ -190,7 +190,7 @@ function handleCheckboxChange(event) {
     if (!user) return;
   
     user.isSelected = !user.isSelected;
-    renderDropdown();
+    renderAssignToDropdown();
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
   
