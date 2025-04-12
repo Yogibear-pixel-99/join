@@ -100,6 +100,7 @@ function focusToSubtaskInput(containerId){
 async function loadDropdown() {
   renderDropdown();
   renderCategoryOptions();
+  initialsChange();
 }
 
 
