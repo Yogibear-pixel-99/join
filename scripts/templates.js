@@ -604,8 +604,8 @@ function getEditTaskTemp(task){
               </svg>
             </div>
             
-            <button class="dark-button btns-addtask" onclick="createNewTask(event)">
-              Create Task <img src="../assets/icons/check.svg" />
+            <button class="dark-button btns-addtask" onclick="updateTask(event, ${task.apiKey})">
+              Okay <img src="../assets/icons/check.svg" />
             </button>
           </div>
         </div>
