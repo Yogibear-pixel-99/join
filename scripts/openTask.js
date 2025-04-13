@@ -76,12 +76,15 @@ async function overlayDeleteTask(apiKey){
 function overlayEditTask(taskApiKey){
     let taskRef = document.getElementById('task-overlay-menu');
     let taskData = tasksFromApi.find(element => element.apiKey === taskApiKey);
-    console.log(taskData);
     taskRef.innerHTML = getEditTaskTemp(taskData);
     renderAssignToDropdown();
     renderCategoryOptions();
+    setTimeout(() => {setPriorityButtonContainer(taskData)}, 1);
+    setTimeout(() => {setAssignedUsersToDropdown(taskData)}, 1);
 
-    // design edit task container
+
+    console.log(taskData);
+  
     // fill edit task container with values
     // change values
     // save values to api
@@ -89,3 +92,13 @@ function overlayEditTask(taskApiKey){
     // render alltasks from api
 }
 
+function setPriorityButtonContainer(taskData){
+    let ref = document.getElementById(`edit-priority-${taskData.priority}`)
+    setPriorityButtonColor(ref);
+}
+
+function setAssignedUsersToDropdown(task){
+    task.assignTo.forEach((element) => {
+        toggleUserSelection(element);
+    })
+}

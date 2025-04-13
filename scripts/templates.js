@@ -416,6 +416,12 @@ function getEditTaskTemp(task){
        
             
               <div class="flex-col width-100p gap8">
+
+
+
+
+
+
                 <label>Prio</label>
                 <div id="priority-wrapper" class="btn-importance-container">
                   <input
@@ -425,6 +431,7 @@ function getEditTaskTemp(task){
                     id="priority-urgent"
                     name="priority" />
                   <label
+                    id="edit-priority-Urgent"
                     class="prio-urgent flex-ctr-ctr prio-button"
                     onclick="setPriorityButtonColor(this)"
                     for="priority-urgent"
@@ -463,8 +470,8 @@ function getEditTaskTemp(task){
                     name="priority"
                     checked />
                   <label
-                    class="prio-medium active flex-ctr-ctr prio-button"
-                    id="standard-prio"
+                    class="prio-medium flex-ctr-ctr prio-button"
+                    id="edit-priority-Medium"
                     onclick="setPriorityButtonColor(this)"
                     for="priority-medium"
                     ><span>Medium</span
@@ -491,6 +498,7 @@ function getEditTaskTemp(task){
                     id="priority-low"
                     name="priority" />
                   <label
+                    id="edit-priority-Low"
                     class="prio-low flex-ctr-ctr prio-button"
                     onclick="setPriorityButtonColor(this)"
                     for="priority-low"
@@ -575,44 +583,21 @@ function getEditTaskTemp(task){
                   <div class="subtasks-icon-container flex-ctr-ctr"
                         >
                     <img
-                    
                     onmousedown="addSubtaskValueToArray()"
                       class="subtasks-icon"
                       src="../assets/icons/check-icon-dark.svg" />
                   </div>
                 </div>
               </div>
-
               <div id="added-subtasks" class="added-subtasks added-subtasks-edit-task-overlay"></div>
-
             </div>
           </div>
           </div>
         </form>
-
-
-
         <div class="add-task-footer-overlay white-box-bottom">
-          <div class="required-wrapper required-wrapper-edit-task-overlay">
-            <span class="red-asterisk">*</span>
-            <span>This field is required</span>
-          </div>
-          <div class="addTask-button-container addTask-button-container-edit-task-overlay">
-            <div class="light-button btns-addtask btns-addtask-edit-task-overlay flex-ctr-ctr button-wrapper-add-task">
-              <div
-                onclick="resetForm('add-task-form')"
-                class="">
-                Clear
-              </div>
-              <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            
             <button class="dark-button btns-addtask" onclick="updateTask(event, ${task.apiKey})">
-              Okay <img src="../assets/icons/check.svg" />
+              Ok <img src="../assets/icons/check.svg" />
             </button>
-          </div>
         </div>
     `
 }
