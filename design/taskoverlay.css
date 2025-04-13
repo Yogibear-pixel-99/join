@@ -16,7 +16,6 @@
     width: 525px;
     background-color: var(--task-overlay-bg-color);
     max-height: 90vh;
-    overflow-y: scroll;
 }
 
 .task-overlay-container::-webkit-scrollbar {
@@ -172,10 +171,6 @@ input[type="checkbox"] {
     overflow-x: hidden;
   }
 
-  .edit-task-overlay {
-    padding: 0 40px;
-  }
-
   .top-whitebox {
     position: absolute;
     top: 0;
@@ -269,10 +264,14 @@ input[type="checkbox"] {
   }
 
   .addTask-button-container-edit-task-overlay {
-    margin-top: 24px;
+
     flex-direction: row;
     align-items: center;
     gap: 32px;
+  }
+
+  .add-task-form-content-edit-task-overlay::-webkit-scrollbar {
+    display: none;
   }
 
   .addTask-button-container-edit-task-overlay button,

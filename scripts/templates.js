@@ -363,10 +363,12 @@ function getSubtaskForTaskOverlayTemp(task, subtask){
 
 // NEEDED AFTER CREATING OVERLAY --> AFTER ADD TASK WORKING
 function getEditTaskTemp(task){
-    return `<div class="edit-task-overlay-close-wrapper">
+    return `<div class="edit-task-overlay-close-wrapper white-box-top">
                 <img src="../assets/icons/close-overlay.svg" />
             </div>
-            <form id="add-task-form" class="add-task-form-content add-task-form-content-edit-task-overlay">
+
+
+            <form id="add-task-form" class="scrollable-y add-task-form-content add-task-form-content-edit-task-overlay">
                 <div class="info-input-field-container info-input-field-container-edit-task-overlay">
             
               <div class="flex-col gap8 width-100p">
@@ -587,7 +589,10 @@ function getEditTaskTemp(task){
           </div>
           </div>
         </form>
-        <div class="add-task-footer-overlay">
+
+
+
+        <div class="add-task-footer-overlay white-box-bottom">
           <div class="required-wrapper required-wrapper-edit-task-overlay">
             <span class="red-asterisk">*</span>
             <span>This field is required</span>

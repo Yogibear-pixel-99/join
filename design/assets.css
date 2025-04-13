@@ -69,6 +69,14 @@
     overflow: auto;
 }
 
+.scrollable-y {
+  overflow-y: auto;
+}
+
+.scrollable-x {
+  overflow-x: auto;
+}
+
 .center {
   align-self: center;
 }
