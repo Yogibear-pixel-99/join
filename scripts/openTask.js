@@ -114,3 +114,14 @@ function showSubtaskInEditOverlay(task){
         ref.innerHTML += renderSubtaskTemp(element);
     }
 }
+
+
+async function updateTask(event, apiKey){
+    event.preventDefault();
+    collectedFormInfos = await getEmptyTaskTemplate();
+    collectFormInformation('add-task-form');
+    collectCategory();
+    collectSubTasks(new FormData(document.getElementById('add-task-form')));
+    collectAssingTo();
+    await patchDataToApi(`tasks/${apiKey}/`, collectedFormInfos);
+}

@@ -63,12 +63,11 @@ async function postDataToApi(SUB_URL, payload) {
  * @param {object} payload - The created data object to patch.
  * @param {string} SUB_URL - The destination url for the database to patch the payload.
  */
-async function patchDataToApi(payload, SUB_URL) {
+async function patchDataToApi(SUB_URL, payload) {
 
     if (SUB_URL != undefined) {
       try {
-        let response = await fetch(
-          MAIN_URL + SUB_URL + ".json",
+        let response = await fetch(MAIN_URL + SUB_URL + ".json",
           {
             method: "PATCH",
             headers: {
