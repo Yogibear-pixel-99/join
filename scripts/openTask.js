@@ -81,6 +81,7 @@ function overlayEditTask(taskApiKey){
     renderCategoryOptions();
     setTimeout(() => {setPriorityButtonContainer(taskData)}, 1);
     setTimeout(() => {setAssignedUsersToDropdown(taskData)}, 1);
+    setTimeout(() => {showSubtaskInEditOverlay(taskData)}, 1);
 
 
     console.log(taskData);
@@ -101,4 +102,15 @@ function setAssignedUsersToDropdown(task){
     task.assignTo.forEach((element) => {
         toggleUserSelection(element);
     })
+}
+
+function showSubtaskInEditOverlay(task){
+    let ref = document.getElementById('added-subtasks');
+    ref.innerHTML = '';
+    let subtaskArray = task.subtasks.map(element => element.subtaskName);
+    console.log(subtaskArray);
+    for (let subtaskIndex = 0; subtaskIndex < subtaskArray.length; subtaskIndex++) {
+        const element = subtaskArray[subtaskIndex];
+        ref.innerHTML += renderSubtaskTemp(element);
+    }
 }

@@ -536,20 +536,15 @@ function getEditTaskTemp(task){
                 </div>
            
             <div class="flex-col width-100p gap8">
-              <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
-                  <div class="custom-dropdown" id="categoryDropdownWrapper">
+              
+                 
                 
-                <input
-                  class="dropdown-label addTask-input-field-img"
-                  type="text"
-                  id="categoryDropdown"
-                  placeholder="Select task category"
-                  readonly
-                  onclick="toggleCategoryDropdown()"
-                />
+            
                 <div id="categoryWrapper" class="category-wrapper category-wrapper-passive">
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
                 </div>
+
+                
               </div>
               <span id="category-error-message" class="title-error-message"></span>
               <div class="subtask-input-wrapper flex-col gap8">
