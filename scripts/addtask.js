@@ -395,14 +395,15 @@ function createNewTask(event) {
     checkDateRedBorder(dueDate);
     checkCategoryRedBorder(category);
   } else {
-    titleRedBorder(title);
-    dateRedBorder(dueDate);
+    checkTitleRedBorder(title);
+    checkDateRedBorder(dueDate);
+    checkCategoryRedBorder
     addTask(event);
   }
 }
 
 
-function checkitleRedBorder(title) {
+function checkTitleRedBorder(title) {
   if (title == '') {
     addRedBorderAndTextFalseInputAddTask(
       "form-title",

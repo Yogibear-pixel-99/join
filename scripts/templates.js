@@ -590,7 +590,7 @@ function getEditTaskTemp(task){
           </div>
         </form>
         <div class="add-task-footer-overlay white-box-bottom">
-            <button class="dark-button btns-addtask" onclick="updateTask(event, ${task.apiKey})">
+            <button class="dark-button btns-addtask" onclick="updateTask(event, '${task.apiKey}')">
               Ok <img src="../assets/icons/check.svg" />
             </button>
         </div>

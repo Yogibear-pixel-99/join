@@ -61,7 +61,7 @@ async function changeSubTaskCheckedApi(location, id){
     let inputRef = document.getElementById(id);
     let isChecked = {};
     inputRef.checked ? isChecked = {"finished":"true"} : isChecked = {"finished":"false"};
-    await patchDataToApi(isChecked, location);
+    await patchDataToApi(location, isChecked);
     initBoard();
 }
 
@@ -118,10 +118,14 @@ function showSubtaskInEditOverlay(task){
 
 async function updateTask(event, apiKey){
     event.preventDefault();
+    let taskRef = document.getElementById('task-overlay-menu');
     collectedFormInfos = await getEmptyTaskTemplate();
     collectFormInformation('add-task-form');
     collectCategory();
     collectSubTasks(new FormData(document.getElementById('add-task-form')));
     collectAssingTo();
     await patchDataToApi(`tasks/${apiKey}/`, collectedFormInfos);
+    await getDataFromServer("tasks", tasksFromApi);
+    let task = tasksFromApi.find(element => element.apiKey === apiKey);
+    taskRef.innerHTML = await getTaskOverlayTemp(task); 
 }
