@@ -11,7 +11,10 @@ async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
 }
 
-
+/**
+ * This function checks the login and opens the checkEmail function to see if this email exists in the database.
+ * 
+ */
 // SHORTEN THIS FUNCTION
 function checkLogin(event) {
   event.preventDefault();
@@ -20,34 +23,32 @@ function checkLogin(event) {
   });
 }
 
-
+/**
+ * This function checks the email to see if a valid one exists.
+ * 
+ * @param {boolean} emailChecked - The Boolean indicates whether the email exists in the database or not.
+ * @param {integer} emailIndex- The index that stores the position of the email in the database
+ */
 function checkEmail(event) {
   let emailChecked = usersFromApi.some(
     (item) => item.email === emailREF.value
   );
-  console.log(emailChecked);
 // DOPPELTE ÜBERPRÜFUNG
   if (emailChecked === true) {
     emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value
     );
-    console.log(emailIndex);
     checkPassword(emailIndex, event);
   } else {
-    addRedBorderAndTextFalseInput(
-      "email",
-      "login-error-message",
-      "Check your email and password. Please try again. "
-    );
-    addRedBorderAndTextFalseInput(
-      "password",
-      "login-error-message",
-      "Check your email and password. Please try again. "
-    );
+    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. " );
+    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. " );
   }
 }
 
-
+/**
+ * This function checks whether the respective password matches the email.
+ * 
+ */
 function checkPassword(emailIndex, event) {
   let user = usersFromApi[emailIndex];  
   if (user && user.password === passwordREF.value ) {
@@ -57,20 +58,15 @@ function checkPassword(emailIndex, event) {
     removeRedBorderAndTextFalseInput("password", "login-error-message");
     window.location.href = "summary.html";
   } else {
-    addRedBorderAndTextFalseInput(
-      "email",
-      "login-error-message",
-      "Check your email and password. Please try again. "
-    );
-    addRedBorderAndTextFalseInput(
-      "password",
-      "login-error-message",
-      "Check your email and password. Please try again. "
-    );
+    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
+    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
   }
 }
 
-
+/**
+ * This function changes the symbol in the password field when writing in the password field.
+ * 
+ */
 if (passwordREF) {
 passwordREF.onkeyup = function () {
   if ((passwordREF.innerText == "")) {
@@ -81,7 +77,10 @@ passwordREF.onkeyup = function () {
 };
 }
 
-
+/**
+ * This function changes the type of the password input field when the visibility icon is clicked.
+ * 
+ */
 if (inputLogoREF) {
     inputLogoREF.onclick = function () {
         if (password.type == "password") {
@@ -94,7 +93,10 @@ if (inputLogoREF) {
       };
 }
 
-
+/**
+ * This on-click function stores in the session storage that the login is a guest login.
+ * 
+ */
 if (guestLoginREF) {
     guestLoginREF.onclick = function () {
         sessionStorage.removeItem("indexOfUser");
