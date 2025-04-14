@@ -212,11 +212,13 @@ function showGreeting(){
   } else {
     userName = usersFromApi[emailIndex].name;
   }
-  
+  addGreetingAnimation(userName)
+}
+
+function addGreetingAnimation(userName) {
   if (window.innerWidth <= 1024) {
     let guestRef = document.getElementById('summary-greeting-overlay-guest');
     let userRef = document.getElementById('summary-greeting-overlay-user');
-
     if (userName !== 'Guest' && userName) {
       userRef.classList.remove('d-none');
       userRef.classList.add('summary-greeting-animation');

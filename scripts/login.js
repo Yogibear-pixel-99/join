@@ -38,7 +38,7 @@ function checkEmail(event) {
     emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value
     );
-    checkPassword(emailIndex, event);
+    checkPassword(emailIndex);
   } else {
     addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. " );
     addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. " );
@@ -49,7 +49,7 @@ function checkEmail(event) {
  * This function checks whether the respective password matches the email.
  * 
  */
-function checkPassword(emailIndex, event) {
+function checkPassword(emailIndex) {
   let user = usersFromApi[emailIndex];  
   if (user && user.password === passwordREF.value ) {
     sessionStorage.setItem("indexOfUser", emailIndex);
@@ -104,8 +104,11 @@ if (guestLoginREF) {
     }
 }
 
-
-function switchToBoard(){
+/**
+ * This function switches to the summary when the guest login button is clicked.
+ * 
+ */
+function switchToSummary(){
   window.location.href = '../html/summary.html';
   setTimeout(() => {console.log('time')}, 100);
   console.log(window.location.href);
