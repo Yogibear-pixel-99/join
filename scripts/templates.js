@@ -50,7 +50,7 @@ function renderSubtaskTemp(subtask) {
  */
 async function getEmptyTaskTemplate() {
   return {
-    status: "todo",
+    status: `${addTaskStatus}`,
     category: "",
     title: "",
     description: "",

@@ -284,13 +284,14 @@ function dragend(event) {
     event.target.classList.remove("dragging");
 }
 
-function openAddTaskOverlayAndEmptyEditTaskOverlay(){
+function openAddTaskOverlayAndEmptyEditTaskOverlay(addTaskLocation){
   let ref1 = document.getElementById('addtask-content');
   let ref2 = document.getElementById('task-overlay-menu');
       ref1.innerHTML = getAddTaskOverlayTemp(); ref2.innerHTML = '';
       toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
       renderAssignToDropdown();
       renderCategoryOptions();
+      addTaskStatus = addTaskLocation;
 }
 
 

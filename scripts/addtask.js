@@ -2,6 +2,7 @@ const staticCategories = ["Technical Task", "User Story"];
 let selectedCategory = null;
 let collectSubTask = []
 let savedCategory;
+let addTaskStatus = "todo";
 
 
 
@@ -135,7 +136,7 @@ async function toggleAssignedDropdown() {
   }, 1000);
  }
 
-function renderAssignToDropdown() {
+ function renderAssignToDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
 
@@ -345,6 +346,7 @@ setTimeout(() => {window.location.href = "../html/board.html"}, 3000);
 function toggleAddedToBoardButton() {
   let addedToBoardREF = document.getElementById("task-added-overlay-button");
   addedToBoardREF.classList.toggle("d-none");
+ 
 }
 
 
@@ -391,19 +393,18 @@ function createNewTask(event) {
 
   if (title === '' || dueDate === ''|| category === '') {
     event.preventDefault();  
-    checkTitleRedBorder(title);
-    checkDateRedBorder(dueDate);
-    checkCategoryRedBorder(category);
+    titleRedBorder(title);
+    dateRedBorder(dueDate);
+    categoryRedBorder(category);
   } else {
-    checkTitleRedBorder(title);
-    checkDateRedBorder(dueDate);
-    checkCategoryRedBorder
+    titleRedBorder(title);
+    dateRedBorder(dueDate);
     addTask(event);
   }
 }
 
 
-function checkTitleRedBorder(title) {
+function titleRedBorder(title) {
   if (title == '') {
     addRedBorderAndTextFalseInputAddTask(
       "form-title",
@@ -416,7 +417,7 @@ function checkTitleRedBorder(title) {
 }
 
 
-function checkDateRedBorder(dueDate) {
+function dateRedBorder(dueDate) {
   if (dueDate == '') {
     addRedBorderAndTextFalseInputAddTask(
       "due-date",
@@ -429,7 +430,7 @@ function checkDateRedBorder(dueDate) {
 }
 
 
-function checkCategoryRedBorder(category) {
+function categoryRedBorder(category) {
   if (category == '') {
     addRedBorderAndTextFalseInputAddTask(
       "categoryDropdown",
