@@ -485,8 +485,8 @@ function categoryRedBorder(category) {
 }
 
 /**
- * This function checks whether the category field is empty. If it is empty, it is displayed in red
- * with a warning message below the field.
+ * This function highlights the respective field with an error 
+ * message and changes the border to red.
  * 
  */
 function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer, errorMessage){
@@ -497,6 +497,10 @@ function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer,
         textRef.style.color = 'red';
 }
 
+/**
+ * This function removes the error message and removes the red border.
+ * 
+ */
 function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer){
   const contentRef = document.getElementById(borderContainer);
   const textRef = document.getElementById(messageContainer);
