@@ -329,6 +329,11 @@ function showDatePicker(){
   }
 }
 
+/**
+ * This function takes the information from the fields in order to add a new task to the database and also display it on the board.
+ * 
+ * 
+ */
 async function addTask(event){
 event.preventDefault();
 collectedFormInfos = await getEmptyTaskTemplate();
@@ -342,14 +347,22 @@ setTimeout(toggleAddedToBoardButton, 3000);
 setTimeout(() => {window.location.href = "../html/board.html"}, 3000);
 }
 
-
+/**
+ * This function shows that the generated task has been added to the board.
+ * 
+ * 
+ */
 function toggleAddedToBoardButton() {
   let addedToBoardREF = document.getElementById("task-added-overlay-button");
   addedToBoardREF.classList.toggle("d-none");
  
 }
 
-
+/**
+ * This function extracts the subtasks and inserts them into collectedFormInfos.
+ * 
+ * 
+ */
 function collectSubTasks(data) {
   data.forEach((value, key) => {
     if (key === "subtasks[]") {
@@ -361,7 +374,11 @@ function collectSubTasks(data) {
 })
 }
 
-
+/**
+ * This function extracts the assignTo and inserts them into collectedFormInfos.
+ * 
+ * 
+ */
 function collectAssingTo() {
   let userREF = document;
   console.log(usersFromApi[1].name);
@@ -374,23 +391,35 @@ function collectAssingTo() {
 
 
 
-
+/**
+ * This function saves the selected category in the Add Task Menu.
+ * 
+ * 
+ */
 function formDataCategory(category) {
   savedCategory = category;
 }
 
+/**
+ * This function inserts the category into collectedFormInfos.
+ * 
+ * 
+ */
 function collectCategory() {
   collectedFormInfos.category = savedCategory;
 }
 
+/**
+ * This function checks all mandatory fields in the AddTask for empty fields.
+ * 
+ * 
+ */
 function createNewTask(event) {
   event.preventDefault();
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
   let assignedTo = document.getElementById("addSelectedContacts");
   let category = document.getElementById('categoryDropdown').value;
-
-
   if (title === '' || dueDate === ''|| category === '') {
     event.preventDefault();  
     titleRedBorder(title);
@@ -404,6 +433,11 @@ function createNewTask(event) {
 }
 
 
+/**
+ * This function checks whether the title field is empty. If it is empty, it is displayed in red
+ * with a warning message below the field.
+ * 
+ */
 function titleRedBorder(title) {
   if (title == '') {
     addRedBorderAndTextFalseInputAddTask(
@@ -416,7 +450,11 @@ function titleRedBorder(title) {
   }
 }
 
-
+/**
+ * This function checks whether the date field is empty. If it is empty, it is displayed in red
+ * with a warning message below the field.
+ * 
+ */
 function dateRedBorder(dueDate) {
   if (dueDate == '') {
     addRedBorderAndTextFalseInputAddTask(
@@ -429,7 +467,11 @@ function dateRedBorder(dueDate) {
   }
 }
 
-
+/**
+ * This function checks whether the category field is empty. If it is empty, it is displayed in red
+ * with a warning message below the field.
+ * 
+ */
 function categoryRedBorder(category) {
   if (category == '') {
     addRedBorderAndTextFalseInputAddTask(
@@ -442,6 +484,11 @@ function categoryRedBorder(category) {
   }
 }
 
+/**
+ * This function checks whether the category field is empty. If it is empty, it is displayed in red
+ * with a warning message below the field.
+ * 
+ */
 function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer, errorMessage){
   const contentRef = document.getElementById(borderContainer);
   const textRef = document.getElementById(messageContainer);
