@@ -3,9 +3,13 @@ let selectedCategory = null;
 let collectSubTask = []
 let savedCategory;
 let addTaskStatus = "todo";
+let allSubtasks = [];
 
-
-
+/**
+ * Resets the add task form. Sets the button to medium and empty the subtasks.
+ * 
+ * @param {string} formId - The id from the form container.
+ */
 function resetForm(formId) {
   const ref = document.getElementById(formId);
   const priorityRef = document.getElementById('standard-prio');
@@ -15,6 +19,9 @@ function resetForm(formId) {
 }
 
 
+/**
+ * Emptys the subtask content.
+ */
 function deleteSubtasksContent(){
   document.getElementById("added-subtasks").innerHTML = '';
   allSubtasks = [];
@@ -22,6 +29,11 @@ function deleteSubtasksContent(){
 }
 
 
+/**
+ * Sets the button and the button color.
+ * 
+ * @param {HTMLContainer} selected - The selected button container.
+ */
 function setPriorityButtonColor(selected) {
   const labelRef = document.querySelectorAll("#priority-wrapper label");
   labelRef.forEach((element) => {
@@ -36,6 +48,9 @@ function setPriorityButtonColor(selected) {
 }
 
 
+/**
+ * Shows the subtask input menu in the add task form.
+ */
 function showSubtasksInputMenu() {
   const plusIcon = document.getElementById("subtasks-plus");
   const focusIcons = document.getElementById("subtasks-on-focus-icons");
@@ -44,6 +59,9 @@ function showSubtasksInputMenu() {
 }
 
 
+/**
+ * Hides the subtask input menu in the add task form.
+ */
 function hideSubtasksInputMenu() {
   const plusIcon = document.getElementById("subtasks-plus");
   const focusIcons = document.getElementById("subtasks-on-focus-icons");
@@ -51,14 +69,15 @@ function hideSubtasksInputMenu() {
   focusIcons.classList.add("d-none");
 }
 
-let allSubtasks = [];
 
+/**
+ * Checks if the subtask input value already exists or is empty. Adds the subtask value to the add task form subtask array.
+ */
 function addSubtaskValueToArray() {
   let subtaskOutput = document.getElementById("added-subtasks");
   let subtaskInput = document.getElementById("subtasks-input");
   let allSubtasks = Array.from(document.getElementsByClassName('subtask-input'), element => element.value);
   const userInput = subtaskInput.value;
-  console.log(allSubtasks);
   if ((allSubtasks.length != 0) && (allSubtasks.some((element) => element === userInput))) {
     getAddSubtaskError(subtaskInput, 'Subtask already exists');
   }  else if (userInput == "") {
@@ -70,6 +89,12 @@ function addSubtaskValueToArray() {
 }
 
 
+/**
+ * Displays an error message if the subtask user input is empty or the subtask already exists.
+ * 
+ * @param {HTMLContainer} subtaskInput - The subtask user input field. 
+ * @param {string} errorMessage - The displayed error message.
+ */
 function getAddSubtaskError(subtaskInput, errorMessage) {
   subtaskInput.classList.add("subtask-input-error");
   subtaskInput.setAttribute("placeholder", errorMessage);
@@ -77,10 +102,16 @@ function getAddSubtaskError(subtaskInput, errorMessage) {
 }
 
 
+/**
+ * Hides the subtask error message.
+ * 
+  * @param {HTMLContainer} subtaskInput - The subtask user input field.
+ */
 function clearSubtaskError(subtaskInput) {
   subtaskInput.classList.remove("subtask-input-error");
   subtaskInput.setAttribute("placeholder", "Add new subtask");
 }
+
 
 
 function deleteSubtask(containerId){
