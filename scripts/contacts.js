@@ -1,6 +1,3 @@
-
-let sortedContactsArrayByFirstLetter = [];
-
 /**
  * Get contacts from API firebase, create initials from first- and lastname, sort contacts by first letter and render the contacst header letter to HTML.
  *
@@ -8,7 +5,6 @@ let sortedContactsArrayByFirstLetter = [];
 async function sortAndRenderContacts() {
   await getDataFromServer("contacts", contactsFromApi);
   await getDataFromServer("users", usersFromApi);
-  // createInitialsForEachName(contactsFromApi);
   sortAllContactsByFirstLetter();
   renderContactsHeaderLetter();
   setInitialsToHeader();
@@ -22,7 +18,6 @@ function sortAllContactsByFirstLetter() {
   sortedContactsArrayByFirstLetter = contactsFromApi.reduce(
     (newArray, element) => {
       const firstLetter = element.name.slice(0, 1).toUpperCase();
-
       return {
         ...newArray,
         [firstLetter]: [...(newArray[firstLetter] || []), element],
@@ -61,7 +56,7 @@ function getSingleContact(firstLetterArray) {
 }
 
 /**
- * Render the selected contact name in the floating contacts menu.
+ * Render the selected contact name in the floating contacts menu and select the contact in the list.
  *
  * @param {string} contactId - The exact id in the users name object to get the informations.
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
@@ -80,40 +75,48 @@ function openContactInFloatMenu(contactId, colorLetter) {
 }
 
 
+/**
+ * Get the information for the edit and delete contact function in the mini menu.
+ * 
+ * @param {Object} contact - The contact object.
+ */
 function getMobileEditDeleteMenu(contact){
   let contentRef = document.getElementById('floating-edit-delete-wrapper-mobile');
         contentRef.innerHTML = getEditDeleteMobileMenuTemp(contact);
 }
 
 
+/**
+ * Auto changes the appearence of the contacts menu on screen sizes smaller than 1024px;
+ */
 window.onresize = function() {
 if (window.innerWidth >= 1025) {
   switchFloatingContactAndContactsInMobile();
 }}
 
 
+/**
+ * Changes the container visability in mobile mode. All contact list and open single contact in the float menu.
+ */
 function switchFloatingContactAndContactsInMobile(){
   const allContactsRef = document.getElementById('contacts-container-wrapper');
   const contactsFloatRef = document.getElementById('floating-contact-container');
   const floatComputedStyle = window.getComputedStyle(contactsFloatRef);
-  
   switch (floatComputedStyle.display) {
     case 'none':  contactsFloatRef.classList.add('d-block');
                   allContactsRef.classList.add('d-none');
       break;
-
     case 'block': contactsFloatRef.classList.remove('d-block');
                   allContactsRef.classList.remove('d-none');
       break;
-  
-    default:
-      break;
   }
-
   showAddContactButtonInMobile();
 }
 
 
+/**
+ * Shows or hides the add contact button in the mobile menu.
+ */
 function showAddContactButtonInMobile(){
   let contactsRef = document.getElementById('contacts-container-wrapper');
   let buttonRef = document.getElementById('add-contact-button-mobile');
@@ -136,9 +139,10 @@ function animateContactMenu() {
   });
 }
 
+
 /**
  * Check if the contact already exists in the database. Shows a red border and a text message if yes.
- * Fetches the new contact to the database and shows it in the floating menu.
+ * Calls a fetch to api function and show created contact function.
  *
  * @param {object} event - Default object to prevent the form to refresh the page.
  */
@@ -150,15 +154,24 @@ async function createNewContact(event) {
     addRedBorderAndTextFalseInput("user-email-input", "input-alert-message", "Contact/Email already exists!");
     setTimeout(() => removeRedBorderAndTextFalseInput("user-email-input", "input-alert-message"), 3000);
   } else {
-    await postDataToApi("contacts", collectedFormInfos);
-    toggleOverlayMenu("add-contact-overlay", "add-contact-mask-container");
-    await sortAndRenderContacts();
-    scrollToNewContact(`contact-${collectedFormInfos.id}`);
-    openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1).toUpperCase()}`);
-    showContactAddedSuccessButton();
-    document.getElementById("new-contact-form").reset();
+    await postContactToApiAndShowInMenu();
   }
 }
+
+
+/**
+ * Post the new contact to the api, show it in teh float menu, select and scroll to it in the contact list.
+ */
+async function postContactToApiAndShowInMenu(){
+  await postDataToApi("contacts", collectedFormInfos);
+  toggleOverlayMenu("add-contact-overlay", "add-contact-mask-container");
+  await sortAndRenderContacts();
+  scrollToNewContact(`contact-${collectedFormInfos.id}`);
+  openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1).toUpperCase()}`);
+  showContactAddedSuccessButton();
+  document.getElementById("new-contact-form").reset();
+}
+
 
 /**
  * Fills the empty object collectedFormInfos with am template and the next id number from the database.
@@ -171,6 +184,7 @@ async function getNewContactTemp() {
     phone: "",
   };
 }
+
 
 /**
  * After fetching the new contact data to the database, highlights the new fetched contact in the contact list.
@@ -186,6 +200,7 @@ function addBackgroundToSelectedContact(containerId) {
   ref.classList.add("highlight-contact");
 }
 
+
 /**
  * Displays a short overlay message in a button, if the contact successfully added to the database.
  */
@@ -194,6 +209,7 @@ function showContactAddedSuccessButton() {
   setTimeout(() => ref.classList.add("contact-created-button-show"), 400);
   setTimeout(() => ref.classList.remove("contact-created-button-show"), 2000);
 }
+
 
 /**
  * Scrolls to the selected contact.
@@ -205,6 +221,7 @@ function scrollToNewContact(contactId) {
     .getElementById(contactId)
     .scrollIntoView({ behavior: "smooth", block: "end" });
 }
+
 
 /**
  * Opens the edit menu and fills it with information about the clicked user.
@@ -218,6 +235,7 @@ function openEditContact(contactKey) {
   setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper');
 }
 
+
 /**
  * Collects all needed information to edit the contact.
  * 
@@ -229,6 +247,7 @@ function getInfosForEditMenu(contactKey) {
   document.getElementById("edit-user-email-input").value = contact.email;
   document.getElementById("edit-user-phone-input").value = contact.phone;
 }
+
 
 /**
  * Set the onclick functions to the buttons with specified parameters.
@@ -243,6 +262,7 @@ function setOnclickEditAndDeleteToButtons(contactKey){
     .getElementById("delete-contact-button")
     .setAttribute("onclick", `deleteContact('${contactKey}')`);
 }
+
 
 /**
  * Save the edited contact and animate the menu.
@@ -263,6 +283,7 @@ async function saveEditedContact(event, contactKey) {
   openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
 }
 
+
 /**
  * Collect infos from form edit user.
  */
@@ -274,6 +295,7 @@ function getContactInfosToFetch(){
   };
   console.log(collectedFormInfos);
 }
+
 
 /**
  * Delete the selected contact from the database and render new.
@@ -294,6 +316,9 @@ async function deleteContact(contactKey) {
 }
 
 
+/**
+ * Toggles the visability of the edit/delete mini menu in the mobile version.
+ */
 function toggleEditDeleteContactMenuMobile(){
   const menuRef = document.getElementById('floating-edit-delete-wrapper-mobile');
   const maskRef = document.getElementById('floating-contact-mobile-mask');
@@ -304,26 +329,46 @@ function toggleEditDeleteContactMenuMobile(){
 }
 
 
+/**
+ * Switches to the all contacts container in the mobile version.
+ */
 function switchToAllContactsMobile(){
   switchFloatingContactAndContactsInMobile();
 }
 
 
+/**
+ * Set new initials to the container if the name is changing.
+ * 
+ * @param {string} inputId - The name value from the input field.
+ * @param {HTMLContainer} destinationId - The destination container where the initials are displayed.
+ */
 function setInitialsToNewContactContainer(inputId, destinationId){
   let input = document.getElementById(inputId);
   let initials = returnInitials(input.value);
-  let contentRef = document.getElementById(destinationId);
-  contentRef.innerText = initials.slice(0, 3);
-  contentRef.classList.add(`initials-bg-color-${initials.charAt(0).toUpperCase()}`);
-    if (initials == '') {
-      let classes = [...contentRef.classList];
-          classes.forEach((element) => {
-            if (element.startsWith('initials-bg-color-')) {
-              contentRef.classList.remove(element);
-            }
-          })
-    contentRef.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 8C6.9 8 5.95833 7.60833 5.175 6.825C4.39167 6.04167 4 5.1 4 4C4 2.9 4.39167 1.95833 5.175 1.175C5.95833 0.391667 6.9 0 8 0C9.1 0 10.0417 0.391667 10.825 1.175C11.6083 1.95833 12 2.9 12 4C12 5.1 11.6083 6.04167 10.825 6.825C10.0417 7.60833 9.1 8 8 8ZM14 16H2C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14V13.2C0 12.6333 0.145833 12.1125 0.4375 11.6375C0.729167 11.1625 1.11667 10.8 1.6 10.55C2.63333 10.0333 3.68333 9.64583 4.75 9.3875C5.81667 9.12917 6.9 9 8 9C9.1 9 10.1833 9.12917 11.25 9.3875C12.3167 9.64583 13.3667 10.0333 14.4 10.55C14.8833 10.8 15.2708 11.1625 15.5625 11.6375C15.8542 12.1125 16 12.6333 16 13.2V14C16 14.55 15.8042 15.0208 15.4125 15.4125C15.0208 15.8042 14.55 16 14 16ZM2 14H14V13.2C14 13.0167 13.9542 12.85 13.8625 12.7C13.7708 12.55 13.65 12.4333 13.5 12.35C12.6 11.9 11.6917 11.5625 10.775 11.3375C9.85833 11.1125 8.93333 11 8 11C7.06667 11 6.14167 11.1125 5.225 11.3375C4.30833 11.5625 3.4 11.9 2.5 12.35C2.35 12.4333 2.22917 12.55 2.1375 12.7C2.04583 12.85 2 13.0167 2 13.2V14ZM8 6C8.55 6 9.02083 5.80417 9.4125 5.4125C9.80417 5.02083 10 4.55 10 4C10 3.45 9.80417 2.97917 9.4125 2.5875C9.02083 2.19583 8.55 2 8 2C7.45 2 6.97917 2.19583 6.5875 2.5875C6.19583 2.97917 6 3.45 6 4C6 4.55 6.19583 5.02083 6.5875 5.4125C6.97917 5.80417 7.45 6 8 6Z" fill="#A8A8A8"/>
-                    </svg> `
-  }
+  let destinationRef = document.getElementById(destinationId);
+  destinationRef.innerText = initials.slice(0, 2);
+  destinationRef.classList.add(`initials-bg-color-${initials.charAt(0).toUpperCase()}`);
+  removeAndSetInititalsBackgroundColorClass(initials, destinationRef);
+}
+
+
+/**
+ * Removes the old background color class from the container and sets an empty placeholder icon.
+ * 
+ * @param {string} initials - The initails form the input name value.
+ * @param {HTMLContainer} destinationRef - The destination container for the icon.
+ */
+function removeAndSetInititalsBackgroundColorClass(initials, destinationRef){
+  if (initials == '') {
+    let classes = [...destinationRef.classList];
+        classes.forEach((element) => {
+          if (element.startsWith('initials-bg-color-')) {
+            destinationRef.classList.remove(element);
+          }
+        })
+        destinationRef.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 8C6.9 8 5.95833 7.60833 5.175 6.825C4.39167 6.04167 4 5.1 4 4C4 2.9 4.39167 1.95833 5.175 1.175C5.95833 0.391667 6.9 0 8 0C9.1 0 10.0417 0.391667 10.825 1.175C11.6083 1.95833 12 2.9 12 4C12 5.1 11.6083 6.04167 10.825 6.825C10.0417 7.60833 9.1 8 8 8ZM14 16H2C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14V13.2C0 12.6333 0.145833 12.1125 0.4375 11.6375C0.729167 11.1625 1.11667 10.8 1.6 10.55C2.63333 10.0333 3.68333 9.64583 4.75 9.3875C5.81667 9.12917 6.9 9 8 9C9.1 9 10.1833 9.12917 11.25 9.3875C12.3167 9.64583 13.3667 10.0333 14.4 10.55C14.8833 10.8 15.2708 11.1625 15.5625 11.6375C15.8542 12.1125 16 12.6333 16 13.2V14C16 14.55 15.8042 15.0208 15.4125 15.4125C15.0208 15.8042 14.55 16 14 16ZM2 14H14V13.2C14 13.0167 13.9542 12.85 13.8625 12.7C13.7708 12.55 13.65 12.4333 13.5 12.35C12.6 11.9 11.6917 11.5625 10.775 11.3375C9.85833 11.1125 8.93333 11 8 11C7.06667 11 6.14167 11.1125 5.225 11.3375C4.30833 11.5625 3.4 11.9 2.5 12.35C2.35 12.4333 2.22917 12.55 2.1375 12.7C2.04583 12.85 2 13.0167 2 13.2V14ZM8 6C8.55 6 9.02083 5.80417 9.4125 5.4125C9.80417 5.02083 10 4.55 10 4C10 3.45 9.80417 2.97917 9.4125 2.5875C9.02083 2.19583 8.55 2 8 2C7.45 2 6.97917 2.19583 6.5875 2.5875C6.19583 2.97917 6 3.45 6 4C6 4.55 6.19583 5.02083 6.5875 5.4125C6.97917 5.80417 7.45 6 8 6Z" fill="#A8A8A8"/>
+                  </svg> `
+}
 }
