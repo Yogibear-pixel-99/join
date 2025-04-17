@@ -347,7 +347,7 @@ function toggleOverlayMenu(overlayId, maskId){
 /**
  * Checks if a user is logged in and sets the initials to the header.
  */
-function initialsChange() {
+function setInitialsToHeader() {
   let headerInitialsREF = document.getElementById("header-initials");
   emailIndex = sessionStorage.getItem("indexOfUser");
   userInfoList = [];

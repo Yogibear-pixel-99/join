@@ -11,7 +11,7 @@ async function sortAndRenderContacts() {
   // createInitialsForEachName(contactsFromApi);
   sortAllContactsByFirstLetter();
   renderContactsHeaderLetter();
-  initialsChange();
+  setInitialsToHeader();
 }
 
 /**

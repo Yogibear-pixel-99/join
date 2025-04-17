@@ -71,7 +71,7 @@ function hideSubtasksInputMenu() {
 
 
 /**
- * Checks if the subtask input value already exists or is empty. Adds the subtask value to the add task form subtask array.
+ * Checks if the subtask input value already exists or is empty. Adds the subtask value to the add task form subtask array or shows an error.
  */
 function addSubtaskValueToArray() {
   let subtaskOutput = document.getElementById("added-subtasks");
@@ -113,7 +113,11 @@ function clearSubtaskError(subtaskInput) {
 }
 
 
-
+/**
+ * Delete the selected subtask in the add task form.
+ * 
+ * @param {HTMLContainer} containerId - The selected subtask in add task form.
+ */
 function deleteSubtask(containerId){
   let contentRef = document.getElementById(containerId);
       console.log(contentRef);
@@ -121,23 +125,31 @@ function deleteSubtask(containerId){
 }
 
 
+/**
+ * Focus the selected subtask input field.
+ * 
+ * @param {HTMLContainer} containerId - The selected subtask input container.
+ */
 function focusToSubtaskInput(containerId){
   let ref = document.getElementById(containerId);
       ref.focus();
 }
 
 
-
-
+/**
+ * Renders the assign to and the category dropdown menu in the add task form and sets the initials to the header onload the add task site.
+ */
 async function loadDropdown() {
   await getDataFromServer("users", usersFromApi);
   renderAssignToDropdown();
   renderCategoryOptions();
-  initialsChange();
+  setInitialsToHeader();
 }
 
 
-
+/**
+ * Toggles the assigned to dropdown menu wrapper in the add task form.
+ */
 async function toggleAssignedDropdown() {
     let dropdown = document.getElementById("dropdownContent");
     let wrapper = document.getElementById("addTaskWrapper")
@@ -150,46 +162,58 @@ async function toggleAssignedDropdown() {
     wrapper.classList.remove('add-task-wrapper-active');
     wrapper.classList.add('add-task-wrapper-passive');
   }
-  closeDropdown(dropdown);
+  closeMainDropdown(dropdown);
   }
 
- function closeDropdown(dropdown) {
+
+  /**
+   * Toggles the inner assigned to dropdown menu in the add task form. 
+   * 
+   * @param {id} dropdown - Container id of the dropdown menu.
+   */
+ function closeMainDropdown(dropdown) {
   if (dropdown.classList.contains("d-none")) {
     dropdown.classList.toggle("d-none");
   } else {
-    timeOutDropDown(dropdown);
+    setTimeout(() => {
+      dropdown.classList.toggle("d-none");
+    }, 500);
   }
  } 
 
- function timeOutDropDown(dropdown) {
-  return setTimeout(() => {
-    dropdown.classList.toggle("d-none");
-  }, 1000);
- }
 
+/**
+ * Shows the selected assigned user in the assign to dropdown menu in the add task form.
+ */
  function renderAssignToDropdown() {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
-
     usersFromApi.forEach(user => {
       let rowClass = user.isSelected ? 'checked-row' : '';
-      let checkboxImg = user.isSelected
-        ? '../assets/icons/Check button checked white.svg'
-        : '../assets/icons/Check button Box.svg';
-
-        let userItem = document.createElement("div");
+      let checkboxImg = user.isSelected ? '../assets/icons/Check button checked white.svg' : '../assets/icons/Check button Box.svg';
+      let userItem = document.createElement("div");
         userItem.classList.add("dropdown-item");
         userItem.innerHTML = getDropDownUserTemp(user, checkboxImg, rowClass);
         dropdownContent.appendChild(userItem);
     });
 }
 
+
+/**
+ * Filters the users in the assign to dropdown menu, based on the value typed in the search bar input field.
+ */
 function startSearchingContacts() {
     let searchInput = document.getElementById('searchInput').value.toLowerCase();
     let filteredUsers = usersFromApi.filter(user => user.name.toLowerCase().includes(searchInput));
     renderDropdownWithSearchResults(filteredUsers);
 }
 
+
+/**
+ * Renders the searched users in the assign to dropdown menu in the add task form.
+ * 
+ * @param {Array} filteredUsers - An array of the filterd users from the search function.
+ */
 function renderDropdownWithSearchResults(filteredUsers) {
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = ''; 
@@ -201,11 +225,18 @@ function renderDropdownWithSearchResults(filteredUsers) {
     });
 }
 
+
+/**
+ * Marks the checkbox of a searched user in the assign to dropdown menu.
+ * 
+ * @param {HTMLContainer} event - The selected HTML Container (user).
+ * @returns ????????????????
+ */
 function handleCheckboxChange(event) {
     let userEmail = event.target.getAttribute("data-user-id");
     let user = usersFromApi.find(u => u.email === userEmail);
     let userItem = event.target.closest('.user-item');
-    if (!user || !userItem) return;
+    if (!user || !userItem) return; 
     user.isSelected = event.target.checked;
   
     if (event.target.checked) {
@@ -216,6 +247,7 @@ function handleCheckboxChange(event) {
       removeSelectedContact(userEmail);
     }
   }
+
 
   function toggleUserSelection(userEmail) {
     let user = usersFromApi.find(u => u.email === userEmail);
