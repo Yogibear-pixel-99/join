@@ -57,14 +57,20 @@ async function getSubtasksForTaskOverlay(task){
 
 
 /**
- * Checks if the 
+ * Checks if the subtask is finished or not.
  * 
- * @param {*} subtask 
- * @returns 
+ * @param {Object} subtask - A subtask object from the selected task(subtask) array.
+ * @returns - A string with "checked" or an empty string.
  */
 function checkIfSubtaskIsDone(subtask){
     return subtask.finished == true ? "checked" : "";
 }
+
+
+
+
+// ------------ Here
+
 
 async function changeSubTaskCheckedApi(location, id){
     let inputRef = document.getElementById(id);
