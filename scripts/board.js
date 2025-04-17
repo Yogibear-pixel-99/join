@@ -168,7 +168,7 @@ function getDoneSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
     return task.subtasks.filter(
       (subtask) =>
-        subtask.finished == "true" && subtask.subtaskName != undefined
+        subtask.finished == true && subtask.subtaskName != undefined
     ).length;
   } else {
     return "";

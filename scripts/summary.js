@@ -181,7 +181,6 @@ function getClosestDate(){
 function getMonthNumber(month){
     if (month.charAt(0) === '0') {
     month = month.replace('0', '');
-    console.log(month)
     return parseInt(month);
   }
 }

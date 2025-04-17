@@ -73,6 +73,7 @@ passwordREF.onkeyup = function () {
 };
 }
 
+
 /**
  * This function changes the type of the password input field when the visibility icon is clicked.
  * 
