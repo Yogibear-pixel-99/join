@@ -268,12 +268,12 @@ function handleCheckboxChange(event) {
       let selectedDiv = document.createElement("div");
       selectedDiv.classList.add("selected-contact");
       selectedDiv.setAttribute("data-user-id", userEmail);
-      selectedDiv.innerHTML = getAssignedUserInitials();
+      selectedDiv.innerHTML = getAssignedUserInitials(user);
       container.appendChild(selectedDiv);
     }
   }
 
-  function getAssignedUserInitials(){
+  function getAssignedUserInitials(user){
     return `<div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
           ${returnInitials(user.name)}
         </div>`;

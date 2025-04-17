@@ -82,15 +82,6 @@ function overlayEditTask(taskApiKey){
     setTimeout(() => {setPriorityButtonContainer(taskData)}, 1);
     setTimeout(() => {setAssignedUsersToDropdown(taskData)}, 1);
     setTimeout(() => {showSubtaskInEditOverlay(taskData)}, 1);
-
-
-    console.log(taskData);
-  
-    // fill edit task container with values
-    // change values
-    // save values to api
-    // show new values in task overlay
-    // render alltasks from api
 }
 
 function setPriorityButtonContainer(taskData){
