@@ -95,10 +95,12 @@
     border-radius: 16px;
 }
 
-.subtasks-overlay-wrapper {
+.subtasks-overlay-wrapper input{
     display: flex;
     flex-direction: column;
     gap: 4px;
+    min-width: 16px;
+    min-height: 16px;
 }
 
 .overlay-task-body label input {
@@ -132,6 +134,7 @@ input[type="checkbox"] {
     justify-content: flex-end;
     gap: 8px;
     cursor: pointer;
+    margin-top: 20px;
   }
 
   .task-overlay-button-wrapper{
