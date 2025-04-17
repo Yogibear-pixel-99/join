@@ -405,7 +405,7 @@ collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos);
 toggleAddedToBoardButton();
 setTimeout(toggleAddedToBoardButton, 3000);
-setTimeout(() => {window.location.href = "../html/board.html"}, 3000);
+setTimeout(() => {window.location.href = "../html/board.html"}, 300000);
 }
 
 /**
@@ -422,9 +422,11 @@ function toggleAddedToBoardButton() {
 /**
  * This function extracts the subtasks and inserts them into collectedFormInfos.
  * 
- * 
+ * @param {FormData} data - FormData of the added Task
  */
 function collectSubTasks(data) {
+  console.log(data);
+  
   data.forEach((value, key) => {
     if (key === "subtasks[]") {
         collectedFormInfos.subtasks.push({
@@ -455,7 +457,7 @@ function collectAssingTo() {
 /**
  * This function saves the selected category in the Add Task Menu.
  * 
- * 
+ * @param {string} category - The selected category 
  */
 function formDataCategory(category) {
   savedCategory = category;
@@ -479,7 +481,6 @@ function createNewTask(event) {
   event.preventDefault();
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
-  let assignedTo = document.getElementById("addSelectedContacts");
   let category = document.getElementById('categoryDropdown').value;
   if (title === '' || dueDate === ''|| category === '') {
     event.preventDefault();  
@@ -489,6 +490,7 @@ function createNewTask(event) {
   } else {
     titleRedBorder(title);
     dateRedBorder(dueDate);
+    categoryRedBorder(category);
     addTask(event);
   }
 }
@@ -497,6 +499,8 @@ function createNewTask(event) {
 /**
  * This function checks whether the title field is empty. If it is empty, it is displayed in red
  * with a warning message below the field.
+ * 
+ * @param {string} title - The value of the Title Input Field
  * 
  */
 function titleRedBorder(title) {
@@ -515,6 +519,7 @@ function titleRedBorder(title) {
  * This function checks whether the date field is empty. If it is empty, it is displayed in red
  * with a warning message below the field.
  * 
+ * @param {string} dueDate - The value of the Date Input Field
  */
 function dateRedBorder(dueDate) {
   if (dueDate == '') {
@@ -532,6 +537,7 @@ function dateRedBorder(dueDate) {
  * This function checks whether the category field is empty. If it is empty, it is displayed in red
  * with a warning message below the field.
  * 
+ * @param {string} category - The value of the category Field
  */
 function categoryRedBorder(category) {
   if (category == '') {
@@ -549,6 +555,9 @@ function categoryRedBorder(category) {
  * This function highlights the respective field with an error 
  * message and changes the border to red.
  * 
+ * @param {string} borderContainer - The element at which the border turns red
+ * @param {string} errorMessage - The error Message
+ * @param {string} messageContainer - The element that displays the error message
  */
 function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer, errorMessage){
   const contentRef = document.getElementById(borderContainer);
@@ -561,6 +570,8 @@ function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer,
 /**
  * This function removes the error message and removes the red border.
  * 
+ * @param {string} borderContainer - The element at which the red border is removed
+ * @param {string} messageContainer - The element that displays the error message
  */
 function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer){
   const contentRef = document.getElementById(borderContainer);

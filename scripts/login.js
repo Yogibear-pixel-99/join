@@ -6,7 +6,10 @@ const guestLoginREF = document.getElementById("guest-login");
 let emailIndex = -1;
 
 
-
+/**
+ * This function takes the users from the database and pushes them into an object
+ * 
+ */
 async function getUserInfo() {
   await getDataFromServer("users", usersFromApi);
 }
@@ -29,7 +32,7 @@ function checkLogin(event) {
  * @param {boolean} emailChecked - The Boolean indicates whether the email exists in the database or not.
  * @param {integer} emailIndex- The index that stores the position of the email in the database
  */
-function checkEmail(event) {
+function checkEmail() {
   let emailChecked = usersFromApi.some(
     (item) => item.email === emailREF.value
   );
@@ -48,6 +51,7 @@ function checkEmail(event) {
 /**
  * This function checks whether the respective password matches the email.
  * 
+ * @param {integer} emailIndex - The position in the database at which the specified email is located
  */
 function checkPassword(emailIndex) {
   let user = usersFromApi[emailIndex];  
