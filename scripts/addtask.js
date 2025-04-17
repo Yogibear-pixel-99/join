@@ -268,14 +268,15 @@ function handleCheckboxChange(event) {
       let selectedDiv = document.createElement("div");
       selectedDiv.classList.add("selected-contact");
       selectedDiv.setAttribute("data-user-id", userEmail);
-  
-      selectedDiv.innerHTML = `
-        <div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
-          ${returnInitials(user.name)}
-        </div>
-      `;
+      selectedDiv.innerHTML = getAssignedUserInitials();
       container.appendChild(selectedDiv);
     }
+  }
+
+  function getAssignedUserInitials(){
+    return `<div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
+          ${returnInitials(user.name)}
+        </div>`;
   }
   
   function removeSelectedContact(userEmail) {
@@ -316,15 +317,12 @@ function handleCheckboxChange(event) {
   if (dropdown.classList.contains("d-none")) {
     dropdown.classList.toggle("d-none");
   } else {
-    timeOutDropDown(dropdown);
+    etTimeout(() => {
+      dropdown.classList.toggle("d-none");
+    }, 500);
   }
  } 
 
- function timeOutCategoryDropDown(dropdown) {
-  return setTimeout(() => {
-    dropdown.classList.toggle("d-none");
-  }, 1000);
- }
 
   function renderCategoryOptions() {
     let dropdownContent = document.getElementById("categoryDropdownContent");
