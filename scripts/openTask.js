@@ -1,10 +1,3 @@
-
-
-let assignedUsersArray = [];
-
-
-
-
 function getPriorityIconForTaskOverlay(task){
     let iconSrc = "";
     switch (task.priority) {

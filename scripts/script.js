@@ -1,14 +1,3 @@
-
-
-MAIN_URL = "https://join-e2ac8-default-rtdb.europe-west1.firebasedatabase.app/";
-let contactsFromApi = [];
-let tasksFromApi = [];
-let usersFromApi = [];
-let subtasksFromApi = [];
-let collectedFormInfos = {};
-let collectedStatusInfo = {};
-
-
 /**
  * Fetches data from the firebase api to the specified array and gets the api key for every entry.
  * 

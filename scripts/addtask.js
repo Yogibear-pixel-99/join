@@ -1,10 +1,3 @@
-const staticCategories = ["Technical Task", "User Story"];
-let selectedCategory = null;
-let collectSubTask = []
-let savedCategory;
-let addTaskStatus = "todo";
-let allSubtasks = [];
-
 /**
  * Resets the add task form. Sets the button to medium and empty the subtasks.
  * 

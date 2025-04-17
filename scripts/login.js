@@ -1,11 +1,3 @@
-
-const emailREF = document.getElementById("email");
-const passwordREF = document.getElementById("password");
-const inputLogoREF = document.getElementById("input-logo");
-const guestLoginREF = document.getElementById("guest-login");
-let emailIndex = -1;
-
-
 /**
  * This function takes the users from the database and pushes them into an object
  * 
