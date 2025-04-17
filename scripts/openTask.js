@@ -1,43 +1,53 @@
+/**
+ * Gets the icon source depending on the priority of the button selected.
+ * 
+ * @param {Object} task - The task object.
+ * @returns - The source of the needed svg icon.
+ */
 function getPriorityIconForTaskOverlay(task){
     let iconSrc = "";
     switch (task.priority) {
         case "Urgent": iconSrc = "prio-urgent.svg";
             break;
-
         case "Medium": iconSrc = "prio-medium.svg";
             break;
-
         case "Low": iconSrc = "prio-low.svg";
             break;
     }
     return iconSrc;
 }
 
+
+/**
+ * Shows the assigend users in the selected task.
+ * 
+ * @param {Object} task 
+ * @returns - The HTML template with the assigend users.
+ */
 async function getTaskAssignedUsers(task){
     let content = '';
-    let name = '';
-    let initials = '';
         await getDataFromServer('users', usersFromApi);
         if (task.assignTo && task.assignTo.length > 0) {
         for (let userIndex = 0; userIndex < task.assignTo.length; userIndex++) {
             const userEmail = task.assignTo[userIndex];
                 usersFromApi.find((element) => {
                     if (element.email === userEmail) {
-                        name = element.name;
-                        initials = returnInitials(name);
-                        content += getAssignedUserTaskOverlayTemp(name, initials);
-                    }
-                })   
-            }
+                        content += getAssignedUserTaskOverlayTemp(element.name, returnInitials(element.name));
+                    }})}
         if (content == '' || content == undefined) {
         return 'No user assigned to task!'; 
         } else {
             return content;
-        }
-    }
+        }}
 }
 
 
+/**
+ * Gets all the subtasks from the selected task from the api.
+ * 
+ * @param {Object} task - The selected task object.
+ * @returns - A HTML template including all subtasks from the selected task.
+ */
 async function getSubtasksForTaskOverlay(task){
     let content = '';
     await getDataFromServer(`tasks/${task.apiKey}/subtasks`, subtasksFromApi);
@@ -46,14 +56,20 @@ async function getSubtasksForTaskOverlay(task){
 }
 
 
+/**
+ * Checks if the 
+ * 
+ * @param {*} subtask 
+ * @returns 
+ */
 function checkIfSubtaskIsDone(subtask){
-    return subtask.finished == "true" ? "checked" : "";
+    return subtask.finished == true ? "checked" : "";
 }
 
 async function changeSubTaskCheckedApi(location, id){
     let inputRef = document.getElementById(id);
     let isChecked = {};
-    inputRef.checked ? isChecked = {"finished":"true"} : isChecked = {"finished":"false"};
+    inputRef.checked ? isChecked = {"finished": true} : isChecked = {"finished": false};
     await patchDataToApi(location, isChecked);
     initBoard();
 }

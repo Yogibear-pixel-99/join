@@ -269,10 +269,10 @@
       "subtasks": [
         {
           "subtaskName": "Implement Recipe Recommendation",
-          "finished": "false"
+          "finished": false
         },
         { "subtaskName": "Start Page Layout",
-          "finished": "false" }
+          "finished": false}
       ],
       "id": "1"
     },
@@ -291,12 +291,12 @@
       ],
       "subtasks": [ {
         "subtaskName": "Subtask 1",
-        "finished": "false"
+        "finished": false
       },
       { "subtaskName": "Subtask 2",
-        "finished": "true" },
+        "finished": true},
         { "subtaskName": "Subtask 3",
-        "finished": "false" }],
+        "finished": false}],
       "id": "2"
     },
 
@@ -310,9 +310,9 @@
       "assignTo": ["sofia@mueller.com", "lukas@schmidt.com"],
       "subtasks": [
         {"subtaskName" : "Establish CSS Methodology",
-          "finished": "true"}, 
-          {"subtaskName" :"Setup Base Styles"}
-        ],
+          "finished": true}, 
+          {"subtaskName" :"Setup Base Styles",
+          "finished" : false}],
       "id": "3"
     },
 
@@ -326,12 +326,12 @@
       "assignTo": ["david@lehmann.com", "stefan@krueger.com"],
       "subtasks": [ {
         "subtaskName": "Subtask 1",
-        "finished": "false"
+        "finished": false
       },
       { "subtaskName": "Subtask 2",
-        "finished": "true" },
+        "finished": true},
         { "subtaskName": "Subtask 3",
-        "finished": "false" }],
+        "finished": false}],
       "id": "4"
     },
 
@@ -345,14 +345,14 @@
       "assignTo": ["sofia@mueller.com", "bart@springfield.com"],
       "subtasks": [ {
         "subtaskName": "Subtask 1",
-        "finished": "false"
+        "finished": false
       },
       { "subtaskName": "Subtask 2",
-        "finished": "true" },
+        "finished": true},
         { "subtaskName": "Subtask 3",
-        "finished": "false" },
+        "finished": false},
         { "subtaskName": "Subtask 4",
-        "finished": "true" }],
+        "finished": true}],
       "id": "5"
     }
   ]
