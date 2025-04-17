@@ -361,7 +361,12 @@ function getSubtaskForTaskOverlayTemp(task, subtask){
 }
 
 
-// NEEDED AFTER CREATING OVERLAY --> AFTER ADD TASK WORKING
+/**
+ * Creates a template for the task overlay to edit.
+ * 
+ * @param {Object} task - The task object to edit.
+ * @returns - The template of the actual task to edit.
+ */
 function getEditTaskTemp(task){
     return `<div class="edit-task-overlay-close-wrapper white-box-top close-icon-wrapper flex-ctr-ctr" onclick="toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -413,16 +418,7 @@ function getEditTaskTemp(task){
                   </div>
                   <span id="date-error-message" class="date-error-message"></span>
               </div>
-            
-       
-            
               <div class="flex-col width-100p gap8">
-
-
-
-
-
-
                 <label>Prio</label>
                 <div id="priority-wrapper" class="btn-importance-container">
                   <input
@@ -523,29 +519,20 @@ function getEditTaskTemp(task){
               </div>
               <div class="flex-col width-100p gap8">
                 <label for="searchInput">Assigned to</label>
-                <div class="custom-dropdown" id="customDropdown">
-                    
+                <div class="custom-dropdown" id="customDropdown"> 
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
                   onkeyup="startSearchingContacts()"
                   onclick="toggleAssignedDropdown()" />
                   <div id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
                     <div class="dropdown-content d-none" id="dropdownContent"></div>
                   </div>
-                    
                 </div>
                 <div class="add-selected-contacts" id="addSelectedContacts">
                 </div>
-           
             <div class="flex-col width-100p gap8">
-              
-                 
-                
-            
                 <div id="categoryWrapper" class="category-wrapper category-wrapper-passive">
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
                 </div>
-
-                
               </div>
               <span id="category-error-message" class="title-error-message"></span>
               <div class="subtask-input-wrapper flex-col gap8">
@@ -558,7 +545,6 @@ function getEditTaskTemp(task){
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
-                    
                     maxlength="30"
                     placeholder="Add new subtask" />
                   <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
@@ -566,7 +552,6 @@ function getEditTaskTemp(task){
                     <img src="../assets/icons/Subtasks icons11.svg" />
                   </div>
                   </div>
-              
                 <div
                   id="subtasks-on-focus-icons"
                   class="subtasks-icons-wrapper flex-ctr-ctr d-none">
@@ -599,6 +584,11 @@ function getEditTaskTemp(task){
 }
 
 
+/**
+ * Creates the template for the add task overlay.
+ * 
+ * @returns - A whole template form, to post a new task to the api.
+ */
 function getAddTaskOverlayTemp(){
     return `
           <h1 class="add-task-header">Add Task</h1>
@@ -749,14 +739,12 @@ function getAddTaskOverlayTemp(){
               <div class="flex-col gap8">
                 <label for="searchInput">Assigned to</label>
                 <div class="custom-dropdown" id="customDropdown">
-                    
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
                   onkeyup="startSearchingContacts()"
                   onclick="toggleAssignedDropdown()" />
                   <div id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
                     <div class="dropdown-content d-none" id="dropdownContent"></div>
                   </div>
-                    
                 </div>
                 <div class="add-selected-contacts" id="addSelectedContacts">
                 </div>
@@ -764,7 +752,6 @@ function getAddTaskOverlayTemp(){
             <div class="flex-col gap8">
               <label for="categoryDropdown">Category<span class="red-asterisk">*</span></label>
                   <div class="custom-dropdown" id="categoryDropdownWrapper">
-                
                 <input
                   class="dropdown-label addTask-input-field-img"
                   type="text"
@@ -788,7 +775,6 @@ function getAddTaskOverlayTemp(){
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
-                    
                     maxlength="30"
                     placeholder="Add new subtask" />
                   <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
@@ -796,7 +782,6 @@ function getAddTaskOverlayTemp(){
                     <img src="../assets/icons/Subtasks icons11.svg" />
                   </div>
                   </div>
-              
                 <div
                   id="subtasks-on-focus-icons"
                   class="subtasks-icons-wrapper flex-ctr-ctr d-none">
@@ -809,19 +794,15 @@ function getAddTaskOverlayTemp(){
                   <div class="subtasks-icon-container flex-ctr-ctr"
                         >
                     <img
-                    
                     onmousedown="addSubtaskValueToArray()"
                       class="subtasks-icon"
                       src="../assets/icons/check-icon-dark.svg" />
                   </div>
                 </div>
               </div>
-
               <div id="added-subtasks" class="added-subtasks"></div>
-
             </div>
           </div>
-          
           <div class="add-task-footer">
             <div class="required-wrapper">
               <span class="red-asterisk">*</span>
@@ -838,7 +819,6 @@ function getAddTaskOverlayTemp(){
                   <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              
               <button class="dark-button btns-addtask" type="submit" onclick="createNewTask(event)">
                 Create Task <img src="../assets/icons/check.svg" />
               </button>
