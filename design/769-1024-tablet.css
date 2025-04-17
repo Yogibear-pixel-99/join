@@ -667,7 +667,7 @@
     margin-top: 15px;
 }
 
-}
+
 
 /* HELP */
 /* PRIVACY */
@@ -676,6 +676,17 @@
 }
 /* LEGAL NOTICE */
 
+}
+
+@media (max-height: 1000px) {
+
+    .task-overlay-container {
+        overflow-y: auto;
+        border: solid white 40px;
+        padding: 0;
+    }
+
+}
 
 /* 320px — 480px: Mobile devices
 481px — 768px: iPads, Tablets
