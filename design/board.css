@@ -375,6 +375,12 @@
 
 .board-rendered {
   min-height: 300px;
+  max-height: 580px;
+  overflow-y: auto;
+}
+
+.board-rendered::-webkit-scrollbar {
+  display: none;
 }
 
 .board-header-hide-desktop {
