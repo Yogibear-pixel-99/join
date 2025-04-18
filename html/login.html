@@ -25,6 +25,7 @@
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/summary.js"></script>
+    <script defer src="../scripts/signUp.js"></script>
     <script defer src="../scripts/login.js"></script>
 </head>
 <body onload="getUserInfo()">
@@ -57,15 +58,15 @@
                 <img class="input-logo" src="../assets/icons/mail.svg">
             </div>
             <div class="input-field-container input-bottom-field-container">
-                <input class="login-input-field" type="password" id="password" required placeholder="Password">
-                <img class="input-logo" id="input-logo" src="../assets/icons/lock.svg">
+                <input onkeyup="changeLoginPasswordIcons()" class="login-input-field" type="password" id="password" required placeholder="Password">
+                <img onclick="showHidePassword('password', 'input-logo')" class="input-logo" id="input-logo" src="../assets/icons/lock.svg">
             </div>
               <span id="login-error-message" class="login-error-message"></span>
             <div class="login-button-container">
                 <button onclick="checkLogin(event)" class="dark-button mobile-login-button" id="login">Log in</button>
                 
                 
-                <a onclick="setInitialsToGuest()" href="./summary.html" class="light-button guest-login guest-login-desktop" id="guest-login">Guest Log in</a>
+                <a onclick="sessionStorageGuest(); setInitialsToGuest()" href="./summary.html" class="light-button guest-login guest-login-desktop" id="guest-login">Guest Log in</a>
                 <div onclick="switchToSummary()" href="./summary.html" class="light-button guest-login guest-login-mobile" id="guest-login">Guest Log in</div>
             
             
