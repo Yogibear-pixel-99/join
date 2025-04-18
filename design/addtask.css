@@ -193,7 +193,7 @@ box-shadow: none;
 
 .plus-icon {
   position: absolute;
-  top: calc(50% + 2.5px);
+  top: 50%;
   right: 10px;
   transform: translateY(-50%);
   cursor: pointer;

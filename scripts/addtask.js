@@ -42,6 +42,15 @@ function setPriorityButtonColor(selected) {
 
 
 /**
+ * Focus the subtask input field.
+ */
+function focusSubtaskInputMenu(){
+  let ref = document.getElementById('subtasks-input');
+  ref.focus();
+}
+
+
+/**
  * Shows the subtask input menu in the add task form.
  */
 function showSubtasksInputMenu() {
@@ -60,6 +69,18 @@ function hideSubtasksInputMenu() {
   const focusIcons = document.getElementById("subtasks-on-focus-icons");
   plusIcon.classList.remove("d-none");
   focusIcons.classList.add("d-none");
+}
+
+
+/**
+ * Calls the add subtask function if enter key is pressed on focus subtask input field in the add task form.
+ * 
+ * @param {Object} event - The default event object.
+ */
+function enterKeyAddSubtaskValueToArray(event){
+    if (event.keyCode == 13) {
+      addSubtaskValueToArray();
+    }
 }
 
 
