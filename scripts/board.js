@@ -1,7 +1,17 @@
+
+/**
+ * This Onload function calls up all functions that are to be displayed when the page is opened.
+ *
+ */
 function initBoard() {
   loadAndRenderTasks();
 }
 
+/**
+ * This function takes all users and tasks from the database and displays the initials in the header area.
+ * It also renders the board with the respective tasks.
+ * 
+ */
 async function loadAndRenderTasks() {
   await getDataFromServer("users", usersFromApi);
   await getDataFromServer("tasks", tasksFromApi);
@@ -9,6 +19,11 @@ async function loadAndRenderTasks() {
   renderBoard();
 }
 
+/**
+ * This function renders the respective tasks into the columns by first emptying them, then filling them 
+ * and then checking whether a column is empty.
+ * 
+ */
 function renderBoard() {
   let todo = document.getElementById("boardToDoCard");
   let prog = document.getElementById("boardInprogressCard");
@@ -20,6 +35,14 @@ function renderBoard() {
   checkEmptyColums(todo, prog, feed, done);
 }
 
+/**
+ * This function empties the columns
+ * 
+ * @param {HTMLContainer} todo - The todo column
+ * @param {HTMLContainer} prog - The inprogress column
+ * @param {HTMLContainer} feed - The awaitfeedback column
+ * @param {HTMLContainer} done - The done column
+ */
 function clearBoardColums(todo, prog, feed, done) {
   todo.innerHTML = "";
   prog.innerHTML = "";
@@ -27,6 +50,15 @@ function clearBoardColums(todo, prog, feed, done) {
   done.innerHTML = "";
 }
 
+/**
+ * This function fills the respective columns with the tasks.
+ * 
+ * @param {Object} tasks - The fetched object with the tasks from the database.
+ * @param {HTMLContainer} todo - The todo column
+ * @param {HTMLContainer} prog - The inprogress column
+ * @param {HTMLContainer} feed - The awaitfeedback column
+ * @param {HTMLContainer} done - The done column
+ */
 function fillBoardColums(tasks, todo, prog, feed, done) {
   tasks.forEach((task) => {
     let cardHtml = createTaskCard(task);
@@ -37,6 +69,14 @@ function fillBoardColums(tasks, todo, prog, feed, done) {
   });
 }
 
+/**
+ * This function checks whether empty fields exist and places a No Tasks container there.
+ * 
+ * @param {HTMLContainer} todo - The todo column
+ * @param {HTMLContainer} prog - The inprogress column
+ * @param {HTMLContainer} feed - The awaitfeedback column
+ * @param {HTMLContainer} done - The done column
+ */
 function checkEmptyColums(todo, prog, feed, done) {
   if (!todo.innerHTML.trim()) {
     todo.innerHTML = `<div class="no-tasks">No tasks to do</div>`;
@@ -51,7 +91,11 @@ function checkEmptyColums(todo, prog, feed, done) {
     done.innerHTML = `<div class="no-tasks">No tasks done</div>`;
   }
 }
-
+/**
+ * This function renders the assigned users in the tasks, if there are any.
+ * 
+ * @param {Object} task - The object with the respective task
+ */
 function renderAssignedUsers(task) {
   if (!task.assignTo || !task.assignTo.length === 0) {
     return "";
@@ -80,7 +124,11 @@ function renderAssignedUsers(task) {
     })
     .join("");
 }
-
+/**
+ * This function renders the particular priority icon in the task
+ * 
+ * @param {String} priority - The object with the respective task
+ */
 function getPriorityIconHTML(priority) {
   if (!priority) return "";
 
