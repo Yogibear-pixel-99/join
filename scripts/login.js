@@ -59,47 +59,26 @@ function checkPassword(emailIndex) {
   }
 }
 
+
 /**
- * This function changes the symbol in the password field when writing in the password field.
- * 
+ * Changes the source of the password icon in the login form.
  */
-if (passwordREF) {
-passwordREF.onkeyup = function () {
-  if ((passwordREF.innerText == "")) {
+function changeLoginPasswordIcons(){
+  if ((passwordREF.value == "")) {
     inputLogoREF.src = "../assets/icons/lock.svg";
   } else {
     inputLogoREF.src = "../assets/icons/visibility_off.svg";
   }
-};
-}
-
-
-/**
- * This function changes the type of the password input field when the visibility icon is clicked.
- * 
- */
-if (inputLogoREF) {
-    inputLogoREF.onclick = function () {
-        if (password.type == "password") {
-          password.type = "text";
-          inputLogoREF.src = "../assets/icons/visibility-eye.svg";
-        } else {
-          password.type = "password";
-          inputLogoREF.src = "../assets/icons/visibility_off.svg";
-        }
-      };
 }
 
 /**
  * This on-click function stores in the session storage that the login is a guest login.
  * 
  */
-if (guestLoginREF) {
-    guestLoginREF.onclick = function () {
+function sessionStorageGuest(){
         sessionStorage.removeItem("indexOfUser");
         sessionStorage.setItem("userLoggedIn", false)
     }
-}
 
 /**
  * This function switches to the summary when the guest login button is clicked.

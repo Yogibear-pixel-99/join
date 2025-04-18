@@ -162,11 +162,11 @@ function changePasswordIcon(inputContainerId, iconContainerId){
 /**
  * Changes the visibility of the password value in the input field by changing the input field type.
  * 
- * @param {HTMLContainer} textId - The id of the input container.
+ * @param {HTMLContainer} inputId - The id of the input container.
  * @param {HTMLContainer} logoId - The id of the logo container.
  */
-function showHidePassword(textId, logoId){
-  let text = document.getElementById(textId);
+function showHidePassword(inputId, logoId){
+  let text = document.getElementById(inputId);
   let logo = document.getElementById(logoId);
   if (text.value) {
   switch (text.type == "password") {
