@@ -352,30 +352,42 @@ function showDatePicker(){
     shownDate.value = hiddenDate;
  }
 
- function checkDateInput(event){
-  let contentRef = document.getElementById('due-date');
-    if (event.keyCode == 8 || event.keyCode == 46) {
-      contentRef.value = '';
-    } else {
+
+ /**
+  * Checks the input value and shows only a special date pattern value in the date input field in the add task form.
+  */
+ function checkDateInput(){
+   let contentRef = document.getElementById('due-date');
+   let dateContent = '';
       userInput = contentRef.value.replace(/\D/g, '');
       contentRef.value = '';
-  let dateContent = '';
-
       dateContent += setDayToAddTaskDateInput(userInput);
       dateContent += setMonthToAddTaskDateInput(userInput);
       dateContent += setYearToAddTaskDateInput(userInput);
-
-
-
-
-
-
     contentRef.value = dateContent;
-  }
+  
 }
 
 
+/**
+ * Resets the date input value in the add task date input field if backspace or del key is pressed.
+ * 
+ * @param {Object} event - The default object.
+ */
+function resetDateValue(event){
+  let contentRef = document.getElementById('due-date');
+  if (event.keyCode == 8 || event.keyCode == 46) {
+    contentRef.value = '';
+  } 
+}
 
+
+/**
+ * Gets the first two numbers as the day for the special date pattern.
+ * 
+ * @param {string} userInput - The user input from the date input field in the add task form.
+ * @returns The day integer from the user input.
+ */
 function setDayToAddTaskDateInput(userInput){
   if (userInput.length >= 2) {
     let userDay = userInput.slice(0, 2);
@@ -384,7 +396,12 @@ function setDayToAddTaskDateInput(userInput){
 }
 
 
-
+/**
+ * Gets the second two numbers as the month for the special date pattern.
+ * 
+ * @param {string} userInput - The user input from the date input field in the add task form.
+ * @returns The month integer from the user input.
+ */
 function setMonthToAddTaskDateInput(userInput){
   if (userInput.length >= 4) {
     let userMonth = userInput.slice(2, 4);
@@ -395,7 +412,12 @@ function setMonthToAddTaskDateInput(userInput){
 }
 
 
-
+/**
+ * Gets the last four numbers as the year for the special date pattern.
+ * 
+ * @param {string} userInput - The user input from the date input field in the add task form.
+ * @returns The year integer from the user input.
+ */
 function setYearToAddTaskDateInput(userInput){
   if (userInput.length >= 5) {
     let userYear = userInput.slice(4, 8);
@@ -406,12 +428,10 @@ function setYearToAddTaskDateInput(userInput){
 }
 
 
-
-
 /**
  * This function takes the information from the fields in order to add a new task to the database and also display it on the board.
  * 
- * 
+ * @param {Object} event - The default event object.
  */
 async function addTask(event){
 event.preventDefault();
@@ -426,9 +446,9 @@ setTimeout(toggleAddedToBoardButton, 3000);
 setTimeout(() => {window.location.href = "../html/board.html"}, 4000);
 }
 
+
 /**
  * This function shows that the generated task has been added to the board.
- * 
  * 
  */
 function toggleAddedToBoardButton(){
@@ -436,6 +456,7 @@ function toggleAddedToBoardButton(){
   addedToBoardREF.classList.toggle("d-none");
  
 }
+
 
 /**
  * This function extracts the subtasks and inserts them into collectedFormInfos.
@@ -455,9 +476,9 @@ function collectSubTasks(data){
 })
 }
 
+
 /**
  * This function extracts the assignTo and inserts them into collectedFormInfos.
- * 
  * 
  */
 function collectAssingTo(){
@@ -471,7 +492,6 @@ function collectAssingTo(){
 }
 
 
-
 /**
  * This function saves the selected category in the Add Task Menu.
  * 
@@ -480,6 +500,7 @@ function collectAssingTo(){
 function formDataCategory(category){
   savedCategory = category;
 }
+
 
 /**
  * This function inserts the category into collectedFormInfos.
@@ -490,10 +511,11 @@ function collectCategory(){
   collectedFormInfos.category = savedCategory;
 }
 
+
 /**
  * This function checks all mandatory fields in the AddTask for empty fields.
  * 
- * 
+* @param {Object} event - The default event object.
  */
 function createNewTask(event){
   event.preventDefault();
@@ -551,6 +573,7 @@ function dateRedBorder(dueDate){
   }
 }
 
+
 /**
  * This function checks whether the category field is empty. If it is empty, it is displayed in red
  * with a warning message below the field.
@@ -569,6 +592,7 @@ function categoryRedBorder(category) {
   }
 }
 
+
 /**
  * This function highlights the respective field with an error 
  * message and changes the border to red.
@@ -584,6 +608,7 @@ function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer,
         textRef.innerText = errorMessage;
         textRef.style.color = 'red';
 }
+
 
 /**
  * This function removes the error message and removes the red border.
