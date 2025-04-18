@@ -137,12 +137,25 @@ function toggleSignUpButton(){
 /**
  * Changes the source of the password icon in the sign up form.
  */
-function changePasswordIcons(){
-  let passwordRef = document.getElementById('sign-up-password').value
-  let confirmRef = document.getElementById('sign-up-password-confirm').value
-      passwordRef !== '' && confirmRef !== '' ? 
-      setIconToContent('lock-logo', '../assets/icons/visibility_off.svg') : 
-      setIconToContent('lock-logo', '../assets/icons/visibility_off.svg');
+// function changePasswordIcons(){
+//   let passwordRef = document.getElementById('sign-up-password').value
+//   let confirmRef = document.getElementById('sign-up-password-confirm').value
+//       if (passwordRef !== '' && confirmRef !== '') {
+//         setIconToContent('lock-logo', '../assets/icons/visibility_off.svg');
+//       } 
+// }
+
+
+/**
+ * Changes the source of the password icon in the sign up form.
+ */
+function changePasswordIcon(inputContainerId, iconContainerId){
+  let ref = document.getElementById(inputContainerId).value
+      if (ref !== "") {
+        setIconToContent(iconContainerId, '../assets/icons/visibility_off.svg');
+      } else {
+        setIconToContent(iconContainerId, '../assets/icons/lock.svg')
+      }
 }
 
 
@@ -172,10 +185,8 @@ function showHidePassword(textId, logoId){
  * @param {string} iconClassName - The class name of all needed HTML containers.
  * @param {string} source - The source address of the needed icon.
  */
-function setIconToContent(iconClassName, source){
-  let icons = document.getElementsByClassName(iconClassName)
-    for (let iconIndex = 0; iconIndex < icons.length; iconIndex++) {
-      icons[iconIndex].src = (source);
-    }
+function setIconToContent(iconContainerId, source){
+  let iconRef = document.getElementById(iconContainerId);
+      iconRef.src = (source);
 }
 

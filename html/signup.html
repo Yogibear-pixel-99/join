@@ -52,7 +52,7 @@
           </div>
           <div class="input-field-container">
             <input
-              onkeyup="changePasswordIcons()"
+              onkeyup="changePasswordIcon('sign-up-password', 'sign-up-pw-icon')"
               id="sign-up-password"
               class="login-input-field"
               type="password"
@@ -73,7 +73,7 @@
               type="password"
               required
               placeholder="Confirm Password"
-              onkeyup="changePasswordIcons()" />
+              onkeyup="changePasswordIcon('sign-up-password-confirm', 'sign-up-cf-icon')" />
               <img 
                 id="sign-up-cf-icon"
                 onclick="showHidePassword('sign-up-password-confirm', 'sign-up-cf-icon')"

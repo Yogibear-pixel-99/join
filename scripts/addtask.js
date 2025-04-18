@@ -291,6 +291,12 @@ function handleCheckboxChange(event) {
     wrapperCategory(dropdown);
   }
 
+
+  /**
+   * Opens the wrapper from the dropdown menu to animate it.
+   * 
+   * @param {HTMLContainer} dropdown - The id of the dropdown container.
+   */
  function wrapperCategory(dropdown) {
   let wrapper = document.getElementById("categoryWrapper")
   if (wrapper.classList.contains('category-wrapper-passive')) {
@@ -302,11 +308,16 @@ function handleCheckboxChange(event) {
     wrapper.classList.remove('category-wrapper-active');
     wrapper.classList.add('category-wrapper-passive');
   }
-  closeCategoryDropdown(dropdown);
+  toggleCategoryDropdown(dropdown);
  }
 
 
- function closeCategoryDropdown(dropdown) {
+ /**
+  * Toggles the category dropdown menu.
+  * 
+  * @param {HTMLContainer} dropdown - The id of the dropdown container.
+  */
+ function toggleCategoryDropdown(dropdown) {
   if (dropdown.classList.contains("d-none")) {
     dropdown.classList.toggle("d-none");
   } else {
@@ -317,10 +328,12 @@ function handleCheckboxChange(event) {
  } 
 
 
+ /**
+  * Renders the category dropdown menu in the add task form.
+  */
   function renderCategoryOptions() {
     let dropdownContent = document.getElementById("categoryDropdownContent");
     dropdownContent.innerHTML = ""; 
-    
     staticCategories.forEach(category => {
       let option = document.createElement("div");
       option.classList.add("dropdown-item");
@@ -329,22 +342,30 @@ function handleCheckboxChange(event) {
         <div onclick="selectCategory('${category}')" class="category-itmen-names">
           <span>${category}</span>
         </div>
-        </label>
-      `;
+        </label>`;
       dropdownContent.appendChild(option);
     });
   }
 
-  function changeTextColorCategory(){
-    let contentRef = document.getElementById('category');
-        contentRef.style.color = "black";
-  }
+
+  // function changeTextColorCategory(){
+  //   let contentRef = document.getElementById('category');
+  //       contentRef.style.color = "black";
+  // }
   
+
+/**
+ * Shows the date picker from the hidden date input container.
+ */
 function showDatePicker(){
   let hiddenDate = document.getElementById('hidden-date-input');
   hiddenDate.showPicker();
 }
 
+
+/**
+ * Gets the picked date from the hidden date input field to the shown text input field.
+ */
  function putDateToUserInput(){
     let shownDate = document.getElementById('due-date');
     let hiddenDate = document.getElementById('hidden-date-input').value;
