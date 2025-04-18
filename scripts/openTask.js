@@ -67,27 +67,40 @@ function checkIfSubtaskIsDone(subtask){
 }
 
 
-
-
-// ------------ Here
-
-
-async function changeSubTaskCheckedApi(location, id){
+/**
+ * Changes the finished subtask boolean in the api.
+ * 
+ * @param {string} SUB_URL - The location in the api database.
+ * @param {HTMLContainer} id - The selected subtask container. 
+ */
+async function changeSubTaskCheckedApi(SUB_URL , id){
     let inputRef = document.getElementById(id);
     let isChecked = {};
     inputRef.checked ? isChecked = {"finished": true} : isChecked = {"finished": false};
-    await patchDataToApi(location, isChecked);
+    await patchDataToApi(SUB_URL, isChecked);
     initBoard();
 }
 
-async function overlayDeleteTask(apiKey){
+
+/**
+ * Deletes the selected task in the api, toggles the overlay menu and initialze the board.
+ * 
+ * @param {string} taskApiKey - The api key from the selected task to delete.
+ */
+async function overlayDeleteTask(taskApiKey){
     let taskRef = document.getElementById('task-overlay-menu');
-    await deleteDataFromApi("tasks/", apiKey);
+    await deleteDataFromApi("tasks/", taskApiKey);
     toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
     setTimeout(() => {taskRef.innerHTML = ""}, 1000);
     initBoard();
 }
 
+
+/**
+ * Opens an edit menu for the selected task to edit the values.
+ * 
+ * @param {string} taskApiKey - The api key from the selected task to edit.
+ */
 function overlayEditTask(taskApiKey){
     let taskRef = document.getElementById('task-overlay-menu');
     let taskData = tasksFromApi.find(element => element.apiKey === taskApiKey);
@@ -99,17 +112,35 @@ function overlayEditTask(taskApiKey){
     setTimeout(() => {showSubtaskInEditOverlay(taskData)}, 1);
 }
 
-function setPriorityButtonContainer(taskData){
-    let ref = document.getElementById(`edit-priority-${taskData.priority}`)
+
+/**
+ * Gets the selected priority from the task in the edit menu.
+ * 
+ * @param {Object} task - The selected task object.
+ */
+function setPriorityButtonContainer(task){
+    let ref = document.getElementById(`edit-priority-${task.priority}`)
     setPriorityButtonColor(ref);
 }
 
+
+/**
+ * Shows the assigened users in the selected task to edit.
+ * 
+ * @param {Objerct} task - The selected task object.
+ */
 function setAssignedUsersToDropdown(task){
     task.assignTo.forEach((element) => {
         toggleUserSelection(element);
     })
 }
 
+
+/**
+ * Shows the subtask from the selected subtasks to edit.
+ * 
+ * @param {Object} task - The selected task object.
+ */
 function showSubtaskInEditOverlay(task){
     let ref = document.getElementById('added-subtasks');
     ref.innerHTML = '';
@@ -122,6 +153,12 @@ function showSubtaskInEditOverlay(task){
 }
 
 
+/**
+ * Updates the edited task to the new values, fetches them to the api and show the edited task in the overlay menu.
+ * 
+ * @param {object} event - Default object to prevent the form to refresh the page.
+ * @param {string} apiKey - The api key to update the selected task in the api. 
+ */
 async function updateTask(event, apiKey){
     event.preventDefault();
     let taskRef = document.getElementById('task-overlay-menu');
