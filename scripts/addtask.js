@@ -359,29 +359,54 @@ function showDatePicker(){
     } else {
       userInput = contentRef.value.replace(/\D/g, '');
       contentRef.value = '';
-  let userDay, userMonth, userYear;
-  let contentRef1 = '';
+  let dateContent = '';
+
+      dateContent += setDayToAddTaskDateInput(userInput);
+      dateContent += setMonthToAddTaskDateInput(userInput);
+      dateContent += setYearToAddTaskDateInput(userInput);
 
 
-    if (userInput.length >= 2) {
-      userDay = userInput.slice(0, 2);
-      contentRef1 += userDay + '/';
-    } else {contentRef1 += userInput};
 
-    if (userInput.length >= 4) {
-      userMonth = userInput.slice(2, 4);
-      contentRef1 += userMonth + '/';
-    } else {
-      contentRef1 += userInput.slice(2, 3);
-    }
 
-    if (userInput.length >= 5) {
-      userYear = userInput.slice(4, 8);
-      contentRef1 += userYear;
-    }
-    contentRef.value = contentRef1;
+
+
+    contentRef.value = dateContent;
   }
 }
+
+
+
+function setDayToAddTaskDateInput(userInput){
+  if (userInput.length >= 2) {
+    let userDay = userInput.slice(0, 2);
+    return userDay + '/';
+  } else {return userInput};
+}
+
+
+
+function setMonthToAddTaskDateInput(userInput){
+  if (userInput.length >= 4) {
+    let userMonth = userInput.slice(2, 4);
+    return userMonth + '/';
+  } else {
+    return userInput.slice(2, 3);
+  }
+}
+
+
+
+function setYearToAddTaskDateInput(userInput){
+  if (userInput.length >= 5) {
+    let userYear = userInput.slice(4, 8);
+    return userYear;
+  } else {
+    return "";
+  }
+}
+
+
+
 
 /**
  * This function takes the information from the fields in order to add a new task to the database and also display it on the board.
