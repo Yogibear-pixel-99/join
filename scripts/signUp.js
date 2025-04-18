@@ -31,7 +31,6 @@ async function collectNewUserValuesAndPost(){
   mainContentBrightness50();
   showOverlayButton("sign-up-success-button", "You Signed Up successfully");
   setTimeout(() => redirectToLogInPage(), 800);
-
 }
 
 
@@ -96,7 +95,7 @@ function showOverlayButton(buttonId, buttonText) {
 /**
  * Removes a class to hide the overlay button container.
  * 
- * @param {*} buttonId 
+ * @param {HTMLContainer} buttonId - The container id of the button.
  */
 function hideOverlayButton(buttonId) {
   const ref = document.getElementById(buttonId);
@@ -105,12 +104,16 @@ function hideOverlayButton(buttonId) {
 
 
 /**
- * 
+ * Redirect to the login page.
  */
 function redirectToLogInPage() {
   window.location.href = "../html/login.html";
 }
 
+
+/**
+ * Toggles the sign up button in desktop and mobile version if privacy is checked.
+ */
 function toggleSignUpButton(){
   const checkPrivacy = document.getElementById('accept-privacy');
   const buttonRef = document.getElementById('sign-up-button');
@@ -130,6 +133,10 @@ function toggleSignUpButton(){
     }
 }
 
+
+/**
+ * Changes the source of the password icon in the sign up form.
+ */
 function changePasswordIcons(){
   let passwordRef = document.getElementById('sign-up-password').value
   let confirmRef = document.getElementById('sign-up-password-confirm').value
@@ -138,6 +145,13 @@ function changePasswordIcons(){
       setIconToContent('lock-logo', '../assets/icons/visibility_off.svg');
 }
 
+
+/**
+ * Changes the visibility of the password value in the input field by changing the input field type.
+ * 
+ * @param {HTMLContainer} textId - The id of the input container.
+ * @param {HTMLContainer} logoId - The id of the logo container.
+ */
 function showHidePassword(textId, logoId){
   let text = document.getElementById(textId);
   let logo = document.getElementById(logoId);
@@ -151,6 +165,13 @@ function showHidePassword(textId, logoId){
   }
 }
 
+
+/**
+ * Sets a icon source to all containers specified by a class name.
+ * 
+ * @param {string} iconClassName - The class name of all needed HTML containers.
+ * @param {string} source - The source address of the needed icon.
+ */
 function setIconToContent(iconClassName, source){
   let icons = document.getElementsByClassName(iconClassName)
     for (let iconIndex = 0; iconIndex < icons.length; iconIndex++) {
