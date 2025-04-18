@@ -127,7 +127,7 @@ function renderAssignedUsers(task) {
 /**
  * This function renders the particular priority icon in the task
  * 
- * @param {String} priority - The object with the respective task
+ * @param {String} priority - The priority for rendering the icon into the task
  */
 function getPriorityIconHTML(priority) {
   if (!priority) return "";
@@ -141,24 +141,6 @@ function getPriorityIconHTML(priority) {
     return `<img src="../assets/icons/prio-low.svg" class="task-priority-icon" alt="Low" />`;
   }
   return "";
-}
-
-function loadingToBoard() {
-  return setTimeout(() => {
-    let maskREF = document.getElementById("mask-container");
-    let addtaskREF = document.getElementById("addtask-content");
-    let addedToBoardREF = document.getElementById("task-added-overlay-button");
-    addedToBoardREF.classList.toggle("d-none");
-    maskREF.classList.toggle("d-none");
-    addtaskREF.classList.toggle("addtask-content-hide");
-    renderNewBoard();
-  }, 3000);
-}
-
-
-async function renderNewBoard() {
- await getDataFromServer("tasks", tasksFromApi);
- renderBoard();
 }
 
 function searchForTask() {

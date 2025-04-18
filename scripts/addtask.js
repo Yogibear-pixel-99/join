@@ -423,7 +423,7 @@ collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos);
 toggleAddedToBoardButton();
 setTimeout(toggleAddedToBoardButton, 3000);
-setTimeout(() => {window.location.href = "../html/board.html"}, 300000);
+setTimeout(() => {window.location.href = "../html/board.html"}, 4000);
 }
 
 /**
@@ -431,7 +431,7 @@ setTimeout(() => {window.location.href = "../html/board.html"}, 300000);
  * 
  * 
  */
-function toggleAddedToBoardButton() {
+function toggleAddedToBoardButton(){
   let addedToBoardREF = document.getElementById("task-added-overlay-button");
   addedToBoardREF.classList.toggle("d-none");
  
@@ -442,11 +442,11 @@ function toggleAddedToBoardButton() {
  * 
  * @param {FormData} data - FormData of the added Task
  */
-function collectSubTasks(data) {
+function collectSubTasks(data){
   console.log(data);
   
   data.forEach((value, key) => {
-    if (key === "subtasks[]") {
+    if (key === "subtasks[]"){
         collectedFormInfos.subtasks.push({
           "subtaskName": value,
           "finished": "false"
@@ -460,7 +460,7 @@ function collectSubTasks(data) {
  * 
  * 
  */
-function collectAssingTo() {
+function collectAssingTo(){
   let userREF = document;
   console.log(usersFromApi[1].name);
   for (let index = 0; index < usersFromApi.length; index++) {
@@ -477,7 +477,7 @@ function collectAssingTo() {
  * 
  * @param {string} category - The selected category 
  */
-function formDataCategory(category) {
+function formDataCategory(category){
   savedCategory = category;
 }
 
@@ -486,7 +486,7 @@ function formDataCategory(category) {
  * 
  * 
  */
-function collectCategory() {
+function collectCategory(){
   collectedFormInfos.category = savedCategory;
 }
 
@@ -495,7 +495,7 @@ function collectCategory() {
  * 
  * 
  */
-function createNewTask(event) {
+function createNewTask(event){
   event.preventDefault();
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
@@ -521,7 +521,7 @@ function createNewTask(event) {
  * @param {string} title - The value of the Title Input Field
  * 
  */
-function titleRedBorder(title) {
+function titleRedBorder(title){
   if (title == '') {
     addRedBorderAndTextFalseInputAddTask(
       "form-title",
@@ -539,7 +539,7 @@ function titleRedBorder(title) {
  * 
  * @param {string} dueDate - The value of the Date Input Field
  */
-function dateRedBorder(dueDate) {
+function dateRedBorder(dueDate){
   if (dueDate == '') {
     addRedBorderAndTextFalseInputAddTask(
       "due-date",
