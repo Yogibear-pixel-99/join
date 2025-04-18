@@ -542,6 +542,7 @@ function getEditTaskTemp(task){
                   <input
                     onfocus="showSubtasksInputMenu()"
                     onblur="hideSubtasksInputMenu()"
+                    onkeydown="enterKeyAddSubtaskValueToArray(event)"
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
@@ -549,7 +550,7 @@ function getEditTaskTemp(task){
                     placeholder="Add new subtask" />
                   <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
-                    <img src="../assets/icons/Subtasks icons11.svg" />
+                    <img src="../assets/icons/Subtasks icons11.svg" onclick="focusSubtaskInputMenu()" />
                   </div>
                   </div>
                 <div
@@ -772,6 +773,7 @@ function getAddTaskOverlayTemp(){
                   <input
                     onfocus="showSubtasksInputMenu()"
                     onblur="hideSubtasksInputMenu()"
+                    onkeydown="enterKeyAddSubtaskValueToArray(event)"
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
@@ -779,7 +781,7 @@ function getAddTaskOverlayTemp(){
                     placeholder="Add new subtask" />
                   <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
-                    <img src="../assets/icons/Subtasks icons11.svg" />
+                    <img src="../assets/icons/Subtasks icons11.svg" onclick="focusSubtaskInputMenu()" />
                   </div>
                   </div>
                 <div
@@ -819,9 +821,9 @@ function getAddTaskOverlayTemp(){
                   <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <button class="dark-button btns-addtask" type="submit" onclick="createNewTask(event)">
+              <div class="dark-button btns-addtask" onclick="createNewTask(event)">
                 Create Task <img src="../assets/icons/check.svg" />
-              </button>
+              </div>
             </div>
           </div>
           </div>
