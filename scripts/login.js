@@ -9,8 +9,8 @@ async function getUserInfo() {
 /**
  * This function checks the login and opens the checkEmail function to see if this email exists in the database.
  * 
+ * @param {Event} event - The form submit event object
  */
-// SHORTEN THIS FUNCTION
 function checkLogin(event) {
   event.preventDefault();
   getUserInfo().then(() => {
@@ -28,7 +28,7 @@ function checkEmail() {
   let emailChecked = usersFromApi.some(
     (item) => item.email === emailREF.value
   );
-// DOPPELTE ÜBERPRÜFUNG
+
   if (emailChecked === true) {
     emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value

@@ -343,7 +343,7 @@ function setInitialsToHeader() {
   if (emailIndex === null) {
     headerInitialsREF.innerText = "G";
   } else {
-    headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name.slice(0, 2));
+    headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name).slice(0, 2);
   }
 }
 
