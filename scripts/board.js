@@ -3,7 +3,7 @@
  * This Onload function calls up all functions that are to be displayed when the page is opened.
  *
  */
-function initBoard() {
+function initBoard(){
   loadAndRenderTasks();
 }
 
@@ -12,7 +12,7 @@ function initBoard() {
  * It also renders the board with the respective tasks.
  * 
  */
-async function loadAndRenderTasks() {
+async function loadAndRenderTasks(){
   await getDataFromServer("users", usersFromApi);
   await getDataFromServer("tasks", tasksFromApi);
   setInitialsToHeader();
@@ -24,7 +24,7 @@ async function loadAndRenderTasks() {
  * and then checking whether a column is empty.
  * 
  */
-function renderBoard() {
+function renderBoard(){
   let todo = document.getElementById("boardToDoCard");
   let prog = document.getElementById("boardInprogressCard");
   let feed = document.getElementById("boardAwaitFeedbackCard");
@@ -43,7 +43,7 @@ function renderBoard() {
  * @param {HTMLContainer} feed - The awaitfeedback column
  * @param {HTMLContainer} done - The done column
  */
-function clearBoardColums(todo, prog, feed, done) {
+function clearBoardColums(todo, prog, feed, done){
   todo.innerHTML = "";
   prog.innerHTML = "";
   feed.innerHTML = "";
@@ -59,7 +59,7 @@ function clearBoardColums(todo, prog, feed, done) {
  * @param {HTMLContainer} feed - The awaitfeedback column
  * @param {HTMLContainer} done - The done column
  */
-function fillBoardColums(tasks, todo, prog, feed, done) {
+function fillBoardColums(tasks, todo, prog, feed, done){
   tasks.forEach((task) => {
     let cardHtml = createTaskCard(task);
     if (task.status === "todo") todo.innerHTML += cardHtml;
@@ -77,7 +77,7 @@ function fillBoardColums(tasks, todo, prog, feed, done) {
  * @param {HTMLContainer} feed - The awaitfeedback column
  * @param {HTMLContainer} done - The done column
  */
-function checkEmptyColums(todo, prog, feed, done) {
+function checkEmptyColums(todo, prog, feed, done){
   if (!todo.innerHTML.trim()) {
     todo.innerHTML = `<div class="no-tasks">No tasks to do</div>`;
   }
@@ -91,22 +91,38 @@ function checkEmptyColums(todo, prog, feed, done) {
     done.innerHTML = `<div class="no-tasks">No tasks done</div>`;
   }
 }
+
 /**
- * This function renders the assigned users in the tasks, if there are any.
+ * Filters assigned emails to only include those existing in the usersFromApi array.
+ * Returns an empty string if no valid assignments exist.
  * 
- * @param {Object} task - The object with the respective task
+ * @param {Object} task - The task object containing assignTo array
+ * @returns {(Array|string)} - Array of valid emails or empty string
  */
-function renderAssignedUsers(task) {
-  if (!task.assignTo || !task.assignTo.length === 0) {
+function getExistingEmails(task){
+  if (!task.assignTo || !task.assignTo.length === 0){
     return "";
   }
 
   let existingEmail = task.assignTo.filter((element) => {
     return usersFromApi.some((email) => email.email === element);
   });
+  return existingEmail;
+}
+
+/**
+ * Renders assigned users as styled initials with position offsets.
+ * Returns empty string if no valid assignments exist.
+ * 
+ * @param {Object} task - The task object containing assignTo array
+ * @returns {string} - HTML string of user initials
+ */
+function renderAssignedUsers(task){
+  let existingEmail = getExistingEmails(task);
+  if (!existingEmail) return "";
+
   let initialsPosition = -24;
-  return existingEmail
-    .map((email) => {
+  return existingEmail.map((email) => {
       let user = usersFromApi.find((u) => u.email === email);
       initialsPosition += 24;
       if (user) {
@@ -129,7 +145,7 @@ function renderAssignedUsers(task) {
  * 
  * @param {String} priority - The priority for rendering the icon into the task
  */
-function getPriorityIconHTML(priority) {
+function getPriorityIconHTML(priority){
   if (!priority) return "";
 
   let prio = priority.toLowerCase();
@@ -142,26 +158,29 @@ function getPriorityIconHTML(priority) {
   }
   return "";
 }
-
-function searchForTask() {
+/**
+ * This function searches for the respective task that is searched for in the search input field.
+ * 
+ */
+function searchForTask(){
   let inputTaskREF = document.getElementById("find-task");
   let inputTaskValue = inputTaskREF.value.toLowerCase();
   findTask(inputTaskValue);
 }
 
-function findTask(inputTaskValue) {
+/**
+ * This function takes the value and searches for it in the title or description of the tasks. 
+ * The respective tasks that were found are displayed.
+ * 
+ * @param {String} inputTaskValue - The value that was typed in the search field
+ */
+function findTask(inputTaskValue){
   for (let index = 1; index < tasksFromApi.length + 1; index++) {
     let titleTaskREF = document.getElementById("titleTask" + index);
-    let descriptionTaskREF = document.getElementById(
-      "titleDescription" + index
-    );
+    let descriptionTaskREF = document.getElementById("titleDescription" + index);
     let titleTaskValue = titleTaskREF.innerText.toLowerCase();
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
-    if (
-      titleTaskValue.includes(inputTaskValue) ||
-      inputTaskValue == " " ||
-      descriptionValue.includes(inputTaskValue)
-    ) {
+    if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)) {
       titleTaskREF.parentElement.parentElement.classList.remove("d-none");
     } else {
       titleTaskREF.parentElement.parentElement.classList.add("d-none");
@@ -169,8 +188,13 @@ function findTask(inputTaskValue) {
   }
 }
 
-
-function createTaskCard(task) {
+/**
+ * Generates a complete HTML representation for a task card.
+ * 
+ * @param {Object} task - The object with the respective task
+ * @returns {string} - Fully rendered HTML template for the task card
+ */
+function createTaskCard(task){
   let assignedHTML = renderAssignedUsers(task);
   let priorityHTML = getPriorityIconHTML(task.priority);
   let allSubTasksNr = getAllSubtasksLength(task);
@@ -179,10 +203,12 @@ function createTaskCard(task) {
   return taskTemp;
   }
 
-
-
-
-
+/**
+ * Calculates the total number of valid subtasks for a task.
+ * 
+ * @param {Object} task - The task object containing subtasks array
+ * @returns {(number|string)} - Number of valid subtasks or empty string for invalid input
+ */
 function getAllSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
     return task.subtasks.filter(
@@ -193,7 +219,12 @@ function getAllSubtasksLength(task) {
   }
 }
 
-
+/**
+ * This function determines the length of the subtasks that have been completed, if subtasks exist at all
+ * 
+ * @param {Object} task - The task object containing subtasks array
+ *  * @returns {(number|string)} - Number of completed subtasks or empty string for invalid input
+ */
 function getDoneSubtasksLength(task) {
   if (Array.isArray(task.subtasks)) {
     return task.subtasks.filter(
@@ -205,26 +236,26 @@ function getDoneSubtasksLength(task) {
   }
 }
 
-function getNewStatusInfo(newStatus, taskKey) {
+/**
+ * This function changes the status of the task when the drag and drop is executed
+ * 
+ * @param {string} newStatus - The new status of the task
+ * @param {Object} taskKey - The object with the respective task whose status is to be changed
+ */
+function getNewStatusInfo(newStatus, taskKey){
   collectedStatusInfo = {
     status: newStatus,
   };
   patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey.apiKey}`);
 }
 
-async function checkEmptyColumsExists() {
-  let todo = document.getElementById("boardToDoCard");
-  let prog = document.getElementById("boardInprogressCard");
-  let feed = document.getElementById("boardAwaitFeedbackCard");
-  let done = document.getElementById("boardDoneCard");
-  checkEmptyColums(todo, prog, feed, done);
-}
-
-async function resetTaskApi() {
-  return await getDataFromServer("tasks", tasksFromApi);
-}
-
-async function patchTaskDataToApi(payload, taskKey) {
+/**
+ * This function patches the new status of the respective task into the database.
+ * 
+ * @param {Object} payload - The object with the new status that will be patched into the database
+ * @param {String} taskKey - The API key to identify the correct task and patch the status
+ */
+async function patchTaskDataToApi(payload, taskKey){
   if (taskKey != undefined) {
     try {
       let response = await fetch(MAIN_URL + taskKey + ".json", {
@@ -248,8 +279,34 @@ async function patchTaskDataToApi(payload, taskKey) {
 }
 
 
+/**
+ * This function executes a function to check whether empty columns exist in the board
+ * 
+ */
+async function checkEmptyColumsExists(){
+  let todo = document.getElementById("boardToDoCard");
+  let prog = document.getElementById("boardInprogressCard");
+  let feed = document.getElementById("boardAwaitFeedbackCard");
+  let done = document.getElementById("boardDoneCard");
+  checkEmptyColums(todo, prog, feed, done);
+}
+
+/**
+ * This function takes the newly updated tasks from the API
+ * 
+ */
+async function resetTaskApi(){
+  return await getDataFromServer("tasks", tasksFromApi);
+}
+
+
   // drag and drop 
 
+/**
+ * Initializes the drag-and-drop system once the DOM is fully loaded.
+ * Adds event listeners for drag-and-drop to all columns.
+ * 
+ */
   document.addEventListener("DOMContentLoaded", () => {
     let columns = document.querySelectorAll(".board-rendered");
 
@@ -262,13 +319,23 @@ async function patchTaskDataToApi(payload, taskKey) {
     document.addEventListener("dragend", dragend);
 });
 
-function dragstart(event) {
+/**
+ * Starts the drag process for a task card.
+ * 
+ * @param {DragEvent} event - The drag event that was triggered.
+ */
+function dragstart(event){
     if (!event.target.classList.contains("task-card")) return;
     event.dataTransfer.setData("text/plain", event.target.id);
     event.target.classList.add("dragging");
 }
 
-function dragover(event) {
+/**
+ * Allows a task card to be dragged over a column.
+ * 
+ * @param {DragEvent} event - The dragover event.
+ */
+function dragover(event){
     event.preventDefault();
     let column = event.currentTarget;
     let draggingCard = document.querySelector(".dragging");
@@ -277,7 +344,13 @@ function dragover(event) {
     }
 }
 
-function dropTask(event) {
+/**
+ * Manages the logic for moving a task card to a new column via drag-and-drop.
+ * Updates the task's status both in the UI and via an API call.
+ * 
+ * @param {DragEvent} event - The drop event fired when the card is released.
+ */
+function dropTask(event){
     event.preventDefault();
     let taskId = event.dataTransfer.getData("text/plain");
     let taskCard = document.getElementById(taskId);
@@ -288,15 +361,17 @@ function dropTask(event) {
         taskCard.dataset.status = newStatus;
         console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
-        console.log(updateTask.apiKey);
-        console.log(MAIN_URL + `tasks/${updateTask.apiKey}` + ".json");
-        
         getNewStatusInfo(newStatus, updateTask);
     }
     taskCard.classList.remove("dragging");
     hideEmptyContentTasks(taskId);
 }
 
+/**
+ * Hides the "no tasks" message when a task is moved into a column.
+ * 
+ * @param {string} taskId - The ID of the moved task card.
+ */
 function hideEmptyContentTasks(taskId){
   let contentRef = document.getElementById(taskId).parentElement.querySelector(".no-tasks");
   let allContent = document.querySelectorAll('.task-column');
@@ -310,10 +385,19 @@ function hideEmptyContentTasks(taskId){
   }
 }
 
-function dragend(event) {
+/**
+ * Removes the "dragging" class after the drag operation ends.
+ * 
+ * @param {DragEvent} event - The dragend event.
+ */
+function dragend(event){
     event.target.classList.remove("dragging");
 }
-
+/**
+ * Opens the overlay to add a new task and clears the edit task overlay.
+ * 
+ * @param {string} addTaskLocation - The location/status where the task should be added.
+ */
 function openAddTaskOverlayAndEmptyEditTaskOverlay(addTaskLocation){
   let ref1 = document.getElementById('addtask-content');
   let ref2 = document.getElementById('task-overlay-menu');
@@ -324,7 +408,12 @@ function openAddTaskOverlayAndEmptyEditTaskOverlay(addTaskLocation){
       addTaskStatus = addTaskLocation;
 }
 
-
+/**
+ * Opens the overlay for a specific task.
+ * Loads the latest data from the server and renders the overlay.
+ * 
+ * @param {string} taskId - The ID of the task to display.
+ */
 async function openTask(taskId){
   let addTaskRef = document.getElementById('addtask-content');
       addTaskRef.innerHTML = '';
