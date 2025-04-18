@@ -136,18 +136,9 @@ function toggleSignUpButton(){
 
 /**
  * Changes the source of the password icon in the sign up form.
- */
-// function changePasswordIcons(){
-//   let passwordRef = document.getElementById('sign-up-password').value
-//   let confirmRef = document.getElementById('sign-up-password-confirm').value
-//       if (passwordRef !== '' && confirmRef !== '') {
-//         setIconToContent('lock-logo', '../assets/icons/visibility_off.svg');
-//       } 
-// }
-
-
-/**
- * Changes the source of the password icon in the sign up form.
+ * 
+ * @param {HTMLContainer} inputContainerId - The id of the input container.
+ * @param {HTMLContainer} iconContainerId - The id of the logo container.
  */
 function changePasswordIcon(inputContainerId, iconContainerId){
   let ref = document.getElementById(inputContainerId).value
