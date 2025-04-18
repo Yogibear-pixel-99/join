@@ -1,7 +1,11 @@
 
 
 
-
+/**
+ * Shows an error message and red border if the values are not valid, calls a fetch function if they are.
+ * 
+ * @param {Object} event - The default object to prevent from default.
+ */
 async function signUpNewUser(event) {
   event.preventDefault();
   removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
@@ -12,16 +16,28 @@ async function signUpNewUser(event) {
     addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
   } else {
     removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
-    getNewUserTemp();
-    collectFormInformation("sign-up-form");
-    await postDataToApi("users", collectedFormInfos);
-    mainContentBrightness50();
-    showOverlayButton("sign-up-success-button", "You Signed Up successfully");
-    setTimeout(() => redirectToLogInPage(), 800);
+    await collectNewUserValuesAndPost();
   }
 }
 
 
+/**
+ * Collects the values from the sign up form, creates a template, fetches the user data to the api, shows a sign up button and redirect to the login page.
+ */
+async function collectNewUserValuesAndPost(){
+  getNewUserTemp();
+  collectFormInformation("sign-up-form");
+  await postDataToApi("users", collectedFormInfos);
+  mainContentBrightness50();
+  showOverlayButton("sign-up-success-button", "You Signed Up successfully");
+  setTimeout(() => redirectToLogInPage(), 800);
+
+}
+
+
+/**
+ * An empty user template for the sign up function to fetch to the api.
+ */
 function getNewUserTemp() {
   collectedFormInfos = {
     name: "",
@@ -36,6 +52,12 @@ function getNewUserTemp() {
   };
 }
 
+
+/**
+ * Checks if the new sign up password value is the same as the confirm password value.
+ * 
+ * @returns - A boolean.
+ */
 function checkIfPasswordIsSameAsConfirm() {
   const newUserPassword = document.getElementById("sign-up-password").value;
   const newUserPasswordConfirm = document.getElementById(
@@ -48,22 +70,43 @@ function checkIfPasswordIsSameAsConfirm() {
   }
 }
 
+
+/**
+ * Sets the main content brightness to 50%.
+ */
 function mainContentBrightness50() {
   const ref = document.getElementById("main-container");
   ref.classList.add("darken-background");
 }
 
+
+/**
+ * Adds a class to show the overlay button container.
+ * 
+ * @param {HTMLContainer} buttonId - The id of the button container to show.
+ * @param {string} buttonText - The text displayed in the button.
+ */
 function showOverlayButton(buttonId, buttonText) {
   const ref = document.getElementById(buttonId);
   ref.innerText = buttonText;
   ref.classList.add("overlay-button-show");
 }
 
+
+/**
+ * Removes a class to hide the overlay button container.
+ * 
+ * @param {*} buttonId 
+ */
 function hideOverlayButton(buttonId) {
   const ref = document.getElementById(buttonId);
   ref.classList.remove("overlay-button-show");
 }
 
+
+/**
+ * 
+ */
 function redirectToLogInPage() {
   window.location.href = "../html/login.html";
 }
