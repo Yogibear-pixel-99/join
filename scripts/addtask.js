@@ -308,20 +308,20 @@ function handleCheckboxChange(event) {
     wrapper.classList.remove('category-wrapper-active');
     wrapper.classList.add('category-wrapper-passive');
   }
-  toggleCategoryDropdown(dropdown);
+  closeCategoryDropdown(dropdown);
  }
 
 
  /**
-  * Toggles the category dropdown menu.
+  * Closes the category dropdown menu.
   * 
   * @param {HTMLContainer} dropdown - The id of the dropdown container.
   */
- function toggleCategoryDropdown(dropdown) {
+ function closeCategoryDropdown(dropdown) {
   if (dropdown.classList.contains("d-none")) {
     dropdown.classList.toggle("d-none");
   } else {
-    etTimeout(() => {
+    setTimeout(() => {
       dropdown.classList.toggle("d-none");
     }, 500);
   }
@@ -346,12 +346,6 @@ function handleCheckboxChange(event) {
       dropdownContent.appendChild(option);
     });
   }
-
-
-  // function changeTextColorCategory(){
-  //   let contentRef = document.getElementById('category');
-  //       contentRef.style.color = "black";
-  // }
   
 
 /**
