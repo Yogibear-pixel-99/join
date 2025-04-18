@@ -223,7 +223,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
  * Marks the checkbox of a searched user in the assign to dropdown menu.
  * 
  * @param {HTMLContainer} event - The selected HTML Container (user).
- * @returns ????????????????
+ * @returns Nothing if there is an empty object.
  */
 function handleCheckboxChange(event) {
     let userEmail = event.target.getAttribute("data-user-id");
@@ -242,17 +242,26 @@ function handleCheckboxChange(event) {
   }
 
 
+  /**
+   * Adds or removes the selected user from the assigned to dropdown.
+   * 
+   * @param {string} userEmail - The email of the selected user.
+   * @returns Nothing if there is an empty object.
+   */
   function toggleUserSelection(userEmail) {
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
-  
     user.isSelected = !user.isSelected;
     renderAssignToDropdown();
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
   
   
-  
+  /**
+   * Creates the div container for the selected user.
+   * 
+   * @param {Object} user - The user object.
+   */
   function addSelectedContact(user) {
     let container = document.getElementById("addSelectedContacts");
     let userEmail = user.email;
@@ -266,12 +275,25 @@ function handleCheckboxChange(event) {
     }
   }
 
+
+  /**
+   * Creates a template to display the selected user initials.
+   * 
+   * @param {Object} user - The selected user object.
+   * @returns A template with the user initials.
+   */
   function getAssignedUserInitials(user){
     return `<div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
           ${returnInitials(user.name)}
         </div>`;
   }
   
+
+  /**
+   * Removes the selected contact.
+   * 
+   * @param {string} userEmail - The email of the selected contact.
+   */
   function removeSelectedContact(userEmail) {
     let container = document.getElementById("addSelectedContacts");
     let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
@@ -280,15 +302,16 @@ function handleCheckboxChange(event) {
     }
   }
   
+
+  /**
+   * Selects the category in the add task form.
+   * 
+   * @param {string} category - The selected category.
+   */
   function selectCategory(category) {
     selectedCategory = category;
     document.getElementById("categoryDropdown").value = category;
     document.getElementById("categoryDropdownContent").classList.add("d-none");
-  }
-
-  function toggleCategoryDropdown() {
-    let dropdown = document.getElementById("categoryDropdownContent");
-    wrapperCategory(dropdown);
   }
 
 
@@ -297,7 +320,8 @@ function handleCheckboxChange(event) {
    * 
    * @param {HTMLContainer} dropdown - The id of the dropdown container.
    */
- function wrapperCategory(dropdown) {
+ function toggleCategoryDropdown() {
+  let dropdown = document.getElementById("categoryDropdownContent");
   let wrapper = document.getElementById("categoryWrapper")
   if (wrapper.classList.contains('category-wrapper-passive')) {
     wrapper.style.maxHeight = "200px";
@@ -320,10 +344,6 @@ function handleCheckboxChange(event) {
  function closeCategoryDropdown(dropdown) {
   if (dropdown.classList.contains("d-none")) {
     dropdown.classList.toggle("d-none");
-  } else {
-    setTimeout(() => {
-      dropdown.classList.toggle("d-none");
-    }, 500);
   }
  } 
 
