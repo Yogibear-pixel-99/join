@@ -141,9 +141,10 @@ function renderAssignedUsers(task){
     .join("");
 }
 /**
- * This function renders the particular priority icon in the task
+ *  Generates HTML code for the priority icon based on the task's priority level.
  * 
  * @param {String} priority - The priority for rendering the icon into the task
+ * @returns {string} - HTML img element or empty string
  */
 function getPriorityIconHTML(priority){
   if (!priority) return "";
