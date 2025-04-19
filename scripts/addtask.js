@@ -499,7 +499,7 @@ collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos);
 toggleAddedToBoardButton();
 setTimeout(toggleAddedToBoardButton, 3000);
-setTimeout(() => {window.location.href = "../html/board.html"}, 4000);
+setTimeout(() => {window.location.href = "../html/board.html"}, 2900);
 }
 
 
