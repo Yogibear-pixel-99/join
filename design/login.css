@@ -188,7 +188,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--join-dark);
+    background-color: var(--grey-hover);
     color: white;
     padding: 15px 16px;
     border-radius: 8px;

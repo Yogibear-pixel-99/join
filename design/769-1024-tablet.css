@@ -266,6 +266,10 @@
     display: none;
 }
 
+.column-link-mobile {
+    display: block;
+}
+  
 .board-add-task-icon-wrapper-mobile {
     display: flex;
 }

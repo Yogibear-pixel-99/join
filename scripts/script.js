@@ -235,6 +235,7 @@ function removeRedBorderAndTextFalseInput(borderContainer, messageContainer){
     const contentRef = document.getElementById(borderContainer).parentElement;
     const textRef = document.getElementById(messageContainer);
           contentRef.classList.remove('red-border-inputfield');
+          textRef.innerText = "";
           textRef.style.color = 'white';
 }
 
