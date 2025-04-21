@@ -75,6 +75,11 @@
 
 /* CONTACTS */
 /* CONTACTS FLOAT */
+
+.floating-contact-container-wrapper {
+  padding: 8px;
+}
+
 /* CONTACTS EDIT/ADD */
 
 .add-contact-overlay-content-left,

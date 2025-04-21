@@ -27,10 +27,11 @@
     
         .main-content,
         .main-content-summary {
-            padding: 20px 40px;
+            padding: 40px;
             width: 100vw;
         }
 
+        
     
         /* ASSETS */
 
@@ -239,6 +240,10 @@
     align-items: center;
 }
 
+h1 {
+    font-size: 47px;
+}
+
 .main-content-header-summary {
     align-self: flex-start;
 }
@@ -279,7 +284,7 @@
 }
 
 .main-content-board {
-    padding-bottom: 160px;
+    padding-bottom: 200px;
 }
 
 .top-board {
@@ -397,6 +402,7 @@
     align-items: center;
     gap: 0;
     padding: 0;
+    width: 100%;
   }
 
   .info-input-field-container {
@@ -476,7 +482,7 @@
 
 .floating-contact-container-wrapper {
     display: none;
-    padding: 48px 0 48px 48px;
+    padding: 40px 0 40px 40px;
 }
 
 .main-contant-header {

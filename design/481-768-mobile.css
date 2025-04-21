@@ -88,7 +88,13 @@
 
 /* BOARD */
 
+.main-header {
+    padding: 20px 0;
+}
 
+.main-content-board {
+    padding: 40px 20px 200px;
+}
 
 /* ADD TASK */
 
@@ -106,6 +112,10 @@
 
 
 /* ADD/EDIT TASKS OVERLAY */
+
+.main-content-addtask {
+    padding: 40px 20px;
+}
 
 .task-overlay-container {
     max-width: 396px;
@@ -161,6 +171,10 @@
 
 
 /* CONTACTS FLOAT */
+
+.floating-contact-container-wrapper {
+    padding: 40px 0 20px 20px;
+}
 
 .header-contacts-floatin-mobile {
     font-size: 47px;

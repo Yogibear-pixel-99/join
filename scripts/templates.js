@@ -312,7 +312,7 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
             </div>
             <div id="main-content" class="main-content-summary">
                 <div class="main-content-header-summary main-content-header-summary-mobile">
-                    <h1 class="header-contacts-floatin-mobile">Join 360</h1>
+                    <h1 class="header-contacts-floatin-mobile header-summary">Join 360</h1>
                     <div class="line line-summary line-summary-desktop"></div>
                     <span class="contacts-text">Better with a team</span>
                     <div class="line line-summary line-summary-mobile"></div>
