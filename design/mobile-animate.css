@@ -107,10 +107,12 @@ animation-timing-function: ease-in-out;
 /* CHANGE THIS */
 @media (max-height: 756px) {
 
+
+
   @keyframes main-logo {
       0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
       40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+      100% {top: 33px; left: 33px; transform: translate(0%, 0%); width: 64px; height: 78px;}
     }
   
   .mobile-login-mask {
@@ -159,3 +161,13 @@ animation-timing-function: ease-in-out;
   }
 
 }
+
+@media (max-height: 700px) {
+
+  @keyframes main-logo {
+    0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+    40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+    100% {top: 16px; left: 16px; transform: translate(0%, 0%); width: 42px; height: 50px;}
+  }
+  
+  }
