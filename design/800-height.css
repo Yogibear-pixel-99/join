@@ -4,7 +4,7 @@
 
 
 
-@media (max-height: 850px) {
+@media (max-height: 865px) {
     /* LOGIN */
 
     @keyframes main-logo {
@@ -24,6 +24,29 @@
 
 /* SIGN UP */
 /* SUMMARY */
+
+.main-content-summary {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.summary-wrapper {
+    gap: 8px;
+}
+
+.main-content-header-summary {
+    margin-bottom: 20px;
+}
+
+.to-do-summary,
+.done-summary,
+.urgent-summary,
+.bottom-end-left-box-summary,
+.bottom-end-middle-box-summary,
+.bottom-end-right-box-summary {
+    height: 150px;
+}
+
 /* ADD TASK */
 /* ADD/EDIT TASKS OVERLAY */
 
