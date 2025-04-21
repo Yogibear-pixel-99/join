@@ -90,7 +90,7 @@ async function changeSubTaskCheckedApi(SUB_URL , id){
 async function overlayDeleteTask(taskApiKey){
     let taskRef = document.getElementById('task-overlay-menu');
     await deleteDataFromApi("tasks/", taskApiKey);
-    closeOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
+    toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
     setTimeout(() => {taskRef.innerHTML = ""}, 1000);
     initBoard();
 }

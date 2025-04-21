@@ -209,6 +209,23 @@ async function checkIfDataAlreadyExists(userContainerId, objName){
   }
 
 
+   
+/**
+ * Toggles a specified overlaymenu with the given id.
+ * 
+ * @param {string} overlayId - The id of the overlay menu to show up.
+ * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
+ */
+function toggleOverlayMenu(overlayId, maskId){
+  const overlay = document.getElementById(overlayId);
+  const mask = document.getElementById(maskId);
+  const mainContent = document.getElementById('main-container');
+      overlay.classList.toggle('standard-overlay-hide');
+      mask.classList.toggle('d-none');
+      mainContent.classList.toggle('disable-pointer-events');
+}
+
+
 /**
  * Adds a red border to the wrong user input field and displays an error text message.
  * 
@@ -317,41 +334,7 @@ function checkArrayForNextFreeInteger(allIdArray){
     return newId;
 }
 
- 
-/**
- * Toggles a specified overlaymenu with the given id.
- * 
- * @param {string} overlayId - The id of the overlay menu to show up.
- * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
- */
-function openOverlayMenu(overlayId, maskId){
-  const overlay = document.getElementById(overlayId);
-  const mask = document.getElementById(maskId);
-  const mainContent = document.getElementById('main-container');
 
-  mainContent.classList.add('disable-pointer-events');
-      overlay.classList.remove('d-none');
-      setTimeout(() => {mask.classList.remove('d-none')}, 200);
-      setTimeout(() => {overlay.classList.remove('standard-overlay-hide')}, 100);
-}
-
-
-/**
- * Toggles a specified overlaymenu with the given id.
- * 
- * @param {string} overlayId - The id of the overlay menu to show up.
- * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
- */
-function closeOverlayMenu(overlayId, maskId){
-  const overlay = document.getElementById(overlayId);
-  const mask = document.getElementById(maskId);
-  const mainContent = document.getElementById('main-container');
-
-      overlay.classList.add('standard-overlay-hide');
-      mask.classList.add('d-none');
-      mainContent.classList.remove('disable-pointer-events');
-      setTimeout(() => {overlay.classList.add('d-none')},400);
-}
 
 
 /**

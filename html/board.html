@@ -405,14 +405,14 @@
 
 <!-- BOARD ADD TASK OVERLAY CONTAINER -->
     <section class="addtask-content standard-overlay-hide add-task-overlay" id="addtask-content"></section>
-    <section class="mask-container d-none" id="addtask-overlay-mask-container" onclick="closeOverlayMenu('addtask-content', 'addtask-overlay-mask-container')"></section>
+    <section class="mask-container d-none" id="addtask-overlay-mask-container" onclick="toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container')"></section>
 
 
 
 <!-- BOARD SHOW TASK/EDIT TASK OVERLAY CONTAINER -->
     <section class="standard-overlay standard-overlay-hide overlay-menu-mask-close task-overlay-container" id="task-overlay-menu"></section>
 <!-- BOARD MASK CONTAINER -->
-    <section class="mask-container d-none" id="task-overlay-mask-container" onclick="closeOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')"></section>
+    <section class="mask-container d-none" id="task-overlay-mask-container" onclick="toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')"></section>
 <!-- TASK ADDED TO BOARD BUTTON -->
       <section id="task-added-overlay-button" class="task-added-overlay d-none" >
         <div class="task-added-message dark-button">

@@ -170,7 +170,7 @@ collectCategory();
 collectSubTasks(new FormData(document.getElementById('add-task-form')));
 collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos);
-toggleAddedToBoardButton('task-added-overlay-button', 'task-added-overlay-button-show', 'd-none');
+toggleAddedButton('task-added-overlay-button', 'task-added-overlay-button-show', 'd-none');
 setTimeout(() => {window.location.href = "../html/board.html"}, 1500);
 }
 

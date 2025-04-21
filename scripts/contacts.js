@@ -164,7 +164,7 @@ async function createNewContact(event){
  */
 async function postContactToApiAndShowInMenu(){
   await postDataToApi("contacts", collectedFormInfos);
-  closeOverlayMenu("add-contact-overlay", "add-contact-mask-container");
+  toggleOverlayMenu("add-contact-overlay", "add-contact-mask-container");
   await sortAndRenderContacts();
   scrollToNewContact(`contact-${collectedFormInfos.id}`);
   openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1).toUpperCase()}`);
@@ -231,7 +231,7 @@ function scrollToNewContact(contactId){
 function openEditContact(contactKey){
   getInfosForEditMenu(contactKey);
   setOnclickEditAndDeleteToButtons(contactKey);
-  openOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+  toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper');
 }
 
@@ -278,7 +278,7 @@ async function saveEditedContact(event, contactKey){
   let editedContact = contactsFromApi.find(
     (element) => element.apiKey === contactKey
   );
-  closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+  toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   scrollToNewContact(`contact-${editedContact.id}`);
   openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
 }
@@ -310,7 +310,7 @@ async function deleteContact(contactKey){
       .getElementById("edit-contact-overlay")
       .classList.contains("standard-overlay-hide")
   ){
-    closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+    toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   }
   emptyFloatMenu();
 }
