@@ -139,13 +139,6 @@
 }
 
 
-@media (max-height: 865px) {
-
-  .main-content-header-summary-mobile {
-      margin-bottom: 10px;
-  }
-
-}
 
 
 
@@ -166,6 +159,12 @@
 .sign-up-form {
   gap: 16px;
 }
+
+
+  .main-content-header-summary-mobile {
+      margin-bottom: 10px;
+  }
+
 
 /* SIGN UP */
 /* SUMMARY */
@@ -188,3 +187,14 @@
 }
 }
 
+@media (max-height: 700px) {
+
+  .task-card {
+    gap: 6px;
+  }
+
+  .task-card * {
+    font-size: 12px;
+  }
+
+}

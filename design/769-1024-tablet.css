@@ -344,11 +344,13 @@
 
 .bottom-board-tasks {
     overflow-y: auto;
+    scroll-snap-type: y mandatory;
 }
 
 .board-single-task-container {
     max-width: none;
     width: auto;
+    scroll-snap-align: start;
 }
 
 .board-rendered {
@@ -370,6 +372,7 @@
     max-width: 252px;
     width: 252px;
     height: fit-content;
+    scroll-snap-align: start;
 }
 
 .no-tasks {
