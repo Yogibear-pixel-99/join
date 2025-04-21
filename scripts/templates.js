@@ -142,7 +142,7 @@ function getDropDownUserTemp(user, checkboxImg, rowClass){
  * @param {Object} user 
  * @returns - Returns the filterd user template.
  */
-function getDropDownUserFilterdTemp(user, checkboxImg, rowClass, filteredUsers){
+function getDropDownUserFilterdTemp(user, checkboxImg, rowClass){
     return `
              <label onclick="toggleSearchedUserSelection('${user.email}')" class="user-item ${rowClass}">
             <div class="user-itmen-names">

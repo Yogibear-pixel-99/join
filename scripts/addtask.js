@@ -98,12 +98,13 @@ function startSearchingContacts(){
 function renderDropdownWithSearchResults(filteredUsers){
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = ''; 
+    filterUsers = filteredUsers;
     filteredUsers.forEach(user => {
         let userItem = document.createElement("div");
         let rowClass = user.isSelected ? 'checked-row' : '';
         let checkboxImg = user.isSelected ? '../assets/icons/Check button checked white.svg' : '../assets/icons/Check button Box.svg';
         userItem.classList.add("dropdown-item");
-        userItem.innerHTML = getDropDownUserFilterdTemp(user, checkboxImg, rowClass, filteredUsers);
+        userItem.innerHTML = getDropDownUserFilterdTemp(user, checkboxImg, rowClass);
         dropdownContent.appendChild(userItem);
     });
 }
@@ -133,7 +134,7 @@ function handleCheckboxChange(event){
 
 
   /**
-   * Adds or removes the selected user from the assigned to dropdown.
+   * Adds or removes the selected user from the "Assigned To" dropdown.
    * 
    * @param {string} userEmail - The email of the selected user.
    * @returns Nothing if there is an empty object.
@@ -146,11 +147,17 @@ function handleCheckboxChange(event){
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
   
-  function toggleSearchedUserSelection(userEmail, filteredUsers){
+  /**
+   * Adds or removes the selected user from the "Assigned To" dropdown, only for users currently filtered.
+   * 
+   * @param {string} userEmail - The email of the selected user.
+   * @returns Nothing if there is an empty object.
+   */
+  function toggleSearchedUserSelection(userEmail){
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
     user.isSelected = !user.isSelected;
-    
+    renderDropdownWithSearchResults(filterUsers)
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
 

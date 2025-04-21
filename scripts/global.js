@@ -12,6 +12,7 @@ let collectedStatusInfo = {};
 
 
 let assignedUsersArray = [];
+let filterAssignedUsersObject = [];
 
 
 
