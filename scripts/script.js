@@ -358,3 +358,14 @@ function resetForm(formId){
   ref.reset();
 }
 
+
+/**
+ * Toggles a class to a html container.
+ * 
+ * @param {string} id - The name of the html container.
+ * @param {string} className - The name of the class to toggle.
+ */
+function toggleClassToContainer(id, className){
+  let ref = document.getElementById(id);
+      ref.classList.toggle(className);
+}

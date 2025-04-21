@@ -190,31 +190,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index:0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100vh);
   overscroll-behavior: contain;
+  z-index: 3500;
+  transition: ease-out 200ms;
+}
+
+.task-added-overlay-button-show {
+  transform: translate(-50%, -50%);
   z-index: 3500;
 }
 
 .task-added-message {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    width: 226px;
-    height: 34px;
+    justify-content: space-evenly;
+    width: 326px;
+    height: 74px;
     background-color: var(--join-dark);
     box-shadow: 0px 0px 4px 0px #0000001A;
     border-radius: 20px;
 }
 
 .task-added-message h2{
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 400;
     color: white;
 }
 

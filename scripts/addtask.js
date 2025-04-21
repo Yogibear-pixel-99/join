@@ -146,11 +146,11 @@ function handleCheckboxChange(event){
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
   
-  function toggleSearchedUserSelection(userEmail, filteredUsers){
+  function toggleSearchedUserSelection(userEmail){
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
     user.isSelected = !user.isSelected;
-    
+
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
 
@@ -375,19 +375,19 @@ collectSubTasks(new FormData(document.getElementById('add-task-form')));
 collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos);
 toggleAddedToBoardButton();
-setTimeout(toggleAddedToBoardButton, 3000);
-setTimeout(() => {window.location.href = "../html/board.html"}, 2900);
+setTimeout(() => {window.location.href = "../html/board.html"}, 1500);
 }
 
 
 /**
- * This function shows that the generated task has been added to the board.
+ * This function shows a button, that the generated task has been added to the board.
  * 
  */
 function toggleAddedToBoardButton(){
-  let addedToBoardREF = document.getElementById("task-added-overlay-button");
-  addedToBoardREF.classList.toggle("d-none");
- 
+  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'd-none')}, 1);
+  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'task-added-overlay-button-show')}, 100);
+  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'task-added-overlay-button-show')}, 1400);
+  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'd-none')}, 1450);
 }
 
 
