@@ -278,7 +278,7 @@
     transition: 125ms ease-in-out;
     z-index: 2000;
     cursor: pointer;
-}me
+}
 
 .show-floating-edit-delete-wrapper-mobile {
     transform: translateY(0);

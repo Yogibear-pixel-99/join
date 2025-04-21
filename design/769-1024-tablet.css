@@ -620,14 +620,8 @@ h1 {
     display: block;
 }
 
-.close-icon-wrapper {
-    position: absolute;
-    right: 24px;
-    top: 24px;
-}
-
 .close-icon-wrapper:hover {
-    background-color: var(--join-dark);
+    background-color: var(--grey-hover);
 }
 
 .close-icon-wrapper:active {
