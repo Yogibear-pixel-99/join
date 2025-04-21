@@ -376,6 +376,7 @@
 
 .board-rendered {
   overflow: auto;
+  height: 100%;
 }
 
 .board-rendered::-webkit-scrollbar {
