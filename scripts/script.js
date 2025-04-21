@@ -347,3 +347,14 @@ function setInitialsToHeader(){
   }
 }
 
+
+/**
+ * Resets the form.
+ * 
+ * @param {string} formId - The id from the form container.
+ */
+function resetForm(formId){
+  const ref = document.getElementById(formId);
+  ref.reset();
+}
+

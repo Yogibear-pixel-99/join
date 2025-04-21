@@ -28,6 +28,7 @@
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/addtask.js"></script>
     <script defer src="../scripts/global.js"></script>
+    <script defer src="../scripts/subtasks.js"></script>
   </head>
   <body onload="loadDropdown()">
     <section class="navbar-container desktop-navbar">
@@ -337,7 +338,7 @@
             <div class="addTask-button-container">
               <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
                 <div
-                  onclick="resetForm('add-task-form')"
+                  onclick="resetForm('add-task-form'); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();"
                   class="">
                   Clear
                 </div>
