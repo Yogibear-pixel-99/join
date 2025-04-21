@@ -287,7 +287,6 @@ margin-bottom: 20px;
   padding: 8px;
 }
 
-
 .task-card {
   gap: 6px;
 }
@@ -306,12 +305,8 @@ margin-bottom: 20px;
 }
 
 .add-contact-overlay-content-right {
-/* height: 380px; */
 padding: 66px 24px 30px; 
 }
 
-.add-contact-overlay-img-wrapper {
-  /* top: 280px; */
-}
 
 }
