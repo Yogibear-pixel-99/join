@@ -277,7 +277,7 @@ function getAddTaskOverlayTemp(){
             <div class="addTask-button-container">
               <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
                 <div
-                  onclick="resetForm('add-task-form')"
+                  onclick="resetForm('add-task-form'); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();"
                   class="">
                   Clear
                 </div>
