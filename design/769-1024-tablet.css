@@ -43,6 +43,10 @@
             font-size: 16px;
             font-weight: 700;
         }
+
+        .header-dropdown-link-mobile {
+            display: flex !important;
+        }
     
 
         /* LOGIN */

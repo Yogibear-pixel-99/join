@@ -299,17 +299,20 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
                     <div onclick="toggleHeaderDropdownMenu()" class="header-initials">${returnInitials(name).slice(0, 2)}</div>
                 </div>
             </header>
-            <div class="dropdown-menu d-none" id="dropdown">
-                <a href="./legalnotice.html">
-                    <div class="dropdown-text">Legal Notice</div>
-                </a>
-                <a href="./Privacypolicy.html">
-                    <div class="dropdown-text">Privacy Policy</div>
-                </a>
-                <a href="./login.html" onclick="removeSessionStorageUser()">
-                    <div class="dropdown-text">Log out</div>
-                </a>
-            </div>
+      <div class="dropdown-menu d-none" id="dropdown">
+        <a href="./help.html" class="header-dropdown-link-mobile">
+          <div class="dropdown-text">Help</div>
+        </a>
+        <a href="./legalnotice.html">
+          <div class="dropdown-text">Legal Notice</div>
+        </a>
+        <a href="./Privacypolicy.html">
+          <div class="dropdown-text">Privacy Policy</div>
+        </a>
+        <a href="./login.html" onclick="removeSessionStorageUser()">
+          <div class="dropdown-text">Log out</div>
+        </a>
+      </div>
             <div id="main-content" class="main-content-summary">
                 <div class="main-content-header-summary main-content-header-summary-mobile">
                     <h1 class="header-contacts-floatin-mobile header-summary">Join 360</h1>
