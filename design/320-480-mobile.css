@@ -184,10 +184,10 @@
 /* SIGN UP */
 /* SUMMARY */
 
-.main-content-summary {
+/* .main-content-summary {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 
 .summary-wrapper {
   gap: 8px;
@@ -220,10 +220,10 @@ gap: 16px;
 /* SIGN UP */
 /* SUMMARY */
 
-.main-content-summary {
+/* .main-content-summary {
 padding-top: 20px;
 padding-bottom: 20px;
-}
+} */
 
 .summary-wrapper {
 gap: 8px;
@@ -233,24 +233,16 @@ gap: 8px;
 margin-bottom: 20px;
 }
 
-.main-content-header-summary-mobile {
-margin-bottom: 10px;
+.main-content-header-summary-mobile,
+.board-header-hide-desktop,
+.add-task-header {
+margin-bottom: 20px;
 }
 
 
 }
 
-@media (max-height: 700px) {
 
-  .task-card {
-    gap: 6px;
-  }
-
-  .task-card * {
-    font-size: 12px;
-  }
-
-}
 
 
 
@@ -277,12 +269,26 @@ margin-bottom: 10px;
   padding: 12px 0;
 }
 
-.header-contacts-floatin-mobile {
+.header-contacts-floatin-mobile,
+.add-task-header {
   padding: 0;
 }
 
 .main-content-summary {
   padding: 8px;
+}
+
+
+.task-card {
+  gap: 6px;
+}
+
+.task-card * {
+  font-size: 12px;
+}
+
+.main-header {
+  padding: 0;
 }
 
 }
