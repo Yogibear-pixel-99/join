@@ -148,7 +148,7 @@
 /* CONTACTS */
 
 .main-content-contacts {
-    padding: 40px 0 40px 20px;
+    padding: 0;
 }
 
 .contact-container-wrapper {
@@ -156,7 +156,7 @@
 }
 
 .contacts-content {
-    padding: 24px;
+    padding: 8px 24px 24px 24px;
 }
 
 
@@ -227,71 +227,3 @@
 
 
 
-
-
-
-@media (max-height: 865px) {
-
-
-    
-    .main-content-header-summary-mobile {
-        margin-bottom: 10px;
-    }
-    /* LOGIN */
-
-
-.form-container {
-    margin: 0;
-    padding: 16px;
-}
-
-.sign-up-form {
-    gap: 16px;
-}
-
-
-/* SIGN UP */
-/* SUMMARY */
-
-.main-content-summary {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.summary-wrapper {
-    gap: 8px;
-}
-
-.main-content-header-summary {
-    margin-bottom: 20px;
-}
-
-.main-content-header-summary-mobile {
-    margin-bottom: 10px;
-}
-}
-
-
-@media (max-height: 756px) {
-
-    .sign-up-join-logo {
-        left: 33px;
-        top: 33px;
-    }
-
-}
-
-
-@media (max-height: 700px) {
-
-.sign-up-join-logo {
-    height: 50px;
-    width: 42px;
-    top: 16px;
-    left: 16px;
-}
-
-.login-policy-legal {
-    padding: 12px 0;}
-
-}
