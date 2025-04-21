@@ -201,8 +201,9 @@ function dateTemp(day, month, year){
 }
 
 
-
-// SHORTEN - OUTSOURCE IF FUNKTION - USED MORE THAN ONCE.
+/**
+ * Checks if a user is logged in and calls a greeting function.
+ */
 function showGreeting(){
   emailIndex = sessionStorage.getItem("indexOfUser");
   let userName;
@@ -214,21 +215,42 @@ function showGreeting(){
   addGreetingAnimation(userName)
 }
 
+
+/**
+ * Checks the screen width and calls a greeting animation for the logged in user or a guest.
+ * 
+ * @param {string} userName - The name of the logged in user.
+ */
 function addGreetingAnimation(userName) {
   if (window.innerWidth <= 1024) {
     let guestRef = document.getElementById('summary-greeting-overlay-guest');
     let userRef = document.getElementById('summary-greeting-overlay-user');
-    if (userName !== 'Guest' && userName) {
-      userRef.classList.remove('d-none');
-      userRef.classList.add('summary-greeting-animation');
-      setTimeout(() => {userRef.classList.add('d-none')}, 3000);
-      setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
-  } else {
-    guestRef.classList.remove('d-none');
-    guestRef.classList.add('summary-greeting-animation');
-    setTimeout(() => {guestRef.classList.add('d-none')}, 3000);
-    setTimeout(() => {guestRef.classList.remove('summary-greeting-animation')}, 3000);
-    }
+    userName !== 'Guest' && userName ? showUserGreetingAnimation(userRef) : showGuestGreetingAnimation(guestRef);
   }
 }
 
+
+/**
+ * Displays the user name in the greeting animation.
+ * 
+ * @param {HTMLContainer} userRef - The container to be displayed.
+ */
+function showUserGreetingAnimation(userRef){
+  userRef.classList.remove('d-none');
+      userRef.classList.add('summary-greeting-animation');
+      setTimeout(() => {userRef.classList.add('d-none')}, 3100);
+      setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
+}
+
+
+/**
+ * 
+ * 
+ * @param {HTMLContainer} guestRef - The container to be displayed.
+ */
+function showGuestGreetingAnimation(guestRef){
+  guestRef.classList.remove('d-none');
+  guestRef.classList.add('summary-greeting-animation');
+  setTimeout(() => {guestRef.classList.add('d-none')}, 3100);
+  setTimeout(() => {guestRef.classList.remove('summary-greeting-animation')}, 3000);
+}
