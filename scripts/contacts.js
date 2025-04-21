@@ -231,7 +231,7 @@ function scrollToNewContact(contactId){
 function openEditContact(contactKey){
   getInfosForEditMenu(contactKey);
   setOnclickEditAndDeleteToButtons(contactKey);
-  toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+  openOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper');
 }
 
@@ -278,7 +278,7 @@ async function saveEditedContact(event, contactKey){
   let editedContact = contactsFromApi.find(
     (element) => element.apiKey === contactKey
   );
-  toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+  closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   scrollToNewContact(`contact-${editedContact.id}`);
   openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
 }

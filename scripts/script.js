@@ -329,9 +329,9 @@ function openOverlayMenu(overlayId, maskId){
   const mask = document.getElementById(maskId);
   const mainContent = document.getElementById('main-container');
 
+  mainContent.classList.add('disable-pointer-events');
       overlay.classList.remove('d-none');
-      mask.classList.remove('d-none');
-      mainContent.classList.add('disable-pointer-events');
+      setTimeout(() => {mask.classList.remove('d-none')}, 200);
       setTimeout(() => {overlay.classList.remove('standard-overlay-hide')}, 100);
 }
 
@@ -350,7 +350,7 @@ function closeOverlayMenu(overlayId, maskId){
       overlay.classList.add('standard-overlay-hide');
       mask.classList.add('d-none');
       mainContent.classList.remove('disable-pointer-events');
-      setTimeout(() => {overlay.classList.add('d-none')},800);
+      setTimeout(() => {overlay.classList.add('d-none')},400);
 }
 
 
