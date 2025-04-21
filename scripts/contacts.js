@@ -2,7 +2,7 @@
  * Get contacts from API firebase, create initials from first- and lastname, sort contacts by first letter and render the contacst header letter to HTML.
  *
  */
-async function sortAndRenderContacts() {
+async function sortAndRenderContacts(){
   await getDataFromServer("contacts", contactsFromApi);
   await getDataFromServer("users", usersFromApi);
   sortAllContactsByFirstLetter();
@@ -14,7 +14,7 @@ async function sortAndRenderContacts() {
  * Get all the fetched contacts from the API and puts them in an array specified by the first letter.
  *
  */
-function sortAllContactsByFirstLetter() {
+function sortAllContactsByFirstLetter(){
   sortedContactsArrayByFirstLetter = contactsFromApi.reduce(
     (newArray, element) => {
       const firstLetter = element.name.slice(0, 1).toUpperCase();
@@ -31,7 +31,7 @@ function sortAllContactsByFirstLetter() {
  * Get the keys from an array, sort and render the first letter to the html content - contacts.
  *
  */
-function renderContactsHeaderLetter() {
+function renderContactsHeaderLetter(){
   let firstLetterArray = Object.keys(sortedContactsArrayByFirstLetter);
   firstLetterArray.sort();
   const contentRef = document.getElementById("contacts-content");
@@ -47,7 +47,7 @@ function renderContactsHeaderLetter() {
  * @param {string} firstLetterArray - The first letter to select the right array to render the names and set the background color to the initials.
  * @returns - Returns the whole contats sorted by specified letter.
  */
-function getSingleContact(firstLetterArray) {
+function getSingleContact(firstLetterArray){
   let content = "";
   sortedContactsArrayByFirstLetter[firstLetterArray].forEach((nameRow) => {
     content += getSingleContactTemp(nameRow, firstLetterArray);
@@ -61,7 +61,7 @@ function getSingleContact(firstLetterArray) {
  * @param {string} contactId - The exact id in the users name object to get the informations.
  * @param {string} colorLetter - Headerletter to set the backgroundcolor css class to initials.
  */
-function openContactInFloatMenu(contactId, colorLetter) {
+function openContactInFloatMenu(contactId, colorLetter){
   const contentRef = document.getElementById("bottom-board");
   const contact = contactsFromApi.find((element) => element.id === contactId);
   contentRef.innerHTML = getSingleContactForFloatingMenuTemp(
@@ -89,8 +89,8 @@ function getMobileEditDeleteMenu(contact){
 /**
  * Auto changes the appearence of the contacts menu on screen sizes smaller than 1024px;
  */
-window.onresize = function() {
-if (window.innerWidth >= 1025) {
+window.onresize = function(){
+if (window.innerWidth >= 1025){
   switchFloatingContactAndContactsInMobile();
 }}
 
@@ -102,7 +102,7 @@ function switchFloatingContactAndContactsInMobile(){
   const allContactsRef = document.getElementById('contacts-container-wrapper');
   const contactsFloatRef = document.getElementById('floating-contact-container');
   const floatComputedStyle = window.getComputedStyle(contactsFloatRef);
-  switch (floatComputedStyle.display) {
+  switch (floatComputedStyle.display){
     case 'none':  contactsFloatRef.classList.add('d-block');
                   allContactsRef.classList.add('d-none');
       break;
@@ -120,7 +120,7 @@ function switchFloatingContactAndContactsInMobile(){
 function showAddContactButtonInMobile(){
   let contactsRef = document.getElementById('contacts-container-wrapper');
   let buttonRef = document.getElementById('add-contact-button-mobile');
-      if (contactsRef.classList.contains('d-none')) {
+      if (contactsRef.classList.contains('d-none')){
         buttonRef.classList.add('d-none')
       } else {
         buttonRef.classList.remove('d-none');
@@ -132,7 +132,7 @@ function showAddContactButtonInMobile(){
  * Animate the contact details to slide from the right outside under the contacts header.
  *
  */
-function animateContactMenu() {
+function animateContactMenu(){
   const menuRef = document.getElementById("bottom-board");
   requestAnimationFrame(() => {
     menuRef.classList.add("floating-contact-container-open");
@@ -146,11 +146,11 @@ function animateContactMenu() {
  *
  * @param {object} event - Default object to prevent the form to refresh the page.
  */
-async function createNewContact(event) {
+async function createNewContact(event){
   event.preventDefault();
   await getNewContactTemp();
   collectFormInformation("new-contact-form");
-  if (await checkIfDataAlreadyExists("user-email-input", "contacts")) {
+  if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
     addRedBorderAndTextFalseInput("user-email-input", "input-alert-message", "Contact/Email already exists!");
     setTimeout(() => removeRedBorderAndTextFalseInput("user-email-input", "input-alert-message"), 3000);
   } else {
@@ -176,7 +176,7 @@ async function postContactToApiAndShowInMenu(){
 /**
  * Fills the empty object collectedFormInfos with am template and the next id number from the database.
  */
-async function getNewContactTemp() {
+async function getNewContactTemp(){
   collectedFormInfos = {
     id: `${await getTheNextFreeIdNumberFromApi("contacts")}`,
     name: "",
@@ -191,7 +191,7 @@ async function getNewContactTemp() {
  *
  * @param {string} containerId - The id off the specified contact in the contact list.
  */
-function addBackgroundToSelectedContact(containerId) {
+function addBackgroundToSelectedContact(containerId){
   const otherRef = document.querySelectorAll(".single-contact");
   const ref = document.getElementById(`contact-${containerId}`);
   otherRef.forEach((element) => {
@@ -204,7 +204,7 @@ function addBackgroundToSelectedContact(containerId) {
 /**
  * Displays a short overlay message in a button, if the contact successfully added to the database.
  */
-function showContactAddedSuccessButton() {
+function showContactAddedSuccessButton(){
   const ref = document.getElementById("contact-created-button");
   setTimeout(() => ref.classList.add("contact-created-button-show"), 400);
   setTimeout(() => ref.classList.remove("contact-created-button-show"), 2000);
@@ -216,7 +216,7 @@ function showContactAddedSuccessButton() {
  * 
  * @param {string} contactId - The id of the selected contact.
  */
-function scrollToNewContact(contactId) {
+function scrollToNewContact(contactId){
   document
     .getElementById(contactId)
     .scrollIntoView({ behavior: "smooth", block: "end" });
@@ -228,7 +228,7 @@ function scrollToNewContact(contactId) {
  * 
  * @param {string} contactId - The id of the contact to edit.
  */
-function openEditContact(contactKey) {
+function openEditContact(contactKey){
   getInfosForEditMenu(contactKey);
   setOnclickEditAndDeleteToButtons(contactKey);
   toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
@@ -241,7 +241,7 @@ function openEditContact(contactKey) {
  * 
  * @param {string} contactId - The id of the contact to edit.
  */
-function getInfosForEditMenu(contactKey) {
+function getInfosForEditMenu(contactKey){
   const contact = contactsFromApi.find((element) => element.apiKey === contactKey);
   document.getElementById("edit-user-name-input").value = contact.name;
   document.getElementById("edit-user-email-input").value = contact.email;
@@ -270,7 +270,7 @@ function setOnclickEditAndDeleteToButtons(contactKey){
  * @param {*} event - For prevent the default function from the button.
  * @param {string} contactId - The id of the contact to save.
  */
-async function saveEditedContact(event, contactKey) {
+async function saveEditedContact(event, contactKey){
   event.preventDefault();
   getContactInfosToFetch();
   await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
@@ -302,14 +302,14 @@ function getContactInfosToFetch(){
  * 
  * @param {string} contactId - The id of the selected contact.
  */
-async function deleteContact(contactKey) {
+async function deleteContact(contactKey){
   await deleteDataFromApi("contacts/", contactKey);
   await sortAndRenderContacts();
   if (
     !document
       .getElementById("edit-contact-overlay")
       .classList.contains("standard-overlay-hide")
-  ) {
+  ){
     toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   }
   emptyFloatMenu();
@@ -360,10 +360,10 @@ function setInitialsToNewContactContainer(inputId, destinationId){
  * @param {HTMLElement} destinationRef - The destination container for the icon.
  */
 function removeAndSetInititalsBackgroundColorClass(initials, destinationRef){
-  if (initials == '') {
+  if (initials == ''){
     let classes = [...destinationRef.classList];
         classes.forEach((element) => {
-          if (element.startsWith('initials-bg-color-')) {
+          if (element.startsWith('initials-bg-color-')){
             destinationRef.classList.remove(element);
           }
         })

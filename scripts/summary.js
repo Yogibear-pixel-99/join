@@ -1,7 +1,7 @@
 /**
  * Initialize the whol summary, getting user data and show greeting message.
  */
-async function initSummary() {
+async function initSummary(){
   await getUserSummaryInfo();
   showGreeting();
 }
@@ -10,7 +10,7 @@ async function initSummary() {
 /**
  * Get user and task data from the api and load the summary.
  */
-async function getUserSummaryInfo() {
+async function getUserSummaryInfo(){
     await getDataFromServer("users", usersFromApi);
     await getDataFromServer('tasks', tasksFromApi);
     loadSummary();
@@ -20,7 +20,7 @@ async function getUserSummaryInfo() {
   /**
    * Link to the board html site.
    */
-function directToBoard() {
+function directToBoard(){
   window.location.href = "../html/board.html";
 }
 
@@ -28,7 +28,7 @@ function directToBoard() {
 /**
  * Checks if user is logged in and calls the template for the summary.
  */
-function loadSummary() {  
+function loadSummary(){  
   let mainSummaryREF = document.getElementById("summary-main");
     
   mainSummaryREF.innerHTML = summaryTemplate(getUserName(), getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate());
@@ -43,7 +43,7 @@ function loadSummary() {
 function getUserName(){
    emailIndex = sessionStorage.getItem("indexOfUser"); 
   let userName;
-  if (emailIndex === null) {
+  if (emailIndex === null){
     userName = 'Guest';
   } else {
     userName = usersFromApi[emailIndex].name;
@@ -57,12 +57,12 @@ function getUserName(){
  * 
  * @returns - A greeting message for the summary template, depending on the time.
  */
-function getTime() {
+function getTime(){
     let time = new Date().getHours();
     let greeting;
-    if (time < 15) {
+    if (time < 15){
         greeting = "Good morning";
-    } else if (time <20) {
+    } else if (time <20){
         greeting = "Good afternoon"
     } else {
         greeting = "Good evening "
@@ -76,9 +76,9 @@ function getTime() {
  * 
  * @returns - The number of all todo tasks for the summary template.
  */
-function toDoCounter() {
+function toDoCounter(){
     let toDoCounter = 0;
-    for (let task of tasksFromApi) {
+    for (let task of tasksFromApi){
       if(task.status === "todo")
          {
         toDoCounter++; 
@@ -93,10 +93,10 @@ function toDoCounter() {
  * 
  * @returns - The number of all finished tasks for the summary template.
  */
-function doneCounter() {
+function doneCounter(){
   let doneCounter = 0;
-  for (let task of tasksFromApi) {
-      if (task.status == "done") {
+  for (let task of tasksFromApi){
+      if (task.status == "done"){
           doneCounter++;
       } 
   }
@@ -109,10 +109,10 @@ function doneCounter() {
  * 
  * @returns - The number of all in progress tasks for the summary template.
  */
-function inProgressCounter() {
+function inProgressCounter(){
   let inProgressCounter = 0;
-  for (let index = 0; index < tasksFromApi.length; index++) {
-      if (tasksFromApi[index].status == "inprogress") {
+  for (let index = 0; index < tasksFromApi.length; index++){
+      if (tasksFromApi[index].status == "inprogress"){
         inProgressCounter++;
       } 
   }
@@ -125,10 +125,10 @@ function inProgressCounter() {
  * 
  * @returns - The number of all awaiting feedback tasks for the summary template.
  */
-function awaitFeedbackCounter() {
+function awaitFeedbackCounter(){
   let awaitFeedbackCounter = 0;
-  for (let index = 0; index < tasksFromApi.length; index++) {
-      if (tasksFromApi[index].status == "awaitfeedback") {
+  for (let index = 0; index < tasksFromApi.length; index++){
+      if (tasksFromApi[index].status == "awaitfeedback"){
         awaitFeedbackCounter++;
       } 
   }
@@ -141,10 +141,10 @@ function awaitFeedbackCounter() {
  * 
  * @returns - The number of all priority urgent tasks for the summary template.
  */
-function urgentCounter() {
+function urgentCounter(){
   let urgentCounter = 0;
-  for (let index = 0; index < tasksFromApi.length; index++) {
-      if (tasksFromApi[index].priority == "Urgent") {
+  for (let index = 0; index < tasksFromApi.length; index++){
+      if (tasksFromApi[index].priority == "Urgent"){
         urgentCounter++;
       } 
   }
@@ -179,7 +179,7 @@ function getClosestDate(){
  * @returns - A integer to use for an arrayposition.
  */
 function getMonthNumber(month){
-    if (month.charAt(0) === '0') {
+    if (month.charAt(0) === '0'){
     month = month.replace('0', '');
     return parseInt(month);
   }
@@ -207,7 +207,7 @@ function dateTemp(day, month, year){
 function showGreeting(){
   emailIndex = sessionStorage.getItem("indexOfUser");
   let userName;
-  if (emailIndex === null) {
+  if (emailIndex === null){
     userName = 'Guest';
   } else {
     userName = usersFromApi[emailIndex].name;
@@ -221,8 +221,8 @@ function showGreeting(){
  * 
  * @param {string} userName - The name of the logged in user.
  */
-function addGreetingAnimation(userName) {
-  if (window.innerWidth <= 1024) {
+function addGreetingAnimation(userName){
+  if (window.innerWidth <= 1024){
     let guestRef = document.getElementById('summary-greeting-overlay-guest');
     let userRef = document.getElementById('summary-greeting-overlay-user');
     userName !== 'Guest' && userName ? showUserGreetingAnimation(userRef) : showGuestGreetingAnimation(guestRef);

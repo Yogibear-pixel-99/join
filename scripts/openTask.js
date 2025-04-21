@@ -6,7 +6,7 @@
  */
 function getPriorityIconForTaskOverlay(task){
     let iconSrc = "";
-    switch (task.priority) {
+    switch (task.priority){
         case "Urgent": iconSrc = "prio-urgent.svg";
             break;
         case "Medium": iconSrc = "prio-medium.svg";
@@ -27,14 +27,14 @@ function getPriorityIconForTaskOverlay(task){
 async function getTaskAssignedUsers(task){
     let content = '';
         await getDataFromServer('users', usersFromApi);
-        if (task.assignTo && task.assignTo.length > 0) {
-        for (let userIndex = 0; userIndex < task.assignTo.length; userIndex++) {
+        if (task.assignTo && task.assignTo.length > 0){
+        for (let userIndex = 0; userIndex < task.assignTo.length; userIndex++){
             const userEmail = task.assignTo[userIndex];
                 usersFromApi.find((element) => {
-                    if (element.email === userEmail) {
+                    if (element.email === userEmail){
                         content += getAssignedUserTaskOverlayTemp(element.name, returnInitials(element.name));
                     }})}
-        if (content == '' || content == undefined) {
+        if (content == '' || content == undefined){
         return 'No user assigned to task!'; 
         } else {
             return content;
@@ -146,7 +146,7 @@ function showSubtaskInEditOverlay(task){
     ref.innerHTML = '';
     let subtaskArray = task.subtasks.map(element => element.subtaskName);
     console.log(subtaskArray);
-    for (let subtaskIndex = 0; subtaskIndex < subtaskArray.length; subtaskIndex++) {
+    for (let subtaskIndex = 0; subtaskIndex < subtaskArray.length; subtaskIndex++){
         const element = subtaskArray[subtaskIndex];
         ref.innerHTML += renderSubtaskTemp(element);
     }

@@ -78,16 +78,16 @@ function fillBoardColums(tasks, todo, prog, feed, done){
  * @param {HTMLElement} done - The done column
  */
 function checkEmptyColums(todo, prog, feed, done){
-  if (!todo.innerHTML.trim()) {
+  if (!todo.innerHTML.trim()){
     todo.innerHTML = `<div class="no-tasks">No tasks to do</div>`;
   }
-  if (!prog.innerHTML.trim()) {
+  if (!prog.innerHTML.trim()){
     prog.innerHTML = `<div class="no-tasks">No tasks in progress</div>`;
   }
-  if (!feed.innerHTML.trim()) {
+  if (!feed.innerHTML.trim()){
     feed.innerHTML = `<div class="no-tasks">No tasks await feedback</div>`;
   }
-  if (!done.innerHTML.trim()) {
+  if (!done.innerHTML.trim()){
     done.innerHTML = `<div class="no-tasks">No tasks done</div>`;
   }
 }
@@ -125,7 +125,7 @@ function renderAssignedUsers(task){
   return existingEmail.map((email) => {
       let user = usersFromApi.find((u) => u.email === email);
       initialsPosition += 24;
-      if (user) {
+      if (user){
         let initials = returnInitials(user.name);
         return `<div class="contact-list-board-initals 
                             initials-bg-color-${user.name
@@ -150,11 +150,11 @@ function getPriorityIconHTML(priority){
   if (!priority) return "";
 
   let prio = priority.toLowerCase();
-  if (prio === "urgent") {
+  if (prio === "urgent"){
     return `<img src="../assets/icons/prio-urgent.svg" class="task-priority-icon" alt="Urgent" />`;
-  } else if (prio === "medium") {
+  } else if (prio === "medium"){
     return `<img src="../assets/icons/prio-medium.svg" class="task-priority-icon" alt="Medium" />`;
-  } else if (prio === "low") {
+  } else if (prio === "low"){
     return `<img src="../assets/icons/prio-low.svg" class="task-priority-icon" alt="Low" />`;
   }
   return "";
@@ -176,14 +176,14 @@ function searchForTask(){
  * @param {String} inputTaskValue - The value that was typed in the search field
  */
 function findTask(inputTaskValue){
-  for (let index = 1; index < tasksFromApi.length + 1; index++) {
+  for (let index = 1; index < tasksFromApi.length + 1; index++){
     let titleTaskREF = document.getElementById("titleTask" + tasksFromApi[index-1].id);
     let descriptionTaskREF = document.getElementById("titleDescription" + tasksFromApi[index-1].id);
     console.log(index);
     
     let titleTaskValue = titleTaskREF.innerText.toLowerCase();
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
-    if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)) {
+    if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)){
       titleTaskREF.parentElement.parentElement.classList.remove("d-none");
     } else {
       titleTaskREF.parentElement.parentElement.classList.add("d-none");
@@ -212,8 +212,8 @@ function createTaskCard(task){
  * @param {Object} task - The task object containing subtasks array
  * @returns {(number|string)} - Number of valid subtasks or empty string for invalid input
  */
-function getAllSubtasksLength(task) {
-  if (Array.isArray(task.subtasks)) {
+function getAllSubtasksLength(task){
+  if (Array.isArray(task.subtasks)){
     return task.subtasks.filter(
       (subtask) => subtask != null && subtask.subtaskName != undefined
     ).length;
@@ -228,8 +228,8 @@ function getAllSubtasksLength(task) {
  * @param {Object} task - The task object containing subtasks array
  *  * @returns {(number|string)} - Number of completed subtasks or empty string for invalid input
  */
-function getDoneSubtasksLength(task) {
-  if (Array.isArray(task.subtasks)) {
+function getDoneSubtasksLength(task){
+  if (Array.isArray(task.subtasks)){
     return task.subtasks.filter(
       (subtask) =>
         subtask.finished == true && subtask.subtaskName != undefined
@@ -259,7 +259,7 @@ function getNewStatusInfo(newStatus, taskKey){
  * @param {String} taskKey - The API key to identify the correct task and patch the status
  */
 async function patchTaskDataToApi(payload, taskKey){
-  if (taskKey != undefined) {
+  if (taskKey != undefined){
     try {
       let response = await fetch(MAIN_URL + taskKey + ".json", {
         method: "PATCH",
@@ -268,14 +268,14 @@ async function patchTaskDataToApi(payload, taskKey){
         },
         body: JSON.stringify(payload),
       });
-      if (!response.ok) {
+      if (!response.ok){
         throw new Error("Contact not found in Database!");
       } else {
         console.log(response);
         await resetTaskApi();
         checkEmptyColumsExists();
       }
-    } catch (error) {
+    } catch (error){
       console.log(error);
     }
   }
@@ -342,7 +342,7 @@ function dragover(event){
     event.preventDefault();
     let column = event.currentTarget;
     let draggingCard = document.querySelector(".dragging");
-    if (draggingCard && !column.contains(draggingCard)) {
+    if (draggingCard && !column.contains(draggingCard)){
         column.appendChild(draggingCard);
     }
 }
@@ -359,7 +359,7 @@ function dropTask(event){
     let taskCard = document.getElementById(taskId);
     let spanElement = taskCard.closest('.board-single-task-container').querySelector('.board-task-header-container span');
     let column = event.currentTarget;
-    if (taskCard && column) {
+    if (taskCard && column){
         let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
         taskCard.dataset.status = newStatus;
         console.log(`Task ${taskId} moved to ${newStatus}`);
@@ -379,11 +379,11 @@ function hideEmptyContentTasks(taskId){
   let contentRef = document.getElementById(taskId).parentElement.querySelector(".no-tasks");
   let allContent = document.querySelectorAll('.task-column');
     allContent.forEach((element) => {
-      if (element.children.length == 1) {
+      if (element.children.length == 1){
         element.children[0].classList.remove('d-none');
       }
     })
-  if (contentRef) {
+  if (contentRef){
     contentRef.classList.add('d-none');
   }
 }

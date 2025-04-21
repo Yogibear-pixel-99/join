@@ -6,13 +6,13 @@
  * 
  * @param {Object} event - The default object to prevent from default.
  */
-async function signUpNewUser(event) {
+async function signUpNewUser(event){
   event.preventDefault();
   removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
   removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message');
-  if (checkIfPasswordIsSameAsConfirm()) {
+  if (checkIfPasswordIsSameAsConfirm()){
     addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
-  } else if (await checkIfDataAlreadyExists("user-email-input", "users")) {
+  } else if (await checkIfDataAlreadyExists("user-email-input", "users")){
     addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
   } else {
     removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
@@ -37,7 +37,7 @@ async function collectNewUserValuesAndPost(){
 /**
  * An empty user template for the sign up function to fetch to the api.
  */
-function getNewUserTemp() {
+function getNewUserTemp(){
   collectedFormInfos = {
     name: "",
     email: "",
@@ -57,12 +57,12 @@ function getNewUserTemp() {
  * 
  * @returns - A boolean.
  */
-function checkIfPasswordIsSameAsConfirm() {
+function checkIfPasswordIsSameAsConfirm(){
   const newUserPassword = document.getElementById("sign-up-password").value;
   const newUserPasswordConfirm = document.getElementById(
     "sign-up-password-confirm"
   ).value;
-  if (newUserPassword !== newUserPasswordConfirm) {
+  if (newUserPassword !== newUserPasswordConfirm){
     return true;
   } else {
     return false;
@@ -73,7 +73,7 @@ function checkIfPasswordIsSameAsConfirm() {
 /**
  * Sets the main content brightness to 50%.
  */
-function mainContentBrightness50() {
+function mainContentBrightness50(){
   const ref = document.getElementById("main-container");
   ref.classList.add("darken-background");
 }
@@ -85,7 +85,7 @@ function mainContentBrightness50() {
  * @param {string} buttonId - The id of the button container to show.
  * @param {string} buttonText - The text displayed in the button.
  */
-function showOverlayButton(buttonId, buttonText) {
+function showOverlayButton(buttonId, buttonText){
   const ref = document.getElementById(buttonId);
   ref.innerText = buttonText;
   ref.classList.add("overlay-button-show");
@@ -97,7 +97,7 @@ function showOverlayButton(buttonId, buttonText) {
  * 
  * @param {string} buttonId - The container id of the button.
  */
-function hideOverlayButton(buttonId) {
+function hideOverlayButton(buttonId){
   const ref = document.getElementById(buttonId);
   ref.classList.remove("overlay-button-show");
 }
@@ -106,7 +106,7 @@ function hideOverlayButton(buttonId) {
 /**
  * Redirect to the login page.
  */
-function redirectToLogInPage() {
+function redirectToLogInPage(){
   window.location.href = "../html/login.html";
 }
 
@@ -117,11 +117,11 @@ function redirectToLogInPage() {
 function toggleSignUpButton(){
   const checkPrivacy = document.getElementById('accept-privacy');
   const buttonRef = document.getElementById('sign-up-button');
-    if (checkPrivacy.checked && window.innerWidth > 1025) {
+    if (checkPrivacy.checked && window.innerWidth > 1025){
       buttonRef.disabled = false;
       buttonRef.classList.add('dark-button');
       buttonRef.classList.remove('dark-button-signup');
-    } else if (checkPrivacy.checked && window.innerWidth <= 1024) {
+    } else if (checkPrivacy.checked && window.innerWidth <= 1024){
     buttonRef.disabled = false;
     buttonRef.classList.add('dark-signup-mobile-button');
     buttonRef.classList.remove('dark-button-signup');
@@ -142,7 +142,7 @@ function toggleSignUpButton(){
  */
 function changePasswordIcon(inputContainerId, iconContainerId){
   let ref = document.getElementById(inputContainerId).value
-      if (ref !== "") {
+      if (ref !== ""){
         setIconToContent(iconContainerId, '../assets/icons/visibility_off.svg');
       } else {
         setIconToContent(iconContainerId, '../assets/icons/lock.svg')
@@ -159,8 +159,8 @@ function changePasswordIcon(inputContainerId, iconContainerId){
 function showHidePassword(inputId, logoId){
   let text = document.getElementById(inputId);
   let logo = document.getElementById(logoId);
-  if (text.value) {
-  switch (text.type == "password") {
+  if (text.value){
+  switch (text.type == "password"){
     case true : text.type = "text"; logo.src = '../assets/icons/visibility-eye.svg';
     break;
     case false : text.type = "password"; logo.src = '../assets/icons/visibility_off.svg';

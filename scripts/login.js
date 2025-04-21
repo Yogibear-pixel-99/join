@@ -2,7 +2,7 @@
  * This function takes the users from the database and pushes them into an object
  * 
  */
-async function getUserInfo() {
+async function getUserInfo(){
   await getDataFromServer("users", usersFromApi);
 }
 
@@ -11,7 +11,7 @@ async function getUserInfo() {
  * 
  * @param {Event} event - The form submit event object
  */
-function checkLogin(event) {
+function checkLogin(event){
   event.preventDefault();
   getUserInfo().then(() => {
    checkEmail(event); 
@@ -24,12 +24,12 @@ function checkLogin(event) {
  * @param {boolean} emailChecked - The Boolean indicates whether the email exists in the database or not.
  * @param {integer} emailIndex- The index that stores the position of the email in the database
  */
-function checkEmail() {
+function checkEmail(){
   let emailChecked = usersFromApi.some(
     (item) => item.email === emailREF.value
   );
 
-  if (emailChecked === true) {
+  if (emailChecked === true){
     emailIndex = usersFromApi.findIndex(
       (item) => item.email === emailREF.value
     );
@@ -45,9 +45,9 @@ function checkEmail() {
  * 
  * @param {integer} emailIndex - The position in the database at which the specified email is located
  */
-function checkPassword(emailIndex) {
+function checkPassword(emailIndex){
   let user = usersFromApi[emailIndex];  
-  if (user && user.password === passwordREF.value ) {
+  if (user && user.password === passwordREF.value ){
     sessionStorage.setItem("indexOfUser", emailIndex);
     sessionStorage.setItem("userLoggedIn", true)
     removeRedBorderAndTextFalseInput("email", "login-error-message");
@@ -64,7 +64,7 @@ function checkPassword(emailIndex) {
  * Changes the source of the password icon in the login form.
  */
 function changeLoginPasswordIcons(){
-  if ((passwordREF.value == "")) {
+  if ((passwordREF.value == "")){
     inputLogoREF.src = "../assets/icons/lock.svg";
   } else {
     inputLogoREF.src = "../assets/icons/visibility_off.svg";

@@ -3,7 +3,7 @@
  * 
  * @param {string} formId - The id from the form container.
  */
-function resetForm(formId) {
+function resetForm(formId){
   const ref = document.getElementById(formId);
   const priorityRef = document.getElementById('standard-prio');
   ref.reset();
@@ -27,10 +27,10 @@ function deleteSubtasksContent(){
  * 
  * @param {HTMLElement} selected - The selected button container.
  */
-function setPriorityButtonColor(selected) {
+function setPriorityButtonColor(selected){
   const labelRef = document.querySelectorAll("#priority-wrapper label");
   labelRef.forEach((element) => {
-    if (element === selected) {
+    if (element === selected){
       element.classList.add("active");
       element.querySelector("svg").classList.add("prio-svg");
     } else {
@@ -53,7 +53,7 @@ function focusSubtaskInputMenu(){
 /**
  * Shows the subtask input menu in the add task form.
  */
-function showSubtasksInputMenu() {
+function showSubtasksInputMenu(){
   const plusIcon = document.getElementById("subtasks-plus");
   const focusIcons = document.getElementById("subtasks-on-focus-icons");
   plusIcon.classList.add("d-none");
@@ -64,7 +64,7 @@ function showSubtasksInputMenu() {
 /**
  * Hides the subtask input menu in the add task form.
  */
-function hideSubtasksInputMenu() {
+function hideSubtasksInputMenu(){
   const plusIcon = document.getElementById("subtasks-plus");
   const focusIcons = document.getElementById("subtasks-on-focus-icons");
   plusIcon.classList.remove("d-none");
@@ -78,7 +78,7 @@ function hideSubtasksInputMenu() {
  * @param {Object} event - The default event object.
  */
 function enterKeyAddSubtaskValueToArray(event){
-    if (event.keyCode == 13) {
+    if (event.keyCode == 13){
       addSubtaskValueToArray();
     }
 }
@@ -87,14 +87,14 @@ function enterKeyAddSubtaskValueToArray(event){
 /**
  * Checks if the subtask input value already exists or is empty. Adds the subtask value to the add task form subtask array or shows an error.
  */
-function addSubtaskValueToArray() {
+function addSubtaskValueToArray(){
   let subtaskOutput = document.getElementById("added-subtasks");
   let subtaskInput = document.getElementById("subtasks-input");
   let allSubtasks = Array.from(document.getElementsByClassName('subtask-input'), element => element.value);
   const userInput = subtaskInput.value;
-  if ((allSubtasks.length != 0) && (allSubtasks.some((element) => element === userInput))) {
+  if ((allSubtasks.length != 0) && (allSubtasks.some((element) => element === userInput))){
     getAddSubtaskError(subtaskInput, 'Subtask already exists');
-  }  else if (userInput == "") {
+  }  else if (userInput == ""){
     getAddSubtaskError(subtaskInput, 'Type in a subtask');
   } else {
     subtaskOutput.innerHTML += renderSubtaskTemp(userInput);
@@ -109,7 +109,7 @@ function addSubtaskValueToArray() {
  * @param {HTMLElement} subtaskInput - The subtask user input element. 
  * @param {string} errorMessage - The displayed error message.
  */
-function getAddSubtaskError(subtaskInput, errorMessage) {
+function getAddSubtaskError(subtaskInput, errorMessage){
   subtaskInput.classList.add("subtask-input-error");
   subtaskInput.setAttribute("placeholder", errorMessage);
   setTimeout(() => clearSubtaskError(subtaskInput), 2000);
@@ -121,7 +121,7 @@ function getAddSubtaskError(subtaskInput, errorMessage) {
  * 
   * @param {HTMLElement} subtaskInput - The subtask user input element.
  */
-function clearSubtaskError(subtaskInput) {
+function clearSubtaskError(subtaskInput){
   subtaskInput.classList.remove("subtask-input-error");
   subtaskInput.setAttribute("placeholder", "Add new subtask");
 }
@@ -153,7 +153,7 @@ function focusToSubtaskInput(containerId){
 /**
  * Renders the assign to and the category dropdown menu in the add task form and sets the initials to the header onload the add task site.
  */
-async function loadDropdown() {
+async function loadDropdown(){
   await getDataFromServer("users", usersFromApi);
   renderAssignToDropdown();
   renderCategoryOptions();
@@ -164,10 +164,10 @@ async function loadDropdown() {
 /**
  * Toggles the assigned to dropdown menu wrapper in the add task form.
  */
-async function toggleAssignedDropdown() {
+async function toggleAssignedDropdown(){
     let dropdown = document.getElementById("dropdownContent");
     let wrapper = document.getElementById("addTaskWrapper")
-  if (wrapper.classList.contains('add-task-wrapper-passive')) {
+  if (wrapper.classList.contains('add-task-wrapper-passive')){
     wrapper.style.maxHeight = "500px";
     wrapper.classList.remove('add-task-wrapper-passive');
     wrapper.classList.add('add-task-wrapper-active');
@@ -185,8 +185,8 @@ async function toggleAssignedDropdown() {
    * 
    * @param {id} dropdown - Container id of the dropdown menu.
    */
- function closeMainDropdown(dropdown) {
-  if (dropdown.classList.contains("d-none")) {
+ function closeMainDropdown(dropdown){
+  if (dropdown.classList.contains("d-none")){
     dropdown.classList.toggle("d-none");
   } else {
     setTimeout(() => {
@@ -199,7 +199,7 @@ async function toggleAssignedDropdown() {
 /**
  * Shows the selected assigned user in the assign to dropdown menu in the add task form.
  */
- function renderAssignToDropdown() {
+ function renderAssignToDropdown(){
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = '';
     usersFromApi.forEach(user => {
@@ -216,7 +216,7 @@ async function toggleAssignedDropdown() {
 /**
  * Filters the users in the assign to dropdown menu, based on the value typed in the search bar input field.
  */
-function startSearchingContacts() {
+function startSearchingContacts(){
     let searchInput = document.getElementById('searchInput').value.toLowerCase();
     let filteredUsers = usersFromApi.filter(user => user.name.toLowerCase().includes(searchInput));
     renderDropdownWithSearchResults(filteredUsers);
@@ -228,7 +228,7 @@ function startSearchingContacts() {
  * 
  * @param {Array} filteredUsers - An array of the filterd users from the search function.
  */
-function renderDropdownWithSearchResults(filteredUsers) {
+function renderDropdownWithSearchResults(filteredUsers){
     let dropdownContent = document.getElementById('dropdownContent');
     dropdownContent.innerHTML = ''; 
     filteredUsers.forEach(user => {
@@ -246,14 +246,14 @@ function renderDropdownWithSearchResults(filteredUsers) {
  * @param {HTMLElement} event - The selected HTML Container (user).
  * @returns Nothing if there is an empty object.
  */
-function handleCheckboxChange(event) {
+function handleCheckboxChange(event){
     let userEmail = event.target.getAttribute("data-user-id");
     let user = usersFromApi.find(u => u.email === userEmail);
     let userItem = event.target.closest('.user-item');
     if (!user || !userItem) return; 
     user.isSelected = event.target.checked;
   
-    if (event.target.checked) {
+    if (event.target.checked){
       userItem.classList.add('checked-row');
       addSelectedContact(user);
     } else {
@@ -269,7 +269,7 @@ function handleCheckboxChange(event) {
    * @param {string} userEmail - The email of the selected user.
    * @returns Nothing if there is an empty object.
    */
-  function toggleUserSelection(userEmail) {
+  function toggleUserSelection(userEmail){
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
     user.isSelected = !user.isSelected;
@@ -283,11 +283,11 @@ function handleCheckboxChange(event) {
    * 
    * @param {Object} user - The user object.
    */
-  function addSelectedContact(user) {
+  function addSelectedContact(user){
     let container = document.getElementById("addSelectedContacts");
     let userEmail = user.email;
     let existing = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
-    if (!existing) {
+    if (!existing){
       let selectedDiv = document.createElement("div");
       selectedDiv.classList.add("selected-contact");
       selectedDiv.setAttribute("data-user-id", userEmail);
@@ -315,10 +315,10 @@ function handleCheckboxChange(event) {
    * 
    * @param {string} userEmail - The email of the selected contact.
    */
-  function removeSelectedContact(userEmail) {
+  function removeSelectedContact(userEmail){
     let container = document.getElementById("addSelectedContacts");
     let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
-    if (existingDiv) {
+    if (existingDiv){
       existingDiv.remove();
     }
   }
@@ -329,7 +329,7 @@ function handleCheckboxChange(event) {
    * 
    * @param {string} category - The selected category.
    */
-  function selectCategory(category) {
+  function selectCategory(category){
     selectedCategory = category;
     document.getElementById("categoryDropdown").value = category;
     document.getElementById("categoryDropdownContent").classList.add("d-none");
@@ -341,10 +341,10 @@ function handleCheckboxChange(event) {
    * 
    * @param {HTMLElement} dropdown - The id of the dropdown container.
    */
- function toggleCategoryDropdown() {
+ function toggleCategoryDropdown(){
   let dropdown = document.getElementById("categoryDropdownContent");
   let wrapper = document.getElementById("categoryWrapper")
-  if (wrapper.classList.contains('category-wrapper-passive')) {
+  if (wrapper.classList.contains('category-wrapper-passive')){
     wrapper.style.maxHeight = "200px";
     wrapper.classList.remove('category-wrapper-passive');
     wrapper.classList.add('category-wrapper-active');
@@ -362,8 +362,8 @@ function handleCheckboxChange(event) {
   * 
   * @param {HTMLElement} dropdown - The dropdown container.
   */
- function closeCategoryDropdown(dropdown) {
-  if (dropdown.classList.contains("d-none")) {
+ function closeCategoryDropdown(dropdown){
+  if (dropdown.classList.contains("d-none")){
     dropdown.classList.toggle("d-none");
   }
  } 
@@ -372,7 +372,7 @@ function handleCheckboxChange(event) {
  /**
   * Renders the category dropdown menu in the add task form.
   */
-  function renderCategoryOptions() {
+  function renderCategoryOptions(){
     let dropdownContent = document.getElementById("categoryDropdownContent");
     dropdownContent.innerHTML = ""; 
     staticCategories.forEach(category => {
@@ -432,7 +432,7 @@ function showDatePicker(){
  */
 function resetDateValue(event){
   let contentRef = document.getElementById('due-date');
-  if (event.keyCode == 8 || event.keyCode == 46) {
+  if (event.keyCode == 8 || event.keyCode == 46){
     contentRef.value = '';
   } 
 }
@@ -445,7 +445,7 @@ function resetDateValue(event){
  * @returns The day integer from the user input.
  */
 function setDayToAddTaskDateInput(userInput){
-  if (userInput.length >= 2) {
+  if (userInput.length >= 2){
     let userDay = userInput.slice(0, 2);
     return userDay + '/';
   } else {return userInput};
@@ -459,7 +459,7 @@ function setDayToAddTaskDateInput(userInput){
  * @returns The month integer from the user input.
  */
 function setMonthToAddTaskDateInput(userInput){
-  if (userInput.length >= 4) {
+  if (userInput.length >= 4){
     let userMonth = userInput.slice(2, 4);
     return userMonth + '/';
   } else {
@@ -475,7 +475,7 @@ function setMonthToAddTaskDateInput(userInput){
  * @returns The year integer from the user input.
  */
 function setYearToAddTaskDateInput(userInput){
-  if (userInput.length >= 5) {
+  if (userInput.length >= 5){
     let userYear = userInput.slice(4, 8);
     return userYear;
   } else {
@@ -540,8 +540,8 @@ function collectSubTasks(data){
 function collectAssingTo(){
   let userREF = document;
   console.log(usersFromApi[1].name);
-  for (let index = 0; index < usersFromApi.length; index++) {
-    if (userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !== null) {
+  for (let index = 0; index < usersFromApi.length; index++){
+    if (userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !== null){
      collectedFormInfos.assignTo.push(usersFromApi[index].email)
     } 
   }
@@ -578,7 +578,7 @@ function createNewTask(event){
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
   let category = document.getElementById('categoryDropdown').value;
-  if (title === '' || dueDate === ''|| category === '') {
+  if (title === '' || dueDate === ''|| category === ''){
     event.preventDefault();  
     titleRedBorder(title);
     dateRedBorder(dueDate);
@@ -600,7 +600,7 @@ function createNewTask(event){
  * 
  */
 function titleRedBorder(title){
-  if (title == '') {
+  if (title == ''){
     addRedBorderAndTextFalseInputAddTask(
       "form-title",
       "title-error-message",
@@ -618,7 +618,7 @@ function titleRedBorder(title){
  * @param {string} dueDate - The value of the Date Input Field
  */
 function dateRedBorder(dueDate){
-  if (dueDate == '') {
+  if (dueDate == ''){
     addRedBorderAndTextFalseInputAddTask(
       "due-date",
       "date-error-message",
@@ -636,8 +636,8 @@ function dateRedBorder(dueDate){
  * 
  * @param {string} category - The value of the category Field
  */
-function categoryRedBorder(category) {
-  if (category == '') {
+function categoryRedBorder(category){
+  if (category == ''){
     addRedBorderAndTextFalseInputAddTask(
       "categoryDropdown",
       "category-error-message",
@@ -681,7 +681,7 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
 
 
 // NOT FINISHED YET -------------------------------------------------------------------------------------------------------------------------------
-function toggleAddTaskOverlay() {
+function toggleAddTaskOverlay(){
   let addtaskREF = document.getElementById("addtask-overlay");
       // addtaskREF.innerHTML = getAddTaskOverlayTemp();
   let maskREF = document.getElementById("mask-container");
