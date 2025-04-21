@@ -405,7 +405,7 @@ function openAddTaskOverlayAndEmptyEditTaskOverlay(addTaskLocation){
   let ref1 = document.getElementById('addtask-content');
   let ref2 = document.getElementById('task-overlay-menu');
       ref1.innerHTML = getAddTaskOverlayTemp(); ref2.innerHTML = '';
-      toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
+      openOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
       renderAssignToDropdown();
       renderCategoryOptions();
       addTaskStatus = addTaskLocation;
@@ -424,7 +424,7 @@ async function openTask(taskId){
   await getDataFromServer("tasks", tasksFromApi);
   let task = tasksFromApi.find(element => element.id === taskId);
   taskRef.innerHTML = await getTaskOverlayTemp(task);
-  toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
+  openOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
 }
 
 

@@ -310,7 +310,7 @@ async function deleteContact(contactKey){
       .getElementById("edit-contact-overlay")
       .classList.contains("standard-overlay-hide")
   ){
-    toggleOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+    closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   }
   emptyFloatMenu();
 }
