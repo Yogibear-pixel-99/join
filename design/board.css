@@ -389,3 +389,7 @@
 .board-add-task-icon-wrapper-mobile {
   display: none;
 }
+
+.column-link-mobile {
+  display: none;
+}
