@@ -253,6 +253,15 @@ margin-bottom: 20px;
       top: 33px;
   }
 
+  .add-contact-overlay-content-left {
+    height: 300px;
+  }
+
+
+  .add-contact-overlay-img-wrapper {
+    top: 300px;
+  }
+
 }
 
 
@@ -289,6 +298,20 @@ margin-bottom: 20px;
 
 .main-header {
   padding: 0;
+}
+
+.add-contact-overlay-content-left {
+  padding: 30px 24px 66px;
+  
+}
+
+.add-contact-overlay-content-right {
+/* height: 380px; */
+padding: 66px 24px 30px; 
+}
+
+.add-contact-overlay-img-wrapper {
+  /* top: 280px; */
 }
 
 }
