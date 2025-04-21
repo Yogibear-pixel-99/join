@@ -399,6 +399,6 @@ function toggleClassToContainer(id, className){
 function toggleAddedButton(containerId, showClass, hideClass){
   setTimeout(() => {toggleClassToContainer(containerId, hideClass)}, 1);
   setTimeout(() => {toggleClassToContainer(containerId, showClass)}, 100);
-  setTimeout(() => {toggleClassToContainer(containerId, showClass)}, 1400);
-  setTimeout(() => {toggleClassToContainer(containerId, hideClass)}, 1450);
+  setTimeout(() => {toggleClassToContainer(containerId, showClass)}, 1600);
+  setTimeout(() => {toggleClassToContainer(containerId, hideClass)}, 1800);
 }
