@@ -381,20 +381,8 @@ collectCategory();
 collectSubTasks(new FormData(document.getElementById('add-task-form')));
 collectAssingTo();
 await postDataToApi("tasks", collectedFormInfos);
-toggleAddedToBoardButton();
+toggleAddedToBoardButton('task-added-overlay-button', 'task-added-overlay-button-show', 'd-none');
 setTimeout(() => {window.location.href = "../html/board.html"}, 1500);
-}
-
-
-/**
- * This function shows a button, that the generated task has been added to the board.
- * 
- */
-function toggleAddedToBoardButton(){
-  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'd-none')}, 1);
-  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'task-added-overlay-button-show')}, 100);
-  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'task-added-overlay-button-show')}, 1400);
-  setTimeout(() => {toggleClassToContainer('task-added-overlay-button', 'd-none')}, 1450);
 }
 
 

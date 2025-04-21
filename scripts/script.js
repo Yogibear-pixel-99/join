@@ -324,13 +324,33 @@ function checkArrayForNextFreeInteger(allIdArray){
  * @param {string} overlayId - The id of the overlay menu to show up.
  * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
  */
-function toggleOverlayMenu(overlayId, maskId){
+function openOverlayMenu(overlayId, maskId){
   const overlay = document.getElementById(overlayId);
   const mask = document.getElementById(maskId);
   const mainContent = document.getElementById('main-container');
-      overlay.classList.toggle('standard-overlay-hide');
-      mask.classList.toggle('d-none');
-      mainContent.classList.toggle('disable-pointer-events');
+
+      overlay.classList.remove('d-none');
+      mask.classList.remove('d-none');
+      mainContent.classList.add('disable-pointer-events');
+      setTimeout(() => {overlay.classList.remove('standard-overlay-hide')}, 100);
+}
+
+
+/**
+ * Toggles a specified overlaymenu with the given id.
+ * 
+ * @param {string} overlayId - The id of the overlay menu to show up.
+ * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
+ */
+function closeOverlayMenu(overlayId, maskId){
+  const overlay = document.getElementById(overlayId);
+  const mask = document.getElementById(maskId);
+  const mainContent = document.getElementById('main-container');
+
+      overlay.classList.add('standard-overlay-hide');
+      mask.classList.add('d-none');
+      mainContent.classList.remove('disable-pointer-events');
+      setTimeout(() => {overlay.classList.add('d-none')},800);
 }
 
 
@@ -369,4 +389,16 @@ function resetForm(formId){
 function toggleClassToContainer(id, className){
   let ref = document.getElementById(id);
       ref.classList.toggle(className);
+}
+
+
+/**
+ * This function shows a button, that the generated task has been added to the board.
+ * 
+ */
+function toggleAddedButton(containerId, showClass, hideClass){
+  setTimeout(() => {toggleClassToContainer(containerId, hideClass)}, 1);
+  setTimeout(() => {toggleClassToContainer(containerId, showClass)}, 100);
+  setTimeout(() => {toggleClassToContainer(containerId, showClass)}, 1400);
+  setTimeout(() => {toggleClassToContainer(containerId, hideClass)}, 1450);
 }

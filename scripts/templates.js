@@ -241,7 +241,7 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
                             <div class="floating-mail-phone">
                                 <div class="floating-mail-phone-header">Phone</div>
                                 <div>${contact.phone}</div>
-                                <div class="dark-button contact-created-button" id="contact-created-button">Contact succesfully created</div>
+                                <div class="dark-button contact-created-button d-none" id="contact-created-button">Contact succesfully created</div>
                             </div>
                         </div>
                     </div>

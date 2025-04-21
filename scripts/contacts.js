@@ -164,11 +164,11 @@ async function createNewContact(event){
  */
 async function postContactToApiAndShowInMenu(){
   await postDataToApi("contacts", collectedFormInfos);
-  toggleOverlayMenu("add-contact-overlay", "add-contact-mask-container");
+  closeOverlayMenu("add-contact-overlay", "add-contact-mask-container");
   await sortAndRenderContacts();
   scrollToNewContact(`contact-${collectedFormInfos.id}`);
   openContactInFloatMenu(`${collectedFormInfos.id}`, `${collectedFormInfos.name.slice(0, 1).toUpperCase()}`);
-  showContactAddedSuccessButton();
+  toggleAddedButton('contact-created-button', 'contact-created-button-show', 'd-none');
   document.getElementById("new-contact-form").reset();
 }
 
