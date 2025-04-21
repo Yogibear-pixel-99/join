@@ -25,7 +25,7 @@ function deleteSubtasksContent(){
 /**
  * Sets the button and the button color.
  * 
- * @param {HTMLContainer} selected - The selected button container.
+ * @param {HTMLElement} selected - The selected button container.
  */
 function setPriorityButtonColor(selected) {
   const labelRef = document.querySelectorAll("#priority-wrapper label");
@@ -106,7 +106,7 @@ function addSubtaskValueToArray() {
 /**
  * Displays an error message if the subtask user input is empty or the subtask already exists.
  * 
- * @param {HTMLContainer} subtaskInput - The subtask user input field. 
+ * @param {HTMLElement} subtaskInput - The subtask user input element. 
  * @param {string} errorMessage - The displayed error message.
  */
 function getAddSubtaskError(subtaskInput, errorMessage) {
@@ -119,7 +119,7 @@ function getAddSubtaskError(subtaskInput, errorMessage) {
 /**
  * Hides the subtask error message.
  * 
-  * @param {HTMLContainer} subtaskInput - The subtask user input field.
+  * @param {HTMLElement} subtaskInput - The subtask user input element.
  */
 function clearSubtaskError(subtaskInput) {
   subtaskInput.classList.remove("subtask-input-error");
@@ -130,7 +130,7 @@ function clearSubtaskError(subtaskInput) {
 /**
  * Delete the selected subtask in the add task form.
  * 
- * @param {HTMLContainer} containerId - The selected subtask in add task form.
+ * @param {string} containerId - The id of the selected subtask element in add task form.
  */
 function deleteSubtask(containerId){
   let contentRef = document.getElementById(containerId);
@@ -142,7 +142,7 @@ function deleteSubtask(containerId){
 /**
  * Focus the selected subtask input field.
  * 
- * @param {HTMLContainer} containerId - The selected subtask input container.
+ * @param {string} containerId - The selected subtask input container id.
  */
 function focusToSubtaskInput(containerId){
   let ref = document.getElementById(containerId);
@@ -243,7 +243,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
 /**
  * Marks the checkbox of a searched user in the assign to dropdown menu.
  * 
- * @param {HTMLContainer} event - The selected HTML Container (user).
+ * @param {HTMLElement} event - The selected HTML Container (user).
  * @returns Nothing if there is an empty object.
  */
 function handleCheckboxChange(event) {
@@ -339,7 +339,7 @@ function handleCheckboxChange(event) {
   /**
    * Opens the wrapper from the dropdown menu to animate it.
    * 
-   * @param {HTMLContainer} dropdown - The id of the dropdown container.
+   * @param {HTMLElement} dropdown - The id of the dropdown container.
    */
  function toggleCategoryDropdown() {
   let dropdown = document.getElementById("categoryDropdownContent");
@@ -360,7 +360,7 @@ function handleCheckboxChange(event) {
  /**
   * Closes the category dropdown menu.
   * 
-  * @param {HTMLContainer} dropdown - The id of the dropdown container.
+  * @param {HTMLElement} dropdown - The dropdown container.
   */
  function closeCategoryDropdown(dropdown) {
   if (dropdown.classList.contains("d-none")) {

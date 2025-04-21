@@ -67,8 +67,8 @@ async function getEmptyTaskTemplate() {
  * Creates the single task cards shown in the board menu.
  * 
  * @param {Object} task - The task object from the database.
- * @param {HTMLElement} assignedHTML - The initials to see who is assigned to the task.
- * @param {HTMLElement} priorityHTML - The selected priority image.
+ * @param {HTMLElement} assignedHTML - A initials template to see who is assigned to the task.
+ * @param {HTMLElement} priorityHTML - A selected priority image template.
  * @param {integer} allSubTasksNr - All subtasks in thise task.
  * @param {integer} doneSubTasksNr - All finished subtask in this task.
  * @returns - Returns the created single task card shown in board menu.

@@ -233,24 +233,24 @@ function addGreetingAnimation(userName) {
 /**
  * Displays the user name in the greeting animation.
  * 
- * @param {HTMLContainer} userRef - The container to be displayed.
+ * @param {HTMLElement} userRef - The container to be displayed.
  */
 function showUserGreetingAnimation(userRef){
   userRef.classList.remove('d-none');
       userRef.classList.add('summary-greeting-animation');
-      setTimeout(() => {userRef.classList.add('d-none')}, 3100);
       setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
+      setTimeout(() => {userRef.classList.add('d-none')}, 3100);
 }
 
 
 /**
+ * Displays the name "guest" in the greeting animation.
  * 
- * 
- * @param {HTMLContainer} guestRef - The container to be displayed.
+ * @param {HTMLElement} guestRef - The container to be displayed.
  */
 function showGuestGreetingAnimation(guestRef){
   guestRef.classList.remove('d-none');
   guestRef.classList.add('summary-greeting-animation');
-  setTimeout(() => {guestRef.classList.add('d-none')}, 3100);
   setTimeout(() => {guestRef.classList.remove('summary-greeting-animation')}, 3000);
+  setTimeout(() => {guestRef.classList.add('d-none')}, 3100);
 }

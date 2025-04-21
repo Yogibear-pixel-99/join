@@ -82,7 +82,7 @@ function mainContentBrightness50() {
 /**
  * Adds a class to show the overlay button container.
  * 
- * @param {HTMLContainer} buttonId - The id of the button container to show.
+ * @param {string} buttonId - The id of the button container to show.
  * @param {string} buttonText - The text displayed in the button.
  */
 function showOverlayButton(buttonId, buttonText) {
@@ -95,7 +95,7 @@ function showOverlayButton(buttonId, buttonText) {
 /**
  * Removes a class to hide the overlay button container.
  * 
- * @param {HTMLContainer} buttonId - The container id of the button.
+ * @param {string} buttonId - The container id of the button.
  */
 function hideOverlayButton(buttonId) {
   const ref = document.getElementById(buttonId);
@@ -137,8 +137,8 @@ function toggleSignUpButton(){
 /**
  * Changes the source of the password icon in the sign up form.
  * 
- * @param {HTMLContainer} inputContainerId - The id of the input container.
- * @param {HTMLContainer} iconContainerId - The id of the logo container.
+ * @param {string} inputContainerId - The id of the input container.
+ * @param {string} iconContainerId - The id of the logo container.
  */
 function changePasswordIcon(inputContainerId, iconContainerId){
   let ref = document.getElementById(inputContainerId).value
@@ -153,8 +153,8 @@ function changePasswordIcon(inputContainerId, iconContainerId){
 /**
  * Changes the visibility of the password value in the input field by changing the input field type.
  * 
- * @param {HTMLContainer} inputId - The id of the input container.
- * @param {HTMLContainer} logoId - The id of the logo container.
+ * @param {string} inputId - The id of the input container.
+ * @param {string} logoId - The id of the logo container.
  */
 function showHidePassword(inputId, logoId){
   let text = document.getElementById(inputId);

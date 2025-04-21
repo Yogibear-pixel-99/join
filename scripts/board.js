@@ -38,10 +38,10 @@ function renderBoard(){
 /**
  * This function empties the columns
  * 
- * @param {HTMLContainer} todo - The todo column
- * @param {HTMLContainer} prog - The inprogress column
- * @param {HTMLContainer} feed - The awaitfeedback column
- * @param {HTMLContainer} done - The done column
+ * @param {HTMLElement} todo - The todo column.
+ * @param {HTMLElement} prog - The inprogress column.
+ * @param {HTMLElement} feed - The awaitfeedback column.
+ * @param {HTMLElement} done - The done column.
  */
 function clearBoardColums(todo, prog, feed, done){
   todo.innerHTML = "";
@@ -54,10 +54,10 @@ function clearBoardColums(todo, prog, feed, done){
  * This function fills the respective columns with the tasks.
  * 
  * @param {Object} tasks - The fetched object with the tasks from the database.
- * @param {HTMLContainer} todo - The todo column
- * @param {HTMLContainer} prog - The inprogress column
- * @param {HTMLContainer} feed - The awaitfeedback column
- * @param {HTMLContainer} done - The done column
+ * @param {HTMLElement} todo - The todo column.
+ * @param {HTMLElement} prog - The inprogress column.
+ * @param {HTMLElement} feed - The awaitfeedback column.
+ * @param {HTMLElement} done - The done column.
  */
 function fillBoardColums(tasks, todo, prog, feed, done){
   tasks.forEach((task) => {
@@ -72,10 +72,10 @@ function fillBoardColums(tasks, todo, prog, feed, done){
 /**
  * This function checks whether empty fields exist and places a No Tasks container there.
  * 
- * @param {HTMLContainer} todo - The todo column
- * @param {HTMLContainer} prog - The inprogress column
- * @param {HTMLContainer} feed - The awaitfeedback column
- * @param {HTMLContainer} done - The done column
+ * @param {HTMLElement} todo - The todo column
+ * @param {HTMLElement} prog - The inprogress column
+ * @param {HTMLElement} feed - The awaitfeedback column
+ * @param {HTMLElement} done - The done column
  */
 function checkEmptyColums(todo, prog, feed, done){
   if (!todo.innerHTML.trim()) {

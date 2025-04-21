@@ -341,7 +341,7 @@ function switchToAllContactsMobile(){
  * Set new initials to the container if the name is changing.
  * 
  * @param {string} inputId - The name value from the input field.
- * @param {HTMLContainer} destinationId - The destination container where the initials are displayed.
+ * @param {string} destinationId - The id of the destination container where the initials are displayed.
  */
 function setInitialsToNewContactContainer(inputId, destinationId){
   let input = document.getElementById(inputId);
@@ -357,7 +357,7 @@ function setInitialsToNewContactContainer(inputId, destinationId){
  * Removes the old background color class from the container and sets an empty placeholder icon.
  * 
  * @param {string} initials - The initails form the input name value.
- * @param {HTMLContainer} destinationRef - The destination container for the icon.
+ * @param {HTMLElement} destinationRef - The destination container for the icon.
  */
 function removeAndSetInititalsBackgroundColorClass(initials, destinationRef){
   if (initials == '') {

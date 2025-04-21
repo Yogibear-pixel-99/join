@@ -71,7 +71,7 @@ function checkIfSubtaskIsDone(subtask){
  * Changes the finished subtask boolean in the api.
  * 
  * @param {string} SUB_URL - The location in the api database.
- * @param {HTMLContainer} id - The selected subtask container. 
+ * @param {string} id - The id of the selected subtask container. 
  */
 async function changeSubTaskCheckedApi(SUB_URL , id){
     let inputRef = document.getElementById(id);
