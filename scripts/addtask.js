@@ -103,7 +103,7 @@ function renderDropdownWithSearchResults(filteredUsers){
         let rowClass = user.isSelected ? 'checked-row' : '';
         let checkboxImg = user.isSelected ? '../assets/icons/Check button checked white.svg' : '../assets/icons/Check button Box.svg';
         userItem.classList.add("dropdown-item");
-        userItem.innerHTML = getDropDownUserFilterdTemp(user, checkboxImg, rowClass);
+        userItem.innerHTML = getDropDownUserFilterdTemp(user, checkboxImg, rowClass, filteredUsers);
         dropdownContent.appendChild(userItem);
     });
 }
@@ -146,6 +146,14 @@ function handleCheckboxChange(event){
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
   
+  function toggleSearchedUserSelection(userEmail, filteredUsers){
+    let user = usersFromApi.find(u => u.email === userEmail);
+    if (!user) return;
+    user.isSelected = !user.isSelected;
+    
+    user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
+  }
+
   
   /**
    * Creates the div container for the selected user.
