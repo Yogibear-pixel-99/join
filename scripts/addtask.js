@@ -100,8 +100,10 @@ function renderDropdownWithSearchResults(filteredUsers){
     dropdownContent.innerHTML = ''; 
     filteredUsers.forEach(user => {
         let userItem = document.createElement("div");
+        let rowClass = user.isSelected ? 'checked-row' : '';
+        let checkboxImg = user.isSelected ? '../assets/icons/Check button checked white.svg' : '../assets/icons/Check button Box.svg';
         userItem.classList.add("dropdown-item");
-        userItem.innerHTML = getDropDownUserFilterdTemp(user);
+        userItem.innerHTML = getDropDownUserFilterdTemp(user, checkboxImg, rowClass);
         dropdownContent.appendChild(userItem);
     });
 }
@@ -199,7 +201,7 @@ function handleCheckboxChange(event){
   function selectCategory(category){
     selectedCategory = category;
     document.getElementById("categoryDropdown").value = category;
-    document.getElementById("categoryDropdownContent").classList.add("d-none");
+    toggleCategoryDropdown();
   }
 
 
