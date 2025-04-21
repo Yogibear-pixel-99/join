@@ -545,3 +545,26 @@ box-shadow: none;
   max-height: 200px; 
   transition: max-height 600ms ease-out;     
 }
+
+.add-task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.add-task-cross {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 500px;
+  font-size: 20px;
+  font-weight: 300;
+  align-self: self-start !important;
+}
+
+.add-task-cross:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.313);
+}
