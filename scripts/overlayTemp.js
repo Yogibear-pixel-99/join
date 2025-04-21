@@ -93,7 +93,10 @@ function getSubtaskForTaskOverlayTemp(task, subtask){
  */
 function getAddTaskOverlayTemp(){
     return `
-          <h1 class="add-task-header">Add Task</h1>
+       <div class = "add-task-top" >
+          <h1 class="add-task-header">Add Task </h1>
+          <h3  onclick="toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container')" class = "add-task-cross"> x </h3>
+        </div>
           <form id="add-task-form" class="add-task-form-content" onsubmit action="submit">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
