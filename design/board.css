@@ -9,10 +9,11 @@
   display: flex;
   justify-content: space-between;
   gap: 26px;
-  max-height: calc(100vh -240px);
   flex: 1;
-  margin-bottom: 50px;
-  padding-bottom: 20px;
+}
+
+.bottom-board-tasks {
+  max-height: calc(100vh - 370px);
 }
 
 .bottom-board::-webkit-scrollbar {
@@ -374,9 +375,7 @@
 }
 
 .board-rendered {
-  min-height: 300px;
-  max-height: 580px;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .board-rendered::-webkit-scrollbar {
