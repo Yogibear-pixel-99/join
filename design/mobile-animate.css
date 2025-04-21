@@ -101,3 +101,61 @@ animation-timing-function: ease-in-out;
 }
 
 }
+
+
+
+/* CHANGE THIS */
+@media (max-height: 756px) {
+
+  @keyframes main-logo {
+      0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+      40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
+      100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+    }
+  
+  .mobile-login-mask {
+  background-color: var(--join-dark);
+  display: block;
+  animation-name: login-mask;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  filter: opacity(100%);
+  }
+  
+  @keyframes login-mask {
+  0% {filter: opacity(100%);}
+  40% {filter: opacity(100%);}
+  100% {filter: opacity(0%); display: none;}
+  }
+  
+  .join-logo-color-change {
+  fill: white;
+  animation-name: logo-color;
+  animation-duration: 1100ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes logo-color {
+  0% {fill: #FFFFFF;}
+  20% {fill: #FFFFFF;}
+  100% {fill: #2A3647;}
+  }
+  
+  .mobile-login-maincontainer-dark {
+  animation-name: bg-mobile-dark;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes bg-mobile-dark {
+  0% {filter: brightness(0%);}
+  100% {filter: brightness(100%);}
+  }
+
+}

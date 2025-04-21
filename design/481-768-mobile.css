@@ -254,6 +254,7 @@
     gap: 16px;
 }
 
+
 /* SIGN UP */
 /* SUMMARY */
 
@@ -276,10 +277,3 @@
 }
 
 
-@media (max-height: 700px) {
-
-.header-contacts-floatin-mobile {
-    padding: 0;
-}
-
-}
