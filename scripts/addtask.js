@@ -199,7 +199,7 @@ function handleCheckboxChange(event){
   function selectCategory(category){
     selectedCategory = category;
     document.getElementById("categoryDropdown").value = category;
-    document.getElementById("categoryDropdownContent").classList.add("d-none");
+    toggleCategoryDropdown();
   }
 
 
