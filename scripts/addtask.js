@@ -164,7 +164,21 @@ function setYearToAddTaskDateInput(userInput){
  */
 async function addTask(event){
 event.preventDefault();
-collectAllTaskInfos();
+
+
+collectedFormInfos = await getEmptyTaskTemplate();
+collectFormInformation('add-task-form');
+collectCategory();
+collectSubTasks(new FormData(document.getElementById('add-task-form')));
+collectAssingTo();
+
+
+
+// collectAllTaskInfos();
+
+
+
+
 await postDataToApi("tasks", collectedFormInfos);
 toggleAddedButton('task-added-overlay-button', 'task-added-overlay-button-show', 'd-none');
 setTimeout(() => {window.location.href = "../html/board.html"}, 1500);
