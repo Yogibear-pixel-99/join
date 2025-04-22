@@ -170,6 +170,10 @@ async function updateTask(event, apiKey){
     renderBoard();
 }
 
+
+/**
+ * Collect form infos for the task object.
+ */
 async function collectAllTaskInfos(){
     collectedFormInfos = await getEmptyTaskTemplate();
     collectFormInformation('add-task-form');
