@@ -111,21 +111,16 @@ function redirectToLogInPage(){
 
 
 /**
- * Toggles the sign up button in desktop and mobile version if privacy is checked.
+ * Toggles the sign up button in desktop and mobile version.
  */
 function toggleSignUpButton(){
-
-
-
-
-
-  const checkPrivacy = document.getElementById('accept-privacy');
+  const valid = checkSignUpValidation();
   const buttonRef = document.getElementById('sign-up-button');
-    if (checkPrivacy.checked && window.innerWidth > 1025){
+    if (valid && window.innerWidth > 1025){
       buttonRef.disabled = false;
       buttonRef.classList.add('dark-button');
       buttonRef.classList.remove('dark-button-signup');
-    } else if (checkPrivacy.checked && window.innerWidth <= 1024){
+    } else if (valid && window.innerWidth <= 1024){
     buttonRef.disabled = false;
     buttonRef.classList.add('dark-signup-mobile-button');
     buttonRef.classList.remove('dark-button-signup');
@@ -135,6 +130,25 @@ function toggleSignUpButton(){
       buttonRef.classList.remove('dark-signup-mobile-button');
       buttonRef.classList.add('dark-button-signup');
     }
+}
+
+
+/**
+ * Checks if all form fields are filled in and privacy is checked.
+ * 
+ * @returns - A boolean.
+ */
+function checkSignUpValidation(){
+  const nameRef = document.getElementById('sign-up-name').value;
+  const mailRef = document.getElementById('user-email-input').value;
+  const pwRef = document.getElementById('sign-up-password').value;
+  const pwConfirmRef = document.getElementById('sign-up-password-confirm').value;
+  const checkPrivacy = document.getElementById('accept-privacy');
+  if (nameRef != '' && mailRef != '' && pwRef != '' && pwConfirmRef != '' && checkPrivacy.checked == true) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
