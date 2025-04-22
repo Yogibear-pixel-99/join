@@ -1,6 +1,8 @@
 
 
-
+.contacts-main {
+    overflow-y: hidden;
+}
 
 .flex-row {
     flex-direction: row;
@@ -263,7 +265,6 @@
 }
 
 .floating-edit-delete-wrapper-mobile {
-    
     display: none;
     display: flex;
     flex-direction: column;
@@ -274,7 +275,7 @@
     border-radius: 20px 20px 0 20px;
     background-color: white;
     box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
-    transform: translateY(100vw);
+    transform: translateY(50dvh);
     transition: 125ms ease-in-out;
     z-index: 2000;
     cursor: pointer;
