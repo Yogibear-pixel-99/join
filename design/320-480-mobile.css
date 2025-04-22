@@ -112,11 +112,18 @@
      width: auto;
 }
 
+
+
 .mobile-guest-text {
     width: 80px !important;
   }
-   
+
+
 }
+
+
+
+
 
 @media (max-width: 320px) {
     h1 {
@@ -180,9 +187,14 @@
       margin-bottom: 10px;
   }
 
+  .add-contact-overlay-content-left {
+    height: 300px;
+  }
 
-/* SIGN UP */
-/* SUMMARY */
+
+  .add-contact-overlay-img-wrapper {
+    top: 300px;
+  }
 
 
 .summary-wrapper {
@@ -240,14 +252,7 @@ margin-bottom: 20px;
       top: 33px;
   }
 
-  .add-contact-overlay-content-left {
-    height: 300px;
-  }
 
-
-  .add-contact-overlay-img-wrapper {
-    top: 300px;
-  }
 
 
 .sign-up-join-logo {
@@ -283,12 +288,12 @@ margin-bottom: 20px;
 }
 
 .add-contact-overlay-content-left {
-  padding: 30px 24px 66px;
+  padding: 16px 16px 66px;
   
 }
 
 .add-contact-overlay-content-right {
-padding: 66px 24px 30px; 
+padding: 66px 16px 16px; 
 }
 
 

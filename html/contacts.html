@@ -145,6 +145,7 @@
             <div class="add-contact-overlay-header-wrapper">
                 <span class="add-contact-overlay-header">Add contact</span>
                 <span class="add-contact-overlay-header-text">Tasks are better with a team!</span>
+                
             </div>
             <div class="add-contact-overlay-header-separator add-contact-overlay-separator-mobile"></div>
             <div class="add-contact-overlay-join-logo">
@@ -158,10 +159,6 @@
                     </svg>   
             </div>
             <div class="add-contact-formular-wrapper">
-                <div class="close-icon-wrapper flex-ctr-ctr" onclick="toggleOverlayMenu('add-contact-overlay', 'add-contact-mask-container')">
-                    <img class="close-icon-dark" src="../assets/icons/close-overlay.svg">
-                    <img class="close-icon-white" src="../assets/icons/close-icon-white.svg">
-                </div>
                  <form onsubmit="createNewContact(event)" class="add-contact-overlay-form" id="new-contact-form">
                     <div class="input-wrapper">
                         <input class="no-border login-input-field" id="add-contact-input-field" type="text" name="name" required placeholder="Name" oninput="setInitialsToNewContactContainer('add-contact-input-field', 'add-contact-overlay-initials-wrapper'); checkAddContactValidation()">
@@ -206,7 +203,9 @@
             <div class="add-contact-overlay-header-wrapper">
                 <span class="add-contact-overlay-header">Edit contact</span>
                 <span class="add-contact-overlay-header-text">Tasks are better with a team!</span>
+                <div class="add-contact-overlay-header-separator-2"></div>
             </div>
+            <div class="add-contact-overlay-header-separator add-contact-overlay-separator-mobile"></div>
             <div class="add-contact-overlay-join-logo">
                 <div class="add-contact-overlay-header-separator"></div>
             </div>
@@ -219,9 +218,6 @@
             </div>
             
             <div class="add-contact-formular-wrapper">
-                <div class="close-icon-wrapper flex-ctr-ctr" onclick="toggleOverlayMenu('edit-contact-overlay', 'edit-contact-mask-container')">
-                    <img src="../assets/icons/close-overlay.svg">
-                </div>
                  <form onsubmit="saveEditedContact(event)" class="add-contact-overlay-form" id="edit-contact-form">
                     <div class="input-wrapper">
                         <input class="no-border login-input-field" id="edit-user-name-input" type="text" name="name" required placeholder="Name"  oninput="setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper')">
