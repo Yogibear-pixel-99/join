@@ -38,8 +38,6 @@ async function postDataToApi(SUB_URL, payload){
     if (!response.ok){
       throw new Error(`Fehler beim übertragen! - ${response.status}`);
     }
-    const data = await response.json();
-    console.log("Erfolgreich", data);
   } catch (error){
     console.error("Error:", error.message);
   }
@@ -142,9 +140,16 @@ function returnInitials(fullName){
 /**
  * Toggles the dropdown menu in the header if click on the initials button.
  */
-function toggleHeaderDropdownMenu(){
+function openHeaderDropdownMenu(){
     let dropdownREF = document.getElementById("dropdown");
-    dropdownREF.classList.toggle("d-none");
+    dropdownREF.classList.remove("d-none");
+}
+/**
+ * Toggles the dropdown menu in the header if click on the initials button.
+ */
+function closeHeaderDropdownMenu(){
+    let dropdownREF = document.getElementById("dropdown");
+    dropdownREF.classList.add("d-none");
 }
 
 
@@ -282,7 +287,6 @@ function collectFormInformation(formContainer){
 async function getTheNextFreeIdNumberFromApi(SUB_URL){
   try {
     let response = await fetch(MAIN_URL + SUB_URL + '.json');
-    console.log(response);
     if (!response.ok){
       throw new Error('No answer from server!');
     }

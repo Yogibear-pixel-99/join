@@ -34,7 +34,7 @@
     <script defer src="../scripts/dropDown.js"></script>
     <script defer src="../scripts/overlayTemp.js"></script>
   </head>
-  <body onload="initBoard()">
+  <body onload="initBoard()" onclick="closeHeaderDropdownMenu()">
     <section class="navbar-container desktop-navbar">
       <div>
         <img
@@ -99,7 +99,7 @@
             alt="helplogo" />
             </a>
           <div
-            onclick="toggleHeaderDropdownMenu()"
+            onclick="openHeaderDropdownMenu(); noClose(event)"
             class="header-initials"
             id="header-initials"></div>
         </div>

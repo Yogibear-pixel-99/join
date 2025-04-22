@@ -296,7 +296,7 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
                     <a href="../html/help.html">
                         <img class="help-logo" src="../assets/icons/help.svg" alt="helplogo"/>
                     </a>
-                    <div onclick="toggleHeaderDropdownMenu()" class="header-initials">${returnInitials(name).slice(0, 2)}</div>
+                    <div onclick="openHeaderDropdownMenu(); noClose(event)" class="header-initials">${returnInitials(name).slice(0, 2)}</div>
                 </div>
             </header>
       <div class="dropdown-menu d-none" id="dropdown">
