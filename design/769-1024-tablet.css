@@ -466,6 +466,8 @@ h1 {
     align-items: center;
     gap: 16px;
     align-self: flex-end;
+    border: none;
+    margin-bottom: 12px;
   }
 
   .added-subtasks {
@@ -676,8 +678,9 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    margin: auto;
     padding: 0;
+    align-self: center;
 }
 
 .add-contact-overlay-form {

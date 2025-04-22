@@ -285,6 +285,45 @@ function setOnclickEditAndDeleteToButtons(contactKey){
 
 
 /**
+ * Checks if the needed form fields are filled and enables/disables the save button.
+ */
+function toggleSaveEditedContactButton(){
+  let nameRef = document.getElementById('edit-user-name-input').value;
+  let emailRef = document.getElementById('edit-user-email-input').value;
+  let buttonRef = document.getElementById('save-contact-button');
+    if (emailRef != '' && nameRef != '') {
+      enableButton(buttonRef);
+    } else {
+      disableButton(buttonRef);
+    }
+}
+
+
+/**
+ * Enables a button.
+ * 
+ * @param {HTMLElement} buttonRef - The button container.
+ */
+function enableButton(buttonRef){
+  buttonRef.classList.add('dark-button');
+  buttonRef.classList.remove('dark-button-signup');
+  buttonRef.disabled = false;
+}
+
+
+/**
+ * Disables a button.
+ * 
+ * @param {HTMLElement} buttonRef - The button container.
+ */
+function disableButton(buttonRef){
+  buttonRef.classList.remove('dark-button');
+  buttonRef.classList.add('dark-button-signup');
+  buttonRef.disabled = true;
+}
+
+
+/**
  * Save the edited contact and animate the menu.
  * 
  * @param {*} event - For prevent the default function from the button.
@@ -292,6 +331,9 @@ function setOnclickEditAndDeleteToButtons(contactKey){
  */
 async function saveEditedContact(event, contactKey){
   event.preventDefault();
+
+  
+
   getContactInfosToFetch();
   await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
   await sortAndRenderContacts();

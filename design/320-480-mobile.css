@@ -22,7 +22,12 @@
 }
 
 .login-input-field {
-    width: 200px;
+    width: auto;
+    font-size: 14px;
+}
+
+.input-wrapper input{
+  font-size: 14px;
 }
 
 
@@ -34,6 +39,10 @@
 
 .contact-container-wrapper {
     min-width: 280px;
+}
+
+.add-task-footer {
+  margin-bottom: 40px;
 }
 
 
@@ -87,6 +96,10 @@
     max-width: 396px;
     width: 90vw;
     padding: 66px 24px;
+}
+
+.contact-overlay-alert {
+  width: 200px;
 }
 
 .add-contact-overlay-form {
@@ -195,7 +208,6 @@
   .add-contact-overlay-img-wrapper {
     top: 300px;
   }
-
 
 .summary-wrapper {
   gap: 8px;
@@ -306,4 +318,11 @@ padding: 66px 16px 16px;
   display: flex;
 }
 
+}
+
+
+@media (max-height: 650px) {
+  .test {
+    overflow-y: auto;
+  }
 }

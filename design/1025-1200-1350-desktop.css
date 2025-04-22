@@ -44,6 +44,10 @@
     width: 100px;
 }
 
+.add-task-footer {
+  left: 272px;
+}
+
 .contacts-content,
 .contacts-first-letter,
 .single-contact {
@@ -101,6 +105,10 @@
 .main-content-summary,
 .main-content {
   padding: 40px;
+}
+
+.add-task-footer {
+  right: 40px;
 }
 
 /* LOGIN */
