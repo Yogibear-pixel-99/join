@@ -391,10 +391,10 @@ function toggleAddedButton(containerId, showClass, hideClass){
 
 /**
  * Checks if the "userLoggedIn" item exists in sessionStorage. If it's missing 
- * (user not logged in or not a guest), redirects the browser to "login.html".
+ * (user not logged in or not a guest), redirects the browser to "index.html".
  */
 function redirectToLogInPage() {
   if (sessionStorage.getItem("userLoggedIn") == null) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 }
