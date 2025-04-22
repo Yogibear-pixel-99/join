@@ -4,6 +4,7 @@
  */
 async function getUserInfo(){
   await getDataFromServer("users", usersFromApi);
+  redirectIfUserIsSaved();
 }
 
 /**
@@ -12,11 +13,45 @@ async function getUserInfo(){
  * @param {Event} event - The form submit event object
  */
 function checkLogin(event){
+
   event.preventDefault();
   getUserInfo().then(() => {
    checkEmail(event); 
   });
 }
+
+
+/**
+ * Checks if the remember button is checked.
+ */
+function checkRememberMeButton(){
+  const ref = document.getElementById('remember');
+  const mailRef = document.getElementById('email');
+    if (ref.checked == true) {
+      localStorage.setItem('joinUserEmail', mailRef.value);
+    }
+}
+
+
+/**
+ * Checks if the user is saved in the local storage and redirects to summary if.
+ */
+function redirectIfUserIsSaved(){
+  let userEmail = localStorage.getItem('joinUserEmail');
+  console.log(userEmail);
+  if(userEmail != null) {
+    let emailChecked = usersFromApi.some(
+      (item) => item.email === userEmail);
+    if (emailChecked === true){
+      emailIndex = usersFromApi.findIndex(
+        (item) => item.email === userEmail);
+    sessionStorage.setItem('userLoggedIn', true);
+    sessionStorage.setItem('indexOfUser', emailIndex);
+    window.location.href = "summary.html";
+  }
+}}
+
+
 
 /**
  * This function checks the email to see if a valid one exists.
@@ -39,6 +74,7 @@ function checkEmail(){
   }
 }
 
+
 /**
  * This function checks whether the respective password matches the email.
  * 
@@ -50,6 +86,7 @@ function checkPassword(emailIndex){
     sessionStorage.setItem("indexOfUser", emailIndex);
     sessionStorage.setItem("userLoggedIn", true)
     window.location.href = "summary.html";
+    checkRememberMeButton();
   } else {
     setErrorMessageToLogin();
   }
@@ -113,3 +150,19 @@ if (emailRef == '' || pwRef =='') {
   ref.classList.add('dark-button');
   ref.disabled = false;
 }}
+
+
+
+// on check =
+// remember if logged in
+// sava a var in local storage
+
+// start on login page
+// check if localStorage is therr
+// no - normal loginpage
+// yes redirect to summary with logged in
+
+
+// redirect automaticlly to summary
+// get localstorage and set item to user
+// redirect.
