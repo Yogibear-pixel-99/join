@@ -147,7 +147,7 @@ function animateContactMenu(){
  * @param {object} event - Default object to prevent the form to refresh the page.
  */
 async function createNewContact(event){
-  event.preventDefault();
+  event.preventDefault(); 
   await getNewContactTemp();
   collectFormInformation("new-contact-form");
   if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
@@ -157,6 +157,26 @@ async function createNewContact(event){
     await postContactToApiAndShowInMenu();
   }
 }
+
+
+/**
+ * Checks if all contacts field are filled and enables/disables the create contact button.
+ */
+function checkAddContactValidation(){
+  let nameRef = document.getElementById('add-contact-input-field').value;
+  let mailRef = document.getElementById('user-email-input').value;
+  let phoneRef = document.getElementById('phone-input').value;
+  let buttonRef = document.getElementById('create-contact-button');
+  if (nameRef != '' && mailRef != '' && phoneRef != '') {
+    buttonRef.disabled = false;
+    buttonRef.classList.add('dark-button');
+    buttonRef.classList.remove('dark-button-signup');
+  } else {
+    buttonRef.disabled = true;
+    buttonRef.classList.remove('dark-button');
+    buttonRef.classList.add('dark-button-signup');
+  }
+};
 
 
 /**

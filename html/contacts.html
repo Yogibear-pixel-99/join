@@ -6,6 +6,7 @@
     <title>Join - Contacts</title>
 
     <link rel="stylesheet" href="../design/main.css">
+    <link rel="stylesheet" href="../design/login.css">
     <link rel="stylesheet" href="../design/navbar.css">
     <link rel="stylesheet" href="../design/assets.css">
     <link rel="stylesheet" href="../design/header.css">
@@ -163,16 +164,16 @@
                 </div>
                  <form onsubmit="createNewContact(event)" class="add-contact-overlay-form" id="new-contact-form">
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="add-contact-input-field" type="text" name="name" required placeholder="Name" oninput="setInitialsToNewContactContainer('add-contact-input-field', 'add-contact-overlay-initials-wrapper')">
+                        <input class="no-border login-input-field" id="add-contact-input-field" type="text" name="name" required placeholder="Name" oninput="setInitialsToNewContactContainer('add-contact-input-field', 'add-contact-overlay-initials-wrapper'); checkAddContactValidation()">
                         <img class="input-logo" src="../assets/icons/person.svg">
                     </div>
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="user-email-input" name="email" type="email" required placeholder="Email">
+                        <input class="no-border login-input-field" id="user-email-input" name="email" type="email" required placeholder="Email" oninput="checkAddContactValidation()">
                         <img class="input-logo" src="../assets/icons/mail.svg">
                         <span class="input-alert-message contact-overlay-alert" id="input-alert-message"></span>
                     </div>
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" type="tel" name="phone" placeholder="Phone">
+                        <input id="phone-input" class="no-border login-input-field" type="tel" name="phone" placeholder="Phone" oninput="checkAddContactValidation()">
                         <img class="input-logo" src="../assets/icons/call.svg">
                     </div>
                     <div class="add-contact-overlay-form-button-wrapper">
@@ -181,7 +182,7 @@
                             </svg>
                             </div>
                         </div>
-                        <button class="dark-button form-button create-button" type="submit"><span>Create contact</span><div class="svg-wrapper flex-ctr-ctr"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button id="create-contact-button" class="dark-button-signup form-button create-button" disabled type="submit"><span>Create contact</span><div class="svg-wrapper flex-ctr-ctr"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_291235_6193" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
                             <rect x="0.248535" width="24" height="24" fill="#D9D9D9"/>
                             </mask>
