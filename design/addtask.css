@@ -564,3 +564,8 @@ box-shadow: none;
   cursor: pointer;
   background-color: rgba(128, 128, 128, 0.313);
 }
+
+.textareaAddTask:focus {
+  border-color: #719ECE;  /* Blauton anpassen */
+  outline: none;           /* Standard-Outline entfernen */
+}

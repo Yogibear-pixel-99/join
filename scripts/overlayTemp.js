@@ -124,6 +124,7 @@ function getAddTaskOverlayTemp(){
                 <textarea
                   name="description"
                   id="form-description"
+                  class="textareaAddTask"
                   placeholder="Enter a description"></textarea>
               </div>
               <div class="flex-col gap8 hover-pointer">
