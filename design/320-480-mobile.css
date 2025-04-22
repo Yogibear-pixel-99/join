@@ -233,7 +233,7 @@ margin-bottom: 20px;
 }
 
 
-@media (max-height: 756px) {
+@media (max-height: 750px) {
 
   .sign-up-join-logo {
       left: 33px;
