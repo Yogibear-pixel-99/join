@@ -9,11 +9,14 @@ async function loadDropdown(){
     setInitialsToHeader();
   }
   
-  
+
   /**
    * Toggles the assigned to dropdown menu wrapper in the add task form.
+   * 
+   * @param {Event} event - The click event triggering the toggle (prevents event bubbling).
    */
-  async function toggleAssignedDropdown(){
+  async function toggleAssignedDropdown(event){
+    event.stopPropagation();
       let dropdown = document.getElementById("dropdownContent");
       let wrapper = document.getElementById("addTaskWrapper")
     if (wrapper.classList.contains('add-task-wrapper-passive')){
@@ -61,7 +64,41 @@ async function loadDropdown(){
       });
   }
   
-  
+  /**
+ * Closes the dropdowns when clicking outside the dropdown (assigned-to and category).
+ * 
+ * @param {Event} event - The click event triggering the closure.
+ */
+  function closeFormDropdown(event) {
+  let dropdown = document.getElementById("dropdownContent");
+  if (dropdown) {
+    closeAssignedToDrop(event)
+    closeCategDrop(event);
+  }
+  }
+
+  /**
+ * Closes the assigned-to dropdown when clicking outside the dropdown
+ * 
+ * @param {Event} event - The click event triggering the closure.
+ */
+  function closeAssignedToDrop(event) {
+    let dropdown = document.getElementById("dropdownContent");
+    if (!dropdown.classList.contains("d-none")){
+      toggleAssignedDropdown(event)
+    }
+  }
+/**
+ * Closes the category dropdown when clicking outside the dropdown
+ * 
+ * @param {Event} event - The click event triggering the closure.
+ */
+  function closeCategDrop(event) {
+    let dropdown = document.getElementById("categoryDropdownContent");
+    if (!dropdown.classList.contains("d-none")){
+      toggleCategoryDropdown(event);
+    }
+  }
   /**
    * Filters the users in the assign to dropdown menu, based on the value typed in the search bar input field.
    */
@@ -158,8 +195,10 @@ function handleCheckboxChange(event){
    * Opens the wrapper from the dropdown menu to animate it.
    * 
    * @param {HTMLElement} dropdown - The id of the dropdown container.
+   * @param {Event} event - The click event triggering the toggle (prevents event bubbling).
    */
- function toggleCategoryDropdown(){
+ function toggleCategoryDropdown(event){
+  event.stopPropagation();
   let dropdown = document.getElementById("categoryDropdownContent");
   let wrapper = document.getElementById("categoryWrapper")
   if (wrapper.classList.contains('category-wrapper-passive')){
@@ -183,6 +222,10 @@ function handleCheckboxChange(event){
  function closeCategoryDropdown(dropdown){
   if (dropdown.classList.contains("d-none")){
     dropdown.classList.toggle("d-none");
+  } else {
+    setTimeout(() => {
+      dropdown.classList.toggle("d-none");
+    }, 500);
   }
  } 
 
