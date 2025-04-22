@@ -93,6 +93,11 @@
   width: 100%;
 }
 
+button,
+input {
+  outline: none;
+}
+
 .input-alert-message {
   font-family: poppins;
   font-size: 12px;

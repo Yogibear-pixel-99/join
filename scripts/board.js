@@ -179,8 +179,6 @@ function findTask(inputTaskValue){
   for (let index = 1; index < tasksFromApi.length + 1; index++){
     let titleTaskREF = document.getElementById("titleTask" + tasksFromApi[index-1].id);
     let descriptionTaskREF = document.getElementById("titleDescription" + tasksFromApi[index-1].id);
-    console.log(index);
-    
     let titleTaskValue = titleTaskREF.innerText.toLowerCase();
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
     if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)){
@@ -361,7 +359,6 @@ function dropTask(event){
     if (taskCard && column){
         let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
         taskCard.dataset.status = newStatus;
-        console.log(`Task ${taskId} moved to ${newStatus}`);
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
         getNewStatusInfo(newStatus, updateTask);
     }

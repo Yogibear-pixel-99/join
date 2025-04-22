@@ -145,7 +145,6 @@ function showSubtaskInEditOverlay(task){
     let ref = document.getElementById('added-subtasks');
     ref.innerHTML = '';
     let subtaskArray = task.subtasks.map(element => element.subtaskName);
-    console.log(subtaskArray);
     for (let subtaskIndex = 0; subtaskIndex < subtaskArray.length; subtaskIndex++){
         const element = subtaskArray[subtaskIndex];
         ref.innerHTML += renderSubtaskTemp(element);
@@ -162,21 +161,7 @@ function showSubtaskInEditOverlay(task){
 async function updateTask(event, apiKey){
     event.preventDefault();
     let taskRef = document.getElementById('task-overlay-menu');
-
-    collectedFormInfos = await getEmptyTaskTemplate();
-    collectFormInformation('add-task-form');
-    collectCategory();
-    collectSubTasks(new FormData(document.getElementById('add-task-form')));
-    collectAssingTo();
-
-
-
-    
-    // await collectAllTaskInfos();
-
-
-
-
+    await collectAllTaskInfos();
     await patchDataToApi(`tasks/${apiKey}/`, collectedFormInfos);
     await getDataFromServer("tasks", tasksFromApi);
     let task = tasksFromApi.find(element => element.apiKey === apiKey);
@@ -184,14 +169,3 @@ async function updateTask(event, apiKey){
     renderBoard();
 }
 
-
-/**
- * Collect form infos for the task object.
- */
-async function collectAllTaskInfos(){
-    collectedFormInfos = await getEmptyTaskTemplate();
-    collectFormInformation('add-task-form');
-    collectCategory();
-    collectSubTasks(new FormData(document.getElementById('add-task-form')));
-    collectAssingTo();
-}

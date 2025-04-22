@@ -164,24 +164,22 @@ function setYearToAddTaskDateInput(userInput){
  */
 async function addTask(event){
 event.preventDefault();
-
-
-collectedFormInfos = await getEmptyTaskTemplate();
-collectFormInformation('add-task-form');
-collectCategory();
-collectSubTasks(new FormData(document.getElementById('add-task-form')));
-collectAssingTo();
-
-
-
-// collectAllTaskInfos();
-
-
-
-
+await collectAllTaskInfos();
 await postDataToApi("tasks", collectedFormInfos);
 toggleAddedButton('task-added-overlay-button', 'task-added-overlay-button-show', 'd-none');
 setTimeout(() => {window.location.href = "../html/board.html"}, 1500);
+}
+
+
+/**
+ * Collect form infos for the task object.
+ */
+async function collectAllTaskInfos(){
+  collectedFormInfos = await getEmptyTaskTemplate();
+  collectFormInformation('add-task-form');
+  collectCategory();
+  collectSubTasks(new FormData(document.getElementById('add-task-form')));
+  collectAssingTo();
 }
 
 
@@ -191,7 +189,6 @@ setTimeout(() => {window.location.href = "../html/board.html"}, 1500);
  */
 function collectAssingTo(){
   let userREF = document;
-  console.log(usersFromApi[1].name);
   for (let index = 0; index < usersFromApi.length; index++){
     if (userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !== null){
      collectedFormInfos.assignTo.push(usersFromApi[index].email)

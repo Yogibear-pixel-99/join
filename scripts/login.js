@@ -86,7 +86,5 @@ function sessionStorageGuest(){
  */
 function switchToSummary(){
   window.location.href = '../html/summary.html';
-  setTimeout(() => {console.log('time')}, 100);
-  console.log(window.location.href);
 }
 

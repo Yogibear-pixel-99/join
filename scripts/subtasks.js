@@ -101,7 +101,6 @@ function showSubtasksInputMenu(){
    */
   function deleteSubtask(containerId){
     let contentRef = document.getElementById(containerId);
-        console.log(contentRef);
         contentRef.remove();
   }
   
@@ -123,8 +122,6 @@ function showSubtasksInputMenu(){
  * @param {FormData} data - FormData of the added Task
  */
 function collectSubTasks(data){
-    console.log(data);
-    
     data.forEach((value, key) => {
       if (key === "subtasks[]"){
           collectedFormInfos.subtasks.push({
