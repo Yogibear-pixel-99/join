@@ -9,11 +9,12 @@ async function loadDropdown(){
     setInitialsToHeader();
   }
   
-  
+
   /**
    * Toggles the assigned to dropdown menu wrapper in the add task form.
    */
-  async function toggleAssignedDropdown(){
+  async function toggleAssignedDropdown(event){
+    event.stopPropagation();
       let dropdown = document.getElementById("dropdownContent");
       let wrapper = document.getElementById("addTaskWrapper")
     if (wrapper.classList.contains('add-task-wrapper-passive')){
@@ -61,7 +62,27 @@ async function loadDropdown(){
       });
   }
   
-  
+  function closeFormDropdown(event) {
+  let dropdown = document.getElementById("dropdownContent");
+  if (dropdown) {
+    closeAssignedToDrop(event)
+    closeCategDrop(event);
+  }
+  }
+
+  function closeAssignedToDrop(event) {
+    let dropdown = document.getElementById("dropdownContent");
+    if (!dropdown.classList.contains("d-none")){
+      toggleAssignedDropdown(event)
+    }
+  }
+
+  function closeCategDrop(event) {
+    let dropdown = document.getElementById("categoryDropdownContent");
+    if (!dropdown.classList.contains("d-none")){
+      toggleCategoryDropdown(event);
+    }
+  }
   /**
    * Filters the users in the assign to dropdown menu, based on the value typed in the search bar input field.
    */
@@ -159,7 +180,8 @@ function handleCheckboxChange(event){
    * 
    * @param {HTMLElement} dropdown - The id of the dropdown container.
    */
- function toggleCategoryDropdown(){
+ function toggleCategoryDropdown(event){
+  event.stopPropagation();
   let dropdown = document.getElementById("categoryDropdownContent");
   let wrapper = document.getElementById("categoryWrapper")
   if (wrapper.classList.contains('category-wrapper-passive')){
@@ -183,6 +205,10 @@ function handleCheckboxChange(event){
  function closeCategoryDropdown(dropdown){
   if (dropdown.classList.contains("d-none")){
     dropdown.classList.toggle("d-none");
+  } else {
+    setTimeout(() => {
+      dropdown.classList.toggle("d-none");
+    }, 500);
   }
  } 
 
