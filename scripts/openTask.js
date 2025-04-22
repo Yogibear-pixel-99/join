@@ -162,13 +162,18 @@ function showSubtaskInEditOverlay(task){
 async function updateTask(event, apiKey){
     event.preventDefault();
     let taskRef = document.getElementById('task-overlay-menu');
+    await collectAllTaskInfos();
+    await patchDataToApi(`tasks/${apiKey}/`, collectedFormInfos);
+    await getDataFromServer("tasks", tasksFromApi);
+    let task = tasksFromApi.find(element => element.apiKey === apiKey);
+    taskRef.innerHTML = await getTaskOverlayTemp(task);
+    renderBoard();
+}
+
+async function collectAllTaskInfos(){
     collectedFormInfos = await getEmptyTaskTemplate();
     collectFormInformation('add-task-form');
     collectCategory();
     collectSubTasks(new FormData(document.getElementById('add-task-form')));
     collectAssingTo();
-    await patchDataToApi(`tasks/${apiKey}/`, collectedFormInfos);
-    await getDataFromServer("tasks", tasksFromApi);
-    let task = tasksFromApi.find(element => element.apiKey === apiKey);
-    taskRef.innerHTML = await getTaskOverlayTemp(task); 
 }

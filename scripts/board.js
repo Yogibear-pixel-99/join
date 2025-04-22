@@ -431,6 +431,7 @@ function openAddTaskOverlay(addTaskLocation){
  * @param {string} taskId - The ID of the task to display.
  */
 async function openTask(taskId){
+  emptyEditAddTaskOverlays();
   let addTaskRef = document.getElementById('addtask-content');
       addTaskRef.innerHTML = '';
   let taskRef = document.getElementById('task-overlay-menu');
