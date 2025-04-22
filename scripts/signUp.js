@@ -8,18 +8,17 @@
  */
 async function signUpNewUser(event){
   event.preventDefault();
-  removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
-  removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message');
   if (checkIfPasswordIsSameAsConfirm()){
     addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
+    setTimeout(() => {removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message')}, 3000);
   } else if (await checkIfDataAlreadyExists("user-email-input", "users")){
     addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
+    setTimeout(() => {removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message')}, 3000);
   } else {
-    removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
     await collectNewUserValuesAndPost();
   }
 }
-
+// User/email already exists. Please try again
 
 /**
  * Collects the values from the sign up form, creates a template, fetches the user data to the api, shows a sign up button and redirect to the login page.
@@ -115,6 +114,11 @@ function redirectToLogInPage(){
  * Toggles the sign up button in desktop and mobile version if privacy is checked.
  */
 function toggleSignUpButton(){
+
+
+
+
+
   const checkPrivacy = document.getElementById('accept-privacy');
   const buttonRef = document.getElementById('sign-up-button');
     if (checkPrivacy.checked && window.innerWidth > 1025){

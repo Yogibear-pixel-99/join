@@ -57,11 +57,14 @@
                 <input class="login-input-field" type="email" id="email" required placeholder="Email" onkeyup="checkLoginButtonActive()">
                 <img class="input-logo" src="../assets/icons/mail.svg">
             </div>
+            <div class="flex-ctr-ctr column">
             <div class="input-field-container input-bottom-field-container">
                 <input onkeyup="changeLoginPasswordIcons(); checkLoginButtonActive()" class="login-input-field" type="password" id="password" required placeholder="Password">
                 <img onclick="showHidePassword('password', 'input-logo')" class="input-logo" id="input-logo" src="../assets/icons/lock.svg">
             </div>
-              <span id="login-error-message" class="login-error-message"></span>
+            <span id="login-error-message" class="login-error-message error-message"></span>
+            </div>
+              
             <div class="login-button-container">
                 <button onclick="checkLogin(event)" class="dark-button-signup mobile-login-button" id="login">Log in</button>
                 

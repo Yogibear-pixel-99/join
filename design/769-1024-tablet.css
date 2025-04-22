@@ -112,8 +112,8 @@
         position: static;
         font-size: 12px;
         font-weight: 400;
-        text-align: start;
-        align-self: flex-start;
+        text-align: center;
+        /* align-self: flex-start; */
     }
     
     .login-button-container {

@@ -35,8 +35,7 @@ function checkEmail(){
     );
     checkPassword(emailIndex);
   } else {
-    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. " );
-    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. " );
+    setErrorMessageToLogin();
   }
 }
 
@@ -50,13 +49,21 @@ function checkPassword(emailIndex){
   if (user && user.password === passwordREF.value ){
     sessionStorage.setItem("indexOfUser", emailIndex);
     sessionStorage.setItem("userLoggedIn", true)
-    removeRedBorderAndTextFalseInput("email", "login-error-message");
-    removeRedBorderAndTextFalseInput("password", "login-error-message");
     window.location.href = "summary.html";
   } else {
-    addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
-    addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
+    setErrorMessageToLogin();
   }
+}
+
+
+/**
+ * Shows an error message in the log in form.
+ */
+function setErrorMessageToLogin(){
+  addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
+  addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
+  setTimeout(() => {removeRedBorderAndTextFalseInput("email", "login-error-message")}, 3000);
+  setTimeout(() => {removeRedBorderAndTextFalseInput("password", "login-error-message")}, 3000);
 }
 
 

@@ -91,10 +91,7 @@
     width: 422px;
     height: 48px;
     padding: 0 21px;
-}
-
-.input-bottom-field-container {
-  margin-bottom: 20px;
+    margin-bottom: 6px;
 }
 
 .login-input-field {
@@ -112,11 +109,6 @@
   cursor: pointer;
 }
 
-.login-error-message {
-  position: absolute;
-  top: 300px;
-  left: 130px;
-}
 
 input[type="checkbox"] {
     width: 20px;
@@ -166,7 +158,9 @@ input[type="checkbox"] {
     font-size: 20px;
   }
 
-
+  .login-error-message {
+    min-height: 18px;
+  }
 
   .overlay-button-show {
     transform: translate(-50%, -50%);
@@ -202,3 +196,10 @@ input[type="checkbox"] {
     display: none;
   }
 
+  .password-confirm-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
