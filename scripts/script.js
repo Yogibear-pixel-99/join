@@ -185,9 +185,10 @@ function setGuestOrUserNavbar(){
 /**
  * Remove the saved session logg in if the logged in user logs out.
  */
-function removeSessionStorageUser(){
+function removeUserFromLocalStorage(){
   sessionStorage.removeItem("indexOfUser");
   sessionStorage.removeItem("userLoggedIn");
+  localStorage.removeItem("joinUserEmail");
 }
 
 

@@ -309,7 +309,7 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
         <a href="./Privacypolicy.html">
           <div class="dropdown-text">Privacy Policy</div>
         </a>
-        <a href="./login.html" onclick="removeSessionStorageUser()">
+        <a href="./login.html" onclick="removeUserFromLocalStorage()">
           <div class="dropdown-text">Log out</div>
         </a>
       </div>
