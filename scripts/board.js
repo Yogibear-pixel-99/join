@@ -271,7 +271,6 @@ async function patchTaskDataToApi(payload, taskKey){
       if (!response.ok){
         throw new Error("Contact not found in Database!");
       } else {
-        console.log(response);
         await resetTaskApi();
         checkEmptyColumsExists();
       }
@@ -396,20 +395,34 @@ function hideEmptyContentTasks(taskId){
 function dragend(event){
     event.target.classList.remove("dragging");
 }
+
+
 /**
- * Opens the overlay to add a new task and clears the edit task overlay.
- * 
- * @param {string} addTaskLocation - The location/status where the task should be added.
+ * Emptys the overlays.
  */
-function openAddTaskOverlayAndEmptyEditTaskOverlay(addTaskLocation){
+function emptyEditAddTaskOverlays(){
   let ref1 = document.getElementById('addtask-content');
   let ref2 = document.getElementById('task-overlay-menu');
-      ref1.innerHTML = getAddTaskOverlayTemp(); ref2.innerHTML = '';
+      ref1.innerHTMl = '';
+      ref2.innerHTML = '';
+}
+
+
+/**
+ * Opens the selected task and gets an template for the task overlay.
+ * 
+ * @param {string} addTaskLocation - The location of the new task column to be added.
+ */
+function openAddTaskOverlay(addTaskLocation){
+  emptyEditAddTaskOverlays();
+  let ref = document.getElementById('addtask-content');
+      ref.innerHTML = getAddTaskOverlayTemp();
       toggleOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
       renderAssignToDropdown();
       renderCategoryOptions();
       addTaskStatus = addTaskLocation;
 }
+
 
 /**
  * Opens the overlay for a specific task.

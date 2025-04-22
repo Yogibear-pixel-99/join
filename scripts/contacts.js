@@ -293,7 +293,6 @@ function getContactInfosToFetch(){
     email: document.getElementById("edit-user-email-input").value,
     phone: document.getElementById("edit-user-phone-input").value,
   };
-  console.log(collectedFormInfos);
 }
 
 
