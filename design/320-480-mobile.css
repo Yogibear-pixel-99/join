@@ -184,10 +184,6 @@
 /* SIGN UP */
 /* SUMMARY */
 
-/* .main-content-summary {
-  padding-top: 20px;
-  padding-bottom: 20px;
-} */
 
 .summary-wrapper {
   gap: 8px;
@@ -220,11 +216,6 @@ gap: 16px;
 /* SIGN UP */
 /* SUMMARY */
 
-/* .main-content-summary {
-padding-top: 20px;
-padding-bottom: 20px;
-} */
-
 .summary-wrapper {
 gap: 8px;
 }
@@ -246,6 +237,7 @@ margin-bottom: 20px;
 
 
 
+
 @media (max-height: 756px) {
 
   .sign-up-join-logo {
@@ -262,10 +254,6 @@ margin-bottom: 20px;
     top: 300px;
   }
 
-}
-
-
-@media (max-height: 700px) {
 
 .sign-up-join-logo {
   height: 50px;
