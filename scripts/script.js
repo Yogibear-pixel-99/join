@@ -340,8 +340,6 @@ function checkArrayForNextFreeInteger(allIdArray){
 }
 
 
-
-
 /**
  * Checks if a user is logged in and sets the initials to the header.
  */
@@ -391,4 +389,12 @@ function toggleAddedButton(containerId, showClass, hideClass){
   setTimeout(() => {toggleClassToContainer(containerId, hideClass)}, 1800);
 }
 
-
+/**
+ * Checks if the "userLoggedIn" item exists in sessionStorage. If it's missing 
+ * (user not logged in or not a guest), redirects the browser to "login.html".
+ */
+function redirectToLogInPage() {
+  if (sessionStorage.getItem("userLoggedIn") == null) {
+    window.location.href = "login.html";
+  }
+}
