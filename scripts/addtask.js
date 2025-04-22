@@ -62,6 +62,56 @@ function setPriorityButtonColor(selected){
   }
 
 
+  /**
+   * Checks if the user input date is valid.
+   */
+function checkIfDateIsValid(){
+  let userInput = document.getElementById('due-date');
+  let userDate = userInput.value.replaceAll('/', '');
+  if (userDate.length === 8) {
+      let dateNow = new Date();
+      const day = parseInt(userDate.slice(0, 2));
+      const month = parseInt(userDate.slice(2, 4) - 1);
+      const year = parseInt(userDate.slice(4, 8));
+      checkDayAndMonth(day, month);
+      let wholeUserDate = new Date(year, month, day);
+      wholeUserDate = wholeUserDate.setHours(0, 0, 0, 0);
+      dateNow = dateNow.setHours(0, 0, 0, 0)
+   if (wholeUserDate < dateNow){
+    displayDateError('Date musst be in the future');
+  }}
+}
+
+
+/**
+ * Displays an error message if the date is in the past.
+ * 
+ * @param {string} errorText - The error message to display.
+ */
+function displayDateError(errorText){
+  let errorRef = document.getElementById('date-error-message');
+  let userInput = document.getElementById('due-date');
+  errorRef.innerText = errorText;
+setTimeout(() => {userInput.value = ''}, 3000);
+setTimeout(() => {errorRef.innerText = ''}, 3000);
+}
+
+
+/**
+ * Checks if the day and the month are valid values.
+ * 
+ * @param {integer} day - The userinput day.
+ * @param {integer} month - The userinput month.
+ */
+function checkDayAndMonth(day, month){
+  const maxDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const maxDay = maxDaysInMonth[month];
+  if (!(day >= 1 && day <= maxDay)) {
+    displayDateError('Enter a valid Date');
+  }
+}
+
+
 /**
  * Shows the date picker from the hidden date input container.
  */
@@ -79,6 +129,7 @@ function showDatePicker(){
     let hiddenDate = document.getElementById('hidden-date-input').value;
         hiddenDate = hiddenDate.split('-').reverse().join('/');
     shownDate.value = hiddenDate;
+    setTimeout(() => {checkIfDateIsValid()}, 200);
  }
 
 
@@ -94,7 +145,9 @@ function showDatePicker(){
       dateContent += setMonthToAddTaskDateInput(userInput);
       dateContent += setYearToAddTaskDateInput(userInput);
     contentRef.value = dateContent;
-  
+    if (dateContent.length = 10) {
+      checkIfDateIsValid();
+    }
 }
 
 

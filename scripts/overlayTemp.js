@@ -13,7 +13,7 @@ async function getTaskOverlayTemp(task){
                     </svg>
                 </div>
             </header>
-            <h1>${task.title}</h1>
+            <h1 class="task-overlay-header">${task.title}</h1>
             <section class="overlay-task-body">
                 <div class="font16-weight400-768px">${task.description}</div>
                 <div>

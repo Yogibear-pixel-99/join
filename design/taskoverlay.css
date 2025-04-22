@@ -7,11 +7,19 @@
     background-color: #1FD7C1;
 }
 
+.task-overlay-header {
+  overflow-wrap: break-word;
+}
+
+.standard-overlay {
+  overflow: auto;
+  border: solid 20px white;
+}
 
 .task-overlay-container {
     flex-direction: column;
     gap: 24px;
-    padding: 48px 40px;
+    padding: 20px 20px;
     border-radius: 30px;
     width: 525px;
     background-color: var(--task-overlay-bg-color);

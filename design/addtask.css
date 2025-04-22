@@ -510,6 +510,7 @@ box-shadow: none;
 .date-error-message {
   height: 12px;
   font-size: 12px;
+  color: red;
 }
 
 .title-error-message {
