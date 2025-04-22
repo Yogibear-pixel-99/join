@@ -4,6 +4,7 @@
  *
  */
 function initBoard(){
+  redirectToLogInPage();
   loadAndRenderTasks();
 }
 
