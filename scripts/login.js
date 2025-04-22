@@ -88,3 +88,21 @@ function switchToSummary(){
   window.location.href = '../html/summary.html';
 }
 
+
+/**
+ * Checks if values are in the log in form and enables/disables the log in button.
+ */
+function checkLoginButtonActive(){
+  let emailRef = document.getElementById('email').value;
+  let pwRef = document.getElementById('password').value;
+if (emailRef == '' || pwRef =='') {
+    let ref = document.getElementById('login');
+        ref.classList.add('dark-button-signup');
+        ref.classList.remove('dark-button');
+        ref.disabled = true;
+} else {
+  let ref = document.getElementById('login');
+  ref.classList.remove('dark-button-signup');
+  ref.classList.add('dark-button');
+  ref.disabled = false;
+}}
