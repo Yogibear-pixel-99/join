@@ -293,3 +293,12 @@ padding: 66px 24px 30px;
 
 
 }
+
+
+@media screen and (orientation: landscape) {
+
+.landscape-overlay {
+  display: flex;
+}
+
+}

@@ -6,6 +6,40 @@ html {
   max-height: 100dvh;
 }
 
+.landscape-overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--join-dark);
+  z-index: 10000;
+  font-size: 42px;
+  color: var(--light-blue);
+}
+
+.rotate-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  animation-name: animate-rotate-img;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animate-rotate-img {
+  0% {transform: rotate(0deg);}
+  35% {transform: rotate(-90deg);}
+  75% {transform: rotate(-90deg);}
+  100% {transform: rotate(0deg);}
+}
+
+
 a {
   text-decoration: none;
 }
