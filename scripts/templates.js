@@ -331,7 +331,7 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
                                 </div>
                             </div>
                             <div onclick="directToBoard()" class="done-summary">
-              <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="done-circle-summary" cx="35" cy="35" r="34.5" fill="#2A3647"/><path class="done-path-summary" d="M20.0283 35.0001L31.2571 46.0662L49.9717 23.9341"stroke="white"stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="done-circle-summary" cx="35" cy="35" r="34.5" fill="#2A3647"/><path class="done-path-summary" d="M20.0283 35.0001L31.2571 46.0662L49.9717 23.9341"stroke="white"stroke-linecap="round" stroke-width="6px" stroke-linejoin="round"/></svg>
               <div class="content-summary">
                 <h2 class="quantity-summary">${done}</h2>
                 <div class="text-summary">Done</div>
