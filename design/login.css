@@ -207,3 +207,7 @@ input[type="checkbox"] {
 .remember-wrapper {
   gap: 12px;
 }
+
+.remember {
+  margin-right: 0 !important;
+}

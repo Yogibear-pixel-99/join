@@ -38,7 +38,6 @@ function checkRememberMeButton(){
  */
 function redirectIfUserIsSaved(){
   let userEmail = localStorage.getItem('joinUserEmail');
-  console.log(userEmail);
   if(userEmail != null) {
     let emailChecked = usersFromApi.some(
       (item) => item.email === userEmail);

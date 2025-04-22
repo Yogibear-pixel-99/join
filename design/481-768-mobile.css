@@ -236,6 +236,11 @@
 }
 
 
+@media (max-width: 650px) {
 
+    .sign-up-join-logo {
+        left: 33px;
+        top: 33px;
+    }
 
-
+}
