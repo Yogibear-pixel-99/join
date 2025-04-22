@@ -55,6 +55,10 @@
             margin-top: 16px;
         }
 
+        .login-input-field {
+            font-size: 14px;
+        }
+
         .login-input-field::placeholder {
             font-size: 14px;
         }
