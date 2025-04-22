@@ -29,7 +29,7 @@ async function collectNewUserValuesAndPost(){
   await postDataToApi("users", collectedFormInfos);
   mainContentBrightness50();
   showOverlayButton("sign-up-success-button", "You Signed Up successfully");
-  setTimeout(() => redirectToLogInPage(), 800);
+  setTimeout(() => redirectToLogIn(), 800);
 }
 
 
@@ -105,8 +105,8 @@ function hideOverlayButton(buttonId){
 /**
  * Redirect to the login page.
  */
-function redirectToLogInPage(){
-  window.location.href = "../html/login.html";
+function redirectToLogIn(){
+  window.location.href = "../html/index.html";
 }
 
 
