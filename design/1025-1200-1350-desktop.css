@@ -98,8 +98,9 @@
 /* GLOBAL */
 
 
-.main-content-summary {
-  padding: 80px;
+.main-content-summary,
+.main-content {
+  padding: 40px;
 }
 
 /* LOGIN */
@@ -130,7 +131,7 @@
 /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
-    padding: 80px 40px;
+    padding: 0 0 40px 40px;
 }
 
 
