@@ -233,7 +233,7 @@ function getAddTaskOverlayTemp(){
                   id="categoryDropdown"
                   placeholder="Select task category"
                   readonly
-                  onclick="toggleCategoryDropdown(event)"
+                  onclick="toggleCategoryDropdown(); noClose(event)"
                 />
                 <div onclick="noClose(event)" id="categoryWrapper" class="category-wrapper category-wrapper-passive">
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
