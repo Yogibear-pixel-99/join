@@ -12,10 +12,15 @@
   overflow: auto;
 }
 
+.main-content-addtask {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: auto;
+}
+
 .main-content-addtask::-webkit-scrollbar {
   display: none;
 }
-
 .add-task-header {
   margin-bottom: 40px;
 }
