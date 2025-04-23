@@ -15,8 +15,7 @@ async function loadDropdown(){
    * 
    * @param {Event} event - The click event triggering the toggle (prevents event bubbling).
    */
-  async function toggleAssignedDropdown(event){
-    event.stopPropagation();
+  async function toggleAssignedDropdown(){
       let dropdown = document.getElementById("dropdownContent");
       let wrapper = document.getElementById("addTaskWrapper")
     if (wrapper.classList.contains('add-task-wrapper-passive')){
@@ -85,7 +84,7 @@ async function loadDropdown(){
   function closeAssignedToDrop(event) {
     let dropdown = document.getElementById("dropdownContent");
     if (!dropdown.classList.contains("d-none")){
-      toggleAssignedDropdown(event)
+      toggleAssignedDropdown()
     }
   }
 /**
@@ -96,7 +95,7 @@ async function loadDropdown(){
   function closeCategDrop(event) {
     let dropdown = document.getElementById("categoryDropdownContent");
     if (!dropdown.classList.contains("d-none")){
-      toggleCategoryDropdown(event);
+      toggleCategoryDropdown();
     }
   }
   /**
@@ -184,10 +183,10 @@ function handleCheckboxChange(event){
    * 
    * @param {string} category - The selected category.
    */
-  function selectCategory(category, event){
+  function selectCategory(category){
     selectedCategory = category;
     document.getElementById("categoryDropdown").value = category;
-    toggleCategoryDropdown(event);
+    toggleCategoryDropdown();
   }
 
 
@@ -197,8 +196,7 @@ function handleCheckboxChange(event){
    * @param {HTMLElement} dropdown - The id of the dropdown container.
    * @param {Event} event - The click event triggering the toggle (prevents event bubbling).
    */
- function toggleCategoryDropdown(event){
-  event.stopPropagation();
+ function toggleCategoryDropdown(){
   let dropdown = document.getElementById("categoryDropdownContent");
   let wrapper = document.getElementById("categoryWrapper")
   if (wrapper.classList.contains('category-wrapper-passive')){
@@ -241,7 +239,7 @@ function handleCheckboxChange(event){
       option.classList.add("dropdown-item");
       option.innerHTML = `
         <label onclick="formDataCategory('${category}')" class="category-item">
-        <div onclick="selectCategory('${category}', event)" class="category-itmen-names">
+        <div onclick="selectCategory('${category}')" class="category-itmen-names">
           <span>${category}</span>
         </div>
         </label>`;
