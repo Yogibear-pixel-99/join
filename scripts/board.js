@@ -156,6 +156,7 @@ function renderExistingUsers(existingEmail, initialsPosition, nr) {
   .join("");
 }
 
+
 /**
  * Creates a template for the board tasks to show the assigned users.
  * 
@@ -189,7 +190,6 @@ function getDotsForBoardTemp(initialsPosition, initials){
   ${initials}
 </div>`;
 }
-
 
 
 /**
@@ -256,38 +256,6 @@ function createTaskCard(task){
   return taskTemp;
   }
 
-/**
- * Calculates the total number of valid subtasks for a task.
- * 
- * @param {Object} task - The task object containing subtasks array
- * @returns {(number|string)} - Number of valid subtasks or empty string for invalid input
- */
-function getAllSubtasksLength(task){
-  if (Array.isArray(task.subtasks)){
-    return task.subtasks.filter(
-      (subtask) => subtask != null && subtask.subtaskName != undefined
-    ).length;
-  } else {
-    return "";
-  }
-}
-
-/**
- * This function determines the length of the subtasks that have been completed, if subtasks exist at all
- * 
- * @param {Object} task - The task object containing subtasks array
- *  * @returns {(number|string)} - Number of completed subtasks or empty string for invalid input
- */
-function getDoneSubtasksLength(task){
-  if (Array.isArray(task.subtasks)){
-    return task.subtasks.filter(
-      (subtask) =>
-        subtask.finished == true && subtask.subtaskName != undefined
-    ).length;
-  } else {
-    return "";
-  }
-}
 
 /**
  * This function changes the status of the task when the drag and drop is executed
@@ -352,8 +320,6 @@ async function resetTaskApi(){
 }
 
 
-  // drag and drop 
-
 /**
  * Initializes the drag-and-drop system once the DOM is fully loaded.
  * Adds event listeners for drag-and-drop to all columns.
@@ -370,6 +336,7 @@ async function resetTaskApi(){
     document.addEventListener("dragstart", dragstart);
     document.addEventListener("dragend", dragend);
 });
+
 
 /**
  * Starts the drag process for a task card.
@@ -436,15 +403,6 @@ function hideEmptyContentTasks(taskId){
   }
 }
 
-/**
- * Removes the "dragging" class after the drag operation ends.
- * 
- * @param {DragEvent} event - The dragend event.
- */
-function dragend(event){
-    event.target.classList.remove("dragging");
-}
-
 
 /**
  * Emptys the overlays.
@@ -490,18 +448,4 @@ async function openTask(taskId){
   addMissingKeys(task, 'subtasks', []);
   taskRef.innerHTML = await getTaskOverlayTemp(task);
   toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
-}
-
-
-/**
- * Checks if a value is available. Adds the missing key.
- * 
- * @param {object} object - The data object to check.
- * @param {string} key - The key to check.
- * @param {array} emptyArray - The value to be added.
- */
-function addMissingKeys(object, key, emptyArray){
-  if (!(key in object)) {
-    object[key] = emptyArray;
-  }
 }

@@ -307,30 +307,6 @@ function toggleSaveEditedContactButton(){
 
 
 /**
- * Enables a button.
- * 
- * @param {HTMLElement} buttonRef - The button container.
- */
-function enableButton(buttonRef){
-  buttonRef.classList.add('dark-button');
-  buttonRef.classList.remove('dark-button-signup');
-  buttonRef.disabled = false;
-}
-
-
-/**
- * Disables a button.
- * 
- * @param {HTMLElement} buttonRef - The button container.
- */
-function disableButton(buttonRef){
-  buttonRef.classList.remove('dark-button');
-  buttonRef.classList.add('dark-button-signup');
-  buttonRef.disabled = true;
-}
-
-
-/**
  * Save the edited contact and animate the menu.
  * 
  * @param {*} event - For prevent the default function from the button.
@@ -338,9 +314,6 @@ function disableButton(buttonRef){
  */
 async function saveEditedContact(event, contactKey){
   event.preventDefault();
-
-  
-
   getContactInfosToFetch();
   await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
   await sortAndRenderContacts();

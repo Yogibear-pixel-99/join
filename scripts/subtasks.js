@@ -132,4 +132,36 @@ function collectSubTasks(data){
   })
   }
   
+
+/**
+ * Calculates the total number of valid subtasks for a task.
+ * 
+ * @param {Object} task - The task object containing subtasks array
+ * @returns {(number|string)} - Number of valid subtasks or empty string for invalid input
+ */
+function getAllSubtasksLength(task){
+    if (Array.isArray(task.subtasks)){
+      return task.subtasks.filter(
+        (subtask) => subtask != null && subtask.subtaskName != undefined
+      ).length;
+    } else {
+      return "";
+    }
+  }
   
+  /**
+   * This function determines the length of the subtasks that have been completed, if subtasks exist at all
+   * 
+   * @param {Object} task - The task object containing subtasks array
+   *  * @returns {(number|string)} - Number of completed subtasks or empty string for invalid input
+   */
+  function getDoneSubtasksLength(task){
+    if (Array.isArray(task.subtasks)){
+      return task.subtasks.filter(
+        (subtask) =>
+          subtask.finished == true && subtask.subtaskName != undefined
+      ).length;
+    } else {
+      return "";
+    }
+  }

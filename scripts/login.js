@@ -164,19 +164,3 @@ if (emailRef == '' || pwRef =='') {
   ref.classList.add('dark-button');
   ref.disabled = false;
 }}
-
-
-
-// on check =
-// remember if logged in
-// sava a var in local storage
-
-// start on login page
-// check if localStorage is therr
-// no - normal loginpage
-// yes redirect to summary with logged in
-
-
-// redirect automaticlly to summary
-// get localstorage and set item to user
-// redirect.

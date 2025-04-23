@@ -3,7 +3,7 @@
 
 .main-content-addtask {
   overflow-y: auto;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   margin-bottom: 300px;
 }
 
@@ -509,7 +509,7 @@ box-shadow: none;
 .hidden-date-input {
   visibility: hidden;
   position: absolute;
-  left: 60%;
+  left: 20%;
 }
 
 .date-error-message {

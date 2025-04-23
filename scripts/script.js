@@ -388,3 +388,52 @@ function redirectToLogInPage() {
     window.location.href = "index.html";
   }
 }
+
+
+
+/**
+ * Checks if a value is available. Adds the missing key.
+ * 
+ * @param {object} object - The data object to check.
+ * @param {string} key - The key to check.
+ * @param {array} emptyArray - The value to be added.
+ */
+function addMissingKeys(object, key, emptyArray){
+  if (!(key in object)) {
+    object[key] = emptyArray;
+  }
+}
+
+
+/**
+ * Removes the "dragging" class after the drag operation ends.
+ * 
+ * @param {DragEvent} event - The dragend event.
+ */
+function dragend(event){
+  event.target.classList.remove("dragging");
+}
+
+
+/**
+ * Enables a button.
+ * 
+ * @param {HTMLElement} buttonRef - The button container.
+ */
+function enableButton(buttonRef){
+  buttonRef.classList.add('dark-button');
+  buttonRef.classList.remove('dark-button-signup');
+  buttonRef.disabled = false;
+}
+
+
+/**
+ * Disables a button.
+ * 
+ * @param {HTMLElement} buttonRef - The button container.
+ */
+function disableButton(buttonRef){
+  buttonRef.classList.remove('dark-button');
+  buttonRef.classList.add('dark-button-signup');
+  buttonRef.disabled = true;
+}

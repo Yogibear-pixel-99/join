@@ -167,4 +167,3 @@ async function updateTask(event, apiKey){
     taskRef.innerHTML = await getTaskOverlayTemp(task);
     renderBoard();
 }
-
