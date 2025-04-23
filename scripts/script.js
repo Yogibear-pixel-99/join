@@ -207,7 +207,7 @@ async function checkIfDataAlreadyExists(userContainerId, objName){
 
    
 /**
- * Toggles a specified overlaymenu with the given id.
+ * Opens a specified overlaymenu with the given id.
  * 
  * @param {string} overlayId - The id of the overlay menu to show up.
  * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
@@ -224,7 +224,7 @@ function openOverlayMenu(overlayId, maskId){
 
 
 /**
- * Toggles a specified overlaymenu with the given id.
+ * Closes a specified overlaymenu with the given id.
  * 
  * @param {string} overlayId - The id of the overlay menu to show up.
  * @param {string} maskId - The id of the mask background to separate overlay from maincontainer.
