@@ -145,7 +145,8 @@
         <div class="top-board search-container-mobile">
           <h2 class="main-header hide-mobile-768">Board</h2>
           <div class="board-top-right board-search-bar-wrapper-mobile">
-            <div class="find-task-wrapper">
+            <div class="search-wrapper">
+              <div class="find-task-wrapper">
               <input
                 onkeyup="searchForTask()"
                 class="board-search-bar"
@@ -161,6 +162,8 @@
                   <img class="search-logo" src="../assets/icons/search.svg" />
                 </div>
               </button>
+            </div>
+            <span class="search-error-message" id="search-error-message"></span>
             </div>
             <button
             onclick="openAddTaskOverlay('todo')"

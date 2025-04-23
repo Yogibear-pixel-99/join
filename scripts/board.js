@@ -235,8 +235,13 @@ function findTask(inputTaskValue){
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
     if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)){
       titleTaskREF.parentElement.parentElement.classList.remove("d-none");
+      removeRedBorderAndTextFalseInput("find-task", "search-error-message")
     } else {
       titleTaskREF.parentElement.parentElement.classList.add("d-none");
+      removeRedBorderAndTextFalseInput("find-task", "search-error-message")
+    }
+    if (!titleTaskValue.includes(inputTaskValue) && !descriptionValue.includes(inputTaskValue)) {
+      searchError();
     }
   }
 }
@@ -448,4 +453,9 @@ async function openTask(taskId){
   addMissingKeys(task, 'subtasks', []);
   taskRef.innerHTML = await getTaskOverlayTemp(task);
   toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
+}
+
+
+function searchError() {
+  addRedBorderAndTextFalseInput("find-task", "search-error-message", "No Task found!")
 }
