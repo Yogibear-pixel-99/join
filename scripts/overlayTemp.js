@@ -217,7 +217,7 @@ function getAddTaskOverlayTemp(){
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
                   onkeyup="startSearchingContacts()"
                   onclick="toggleAssignedDropdown(event)" />
-                  <div id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
+                  <div onclick="noClose(event)" id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
                     <div class="dropdown-content d-none" id="dropdownContent"></div>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ function getAddTaskOverlayTemp(){
                   readonly
                   onclick="toggleCategoryDropdown(event)"
                 />
-                <div id="categoryWrapper" class="category-wrapper category-wrapper-passive">
+                <div onclick="noClose(event)" id="categoryWrapper" class="category-wrapper category-wrapper-passive">
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
                 </div>
               </div>
@@ -415,14 +415,14 @@ function getEditTaskTemp(task){
                 <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
                 onkeyup="startSearchingContacts()"
                 onclick="toggleAssignedDropdown()" />
-                <div id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
+                <div onclick="noClose(event)" id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
                   <div class="dropdown-content d-none" id="dropdownContent"></div>
                 </div>
               </div>
               <div class="add-selected-contacts" id="addSelectedContacts">
               </div>
           <div class="flex-col width-100p gap8">
-              <div id="categoryWrapper" class="category-wrapper category-wrapper-passive">
+              <div onclick="noClose(event)" id="categoryWrapper" class="category-wrapper category-wrapper-passive">
                 <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
               </div>
             </div>
