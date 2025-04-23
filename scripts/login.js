@@ -4,7 +4,6 @@
  */
 async function getUserInfo(){
   await getDataFromServer("users", usersFromApi);
-  await turnZIndexToZero();
   redirectIfUserIsSaved();
 }
 
