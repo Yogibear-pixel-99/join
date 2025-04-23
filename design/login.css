@@ -135,7 +135,7 @@ input[type="checkbox"] {
   .main-log-in-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .input-alert-message {
