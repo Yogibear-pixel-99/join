@@ -197,6 +197,7 @@
     bottom: 0;
     left: 0;
     right: 0; */
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     background-color: var(--join-dark);
@@ -307,10 +308,6 @@ h1 {
 
 .board-add-task-icon-wrapper {
     display: none;
-}
-
-.main-content-board {
-    padding-bottom: 200px;
 }
 
 .top-board {

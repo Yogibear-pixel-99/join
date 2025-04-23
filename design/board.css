@@ -5,6 +5,12 @@
   margin-bottom: 80px;
 }
 
+.summary-main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
 .bottom-board {
   display: flex;
   justify-content: space-between;

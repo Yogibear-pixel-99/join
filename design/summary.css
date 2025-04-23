@@ -2,6 +2,12 @@
   padding-top: 50px;
 }
 
+.summary-main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
 .main-content-summary {
   padding: 80px 0 80px 80px;
 }
@@ -314,7 +320,7 @@ transform-origin: left center;
   position: absolute;
   top: 80px;
   right: 0;
-  bottom: 76px;
+  bottom: 0;
   left: 0;
   background-color: var(--main-background);
   z-index: 3500;
