@@ -486,8 +486,22 @@ async function openTask(taskId){
   let taskRef = document.getElementById('task-overlay-menu');
   await getDataFromServer("tasks", tasksFromApi);
   let task = tasksFromApi.find(element => element.id === taskId);
+  addMissingKeys(task, 'assignTo', []);
+  addMissingKeys(task, 'subtasks', []);
   taskRef.innerHTML = await getTaskOverlayTemp(task);
   toggleOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
 }
 
 
+/**
+ * Checks if a value is available. Adds the missing key.
+ * 
+ * @param {object} object - The data object to check.
+ * @param {string} key - The key to check.
+ * @param {array} emptyArray - The value to be added.
+ */
+function addMissingKeys(object, key, emptyArray){
+  if (!(key in object)) {
+    object[key] = emptyArray;
+  }
+}
