@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 80px;
 }
 
@@ -20,6 +21,10 @@
 
 .bottom-board-tasks {
   max-height: calc(100vh - 370px);
+}
+
+.search-error-message {
+  height: 14px;
 }
 
 .bottom-board {
