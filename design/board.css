@@ -19,6 +19,12 @@
   flex: 1;
 }
 
+.task-search-error-message {
+  position: absolute;
+  top: 52px;
+  left: 10px;
+}
+
 .bottom-board-tasks {
   max-height: calc(100vh - 370px);
 }
@@ -47,6 +53,7 @@
 }
 
 .board-top-right {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 40px;
