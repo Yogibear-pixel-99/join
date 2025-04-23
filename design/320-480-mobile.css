@@ -1,149 +1,153 @@
-
-
-
 @media (max-width: 480px) {
-
-    /* GLOBAL */
-    h1 {
-        font-size: 47px;
-        padding: 20px 0;
+  /* GLOBAL */
+  h1 {
+    font-size: 47px;
+    padding: 20px 0;
+  }
+  /* LOGIN */
+  @keyframes main-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
     }
-    /* LOGIN */
-    @keyframes main-logo {
-        0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-        40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-        100% {top: 32px; left: 32px; transform: translate(0%, 0%); width: 64px; height: 78px;}
-      }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 32px;
+      left: 32px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
+  }
 
-.form-container {
+  .form-container {
     margin: 0;
     padding: 8px;
     width: 294px;
-}
+  }
 
-.login-input-field {
+  .login-input-field {
     width: auto;
     font-size: 14px;
-}
+  }
 
-.input-wrapper input{
-  font-size: 14px;
-}
+  .input-wrapper input {
+    font-size: 14px;
+  }
 
+  /*MOBILE-NAVBAR */
 
-/*MOBILE-NAVBAR */
-
-.mobile-navbar {
+  .mobile-navbar {
     padding: 0 8px;
-}
+  }
 
-.contact-container-wrapper {
+  .contact-container-wrapper {
     min-width: 280px;
-}
+  }
 
-.add-task-footer {
-  margin-bottom: 40px;
-}
+  .add-task-footer {
+    margin-bottom: 40px;
+  }
 
+  /* SIGN UP */
+  /* SIGN UP */
+  /* SUMMARY */
 
-/* SIGN UP */
-/* SIGN UP */
-/* SUMMARY */
-
-.main-content-summary {
+  .main-content-summary {
     padding: 8px;
-}
+  }
 
-.bottom-top-summary,
-.bottom-middle-summary,
-.bottom-end-summary {
+  .bottom-top-summary,
+  .bottom-middle-summary,
+  .bottom-end-summary {
     width: 100%;
-}
+  }
 
-/* BOARD */
+  .bottom-end-summary {
+    gap: 8px;
+  }
 
-.main-content-board {
+  /* BOARD */
+
+  .main-content-board {
     padding: 8px 8px 160px 8px;
-}
+  }
 
-/* ADD TASK */
+  /* ADD TASK */
 
-.main-content-addtask {
-  padding: 8px;
-}
+  .main-content-addtask {
+    padding: 8px;
+  }
 
-.btn-importance-container {
-  flex-wrap: wrap;
-}
+  .btn-importance-container {
+    flex-wrap: wrap;
+  }
 
-.add-task-button-container {
-  gap: 16px;
-}
+  .add-task-button-container {
+    gap: 16px;
+  }
 
-/* ADD/EDIT TASKS OVERLAY */
+  /* ADD/EDIT TASKS OVERLAY */
 
-/* CONTACTS */
-/* CONTACTS FLOAT */
+  /* CONTACTS */
+  /* CONTACTS FLOAT */
 
-.floating-contact-container-wrapper {
-  padding: 8px;
-}
+  .floating-contact-container-wrapper {
+    padding: 8px;
+  }
 
-/* CONTACTS EDIT/ADD */
+  /* CONTACTS EDIT/ADD */
 
-.add-contact-overlay-content-left,
-.add-contact-overlay-content-right {
+  .add-contact-overlay-content-left,
+  .add-contact-overlay-content-right {
     max-width: 396px;
     width: 90vw;
     padding: 66px 24px;
-}
+  }
 
-.contact-overlay-alert {
-  width: 200px;
-}
+  .contact-overlay-alert {
+    width: 200px;
+  }
 
-.add-contact-overlay-form {
+  .add-contact-overlay-form {
     width: 100%;
-}
-/* HELP */
-/* PRIVACY */
-/* LEGAL NOTICE */
+  }
+  /* HELP */
+  /* PRIVACY */
+  /* LEGAL NOTICE */
 
-
-/* 320px — 480px: Mobile devices
+  /* 320px — 480px: Mobile devices
 481px — 768px: iPads, Tablets
 769px — 1024px: Small screens, laptops
 1025px — 1200px: Desktops, large screens
 1201px and more —  Extra large screens, TV */
-
 }
 
 @media (max-width: 400px) {
-
-.task-overlay-container {
-     min-width: 310px;
-     width: auto;
-}
-
-
-
-.mobile-guest-text {
-    width: 80px !important;
+  .task-overlay-container {
+    min-width: 310px;
+    width: auto;
   }
 
-
+  .mobile-guest-text {
+    width: 80px !important;
+  }
 }
-
-
-
-
 
 @media (max-width: 320px) {
-    h1 {
-        font-size: 47px;
-    }
+  h1 {
+    font-size: 47px;
+  }
 }
-
 
 @media (max-width: 340px) {
   .addTask-button-container button,
@@ -163,175 +167,199 @@
   }
 }
 
-
-
 @media (max-height: 1000px) {
-
   .task-overlay-container {
-      overflow-y: auto;
-      border: solid white 40px;
-      padding: 0 !important;
+    overflow-y: auto;
+    border: solid white 40px;
+    padding: 0 !important;
   }
-
 }
-
-
 
 @media (max-height: 865px) {
   /* LOGIN */
 
   @keyframes main-logo {
-      0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      100% {top: 20px; left: 20px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
     }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 20px;
+      left: 20px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
+  }
 
-.form-container {
-  margin: 0;
-  padding: 16px;
-}
+  .form-container {
+    margin: 0;
+    padding: 16px;
+  }
 
-.sign-up-form {
-  gap: 16px;
-}
+  .sign-up-form {
+    gap: 16px;
+  }
 
+  .task-card {
+    gap: 6px;
+  }
+
+  .task-card * {
+    font-size: 12px;
+  }
+
+  .main-content-summary {
+    padding: 8px;
+  }
+
+  .main-content-board {
+    padding: 8px 8px 160px 8px;
+  }
+
+  .main-content-addtask {
+    padding: 8px;
+  }
+
+  .floating-contact-container-wrapper {
+    padding: 8px;
+  }
 
   .main-content-header-summary-mobile {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .add-contact-overlay-content-left {
     height: 300px;
   }
 
-
   .add-contact-overlay-img-wrapper {
     top: 300px;
   }
 
-.summary-wrapper {
-  gap: 8px;
+  .summary-wrapper {
+    gap: 8px;
+  }
+
+  .main-content-header-summary {
+    margin-bottom: 20px;
+  }
+
+  .main-content-header-summary-mobile {
+    margin-bottom: 10px;
+  }
+
+  .main-content-header-summary-mobile {
+    margin-bottom: 10px;
+  }
+  /* LOGIN */
+
+  .form-container {
+    margin: 0;
+    padding: 16px;
+  }
+
+  .sign-up-form {
+    gap: 16px;
+  }
+
+  /* SIGN UP */
+  /* SUMMARY */
+
+  .summary-wrapper {
+    gap: 8px;
+  }
+
+  .main-content-header-summary {
+    margin-bottom: 20px;
+  }
+
+  .main-content-header-summary-mobile,
+  .board-header-hide-desktop,
+  .add-task-header {
+    margin-bottom: 20px;
+  }
+
+  .main-content-header-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .line-summary-desktop {
+    display: none;
+  }
+
+  .line-summary-mobile {
+    display: block;
+    height: 3px;
+    width: 50px;
+  }
+
+  .bottom-top-summary,
+  .bottom-middle-summary,
+  .bottom-end-summary {
+    width: 90%;
+
+  }
+
+  .summary-wrapper {
+    gap: 20px;
+  }
+
+  .summary-wrapper h2 {
+    font-size: 47px;
+    font-weight: 600;
+  }
+
+  .text-summary,
+  .deadline-summary,
+  .end-text-summary {
+    font-size: 14px;
+  }
+
+  .date-summary {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .to-do-summary,
+  .done-summary,
+  .urgent-summary,
+  .bottom-end-left-box-summary,
+  .bottom-end-middle-box-summary,
+  .bottom-end-right-box-summary {
+    border-radius: 20px;
+    gap: 10px;
+    height: 110px;
+  }
+
+  .content-summary {
+    gap: 0;
+  }
+
+  .to-do-summary svg,
+  .done-summary svg {
+    width: 40px;
+    height: 40px;
+  }
 }
-
-.main-content-header-summary {
-  margin-bottom: 20px;
-}
-
-.main-content-header-summary-mobile {
-  margin-bottom: 10px;
-}
-
-.main-content-header-summary-mobile {
-  margin-bottom: 10px;
-}
-/* LOGIN */
-
-
-.form-container {
-margin: 0;
-padding: 16px;
-}
-
-.sign-up-form {
-gap: 16px;
-}
-
-
-/* SIGN UP */
-/* SUMMARY */
-
-.summary-wrapper {
-gap: 8px;
-}
-
-.main-content-header-summary {
-margin-bottom: 20px;
-}
-
-.main-content-header-summary-mobile,
-.board-header-hide-desktop,
-.add-task-header {
-margin-bottom: 20px;
-}
-.main-content-summary {
-  padding: 40px 20px;
-}
-
-.main-content-header-summary {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 60px;
-}
-
-.line-summary-desktop {
-  display: none;
-}
-
-.line-summary-mobile {
-  display: block;
-  height: 3px;
-  width: 50px;
-}
-
-.bottom-top-summary,
-.bottom-middle-summary,
-.bottom-end-summary {
-  width: 90%;
-}
-
-.summary-wrapper {
-  gap: 20px;
-}
-
-.summary-wrapper h2{
-  font-size: 47px;
-  font-weight: 600;
-}
-
-.text-summary,
-.deadline-summary,
-.end-text-summary {
-  font-size: 14px;
-}
-
-.date-summary {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.to-do-summary,
-.done-summary,
-.urgent-summary,
-.bottom-end-left-box-summary,
-.bottom-end-middle-box-summary,
-.bottom-end-right-box-summary {
-  border-radius: 20px;
-  gap: 10px;
-  height: 110px;
-}
-
-.content-summary {
-  gap: 0;
-}
-
-.to-do-summary svg,
-.done-summary svg {
-  width: 40px;
-  height: 40px;
-}
-}
-
 
 @media (max-height: 800px) {
-
-
-
 }
 
-
 @media (max-height: 750px) {
-
   .join-logo-navbar {
     margin: 40px 66px 40px;
   }
@@ -341,73 +369,66 @@ margin-bottom: 20px;
   }
 
   .sign-up-join-logo {
-      left: 33px;
-      top: 33px;
+    left: 33px;
+    top: 33px;
   }
 
-.main-content-header-summary {
-  margin-bottom: 20px;
+  .main-content-header-summary {
+    margin-bottom: 20px;
+  }
+
+  .sign-up-join-logo {
+    height: 50px;
+    width: 42px;
+    top: 16px;
+    left: 16px;
+  }
+
+  .login-policy-legal {
+    padding: 12px 0;
+  }
+
+  .header-contacts-floatin-mobile,
+  .add-task-header {
+    padding: 0;
+  }
+
+  .main-content-summary {
+    padding: 8px;
+  }
+
+  .main-header {
+    padding: 0;
+  }
+
+  .add-contact-overlay-content-left {
+    padding: 16px 16px 66px;
+  }
+
+  .add-contact-overlay-content-right {
+    padding: 66px 16px 16px;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 768px) and (max-height: 650px) {
+  .landscape-overlay {
+    display: flex;
+  }
 }
 
 
-.sign-up-join-logo {
-  height: 50px;
-  width: 42px;
-  top: 16px;
-  left: 16px;
-}
+@media (max-height: 680px) {
 
-.login-policy-legal {
-  padding: 12px 0;
-}
-
-.header-contacts-floatin-mobile,
-.add-task-header {
-  padding: 0;
-}
-
-.main-content-summary {
-  padding: 8px;
-}
-
-.task-card {
-  gap: 6px;
-}
-
-.task-card * {
-  font-size: 12px;
-}
-
-.main-header {
-  padding: 0;
-}
-
-.add-contact-overlay-content-left {
-  padding: 16px 16px 66px;
-  
-}
-
-.add-contact-overlay-content-right {
-padding: 66px 16px 16px; 
-}
-
-
-}
-
-
-@media screen and (orientation: landscape) and (max-width: 768px) and (max-height: 650px){
-
-.landscape-overlay {
-  display: flex;
+.summary-wrapper {
+  gap: 8px;
 }
 
 }
 
 
 @media (max-height: 650px) {
-
   .main-log-in-container,
   .main-content-summary {
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 }
