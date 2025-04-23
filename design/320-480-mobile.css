@@ -79,7 +79,7 @@
   /* BOARD */
 
   .main-content-board {
-    padding: 8px 8px 160px 8px;
+    padding: 8px;
   }
 
   /* ADD TASK */
@@ -224,7 +224,7 @@
   }
 
   .main-content-board {
-    padding: 8px 8px 160px 8px;
+    padding: 8px;
   }
 
   .main-content-addtask {
@@ -347,6 +347,10 @@
 
   .content-summary {
     gap: 0;
+  }
+
+  .bottom-board-tasks {
+    max-height: calc(100dvh - 360px);
   }
 
   .to-do-summary svg,

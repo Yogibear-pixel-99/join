@@ -73,10 +73,6 @@
             display: none;
         }
     
-        .main-container {
-            justify-content: flex-end;
-        }
-    
         .login-signup-button-mobile {
             font-size: 16px;
             padding: 15px 16px;
@@ -294,6 +290,12 @@ h1 {
 
 /* BOARD */
 
+.board-main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
 .hide-mobile-1024 {
     display: none;
 }
@@ -344,6 +346,10 @@ h1 {
     width: 100%;
 }
 
+.main-content-board {
+    display: flex;
+}
+
 .board-search-bar-wrapper-mobile:focus-within {
     border: solid 1px var(--light-blue);
 }
@@ -373,6 +379,7 @@ h1 {
 .bottom-board-tasks {
     overflow-y: auto;
     scroll-snap-type: y mandatory;
+    max-height: calc(100dvh - 408px);
 }
 
 .board-single-task-container {
