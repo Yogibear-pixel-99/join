@@ -204,6 +204,7 @@
     padding: 0 64px;
     height: 76px;
     align-items: center;
+    z-index: 1900;
 }
 
 .mobile-navbar a{
