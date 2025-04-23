@@ -137,6 +137,12 @@ function returnInitials(fullName){
 }
 
 
+function justLetters(event) {
+  let key = event.keyCode;
+  return ((key >= 65 && key <= 90) || key == 8 || key == 32);
+}
+
+
 /**
  * Toggles the dropdown menu in the header if click on the initials button.
  */
