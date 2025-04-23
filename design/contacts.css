@@ -266,7 +266,7 @@
 
 .floating-edit-delete-wrapper-mobile {
     display: none;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     position: absolute;
     right: 8px;
@@ -275,14 +275,15 @@
     border-radius: 20px 20px 0 20px;
     background-color: white;
     box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
-    transform: translateX(100dvw);
+    /* transform: translateX(100dvw); */
     transition: 125ms ease-in-out;
     z-index: 2000;
     cursor: pointer;
 }
 
 .show-floating-edit-delete-wrapper-mobile {
-    transform: translateX(0);
+    /* transform: translateX(0); */
+    display: flex;
 }
 
 .floating-edit-wrapper-mobile,
