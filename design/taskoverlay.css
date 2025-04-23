@@ -26,8 +26,16 @@
     max-height: 90vh;
 }
 
-.task-overlay-container::-webkit-scrollbar {
-  display: none;
+.task-overlay-container {
+  scrollbar-width: none;
+  
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  overflow: auto;
 }
 
 .task-overlay-container h1 {
