@@ -111,6 +111,7 @@ function getExistingEmails(task){
   return existingEmail;
 }
 
+
 /**
  * Renders assigned users as styled initials with position offsets or a dot template if therer are more users assigned as four.
  * Returns empty string if no valid assignments exist.
@@ -122,26 +123,38 @@ function renderAssignedUsers(task){
   let nr = 0;
   let existingEmail = getExistingEmails(task);
   if (!existingEmail) return '';
-  
   let initialsPosition = -24;
-  return existingEmail.map((email) => {
-      let user = usersFromApi.find((u) => u.email === email);
-      initialsPosition += 24;
-      if (user && nr <= 3){
-        let initials = returnInitials(user.name);
-        nr++;
-        return getInitialsForBoardTemp(user, initialsPosition, initials);
-      } else if (user && nr == 4) {
-        let initials = "...";
-        nr++;
-        return getDotsForBoardTemp(initialsPosition, initials);
-      } else {
-        return `<div class="contact-list-board-initals">??</div>`;
-      }
-    })
-    .join("");
+  return renderExistingUsers(existingEmail, initialsPosition, nr);
 }
 
+
+/**
+ * Generates HTML for assigned users' initials with position offsets.
+ * Limits display to 3 users + "..." indicator for additional assignments.
+ * 
+ * @param {Array} existingEmail - Array of valid assigned emails
+ * @param {number} initialsPosition - Base offset for initials positioning
+ * @param {number} nr - Counter for rendered users
+ * @returns {string} - HTML string of user initials/dots
+ */
+function renderExistingUsers(existingEmail, initialsPosition, nr) {
+  return existingEmail.map((email) => {
+    let user = usersFromApi.find((u) => u.email === email);
+    initialsPosition += 24;
+    if (user && nr <= 3){
+      let initials = returnInitials(user.name);
+      nr++;
+      return getInitialsForBoardTemp(user, initialsPosition, initials);
+    } else if (user && nr == 4) {
+      let initials = "...";
+      nr++;
+      return getDotsForBoardTemp(initialsPosition, initials);
+    } else {
+      return `<div class="contact-list-board-initals">??</div>`;
+    }
+  })
+  .join("");
+}
 
 /**
  * Creates a template for the board tasks to show the assigned users.
