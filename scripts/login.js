@@ -4,8 +4,24 @@
  */
 async function getUserInfo(){
   await getDataFromServer("users", usersFromApi);
+  await turnZIndexToZero();
   redirectIfUserIsSaved();
 }
+
+
+/**
+ * Sets the z-index of the mobile login mask to 0 after a 500ms delay.
+ * Used to hide the mobile login overlay after animations/transitions.
+ * 
+ * @returns {number} - The timeout ID from setTimeout
+ */
+function turnZIndexToZero() {
+  return setTimeout(() => {
+    let mobileMaskREF = document.getElementById("mobile-login-mask");
+    mobileMaskREF.style.zIndex = "0";
+  }, 500);
+}
+
 
 /**
  * This function checks the login and opens the checkEmail function to see if this email exists in the database.
