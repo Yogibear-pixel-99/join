@@ -4,9 +4,16 @@
  */
 async function getUserInfo(){
   await getDataFromServer("users", usersFromApi);
+  await turnZIndexToZero();
   redirectIfUserIsSaved();
 }
 
+function turnZIndexToZero() {
+  return setTimeout(() => {
+    let mobileMaskREF = document.getElementById("mobile-login-mask");
+    mobileMaskREF.style.zIndex = "0";
+  }, 300);
+}
 /**
  * This function checks the login and opens the checkEmail function to see if this email exists in the database.
  * 
