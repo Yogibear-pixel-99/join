@@ -91,5 +91,5 @@
 }
 
 .initials-bg-color-Plus {
-    background-color:#29ABE2;
+    background-color:var(--join-dark);
 }

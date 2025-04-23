@@ -112,17 +112,15 @@ function getExistingEmails(task){
 }
 
 /**
- * Renders assigned users as styled initials with position offsets.
+ * Renders assigned users as styled initials with position offsets or a dot template if therer are more users assigned as four.
  * Returns empty string if no valid assignments exist.
  * 
  * @param {Object} task - The task object containing assignTo array
- * @returns {string} - HTML string of user initials
+ * @returns {HTMLElement} - Returns the HTML template to render at the board.
  */
 function renderAssignedUsers(task){
   let nr = 0;
   let existingEmail = getExistingEmails(task);
-  if (!existingEmail) return "";
-
   let initialsPosition = -24;
   return existingEmail.map((email) => {
       let user = usersFromApi.find((u) => u.email === email);
@@ -130,27 +128,55 @@ function renderAssignedUsers(task){
       if (user && nr <= 3){
         let initials = returnInitials(user.name);
         nr++;
-        return `<div class="contact-list-board-initals 
+        return getInitialsForBoardTemp(user, initialsPosition, initials);
+      } else if (user && nr == 4) {
+        let initials = "...";
+        nr++;
+        return getDotsForBoardTemp(initialsPosition, initials);
+      } else {
+        return
+      }
+    })
+    .join("");
+}
+
+
+/**
+ * Creates a template for the board tasks to show the assigned users.
+ * 
+ * @param {Object} user - The user object.
+ * @param {integer} initialsPosition - The absolute position var.
+ * @param {string} initials - The initials to display.
+ * @returns - Returns the initial template.
+ */
+function getInitialsForBoardTemp(user, initialsPosition, initials){
+  return `<div class="contact-list-board-initals 
                             initials-bg-color-${user.name
                               .charAt(0)
                               .toUpperCase()}"
                             style="left: ${initialsPosition}px">
                             ${initials}
                 </div>`;
-      } else if (user && nr == 4) {
-        let initials = "+";
-        nr++;
-        return `<div class="contact-list-board-initals 
-                            initials-bg-color-Plus"
-                            style="left: ${initialsPosition}px">
-                            ${initials}
-                </div>`;
-      } else {
-        return;
-      }
-    })
-    .join("");
 }
+
+
+/**
+ * 
+ * 
+ * @param {integer} initialsPosition - The absolute position.
+ * @param {string} initials - The dots to display.
+ * @returns - The dot template.
+ */
+function getDotsForBoardTemp(initialsPosition, initials){
+  return `<div class="contact-list-board-initals 
+  initials-bg-color-Plus"
+  style="left: ${initialsPosition}px">
+  ${initials}
+</div>`;
+}
+
+
+
 /**
  *  Generates HTML code for the priority icon based on the task's priority level.
  * 
