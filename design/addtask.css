@@ -2,20 +2,14 @@
 
 
 .main-content-addtask {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin-bottom: 300px;
 }
 
 .main-content-addtask {
-  scrollbar-width: none;
+  scrollbar-width: 0;
   -ms-overflow-style: none;
-  overflow: auto;
-}
-
-.main-content-addtask {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  overflow: auto;
 }
 
 .main-content-addtask::-webkit-scrollbar {
