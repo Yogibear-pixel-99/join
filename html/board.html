@@ -145,9 +145,7 @@
         <div class="top-board search-container-mobile">
           <h2 class="main-header hide-mobile-768">Board</h2>
           <div class="board-top-right board-search-bar-wrapper-mobile">
-            <!-- <div class="search-wrapper"> -->
-              <!-- <span class="search-error-message"></span> -->
-              <div class="find-task-wrapper">
+            <div class="find-task-wrapper">
               <input
                 onkeyup="searchForTask()"
                 class="board-search-bar"
@@ -163,8 +161,6 @@
                   <img class="search-logo" src="../assets/icons/search.svg" />
                 </div>
               </button>
-            <!-- </div> -->
-
             </div>
             <button
             onclick="openAddTaskOverlay('todo')"
@@ -179,7 +175,6 @@
         <div class="bottom-board bottom-board-tasks">
           <!-- 1) To do -->
           <div class="board-single-task-container column" data-status="todo">
-            
             <div class="board-task-header-container">
               <span>To do</span>
               <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('todo')">
@@ -241,7 +236,6 @@
               </div>
               </a>
             </div>
-            <span class="search-error-message" id="search-error-message"></span>
             <div id="boardToDoCard" class="board-rendered task-column" data-status="todo"></div>
           </div>
 

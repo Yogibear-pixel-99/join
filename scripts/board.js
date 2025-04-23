@@ -211,6 +211,8 @@ function getPriorityIconHTML(priority){
   }
   return "";
 }
+
+
 /**
  * This function searches for the respective task that is searched for in the search input field.
  * 
@@ -220,6 +222,7 @@ function searchForTask(){
   let inputTaskValue = inputTaskREF.value.toLowerCase();
   findTask(inputTaskValue);
 }
+
 
 /**
  * This function takes the value and searches for it in the title or description of the tasks. 
@@ -245,6 +248,7 @@ function findTask(inputTaskValue){
     }
   }
 }
+
 
 /**
  * Generates a complete HTML representation for a task card.
