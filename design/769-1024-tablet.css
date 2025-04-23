@@ -514,6 +514,10 @@ h1 {
 
 /* CONTACTS */
 
+.contacts-main {
+    background-color: white;
+}
+
 .contact-container-wrapper {
     max-height: calc(100dvh - 170px);
 }
