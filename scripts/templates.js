@@ -85,10 +85,11 @@ function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubT
                     <div class="task-description" id="titleDescription${task.id}">${task.description}</div>
                   </div>
                     ${allSubTasksNr != "" ? getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) : '<div class="d-none"></div>'}
-                <div class="task-meta-assignend-user-container"> 
-                <div class="task-meta">${priorityHTML}</div>
-                ${assignedHTML}
-            </div>
+                    
+                <div class="task-meta-assignend-user-container flex-ctr-spbtw"> 
+                    <div class="task-meta">${priorityHTML}</div>
+                    <div class="init-board-assigned">${assignedHTML}</div>
+                </div>
           </div>`;
 }
 

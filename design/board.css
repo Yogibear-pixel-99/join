@@ -353,7 +353,6 @@
   font-weight: 400;
   line-height: 120%;
   color: #666;
-  /* flex: 1; */
 }
 
 .task-meta-assignend-user-container {
@@ -363,12 +362,20 @@
   justify-content: space-between;
   align-items: center;
   height: 32px;
+  width: 100%;
 }
 
 .task-meta {
   display: flex;
-  gap: 16px; 
+  gap: 16px;
 }
+
+.init-board-assigned {
+  height: 32px;
+  width: 80%;
+  overflow: hidden;
+}
+
 
 .task-date, .task-priority {
   font-size: 12px;
