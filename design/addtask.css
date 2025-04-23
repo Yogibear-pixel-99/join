@@ -509,7 +509,7 @@ box-shadow: none;
 .hidden-date-input {
   visibility: hidden;
   position: absolute;
-  left: 0;
+  left: 60%;
 }
 
 .date-error-message {
