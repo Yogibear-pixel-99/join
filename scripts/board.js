@@ -231,6 +231,7 @@ function searchForTask(){
  * @param {String} inputTaskValue - The value that was typed in the search field
  */
 function findTask(inputTaskValue){
+  let foundAny = false;
   for (let index = 1; index < tasksFromApi.length + 1; index++){
     let titleTaskREF = document.getElementById("titleTask" + tasksFromApi[index-1].id);
     let descriptionTaskREF = document.getElementById("titleDescription" + tasksFromApi[index-1].id);
@@ -238,14 +239,25 @@ function findTask(inputTaskValue){
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
     if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)){
       titleTaskREF.parentElement.parentElement.classList.remove("d-none");
-      removeRedBorderAndTextFalseInput("find-task", "search-error-message")
+      foundAny = true;
     } else {
-      titleTaskREF.parentElement.parentElement.classList.add("d-none");
-      removeRedBorderAndTextFalseInput("find-task", "search-error-message")
+      titleTaskREF.parentElement.parentElement.classList.add("d-none"); 
     }
-    if (!titleTaskValue.includes(inputTaskValue) && !descriptionValue.includes(inputTaskValue)) {
-      searchError();
-    }
+  }
+  foundTasks(foundAny);
+}
+
+
+/**
+ * Shows error message if no tasks were found, otherwise clears error states.
+ * 
+ * @param {boolean} foundAny - Indicates whether matching tasks were found
+ */
+function foundTasks(foundAny) {
+  if (!foundAny) {
+    searchError();
+  } else {
+    removeRedBorderAndTextFalseInput("find-task", "search-error-message")
   }
 }
 
@@ -460,6 +472,11 @@ async function openTask(taskId){
 }
 
 
+/**
+ * This function is called when no matching tasks are found.
+ * It adds a red border to the search input and shows an error message.
+ * 
+ */
 function searchError() {
   addRedBorderAndTextFalseInput("find-task", "search-error-message", "No Task found!")
 }
