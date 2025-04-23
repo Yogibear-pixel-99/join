@@ -26,11 +26,11 @@
         /* GLOBAL */
 
         .hide-desktop-flex {
-            display: flex;
+            display: flex !important;
         }
 
         .hide-mobile-flex {
-            display: none;
+            display: none !important;
         }
     
         .main-content,
