@@ -106,6 +106,18 @@ input {
   outline: none;
 }
 
+.auto-margin-bottom {
+  margin-bottom: auto;
+}
+
+.hide-desktop-flex {
+  display: none;
+}
+
+.hide-mobile-flex {
+  display: flex;
+}
+
 .input-alert-message {
   font-family: poppins;
   font-size: 12px;

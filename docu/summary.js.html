@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: summary.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: summary.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Initialize the whol summary, getting user data and show greeting message.
+ */
+async function initSummary(){
+  await getUserSummaryInfo();
+  showGreeting();
+}
+
+
+/**
+ * Get user and task data from the api and load the summary.
+ */
+async function getUserSummaryInfo(){
+    await getDataFromServer("users", usersFromApi);
+    await getDataFromServer('tasks', tasksFromApi);
+    loadSummary();
+  }
+
+
+  /**
+   * Link to the board html site.
+   */
+function directToBoard(){
+  window.location.href = "../html/board.html";
+}
+
+
+/**
+ * Checks if user is logged in and calls the template for the summary.
+ */
+function loadSummary(){  
+  let mainSummaryREF = document.getElementById("summary-main");
+    
+  mainSummaryREF.innerHTML = summaryTemplate(getUserName(), getTime(), toDoCounter(), doneCounter(), inProgressCounter(), awaitFeedbackCounter(), urgentCounter(), getClosestDate());
+}
+
+
+/**
+ * Check if a user is logged in.
+ * 
+ * @returns - The name of the user or "guest" for the summary template.
+ */
+function getUserName(){
+   emailIndex = sessionStorage.getItem("indexOfUser"); 
+  let userName;
+  if (emailIndex === null){
+    userName = 'Guest';
+  } else {
+    userName = usersFromApi[emailIndex].name;
+  }
+  return userName;
+}
+
+
+/**
+ * Checks the actuall time.
+ * 
+ * @returns - A greeting message for the summary template, depending on the time.
+ */
+function getTime(){
+    let time = new Date().getHours();
+    let greeting;
+    if (time &lt; 15){
+        greeting = "Good morning";
+    } else if (time &lt;20){
+        greeting = "Good afternoon"
+    } else {
+        greeting = "Good evening "
+    }
+    return greeting;
+}
+
+
+/**
+ * Checks how many tasks are in the taskmenu todo.
+ * 
+ * @returns - The number of all todo tasks for the summary template.
+ */
+function toDoCounter(){
+    let toDoCounter = 0;
+    for (let task of tasksFromApi){
+      if(task.status === "todo")
+         {
+        toDoCounter++; 
+    }
+}
+  return toDoCounter;
+}
+
+
+/**
+ * Checks how man tasks are finished.
+ * 
+ * @returns - The number of all finished tasks for the summary template.
+ */
+function doneCounter(){
+  let doneCounter = 0;
+  for (let task of tasksFromApi){
+      if (task.status == "done"){
+          doneCounter++;
+      } 
+  }
+  return doneCounter;
+}
+
+
+/**
+ * Checks how many tasks are in progress.
+ * 
+ * @returns - The number of all in progress tasks for the summary template.
+ */
+function inProgressCounter(){
+  let inProgressCounter = 0;
+  for (let index = 0; index &lt; tasksFromApi.length; index++){
+      if (tasksFromApi[index].status == "inprogress"){
+        inProgressCounter++;
+      } 
+  }
+  return inProgressCounter;
+}
+
+
+/**
+ * Checks how many tasks are awaiting feedback.
+ * 
+ * @returns - The number of all awaiting feedback tasks for the summary template.
+ */
+function awaitFeedbackCounter(){
+  let awaitFeedbackCounter = 0;
+  for (let index = 0; index &lt; tasksFromApi.length; index++){
+      if (tasksFromApi[index].status == "awaitfeedback"){
+        awaitFeedbackCounter++;
+      } 
+  }
+  return awaitFeedbackCounter;
+}
+
+
+/**
+ * Checks how many tasks have the priority urgent.
+ * 
+ * @returns - The number of all priority urgent tasks for the summary template.
+ */
+function urgentCounter(){
+  let urgentCounter = 0;
+  for (let index = 0; index &lt; tasksFromApi.length; index++){
+      if (tasksFromApi[index].priority == "Urgent"){
+        urgentCounter++;
+      } 
+  }
+  return urgentCounter;
+}
+
+
+/**
+ * Gets all dates from the api, sort them and check the closest date for the next task to finish.
+ * 
+ * @returns - The closest date as a string.
+ */
+function getClosestDate(){
+  const months = [
+    "Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember"
+    ];
+  let sortedDateArray = tasksFromApi.map(element => element.date.split('/').reverse().join());
+      sortedDateArray = sortedDateArray.map(element => element.replace(/,/g, '')).sort((a, b) => a - b);
+  let newestDate = sortedDateArray[0];
+  let year = newestDate.slice(0, 4);
+  let month = months[getMonthNumber(newestDate.slice(4, 6)) - 1];
+  let day = newestDate.slice(6, 8);
+  return dateTemp(day, month, year);
+}
+
+
+/**
+ * Reduces the month to a integer, wich is used to get the month name from an array.
+ * 
+ * @param {integer} month 
+ * @returns - A integer to use for an arrayposition.
+ */
+function getMonthNumber(month){
+    if (month.charAt(0) === '0'){
+    month = month.replace('0', '');
+    return parseInt(month);
+  }
+}
+
+
+/**
+ * Creates a date template for the summary.
+ * 
+ * @param {integer} day 
+ * @param {string} month 
+ * @param {integer} year 
+ * @returns - Returns the date template.
+ */
+function dateTemp(day, month, year){
+  return `&lt;span>${month}&lt;/span>
+          &lt;span>${day},&lt;/span>
+          &lt;span>${year}&lt;/span>`
+}
+
+
+/**
+ * Checks if a user is logged in and calls a greeting function.
+ */
+function showGreeting(){
+  emailIndex = sessionStorage.getItem("indexOfUser");
+  let userName;
+  if (emailIndex === null){
+    userName = 'Guest';
+  } else {
+    userName = usersFromApi[emailIndex].name;
+  }
+  addGreetingAnimation(userName)
+}
+
+
+/**
+ * Checks the screen width and calls a greeting animation for the logged in user or a guest.
+ * 
+ * @param {string} userName - The name of the logged in user.
+ */
+function addGreetingAnimation(userName){
+  if (window.innerWidth &lt;= 1024){
+    let guestRef = document.getElementById('summary-greeting-overlay-guest');
+    let userRef = document.getElementById('summary-greeting-overlay-user');
+    userName !== 'Guest' &amp;&amp; userName ? showGreetingAnimation(userRef) : showGreetingAnimation(guestRef);
+  }
+}
+
+
+/**
+ * Displays the greeting animation.
+ * 
+ * @param {HTMLElement} userRef - The container to be displayed.
+ */
+function showGreetingAnimation(userRef){
+  userRef.classList.remove('d-none');
+      userRef.classList.add('summary-greeting-animation');
+      setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
+      setTimeout(() => {userRef.classList.add('d-none')}, 3000);
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBackgroundToSelectedContact">addBackgroundToSelectedContact</a></li><li><a href="global.html#addGreetingAnimation">addGreetingAnimation</a></li><li><a href="global.html#addMissingKeys">addMissingKeys</a></li><li><a href="global.html#addRedBorderAndTextFalseInput">addRedBorderAndTextFalseInput</a></li><li><a href="global.html#addRedBorderAndTextFalseInputAddTask">addRedBorderAndTextFalseInputAddTask</a></li><li><a href="global.html#addSelectedContact">addSelectedContact</a></li><li><a href="global.html#addSubtaskValueToArray">addSubtaskValueToArray</a></li><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#animateContactMenu">animateContactMenu</a></li><li><a href="global.html#awaitFeedbackCounter">awaitFeedbackCounter</a></li><li><a href="global.html#categoryRedBorder">categoryRedBorder</a></li><li><a href="global.html#changeLoginPasswordIcons">changeLoginPasswordIcons</a></li><li><a href="global.html#changePasswordIcon">changePasswordIcon</a></li><li><a href="global.html#changeSubTaskCheckedApi">changeSubTaskCheckedApi</a></li><li><a href="global.html#checkAddContactValidation">checkAddContactValidation</a></li><li><a href="global.html#checkArrayForNextFreeInteger">checkArrayForNextFreeInteger</a></li><li><a href="global.html#checkDateInput">checkDateInput</a></li><li><a href="global.html#checkDayAndMonth">checkDayAndMonth</a></li><li><a href="global.html#checkEmail">checkEmail</a></li><li><a href="global.html#checkEmptyColums">checkEmptyColums</a></li><li><a href="global.html#checkEmptyColumsExists">checkEmptyColumsExists</a></li><li><a href="global.html#checkIfDataAlreadyExists">checkIfDataAlreadyExists</a></li><li><a href="global.html#checkIfDateIsValid">checkIfDateIsValid</a></li><li><a href="global.html#checkIfPasswordIsSameAsConfirm">checkIfPasswordIsSameAsConfirm</a></li><li><a href="global.html#checkIfSubtaskIsDone">checkIfSubtaskIsDone</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#checkLoginButtonActive">checkLoginButtonActive</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkRememberMeButton">checkRememberMeButton</a></li><li><a href="global.html#checkSignUpValidation">checkSignUpValidation</a></li><li><a href="global.html#clearBoardColums">clearBoardColums</a></li><li><a href="global.html#clearSubtaskError">clearSubtaskError</a></li><li><a href="global.html#closeAssignedToDrop">closeAssignedToDrop</a></li><li><a href="global.html#closeCategDrop">closeCategDrop</a></li><li><a href="global.html#closeCategoryDropdown">closeCategoryDropdown</a></li><li><a href="global.html#closeFormDropdown">closeFormDropdown</a></li><li><a href="global.html#closeHeaderDropdownMenu">closeHeaderDropdownMenu</a></li><li><a href="global.html#closeMainDropdown">closeMainDropdown</a></li><li><a href="global.html#collectAllTaskInfos">collectAllTaskInfos</a></li><li><a href="global.html#collectAssingTo">collectAssingTo</a></li><li><a href="global.html#collectCategory">collectCategory</a></li><li><a href="global.html#collectFormInformation">collectFormInformation</a></li><li><a href="global.html#collectNewUserValuesAndPost">collectNewUserValuesAndPost</a></li><li><a href="global.html#collectSubTasks">collectSubTasks</a></li><li><a href="global.html#createNewContact">createNewContact</a></li><li><a href="global.html#createNewTask">createNewTask</a></li><li><a href="global.html#createTaskCard">createTaskCard</a></li><li><a href="global.html#dateRedBorder">dateRedBorder</a></li><li><a href="global.html#dateTemp">dateTemp</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#deleteDataFromApi">deleteDataFromApi</a></li><li><a href="global.html#deleteSubtask">deleteSubtask</a></li><li><a href="global.html#deleteSubtasksContent">deleteSubtasksContent</a></li><li><a href="global.html#directToBoard">directToBoard</a></li><li><a href="global.html#disableButton">disableButton</a></li><li><a href="global.html#displayDateError">displayDateError</a></li><li><a href="global.html#doneCounter">doneCounter</a></li><li><a href="global.html#dragend">dragend</a></li><li><a href="global.html#dragover">dragover</a></li><li><a href="global.html#dragstart">dragstart</a></li><li><a href="global.html#dropTask">dropTask</a></li><li><a href="global.html#emptyEditAddTaskOverlays">emptyEditAddTaskOverlays</a></li><li><a href="global.html#emptyFloatMenu">emptyFloatMenu</a></li><li><a href="global.html#enableButton">enableButton</a></li><li><a href="global.html#enterKeyAddSubtaskValueToArray">enterKeyAddSubtaskValueToArray</a></li><li><a href="global.html#fillBoardColums">fillBoardColums</a></li><li><a href="global.html#filterFetchedDataAndKey">filterFetchedDataAndKey</a></li><li><a href="global.html#findTask">findTask</a></li><li><a href="global.html#firstLetterContainerTemp">firstLetterContainerTemp</a></li><li><a href="global.html#focusSubtaskInputMenu">focusSubtaskInputMenu</a></li><li><a href="global.html#focusToSubtaskInput">focusToSubtaskInput</a></li><li><a href="global.html#getAddSubtaskError">getAddSubtaskError</a></li><li><a href="global.html#getAddTaskOverlayTemp">getAddTaskOverlayTemp</a></li><li><a href="global.html#getAllSubtasksLength">getAllSubtasksLength</a></li><li><a href="global.html#getAssignedUserInitials">getAssignedUserInitials</a></li><li><a href="global.html#getAssignedUserTaskOverlayTemp">getAssignedUserTaskOverlayTemp</a></li><li><a href="global.html#getClosestDate">getClosestDate</a></li><li><a href="global.html#getContactInfosToFetch">getContactInfosToFetch</a></li><li><a href="global.html#getDataFromServer">getDataFromServer</a></li><li><a href="global.html#getDoneSubtasksLength">getDoneSubtasksLength</a></li><li><a href="global.html#getDotsForBoardTemp">getDotsForBoardTemp</a></li><li><a href="global.html#getDropDownUserFilterdTemp">getDropDownUserFilterdTemp</a></li><li><a href="global.html#getDropDownUserTemp">getDropDownUserTemp</a></li><li><a href="global.html#getEditDeleteMobileMenuTemp">getEditDeleteMobileMenuTemp</a></li><li><a href="global.html#getEditTaskTemp">getEditTaskTemp</a></li><li><a href="global.html#getEmptyTaskTemplate">getEmptyTaskTemplate</a></li><li><a href="global.html#getExistingEmails">getExistingEmails</a></li><li><a href="global.html#getFilledSubtaskTemp">getFilledSubtaskTemp</a></li><li><a href="global.html#getInfosForEditMenu">getInfosForEditMenu</a></li><li><a href="global.html#getInitialsForBoardTemp">getInitialsForBoardTemp</a></li><li><a href="global.html#getMobileEditDeleteMenu">getMobileEditDeleteMenu</a></li><li><a href="global.html#getMonthNumber">getMonthNumber</a></li><li><a href="global.html#getNewContactTemp">getNewContactTemp</a></li><li><a href="global.html#getNewStatusInfo">getNewStatusInfo</a></li><li><a href="global.html#getNewUserTemp">getNewUserTemp</a></li><li><a href="global.html#getPriorityIconForTaskOverlay">getPriorityIconForTaskOverlay</a></li><li><a href="global.html#getPriorityIconHTML">getPriorityIconHTML</a></li><li><a href="global.html#getSingleContact">getSingleContact</a></li><li><a href="global.html#getSingleContactForFloatingMenuTemp">getSingleContactForFloatingMenuTemp</a></li><li><a href="global.html#getSingleContactTemp">getSingleContactTemp</a></li><li><a href="global.html#getSingleTaskCardForBoardTemp">getSingleTaskCardForBoardTemp</a></li><li><a href="global.html#getSubtaskForTaskOverlayTemp">getSubtaskForTaskOverlayTemp</a></li><li><a href="global.html#getSubtasksForTaskOverlay">getSubtasksForTaskOverlay</a></li><li><a href="global.html#getTaskAssignedUsers">getTaskAssignedUsers</a></li><li><a href="global.html#getTaskOverlayTemp">getTaskOverlayTemp</a></li><li><a href="global.html#getTheNextFreeIdNumberFromApi">getTheNextFreeIdNumberFromApi</a></li><li><a href="global.html#getTime">getTime</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserName">getUserName</a></li><li><a href="global.html#getUserSummaryInfo">getUserSummaryInfo</a></li><li><a href="global.html#handleCheckboxChange">handleCheckboxChange</a></li><li><a href="global.html#hideEmptyContentTasks">hideEmptyContentTasks</a></li><li><a href="global.html#hideOverlayButton">hideOverlayButton</a></li><li><a href="global.html#hideSubtasksInputMenu">hideSubtasksInputMenu</a></li><li><a href="global.html#inProgressCounter">inProgressCounter</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initSummary">initSummary</a></li><li><a href="global.html#loadAndRenderTasks">loadAndRenderTasks</a></li><li><a href="global.html#loadDropdown">loadDropdown</a></li><li><a href="global.html#loadSummary">loadSummary</a></li><li><a href="global.html#mainContentBrightness50">mainContentBrightness50</a></li><li><a href="global.html#noClose">noClose</a></li><li><a href="global.html#openAddTaskOverlay">openAddTaskOverlay</a></li><li><a href="global.html#openContactInFloatMenu">openContactInFloatMenu</a></li><li><a href="global.html#openEditContact">openEditContact</a></li><li><a href="global.html#openTask">openTask</a></li><li><a href="global.html#overlayDeleteTask">overlayDeleteTask</a></li><li><a href="global.html#overlayEditTask">overlayEditTask</a></li><li><a href="global.html#patchDataToApi">patchDataToApi</a></li><li><a href="global.html#patchTaskDataToApi">patchTaskDataToApi</a></li><li><a href="global.html#postContactToApiAndShowInMenu">postContactToApiAndShowInMenu</a></li><li><a href="global.html#postDataToApi">postDataToApi</a></li><li><a href="global.html#putDateToUserInput">putDateToUserInput</a></li><li><a href="global.html#redirectIfUserIsSaved">redirectIfUserIsSaved</a></li><li><a href="global.html#redirectToLogIn">redirectToLogIn</a></li><li><a href="global.html#redirectToLogInPage">redirectToLogInPage</a></li><li><a href="global.html#removeAndSetInititalsBackgroundColorClass">removeAndSetInititalsBackgroundColorClass</a></li><li><a href="global.html#removeRedBorderAndTextFalseInput">removeRedBorderAndTextFalseInput</a></li><li><a href="global.html#removeRedBorderAndTextFalseInputAddTask">removeRedBorderAndTextFalseInputAddTask</a></li><li><a href="global.html#removeSelectedContact">removeSelectedContact</a></li><li><a href="global.html#removeUserFromLocalStorage">removeUserFromLocalStorage</a></li><li><a href="global.html#renderAssignToDropdown">renderAssignToDropdown</a></li><li><a href="global.html#renderAssignedUsers">renderAssignedUsers</a></li><li><a href="global.html#renderBoard">renderBoard</a></li><li><a href="global.html#renderCategoryOptions">renderCategoryOptions</a></li><li><a href="global.html#renderContactsHeaderLetter">renderContactsHeaderLetter</a></li><li><a href="global.html#renderDropdownWithSearchResults">renderDropdownWithSearchResults</a></li><li><a href="global.html#renderExistingUsers">renderExistingUsers</a></li><li><a href="global.html#renderSubtaskTemp">renderSubtaskTemp</a></li><li><a href="global.html#resetAddContactForm">resetAddContactForm</a></li><li><a href="global.html#resetDateValue">resetDateValue</a></li><li><a href="global.html#resetForm">resetForm</a></li><li><a href="global.html#resetTaskApi">resetTaskApi</a></li><li><a href="global.html#returnInitials">returnInitials</a></li><li><a href="global.html#saveEditedContact">saveEditedContact</a></li><li><a href="global.html#scrollToNewContact">scrollToNewContact</a></li><li><a href="global.html#searchForTask">searchForTask</a></li><li><a href="global.html#selectCategory">selectCategory</a></li><li><a href="global.html#sessionStorageGuest">sessionStorageGuest</a></li><li><a href="global.html#setAssignedUsersToDropdown">setAssignedUsersToDropdown</a></li><li><a href="global.html#setDayToAddTaskDateInput">setDayToAddTaskDateInput</a></li><li><a href="global.html#setErrorMessageToLogin">setErrorMessageToLogin</a></li><li><a href="global.html#setGuestOrUserNavbar">setGuestOrUserNavbar</a></li><li><a href="global.html#setIconToContent">setIconToContent</a></li><li><a href="global.html#setInitialsToHeader">setInitialsToHeader</a></li><li><a href="global.html#setInitialsToNewContactContainer">setInitialsToNewContactContainer</a></li><li><a href="global.html#setMonthToAddTaskDateInput">setMonthToAddTaskDateInput</a></li><li><a href="global.html#setOnclickEditAndDeleteToButtons">setOnclickEditAndDeleteToButtons</a></li><li><a href="global.html#setPriorityButtonColor">setPriorityButtonColor</a></li><li><a href="global.html#setPriorityButtonContainer">setPriorityButtonContainer</a></li><li><a href="global.html#setYearToAddTaskDateInput">setYearToAddTaskDateInput</a></li><li><a href="global.html#showAddContactButtonInMobile">showAddContactButtonInMobile</a></li><li><a href="global.html#showContactAddedSuccessButton">showContactAddedSuccessButton</a></li><li><a href="global.html#showDatePicker">showDatePicker</a></li><li><a href="global.html#showGreeting">showGreeting</a></li><li><a href="global.html#showGreetingAnimation">showGreetingAnimation</a></li><li><a href="global.html#showHidePassword">showHidePassword</a></li><li><a href="global.html#showOverlayButton">showOverlayButton</a></li><li><a href="global.html#showSubtaskInEditOverlay">showSubtaskInEditOverlay</a></li><li><a href="global.html#showSubtasksInputMenu">showSubtasksInputMenu</a></li><li><a href="global.html#signUpNewUser">signUpNewUser</a></li><li><a href="global.html#sortAllContactsByFirstLetter">sortAllContactsByFirstLetter</a></li><li><a href="global.html#sortAndRenderContacts">sortAndRenderContacts</a></li><li><a href="global.html#sortDataFromApiAndGetFreeIdNumber">sortDataFromApiAndGetFreeIdNumber</a></li><li><a href="global.html#startSearchingContacts">startSearchingContacts</a></li><li><a href="global.html#summaryTemplate">summaryTemplate</a></li><li><a href="global.html#switchFloatingContactAndContactsInMobile">switchFloatingContactAndContactsInMobile</a></li><li><a href="global.html#switchToAllContactsMobile">switchToAllContactsMobile</a></li><li><a href="global.html#switchToSummary">switchToSummary</a></li><li><a href="global.html#titleRedBorder">titleRedBorder</a></li><li><a href="global.html#toDoCounter">toDoCounter</a></li><li><a href="global.html#toggleAddedButton">toggleAddedButton</a></li><li><a href="global.html#toggleAssignedDropdown">toggleAssignedDropdown</a></li><li><a href="global.html#toggleCategoryDropdown">toggleCategoryDropdown</a></li><li><a href="global.html#toggleClassToContainer">toggleClassToContainer</a></li><li><a href="global.html#toggleClasses">toggleClasses</a></li><li><a href="global.html#toggleEditDeleteContactMenuMobile">toggleEditDeleteContactMenuMobile</a></li><li><a href="global.html#toggleHeaderDropdownMenu">toggleHeaderDropdownMenu</a></li><li><a href="global.html#toggleOverlayMenu">toggleOverlayMenu</a></li><li><a href="global.html#toggleSaveEditedContactButton">toggleSaveEditedContactButton</a></li><li><a href="global.html#toggleSearchedUserSelection">toggleSearchedUserSelection</a></li><li><a href="global.html#toggleSignUpButton">toggleSignUpButton</a></li><li><a href="global.html#toggleUserSelection">toggleUserSelection</a></li><li><a href="global.html#turnZIndexToZero">turnZIndexToZero</a></li><li><a href="global.html#updateTask">updateTask</a></li><li><a href="global.html#urgentCounter">urgentCounter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Apr 23 2025 18:57:52 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

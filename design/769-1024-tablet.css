@@ -24,6 +24,14 @@
 @media (max-width: 1024px) {
   
         /* GLOBAL */
+
+        .hide-desktop-flex {
+            display: flex;
+        }
+
+        .hide-mobile-flex {
+            display: none;
+        }
     
         .main-content,
         .main-content-summary {
@@ -517,6 +525,10 @@ h1 {
 
 
 /* CONTACTS */
+
+.close-icon-contact-mobile-overlay {
+    transform: translate(0, -98px);
+}
 
 .contacts-main {
     background-color: white;
