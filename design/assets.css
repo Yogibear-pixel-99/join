@@ -97,6 +97,10 @@
   width: 100%;
 }
 
+.flex1 {
+  flex: 1;
+}
+
 button,
 input {
   outline: none;

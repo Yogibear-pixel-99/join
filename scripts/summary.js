@@ -192,7 +192,7 @@ function getMonthNumber(month){
  * @param {integer} day 
  * @param {string} month 
  * @param {integer} year 
- * @returns 
+ * @returns - Returns the date template.
  */
 function dateTemp(day, month, year){
   return `<span>${month}</span>

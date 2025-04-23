@@ -354,6 +354,11 @@
     width: 40px;
     height: 40px;
   }
+
+  .add-task-footer {
+    left: 240px;
+    right: 8px;
+  }
 }
 
 @media (max-height: 800px) {
