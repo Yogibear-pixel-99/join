@@ -225,32 +225,20 @@ function addGreetingAnimation(userName){
   if (window.innerWidth <= 1024){
     let guestRef = document.getElementById('summary-greeting-overlay-guest');
     let userRef = document.getElementById('summary-greeting-overlay-user');
-    userName !== 'Guest' && userName ? showUserGreetingAnimation(userRef) : showGuestGreetingAnimation(guestRef);
+    userName !== 'Guest' && userName ? showGreetingAnimation(userRef) : showGreetingAnimation(guestRef);
   }
 }
 
 
 /**
- * Displays the user name in the greeting animation.
+ * Displays the greeting animation.
  * 
  * @param {HTMLElement} userRef - The container to be displayed.
  */
-function showUserGreetingAnimation(userRef){
+function showGreetingAnimation(userRef){
   userRef.classList.remove('d-none');
       userRef.classList.add('summary-greeting-animation');
       setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
-      setTimeout(() => {userRef.classList.add('d-none')}, 3100);
+      setTimeout(() => {userRef.classList.add('d-none')}, 3000);
 }
 
-
-/**
- * Displays the name "guest" in the greeting animation.
- * 
- * @param {HTMLElement} guestRef - The container to be displayed.
- */
-function showGuestGreetingAnimation(guestRef){
-  guestRef.classList.remove('d-none');
-  guestRef.classList.add('summary-greeting-animation');
-  setTimeout(() => {guestRef.classList.remove('summary-greeting-animation')}, 3000);
-  setTimeout(() => {guestRef.classList.add('d-none')}, 3100);
-}
