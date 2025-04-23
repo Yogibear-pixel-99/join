@@ -189,20 +189,14 @@
 }
 
 .mobile-navbar {
-    /* position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0; */
     margin-top: auto;
     display: flex;
     justify-content: space-between;
     background-color: var(--join-dark);
-    /* z-index: 3000; */
     padding: 0 64px;
     height: 76px;
     align-items: center;
     z-index: 1900;
-    /* justify-self: flex-end; */
 }
 
 .mobile-navbar a{
@@ -417,6 +411,16 @@ h1 {
 
 /* ADD TASK */
 
+.add-task-main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-addtask {
+    overflow: auto;
+    margin-bottom: 40px;
+  }
+
 .add-task-header {
     max-width: 600px;
     margin-bottom: 32px;
@@ -425,6 +429,8 @@ h1 {
 
 .add-task-main-content {
     overflow-y: auto;
+    flex: 1;
+    max-height: calc(100dvh - 160px);
 }
 
 .add-task-form-content {
@@ -441,7 +447,7 @@ h1 {
     gap: 0;
     width: 100%;
     max-width: 600px;
-    margin-bottom: 165px;
+    margin-bottom: 0;
   }
 
   .info-input-field-container-left,
@@ -507,6 +513,10 @@ h1 {
 
 
 /* CONTACTS */
+
+.contact-container-wrapper {
+    max-height: calc(100dvh - 170px);
+}
 
 .main-content-contacts-mobile {
     padding: 0;
