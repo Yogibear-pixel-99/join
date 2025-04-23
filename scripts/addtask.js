@@ -255,9 +255,9 @@ function collectAssingTo(){
  * 
  * @param {string} category - The selected category 
  */
-function formDataCategory(category){
-  savedCategory = category;
-}
+// function formDataCategory(category){
+//   savedCategory = category;
+// }
 
 
 /**
@@ -279,16 +279,16 @@ function createNewTask(event){
   event.preventDefault();
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
-  let category = document.getElementById('categoryDropdown').value;
-  if (title === '' || dueDate === ''|| category === ''){
+  savedCategory = document.getElementById('categoryDropdown').value;
+  if (title === '' || dueDate === ''|| savedCategory === ''){
     event.preventDefault();  
     titleRedBorder(title);
     dateRedBorder(dueDate);
-    categoryRedBorder(category);
+    categoryRedBorder(savedCategory);
   } else {
     titleRedBorder(title);
     dateRedBorder(dueDate);
-    categoryRedBorder(category);
+    categoryRedBorder(savedCategory);
     addTask(event);
   }
 }
