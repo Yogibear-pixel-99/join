@@ -184,10 +184,10 @@ function handleCheckboxChange(event){
    * 
    * @param {string} category - The selected category.
    */
-  function selectCategory(category){
+  function selectCategory(category, event){
     selectedCategory = category;
     document.getElementById("categoryDropdown").value = category;
-    toggleCategoryDropdown();
+    toggleCategoryDropdown(event);
   }
 
 
@@ -241,7 +241,7 @@ function handleCheckboxChange(event){
       option.classList.add("dropdown-item");
       option.innerHTML = `
         <label onclick="formDataCategory('${category}')" class="category-item">
-        <div onclick="selectCategory('${category}')" class="category-itmen-names">
+        <div onclick="selectCategory('${category}', event)" class="category-itmen-names">
           <span>${category}</span>
         </div>
         </label>`;
