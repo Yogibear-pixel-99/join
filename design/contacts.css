@@ -1,4 +1,6 @@
-
+.main-content-contacts {
+    height: 100%;
+}
 
 .contacts-main {
     overflow-y: hidden;
@@ -88,6 +90,10 @@
 .contacts-first-letter,
 .single-contact {
     width: 100%;
+}
+
+.contacts-content {
+    margin-bottom: 80px;
 }
 
 .contacts-first-letter {
