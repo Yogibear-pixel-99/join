@@ -119,6 +119,7 @@ function getExistingEmails(task){
  * @returns {string} - HTML string of user initials
  */
 function renderAssignedUsers(task){
+  let nr = 0;
   let existingEmail = getExistingEmails(task);
   if (!existingEmail) return "";
 
@@ -126,8 +127,9 @@ function renderAssignedUsers(task){
   return existingEmail.map((email) => {
       let user = usersFromApi.find((u) => u.email === email);
       initialsPosition += 24;
-      if (user){
+      if (user && nr <= 3){
         let initials = returnInitials(user.name);
+        nr++;
         return `<div class="contact-list-board-initals 
                             initials-bg-color-${user.name
                               .charAt(0)
@@ -135,8 +137,16 @@ function renderAssignedUsers(task){
                             style="left: ${initialsPosition}px">
                             ${initials}
                 </div>`;
+      } else if (user && nr == 4) {
+        let initials = "+";
+        nr++;
+        return `<div class="contact-list-board-initals 
+                            initials-bg-color-Plus"
+                            style="left: ${initialsPosition}px">
+                            ${initials}
+                </div>`;
       } else {
-        return `<div class="contact-list-board-initals">??</div>`;
+        return;
       }
     })
     .join("");

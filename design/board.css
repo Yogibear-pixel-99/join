@@ -363,6 +363,7 @@
   align-items: center;
   height: 32px;
   width: 100%;
+  /* overflow: hidden; */
 }
 
 .task-meta {
@@ -372,7 +373,6 @@
 
 .init-board-assigned {
   height: 32px;
-  width: 80%;
   overflow: hidden;
 }
 
