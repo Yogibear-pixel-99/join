@@ -238,7 +238,7 @@ function handleCheckboxChange(event){
       let option = document.createElement("div");
       option.classList.add("dropdown-item");
       option.innerHTML = `
-        <label onclick="formDataCategory('${category}')" class="category-item">
+        <label class="category-item">
         <div onclick="selectCategory('${category}')" class="category-itmen-names">
           <span>${category}</span>
         </div>
