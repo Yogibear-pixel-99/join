@@ -111,11 +111,11 @@ input {
 }
 
 .hide-desktop-flex {
-  display: none;
+  display: none !important;
 }
 
 .hide-mobile-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .input-alert-message {
