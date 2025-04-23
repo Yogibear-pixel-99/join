@@ -253,18 +253,101 @@ margin-bottom: 20px;
 .add-task-header {
 margin-bottom: 20px;
 }
+.main-content-summary {
+  padding: 40px 20px;
+}
+
+.main-content-header-summary {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.line-summary-desktop {
+  display: none;
+}
+
+.line-summary-mobile {
+  display: block;
+  height: 3px;
+  width: 50px;
+}
+
+.bottom-top-summary,
+.bottom-middle-summary,
+.bottom-end-summary {
+  width: 90%;
+}
+
+.summary-wrapper {
+  gap: 20px;
+}
+
+.summary-wrapper h2{
+  font-size: 47px;
+  font-weight: 600;
+}
+
+.text-summary,
+.deadline-summary,
+.end-text-summary {
+  font-size: 14px;
+}
+
+.date-summary {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.to-do-summary,
+.done-summary,
+.urgent-summary,
+.bottom-end-left-box-summary,
+.bottom-end-middle-box-summary,
+.bottom-end-right-box-summary {
+  border-radius: 20px;
+  gap: 10px;
+  height: 110px;
+}
+
+.content-summary {
+  gap: 0;
+}
+
+.to-do-summary svg,
+.done-summary svg {
+  width: 40px;
+  height: 40px;
+}
+}
+
+
+@media (max-height: 800px) {
+
+
 
 }
 
 
 @media (max-height: 750px) {
 
+  .join-logo-navbar {
+    margin: 40px 66px 40px;
+  }
+
+  .navbar-link-container {
+    padding-top: 12px;
+  }
+
   .sign-up-join-logo {
       left: 33px;
       top: 33px;
   }
 
-
+.main-content-header-summary {
+  margin-bottom: 20px;
+}
 
 
 .sign-up-join-logo {
@@ -322,7 +405,9 @@ padding: 66px 16px 16px;
 
 
 @media (max-height: 650px) {
-  .test {
-    overflow-y: auto;
+
+  .main-log-in-container,
+  .main-content-summary {
+    overflow: scroll !important;
   }
 }
