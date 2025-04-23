@@ -121,6 +121,8 @@ function getExistingEmails(task){
 function renderAssignedUsers(task){
   let nr = 0;
   let existingEmail = getExistingEmails(task);
+  if (!existingEmail) return '';
+  
   let initialsPosition = -24;
   return existingEmail.map((email) => {
       let user = usersFromApi.find((u) => u.email === email);
@@ -134,7 +136,7 @@ function renderAssignedUsers(task){
         nr++;
         return getDotsForBoardTemp(initialsPosition, initials);
       } else {
-        return
+        return `<div class="contact-list-board-initals">??</div>`;
       }
     })
     .join("");

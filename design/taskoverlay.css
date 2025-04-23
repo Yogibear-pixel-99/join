@@ -52,6 +52,8 @@
 }
 
 .close-icon-wrapper {
+  min-width: 32px;
+  min-height: 32px;
     width: 32px;
     height: 32px;
 }

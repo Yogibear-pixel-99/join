@@ -34,11 +34,10 @@ async function getTaskAssignedUsers(task){
                     if (element.email === userEmail){
                         content += getAssignedUserTaskOverlayTemp(element.name, returnInitials(element.name));
                     }})}
-        if (content == '' || content == undefined){
-        return 'No user assigned to task!'; 
+                return content;
         } else {
-            return content;
-        }}
+            return 'No user assigned'
+        }
 }
 
 
