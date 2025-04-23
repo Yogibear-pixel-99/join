@@ -214,7 +214,7 @@ function getAddTaskOverlayTemp(){
               <div class="flex-col gap8">
                 <label for="searchInput">Assigned to</label>
                 <div class="custom-dropdown" id="customDropdown">
-                  <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
+                  <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" autocomplete="off" placeholder="Select contacts to assign" 
                   onkeyup="startSearchingContacts()"
                   onclick="toggleAssignedDropdown(); noClose(event)" />
                   <div onclick="noClose(event)" id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
@@ -412,7 +412,7 @@ function getEditTaskTemp(task){
             <div class="flex-col width-100p gap8">
               <label for="searchInput">Assigned to</label>
               <div class="custom-dropdown" id="customDropdown"> 
-                <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" placeholder="Select contacts to assign" 
+                <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" autocomplete="off" placeholder="Select contacts to assign" 
                 onkeyup="startSearchingContacts()"
                 onclick="toggleAssignedDropdown(); noClose(event)" />
                 <div onclick="noClose(event)" id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
