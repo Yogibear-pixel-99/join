@@ -391,9 +391,29 @@ function toggleEditDeleteContactMenuMobile(){
   const menuRef = document.getElementById('floating-edit-delete-wrapper-mobile');
   const maskRef = document.getElementById('floating-contact-mobile-mask');
   const mainRef = document.getElementById('main-container');
-        menuRef.classList.toggle('show-floating-edit-delete-wrapper-mobile');
-        maskRef.classList.toggle('d-none');
-        mainRef.classList.toggle('disable-pointer-events');
+  
+  if (menuRef.classList.contains('d-none')) {
+      menuRef.classList.remove('d-none');
+      setTimeout(() => {toggleClasses(menuRef, maskRef, mainRef), 100})
+  } else {
+    toggleClasses(menuRef, maskRef, mainRef);
+    setTimeout(() => {menuRef.classList.add('d-none')}, 300)
+  }
+
+}
+
+
+/**
+ * Toggles classes to toggle the edit/delete menu in floatin contacts menu.
+ * 
+ * @param {HTMLElement} menuRef - The menu element.
+ * @param {HTMLElement} maskRef - The mask element.
+ * @param {HTMLElement} mainRef - The main element.
+ */
+function toggleClasses(menuRef, maskRef, mainRef){
+  menuRef.classList.toggle('show-floating-edit-delete-wrapper-mobile');
+  maskRef.classList.toggle('d-none');
+  mainRef.classList.toggle('disable-pointer-events');
 }
 
 

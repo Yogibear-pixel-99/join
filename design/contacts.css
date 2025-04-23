@@ -36,7 +36,6 @@
     min-width: 456px;
     padding: 24px;
     background-color: white;
-    height: calc(100% - 96px);
     overflow-y: scroll !important;
     box-shadow: 4px 0px 6px 0px rgb(0, 0, 0, 0.08);
     transform: translateY(-4px);
@@ -292,7 +291,7 @@
 }
 
 .floating-edit-delete-wrapper-mobile {
-    display: none;
+    /* display: none; */
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -310,6 +309,7 @@
 
 .show-floating-edit-delete-wrapper-mobile {
     transform: translateX(0);
+    /* display: flex; */
 }
 
 .floating-edit-wrapper-mobile,
@@ -410,9 +410,9 @@
     display: flex;
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    height: 100vh;
+    width: 100vw;
     z-index: 1800;
 }
 
