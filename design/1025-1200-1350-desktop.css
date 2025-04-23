@@ -101,12 +101,14 @@
     
 /* GLOBAL */
 
-
 .main-content-summary,
 .main-content {
   padding: 40px;
 }
 
+.main-content-contacts {
+  padding: 0;
+}
 .add-task-footer {
   right: 40px;
 }
@@ -139,7 +141,7 @@
 /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
-    padding: 0 0 40px 40px;
+    padding: 40px 0 40px 40px;
 }
 
 
@@ -204,3 +206,23 @@
 1025px — 1200px: Desktops, large screens
 1201px and more —  Extra large screens, TV */
 
+@media (max-width: 1150px) {
+
+  .bottom-board {
+    gap: 8px;
+  }
+
+  .main-content,
+  .main-content-summary {
+    padding: 20px;
+  }
+
+  .main-content-contacts {
+    padding: 0;
+  }
+
+  .floating-contact-container-wrapper {
+    padding: 20px;
+  }
+
+}
