@@ -417,9 +417,9 @@ h1 {
 }
 
 .main-content-addtask {
-    overflow: auto;
     margin-bottom: 40px;
   }
+
 
 .add-task-header {
     max-width: 600px;
