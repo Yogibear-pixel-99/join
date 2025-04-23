@@ -31,7 +31,9 @@
             width: 100vw;
         }
 
-        
+        .dropdown-menu {
+            top: 76px;
+        }
     
         /* ASSETS */
 

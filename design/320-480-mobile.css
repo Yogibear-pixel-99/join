@@ -424,11 +424,3 @@
 }
 
 }
-
-
-@media (max-height: 650px) {
-  .main-log-in-container,
-  .main-content-summary {
-    overflow-y: scroll !important;
-  }
-}

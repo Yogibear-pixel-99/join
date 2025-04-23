@@ -144,22 +144,6 @@ function justLetters(event) {
 
 
 /**
- * Toggles the dropdown menu in the header if click on the initials button.
- */
-function openHeaderDropdownMenu(){
-    let dropdownREF = document.getElementById("dropdown");
-    dropdownREF.classList.remove("d-none");
-}
-/**
- * Toggles the dropdown menu in the header if click on the initials button.
- */
-function closeHeaderDropdownMenu(){
-    let dropdownREF = document.getElementById("dropdown");
-    dropdownREF.classList.add("d-none");
-}
-
-
-/**
  * Stopps event bubbling.
  * 
  * @param {Object} event - The standard event.
