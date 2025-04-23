@@ -18,6 +18,8 @@ async function signUpNewUser(event){
     await collectNewUserValuesAndPost();
   }
 }
+
+
 // User/email already exists. Please try again
 
 /**
