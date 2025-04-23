@@ -47,7 +47,7 @@
   /*MOBILE-NAVBAR */
 
   .mobile-navbar {
-    padding: 0 8px;
+    padding: 0 2px;
   }
 
   .contact-container-wrapper {
@@ -154,6 +154,10 @@
 
   .close-icon-contact-mobile-overlay {
     transform: translate(0, -98px);
+}
+
+.main-content-board {
+  padding: 2px !important;
 }
 
 }
