@@ -53,6 +53,10 @@
 
         /* LOGIN */
 
+.main-log-in-container {
+    justify-content: flex-end;
+}
+
         .remember-wrapper {
             margin-top: 16px;
         }
