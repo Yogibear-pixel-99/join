@@ -28,6 +28,7 @@
     padding: 80px 40px;
 }
 
+
 .main-content-header {
     flex-direction: column;
     height: auto;
@@ -139,6 +140,14 @@
 
 
 /* CONTACTS FLOAT */
+
+.contact-container-wrapper {
+  min-width: 360px;
+}
+
+.add-contact-button-desktop {
+  width: 300px;
+}
 
 .floating-contact-container-wrapper {
     padding: 40px 0 40px 40px;
