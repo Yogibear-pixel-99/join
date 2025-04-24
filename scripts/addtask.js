@@ -35,15 +35,6 @@ function setPriorityButtonColor(selected){
     }
   }
 
-  function assignedToDots(user) {
-    if (assignedToContact > 7) {
-      let initials = "...";
-      return getDotsForAssignedTemp(initials)
-    } else {
-      return getAssignedUserInitials(user)
-    }
-  }
-
 
   /**
    * Creates a template to display the selected user initials.
@@ -55,15 +46,6 @@ function setPriorityButtonColor(selected){
     return `<div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">
           ${returnInitials(user.name)}
         </div>`;
-  }
-
-  function getDotsForAssignedTemp( initials){
-    if (assignedToContact == 7) {
-      return `<div class="contact-list-initals
-      initials-bg-color-Plus"
-      ${initials}
-    </div>`;
-    }
   }
   
 
