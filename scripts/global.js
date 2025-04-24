@@ -24,6 +24,7 @@ const guestLoginREF = document.getElementById("guest-login");
 
 
 let emailIndex = -1;
+let assignedToContact = 0;
 
 
 const staticCategories = ["Technical Task", "User Story"];
