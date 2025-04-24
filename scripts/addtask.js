@@ -81,6 +81,8 @@ function checkIfDateIsValid(){
       dateNow = dateNow.setHours(0, 0, 0, 0)
    if (wholeUserDate < dateNow){
     displayDateError('Date musst be in the future');
+  } else {
+    removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
   }}
 }
 
@@ -93,9 +95,12 @@ function checkIfDateIsValid(){
 function displayDateError(errorText){
   let errorRef = document.getElementById('date-error-message');
   let userInput = document.getElementById('due-date');
+  let contentRef = document.getElementById("due-date");
   errorRef.innerText = errorText;
-setTimeout(() => {userInput.value = ''}, 3000);
-setTimeout(() => {errorRef.innerText = ''}, 3000);
+  contentRef.classList.add('red-border-inputfield');
+  setTimeout(() => {userInput.value = ''}, 100);
+/* setTimeout(() => {errorRef.innerText = ''}, 1000); */
+
 }
 
 
@@ -283,7 +288,7 @@ function createNewTask(event){
   let dueDate = document.getElementById('due-date').value;
   savedCategory = document.getElementById('categoryDropdown').value;
   getTaskStatus();
-  if (title === '' || dueDate === ''|| savedCategory === ''){
+  if (title.trim() == '' || dueDate == ''|| savedCategory == ''){
     event.preventDefault();  
     titleRedBorder(title);
     dateRedBorder(dueDate);
@@ -330,7 +335,7 @@ function blockButton() {
  * 
  */
 function titleRedBorder(title){
-  if (title == ''){
+  if (title.trim() == ''){
     addRedBorderAndTextFalseInputAddTask(
       "form-title",
       "title-error-message",

@@ -61,7 +61,7 @@ function showSubtasksInputMenu(){
     const userInput = subtaskInput.value;
     if ((allSubtasks.length != 0) && (allSubtasks.some((element) => element === userInput))){
       getAddSubtaskError(subtaskInput, 'Subtask already exists');
-    }  else if (userInput == ""){
+    }  else if (userInput.trim() == ""){
       getAddSubtaskError(subtaskInput, 'Type in a subtask');
     } else {
       subtaskOutput.innerHTML += renderSubtaskTemp(userInput);
