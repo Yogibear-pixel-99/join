@@ -26,11 +26,21 @@ function setPriorityButtonColor(selected){
     let userEmail = user.email;
     let existing = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
     if (!existing){
+      assignedToContact++;
       let selectedDiv = document.createElement("div");
       selectedDiv.classList.add("selected-contact");
       selectedDiv.setAttribute("data-user-id", userEmail);
       selectedDiv.innerHTML = getAssignedUserInitials(user);
       container.appendChild(selectedDiv);
+    }
+  }
+
+  function assignedToDots(user) {
+    if (assignedToContact > 7) {
+      let initials = "...";
+      return getDotsForAssignedTemp(initials)
+    } else {
+      return getAssignedUserInitials(user)
     }
   }
 
@@ -46,6 +56,15 @@ function setPriorityButtonColor(selected){
           ${returnInitials(user.name)}
         </div>`;
   }
+
+  function getDotsForAssignedTemp( initials){
+    if (assignedToContact == 7) {
+      return `<div class="contact-list-initals
+      initials-bg-color-Plus"
+      ${initials}
+    </div>`;
+    }
+  }
   
 
   /**
@@ -57,6 +76,7 @@ function setPriorityButtonColor(selected){
     let container = document.getElementById("addSelectedContacts");
     let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
     if (existingDiv){
+      assignedToContact = assignedToContact-1;
       existingDiv.remove();
     }
   }
