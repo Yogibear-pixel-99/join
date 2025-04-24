@@ -147,7 +147,8 @@ function animateContactMenu(){
  * @param {object} event - Default object to prevent the form to refresh the page.
  */
 async function createNewContact(event){
-  event.preventDefault(); 
+  event.preventDefault();
+  if (checkContactFormValidation('user-email-input', 'phone-input', 'add-contact-error')) {
   await getNewContactTemp();
   collectFormInformation("new-contact-form");
   if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
@@ -157,6 +158,32 @@ async function createNewContact(event){
     await postContactToApiAndShowInMenu();
     removeAndSetInititalsBackgroundColorClass('', 'edit-contact-overlay-initials-wrapper');
   }
+}}
+
+
+/**
+ * Checks the validation of the add/edit contact form
+ * 
+ * @param {string} formEmailId - The id of the form container
+ * @param {string} formPhoneId - The id of the form container
+ * @returns - Returns a boolean.
+ */
+function checkContactFormValidation(formEmailId, formPhoneId, errorId){
+  let emailRef = document.getElementById(formEmailId);
+  let phoneRef = document.getElementById(formPhoneId);
+  let phoneRegEx = /^\+?\d+$/;
+  let emailRegEx = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/
+      if (!phoneRegEx.test(phoneRef.value)) {
+        addRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
+        setTimeout(() => {removeRedBorderAndTextFalseInput(formPhoneId, errorId)}, 3000);
+        return false;
+      }
+      if (!emailRegEx.test(emailRef.value)){
+        addRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address', 'Not a valid email address');
+        setTimeout(() => {removeRedBorderAndTextFalseInput(formEmailId, errorId)}, 3000);
+        return false;
+      } 
+  return true;
 }
 
 
@@ -314,6 +341,7 @@ function toggleSaveEditedContactButton(){
  */
 async function saveEditedContact(event, contactKey){
   event.preventDefault();
+  if (checkContactFormValidation('edit-user-email-input', 'edit-user-phone-input', 'edit-contact-error')){
   getContactInfosToFetch();
   await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
   await sortAndRenderContacts();
@@ -323,7 +351,7 @@ async function saveEditedContact(event, contactKey){
   closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   scrollToNewContact(`contact-${editedContact.id}`);
   openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
-}
+}}
 
 
 /**
