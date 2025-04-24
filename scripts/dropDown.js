@@ -134,8 +134,6 @@ async function loadDropdown(){
   function toggleUserSelection(userEmail){
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
-    console.log(usersFromApi[1]);
-    
     user.isSelected = !user.isSelected;
     renderAssignToDropdown();
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
