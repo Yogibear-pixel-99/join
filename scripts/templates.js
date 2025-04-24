@@ -58,8 +58,7 @@ async function getEmptyTaskTemplate(){
     date: "",
     priority: "",
     assignTo: [],
-    subtasks: [],
-    id: `${await getTheNextFreeIdNumberFromApi("tasks")}`,
+    subtasks: []
   };
 }
 
@@ -86,7 +85,7 @@ function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubT
                     <div class="task-description" id="titleDescription${task.id}">${task.description}</div>
                   </div>
                     ${allSubTasksNr != "" ? getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) : '<div class="d-none"></div>'}
-                    
+
                 <div class="task-meta-assignend-user-container flex-ctr-spbtw"> 
                     <div class="task-meta">${priorityHTML}</div>
                     <div class="init-board-assigned">${assignedHTML}</div>
