@@ -207,8 +207,8 @@
         },
         { "subtaskName": "Start Page Layout",
           "finished": false}
-      ],
-      "id": "1"
+      ]
+
     },
 
     {
@@ -230,8 +230,7 @@
       { "subtaskName": "Subtask 2",
         "finished": true},
         { "subtaskName": "Subtask 3",
-        "finished": false}],
-      "id": "2"
+        "finished": false}]
     },
 
     {
@@ -246,8 +245,7 @@
         {"subtaskName" : "Establish CSS Methodology",
           "finished": true}, 
           {"subtaskName" :"Setup Base Styles",
-          "finished" : false}],
-      "id": "3"
+          "finished" : false}]
     },
 
     {
@@ -265,8 +263,7 @@
       { "subtaskName": "Subtask 2",
         "finished": true},
         { "subtaskName": "Subtask 3",
-        "finished": false}],
-      "id": "4"
+        "finished": false}]
     },
 
     {
@@ -286,8 +283,28 @@
         { "subtaskName": "Subtask 3",
         "finished": false},
         { "subtaskName": "Subtask 4",
-        "finished": true}],
-      "id": "5"
+        "finished": true}]
+    },
+
+    {
+      "status": "todo",
+      "category": "User Story",
+      "title": "Join",
+      "description": "Create a kanban board",
+      "date": "22/08/2025",
+      "priority": "Urgent",
+      "assignTo": ["sofia@mueller.com", "bart@springfield.com"],
+      "subtasks": [ {
+        "subtaskName": "Subtask 1",
+        "finished": false
+      },
+      { "subtaskName": "login",
+        "finished": true},
+        { "subtaskName": "sign up",
+        "finished": false},
+        { "subtaskName": "board",
+        "finished": true}]
     }
+
   ]
 }

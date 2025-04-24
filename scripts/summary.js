@@ -158,6 +158,7 @@ function urgentCounter(){
  * @returns - The closest date as a string.
  */
 function getClosestDate(){
+  if (tasksFromApi.length != 0) {
   const months = [
     "Januar", "Februar", "März", "April", "Mai", "Juni",
     "Juli", "August", "September", "Oktober", "November", "Dezember"
@@ -169,7 +170,9 @@ function getClosestDate(){
   let month = months[getMonthNumber(newestDate.slice(4, 6)) - 1];
   let day = newestDate.slice(6, 8);
   return dateTemp(day, month, year);
-}
+} else {
+  return "No task to finish"
+}}
 
 
 /**
