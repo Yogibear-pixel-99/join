@@ -456,15 +456,15 @@ function openAddTaskOverlay(addTaskLocation){
  * Opens the overlay for a specific task.
  * Loads the latest data from the server and renders the overlay.
  * 
- * @param {string} taskId - The ID of the task to display.
+ * @param {string} taskApiKey - The ID of the task to display.
  */
-async function openTask(taskId){
+async function openTask(taskApiKey){
   emptyEditAddTaskOverlays();
   let addTaskRef = document.getElementById('addtask-content');
       addTaskRef.innerHTML = '';
   let taskRef = document.getElementById('task-overlay-menu');
   await getDataFromServer("tasks", tasksFromApi);
-  let task = tasksFromApi.find(element => element.id === taskId);
+  let task = tasksFromApi.find(element => element.apiKey === taskApiKey);
   addMissingKeys(task, 'assignTo', []);
   addMissingKeys(task, 'subtasks', []);
   taskRef.innerHTML = await getTaskOverlayTemp(task);

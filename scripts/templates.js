@@ -77,7 +77,7 @@ async function getEmptyTaskTemplate(){
 function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubTasksNr, doneSubTasksNr){
   return `<div class="task-card" 
               id="task-${task.title.replace(/\s+/g, "-")}" 
-              onclick="openTask('${task.id}')" 
+              onclick="openTask('${task.apiKey}')" 
               draggable="true" 
               data-status="${task.status}">
                   <span class="task-type task-color-${task.category.charAt(0).toUpperCase()}">${task.category}</span>

@@ -141,6 +141,7 @@
   color: var(--join-board-text-color);
   font-size: 20px;
   font-weight: 700;
+  min-height: 25px;
 }
 
 .board-add-task-icon-wrapper {
