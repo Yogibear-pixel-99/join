@@ -36,6 +36,7 @@ function renderBoard(){
   checkEmptyColums(todo, prog, feed, done);
 }
 
+
 /**
  * This function empties the columns
  * 
@@ -92,6 +93,7 @@ function checkEmptyColums(todo, prog, feed, done){
     done.innerHTML = `<div class="no-tasks">No tasks done</div>`;
   }
 }
+
 
 /**
  * Filters assigned emails to only include those existing in the usersFromApi array.
@@ -246,6 +248,9 @@ function findTask(inputTaskValue){
   }
   foundTasks(foundAny);
 }
+
+
+// Search all tasks
 
 
 /**
