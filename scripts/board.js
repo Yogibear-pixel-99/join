@@ -246,6 +246,7 @@ function findTask(inputTaskValue){
       titleTaskREF.parentElement.parentElement.classList.add("d-none"); 
     }
   }
+  getAllBoards()
   foundTasks(foundAny);
 }
 
@@ -484,4 +485,42 @@ async function openTask(taskApiKey){
  */
 function searchError() {
   addRedBorderAndTextFalseInput("find-task", "search-error-message", "No Task found!")
+}
+
+
+/**
+ * Checks all board containers for empty states and displays "No tasks" messages if needed.
+ * Runs the empty check for To Do, In Progress, Await Feedback, and Done boards.
+ */
+function getAllBoards() {
+  let todo = document.getElementById("boardToDoCard");
+  let prog = document.getElementById("boardInprogressCard");
+  let feed = document.getElementById("boardAwaitFeedbackCard");
+  let done = document.getElementById("boardDoneCard");
+
+  checkEmptyBoard(todo);
+  checkEmptyBoard(prog);
+  checkEmptyBoard(feed);
+  checkEmptyBoard(done);
+}
+
+
+/**
+ * Checks if all task cards in the container are hidden.
+ * Shows or removes a "No tasks found" message accordingly.
+ * 
+ * @param {HTMLElement} container - The board container element
+ */
+function checkEmptyBoard(container) {
+  let allDivs = container.querySelectorAll(':scope > div:not(.no-task-search)');
+  let existingMessage = container.querySelector('.no-task-search');
+  if (Array.from(allDivs).every(div => div.classList.contains('d-none'))) {
+    if (!existingMessage) {
+      container.innerHTML += `<div class="no-task-search">No tasks found</div>`;
+    }
+  } else {
+    if (existingMessage) {
+      existingMessage.remove();
+    }
+  }
 }
