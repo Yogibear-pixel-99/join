@@ -233,8 +233,8 @@ function searchForTask(){
 function findTask(inputTaskValue){
   let foundAny = false;
   for (let index = 1; index < tasksFromApi.length + 1; index++){
-    let titleTaskREF = document.getElementById("titleTask" + tasksFromApi[index-1].id);
-    let descriptionTaskREF = document.getElementById("titleDescription" + tasksFromApi[index-1].id);
+    let titleTaskREF = document.getElementById("titleTask" + tasksFromApi[index-1].apiKey);
+    let descriptionTaskREF = document.getElementById("titleDescription" + tasksFromApi[index-1].apiKey);
     let titleTaskValue = titleTaskREF.innerText.toLowerCase();
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
     if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)){

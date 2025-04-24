@@ -81,8 +81,8 @@ function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubT
               data-status="${task.status}">
                   <span class="task-type task-color-${task.category.charAt(0).toUpperCase()}">${task.category}</span>
                   <div class="task-title-description-wrapper">
-                    <div class="task-title" id="titleTask${task.id}">${task.title}</div>
-                    <div class="task-description" id="titleDescription${task.id}">${task.description}</div>
+                    <div class="task-title" id="titleTask${task.apiKey}">${task.title}</div>
+                    <div class="task-description" id="titleDescription${task.apiKey}">${task.description}</div>
                   </div>
                     ${allSubTasksNr != "" ? getFilledSubtaskTemp(allSubTasksNr, doneSubTasksNr) : '<div class="d-none"></div>'}
 
