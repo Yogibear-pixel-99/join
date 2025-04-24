@@ -157,9 +157,10 @@ function showSubtaskInEditOverlay(task){
  * @param {object} event - Default object to prevent the form to refresh the page.
  * @param {string} apiKey - The api key to update the selected task in the api. 
  */
-async function updateTask(event, apiKey){
+async function updateTask(event, apiKey, status){
     event.preventDefault();
     let taskRef = document.getElementById('task-overlay-menu');
+    addTaskStatus = status;
     await collectAllTaskInfos();
     await patchDataToApi(`tasks/${apiKey}/`, collectedFormInfos);
     await getDataFromServer("tasks", tasksFromApi);
