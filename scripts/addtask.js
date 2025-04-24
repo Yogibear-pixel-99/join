@@ -282,6 +282,7 @@ function createNewTask(event){
   let title = document.getElementById('form-title').value;
   let dueDate = document.getElementById('due-date').value;
   savedCategory = document.getElementById('categoryDropdown').value;
+  getTaskStatus();
   if (title === '' || dueDate === ''|| savedCategory === ''){
     event.preventDefault();  
     titleRedBorder(title);
@@ -293,6 +294,19 @@ function createNewTask(event){
     categoryRedBorder(savedCategory);
     blockButton();
     addTask(event);
+  }
+}
+
+
+/**
+ * Gets the data status from the session storage.
+ */
+function getTaskStatus(){
+  let data = sessionStorage.getItem('taskStatus');
+  if (data === null) {
+    addTaskStatus = "todo";
+  } else {
+    addTaskStatus = data;
   }
 }
 
@@ -410,4 +424,9 @@ function clearAssignedTo() {
       renderAssignToDropdown()
     }
   }
+}
+
+
+function setStatusToAddTask(status){
+  sessionStorage.setItem('taskStatus', status);
 }
