@@ -409,18 +409,19 @@
   border: solid 1px #FFFFFF;
 }
 
-.board-rendered {
-  overflow: auto;
+.task-column {
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
+  scrollbar-width: thin
 }
 
-.board-rendered {
-  scrollbar-width: none;      
-  -ms-overflow-style: none;   
-  &::-webkit-scrollbar {
-    display: none;            
-  }
-  overflow: auto;             
+.task-column::-webkit-scrollbar-button {
+  display: none;
+}
+
+.task-column::-webkit-scrollbar {
+  width: 6px;
 }
 
 .board-header-hide-desktop {

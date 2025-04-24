@@ -69,7 +69,7 @@ body {
   font-family: inter;
   overflow: hidden;
   height: 100dvh;
-  max-width: 1920px;
+  /* max-width: 1920px; */
   box-sizing: border-box;
 }
 
@@ -87,6 +87,7 @@ body {
     flex-direction: column;
     padding: 80px;
     background-color: var(--main-background);
+    max-width: calc(1920px - 232px);
 }
 
 
