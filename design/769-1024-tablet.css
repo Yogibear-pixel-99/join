@@ -25,6 +25,11 @@
   
         /* GLOBAL */
 
+        .error-message {
+            text-align: center;
+            padding-left: 0;
+        }
+
         .hide-desktop-flex {
             display: flex !important;
         }
