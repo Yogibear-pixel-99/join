@@ -150,7 +150,7 @@ function renderExistingUsers(existingEmail, initialsPosition, nr) {
       nr++;
       return getDotsForBoardTemp(initialsPosition, initials);
     } else {
-      return `<div class="contact-list-board-initals">??</div>`;
+      return ``;
     }
   })
   .join("");
