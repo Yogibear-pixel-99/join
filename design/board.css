@@ -456,3 +456,12 @@
   gap: 10px;
 }
 
+.task-type-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.drag-and-drop-mobile {
+  display: none;
+}

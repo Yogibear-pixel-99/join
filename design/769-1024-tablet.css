@@ -425,7 +425,13 @@ h1 {
     width: 100%;
   }
 
+.drag-and-drop-mobile {
+    display: block;
+}
 
+.drag-and-drop-mobile:hover {
+    cursor: pointer;
+}
 /* ADD TASK */
 
 .add-task-main-container {

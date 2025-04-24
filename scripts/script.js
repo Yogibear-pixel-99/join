@@ -236,7 +236,7 @@ function closeOverlayMenu(overlayId, maskId){
       overlay.classList.add('standard-overlay-hide');
       mask.classList.add('d-none');
       mainContent.classList.remove('disable-pointer-events');
-      setTimeout(() => {overlay.classList.add('d-none')}, 400);
+      setTimeout(() => {overlay.classList.add('d-none')}, 200);
 }
 
 
