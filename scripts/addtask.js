@@ -289,10 +289,22 @@ function createNewTask(event){
     titleRedBorder(title);
     dateRedBorder(dueDate);
     categoryRedBorder(savedCategory);
+    blockButton();
     addTask(event);
   }
 }
 
+
+/**
+ * Disables the "Create Task" button by removing its click event handler.
+ * 
+ * This function sets the 'onclick' property of the button to null,
+ * effectively blocking any user interaction via clicking.
+ */
+function blockButton() {
+  let createTaskButtonREF = document.getElementById("create-task-button");
+  createTaskButtonREF.onclick = null; 
+}
 
 /**
  * This function checks whether the title field is empty. If it is empty, it is displayed in red
@@ -379,4 +391,21 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
   const textRef = document.getElementById(messageContainer);
         contentRef.classList.remove('red-border-inputfield');
         textRef.innerHTML = '';
+}
+
+
+/**
+ * This function resets the assigned users list and toggles the selection state 
+ * of any previously selected users in the data source.
+ * 
+ */
+function clearAssignedTo() {
+  const assignedUsersREF = document.getElementById("addSelectedContacts");
+  assignedUsersREF.innerHTML = "";
+  for (let index = 0; index < usersFromApi.length; index++) {
+    if(usersFromApi[index].isSelected) {
+      usersFromApi[index].isSelected = !usersFromApi[index].isSelected;
+      renderAssignToDropdown()
+    }
+  }
 }

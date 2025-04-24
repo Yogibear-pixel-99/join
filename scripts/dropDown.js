@@ -66,22 +66,20 @@ async function loadDropdown(){
   /**
  * Closes the dropdowns when clicking outside the dropdown (assigned-to and category).
  * 
- * @param {Event} event - The click event triggering the closure.
  */
-  function closeFormDropdown(event) {
+  function closeFormDropdown() {
   let dropdown = document.getElementById("dropdownContent");
   if (dropdown) {
-    closeAssignedToDrop(event)
-    closeCategDrop(event);
+    closeAssignedToDrop()
+    closeCategDrop();
   }
   }
 
   /**
  * Closes the assigned-to dropdown when clicking outside the dropdown
  * 
- * @param {Event} event - The click event triggering the closure.
  */
-  function closeAssignedToDrop(event) {
+  function closeAssignedToDrop() {
     let dropdown = document.getElementById("dropdownContent");
     if (!dropdown.classList.contains("d-none")){
       toggleAssignedDropdown()
@@ -90,9 +88,8 @@ async function loadDropdown(){
 /**
  * Closes the category dropdown when clicking outside the dropdown
  * 
- * @param {Event} event - The click event triggering the closure.
  */
-  function closeCategDrop(event) {
+  function closeCategDrop() {
     let dropdown = document.getElementById("categoryDropdownContent");
     if (!dropdown.classList.contains("d-none")){
       toggleCategoryDropdown();
@@ -137,6 +134,8 @@ async function loadDropdown(){
   function toggleUserSelection(userEmail){
     let user = usersFromApi.find(u => u.email === userEmail);
     if (!user) return;
+    console.log(usersFromApi[1]);
+    
     user.isSelected = !user.isSelected;
     renderAssignToDropdown();
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
