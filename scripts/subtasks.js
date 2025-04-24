@@ -115,6 +115,19 @@ function showSubtasksInputMenu(){
         ref.focus();
   }
   
+
+/**
+ * Checks the value of the input field and deletes it if its empty.
+ * 
+ * @param {HTMLElement} ref 
+ * @param {string} subtask - The name of the subtask.
+ */
+function deleteSubtaskIfEmpty(ref, subtask){
+      if (ref.value == ''){
+        deleteSubtask(subtask);
+      }
+}
+
   
 /**
  * This function extracts the subtasks and inserts them into collectedFormInfos.

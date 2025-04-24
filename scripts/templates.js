@@ -7,6 +7,7 @@
 function renderSubtaskTemp(subtask){
   return `<div id="${subtask}" class="subtask-container-wrapper">
               <input
+                onblur="deleteSubtaskIfEmpty(this, '${subtask}')"
                 id="input-${subtask}"
                 class="subtask-input" 
                 type="text" 
