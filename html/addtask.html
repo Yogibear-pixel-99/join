@@ -343,9 +343,8 @@
               <span>This field is required</span>
             </div>
             <div class="addTask-button-container">
-              <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
+              <div onclick="resetForm('add-task-form'); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();" class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
                 <div
-                  onclick="resetForm('add-task-form'); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();"
                   class="">
                   Clear
                 </div>
@@ -382,6 +381,7 @@
       </div>
   </section>
 
+  <section id="create-task-overlay" class="create-task-overlay d-none"></section>
   <section class="landscape-overlay">
     <span>Turn your device!</span>
     <img class="rotate-img" src="../assets/icons/rotate-device.svg" alt="rotate-device">

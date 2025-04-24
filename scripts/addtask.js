@@ -309,7 +309,7 @@ function createNewTask(event){
 function getTaskStatus(){
   let data = sessionStorage.getItem('taskStatus');
   if (data === null) {
-    addTaskStatus = "todo";
+    addTaskStatus = "todo";    
   } else {
     addTaskStatus = data;
   }
@@ -324,6 +324,8 @@ function getTaskStatus(){
  */
 function blockButton() {
   let createTaskButtonREF = document.getElementById("create-task-button");
+  let overlayREF = document.getElementById("create-task-overlay");
+  overlayREF.classList.toggle("d-none")
   createTaskButtonREF.onclick = null; 
 }
 
@@ -431,7 +433,22 @@ function clearAssignedTo() {
   }
 }
 
-
+/**
+ * Stores the task status in session storage for use during task creation.
+ * 
+ * @param {string} status - The status to set for the new task (e.g., "todo", "in-progress")
+ */
 function setStatusToAddTask(status){
   sessionStorage.setItem('taskStatus', status);
+}
+
+
+/**
+ * Removes red borders and error messages for title, due date, and category inputs.
+ * 
+ */
+function removeRedBorderAddTask() {
+  removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
+  removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
+  removeRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message");
 }

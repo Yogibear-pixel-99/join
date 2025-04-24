@@ -582,3 +582,13 @@ box-shadow: none;
   border-color: #719ECE;  /* Blauton anpassen */
   outline: none;           /* Standard-Outline entfernen */
 }
+
+.create-task-overlay {
+  position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2000;
+    background-color: rgb(0, 0, 0, 0.5);
+}

@@ -283,9 +283,8 @@ function getAddTaskOverlayTemp(){
               <span>This field is required</span>
             </div>
             <div class="addTask-button-container">
-              <div class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
+              <div onclick="resetForm('add-task-form'); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();" class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
                 <div
-                  onclick="resetForm('add-task-form'); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();"
                   class="">
                   Clear
                 </div>

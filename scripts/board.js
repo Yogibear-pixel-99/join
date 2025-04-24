@@ -448,7 +448,7 @@ function openAddTaskOverlay(addTaskLocation){
       openOverlayMenu('addtask-content', 'addtask-overlay-mask-container');
       renderAssignToDropdown();
       renderCategoryOptions();
-      addTaskStatus = addTaskLocation;
+      setStatusToAddTask(addTaskLocation)
 }
 
 
