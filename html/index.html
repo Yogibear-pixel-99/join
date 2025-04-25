@@ -54,12 +54,12 @@
         <form onsubmit="" class="login-form" action="submit">
             
             <div class="input-field-container">
-                <input class="login-input-field" type="email" id="email" required placeholder="Email" oninput="checkLoginButtonActive(); removeWhiteSpacesOnInput(this)">
+                <input class="login-input-field" type="email" id="email" required placeholder="Email" maxlength="30" oninput="checkLoginButtonActive(); removeWhiteSpacesOnInput(this)">
                 <img class="input-logo" src="../assets/icons/mail.svg">
             </div>
             <div class="flex-ctr-ctr column">
             <div class="input-field-container input-bottom-field-container">
-                <input oninput="removeWhiteSpacesOnInput(this); checkLoginButtonActive(); changeLoginPasswordIcons()" class="login-input-field" type="password" id="password" required placeholder="Password">
+                <input oninput="removeWhiteSpacesOnInput(this); checkLoginButtonActive(); changeLoginPasswordIcons()" class="login-input-field" type="password" id="password" maxlength="30" required placeholder="Password">
                 <img onclick="showHidePassword('password', 'input-logo')" class="input-logo" id="input-logo" src="../assets/icons/lock.svg">
             </div>
             <span id="login-error-message" class="login-error-message error-message"></span>

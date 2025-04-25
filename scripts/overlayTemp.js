@@ -81,8 +81,7 @@ function getSubtaskForTaskOverlayTemp(task, subtask){
                     onclick="changeSubTaskCheckedApi('tasks/${task.apiKey}/subtasks/${subtask.apiKey}', 'subtask-${subtask.apiKey}')" 
                     type="checkbox" ${checkIfSubtaskIsDone(subtask)}>
                 <span>${subtask.subtaskName}</span>
-            </label>
-            `
+            </label>`
 }
 
 
@@ -113,6 +112,7 @@ function getAddTaskOverlayTemp(){
                   id="form-title"
                   name="title"
                   required
+                  maxlength="30"
                   type="text"
                   placeholder="Enter a title" />
                   <span id="title-error-message" class="error-message"></span>
@@ -125,6 +125,7 @@ function getAddTaskOverlayTemp(){
                   name="description"
                   id="form-description"
                   class="textareaAddTask"
+                  maxlength="80"
                   placeholder="Enter a description"></textarea>
               </div>
               <div class="flex-col gap8 hover-pointer">
@@ -138,7 +139,6 @@ function getAddTaskOverlayTemp(){
                   id="due-date"
                   name="date"
                   required
-                  pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"
                   type="text"
                   placeholder="dd/mm/yyyy" />
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
@@ -251,7 +251,7 @@ function getAddTaskOverlayTemp(){
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
-                    maxlength="30"
+                    maxlength="20"
                     placeholder="Add new subtask" />
                   <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
@@ -440,7 +440,6 @@ function getEditTaskTemp(task){
                   type="text"
                   maxlength="30"
                   placeholder="Add new subtask" />
-                <!-- FUNCTION TO CREATE INPUT FIELD FOR SUBTASKS TO COLLECT WITH new FormData -->
                 <div id="subtasks-plus" class="plus-icon subtasks-icon">
                   <img src="../assets/icons/Subtasks icons11.svg" onclick="focusSubtaskInputMenu()" />
                 </div>

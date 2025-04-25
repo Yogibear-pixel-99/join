@@ -125,6 +125,7 @@
                   class="addTask-input-field"
                   id="form-title"
                   name="title"
+                  maxlength="30"
                   required
                   type="text"
                   placeholder="Enter a title" />
@@ -139,6 +140,7 @@
                   name="description"
                   id="form-description"
                   class="textareaAddTask"
+                  maxlength="80"
                   placeholder="Enter a description"></textarea>
               </div>
               <div class="flex-col gap8 hover-pointer">
@@ -147,7 +149,7 @@
                 >
                 <div class="relative">
                 <input
-                onkeyup="checkDateInput(); resetDateValue(event); checkIfDateIsValid()"
+                onchange="checkDateInput(); resetDateValue(event); checkIfDateIsValid()"
                 class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
@@ -265,7 +267,7 @@
                 <div class="custom-dropdown" id="customDropdown">
                     
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" autocomplete="off" placeholder="Select contacts to assign" 
-                  onkeyup="startSearchingContacts()"
+                  oninput="startSearchingContacts()"
                   onclick="toggleAssignedDropdown(); noClose(event); closeCategDrop();" />
                   <div onclick="noClose(event)" id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
                     <div class="dropdown-content d-none" id="dropdownContent"></div>
@@ -303,8 +305,7 @@
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
-                    
-                    maxlength="30"
+                    maxlength="20"
                     placeholder="Add new subtask" />
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
                     <img src="../assets/icons/Subtasks icons11.svg" onclick="focusSubtaskInputMenu()"/>

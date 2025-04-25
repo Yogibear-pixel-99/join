@@ -175,18 +175,18 @@
                 </div>
                  <form onsubmit="createNewContact(event)" class="add-contact-overlay-form" id="new-contact-form">
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="add-contact-input-field" type="text" name="name" required placeholder="Name" oninput="justLetters(this); setInitialsToNewContactContainer('add-contact-input-field', 'add-contact-overlay-initials-wrapper'); checkAddContactValidation()">
+                        <input class="no-border login-input-field" id="add-contact-input-field" type="text" name="name" maxlength="30" required placeholder="Name" oninput="justLetters(this); setInitialsToNewContactContainer('add-contact-input-field', 'add-contact-overlay-initials-wrapper'); checkAddContactValidation()">
                         <img class="input-logo" src="../assets/icons/person.svg">
                     </div>
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="user-email-input" name="email" type="text" required placeholder="Email" oninput="checkAddContactValidation()">
+                        <input class="no-border login-input-field" id="user-email-input" name="email" maxlength="30" type="text" required placeholder="Email" oninput="checkAddContactValidation()">
                         <img class="input-logo" src="../assets/icons/mail.svg">
                         <span class="input-alert-message contact-overlay-alert" id="input-alert-message"></span>
                     </div>
 
                     <div class="error-wrapper">
                     <div class="input-wrapper">
-                        <input id="phone-input" class="no-border login-input-field" type="text" name="phone" placeholder="Phone" oninput="checkAddContactValidation()">
+                        <input id="phone-input" class="no-border login-input-field" type="text" maxlength="30" name="phone" placeholder="Phone" oninput="checkAddContactValidation()">
                         <img class="input-logo" src="../assets/icons/call.svg">
                     </div>
                     <div class="error-message" id="add-contact-error"></div>
@@ -253,17 +253,17 @@
 
                  <form class="add-contact-overlay-form" id="edit-contact-form">
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="edit-user-name-input" type="text" name="name" required placeholder="Name" onkeydown="justLetters(event)"  oninput="setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper'); toggleSaveEditedContactButton()">
+                        <input class="no-border login-input-field" id="edit-user-name-input" type="text" maxlength="30" name="name" required placeholder="Name" onkeydown="justLetters(event)"  oninput="setInitialsToNewContactContainer('edit-user-name-input', 'edit-contact-overlay-initials-wrapper'); toggleSaveEditedContactButton()">
                         <img class="input-logo" src="../assets/icons/person.svg">
                     </div>
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="edit-user-email-input" name="text" type="email" required placeholder="Email" oninput="toggleSaveEditedContactButton()">
+                        <input class="no-border login-input-field" id="edit-user-email-input" name="text" maxlength="30" type="email" required placeholder="Email" oninput="toggleSaveEditedContactButton()">
                         <img class="input-logo" src="../assets/icons/mail.svg">
                     </div>
 
                     <div class="error-wrapper">
                     <div class="input-wrapper">
-                        <input class="no-border login-input-field" id="edit-user-phone-input" type="text" name="phone" placeholder="Phone">
+                        <input class="no-border login-input-field" id="edit-user-phone-input" type="text" maxlength="30" name="phone" placeholder="Phone">
                         <img class="input-logo" src="../assets/icons/call.svg">
                     </div>
                     <div class="error-message" id="edit-contact-error"></div>

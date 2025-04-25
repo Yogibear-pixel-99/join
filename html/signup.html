@@ -40,6 +40,7 @@
               required
               name="name" 
               placeholder="Full Name"
+              maxlength="30"
               oninput =  "justLetters(this); toggleSignUpButton()" />
             <img class="input-logo" src="../assets/icons/person.svg" />
           </div>
@@ -51,6 +52,7 @@
               name="email"
               required
               placeholder="Email"
+              maxlength="30"
               oninput = "toggleSignUpButton(); removeWhiteSpacesOnInput(this)" />
             <img class="input-logo" src="../assets/icons/mail.svg" />
           </div>
@@ -60,6 +62,7 @@
               class="login-input-field"
               type="password"
               name="password"
+              maxlength="30"
               required
               placeholder="Password minimum 8 chars" 
               oninput="toggleSignUpButton(); changePasswordIcon('sign-up-password', 'sign-up-pw-icon'); removeWhiteSpacesOnInput(this)"/>
@@ -75,6 +78,7 @@
               id="sign-up-password-confirm"
               class="login-input-field"
               type="password"
+              maxlength="30"
               required
               placeholder="Confirm Password"
               oninput="changePasswordIcon('sign-up-password-confirm', 'sign-up-cf-icon'); toggleSignUpButton(); removeWhiteSpacesOnInput(this)" />
