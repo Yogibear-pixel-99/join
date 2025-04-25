@@ -273,14 +273,25 @@ async function closeDropDownTasks(id) {
   for (let index = 0; index < tasksFromApi.length; index++) {
     if (tasksFromApi[index].apiKey !== id || id == null) {
       let dropdownREF = document.getElementById("dropdown-" + tasksFromApi[index].apiKey);
-      if (!dropdownREF.classList.contains("d-none")) {
-        dropdownREF.classList.add("d-none");
-      }  
+      if (dropdownREF) {
+        if (!dropdownREF.classList.contains("d-none")) {
+          dropdownREF.classList.add("d-none");
+        } 
+      } 
     }
     }
 }
 
 
 function changeStatusMobile(newStatus, apiKey) {
-  getNewStatusInfo(newStatus, apiKey);
+  getNewStatusInfoMobile(newStatus, apiKey);
+}
+
+
+function getNewStatusInfoMobile(newStatus, taskKey){
+  collectedStatusInfo = {
+    status: newStatus,
+  };
+  patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey}`);
+  loadAndRenderTasks()
 }

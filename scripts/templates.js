@@ -95,16 +95,16 @@ function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubT
                    <div class="header-dropdown-link-mobile">
                    <div class="dropdown-text">Move to</div>
                    </div>
-                    <div onclick="noClose(event); changeStatusMobile('todo', '${task}')" id="tasks-todo-${task.apiKey}" class="">
+                    <div onclick="noClose(event); changeStatusMobile('todo', '${task.apiKey}')" id="tasks-todo-${task.apiKey}" class="">
                    <div class="dropdown-tasks-text">To-Do</div>
                    </div>
-                   <div onclick="noClose(event); changeStatusMobile('inprogress', '${task}')" id="tasks-inprogress-${task.apiKey}" class="">
+                   <div onclick="noClose(event); changeStatusMobile('inprogress', '${task.apiKey}')" id="tasks-inprogress-${task.apiKey}" class="">
                    <div class="dropdown-tasks-text">In progress</div>
                    </div>
-                   <div onclick="noClose(event); changeStatusMobile('awaitfeedback', '${task}')" id="tasks-awaitfeedback-${task.apiKey}" class="">
+                   <div onclick="noClose(event); changeStatusMobile('awaitfeedback', '${task.apiKey}')" id="tasks-awaitfeedback-${task.apiKey}" class="">
                    <div class="dropdown-tasks-text">Await feedback</div>
                    </div>
-                    <div onclick="noClose(event); changeStatusMobile('done', '${task}')" id="tasks-done-${task.apiKey}" class="">
+                    <div onclick="noClose(event); changeStatusMobile('done', '${task.apiKey}')" id="tasks-done-${task.apiKey}" class="">
                    <div class="dropdown-tasks-text">Done</div>
                    </div>
                    </div>
