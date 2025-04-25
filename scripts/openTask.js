@@ -143,10 +143,12 @@ function setAssignedUsersToDropdown(task){
 function showSubtaskInEditOverlay(task){
     let ref = document.getElementById('added-subtasks');
     ref.innerHTML = '';
-    let subtaskArray = task.subtasks.map(element => element.subtaskName);
-    for (let subtaskIndex = 0; subtaskIndex < subtaskArray.length; subtaskIndex++){
-        const element = subtaskArray[subtaskIndex];
-        ref.innerHTML += renderSubtaskTemp(element);
+    if (task.subtasks.map(element => element.subtaskName)) {
+        let subtaskArray = task.subtasks.map(element => element.subtaskName);
+        for (let subtaskIndex = 0; subtaskIndex < subtaskArray.length; subtaskIndex++){
+            const element = subtaskArray[subtaskIndex];
+            ref.innerHTML += renderSubtaskTemp(element);
+        }
     }
 }
 

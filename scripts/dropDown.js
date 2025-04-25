@@ -260,6 +260,14 @@ function closeHeaderDropdownMenu(){
   dropdownREF.classList.add("d-none");
 }
 
+
+/**
+ * Handles the drag-and-drop dropdown display for a specific task.
+ * Hides the task card and toggles the visibility of its dropdown menu.
+ * 
+ * @param {string|number} id - The unique identifier for the task
+ * @param {string} status - The status/category of the task (e.g., "To Do")
+ */
 function dragAndDropDropdown(id, status) {
   let dropdownREF = document.getElementById("dropdown-" + id);
   let taskREF = document.getElementById("tasks-" + status.toLowerCase().replace(/\s+/g, '') + "-"+id);
@@ -268,6 +276,12 @@ function dragAndDropDropdown(id, status) {
 }
 
 
+/**
+ * Closes all open dropdowns for tasks except the one with the given id.
+ * Fetches the latest tasks from the server before closing dropdowns.
+ * 
+ * @param {string|number} id - The unique identifier for the task to keep open (or null to close all)
+ */
 async function closeDropDownTasks(id) {
   await getDataFromServer("tasks", tasksFromApi);
   for (let index = 0; index < tasksFromApi.length; index++) {
@@ -283,11 +297,23 @@ async function closeDropDownTasks(id) {
 }
 
 
+/**
+ * Changes the status of a task
+ * 
+ * @param {string} newStatus - The new status/category for the task
+ * @param {string|number} apiKey - The unique identifier for the task
+ */
 function changeStatusMobile(newStatus, apiKey) {
   getNewStatusInfoMobile(newStatus, apiKey);
 }
 
 
+/**
+ * Updates the status of a task in the backend and reloads the task list.
+ * 
+ * @param {string} newStatus - The new status/category for the task
+ * @param {string|number} taskKey - The unique identifier for the task
+ */
 async function getNewStatusInfoMobile(newStatus, taskKey){
   collectedStatusInfo = {
     status: newStatus,
