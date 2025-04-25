@@ -12,7 +12,7 @@ async function getDataFromServer(SUB_URL, destination){
             throw new Error('no answer from server');
         } else {
             let data = await response.json();
-            data != null ? filterFetchedDataAndKey(data, destination) : console.log('No Data to display!')
+             if (data != null) {filterFetchedDataAndKey(data, destination)};
         }
     } catch (error){
         console.log(error);

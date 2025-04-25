@@ -114,6 +114,14 @@
     padding: 66px 24px;
   }
 
+  .contacts-content {
+    padding: 8px 0 8px 8px;
+  }
+
+  .single-contact {
+    padding: 10px 0;
+  }
+
   .contact-overlay-alert {
     width: 200px;
   }
@@ -157,7 +165,7 @@
 }
 
 .main-content-board {
-  padding: 0px !important;
+  padding: 8px !important;
 }
 
 }
