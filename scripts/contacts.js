@@ -11,7 +11,9 @@ async function sortAndRenderContacts(){
   renderContactsHeaderLetter();
   setInitialsToHeader();
   addDisplayNone('loading-spinner');
+  addDisplayNone('loading-spinner-mobile');
 }
+
 
 /**
  * Get all the fetched contacts from the API and puts them in an array specified by the first letter.
@@ -30,6 +32,7 @@ function sortAllContactsByFirstLetter(){
   );
 }
 
+
 /**
  * Get the keys from an array, sort and render the first letter to the html content - contacts.
  *
@@ -44,6 +47,7 @@ function renderContactsHeaderLetter(){
   });
 }
 
+
 /**
  * Iterate through the contact list and render every single contact to the contact list to the html site contacts.
  *
@@ -57,6 +61,7 @@ function getSingleContact(firstLetterArray){
   });
   return content;
 }
+
 
 /**
  * Render the selected contact name in the floating contacts menu and select the contact in the list.
