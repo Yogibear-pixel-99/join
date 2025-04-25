@@ -98,6 +98,15 @@
 
   /* ADD/EDIT TASKS OVERLAY */
 
+  .btn-importance-container {
+    justify-content: center;
+  }
+
+  .btn-importance-container label {
+    width: 100%;
+    max-width: 282px;
+  }
+
   /* CONTACTS */
   /* CONTACTS FLOAT */
 

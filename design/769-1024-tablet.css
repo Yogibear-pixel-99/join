@@ -130,7 +130,6 @@
         font-size: 12px;
         font-weight: 400;
         text-align: center;
-        /* align-self: flex-start; */
     }
     
     .login-button-container {
@@ -148,6 +147,22 @@
 
 
 /* SIGN UP */
+
+.sign-up-join-logo:hover {
+    box-sizing: content-box;
+    background-color: var(--grey-hover);
+    border-radius: 16px;
+    padding: 12px;
+    transform: translate(-12px, -12px);
+  }
+  
+  .sign-up-join-logo:active {
+    box-sizing: content-box;
+    background-color: var(--grey-hover);
+    border-radius: 16px;
+    padding: 12px;
+    transform: translate(-12px, -12px);
+  }
 
 .sign-up-join-logo {
     width: 64px;
@@ -480,6 +495,8 @@ h1 {
     width: 100%;
     padding: 0;
     gap: 16px;
+    overflow: hidden !important;
+    height: auto !important;
   }
 
   .info-input-field-container input,

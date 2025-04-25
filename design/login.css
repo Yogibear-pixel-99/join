@@ -3,6 +3,7 @@
 
 
 .sign-up-join-logo:hover {
+  box-sizing: content-box;
   background-color: var(--grey-hover);
   border-radius: 16px;
   padding: 12px;
@@ -190,6 +191,18 @@ input[type="checkbox"] {
   @keyframes brightness50 {
     0% {filter: brightness(100%)}
     100% {filter: brightness(50%)}
+  }
+
+  .dark-button-signup-check {
+    width: 180px;
+    padding: 15px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 21px;
+    font-family: inter;
+    border: none;
+    color: white;
+    background-color: var(--join-dark);
   }
 
   .dark-button-signup {
