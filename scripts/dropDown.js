@@ -288,10 +288,10 @@ function changeStatusMobile(newStatus, apiKey) {
 }
 
 
-function getNewStatusInfoMobile(newStatus, taskKey){
+async function getNewStatusInfoMobile(newStatus, taskKey){
   collectedStatusInfo = {
     status: newStatus,
   };
-  patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey}`);
+  await patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey}`);
   loadAndRenderTasks()
 }
