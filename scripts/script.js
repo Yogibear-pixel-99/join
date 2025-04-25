@@ -240,7 +240,7 @@ function closeOverlayMenu(overlayId, maskId){
   const mainContent = document.getElementById('main-container');
       overlay.classList.add('standard-overlay-hide');
       mask.classList.add('d-none');
-      mainContent.classList.remove('disable-pointer-events');
+      setTimeout(() => {mainContent.classList.remove('disable-pointer-events')}, 300);
       setTimeout(() => {overlay.classList.add('d-none')}, 200);
 }
 

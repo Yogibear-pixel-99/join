@@ -47,6 +47,12 @@
         .dropdown-menu {
             top: 76px;
         }
+
+        .dropdown-menu a:active,
+        .dropdown-text:active {
+            background: var(--navbar-active-link);
+            border-radius: 16px;
+        }
     
         /* ASSETS */
 
