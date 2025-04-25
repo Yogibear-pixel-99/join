@@ -50,7 +50,7 @@
 
         .dropdown-menu a:active,
         .dropdown-text:active {
-            background: var(--navbar-active-link);
+            background: var(--hover-darkblue);
             border-radius: 16px;
         }
     
