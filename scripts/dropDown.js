@@ -260,4 +260,22 @@ function closeHeaderDropdownMenu(){
   dropdownREF.classList.add("d-none");
 }
 
+function dragAndDropDropdown(id, status) {
+  let dropdownREF = document.getElementById("dropdown-" + id);
+  let taskREF = document.getElementById("tasks-" + status.toLowerCase().replace(/\s+/g, '') + "-"+id);
+  taskREF.classList.add("d-none-tasks")
+  dropdownREF.classList.toggle("d-none");
+}
 
+
+async function closeDropDownTasks(id) {
+  await getDataFromServer("tasks", tasksFromApi);
+  for (let index = 0; index < tasksFromApi.length; index++) {
+    if (tasksFromApi[index].apiKey !== id || id == null) {
+      let dropdownREF = document.getElementById("dropdown-" + tasksFromApi[index].apiKey);
+      if (!dropdownREF.classList.contains("d-none")) {
+        dropdownREF.classList.add("d-none");
+      }  
+    }
+    }
+}
