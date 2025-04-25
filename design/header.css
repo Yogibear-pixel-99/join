@@ -102,3 +102,36 @@ background-color: var(--hover-darkblue);
     padding-top: 50px;
 }
 
+.loading-spinner-mask {
+    color: rgb(42, 54, 71);
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    height: calc(100vh - 100px);
+    background-color: rgba(42, 54, 71, 0.5);
+    z-index: 60;
+}
+
+.loading-spinner {
+    width: 18vw;
+    height: 25vh;
+    animation-name: loading-spinner;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    /* animation-direction: alternate-reverse; */
+}
+
+@keyframes loading-spinner {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(180deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(360deg);}
+    100% {transform: rotate(360deg);}
+}
+
+/* .hide-desktop {
+    display: none;
+} */
+

@@ -12,6 +12,10 @@
   height: 100dvh;
 }
 
+.main-content-board {
+  position:relative;
+}
+
 .bottom-board {
   display: flex;
   justify-content: space-between;

@@ -1,29 +1,13 @@
 
-/* ROTATE WARNING NOCH IMPLEMENTIEREN */
-@media screen and (orientation: landscape) {
-    .rotate-warning::before {
-        content: "Bitte drehe dein Gerät ins Hochformat";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        background: var(--join-dark);
-        color: white;
-        font-size: 24px;
-        text-align: center;
-        z-index: 1500;
-    }
-}
 
 
 @media (max-width: 1024px) {
   
         /* GLOBAL */
+
+        .hide-desktop {
+            display: block
+        }
 
         .error-message {
             text-align: center;
