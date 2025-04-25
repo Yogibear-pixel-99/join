@@ -557,3 +557,13 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
         contentRef.classList.remove('red-border-inputfield');
         textRef.innerHTML = '';
 }
+
+
+/**
+ * Removes all white spaces from an input field.
+ * 
+ * @param {HTMLElement} element - The specified HTML container.
+ */
+function removeWhiteSpacesOnInput(element){
+  element.value = element.value.replace(/\s/g, '');
+}

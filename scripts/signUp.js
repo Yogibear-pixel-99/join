@@ -14,6 +14,8 @@ async function signUpNewUser(event){
   } else if (checkIfPasswordIsSameAsConfirm()){
       addRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message', "Your passwords don't match. Please try again.");
       addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
+  } else if (!checkPasswordLength()) {
+    addRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message', "A minimum of eight chars is required.");
   } else if (await checkIfDataAlreadyExists("user-email-input", "users")){
       addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
   } else {
@@ -29,6 +31,14 @@ function removeAllErrorsFromSignUp(){
     removeRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message');
     removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
     removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message');
+}
+
+
+function checkPasswordLength(){
+  let valid = false;
+  let ref = document.getElementById('sign-up-password');
+    ref.value.length >= 8 ? valid=  true : valid = false;
+  return valid;
 }
 
 
