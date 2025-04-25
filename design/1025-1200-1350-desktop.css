@@ -64,7 +64,7 @@
 }
 
 .floating-full-name {
-    font-size: 40px;;
+    font-size: 40px;
 }
 
 .floating-initials-wrapper {
@@ -91,6 +91,9 @@
     margin: 0 24px 38px 60px;
 }
 
+.add-task-footer-overlay {
+  left: 60px;
+}
 /* HELP */
 /* PRIVACY */
 /* LEGAL NOTICE */

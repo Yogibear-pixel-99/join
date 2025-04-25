@@ -603,3 +603,7 @@ box-shadow: none;
     z-index: 3400;
     background-color: rgb(0, 0, 0, 0.5);
 }
+
+.add-task-footer-overlay {
+  left: 60px;
+}

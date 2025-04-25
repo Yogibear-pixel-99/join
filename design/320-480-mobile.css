@@ -207,13 +207,25 @@
   }
 }
 
+
 @media (max-height: 1000px) {
+
+  .info-input-field-container-right {
+    height: 50vh;
+  }
+
   .task-overlay-container {
     overflow-y: auto;
     border: solid white 40px;
     padding: 0 !important;
   }
+
+  .add-task-overlay {
+    height: 95vh;
+    overflow: hidden;
+  }
 }
+
 
 @media (max-height: 865px) {
   /* LOGIN */
@@ -392,21 +404,17 @@
     height: 40px;
   }
 
+  
   .add-task-footer {
     left: 240px;
     right: 8px;
   }
-}
-
-
-
-@media (max-height: 1000px) {
-
-  .info-input-field-container-right {
-    height: 50vh;
+  .add-task-footer-overlay {
+    left: 60px;
+    right: 60px;
   }
-
 }
+
 
 @media (max-height: 750px) {
 

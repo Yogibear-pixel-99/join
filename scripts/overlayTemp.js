@@ -277,7 +277,7 @@ function getAddTaskOverlayTemp(){
               <div id="added-subtasks" class="added-subtasks"></div>
             </div>
           </div>
-          <div class="add-task-footer">
+          <div class="add-task-footer add-task-footer-overlay">
             <div class="required-wrapper">
               <span class="red-asterisk">*</span>
               <span>This field is required</span>

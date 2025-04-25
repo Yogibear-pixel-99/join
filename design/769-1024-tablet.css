@@ -357,6 +357,10 @@ h1 {
     height: 40px;
 }
 
+.add-task-overlay {
+    display: none;
+  }
+
 .search-container-mobile {
     display: flex;
     justify-content: center;
