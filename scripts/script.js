@@ -143,7 +143,7 @@ function returnInitials(fullName){
  * @param {HTMLElement} field - The HTML container to check.
  */
 function justLetters(field) {
-  let data = field.value.replace(/[^a-zA-Z]/g, '');
+  let data = field.value.replace(/[^a-zA-Z\s]/g, '');
       field.value = data;
 }
 
