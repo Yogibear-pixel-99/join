@@ -2,10 +2,10 @@
  * Initialize the whol summary, getting user data and show greeting message.
  */
 async function initSummary(){
-  setTimeout(() => {removeDisplayNone('loading-spinner')}, 500);
+  setTimeout(() => {removeDisplayNone('loading-spinner')}, 100);
   await getUserSummaryInfo();
   showGreeting();
-  addDisplayNone('loading-spinner');
+  setTimeout(() => {addDisplayNone('loading-spinner')}, 100);
 }
 
 
