@@ -8,19 +8,29 @@
  */
 async function signUpNewUser(event){
   event.preventDefault();
-  if (checkIfPasswordIsSameAsConfirm()){
-    addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
-    setTimeout(() => {removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message')}, 3000);
+    removeAllErrorsFromSignUp();
+    if((!testIfEmailIsValid(document.getElementById('user-email-input').value.trim()))){
+      addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', 'Enter a valid email address');
+  } else if (checkIfPasswordIsSameAsConfirm()){
+      addRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message', "Your passwords don't match. Please try again.");
+      addRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message', "Your passwords don't match. Please try again.");
   } else if (await checkIfDataAlreadyExists("user-email-input", "users")){
-    addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
-    setTimeout(() => {removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message')}, 3000);
+      addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', "User/email already exists. Please try again.");
   } else {
     await collectNewUserValuesAndPost();
   }
 }
 
 
-// User/email already exists. Please try again
+/**
+ * Removes all errors from the sign up form.
+ */
+function removeAllErrorsFromSignUp(){
+    removeRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message');
+    removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
+    removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message');
+}
+
 
 /**
  * Collects the values from the sign up form, creates a template, fetches the user data to the api, shows a sign up button and redirect to the login page.

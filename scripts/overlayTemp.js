@@ -115,7 +115,7 @@ function getAddTaskOverlayTemp(){
                   required
                   type="text"
                   placeholder="Enter a title" />
-                  <span id="title-error-message" class="title-error-message"></span>
+                  <span id="title-error-message" class="error-message"></span>
               </div>
               <div class="flex-col gap8">
                 <label for="form-description"
@@ -144,7 +144,7 @@ function getAddTaskOverlayTemp(){
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
                   <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
                   </div>
-                  <span id="date-error-message" class="date-error-message"></span>
+                  <span id="date-error-message" class="error-message"></span>
               </div>
             </div>
             <div class="add-task-separator"></div>
@@ -239,7 +239,7 @@ function getAddTaskOverlayTemp(){
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
                 </div>
               </div>
-              <span id="category-error-message" class="title-error-message"></span>
+              <span id="category-error-message" class="error-message"></span>
               <div class="subtask-input-wrapper flex-col gap8">
                 <label for="subtasks-input"
                   >Subtasks  </label>
@@ -326,7 +326,7 @@ function getEditTaskTemp(task){
                 type="text"
                 value="${task.title}"
                 placeholder="Enter a title" />
-                <span id="title-error-message" class="title-error-message"></span>
+                <span id="title-error-message" class="error-message"></span>
             </div>
             <div class="flex-col gap8 width-100p">
               <label for="form-description"
@@ -352,7 +352,7 @@ function getEditTaskTemp(task){
                 <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
                 <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg">
                 </div>
-                <span id="date-error-message" class="date-error-message"></span>
+                <span id="date-error-message" class="error-message"></span>
             </div>
             <div class="flex-col width-100p gap8">
               <label>Prio</label>
@@ -426,7 +426,7 @@ function getEditTaskTemp(task){
                 <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
               </div>
             </div>
-            <span id="category-error-message" class="title-error-message"></span>
+            <span id="category-error-message" class="error-message"></span>
             <div class="subtask-input-wrapper flex-col gap8">
               <label for="subtasks-input"
                 >Subtasks  </label>

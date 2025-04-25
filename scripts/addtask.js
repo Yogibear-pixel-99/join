@@ -250,16 +250,6 @@ function collectAssingTo(){
 
 
 /**
- * This function saves the selected category in the Add Task Menu.
- * 
- * @param {string} category - The selected category 
- */
-// function formDataCategory(category){
-//   savedCategory = category;
-// }
-
-
-/**
  * This function inserts the category into collectedFormInfos.
  * 
  * 
@@ -379,37 +369,6 @@ function categoryRedBorder(category){
 
 
 /**
- * This function highlights the respective field with an error 
- * message and changes the border to red.
- * 
- * @param {string} borderContainer - The element at which the border turns red
- * @param {string} errorMessage - The error Message
- * @param {string} messageContainer - The element that displays the error message
- */
-function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer, errorMessage){
-  const contentRef = document.getElementById(borderContainer);
-  const textRef = document.getElementById(messageContainer);
-        contentRef.classList.add('red-border-inputfield');
-        textRef.innerText = errorMessage;
-        // textRef.style.color = 'red';
-}
-
-
-/**
- * This function removes the error message and removes the red border.
- * 
- * @param {string} borderContainer - The element at which the red border is removed
- * @param {string} messageContainer - The element that displays the error message
- */
-function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer){
-  const contentRef = document.getElementById(borderContainer);
-  const textRef = document.getElementById(messageContainer);
-        contentRef.classList.remove('red-border-inputfield');
-        textRef.innerHTML = '';
-}
-
-
-/**
  * This function resets the assigned users list and toggles the selection state 
  * of any previously selected users in the data source.
  * 
@@ -444,3 +403,4 @@ function removeRedBorderAddTask() {
   removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
   removeRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message");
 }
+

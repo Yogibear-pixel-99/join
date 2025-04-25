@@ -153,7 +153,7 @@ async function createNewContact(event){
   collectFormInformation("new-contact-form");
   if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
     addRedBorderAndTextFalseInput("user-email-input", "input-alert-message", "Contact/Email already exists!");
-    setTimeout(() => removeRedBorderAndTextFalseInput("user-email-input", "input-alert-message"), 3000);
+    // setTimeout(() => removeRedBorderAndTextFalseInput("user-email-input", "input-alert-message"), 3000);
   } else {
     await postContactToApiAndShowInMenu();
     removeAndSetInititalsBackgroundColorClass('', 'edit-contact-overlay-initials-wrapper');
@@ -171,16 +171,14 @@ async function createNewContact(event){
 function checkContactFormValidation(formEmailId, formPhoneId, errorId){
   let emailRef = document.getElementById(formEmailId);
   let phoneRef = document.getElementById(formPhoneId);
-  let phoneRegEx = /^\+?\d+$/;
-  let emailRegEx = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
-      if (!phoneRegEx.test(phoneRef.value.trim())) {
+  removeRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
+  removeRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address');
+      if (!testIfPhoneNrIsValid(phoneRef.value.trim())) {
         addRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
-        setTimeout(() => {removeRedBorderAndTextFalseInput(formPhoneId, errorId)}, 3000);
         return false;
       }
-      if (!emailRegEx.test(emailRef.value.trim())){
-        addRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address', 'Not a valid email address');
-        setTimeout(() => {removeRedBorderAndTextFalseInput(formEmailId, errorId)}, 3000);
+      if (!testIfEmailIsValid(emailRef.value.trim())){
+        addRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address');
         return false;
       } 
   return true;

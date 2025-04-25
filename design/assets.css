@@ -125,12 +125,13 @@ input {
 }
 
 .error-message {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: red;
   height: 14px;
   padding-left: 10px;
   padding-top: 2px;
+  margin-bottom: 8px;
 }
 
 .red-border-inputfield {

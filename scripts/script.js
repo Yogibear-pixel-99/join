@@ -137,9 +137,14 @@ function returnInitials(fullName){
 }
 
 
-function justLetters(event) {
-  let key = event.keyCode;
-  return ((key >= 65 && key <= 90) || key == 8 || key == 32);
+/**
+ * Replaces all other strings than letters from the specified input container.
+ * 
+ * @param {HTMLElement} field - The HTML container to check.
+ */
+function justLetters(field) {
+  let data = field.value.replace(/[^a-zA-Z]/g, '');
+      field.value = data;
 }
 
 
@@ -489,4 +494,66 @@ function removeDisplayNone(containerId){
 function resetValueFromInputField(id){
   let ref = document.getElementById(id);
       ref.value = '';
+}
+
+
+/**
+ * Checks if a value is valid.
+ * 
+ * @param {string} value - The string to check.
+ * @returns - A boolean.
+ */
+function testIfEmailIsValid(value){
+  let valid = false;
+  let regEx = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+    if (regEx.test(value)) {
+      valid = true;
+    }
+  return valid;
+}
+
+/**
+ * Checks if a value is valid.
+ * 
+ * @param {string} value - The string to check.
+ * @returns - A boolean.
+ */
+function testIfPhoneNrIsValid(value){
+  let valid = false;
+  let regEx = /^\+?\d+$/;
+    if (regEx.test(value)) {
+      valid = true;
+    }
+  return valid;
+}
+
+
+/**
+ * This function highlights the respective field with an error 
+ * message and changes the border to red.
+ * 
+ * @param {string} borderContainer - The element at which the border turns red
+ * @param {string} errorMessage - The error Message
+ * @param {string} messageContainer - The element that displays the error message
+ */
+function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer, errorMessage){
+  const contentRef = document.getElementById(borderContainer);
+  const textRef = document.getElementById(messageContainer);
+        contentRef.classList.add('red-border-inputfield');
+        textRef.innerText = errorMessage;
+        // textRef.style.color = 'red';
+}
+
+
+/**
+ * This function removes the error message and removes the red border.
+ * 
+ * @param {string} borderContainer - The element at which the red border is removed
+ * @param {string} messageContainer - The element that displays the error message
+ */
+function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer){
+  const contentRef = document.getElementById(borderContainer);
+  const textRef = document.getElementById(messageContainer);
+        contentRef.classList.remove('red-border-inputfield');
+        textRef.innerHTML = '';
 }
