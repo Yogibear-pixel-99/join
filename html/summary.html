@@ -26,7 +26,7 @@
     <script defer src="../scripts/overlayTemp.js"></script>
     <script defer src="../scripts/dropDown.js"></script>
   </head>
-  <body onload="redirectToLogInPage(); initSummary()" onclick="closeHeaderDropdownMenu()">
+  <body class="summary-body" onload="redirectToLogInPage(); initSummary()" onclick="closeHeaderDropdownMenu()">
     <section class="navbar-container desktop-navbar">
       <div>
         <img
@@ -82,7 +82,9 @@
     <main class="main-container summary-main-container" id="summary-main">
 
     </main>
-
+    <section id="loading-spinner" class="loading-spinner-mask-summary flex-ctr-ctr d-none">
+      <img class="loading-spinner" src="../assets/icons/loading-spinner.svg" alt="loading-spinner">
+  </section>
     <section class="landscape-overlay">
       <span>Turn your device!</span>
       <img class="rotate-img" src="../assets/icons/rotate-device.svg" alt="rotate-device">

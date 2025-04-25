@@ -329,6 +329,7 @@ transform-origin: left center;
   justify-content: center;
   align-items: center;
   filter: opacity(100%);
+  z-index: 1100;
 }
 
 .greeting-overlay {

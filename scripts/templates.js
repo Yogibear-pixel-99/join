@@ -411,9 +411,6 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
                     <div class="welcome-name-summary">${name}</div>
                 </div>
             </div>
-            <section id="loading-spinner" class="loading-spinner-mask flex-ctr-ctr d-none">
-                <img class="loading-spinner" src="../assets/icons/loading-spinner.svg" alt="loading-spinner">
-            </section>
       </div>
     <section class="greeting-overlay d-none" id="summary-greeting-overlay-guest">
         <div class="greeting-text" id="summary-greeting-text-overlay-guest">Good Morning</div>

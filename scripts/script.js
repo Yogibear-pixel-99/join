@@ -567,3 +567,5 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
 function removeWhiteSpacesOnInput(element){
   element.value = element.value.replace(/\s/g, '');
 }
+
+

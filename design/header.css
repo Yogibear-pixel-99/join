@@ -102,6 +102,24 @@ background-color: var(--hover-darkblue);
     padding-top: 50px;
 }
 
+
+
+
+.summary-body {
+    position: relative;
+}
+
+.loading-spinner-mask-summary {
+    color: rgb(42, 54, 71);
+    position: absolute;
+    top: 100px;
+    left:232px;
+    right: 0;
+    height: calc(100vh - 100px);
+    background-color: rgba(42, 54, 71, 0.2);
+    z-index: 800;
+}
+
 .loading-spinner-mask {
     color: rgb(42, 54, 71);
     position: absolute;
