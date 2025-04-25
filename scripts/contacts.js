@@ -3,11 +3,13 @@
  *
  */
 async function sortAndRenderContacts(){
+  removeDisplayNone('loading-spinner');
   await getDataFromServer("contacts", contactsFromApi);
   await getDataFromServer("users", usersFromApi);
   sortAllContactsByFirstLetter();
   renderContactsHeaderLetter();
   setInitialsToHeader();
+  addDisplayNone('loading-spinner');
 }
 
 /**

@@ -3,10 +3,13 @@
  * This Onload function calls up all functions that are to be displayed when the page is opened.
  *
  */
-function initBoard(){
+async function initBoard(){
+  removeDisplayNone('loading-spinner');
   redirectToLogInPage();
-  loadAndRenderTasks();
+  await loadAndRenderTasks();
+  addDisplayNone('loading-spinner');
 }
+
 
 /**
  * This function takes all users and tasks from the database and displays the initials in the header area.
@@ -19,6 +22,7 @@ async function loadAndRenderTasks(){
   setInitialsToHeader();
   renderBoard();
 }
+
 
 /**
  * This function renders the respective tasks into the columns by first emptying them, then filling them 
