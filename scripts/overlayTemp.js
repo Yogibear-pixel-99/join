@@ -112,7 +112,7 @@ function getAddTaskOverlayTemp(){
                   id="form-title"
                   name="title"
                   required
-                  maxlength="30"
+                  maxlength="70"
                   type="text"
                   placeholder="Enter a title" />
                   <span id="title-error-message" class="error-message"></span>
@@ -125,7 +125,7 @@ function getAddTaskOverlayTemp(){
                   name="description"
                   id="form-description"
                   class="textareaAddTask"
-                  maxlength="80"
+                  maxlength="140"
                   placeholder="Enter a description"></textarea>
               </div>
               <div class="flex-col gap8 hover-pointer">
