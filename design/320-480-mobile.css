@@ -389,11 +389,23 @@
   }
 }
 
-@media (max-height: 800px) {
+
+
+@media (max-height: 1000px) {
+
+  .info-input-field-container-right {
+    height: 50vh;
+  }
+
 }
 
 @media (max-height: 750px) {
 
+  .info-input-field-container-left {
+    height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 
   .close-icon-contact-mobile-overlay {
     transform: translate(0, -78px);
@@ -494,4 +506,15 @@
   gap: 8px;
 }
 
+}
+
+
+@media (max-height: 650px) {
+  .add-contact-overlay,
+  .edit-contact-overlay,
+  .main-container {
+    /* min-height: 650px; */
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }

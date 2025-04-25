@@ -56,6 +56,16 @@ hr {
 }
 .info-input-field-container-right {
   gap: 24px;
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.info-input-field-container-left {
+  gap: 24px;
+  height: 425px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .info-input-field-container input,
@@ -329,7 +339,7 @@ box-shadow: none;
   gap: 6px;
   margin-top: 6px;
   height: auto;
-  max-height: 110px;
+  max-height: 106px;
   overflow: auto;
 }
 
