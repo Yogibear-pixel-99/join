@@ -23,7 +23,7 @@
     border-radius: 30px;
     width: 525px;
     background-color: var(--task-overlay-bg-color);
-    max-height: 90vh;
+    max-height: 95vh;
 }
 
 .task-overlay-container {

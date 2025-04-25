@@ -2,7 +2,7 @@
   /* GLOBAL */
   h1 {
     font-size: 47px;
-    padding: 20px 0;
+    padding: 0;
   }
   /* LOGIN */
   @keyframes main-logo {
@@ -118,6 +118,11 @@
     padding: 8px 0 8px 8px;
   }
 
+  .task-overlay-container {
+    max-height: 98dvh;
+    max-width: 98vw;
+  }
+
   .single-contact {
     padding: 10px 0;
   }
@@ -142,8 +147,7 @@
 
 @media (max-width: 400px) {
   .task-overlay-container {
-    min-width: 310px;
-    width: auto;
+    border: solid white 20px !important;
   }
 
   .mobile-guest-text {
