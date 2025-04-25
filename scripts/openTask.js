@@ -159,6 +159,7 @@ function showSubtaskInEditOverlay(task){
  */
 async function updateTask(event, apiKey, status){
     event.preventDefault();
+    if (checkEditTaskOverlayFormValidation()) {
     let taskRef = document.getElementById('task-overlay-menu');
     addTaskStatus = status;
     await collectAllTaskInfos();
@@ -167,4 +168,19 @@ async function updateTask(event, apiKey, status){
     let task = tasksFromApi.find(element => element.apiKey === apiKey);
     taskRef.innerHTML = await getTaskOverlayTemp(task);
     renderBoard();
+}}
+
+
+function checkEditTaskOverlayFormValidation(){
+    let title = document.getElementById('form-title').value.trim();
+    let dueDate = document.getElementById('due-date').value.trim();
+    if (title == '' || dueDate == ''){ 
+      titleRedBorder(title);
+      dateRedBorder(dueDate);
+      return false;
+    } else {
+      titleRedBorder(title);
+      dateRedBorder(dueDate);
+      return true;
+    }
 }

@@ -267,7 +267,7 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
                         <div class="floating-mail-phone-wrapper">
                             <div class="floating-mail-phone">
                                 <div class="floating-mail-phone-header">Email</div>
-                                <a href="mailto" class="color-blue-mail">${contact.email}</a>
+                                <a href="mailto:${contact.email}" class="color-blue-mail">${contact.email}</a>
                             </div> 
                             <div class="floating-mail-phone">
                                 <div class="floating-mail-phone-header">Phone</div>

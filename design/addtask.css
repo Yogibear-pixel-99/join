@@ -277,6 +277,7 @@ box-shadow: none;
   width: 100%;
   border: none;
   border-radius: 16px;
+  padding-left: 24px !important;
 }
 
 .subtask-container-wrapper .subtask-input:focus {

@@ -27,12 +27,10 @@ function turnZIndexToZero() {
  * 
  * @param {Event} event - The form submit event object
  */
-function checkLogin(event){
-
+async function checkLogin(event){
   event.preventDefault();
-  getUserInfo().then(() => {
+  await getUserInfo();
    checkEmail(event); 
-  });
 }
 
 
@@ -66,7 +64,6 @@ function redirectIfUserIsSaved(){
 }}
 
 
-
 /**
  * This function checks the email to see if a valid one exists.
  * 
@@ -74,6 +71,8 @@ function redirectIfUserIsSaved(){
  * @param {integer} emailIndex- The index that stores the position of the email in the database
  */
 function checkEmail(){
+  removeRedBorderAndTextFalseInput("email", "login-error-message");
+  removeRedBorderAndTextFalseInput("password", "login-error-message");
   let emailChecked = usersFromApi.some(
     (item) => item.email === emailREF.value
   );
@@ -113,8 +112,6 @@ function checkPassword(emailIndex){
 function setErrorMessageToLogin(){
   addRedBorderAndTextFalseInput("email", "login-error-message", "Check your email and password. Please try again. ");
   addRedBorderAndTextFalseInput("password", "login-error-message", "Check your email and password. Please try again. ");
-  setTimeout(() => {removeRedBorderAndTextFalseInput("email", "login-error-message")}, 3000);
-  setTimeout(() => {removeRedBorderAndTextFalseInput("password", "login-error-message")}, 3000);
 }
 
 

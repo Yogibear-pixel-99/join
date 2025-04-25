@@ -40,31 +40,32 @@
               required
               name="name" 
               placeholder="Full Name"
-              oninput = "toggleSignUpButton()" />
+              maxlength="30"
+              oninput =  "justLetters(this); toggleSignUpButton()" />
             <img class="input-logo" src="../assets/icons/person.svg" />
           </div>
           <div class="input-field-container">
             <input
               id="user-email-input"
               class="login-input-field"
-              type="email"
+              type="text"
               name="email"
               required
               placeholder="Email"
-              oninput = "toggleSignUpButton()" />
+              maxlength="30"
+              oninput = "toggleSignUpButton(); removeWhiteSpacesOnInput(this)" />
             <img class="input-logo" src="../assets/icons/mail.svg" />
           </div>
           <div class="input-field-container">
             <input
-              onkeyup="changePasswordIcon('sign-up-password', 'sign-up-pw-icon')"
               id="sign-up-password"
               class="login-input-field"
               type="password"
               name="password"
-              minlength="8"
+              maxlength="30"
               required
               placeholder="Password minimum 8 chars" 
-              oninput="toggleSignUpButton()"/>
+              oninput="toggleSignUpButton(); changePasswordIcon('sign-up-password', 'sign-up-pw-icon'); removeWhiteSpacesOnInput(this)"/>
             <img 
               id="sign-up-pw-icon"
               class="input-logo lock-logo" 
@@ -77,10 +78,10 @@
               id="sign-up-password-confirm"
               class="login-input-field"
               type="password"
-              minlength="8"
+              maxlength="30"
               required
               placeholder="Confirm Password"
-              oninput="changePasswordIcon('sign-up-password-confirm', 'sign-up-cf-icon'); toggleSignUpButton()" />
+              oninput="changePasswordIcon('sign-up-password-confirm', 'sign-up-cf-icon'); toggleSignUpButton(); removeWhiteSpacesOnInput(this)" />
               <img 
                 id="sign-up-cf-icon"
                 onclick="showHidePassword('sign-up-password-confirm', 'sign-up-cf-icon')"
@@ -112,10 +113,12 @@
         <a href="../html/Privacypolicy.html">Privacy Policy</a>
         <a href="../html/legalnotice.html">Legal notice</a>
       </div>
+      <a href="../html/index.html">
       <img
         class="join-logo login-logo sign-up-join-logo"
         src="../assets/icons/join-logo-login.svg"
         alt="join logo" />
+      </a>
     </main>
 
     <section id="sign-up-success-button" class="dark-button overlay-button flex-ctr-ctr">You Signed Up successfully</section>

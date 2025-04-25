@@ -125,10 +125,11 @@
                   class="addTask-input-field"
                   id="form-title"
                   name="title"
+                  maxlength="30"
                   required
                   type="text"
                   placeholder="Enter a title" />
-                  <span id="title-error-message" class="title-error-message"></span>
+                  <span id="title-error-message" class="error-message"></span>
               </div>
 
               <div class="flex-col gap8">
@@ -139,6 +140,7 @@
                   name="description"
                   id="form-description"
                   class="textareaAddTask"
+                  maxlength="80"
                   placeholder="Enter a description"></textarea>
               </div>
               <div class="flex-col gap8 hover-pointer">
@@ -147,7 +149,7 @@
                 >
                 <div class="relative">
                 <input
-                onkeyup="checkDateInput(); resetDateValue(event); checkIfDateIsValid()"
+                onchange="checkDateInput(); resetDateValue(event); checkIfDateIsValid()"
                 class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
@@ -158,7 +160,7 @@
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
                   <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
                   </div>
-                  <span id="date-error-message" class="date-error-message"></span>
+                  <span id="date-error-message" class="error-message"></span>
               </div>
             </div>
             <div class="add-task-separator"></div>
@@ -265,7 +267,7 @@
                 <div class="custom-dropdown" id="customDropdown">
                     
                   <input class="dropdown-label addTask-input-field-img" type="text" id="searchInput" autocomplete="off" placeholder="Select contacts to assign" 
-                  onkeyup="startSearchingContacts()"
+                  oninput="startSearchingContacts()"
                   onclick="toggleAssignedDropdown(); noClose(event); closeCategDrop();" />
                   <div onclick="noClose(event)" id="addTaskWrapper" class="add-task-wrapper add-task-wrapper-passive">
                     <div class="dropdown-content d-none" id="dropdownContent"></div>
@@ -291,7 +293,7 @@
                   <div class="dropdown-content d-none" id="categoryDropdownContent"></div>
                 </div>
               </div>
-              <span id="category-error-message" class="title-error-message"></span>
+              <span id="category-error-message" class="error-message"></span>
               <div class="subtask-input-wrapper flex-col gap8">
                 <label for="subtasks-input"
                   >Subtasks  </label>
@@ -303,8 +305,7 @@
                     class="subtasks-input addTask-input-field"
                     id="subtasks-input"
                     type="text"
-                    
-                    maxlength="30"
+                    maxlength="20"
                     placeholder="Add new subtask" />
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
                     <img src="../assets/icons/Subtasks icons11.svg" onclick="focusSubtaskInputMenu()"/>

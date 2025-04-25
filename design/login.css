@@ -2,7 +2,21 @@
 
 
 
+.sign-up-join-logo:hover {
+  background-color: var(--grey-hover);
+  border-radius: 16px;
+  padding: 12px;
+  transform: translate(-12px, -12px);
 
+}
+
+.sign-up-join-logo:active {
+  background-color: var(--grey-hover);
+  border-radius: 16px;
+  padding: 12px;
+  transform: translate(-12px, -12px);
+
+}
 
 .login-logo {
   position: absolute;
