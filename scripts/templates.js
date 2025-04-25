@@ -401,9 +401,9 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
         <div class="greeting-name" id="summary-greeting-text-overlay-user">${name}</div>
     </section>
           <section class="mobile-navbar">
-        <a href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
-        <a href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
-        <a href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
-        <a href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
+        <a class="mobile-link-navbar mobile-active" href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
+        <a class="mobile-link-navbar" href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
+        <a class="mobile-link-navbar" href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
+        <a class="mobile-link-navbar" href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
     </section>`
 }

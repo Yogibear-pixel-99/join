@@ -70,7 +70,7 @@
   font-weight: 500;
 }
 
-.active-button{
+.mobile-active{
     background-color: var(--navbar-active);
 }
 
