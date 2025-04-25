@@ -228,8 +228,10 @@ function showGreeting(){
  */
 function addGreetingAnimation(userName){
   if (window.innerWidth <= 1024){
+    let contentRef = document.getElementById('summary-greeting-text-overlay-user');
     let guestRef = document.getElementById('summary-greeting-overlay-guest');
     let userRef = document.getElementById('summary-greeting-overlay-user');
+        contentRef.innerText = userName;
     userName !== 'Guest' && userName ? showGreetingAnimation(userRef) : showGreetingAnimation(guestRef);
   }
 }
