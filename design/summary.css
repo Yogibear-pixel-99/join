@@ -2,6 +2,11 @@
   padding-top: 50px;
 }
 
+.summary-body {
+  position: relative;
+  z-index: 2000;
+}
+
 .summary-main-container {
   display: flex;
   flex-direction: column;
@@ -324,11 +329,9 @@ transform-origin: left center;
   bottom: 0;
   left: 0;
   background-color: var(--main-background);
-  z-index: 3500;
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: opacity(100%);
   z-index: 1100;
 }
 

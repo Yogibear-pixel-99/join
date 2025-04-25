@@ -4,7 +4,7 @@
  */
 async function sortAndRenderContacts(){
 
-  window.innerWidth >= 1024 ? removeDisplayNone('loading-spinner') : removeDisplayNone('loading-spinner-mobile');
+  window.innerWidth <= 1024 ? removeDisplayNone('loading-spinner-mobile') : removeDisplayNone('loading-spinner');
   await getDataFromServer("contacts", contactsFromApi);
   await getDataFromServer("users", usersFromApi);
   sortAllContactsByFirstLetter();

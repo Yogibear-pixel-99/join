@@ -82,8 +82,15 @@
     <main class="main-container summary-main-container" id="summary-main">
 
     </main>
-    <section id="loading-spinner" class="loading-spinner-mask-summary flex-ctr-ctr d-none">
-      <img class="loading-spinner" src="../assets/icons/loading-spinner.svg" alt="loading-spinner">
+    <section class="greeting-overlay d-none" id="summary-greeting-overlay-guest">
+      <div class="greeting-text" id="summary-greeting-text-overlay-guest">Good Morning</div>
+  </section>
+  <section class="greeting-overlay d-none" id="summary-greeting-overlay-user">
+      <div class="greeting-text" id="summary-greeting-name-overlay-user">Good Morning,</div>
+      <div class="greeting-name" id="summary-greeting-text-overlay-user">${name}</div>
+  </section>
+      <section id="loading-spinner" class="loading-spinner-mask-summary flex-ctr-ctr d-none">
+    <img class="loading-spinner" src="../assets/icons/loading-spinner.svg" alt="loading-spinner">
   </section>
     <section class="landscape-overlay">
       <span>Turn your device!</span>

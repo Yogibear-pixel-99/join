@@ -412,13 +412,6 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
                 </div>
             </div>
       </div>
-    <section class="greeting-overlay d-none" id="summary-greeting-overlay-guest">
-        <div class="greeting-text" id="summary-greeting-text-overlay-guest">Good Morning</div>
-    </section>
-    <section class="greeting-overlay d-none" id="summary-greeting-overlay-user">
-        <div class="greeting-text" id="summary-greeting-name-overlay-user">Good Morning,</div>
-        <div class="greeting-name" id="summary-greeting-text-overlay-user">${name}</div>
-    </section>
           <section class="mobile-navbar">
         <a class="mobile-link-navbar mobile-active" href="../html/summary.html"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
         <a class="mobile-link-navbar" href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>

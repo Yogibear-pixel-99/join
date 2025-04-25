@@ -103,12 +103,6 @@ background-color: var(--hover-darkblue);
 }
 
 
-
-
-.summary-body {
-    position: relative;
-}
-
 .loading-spinner-mask-summary {
     color: rgb(42, 54, 71);
     position: absolute;
@@ -138,7 +132,6 @@ background-color: var(--hover-darkblue);
     animation-duration: 2000ms;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
-    /* animation-direction: alternate-reverse; */
 }
 
 @keyframes loading-spinner {
@@ -148,10 +141,3 @@ background-color: var(--hover-darkblue);
     75% {transform: rotate(360deg);}
     100% {transform: rotate(360deg);}
 }
-
-/* .hide-desktop {
-    display: none;
-} */
-/*  */
-.loading-spinner,
-.loading-spinner-mobile /* for contacts*/
