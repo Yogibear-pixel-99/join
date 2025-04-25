@@ -172,13 +172,13 @@ function checkContactFormValidation(formEmailId, formPhoneId, errorId){
   let emailRef = document.getElementById(formEmailId);
   let phoneRef = document.getElementById(formPhoneId);
   let phoneRegEx = /^\+?\d+$/;
-  let emailRegEx = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/
-      if (!phoneRegEx.test(phoneRef.value)) {
+  let emailRegEx = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+      if (!phoneRegEx.test(phoneRef.value.trim())) {
         addRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
         setTimeout(() => {removeRedBorderAndTextFalseInput(formPhoneId, errorId)}, 3000);
         return false;
       }
-      if (!emailRegEx.test(emailRef.value)){
+      if (!emailRegEx.test(emailRef.value.trim())){
         addRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address', 'Not a valid email address');
         setTimeout(() => {removeRedBorderAndTextFalseInput(formEmailId, errorId)}, 3000);
         return false;
@@ -201,9 +201,9 @@ function resetAddContactForm(){
  * Checks if all contacts field are filled and enables/disables the create contact button.
  */
 function checkAddContactValidation(){
-  let nameRef = document.getElementById('add-contact-input-field').value;
-  let mailRef = document.getElementById('user-email-input').value;
-  let phoneRef = document.getElementById('phone-input').value;
+  let nameRef = document.getElementById('add-contact-input-field').value.trim();
+  let mailRef = document.getElementById('user-email-input').value.trim();
+  let phoneRef = document.getElementById('phone-input').value.trim();
   let buttonRef = document.getElementById('create-contact-button');
   if (nameRef != '' && mailRef != '' && phoneRef != '') {
     enableButton(buttonRef);
@@ -359,9 +359,9 @@ async function saveEditedContact(event, contactKey){
  */
 function getContactInfosToFetch(){
   collectedFormInfos = {
-    name: document.getElementById("edit-user-name-input").value,
-    email: document.getElementById("edit-user-email-input").value,
-    phone: document.getElementById("edit-user-phone-input").value,
+    name: document.getElementById("edit-user-name-input").value.trim(),
+    email: document.getElementById("edit-user-email-input").value.trim(),
+    phone: document.getElementById("edit-user-phone-input").value.trim(),
   };
 }
 
@@ -433,7 +433,7 @@ function switchToAllContactsMobile(){
  */
 function setInitialsToNewContactContainer(inputId, destinationId){
   let input = document.getElementById(inputId);
-  let initials = returnInitials(input.value);
+  let initials = returnInitials(input.value.trim());
   let destinationRef = document.getElementById(destinationId);
   destinationRef.innerText = initials.slice(0, 2);
   removeAndSetInititalsBackgroundColorClass(destinationId, initials);

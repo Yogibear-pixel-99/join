@@ -133,7 +133,7 @@ function getAddTaskOverlayTemp(){
                 >
                 <div class="relative">
                 <input
-                onkeyup="checkDateInput(event)"
+                    onkeyup="checkDateInput(); resetDateValue(event); checkIfDateIsValid()"
                 class="addTask-input-field hover-pointer"
                   id="due-date"
                   name="date"
