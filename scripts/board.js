@@ -405,7 +405,10 @@ function dropTask(event){
     if (taskCard && column){
         let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
         taskCard.dataset.status = newStatus;
+        console.log("newStatus: " + newStatus);
+        
         let updateTask = tasksFromApi.find(task => {return task.apiKey === taskId || "task-" + task.title.replace(/\s+/g, '-') === taskId;});
+        console.log("updateTask: " + updateTask);
         getNewStatusInfo(newStatus, updateTask);
     }
     taskCard.classList.remove("dragging");

@@ -263,7 +263,7 @@ function closeHeaderDropdownMenu(){
 function dragAndDropDropdown(id, status) {
   let dropdownREF = document.getElementById("dropdown-" + id);
   let taskREF = document.getElementById("tasks-" + status.toLowerCase().replace(/\s+/g, '') + "-"+id);
-  taskREF.classList.add("d-none-tasks")
+  taskREF.classList.add("d-none")
   dropdownREF.classList.toggle("d-none");
 }
 
@@ -278,4 +278,9 @@ async function closeDropDownTasks(id) {
       }  
     }
     }
+}
+
+
+function changeStatusMobile(newStatus, apiKey) {
+  getNewStatusInfo(newStatus, apiKey);
 }
