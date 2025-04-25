@@ -459,13 +459,34 @@ function disableButton(buttonRef){
 }
 
 
+/**
+ * Adds display none class to a specified container.
+ * 
+ * @param {string} containerId - The container id.
+ */
 function addDisplayNone(containerId){
   let ref = document.getElementById(containerId);
       ref.classList.add('d-none');
 }
 
 
+/**
+ * Removes a display none class to a specified container.
+ * 
+ * @param {string} containerId - The container id.
+ */
 function removeDisplayNone(containerId){
   let ref = document.getElementById(containerId);
       ref.classList.remove('d-none');
+}
+
+
+/**
+ * Removes the value of a specified input container.
+ * 
+ * @param {string} containerId - The container id.
+ */
+function resetValueFromInputField(id){
+  let ref = document.getElementById(id);
+      ref.value = '';
 }

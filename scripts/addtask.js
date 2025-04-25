@@ -68,6 +68,7 @@ function setPriorityButtonColor(selected){
    * Checks if the user input date is valid.
    */
 function checkIfDateIsValid(){
+  let dateValid = false;
   let userInput = document.getElementById('due-date');
   let userDate = userInput.value.replaceAll('/', '');
   if (userDate.length === 8) {
@@ -75,33 +76,15 @@ function checkIfDateIsValid(){
       const day = parseInt(userDate.slice(0, 2));
       const month = parseInt(userDate.slice(2, 4) - 1);
       const year = parseInt(userDate.slice(4, 8));
-      checkDayAndMonth(day, month);
       let wholeUserDate = new Date(year, month, day);
       wholeUserDate = wholeUserDate.setHours(0, 0, 0, 0);
-      dateNow = dateNow.setHours(0, 0, 0, 0)
-   if (wholeUserDate < dateNow){
-    displayDateError('Date musst be in the future');
-  } else {
-    removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
+      dateNow = dateNow.setHours(0, 0, 0, 0);
+      if (checkDayAndMonthValid(day, month, wholeUserDate, dateNow)) {
+        dateValid = true;
+         removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
+      }
+    return dateValid;
   }}
-}
-
-
-/**
- * Displays an error message if the date is in the past.
- * 
- * @param {string} errorText - The error message to display.
- */
-function displayDateError(errorText){
-  let errorRef = document.getElementById('date-error-message');
-  let userInput = document.getElementById('due-date');
-  let contentRef = document.getElementById("due-date");
-  errorRef.innerText = errorText;
-  contentRef.classList.add('red-border-inputfield');
-  setTimeout(() => {userInput.value = ''}, 100);
-/* setTimeout(() => {errorRef.innerText = ''}, 1000); */
-
-}
 
 
 /**
@@ -109,13 +92,23 @@ function displayDateError(errorText){
  * 
  * @param {integer} day - The userinput day.
  * @param {integer} month - The userinput month.
+ * @param {integer} wholeUserDate - The user input time stamp.
+ * @param {integer} dateNow - The date time stamp.
  */
-function checkDayAndMonth(day, month){
+function checkDayAndMonthValid(day, month, wholeUserDate, dateNow){
+  let dateValid = true;
   const maxDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const maxDay = maxDaysInMonth[month];
-  if (!(day >= 1 && day <= maxDay)) {
-    displayDateError('Enter a valid Date');
+  if ((month + 1 < 1 || month + 1 > 12) || (day < 1 || day > maxDay)) {
+    addRedBorderAndTextFalseInputAddTask('due-date', 'date-error-message', 'Enter a valid date');
+    setTimeout(() => {resetValueFromInputField('due-date')}, 50);
+    dateValid =  false;
+  } else if (wholeUserDate < dateNow) {
+    addRedBorderAndTextFalseInputAddTask('due-date', 'date-error-message', 'Date must be in the future')
+    setTimeout(() => {resetValueFromInputField('due-date')}, 50);
+    dateValid = false;
   }
+  return dateValid;
 }
 
 
@@ -164,9 +157,8 @@ function showDatePicker(){
  * @param {Object} event - The default object.
  */
 function resetDateValue(event){
-  let contentRef = document.getElementById('due-date');
   if (event.keyCode == 8 || event.keyCode == 46){
-    contentRef.value = '';
+    resetValueFromInputField('due-date');
   } 
 }
 
@@ -284,8 +276,8 @@ function collectCategory(){
  */
 function createNewTask(event){
   event.preventDefault();
-  let title = document.getElementById('form-title').value;
-  let dueDate = document.getElementById('due-date').value;
+  let title = document.getElementById('form-title').value.trim();
+  let dueDate = document.getElementById('due-date').value.trim();
   savedCategory = document.getElementById('categoryDropdown').value;
   getTaskStatus();
   if (title.trim() == '' || dueDate == ''|| savedCategory == ''){
@@ -399,7 +391,7 @@ function addRedBorderAndTextFalseInputAddTask(borderContainer, messageContainer,
   const textRef = document.getElementById(messageContainer);
         contentRef.classList.add('red-border-inputfield');
         textRef.innerText = errorMessage;
-        textRef.style.color = 'red';
+        // textRef.style.color = 'red';
 }
 
 
