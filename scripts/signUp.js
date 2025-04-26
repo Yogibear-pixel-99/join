@@ -6,7 +6,10 @@
 async function signUpNewUser(event){
   event.preventDefault();
     removeAllErrorsFromSignUp();
-    if((!testIfEmailIsValid(document.getElementById('user-email-input').value.trim()))){
+    if (checkNameLength('sign-up-name', 4)){
+      addRedBorderAndTextFalseInput('sign-up-name', 'input-alert-message', 'Enter a minimum of five letters');
+    }
+    else if((!testIfEmailIsValid(document.getElementById('user-email-input').value.trim()))){
       addRedBorderAndTextFalseInput('user-email-input', 'input-alert-message', 'Enter a valid email address');
   } else if (checkIfPasswordIsSameAsConfirm()){
       addRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message', "Your passwords don't match. Please try again.");
@@ -22,9 +25,27 @@ async function signUpNewUser(event){
 
 
 /**
+ * Compares the input length with the number.
+ * 
+ * @param {string} id - The id of the input HTML element.
+ * @param {integer} number - The maximum number to compare
+ * @returns - A boolean.
+ */
+function checkNameLength(id, number){
+  let ref = document.getElementById(id);
+  if (ref.value.length < number){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+/**
  * Removes all errors from the sign up form.
  */
 function removeAllErrorsFromSignUp(){
+    removeRedBorderAndTextFalseInput('sign-up-name', 'input-alert-message');
     removeRedBorderAndTextFalseInput('sign-up-password', 'input-alert-message');
     removeRedBorderAndTextFalseInput('sign-up-password-confirm', 'input-alert-message');
     removeRedBorderAndTextFalseInput('user-email-input', 'input-alert-message');
@@ -53,6 +74,8 @@ async function collectNewUserValuesAndPost(){
   await postDataToApi("users", collectedFormInfos);
   mainContentBrightness50();
   showOverlayButton("sign-up-success-button", "You Signed Up successfully");
+
+  setTimeout(() =>  {resetForm('sign-up-form')}, 300);
   setTimeout(() => redirectToLogIn(), 800);
 }
 
