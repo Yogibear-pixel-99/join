@@ -166,7 +166,7 @@ async function createNewContact(event) {
     await postContactToApiAndShowInMenu();
     removeAndSetInititalsBackgroundColorClass('', 'edit-contact-overlay-initials-wrapper');
   }
-}
+}}
 
 
 /**
