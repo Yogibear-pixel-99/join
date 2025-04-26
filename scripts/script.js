@@ -44,7 +44,7 @@ function setGuestOrUserNavbar(){
   let checkUserLoggedIn = sessionStorage.getItem("userLoggedIn");
   let mobileNavbarUser = document.getElementById('mobile-navbar-user');
   let mobileNavbarGuest = document.getElementById('mobile-navbar-guest');
-    if (checkUserLoggedIn == "true"){
+    if (checkUserLoggedIn == "true" || checkUserLoggedIn == "false"){
       userNavbarREF.classList.toggle("d-none");
       mobileNavbarUser.classList.toggle("d-none");
     } else {
