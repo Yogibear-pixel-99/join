@@ -438,14 +438,6 @@ function toggleClasses(menuRef, maskRef, mainRef){
 
 
 /**
- * Switches to the all contacts container in the mobile version.
- */
-function switchToAllContactsMobile(){
-  switchFloatingContactAndContactsInMobile();
-}
-
-
-/**
  * Set new initials to the container if the name is changing.
  * 
  * @param {string} inputId - The name value from the input field.
