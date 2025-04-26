@@ -1,5 +1,14 @@
+.main-container-privacy,
+.main-container-legal {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-
+.main-content-privacy,
+.main-content-legal {
+ overflow-y: auto;
+}
 
 .navbar-container {
     box-sizing: border-box;
@@ -75,6 +84,7 @@
 }
 
 .mobile-navbar {
+  margin-top: auto;
   display: none;
 }
 
