@@ -1,10 +1,9 @@
-
 .task-color-T {
-    background-color: #0038FF;
+  background-color: #0038ff;
 }
 
 .task-color-U {
-    background-color: #1FD7C1;
+  background-color: #1fd7c1;
 }
 
 .task-overlay-header {
@@ -17,13 +16,13 @@
 }
 
 .task-overlay-container {
-    flex-direction: column;
-    gap: 24px;
-    padding: 20px 20px;
-    border-radius: 30px;
-    width: 525px;
-    background-color: var(--task-overlay-bg-color);
-    max-height: 95vh;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 20px;
+  border-radius: 30px;
+  width: 525px;
+  background-color: var(--task-overlay-bg-color);
+  max-height: 95vh;
 }
 
 .task-overlay-container {
@@ -36,183 +35,176 @@
 }
 
 .task-overlay-container h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .overlay-header-wrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .overlay-task-header-text {
-    border-radius: 8px;
-    padding: 4px 24px;
-    font-size: 23px;
-    font-weight: 400;
-    color: white;
+  border-radius: 8px;
+  padding: 4px 24px;
+  font-size: 23px;
+  font-weight: 400;
+  color: white;
 }
 
 .close-icon-wrapper {
   min-width: 32px;
   min-height: 32px;
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .overlay-task-body {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    font-size: 20px;
-    font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .overlay-task-body-left {
-    display: inline-block;
-    width: 120px;
+  display: inline-block;
+  width: 120px;
 }
 
 .assigned-users-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    max-height: 180px;
-    overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 180px;
+  overflow: auto;
 }
 
 .task-user-wrapper {
-    display: flex;
-    align-items: center;
-    padding: 7px 16px;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  padding: 7px 16px;
+  gap: 16px;
 }
 
 .task-overlay-initials {
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    color: white;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  color: white;
 }
 
 .overlay-task-body label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    width: fit-content;
-    font-weight: 400;
-    font-size: 16px;
-    padding: 6px 16px;
-    transition: ease-in-out 200ms;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 6px 16px;
+  transition: ease-in-out 200ms;
+  cursor: pointer;
 }
 
 .overlay-task-body label:hover {
-    background-color: var(--grey-hover);
-    border-radius: 16px;
+  background-color: var(--grey-hover);
+  border-radius: 16px;
 }
 
-.subtasks-overlay-wrapper input{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    min-width: 16px;
-    min-height: 16px;
+.subtasks-overlay-wrapper input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 16px;
+  min-height: 16px;
 }
 
 .overlay-task-body label input {
-    margin: 0;
+  margin: 0;
 }
 
 input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    border: 2px solid var(--join-dark);
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: white;
-    margin-right: 20px;
-  }
-  
-  input[type="checkbox"]:checked::after {
-    content: "✔";
-    font-size: 16px;
-    color: black;
-    display: block;
-    text-align: center;
-    line-height: 12px;
-  }
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--join-dark);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: white;
+  margin-right: 20px;
+}
 
-  .task-overlay-footer-buttons{
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  font-size: 16px;
+  color: black;
+  display: block;
+  text-align: center;
+  line-height: 12px;
+}
 
-  .task-overlay-button-wrapper{
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-  }
-  .task-overlay-button-wrapper:hover {
-    color: var(--light-blue);
-    font-weight: 700;
-  }
+.task-overlay-footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
 
-  .task-overlay-button-wrapper:hover > svg > path{
-    fill: var(--light-blue);
-  }
+.task-overlay-button-wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.task-overlay-button-wrapper:hover {
+  color: var(--light-blue);
+  font-weight: 700;
+}
 
+.task-overlay-button-wrapper:hover > svg > path {
+  fill: var(--light-blue);
+}
 
+.task-overlay-button-separator {
+  width: 1px;
+  height: 24px;
+  background-color: var(--input-separator-color);
+}
 
-  .task-overlay-button-separator {
-    width: 1px;
-    height: 24px;
-    background-color: var(--input-separator-color);
-  }
-
-
-  /* ADD TASK OVERLAY */
-
-
+/* ADD TASK OVERLAY */
 
 .add-task-overlay {
-    padding: 60px;
-    max-width: 1100px;
-    width: 90vw;
-    height: 900px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+  padding: 40px;
+  max-width: 1100px;
+  width: 90vw;
+  height: 900px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
-  .top-whitebox {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
+.top-whitebox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 
+  height: 108px;
+  background-color: wheat;
+}
 
-    
-    height: 108px;
-    background-color: wheat;
-  }
+.add-task-overlay::-webkit-scrollbar {
+  display: none;
+}
 
-  .add-task-overlay::-webkit-scrollbar {
-    display: none;
-  }
-
-  .add-task-footer-overlay {
-    display: flex;
-    justify-content: space-between;
-    margin-top: auto;
-  }
+.add-task-footer-overlay {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
 
 .add-task-main-content-edit-task-overlay {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .edit-task-overlay-close-wrapper {
@@ -236,72 +228,55 @@ input[type="checkbox"] {
   height: 50px;
 }
 
+.info-input-field-container-left-edit-task-overlay,
+.info-input-field-container-right-edit-task-overlay {
+  width: 100%;
+  padding: 0;
+  gap: 16px;
+}
 
+.info-input-field-container-edit-task-overlay input,
+.info-input-field-container-edit-task-overlay textarea,
+.info-input-field-container-edit-task-overlay select {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px 16px;
+}
 
+.add-task-separator-edit-task-overlay {
+  display: none;
+}
 
+.required-wrapper-edit-task-overlay {
+  display: none;
+}
 
+.add-task-footer-edit-task-overlay {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  align-self: flex-end;
+}
 
+.added-subtasks-edit-task-overlay {
+  max-height: none;
+}
 
+.addTask-button-container-edit-task-overlay {
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
 
+.add-task-form-content-edit-task-overlay::-webkit-scrollbar {
+  display: none;
+}
 
-
-
-
-
-
-
-
-  .info-input-field-container-left-edit-task-overlay,
-  .info-input-field-container-right-edit-task-overlay {
-    width: 100%;
-    padding: 0;
-    gap: 16px;
-  }
-
-  .info-input-field-container-edit-task-overlay input,
-  .info-input-field-container-edit-task-overlay textarea,
-  .info-input-field-container-edit-task-overlay select {
-    width: 100%;
-    font-size: 18px;
-    padding: 10px 16px;
-  }
-
-  .add-task-separator-edit-task-overlay {
-    display: none;
-  }
-
-  .required-wrapper-edit-task-overlay {
-    display: none;
-  }
-
-  .add-task-footer-edit-task-overlay {
-    position: static;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    align-self: flex-end;
-  }
-
-  .added-subtasks-edit-task-overlay {
-    max-height: none;
-  }
-
-  .addTask-button-container-edit-task-overlay {
-
-    flex-direction: row;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .add-task-form-content-edit-task-overlay::-webkit-scrollbar {
-    display: none;
-  }
-
-  .addTask-button-container-edit-task-overlay button,
-  .light-button.btns-addtask-edit-task-overlay {
-
-    font-size: 21px;
-    padding: 16px;
-    font-weight: 700;
-  }
+.addTask-button-container-edit-task-overlay button,
+.light-button.btns-addtask-edit-task-overlay {
+  font-size: 21px;
+  padding: 16px;
+  font-weight: 700;
+}

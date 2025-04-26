@@ -113,9 +113,7 @@
 .main-content-contacts {
   padding: 0;
 }
-.add-task-footer {
-  right: 40px;
-}
+
 
 /* LOGIN */
 /* SIGN UP */
@@ -185,9 +183,20 @@
 /* addtask */
 @media (max-width: 1350px) {
 
+  .add-task-overlay {
+    min-width: 90vw;
+  }
+
+  .add-task-footer-overlay {
+    width: auto;
+    min-width: 80vw
+  }
+
+  .info-input-field-container {
+    min-width: 80vw;
+  }
 
   .add-task-header {
-    /* font-size: 48px; */
     margin-bottom: 32px;
   }
 
@@ -208,6 +217,13 @@
     padding: 0 48px;
     gap: 16px;
     flex-wrap: nowrap;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .add-task-overlay {
+    min-width: 430px;
   }
 }
 

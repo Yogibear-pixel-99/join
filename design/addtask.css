@@ -30,6 +30,7 @@
   gap: 40px;
   justify-content: space-between;
   max-width: 1000px;
+  min-width: 1000px;
   margin-bottom: 140px;
 }
 
@@ -492,10 +493,10 @@ box-shadow: none;
 .add-task-footer {
   position: absolute;
   bottom: 20px;
-  right: 80px;
   left: 312px;
   display: flex;
   justify-content: space-between;
+  width: 1000px;
   max-width: 1000px;
   background-color: var(--main-background);
   padding: 20px 0 0 0;

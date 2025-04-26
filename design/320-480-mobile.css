@@ -227,7 +227,7 @@
 }
 
 
-@media (max-height: 865px) {
+@media (max-height: 900px) {
   /* LOGIN */
 
   @keyframes main-logo {
@@ -406,11 +406,10 @@
 
   .add-task-footer {
     left: 240px;
-    right: 8px;
   }
   .add-task-footer-overlay {
-    left: 60px;
-    right: 60px;
+    left: 40px;
+    /* width: 1000px; */
   }
 }
 
