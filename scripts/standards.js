@@ -178,10 +178,7 @@ function noClose(event) {
  */
 function returnInitials(fullName) {
   if (fullName) {
-    const normalizedName = fullName
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toUpperCase();
+    const normalizedName = fullName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
     const regExp = /\b\p{L}/gu;
     const initialsArray = normalizedName.match(regExp);
     return initialsArray.join("");
