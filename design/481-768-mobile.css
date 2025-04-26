@@ -96,9 +96,8 @@
 }
 
 .task-overlay-container {
-    max-width: 396px;
-    width: 396px;
-    padding: 32px 24px;
+    max-width: 525px;
+    width: 95vw;
 }
 
 .task-overlay-container h1 {

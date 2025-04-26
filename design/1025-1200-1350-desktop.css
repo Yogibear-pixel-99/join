@@ -35,7 +35,7 @@
 }
 
 .add-task-footer {
-  left: 272px;
+  left: 40px;
 }
 
 .contacts-content,
@@ -136,6 +136,10 @@
 
   .info-input-field-container {
     min-width: 80vw;
+  }
+
+  .info-input-field-container-edit-task-overlay {
+    min-width: auto;
   }
 
   .add-task-header {

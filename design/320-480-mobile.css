@@ -113,6 +113,7 @@
   .task-overlay-container {
     max-height: 98dvh;
     max-width: 98vw;
+    padding: 0;
   }
 
   .single-contact {

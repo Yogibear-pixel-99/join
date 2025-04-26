@@ -732,6 +732,10 @@
     display: block;
   }
 
+    .margin-bottom-12 {
+        margin-bottom: 12px;
+    }
+
   .close-icon-dark {
     display: none;
   }

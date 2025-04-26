@@ -26,6 +26,8 @@
 }
 
 .task-overlay-container {
+  background-color: var(--main-background);
+  border-color: var(--main-background);
   scrollbar-width: 0;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
@@ -216,6 +218,7 @@ input[type="checkbox"]:checked::after {
   width: 100%;
   max-width: 600px;
   margin: 0;
+  min-width: auto;
 }
 
 .white-box-bottom {

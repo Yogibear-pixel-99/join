@@ -492,7 +492,7 @@ box-shadow: none;
   left: 312px;
   display: flex;
   justify-content: space-between;
-  width: 1000px;
+  width: 80vw;
   max-width: 1000px;
   background-color: var(--main-background);
   padding: 20px 0 0 0;

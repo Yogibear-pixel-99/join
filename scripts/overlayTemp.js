@@ -328,7 +328,7 @@ function getEditTaskTemp(task){
                 placeholder="Enter a title" />
                 <span id="title-error-message" class="error-message"></span>
             </div>
-            <div class="flex-col gap8 width-100p">
+            <div class="flex-col gap8 width-100p margin-bottom-12">
               <label for="form-description"
                 >Description</label>
               <textarea
@@ -356,7 +356,7 @@ function getEditTaskTemp(task){
             </div>
             <div class="flex-col width-100p gap8">
               <label>Prio</label>
-              <div id="priority-wrapper" class="btn-importance-container">
+              <div id="priority-wrapper" class="btn-importance-container margin-bottom-12">
                 <input
                 value="Urgent"
                   class="d-none"
