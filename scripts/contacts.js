@@ -211,7 +211,8 @@ function checkContactFormValidation(formEmailId, formPhoneId, errorId){
 function resetAddContactForm(){
   let buttonRef = document.getElementById('create-contact-button');
   disableButton(buttonRef);
-  emptyFormInputFields('new-contact-form');
+  resetForm('new-contact-form');
+  // emptyFormInputFields('new-contact-form');
   removeAndSetInititalsBackgroundColorClass('add-contact-overlay-initials-wrapper', '');
     }
 

@@ -369,20 +369,29 @@ function setInitialsToHeader(){
 
 
 /**
- * Resets the form.
+ * Resets the add task form.
  * 
- * @param {string} formId - The id from the form container.
  */
-function resetForm(formId){
-  const ref = document.getElementById(formId);
-  ref.reset();
+function resetAddTaskForm(){
+  resetForm('add-task-form');
   clearAssignedTo();
   removeRedBorderAddTask();
 }
 
 
 /**
- * Toggles a class to a html container.
+ * Resets a specified form element.
+ * 
+ * @param {string} id - The id of the form element.
+ */
+function resetForm(id){
+  const ref = document.getElementById(id);
+  ref.reset();
+}
+
+
+/**
+ * Toggles a class to a html element.
  * 
  * @param {string} id - The name of the html container.
  * @param {string} className - The name of the class to toggle.
@@ -567,5 +576,3 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
 function removeWhiteSpacesOnInput(element){
   element.value = element.value.replace(/\s/g, '');
 }
-
-
