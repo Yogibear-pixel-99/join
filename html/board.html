@@ -153,7 +153,7 @@
               </button>
             </div>
             <button
-            onclick="openAddTaskOverlay('todo'); resetForm('add-task-form')"
+            onclick="openAddTaskOverlay('todo'); resetForm('add-task-form'); resetAddTaskForm();"
               class="dark-button add-task-button hide-mobile-1024">
               Add Task <img src="../assets/icons/add.svg" alt="" />
           </button>
@@ -163,7 +163,7 @@
           <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>To do</span>
-              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('todo'); resetForm('add-task-form')">
+              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('todo'); resetForm('add-task-form'); resetAddTaskForm();">
                 <svg
                   class="board-add-icon"
                   width="24"
@@ -227,7 +227,7 @@
           <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>In progress</span>
-              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('inprogress'); resetForm('add-task-form')">
+              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('inprogress'); resetForm('add-task-form'); resetAddTaskForm()">
                 <svg
                   class="board-add-icon"
                   width="24"
@@ -294,7 +294,7 @@
           <div class="board-single-task-container column" >
             <div class="board-task-header-container">
               <span>Await feedback</span>
-              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('awaitfeedback'); resetForm('add-task-form')">
+              <div class="board-add-task-icon-wrapper" onclick="openAddTaskOverlay('awaitfeedback'); resetForm('add-task-form'); ; resetAddTaskForm()">
                 <svg
                   class="board-add-icon"
                   width="24"
