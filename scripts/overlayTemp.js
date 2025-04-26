@@ -341,7 +341,7 @@ function getEditTaskTemp(task){
                 >Due date<span class="red-asterisk">*</span></label>
               <div class="relative">
               <input  value="${task.date}"
-              onkeyup="checkDateInput(event)"
+              onkeyup="checkDateInput(); resetDateValue(event); checkIfDateIsValid()"
               class="addTask-input-field addTask-input-field-edit-task-overlay hover-pointer"
                 id="due-date"
                 name="date"

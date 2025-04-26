@@ -131,7 +131,7 @@
 
 @media (max-width: 400px) {
   .task-overlay-container {
-    border: solid white 20px !important;
+    border: solid var(--main-background) 16px !important;
   }
 
   .mobile-guest-text {

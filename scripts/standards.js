@@ -205,7 +205,5 @@ async function deleteDataFromApi(SUB_URL, destinationApiKey) {
     } catch (error) {
       console.log(error);
     }
-  } else {
-    console.log("contactKey is empty!");
   }
 }

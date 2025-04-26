@@ -180,7 +180,7 @@ async function updateTask(event, apiKey, status){
 function checkEditTaskOverlayFormValidation(){
     let title = document.getElementById('form-title').value.trim();
     let dueDate = document.getElementById('due-date').value.trim();
-    if (title == '' || dueDate == ''){ 
+    if (title == '' || dueDate == '' || !checkIfDateIsValid()){ 
       titleRedBorder(title);
       dateRedBorder(dueDate);
       return false;
