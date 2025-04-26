@@ -113,12 +113,11 @@ function checkDayAndMonthValid(day, month, wholeUserDate, dateNow) {
   const maxDay = maxDaysInMonth[month];
   if (month + 1 < 1 || month + 1 > 12 || day < 1 || day > maxDay) {
     addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Enter a valid date");
-    setTimeout(() => {resetValueFromInputField("due-date");}, 50);
+    // setTimeout(() => {resetValueFromInputField("due-date");}, 50);
     dateValid = false;
   } else if (wholeUserDate < dateNow) {
     addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Date must be in the future");
-    setTimeout(() => {
-      resetValueFromInputField("due-date");}, 50);
+    // setTimeout(() => {resetValueFromInputField("due-date");}, 50);
     dateValid = false;
   }
   return dateValid;
