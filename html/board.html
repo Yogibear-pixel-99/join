@@ -77,12 +77,10 @@
       </div>
       <div class="policy-legal-content">
         <a href="./Privacypolicy.html" class="policy-legal-area"
-          >Privacy Policy</a
-        >
+          >Privacy Policy</a>
         <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
       </div>
     </section>
-
     <main class="main-container board-main-container" id="main-container">
       <header class="header-container">
         <span class="header-text">Kanban Project Management Tool</span>
@@ -121,15 +119,6 @@
           <div class="dropdown-text">Log out</div>
         </a>
       </div>
-
-
-
-    
-
-
-
-
-
       <div id="main-content" class="main-content main-content-board">
         <div class="top-board board-header-hide-desktop">
           <h2 class="main-header">Board</h2>
@@ -142,9 +131,6 @@
             </button></a>
           </div>
         </div>
-
-
-
         <div class="top-board search-container-mobile">
           <h2 class="main-header hide-mobile-768">Board</h2>
           <div class="board-top-right board-search-bar-wrapper-mobile">
@@ -173,11 +159,7 @@
           </button>
           </div>
         </div>
-
-
-
         <div class="bottom-board bottom-board-tasks">
-          <!-- 1) To do -->
           <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>To do</span>
@@ -242,8 +224,6 @@
             </div>
             <div id="boardToDoCard" ondragover="dragover(event)" ondrop="dropTask(event)" class="board-rendered task-column" data-status="todo"></div>
           </div>
-
-          <!-- 2) In progress -->
           <div class="board-single-task-container column" data-status="todo">
             <div class="board-task-header-container">
               <span>In progress</span>
@@ -311,8 +291,6 @@
               ondragover="dragover(event)" ondrop="dropTask(event)"
               class="board-rendered inprogress-card task-column" data-status="todo"></div>
           </div>
-
-          <!-- 3) Await feedback -->
           <div class="board-single-task-container column" >
             <div class="board-task-header-container">
               <span>Await feedback</span>
@@ -377,7 +355,6 @@
             </div>
             <div id="boardAwaitFeedbackCard" ondragover="dragover(event)" ondrop="dropTask(event)" class="board-rendered task-column" data-status="todo"></div>
           </div>
-          <!-- 4) Done -->
           <div class="board-single-task-container column" >
             <div class="board-task-header-container">
               <span>Done</span>
@@ -396,36 +373,10 @@
         <a class="mobile-link-navbar" href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
     </section>
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- BOARD ADD TASK OVERLAY CONTAINER -->
     <section class="addtask-content standard-overlay-hide add-task-overlay d-none" id="addtask-content"></section>
     <section class="mask-container d-none" id="addtask-overlay-mask-container" onclick="closeOverlayMenu('addtask-content', 'addtask-overlay-mask-container')"></section>
-
-
-
-<!-- BOARD SHOW TASK/EDIT TASK OVERLAY CONTAINER -->
     <section class="standard-overlay standard-overlay-hide overlay-menu-mask-close task-overlay-container d-none" id="task-overlay-menu"></section>
-<!-- BOARD MASK CONTAINER -->
     <section class="mask-container d-none" id="task-overlay-mask-container" onclick="closeOverlayMenu('task-overlay-menu', 'task-overlay-mask-container')"></section>
-<!-- TASK ADDED TO BOARD BUTTON -->
       <section id="task-added-overlay-button" class="task-added-overlay d-none" >
         <div class="task-added-message dark-button">
             <span>Task added to board</span>
@@ -440,6 +391,5 @@
       <span>Turn your device!</span>
       <img class="rotate-img" src="../assets/icons/rotate-device.svg" alt="rotate-device">
     </section>
-
   </body>
 </html>
