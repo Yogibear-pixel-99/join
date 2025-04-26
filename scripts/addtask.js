@@ -16,6 +16,7 @@ function setPriorityButtonColor(selected) {
   });
 }
 
+
 /**
  * Creates the div container for the selected user.
  *
@@ -45,7 +46,13 @@ function addSelectedContact(user) {
  * @returns A template with the user initials.
  */
 function getAssignedUserInitials(user) {
-  return `<div id = "${user.name.split(" ").join("")}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name.charAt(0).toUpperCase()}">${returnInitials(user.name)}</div>`;
+  return `<div id = "${user.name
+    .split(" ")
+    .join(
+      ""
+    )}" class="contact-list-initals flex-ctr-ctr initials-bg-color-${user.name
+    .charAt(0)
+    .toUpperCase()}">${returnInitials(user.name)}</div>`;
 }
 
 
@@ -56,7 +63,9 @@ function getAssignedUserInitials(user) {
  */
 function removeSelectedContact(userEmail) {
   let container = document.getElementById("addSelectedContacts");
-  let existingDiv = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
+  let existingDiv = container.querySelector(
+    `.selected-contact[data-user-id="${userEmail}"]`
+  );
   if (existingDiv) {
     assignedToContact = assignedToContact - 1;
     existingDiv.remove();
@@ -221,7 +230,11 @@ async function addTask(event) {
   event.preventDefault();
   await collectAllTaskInfos();
   await postDataToApi("tasks", collectedFormInfos);
-  toggleAddedButton("task-added-overlay-button", "task-added-overlay-button-show","d-none");
+  toggleAddedButton(
+    "task-added-overlay-button",
+    "task-added-overlay-button-show",
+    "d-none"
+  );
   setTimeout(() => {
     window.location.href = "../html/board.html";
   }, 1500);
@@ -247,7 +260,10 @@ async function collectAllTaskInfos() {
 function collectAssingTo() {
   let userREF = document;
   for (let index = 0; index < usersFromApi.length; index++) {
-    if (userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !==null) {
+    if (
+      userREF.getElementById(usersFromApi[index].name.split(" ").join("")) !==
+      null
+    ) {
       collectedFormInfos.assignTo.push(usersFromApi[index].email);
     }
   }
@@ -275,7 +291,12 @@ function createNewTask(event) {
   let dueDate = document.getElementById("due-date").value.trim();
   savedCategory = document.getElementById("categoryDropdown").value;
   getTaskStatus();
-  if (title.trim() == "" || dueDate == "" || !checkIfDateIsValid() || savedCategory == "") {
+  if (
+    title.trim() == "" ||
+    dueDate == "" ||
+    !checkIfDateIsValid() ||
+    savedCategory == ""
+  ) {
     event.preventDefault();
     titleRedBorder(title);
     dateRedBorder(dueDate);
@@ -326,9 +347,16 @@ function blockButton() {
  */
 function titleRedBorder(title) {
   if (title.trim() == "") {
-    addRedBorderAndTextFalseInputAddTask("form-title", "title-error-message", "This field is required.");
+    addRedBorderAndTextFalseInputAddTask(
+      "form-title",
+      "title-error-message",
+      "This field is required."
+    );
   } else {
-    removeRedBorderAndTextFalseInputAddTask( "form-title", "title-error-message");
+    removeRedBorderAndTextFalseInputAddTask(
+      "form-title",
+      "title-error-message"
+    );
   }
 }
 
@@ -341,9 +369,17 @@ function titleRedBorder(title) {
  */
 function dateRedBorder(dueDate) {
   if (dueDate == "") {
-    addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "This field is required.");
+    addRedBorderAndTextFalseInputAddTask(
+      "due-date",
+      "date-error-message",
+      "This field is required."
+    );
   } else if (!checkIfDateIsValid()) {
-    addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Enter a valid date.");
+    addRedBorderAndTextFalseInputAddTask(
+      "due-date",
+      "date-error-message",
+      "Enter a valid date."
+    );
   } else {
     removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
   }
@@ -358,10 +394,16 @@ function dateRedBorder(dueDate) {
  */
 function categoryRedBorder(category) {
   if (category == "") {
-    addRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message", "This field is required."
+    addRedBorderAndTextFalseInputAddTask(
+      "categoryDropdown",
+      "category-error-message",
+      "This field is required."
     );
   } else {
-    removeRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message");
+    removeRedBorderAndTextFalseInputAddTask(
+      "categoryDropdown",
+      "category-error-message"
+    );
   }
 }
 

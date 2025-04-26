@@ -73,7 +73,7 @@ function getAssignedUserTaskOverlayTemp(name, initials){
  * @param {Object} task - The task object from the database.
  * @param {Object} subtask - The subtask from the task in the object from the database.
  * @returns - Returns the subtask template for the task overlay.
- */
+*/
 function getSubtaskForTaskOverlayTemp(task, subtask){
     return `<label>
                 <input 

@@ -99,7 +99,7 @@ background-color: var(--hover-darkblue);
     top: 100px;
     left:232px;
     right: 0;
-    height: calc(100vh - 100px);
+    height: calc(100dvh - 100px);
     background-color: rgba(42, 54, 71, 0.2);
     z-index: 800;
 }
@@ -110,7 +110,7 @@ background-color: var(--hover-darkblue);
     top: 0;
     left:0;
     right: 0;
-    height: calc(100vh - 100px);
+    height: calc(100dvh - 100px);
     background-color: rgba(42, 54, 71, 0.5);
     z-index: 60;
 }

@@ -35,7 +35,10 @@ async function getTaskAssignedUsers(task) {
       const userEmail = task.assignTo[userIndex];
       usersFromApi.find((element) => {
         if (element.email === userEmail) {
-          content += getAssignedUserTaskOverlayTemp(element.name, returnInitials(element.name));
+          content += getAssignedUserTaskOverlayTemp(
+            element.name,
+            returnInitials(element.name)
+          );
         }
       });
     }
@@ -83,8 +86,8 @@ async function changeSubTaskCheckedApi(SUB_URL, id) {
   let inputRef = document.getElementById(id);
   let isChecked = {};
   inputRef.checked
-    ? (isChecked = { "finished": true })
-    : (isChecked = { "finished": false });
+    ? (isChecked = { finished: true })
+    : (isChecked = { finished: false });
   await patchDataToApi(SUB_URL, isChecked);
   initBoard();
 }

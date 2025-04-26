@@ -21,7 +21,7 @@
 @media (max-height: 950px) {
 
  .info-input-field-container-right { 
-  height: 50vh;
+  height: 50dvh;
  }
 
  .info-input-field-container-right-overlay {
@@ -239,7 +239,7 @@
     left: 50%;
     align-items: center;
     margin-top: 0;
-    transform: translate(-50%, 100vh);
+    transform: translate(-50%, 100dvh);
     text-align: center;
   }
 
@@ -248,7 +248,7 @@
   }
 
   .info-input-field-container-left {
-    height: 50vh;
+    height: 50dvh;
     overflow-y: auto;
     overflow-x: hidden;
   }

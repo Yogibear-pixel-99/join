@@ -406,5 +406,8 @@ function removeRedBorderAndTextFalseInputAddTask(
 function removeRedBorderAddTask() {
   removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
   removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
-  removeRedBorderAndTextFalseInputAddTask("categoryDropdown","category-error-message");
+  removeRedBorderAndTextFalseInputAddTask(
+    "categoryDropdown",
+    "category-error-message"
+  );
 }

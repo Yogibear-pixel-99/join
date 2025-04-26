@@ -24,7 +24,10 @@ function sortAllContactsByFirstLetter() {
   sortedContactsArrayByFirstLetter = contactsFromApi.reduce(
     (newArray, element) => {
       const firstLetter = element.name.slice(0, 1).toUpperCase();
-      return {...newArray, [firstLetter]: [...(newArray[firstLetter] || []), element],};
+      return {
+        ...newArray,
+        [firstLetter]: [...(newArray[firstLetter] || []), element],
+      };
     },
     {}
   );
@@ -70,7 +73,9 @@ function getSingleContact(firstLetterArray) {
 function openContactInFloatMenu(contactId, colorLetter) {
   const contentRef = document.getElementById("bottom-board");
   const contact = contactsFromApi.find((element) => element.id === contactId);
-  contentRef.innerHTML = getSingleContactForFloatingMenuTemp(contact, colorLetter
+  contentRef.innerHTML = getSingleContactForFloatingMenuTemp(
+    contact,
+    colorLetter
   );
   getMobileEditDeleteMenu(contact);
   switchFloatingContactAndContactsInMobile();
@@ -85,7 +90,9 @@ function openContactInFloatMenu(contactId, colorLetter) {
  * @param {Object} contact - The contact object.
  */
 function getMobileEditDeleteMenu(contact) {
-  let contentRef = document.getElementById("floating-edit-delete-wrapper-mobile");
+  let contentRef = document.getElementById(
+    "floating-edit-delete-wrapper-mobile"
+  );
   contentRef.innerHTML = getEditDeleteMobileMenuTemp(contact);
 }
 
@@ -101,6 +108,7 @@ window.onresize = function () {
 
 
 /**
+ *
  * Changes the container visability in mobile mode. All contact list and open single contact in the float menu.
  */
 async function switchFloatingContactAndContactsInMobile() {
@@ -157,16 +165,31 @@ function animateContactMenu() {
  */
 async function createNewContact(event) {
   event.preventDefault();
-  if (checkContactFormValidation('add-contact-input-field', 'user-email-input', 'phone-input', 'add-contact-error')) {
-  await getNewContactTemp();
-  collectFormInformation("new-contact-form");
-  if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
-    addRedBorderAndTextFalseInput("user-email-input", "add-contact-error", "Contact/Email already exists!");
-  } else {
-    await postContactToApiAndShowInMenu();
-    removeAndSetInititalsBackgroundColorClass('', 'edit-contact-overlay-initials-wrapper');
+  if (
+    checkContactFormValidation(
+      "add-contact-input-field",
+      "user-email-input",
+      "phone-input",
+      "add-contact-error"
+    )
+  ) {
+    await getNewContactTemp();
+    collectFormInformation("new-contact-form");
+    if (await checkIfDataAlreadyExists("user-email-input", "contacts")) {
+      addRedBorderAndTextFalseInput(
+        "user-email-input",
+        "add-contact-error",
+        "Contact/Email already exists!"
+      );
+    } else {
+      await postContactToApiAndShowInMenu();
+      removeAndSetInititalsBackgroundColorClass(
+        "",
+        "edit-contact-overlay-initials-wrapper"
+      );
+    }
   }
-}}
+}
 
 
 /**
@@ -177,41 +200,72 @@ async function createNewContact(event) {
 function emptyFormInputFields(id) {
   let ref = document.getElementById(id);
   let inputs = ref.querySelectorAll("input");
-  inputs.forEach((element) => {element.value = "";});
+  inputs.forEach((element) => {
+    element.value = "";
+  });
 }
 
 
 /**
- * 
+ *
  * Checks the validation of the add/edit contact form
- * 
+ *
  * @param {string} formNameId - The id of the input container
  * @param {string} formEmailId - The id of the input container
  * @param {string} formPhoneId - The id of the input container
  * @param {string} errorId - The id of the error container
- * @returns 
+ * @returns
  */
-function checkContactFormValidation(formNameId, formEmailId, formPhoneId, errorId){
+function checkContactFormValidation(
+  formNameId,
+  formEmailId,
+  formPhoneId,
+  errorId
+) {
   let nameRef = document.getElementById(formNameId);
   let emailRef = document.getElementById(formEmailId);
   let phoneRef = document.getElementById(formPhoneId);
-  removeRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
-  removeRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address');
-  removeRedBorderAndTextFalseInput(formNameId, errorId, 'Not a valid email address');
-    if (!testIfPhoneNrIsValid(phoneRef.value.trim())) {
-    addRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
+  removeRedBorderAndTextFalseInput(
+    formPhoneId,
+    errorId,
+    "Not valid phone number"
+  );
+  removeRedBorderAndTextFalseInput(
+    formEmailId,
+    errorId,
+    "Not a valid email address"
+  );
+  removeRedBorderAndTextFalseInput(
+    formNameId,
+    errorId,
+    "Not a valid email address"
+  );
+  if (!testIfPhoneNrIsValid(phoneRef.value.trim())) {
+    addRedBorderAndTextFalseInput(
+      formPhoneId,
+      errorId,
+      "Not valid phone number"
+    );
     return false;
   }
-  if (!testIfEmailIsValid(emailRef.value.trim())){
-    addRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address');
+  if (!testIfEmailIsValid(emailRef.value.trim())) {
+    addRedBorderAndTextFalseInput(
+      formEmailId,
+      errorId,
+      "Not a valid email address"
+    );
     return false;
   }
   if (nameRef.value.length <= 4) {
-    addRedBorderAndTextFalseInput(formNameId, errorId, 'Type in a minimum of five letters.');
-    return false  }
+    addRedBorderAndTextFalseInput(
+      formNameId,
+      errorId,
+      "Type in a minimum of five letters."
+    );
+    return false;
+  }
   return true;
 }
-
 
 
 /**
@@ -222,7 +276,10 @@ function resetAddContactForm() {
   disableButton(buttonRef);
   resetForm("new-contact-form");
   // emptyFormInputFields('new-contact-form');
-  removeAndSetInititalsBackgroundColorClass("add-contact-overlay-initials-wrapper","");
+  removeAndSetInititalsBackgroundColorClass(
+    "add-contact-overlay-initials-wrapper",
+    ""
+  );
 }
 
 
@@ -250,9 +307,15 @@ async function postContactToApiAndShowInMenu() {
   closeOverlayMenu("add-contact-overlay", "add-contact-mask-container");
   await sortAndRenderContacts();
   scrollToNewContact(`contact-${collectedFormInfos.id}`);
-  openContactInFloatMenu(`${collectedFormInfos.id}`,`${collectedFormInfos.name.slice(0, 1).toUpperCase()}`
+  openContactInFloatMenu(
+    `${collectedFormInfos.id}`,
+    `${collectedFormInfos.name.slice(0, 1).toUpperCase()}`
   );
-  toggleAddedButton("contact-created-button", "contact-created-button-show", "d-none");
+  toggleAddedButton(
+    "contact-created-button",
+    "contact-created-button-show",
+    "d-none"
+  );
   document.getElementById("new-contact-form").reset();
 }
 
@@ -278,7 +341,9 @@ async function getNewContactTemp() {
 function addBackgroundToSelectedContact(containerId) {
   const otherRef = document.querySelectorAll(".single-contact");
   const ref = document.getElementById(`contact-${containerId}`);
-  otherRef.forEach((element) => {element.classList.remove("highlight-contact");});
+  otherRef.forEach((element) => {
+    element.classList.remove("highlight-contact");
+  });
   ref.classList.add("highlight-contact");
 }
 
@@ -299,7 +364,9 @@ function showContactAddedSuccessButton() {
  * @param {string} contactId - The id of the selected contact.
  */
 function scrollToNewContact(contactId) {
-  document.getElementById(contactId).scrollIntoView({ behavior: "smooth", block: "end" });
+  document
+    .getElementById(contactId)
+    .scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
 
@@ -312,7 +379,9 @@ function openEditContact(contactKey) {
   getInfosForEditMenu(contactKey);
   setOnclickEditAndDeleteToButtons(contactKey);
   openOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
-  setInitialsToNewContactContainer("edit-user-name-input", "edit-contact-overlay-initials-wrapper"
+  setInitialsToNewContactContainer(
+    "edit-user-name-input",
+    "edit-contact-overlay-initials-wrapper"
   );
 }
 
@@ -323,7 +392,9 @@ function openEditContact(contactKey) {
  * @param {string} contactId - The id of the contact to edit.
  */
 function getInfosForEditMenu(contactKey) {
-  const contact = contactsFromApi.find((element) => element.apiKey === contactKey);
+  const contact = contactsFromApi.find(
+    (element) => element.apiKey === contactKey
+  );
   document.getElementById("edit-user-name-input").value = contact.name;
   document.getElementById("edit-user-email-input").value = contact.email;
   document.getElementById("edit-user-phone-input").value = contact.phone;
@@ -336,8 +407,12 @@ function getInfosForEditMenu(contactKey) {
  * @param {string} contactKey - The key of the contact parameter.
  */
 function setOnclickEditAndDeleteToButtons(contactKey) {
-  document.getElementById("save-contact-button").setAttribute("onclick", `saveEditedContact(event, '${contactKey}')`);
-  document.getElementById("delete-contact-button").setAttribute("onclick", `deleteContact('${contactKey}')`);
+  document
+    .getElementById("save-contact-button")
+    .setAttribute("onclick", `saveEditedContact(event, '${contactKey}')`);
+  document
+    .getElementById("delete-contact-button")
+    .setAttribute("onclick", `deleteContact('${contactKey}')`);
 }
 
 
@@ -364,17 +439,28 @@ function toggleSaveEditedContactButton() {
  */
 async function saveEditedContact(event, contactKey) {
   event.preventDefault();
-  if (checkContactFormValidation('edit-user-name-input', 'edit-user-email-input', 'edit-user-phone-input', 'edit-contact-error')){
-  getContactInfosToFetch();
-  await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
-  await sortAndRenderContacts();
-  let editedContact = contactsFromApi.find(
-    (element) => element.apiKey === contactKey
-  );
-  closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
-  scrollToNewContact(`contact-${editedContact.id}`);
-  openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
-}}
+  if (
+    checkContactFormValidation(
+      "edit-user-name-input",
+      "edit-user-email-input",
+      "edit-user-phone-input",
+      "edit-contact-error"
+    )
+  ) {
+    getContactInfosToFetch();
+    await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
+    await sortAndRenderContacts();
+    let editedContact = contactsFromApi.find(
+      (element) => element.apiKey === contactKey
+    );
+    closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+    scrollToNewContact(`contact-${editedContact.id}`);
+    openContactInFloatMenu(
+      editedContact.id,
+      editedContact.name.charAt(0).toUpperCase()
+    );
+  }
+}
 
 
 /**
@@ -397,7 +483,11 @@ function getContactInfosToFetch() {
 async function deleteContact(contactKey) {
   await deleteDataFromApi("contacts/", contactKey);
   await sortAndRenderContacts();
-  if (!document.getElementById("edit-contact-overlay").classList.contains("standard-overlay-hide")) {
+  if (
+    !document
+      .getElementById("edit-contact-overlay")
+      .classList.contains("standard-overlay-hide")
+  ) {
     closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
   }
   emptyFloatMenu();
@@ -408,7 +498,9 @@ async function deleteContact(contactKey) {
  * Toggles the visability of the edit/delete mini menu in the mobile version.
  */
 function toggleEditDeleteContactMenuMobile() {
-  const menuRef = document.getElementById("floating-edit-delete-wrapper-mobile");
+  const menuRef = document.getElementById(
+    "floating-edit-delete-wrapper-mobile"
+  );
   const maskRef = document.getElementById("floating-contact-mobile-mask");
   const mainRef = document.getElementById("main-container");
 
