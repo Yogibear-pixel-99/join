@@ -11,6 +11,22 @@
     height: 95vh;
     overflow: hidden;
   }
+
+  .input-field-container-right {
+    height: 55vh;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-height: 950px) {
+
+ .info-input-field-container-right { 
+  height: 50vh;
+ }
+
+ .info-input-field-container-right-overlay {
+  height: 600px;
+ }
 }
 
 @media (max-height: 900px) {
@@ -207,6 +223,9 @@
     overflow-y: auto !important;
   }
 
+  .info-input-field-container-right-overlay {
+    height: 55vh;
+   }
 }
 
 @media (max-width: 1024px) and (max-height: 900px) {

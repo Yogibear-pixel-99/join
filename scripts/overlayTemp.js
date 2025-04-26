@@ -168,7 +168,7 @@ function getAddTaskOverlayTemp(){
               </div>
             </div>
             <div class="add-task-separator"></div>
-            <div class="info-input-field-container-right">
+            <div class="info-input-field-container-right info-input-field-container-right-overlay">
               <div class="flex-col gap8">
                 <label>Prio</label>
                 <div id="priority-wrapper" class="btn-importance-container">
