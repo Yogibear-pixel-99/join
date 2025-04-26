@@ -3,7 +3,6 @@
  *
  */
 async function sortAndRenderContacts(){
-
   window.innerWidth <= 1024 ? removeDisplayNone('loading-spinner-mobile') : removeDisplayNone('loading-spinner');
   await getDataFromServer("contacts", contactsFromApi);
   await getDataFromServer("users", usersFromApi);
@@ -214,7 +213,7 @@ function resetAddContactForm(){
   resetForm('new-contact-form');
   // emptyFormInputFields('new-contact-form');
   removeAndSetInititalsBackgroundColorClass('add-contact-overlay-initials-wrapper', '');
-    }
+}
 
 
 /**

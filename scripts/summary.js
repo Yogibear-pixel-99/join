@@ -248,4 +248,3 @@ function showGreetingAnimation(userRef){
       setTimeout(() => {userRef.classList.remove('summary-greeting-animation')}, 3000);
       setTimeout(() => {userRef.classList.add('d-none')}, 3000);
 }
-

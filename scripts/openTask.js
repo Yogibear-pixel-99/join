@@ -172,7 +172,11 @@ async function updateTask(event, apiKey, status){
     renderBoard();
 }}
 
-
+/**
+ * Checks if the edit task form has valid values.
+ * 
+ * @returns - A boolean.
+ */
 function checkEditTaskOverlayFormValidation(){
     let title = document.getElementById('form-title').value.trim();
     let dueDate = document.getElementById('due-date').value.trim();

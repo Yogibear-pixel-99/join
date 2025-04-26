@@ -63,6 +63,7 @@ async function loadDropdown(){
       });
   }
   
+
   /**
  * Closes the dropdowns when clicking outside the dropdown (assigned-to and category).
  * 
@@ -75,6 +76,7 @@ async function loadDropdown(){
   }
   }
 
+
   /**
  * Closes the assigned-to dropdown when clicking outside the dropdown
  * 
@@ -85,6 +87,8 @@ async function loadDropdown(){
       toggleAssignedDropdown()
     }
   }
+
+
 /**
  * Closes the category dropdown when clicking outside the dropdown
  * 
@@ -95,6 +99,8 @@ async function loadDropdown(){
       toggleCategoryDropdown();
     }
   }
+
+
   /**
    * Filters the users in the assign to dropdown menu, based on the value typed in the search bar input field.
    */
@@ -139,6 +145,7 @@ async function loadDropdown(){
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
   
+
   /**
    * Adds or removes the selected user from the "Assigned To" dropdown, only for users currently filtered.
    * 
@@ -152,6 +159,7 @@ async function loadDropdown(){
     renderDropdownWithSearchResults(filterUsers)
     user.isSelected ? addSelectedContact(user) : removeSelectedContact(userEmail);
   }
+
 
   /**
  * Marks the checkbox of a searched user in the assign to dropdown menu.
@@ -175,6 +183,7 @@ function handleCheckboxChange(event){
     }
   }
   
+
   /**
    * Selects the category in the add task form.
    * 
@@ -252,6 +261,8 @@ function toggleHeaderDropdownMenu(){
   let dropdownREF = document.getElementById("dropdown");
   dropdownREF.classList.toggle("d-none");
 }
+
+
 /**
 * Toggles the dropdown menu in the header if click on the initials button.
 */

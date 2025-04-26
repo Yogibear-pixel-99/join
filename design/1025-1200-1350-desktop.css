@@ -1,13 +1,7 @@
 
 
 @media (max-width: 1350px) {
-    
-    /* GLOBAL */
-    /* LOGIN */
-    /* SIGN UP */
-    /* SIGN UP */
-    /* SUMMARY */
-
+  
     .welcome-text-summary {
       font-size: 47px;
     }
@@ -16,18 +10,13 @@
       font-size: 61px;
     }
 
-    /* ADD TASK */
     .info-input-field-container {
       gap: 0;
   }
-    /* ADD/EDIT TASKS OVERLAY */
-    /* CONTACTS */
-    /* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
     padding: 80px 40px;
 }
-
 
 .main-content-header {
     flex-direction: column;
@@ -80,30 +69,7 @@
 }
 
 
-/* CONTACTS EDIT/ADD */
-
-.add-contact-overlay-content-right {
-    padding-right: 24px;
-    width: 700px;
-}
-
-.add-contact-overlay-img-wrapper {
-    margin: 0 24px 38px 60px;
-}
-
-.add-task-footer-overlay {
-  left: 60px;
-}
-/* HELP */
-/* PRIVACY */
-/* LEGAL NOTICE */
-
-
-
-
 @media (max-width: 1200px) {
-    
-/* GLOBAL */
 
 .main-content-summary,
 .main-content {
@@ -114,33 +80,19 @@
   padding: 0;
 }
 
-
-/* LOGIN */
-/* SIGN UP */
-/* SIGN UP */
-/* SUMMARY */
-
 .bottom-top-summary,
 .bottom-middle-summary,
 .bottom-end-summary {
   width: 450px;
 }
 
-
-/* ADD TASK */
 .info-input-field-container {
   gap: 10px;
 }
 
-
-/* BOARD */
-
 .board-task-header-container span {
   font-size: 16px;
 }
-
-
-/* CONTACTS FLOAT */
 
 .contact-container-wrapper {
   min-width: 360px;
@@ -153,9 +105,6 @@
 .floating-contact-container-wrapper {
     padding: 40px 0 40px 40px;
 }
-
-
-/* CONTACTS EDIT/ADD */
 
 .add-contact-overlay-img-wrapper {
     display: none;
@@ -171,16 +120,9 @@
 .add-contact-formular-wrapper {
     padding-right: 28px;
 }
-
-
-
-/* HELP */
-/* PRIVACY */
-/* LEGAL NOTICE */
 }
 
 
-/* addtask */
 @media (max-width: 1350px) {
 
   .add-task-overlay {
@@ -227,12 +169,6 @@
   }
 }
 
-  
-/* 320px — 480px: Mobile devices
-481px — 768px: iPads, Tablets
-769px — 1024px: Small screens, laptops
-1025px — 1200px: Desktops, large screens
-1201px and more —  Extra large screens, TV */
 
 @media (max-width: 1150px) {
 
@@ -252,5 +188,4 @@
   .floating-contact-container-wrapper {
     padding: 20px;
   }
-
 }

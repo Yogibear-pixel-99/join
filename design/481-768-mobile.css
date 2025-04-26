@@ -3,20 +3,10 @@
 
 @media (max-width: 768px) {
     
- 
-/* GLOBAL */
-/* LOGIN */
-/* SIGN UP */
-/* NAVBAR */
-
 .mobile-navbar {
-
     padding: 0 32px;
-
 }
 
-
-/* SUMMARY */
 .main-content-summary {
     padding: 40px 20px;
 }
@@ -85,16 +75,9 @@
     height: 40px;
 }
 
-
-/* BOARD */
-
-
-
 .main-content-board {
     padding: 40px 20px 40px;
 }
-
-/* ADD TASK */
 
 .add-task-header {
     font-size: 47px;
@@ -107,9 +90,6 @@
 .prio-low.active {
     font-size: 16px;
 }
-
-
-/* ADD/EDIT TASKS OVERLAY */
 
 .main-content-addtask {
     padding: 40px 20px;
@@ -152,9 +132,6 @@
     font-weight: 400;
 }
 
-
-/* CONTACTS */
-
 .main-content-contacts {
     padding: 0;
 }
@@ -166,9 +143,6 @@
 .contacts-content {
     padding: 8px 24px 24px 24px;
 }
-
-
-/* CONTACTS FLOAT */
 
 .floating-contact-container-wrapper {
     padding: 40px 0 20px 20px;
@@ -219,20 +193,6 @@
 .floating-mail-phone {
     gap: 22px;
 }
-
-
-/* CONTACTS EDIT/ADD */
-/* HELP */
-/* PRIVACY */
-/* LEGAL NOTICE */
-
-
-/* 320px — 480px: Mobile devices
-481px — 768px: iPads, Tablets
-769px — 1024px: Small screens, laptops
-1025px — 1200px: Desktops, large screens
-1201px and more —  Extra large screens, TV */
-
 }
 
 
@@ -242,5 +202,4 @@
         left: 33px;
         top: 33px;
     }
-
 }

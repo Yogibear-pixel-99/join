@@ -1,10 +1,10 @@
 @media (max-width: 480px) {
-  /* GLOBAL */
+
   h1 {
     font-size: 47px;
     padding: 0;
   }
-  /* LOGIN */
+
   @keyframes main-logo {
     0% {
       top: 50%;
@@ -44,8 +44,6 @@
     font-size: 14px;
   }
 
-  /*MOBILE-NAVBAR */
-
   .mobile-navbar {
     padding: 0 0px;
   }
@@ -57,10 +55,6 @@
   .add-task-footer {
     margin-bottom: 40px;
   }
-
-  /* SIGN UP */
-  /* SIGN UP */
-  /* SUMMARY */
 
   .main-content-summary {
     padding: 8px;
@@ -76,13 +70,9 @@
     gap: 8px;
   }
 
-  /* BOARD */
-
   .main-content-board {
     padding: 8px;
   }
-
-  /* ADD TASK */
 
   .main-content-addtask {
     padding: 8px;
@@ -96,8 +86,6 @@
     gap: 16px;
   }
 
-  /* ADD/EDIT TASKS OVERLAY */
-
   .btn-importance-container {
     justify-content: center;
   }
@@ -107,14 +95,9 @@
     max-width: 282px;
   }
 
-  /* CONTACTS */
-  /* CONTACTS FLOAT */
-
   .floating-contact-container-wrapper {
     padding: 8px;
   }
-
-  /* CONTACTS EDIT/ADD */
 
   .add-contact-overlay-content-left,
   .add-contact-overlay-content-right {
@@ -143,15 +126,6 @@
   .add-contact-overlay-form {
     width: 100%;
   }
-  /* HELP */
-  /* PRIVACY */
-  /* LEGAL NOTICE */
-
-  /* 320px — 480px: Mobile devices
-481px — 768px: iPads, Tablets
-769px — 1024px: Small screens, laptops
-1025px — 1200px: Desktops, large screens
-1201px and more —  Extra large screens, TV */
 }
 
 @media (max-width: 400px) {
@@ -163,7 +137,6 @@
     width: 80px !important;
   }
 }
-
 
 
 @media (max-width: 350px) {
@@ -180,14 +153,15 @@
 .main-content-board {
   padding: 8px !important;
 }
-
 }
+
 
 @media (max-width: 320px) {
   h1 {
     font-size: 47px;
   }
 }
+
 
 @media (max-width: 340px) {
   .addTask-button-container button,
@@ -204,353 +178,5 @@
   .btns-addtask img {
     width: 22px;
     height: 22px;
-  }
-}
-
-
-@media (max-height: 1000px) {
-
-  .info-input-field-container-right {
-    height: 50vh;
-  }
-
-  .task-overlay-container {
-    overflow-y: auto;
-    border: solid white 40px;
-    padding: 0 !important;
-  }
-
-  .add-task-overlay {
-    height: 95vh;
-    overflow: hidden;
-  }
-}
-
-
-@media (max-height: 900px) {
-  /* LOGIN */
-
-  @keyframes main-logo {
-    0% {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100px;
-      height: 122px;
-    }
-    40% {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100px;
-      height: 122px;
-    }
-    100% {
-      top: 20px;
-      left: 20px;
-      transform: translate(0%, 0%);
-      width: 64px;
-      height: 78px;
-    }
-  }
-
-  .form-container {
-    margin: 0;
-    padding: 16px;
-  }
-
-  .sign-up-form {
-    gap: 16px;
-  }
-
-  .task-card {
-    gap: 6px;
-  }
-
-  .task-card * {
-    font-size: 12px;
-  }
-
-  .main-content-summary {
-    padding: 8px;
-  }
-
-  .main-content-board {
-    padding: 8px;
-  }
-
-  .main-content-addtask {
-    padding: 8px;
-  }
-
-  .floating-contact-container-wrapper {
-    padding: 8px;
-  }
-
-  .main-content-header-summary-mobile {
-    margin-bottom: 10px;
-  }
-
-
-  .summary-wrapper {
-    gap: 8px;
-  }
-
-  .main-content-header-summary {
-    margin-bottom: 20px;
-  }
-
-  .main-content-header-summary-mobile {
-    margin-bottom: 10px;
-  }
-
-  .main-content-header-summary-mobile {
-    margin-bottom: 10px;
-  }
-  /* LOGIN */
-
-  .form-container {
-    margin: 0;
-    padding: 16px;
-  }
-
-  .sign-up-form {
-    gap: 16px;
-  }
-
-  /* SIGN UP */
-  /* SUMMARY */
-
-  .summary-wrapper {
-    gap: 8px;
-  }
-
-  .main-content-header-summary {
-    margin-bottom: 20px;
-  }
-
-  .main-content-header-summary-mobile,
-  .board-header-hide-desktop,
-  .add-task-header {
-    margin-bottom: 20px;
-  }
-
-  .main-content-header-summary {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 60px;
-  }
-
-  .line-summary-desktop {
-    display: none;
-  }
-
-  .line-summary-mobile {
-    display: block;
-    height: 3px;
-    width: 50px;
-  }
-
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 90%;
-
-  }
-
-  .summary-wrapper {
-    gap: 20px;
-  }
-
-  .summary-wrapper h2 {
-    font-size: 47px;
-    font-weight: 600;
-  }
-
-  .text-summary,
-  .deadline-summary,
-  .end-text-summary {
-    font-size: 14px;
-  }
-
-  .date-summary {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .to-do-summary,
-  .done-summary,
-  .urgent-summary,
-  .bottom-end-left-box-summary,
-  .bottom-end-middle-box-summary,
-  .bottom-end-right-box-summary {
-    border-radius: 20px;
-    gap: 10px;
-    height: 110px;
-  }
-
-  .content-summary {
-    gap: 0;
-  }
-
-  .bottom-board-tasks {
-    max-height: calc(100dvh - 360px);
-  }
-
-  .to-do-summary svg,
-  .done-summary svg {
-    width: 40px;
-    height: 40px;
-  }
-
-  .add-task-footer {
-    left: 240px;
-  }
-  .add-task-footer-overlay {
-    left: 40px;
-    /* width: 1000px; */
-  }
-
-  /* BOARD */
-  .dropdown-tasks-menu div{
-    height: 30px;
-
-  }
-}
-
-
-@media (max-height: 750px) {
-
-
-  .contact-created-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    align-items: center;
-    margin-top: 0;
-    transform: translate(-50%, 100vh);
-    text-align: center;
-}
-
-.contact-created-button-show {
-    transform: translate(-50%, -50%);
-}
-
-  .info-input-field-container-left {
-    height: 50vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .close-icon-contact-mobile-overlay {
-    transform: translate(0, -78px);
-}
-
-  .join-logo-navbar {
-    margin: 40px 66px 40px;
-  }
-
-  .navbar-link-container {
-    padding-top: 12px;
-  }
-
-  .sign-up-join-logo {
-    left: 33px;
-    top: 33px;
-  }
-
-  .main-content-header-summary {
-    margin-bottom: 20px;
-  }
-
-  .sign-up-join-logo {
-    height: 50px;
-    width: 42px;
-    top: 16px;
-    left: 16px;
-  }
-
-  .login-policy-legal {
-    padding: 12px 0;
-  }
-
-  .header-contacts-floatin-mobile,
-  .add-task-header {
-    padding: 0;
-  }
-
-  .main-content-summary {
-    padding: 8px;
-  }
-
-  .main-header {
-    padding: 0;
-  }
-
-  .add-contact-overlay-content-left {
-    padding: 16px 16px 66px;
-  }
-
-  .add-contact-overlay-content-right {
-    padding: 66px 16px 16px;
-  }
-}
-
-@media (max-height: 690px) {
-
-.add-contact-overlay-content-left {
-  height: 300px;
-}
-
-.add-contact-overlay-img-wrapper {
-  top: 300px;
-}
-
-.close-icon-contact-mobile-overlay {
-  transform: translate(0, -48px);
-}
-  
-}
-
-@media screen and (orientation: landscape) and (max-width: 2000px) and (max-height: 650px) {
-  .landscape-overlay {
-    display: flex;
-  }
-
-}
-
-@media schree and (max-width: 768px) and (max-height: 856px) {
-
-  
-  .add-contact-overlay-content-left {
-    height: 300px;
-  }
-
-  
-  .add-contact-overlay-img-wrapper {
-    top: 300px;
-  }
-
-}
-  
-
-
-@media (max-height: 680px) {
-
-.summary-wrapper {
-  gap: 8px;
-}
-
-}
-
-
-@media (max-height: 650px) {
-  .add-contact-overlay,
-  .edit-contact-overlay,
-  .main-container {
-    /* min-height: 650px; */
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 }

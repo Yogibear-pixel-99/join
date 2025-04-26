@@ -2,10 +2,6 @@
   font-family: inter;
   src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf);
 }
-/* @font-face {
-  font-family: inter;
-  src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf);
-} */
 
 @font-face {
   font-family: poppins;
@@ -206,4 +202,3 @@ input:focus {
   height: 50px;
   margin-right: 10px;
 }
-

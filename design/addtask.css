@@ -1,6 +1,3 @@
-
-
-
 .main-content-addtask {
   overflow-y: auto;
   overflow-x: hidden;
@@ -109,7 +106,6 @@ hr {
   transform: translateY(-50%);
 }
 
-/* Allgemeines Styling für die Buttons */
 .btn-importance-container {
   display: flex;
   gap: 16px;

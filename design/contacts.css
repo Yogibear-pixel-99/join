@@ -177,10 +177,6 @@
     height: 77px;
 }
 
-
-
-/* DETAILS FOR FULL CONTACT */
-
 .board-container-wrapper {
     flex: 1;
 }
@@ -270,7 +266,6 @@
 }
 
 .floating-edit-delete-wrapper-mobile {
-    /* display: none; */
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -288,7 +283,6 @@
 
 .show-floating-edit-delete-wrapper-mobile {
     transform: translateX(0);
-    /* display: flex; */
 }
 
 .floating-edit-wrapper-mobile,

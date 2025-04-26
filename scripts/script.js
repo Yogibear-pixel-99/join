@@ -87,7 +87,6 @@ async function checkIfDataAlreadyExists(userContainerId, objName){
   }
 
 
-   
 /**
  * Opens a specified overlaymenu with the given id.
  * 
@@ -365,4 +364,18 @@ function removeRedBorderAndTextFalseInputAddTask(borderContainer, messageContain
   const textRef = document.getElementById(messageContainer);
         contentRef.classList.remove('red-border-inputfield');
         textRef.innerHTML = '';
+}
+
+
+/**
+ * Removes red borders and error messages for title, due date, and category inputs.
+ *
+ */
+function removeRedBorderAddTask() {
+  removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
+  removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
+  removeRedBorderAndTextFalseInputAddTask(
+    "categoryDropdown",
+    "category-error-message"
+  );
 }

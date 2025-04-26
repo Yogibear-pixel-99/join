@@ -34,7 +34,6 @@ function renderBoard(){
   let prog = document.getElementById("boardInprogressCard");
   let feed = document.getElementById("boardAwaitFeedbackCard");
   let done = document.getElementById("boardDoneCard");
-
   clearBoardColums(todo, prog, feed, done);
   fillBoardColums(tasksFromApi, todo, prog, feed, done);
   checkEmptyColums(todo, prog, feed, done);
@@ -162,25 +161,6 @@ function renderExistingUsers(existingEmail, initialsPosition, nr) {
     }
   })
   .join("");
-}
-
-
-/**
- * Creates a template for the board tasks to show the assigned users.
- * 
- * @param {Object} user - The user object.
- * @param {integer} initialsPosition - The absolute position var.
- * @param {string} initials - The initials to display.
- * @returns - Returns the initial template.
- */
-function getInitialsForBoardTemp(user, initialsPosition, initials){
-  return `<div class="contact-list-board-initals 
-                            initials-bg-color-${user.name
-                              .charAt(0)
-                              .toUpperCase()}"
-                            style="left: ${initialsPosition}px">
-                            ${initials}
-                </div>`;
 }
 
 
@@ -408,7 +388,6 @@ function getAllBoards() {
   let prog = document.getElementById("boardInprogressCard");
   let feed = document.getElementById("boardAwaitFeedbackCard");
   let done = document.getElementById("boardDoneCard");
-
   checkEmptyBoard(todo);
   checkEmptyBoard(prog);
   checkEmptyBoard(feed);

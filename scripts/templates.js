@@ -308,6 +308,7 @@ function getSingleContactForFloatingMenuTemp(contact, colorLetter){
                 </div>`
     }
 
+
 /**
  * Creates a template for the whole summary menu.
  * 
@@ -421,3 +422,22 @@ function summaryTemplate(name, greetingText, toDo, done, inProgress, awaitFeedba
         <a class="mobile-link-navbar" href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
     </section>`
 }
+
+
+/**
+ * Creates a template for the board tasks to show the assigned users.
+ * 
+ * @param {Object} user - The user object.
+ * @param {integer} initialsPosition - The absolute position var.
+ * @param {string} initials - The initials to display.
+ * @returns - Returns the initial template.
+ */
+function getInitialsForBoardTemp(user, initialsPosition, initials){
+    return `<div class="contact-list-board-initals 
+                              initials-bg-color-${user.name
+                                .charAt(0)
+                                .toUpperCase()}"
+                              style="left: ${initialsPosition}px">
+                              ${initials}
+                  </div>`;
+  }

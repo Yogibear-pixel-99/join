@@ -1,6 +1,3 @@
-
-
-
 /**
  * Shows an error message and red border if the values are not valid, calls a fetch function if they are.
  * 
@@ -34,6 +31,11 @@ function removeAllErrorsFromSignUp(){
 }
 
 
+/**
+ * Checks if the password value has eigth chars.
+ * 
+ * @returns - A boolean.
+ */
 function checkPasswordLength(){
   let valid = false;
   let ref = document.getElementById('sign-up-password');
@@ -220,4 +222,3 @@ function setIconToContent(iconContainerId, source){
   let iconRef = document.getElementById(iconContainerId);
       iconRef.src = (source);
 }
-

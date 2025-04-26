@@ -1,8 +1,6 @@
-
 body {
     overflow: hidden;
 }
-
 
 .mask-container {
     position: absolute;
@@ -207,10 +205,3 @@ body {
     width: 300px;
     transform: translate(-12px, 32px);
 }
-
-/* .add-contact-overlay-header-separator-2 {
-    display: none;
-    height: 3px;
-    width: 80px;
-    background-color: var(--light-blue);
-}  */

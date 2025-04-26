@@ -126,6 +126,7 @@ function changeLoginPasswordIcons(){
   }
 }
 
+
 /**
  * This on-click function stores in the session storage that the login is a guest login.
  * 

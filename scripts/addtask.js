@@ -428,19 +428,6 @@ function setStatusToAddTask(status) {
   sessionStorage.setItem("taskStatus", status);
 }
 
-/**
- * Removes red borders and error messages for title, due date, and category inputs.
- *
- */
-function removeRedBorderAddTask() {
-  removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
-  removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
-  removeRedBorderAndTextFalseInputAddTask(
-    "categoryDropdown",
-    "category-error-message"
-  );
-}
-
 
 /**
  * Handles the Enter key press event by removing focus from the active element.
