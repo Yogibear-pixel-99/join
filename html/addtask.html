@@ -113,7 +113,28 @@
         </a>
       </div>
       <div id="main-content" class="main-content main-content-addtask">
-          <h1 class="add-task-header">Add Task</h1>
+        <div class="add-task-footer">
+          <div class="required-wrapper">
+            <span class="red-asterisk">*</span>
+            <span class="flex1"></span>
+            <span>This field is required</span>
+          </div>
+          <div class="addTask-button-container">
+            <div onclick="resetAddTaskForm(); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();" class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
+              <div
+                class="">
+                Clear
+              </div>
+              <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>              
+            <div id="create-task-button" class="dark-button btns-addtask" onclick="createNewTask(event)">
+              Create Task <img src="../assets/icons/check.svg" />
+            </div>
+          </div>
+        </div>
+        <h1 class="add-task-header">Add Task</h1>
           <form id="add-task-form" class="add-task-form-content" onsubmit action="submit">
           <div class="info-input-field-container">
             <div class="info-input-field-container-left">
@@ -154,7 +175,7 @@
                   type="text"
                   placeholder="dd/mm/yyyy" />
                   <input onchange="putDateToUserInput()" id="hidden-date-input" class="hidden-date-input" type="date">
-                  <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg"></img>
+                  <img onclick="showDatePicker()" class="input-logo date-icon hover-pointer" src="../assets/icons/dateicon.svg">
                   </div>
                   <span id="date-error-message" class="error-message"></span>
               </div>
@@ -302,7 +323,7 @@
                     maxlength="20"
                     placeholder="Add new subtask" />
                   <div id="subtasks-plus" class="plus-icon subtasks-icon">
-                    <img src="../assets/icons/Subtasks icons11.svg" onclick="focusSubtaskInputMenu()"/>
+                    <img src="../assets/icons/Subtasks-icons11.svg" onclick="focusSubtaskInputMenu()"/>
                   </div>
                   </div>              
                 <div
@@ -326,35 +347,14 @@
               <div id="added-subtasks" class="added-subtasks"></div>
             </div>
           </div>          
-          <div class="add-task-footer">
-            <div class="required-wrapper">
-              <span class="red-asterisk">*</span>
-              <span class="flex1"></span>
-              <span>This field is required</span>
-            </div>
-            <div class="addTask-button-container">
-              <div onclick="resetAddTaskForm(); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();" class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
-                <div
-                  class="">
-                  Clear
-                </div>
-                <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>              
-              <div id="create-task-button" class="dark-button btns-addtask" onclick="createNewTask(event)">
-                Create Task <img src="../assets/icons/check.svg" />
-              </div>
-            </div>
-          </div>
-          </div>
+        </div>
         </form>
       </div>
       <section class="mobile-navbar">
-        <a class="mobile-link-navbar" href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
-        <a class="mobile-link-navbar" href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
-        <a class="mobile-link-navbar mobile-active" href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
-        <a class="mobile-link-navbar" href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
+        <a class="mobile-link-navbar mobile-navbar-logo-text-wrapper" href="../html/summary.html"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
+        <a class="mobile-link-navbar mobile-navbar-logo-text-wrapper" href="../html/board.html"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
+        <a class="mobile-link-navbar mobile-active mobile-navbar-logo-text-wrapper" href="../html/addtask.html"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
+        <a class="mobile-link-navbar mobile-navbar-logo-text-wrapper" href="../html/contacts.html"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
     </section>
     </main>
     <section id="task-added-overlay-button" class="task-added-overlay d-none" >

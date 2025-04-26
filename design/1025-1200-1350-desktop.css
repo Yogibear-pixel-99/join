@@ -73,6 +73,12 @@
   padding: 40px;
 }
 
+.add-task-footer {
+  left: 40px;
+  bottom: 20px;
+  right: 40px;
+}
+
 .main-content-contacts {
   padding: 0;
 }
@@ -116,17 +122,6 @@
 
 .add-contact-formular-wrapper {
     padding-right: 28px;
-}
-
-.add-task-footer {
-  left: calc(232px + 40px);
-  width: calc(100vw - 232px - 80px);
-}
-
-.add-task-footer-overlay {
-  left: 60px;
-  right: 60px;
-  width: auto;
 }
 }
 

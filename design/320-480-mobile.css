@@ -52,10 +52,6 @@
     min-width: 280px;
   }
 
-  .add-task-footer {
-    margin-bottom: 40px;
-  }
-
   .main-content-summary {
     padding: 8px;
   }
@@ -141,10 +137,6 @@
 
 
 @media (max-width: 350px) {
-
-  .add-task-footer {
-    left: 12px;
-  }
 
   .add-contact-overlay-content-left,
   .add-contact-overlay-content-right {

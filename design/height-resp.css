@@ -65,6 +65,12 @@
     padding: 8px;
   }
 
+  .add-task-footer {
+    left: 8px;
+    bottom: 20px;
+    right: 8px;
+  }
+
   .main-content-addtask {
     padding: 8px;
   }
@@ -184,22 +190,14 @@
     height: 40px;
   }
 
-  .add-task-footer {
-    left: calc(232px + 8px);
-    width: calc(100vw - 232px - 32px);
-  }
-
-  .add-task-footer-overlay {
-    left: 40px;
-  }
-
   .dropdown-tasks-menu div {
     height: 30px;
   }
 
-  .add-task-footer-overlay {
-    width: auto;
-  }
+}
+
+@media (max-width: 1024px) and (max-height: 900px) {
+
 }
 
 @media (max-height: 750px) {
