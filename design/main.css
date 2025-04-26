@@ -4,6 +4,7 @@
 
 html {
   max-height: 100dvh;
+  overflow: hidden;
 }
 
 .landscape-overlay {

@@ -338,7 +338,7 @@ async function resetTaskApi(){
 function emptyEditAddTaskOverlays(){
   let ref1 = document.getElementById('addtask-content');
   let ref2 = document.getElementById('task-overlay-menu');
-      ref1.innerHTMl = '';
+      ref1.innerHTML = '';
       ref2.innerHTML = '';
 }
 

@@ -181,6 +181,7 @@ input[type="checkbox"]:checked::after {
   height: 900px;
   overflow-y: auto;
   overflow-x: hidden;
+  transition: 400ms ease-in-out;
 }
 
 .top-whitebox {
@@ -222,9 +223,13 @@ input[type="checkbox"]:checked::after {
   max-width: 600px;
   margin: 0;
   min-width: auto;
+  overflow-y:scroll;
+  overflow-x: hidden;
 }
 
 .white-box-bottom {
+  position: static;
+  bottom: 0;
   margin-left: auto;
 }
 

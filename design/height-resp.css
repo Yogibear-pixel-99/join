@@ -5,7 +5,7 @@
 
   .task-overlay-container {
     overflow-y: auto;
-    border: solid white 40px;
+    border: solid var(--main-background) 40px;
     padding: 0 !important;
   }
 
