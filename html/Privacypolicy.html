@@ -1,105 +1,211 @@
 <!DOCTYPE html>
 <html lang="en-de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Privacy</title>
 
-    <link rel="stylesheet" href="../design/assets.css">
-    <link rel="stylesheet" href="../design/header.css">
-    <link rel="stylesheet" href="../design/main.css">
-    <link rel="stylesheet" href="../design/colors.css">
-    <link rel="stylesheet" href="../design/navbar.css">
-    <link rel="stylesheet" href="../design/1025-1200-1350-desktop.css">
-    <link rel="stylesheet" href="../design/769-1024-tablet.css">
-    <link rel="stylesheet" href="../design/481-768-mobile.css">
-    <link rel="stylesheet" href="../design/320-480-mobile.css">
-    <link rel="stylesheet" href="../design/height-resp.css">
- 
-    <link rel="icon" type="x-icon/favicon" href="../assets/icons/join-logo-login.svg">
+    <link rel="stylesheet" href="../design/assets.css" />
+    <link rel="stylesheet" href="../design/header.css" />
+    <link rel="stylesheet" href="../design/main.css" />
+    <link rel="stylesheet" href="../design/colors.css" />
+    <link rel="stylesheet" href="../design/navbar.css" />
+    <link rel="stylesheet" href="../design/1025-1200-1350-desktop.css" />
+    <link rel="stylesheet" href="../design/769-1024-tablet.css" />
+    <link rel="stylesheet" href="../design/481-768-mobile.css" />
+    <link rel="stylesheet" href="../design/320-480-mobile.css" />
+    <link rel="stylesheet" href="../design/height-resp.css" />
+
+    <link
+      rel="icon"
+      type="x-icon/favicon"
+      href="../assets/icons/join-logo-login.svg"
+    />
 
     <script defer src="../scripts/script.js"></script>
     <script defer src="../scripts/standards.js"></script>
     <script defer src="../scripts/templates.js"></script>
     <script defer src="../scripts/global.js"></script>
-</head>
-<body onload="setGuestOrUserNavbar()">   
-        <section class="navbar-container desktop-navbar">
-            <div>
-            <img class="join-logo-navbar join-logo" src="../assets/icons/capa2.svg" alt="join logo">
-                <navbar class="navbar-link-container d-none" id="user-navbar">
-                <a href="./summary.html">
-                    <img class="navbar-logo" src="../assets/icons/summary.svg" alt="summary icon">
-                    <div class="center">Summary</div>
-                </a>
-                <a href="./addtask.html">
-                    <img class="navbar-logo" src="../assets/icons/addTask.svg" alt="add task icon">
-                    <div class="center">Add Task</div>
-                </a>
-                <a href="./board.html">
-                    <img class="navbar-logo" src="../assets/icons/board.svg" alt="board icon">
-                    <div class="center">Board</div>
-                </a>
-                <a href="./contacts.html">
-                    <img class="navbar-logo" src="../assets/icons/contacts.svg" alt="contacts icon">
-                    <div class="center">Contacts</div>
-                </a>
-                </navbar>
-                <navbar class="navbar-link-container d-none" id="guest-navbar">
-                     <a href="./index.html">
-                        <img class="navbar-logo" src="../assets/icons/login.svg" alt="">
-                        <div class="center">Log In</div>
-                     </a>
-                </navbar>
-            </div>
-            <div class="policy-legal-content">
-                <a href="./Privacypolicy.html"  class="active-button policy-legal-area">Privacy Policy</a>
-                <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
-            </div>
-        </section>
+  </head>
+  <body onload="setGuestOrUserNavbar()">
+    <section class="navbar-container desktop-navbar">
+      <div>
+        <img
+          class="join-logo-navbar join-logo"
+          src="../assets/icons/capa2.svg"
+          alt="join logo"
+        />
+        <navbar class="navbar-link-container d-none" id="user-navbar">
+          <a href="./summary.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/summary.svg"
+              alt="summary icon"
+            />
+            <div class="center">Summary</div>
+          </a>
+          <a href="./addtask.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/addTask.svg"
+              alt="add task icon"
+            />
+            <div class="center">Add Task</div>
+          </a>
+          <a href="./board.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/board.svg"
+              alt="board icon"
+            />
+            <div class="center">Board</div>
+          </a>
+          <a href="./contacts.html">
+            <img
+              class="navbar-logo"
+              src="../assets/icons/contacts.svg"
+              alt="contacts icon"
+            />
+            <div class="center">Contacts</div>
+          </a>
+        </navbar>
+        <navbar class="navbar-link-container d-none" id="guest-navbar">
+          <a href="./index.html">
+            <img class="navbar-logo" src="../assets/icons/login.svg" alt="" />
+            <div class="center">Log In</div>
+          </a>
+        </navbar>
+      </div>
+      <div class="policy-legal-content">
+        <a href="./Privacypolicy.html" class="active-button policy-legal-area"
+          >Privacy Policy</a
+        >
+        <a href="./legalnotice.html" class="policy-legal-area">Legal notice</a>
+      </div>
+    </section>
     <main class="main-container">
-        <header class="header-container">
-            <span class="header-text">Kanban Project Management Tool</span>
-            <svg class="header-logo-mobile" width="32" height="39" viewBox="0 0 101 122" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="join-logo-color-change" d="M71.6721 0H49.5143V25.4923H71.6721V0Z" fill="#2A3647"/>
-                <path class="join-logo-color-change" d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z" fill="#2A3647"/>
-                <path d="M38.2137 30.1318H16.0559V52.3884H38.2137V30.1318Z" fill="#29ABE2"/>
-                <path class="join-logo-color-change" d="M83.2793 111.522C83.2793 116.265 80.8761 118.815 77.5183 118.815C74.1605 118.815 71.9618 115.785 71.9618 111.762C71.9618 107.739 74.2287 104.554 77.7058 104.554C81.1829 104.554 83.2793 107.687 83.2793 111.522ZM74.5355 111.711C74.5355 114.57 75.6775 116.675 77.6376 116.675C79.5977 116.675 80.7056 114.45 80.7056 111.539C80.7056 108.988 79.6829 106.592 77.6376 106.592C75.5923 106.592 74.5355 108.903 74.5355 111.711Z" fill="#2A3647"/>
-                <path class="join-logo-color-change" d="M87.6768 104.76V118.593H85.2224V104.76H87.6768Z" fill="#2A3647"/>
-                <path class="join-logo-color-change" d="M90.3358 118.593V104.76H93.0629L95.9946 110.461C96.7493 111.952 97.4207 113.483 98.0058 115.049C97.8524 113.337 97.7843 111.368 97.7843 109.177V104.76H100.034V118.593H97.4945L94.5288 112.772C93.7436 111.243 93.0437 109.671 92.4323 108.064C92.4323 109.776 92.5516 111.711 92.5516 114.09V118.576L90.3358 118.593Z" fill="#2A3647"/>
-                </svg>
-        </header>    
-        <div id="main-content" class="main-content">
-            <div>
-                <h1 class="privacy-policy-header">Privacy Policy</h1>
-  
-                <h2>Subtitle</h2>
-                    <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
-                    </p>
+      <header class="header-container">
+        <span class="header-text">Kanban Project Management Tool</span>
+        <svg
+          class="header-logo-mobile"
+          width="32"
+          height="39"
+          viewBox="0 0 101 122"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="join-logo-color-change"
+            d="M71.6721 0H49.5143V25.4923H71.6721V0Z"
+            fill="#2A3647"
+          />
+          <path
+            class="join-logo-color-change"
+            d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z"
+            fill="#2A3647"
+          />
+          <path
+            d="M38.2137 30.1318H16.0559V52.3884H38.2137V30.1318Z"
+            fill="#29ABE2"
+          />
+          <path
+            class="join-logo-color-change"
+            d="M83.2793 111.522C83.2793 116.265 80.8761 118.815 77.5183 118.815C74.1605 118.815 71.9618 115.785 71.9618 111.762C71.9618 107.739 74.2287 104.554 77.7058 104.554C81.1829 104.554 83.2793 107.687 83.2793 111.522ZM74.5355 111.711C74.5355 114.57 75.6775 116.675 77.6376 116.675C79.5977 116.675 80.7056 114.45 80.7056 111.539C80.7056 108.988 79.6829 106.592 77.6376 106.592C75.5923 106.592 74.5355 108.903 74.5355 111.711Z"
+            fill="#2A3647"
+          />
+          <path
+            class="join-logo-color-change"
+            d="M87.6768 104.76V118.593H85.2224V104.76H87.6768Z"
+            fill="#2A3647"
+          />
+          <path
+            class="join-logo-color-change"
+            d="M90.3358 118.593V104.76H93.0629L95.9946 110.461C96.7493 111.952 97.4207 113.483 98.0058 115.049C97.8524 113.337 97.7843 111.368 97.7843 109.177V104.76H100.034V118.593H97.4945L94.5288 112.772C93.7436 111.243 93.0437 109.671 92.4323 108.064C92.4323 109.776 92.5516 111.711 92.5516 114.09V118.576L90.3358 118.593Z"
+            fill="#2A3647"
+          />
+        </svg>
+      </header>
+      <div id="main-content" class="main-content">
+        <div>
+          <h1 class="privacy-policy-header">Privacy Policy</h1>
+          <p>
+            This privacy policy applies to the project management tool Join,
+            which was developed as part of a professional development program.
+          </p>
+     
+          <h3>Developers: Alexander R., Emre Iscan, Joachim Pürcher </h3>
+     
+          <h2>1. Collection and Use of Data</h2>
+          <p>
+            We collect and store personal data only to the extent necessary for
+            the use of Join. This includes, among others, name, email address,
+            and phone number.
+          </p>
 
-                <h2>Subtitle</h2>
-                     <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
-                     </p>
-            </div>
+          <h2>2. Storage and Security</h2>
+          <p>
+            All stored data is protected with modern security measures to
+            prevent unauthorized access.
+          </p>
+          <h2>3. Disclosure to Third Parties</h2>
+          <p>
+            We do not disclose any personal data to third parties unless required by law or necessary for the operation of Join.
+          </p>
+          <h2>4. User Rights</h2>
+          <p>
+            Users have the right to access, correct, or delete their data. Requests can be sent by email to the development team.
+          </p>
+          <h2>5. Changes to the Privacy Policy</h2>
+          <p>
+            This privacy policy may be updated at any time. Changes become effective upon publication on the website.
+          </p>
+
+          <h3>Last updated: March 2025</h3>
         </div>
-        <section id="mobile-navbar-user" class="mobile-navbar d-none">
-            <a href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/summary.svg" alt="Summary link icon"><div>Summary</div></a>
-            <a href="../html/board.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/board.svg" alt="Board link icon"><div>Board</div></a>
-            <a href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/addTask.svg" alt="Addtasks link icon"><div>Add Task</div></a>
-            <a href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/contacts.svg" alt="Contacts link icon"><div>Contacts</div></a>
-        </section>    
-        <section id="mobile-navbar-guest" class="mobile-navbar d-none">
-          <a href="../html/index.html" class="mobile-navbar-logo-text-wrapper"><img src="../assets/icons/logout-icon.svg" alt="Summary link icon"><div>Log In</div></a>
-          <a href="#" class="mobile-navbar-logo-text-wrapper"><div></div></a>
-          <a href="../html/privacypolicy.html" class="mobile-navbar-logo-text-wrapper mobile-guest-text"><span>Privacy Policy</span></a>
-          <a href="../html/legalnotice.html" class="mobile-navbar-logo-text-wrapper mobile-guest-text"><span>Legal Notice</span></a>
-        </section>
-        <section class="landscape-overlay">
-            <span>Turn your device!</span>
-            <img class="rotate-img" src="../assets/icons/rotate-device.svg" alt="rotate-device">
-          </section>        
+      </div>
+      <section id="mobile-navbar-user" class="mobile-navbar d-none">
+        <a href="../html/summary.html" class="mobile-navbar-logo-text-wrapper"
+          ><img src="../assets/icons/summary.svg" alt="Summary link icon" />
+          <div>Summary</div></a
+        >
+        <a href="../html/board.html" class="mobile-navbar-logo-text-wrapper"
+          ><img src="../assets/icons/board.svg" alt="Board link icon" />
+          <div>Board</div></a
+        >
+        <a href="../html/addtask.html" class="mobile-navbar-logo-text-wrapper"
+          ><img src="../assets/icons/addTask.svg" alt="Addtasks link icon" />
+          <div>Add Task</div></a
+        >
+        <a href="../html/contacts.html" class="mobile-navbar-logo-text-wrapper"
+          ><img src="../assets/icons/contacts.svg" alt="Contacts link icon" />
+          <div>Contacts</div></a
+        >
+      </section>
+      <section id="mobile-navbar-guest" class="mobile-navbar d-none">
+        <a href="../html/index.html" class="mobile-navbar-logo-text-wrapper"
+          ><img src="../assets/icons/logout-icon.svg" alt="Summary link icon" />
+          <div>Log In</div></a
+        >
+        <a href="#" class="mobile-navbar-logo-text-wrapper"><div></div></a>
+        <a
+          href="../html/privacypolicy.html"
+          class="mobile-navbar-logo-text-wrapper mobile-guest-text"
+          ><span>Privacy Policy</span></a
+        >
+        <a
+          href="../html/legalnotice.html"
+          class="mobile-navbar-logo-text-wrapper mobile-guest-text"
+          ><span>Legal Notice</span></a
+        >
+      </section>
+      <section class="landscape-overlay">
+        <span>Turn your device!</span>
+        <img
+          class="rotate-img"
+          src="../assets/icons/rotate-device.svg"
+          alt="rotate-device"
+        />
+      </section>
     </main>
-</body>
+  </body>
 </html>
