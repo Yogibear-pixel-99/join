@@ -25,9 +25,7 @@ function setPriorityButtonColor(selected) {
 function addSelectedContact(user) {
   let container = document.getElementById("addSelectedContacts");
   let userEmail = user.email;
-  let existing = container.querySelector(
-    `.selected-contact[data-user-id="${userEmail}"]`
-  );
+  let existing = container.querySelector(`.selected-contact[data-user-id="${userEmail}"]`);
   if (!existing) {
     assignedToContact++;
     let selectedDiv = document.createElement("div");
@@ -230,11 +228,7 @@ async function addTask(event) {
   event.preventDefault();
   await collectAllTaskInfos();
   await postDataToApi("tasks", collectedFormInfos);
-  toggleAddedButton(
-    "task-added-overlay-button",
-    "task-added-overlay-button-show",
-    "d-none"
-  );
+  toggleAddedButton("task-added-overlay-button", "task-added-overlay-button-show", "d-none");
   setTimeout(() => {
     window.location.href = "../html/board.html";
   }, 1500);
@@ -291,12 +285,7 @@ function createNewTask(event) {
   let dueDate = document.getElementById("due-date").value.trim();
   savedCategory = document.getElementById("categoryDropdown").value;
   getTaskStatus();
-  if (
-    title.trim() == "" ||
-    dueDate == "" ||
-    !checkIfDateIsValid() ||
-    savedCategory == ""
-  ) {
+  if (title.trim() == "" || dueDate == "" || !checkIfDateIsValid() || savedCategory == "") {
     event.preventDefault();
     titleRedBorder(title);
     dateRedBorder(dueDate);
@@ -347,16 +336,9 @@ function blockButton() {
  */
 function titleRedBorder(title) {
   if (title.trim() == "") {
-    addRedBorderAndTextFalseInputAddTask(
-      "form-title",
-      "title-error-message",
-      "This field is required."
-    );
+    addRedBorderAndTextFalseInputAddTask("form-title", "title-error-message", "This field is required.");
   } else {
-    removeRedBorderAndTextFalseInputAddTask(
-      "form-title",
-      "title-error-message"
-    );
+    removeRedBorderAndTextFalseInputAddTask("form-title", "title-error-message");
   }
 }
 
@@ -369,17 +351,9 @@ function titleRedBorder(title) {
  */
 function dateRedBorder(dueDate) {
   if (dueDate == "") {
-    addRedBorderAndTextFalseInputAddTask(
-      "due-date",
-      "date-error-message",
-      "This field is required."
-    );
+    addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "This field is required.");
   } else if (!checkIfDateIsValid()) {
-    addRedBorderAndTextFalseInputAddTask(
-      "due-date",
-      "date-error-message",
-      "Enter a valid date."
-    );
+    addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Enter a valid date.");
   } else {
     removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
   }
@@ -394,16 +368,9 @@ function dateRedBorder(dueDate) {
  */
 function categoryRedBorder(category) {
   if (category == "") {
-    addRedBorderAndTextFalseInputAddTask(
-      "categoryDropdown",
-      "category-error-message",
-      "This field is required."
-    );
+    addRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message", "This field is required.");
   } else {
-    removeRedBorderAndTextFalseInputAddTask(
-      "categoryDropdown",
-      "category-error-message"
-    );
+    removeRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message");
   }
 }
 

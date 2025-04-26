@@ -221,19 +221,13 @@ function searchForTask() {
 function findTask(inputTaskValue) {
   let foundAny = false;
   for (let index = 1; index < tasksFromApi.length + 1; index++) {
-    let titleTaskREF = document.getElementById(
-      "titleTask" + tasksFromApi[index - 1].apiKey
-    );
+    let titleTaskREF = document.getElementById("titleTask" + tasksFromApi[index - 1].apiKey);
     let descriptionTaskREF = document.getElementById(
       "titleDescription" + tasksFromApi[index - 1].apiKey
     );
     let titleTaskValue = titleTaskREF.innerText.toLowerCase();
     let descriptionValue = descriptionTaskREF.innerText.toLowerCase();
-    if (
-      titleTaskValue.includes(inputTaskValue) ||
-      inputTaskValue == " " ||
-      descriptionValue.includes(inputTaskValue)
-    ) {
+    if (titleTaskValue.includes(inputTaskValue) || inputTaskValue == " " || descriptionValue.includes(inputTaskValue)) {
       titleTaskREF.parentElement.parentElement.classList.remove("d-none");
       foundAny = true;
     } else {
@@ -252,11 +246,7 @@ function findTask(inputTaskValue) {
  */
 function foundTasks(foundAny) {
   if (!foundAny) {
-    addRedBorderAndTextFalseInput(
-      "find-task",
-      "search-error-message",
-      "No Task found!"
-    );
+    addRedBorderAndTextFalseInput("find-task", "search-error-message", "No Task found!");
   } else {
     removeRedBorderAndTextFalseInput("find-task", "search-error-message");
   }
@@ -274,13 +264,7 @@ function createTaskCard(task) {
   let priorityHTML = getPriorityIconHTML(task.priority);
   let allSubTasksNr = getAllSubtasksLength(task);
   let doneSubTasksNr = getDoneSubtasksLength(task);
-  let taskTemp = getSingleTaskCardForBoardTemp(
-    task,
-    assignedHTML,
-    priorityHTML,
-    allSubTasksNr,
-    doneSubTasksNr
-  );
+  let taskTemp = getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubTasksNr, doneSubTasksNr);
   return taskTemp;
 }
 

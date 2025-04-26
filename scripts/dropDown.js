@@ -126,9 +126,7 @@ function renderDropdownWithSearchResults(filteredUsers) {
   filteredUsers.forEach((user) => {
     let userItem = document.createElement("div");
     let rowClass = user.isSelected ? "checked-row" : "";
-    let checkboxImg = user.isSelected
-      ? "../assets/icons/Check button checked white.svg"
-      : "../assets/icons/Check button Box.svg";
+    let checkboxImg = user.isSelected ? "../assets/icons/Check button checked white.svg" : "../assets/icons/Check button Box.svg";
     userItem.classList.add("dropdown-item");
     userItem.innerHTML = getDropDownUserFilterdTemp(
       user,
@@ -252,12 +250,7 @@ function renderCategoryOptions() {
   staticCategories.forEach((category) => {
     let option = document.createElement("div");
     option.classList.add("dropdown-item");
-    option.innerHTML = `
-        <label class="category-item">
-        <div onclick="selectCategory('${category}')" class="category-itmen-names">
-          <span>${category}</span>
-        </div>
-        </label>`;
+    option.innerHTML = getCategoryTemp(category);
     dropdownContent.appendChild(option);
   });
 }

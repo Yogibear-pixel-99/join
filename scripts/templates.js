@@ -440,4 +440,19 @@ function getInitialsForBoardTemp(user, initialsPosition, initials){
                               style="left: ${initialsPosition}px">
                               ${initials}
                   </div>`;
-  }
+}
+
+
+/**
+ * Creates a template for the category.
+ * 
+ * @param {string} category - The category name.
+ * @returns - The catgory template.
+ */
+function getCategoryTemp(category){
+    return   `<label class="category-item">
+                <div onclick="selectCategory('${category}')" class="category-itmen-names">
+                  <span>${category}</span>
+                </div>
+              </label>`;
+}

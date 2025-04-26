@@ -35,9 +35,7 @@ function dropTask(event) {
   event.preventDefault();
   let taskId = event.dataTransfer.getData("text/plain");
   let taskCard = document.getElementById(taskId);
-  let spanElement = taskCard
-    .closest(".board-single-task-container")
-    .querySelector(".board-task-header-container span");
+  let spanElement = taskCard.closest(".board-single-task-container").querySelector(".board-task-header-container span");
   let column = event.currentTarget;
   if (taskCard && column) {
     let newStatus = spanElement.innerText.toLowerCase().replace(" ", "");
