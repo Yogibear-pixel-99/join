@@ -92,6 +92,26 @@ function getSubtaskForTaskOverlayTemp(task, subtask){
  */
 function getAddTaskOverlayTemp(){
     return `
+                  <div class="add-task-footer add-task-footer-overlay">
+            <div class="required-wrapper">
+              <span class="red-asterisk">*</span>
+              <span>This field is required</span>
+            </div>
+            <div class="addTask-button-container">
+              <div onclick="resetForm('add-task-form'); resetAddTaskForm(); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();" class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
+                <div
+                  class="">
+                  Clear
+                </div>
+                <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div id="create-task-button" class="dark-button btns-addtask" onclick="createNewTask(event)">
+                Create Task <img src="../assets/icons/check.svg" />
+              </div>
+            </div>
+          </div>
        <div class = "add-task-top" >
           <h1 class="add-task-header">Add Task </h1>
           <div class="close-icon-wrapper flex-ctr-ctr add-task-cross" onclick="closeOverlayMenu('addtask-content', 'addtask-overlay-mask-container');">
@@ -275,26 +295,6 @@ function getAddTaskOverlayTemp(){
                 </div>
               </div>
               <div id="added-subtasks" class="added-subtasks"></div>
-            </div>
-          </div>
-          <div class="add-task-footer add-task-footer-overlay">
-            <div class="required-wrapper">
-              <span class="red-asterisk">*</span>
-              <span>This field is required</span>
-            </div>
-            <div class="addTask-button-container">
-              <div onclick="resetForm('add-task-form'); resetAddTaskForm(); setPriorityButtonColor(document.getElementById('standard-prio')); deleteSubtasksContent();" class="light-button btns-addtask flex-ctr-ctr button-wrapper-add-task">
-                <div
-                  class="">
-                  Clear
-                </div>
-                <svg class="clear-icon" width="14" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div id="create-task-button" class="dark-button btns-addtask" onclick="createNewTask(event)">
-                Create Task <img src="../assets/icons/check.svg" />
-              </div>
             </div>
           </div>
           </div>

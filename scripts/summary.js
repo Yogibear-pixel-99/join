@@ -228,11 +228,16 @@ function showGreeting(){
  */
 function addGreetingAnimation(userName){
   if (window.innerWidth <= 1024){
-    let contentRef = document.getElementById('summary-greeting-text-overlay-user');
-    let guestRef = document.getElementById('summary-greeting-overlay-guest');
-    let userRef = document.getElementById('summary-greeting-overlay-user');
-        contentRef.innerText = userName;
-    userName !== 'Guest' && userName ? showGreetingAnimation(userRef) : showGreetingAnimation(guestRef);
+    let nameRef = document.getElementById('summary-greeting-text-overlay-user');
+    let guestRefContent = document.getElementById('summary-greeting-overlay-guest');
+    let userRefContent = document.getElementById('summary-greeting-overlay-user');
+    let greeting = getTime();
+        ref = document.querySelectorAll('.greeting-text');
+        ref.forEach(element => {
+          element.innerText = greeting;
+        });
+        nameRef.innerText = userName;
+        userName !== 'Guest' && userName ? showGreetingAnimation(userRefContent) : showGreetingAnimation(guestRefContent);
   }
 }
 

@@ -1,7 +1,5 @@
 @media (max-height: 1000px) {
-  .info-input-field-container-right {
-    height: 50vh;
-  }
+
 
   .task-overlay-container {
     overflow-y: auto;
@@ -69,6 +67,11 @@
     left: 8px;
     bottom: 20px;
     right: 8px;
+  }
+
+  .add-task-footer-overlay {
+    left: 40px;
+    right: 40px;
   }
 
   .main-content-addtask {
@@ -192,6 +195,11 @@
 
   .dropdown-tasks-menu div {
     height: 30px;
+  }
+
+  .info-input-field-container-right {
+    height: 55vh;
+    overflow-y: auto !important;
   }
 
 }

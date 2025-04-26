@@ -164,6 +164,13 @@ input[type="checkbox"]:checked::after {
   font-weight: 700;
 }
 
+.add-task-footer-overlay {
+  box-sizing: content-box;
+  border: solid var(--main-background) 20px;
+  z-index: 900;
+  background-color: var(--main-background);
+}
+
 .task-overlay-button-wrapper:hover > svg > path {
   fill: var(--light-blue);
 }
