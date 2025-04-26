@@ -75,9 +75,7 @@ function checkEmail() {
   let emailChecked = usersFromApi.some((item) => item.email === emailREF.value);
 
   if (emailChecked === true) {
-    emailIndex = usersFromApi.findIndex(
-      (item) => item.email === emailREF.value
-    );
+    emailIndex = usersFromApi.findIndex((item) => item.email === emailREF.value);
     checkPassword(emailIndex);
   } else {
     setErrorMessageToLogin();
@@ -107,16 +105,8 @@ function checkPassword(emailIndex) {
  * Shows an error message in the log in form.
  */
 function setErrorMessageToLogin() {
-  addRedBorderAndTextFalseInput(
-    "email",
-    "login-error-message",
-    "Check your email and password. Please try again. "
-  );
-  addRedBorderAndTextFalseInput(
-    "password",
-    "login-error-message",
-    "Check your email and password. Please try again. "
-  );
+  addRedBorderAndTextFalseInput("email", "login-error-message","Check your email and password. Please try again. ");
+  addRedBorderAndTextFalseInput("password", "login-error-message","Check your email and password. Please try again. ");
 }
 
 
