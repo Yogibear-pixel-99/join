@@ -75,10 +75,11 @@ async function getEmptyTaskTemplate(){
  * @returns - Returns the created single task card shown in board menu.
  */
 function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubTasksNr, doneSubTasksNr){
-  return `<div class="task-card" 
+  return `<div class="task-card"
               id="task-${task.title.replace(/\s+/g, "-")}" 
               onclick="noClose(event); openTask('${task.apiKey}')" 
-              draggable="true" 
+              draggable="true"
+              ondragstart="dragstart(event)" ondragend="dragend(event)"
               data-status="${task.status}">
                 <div class= "task-type-wrapper">
                   <span class="task-type task-color-${task.category.charAt(0).toUpperCase()}">${task.category}</span>

@@ -6,6 +6,10 @@
   margin-bottom: 80px;
 }
 
+.dragging {
+  transform: rotate(3deg) !important;
+}
+
 .summary-main-container {
   display: flex;
   flex-direction: column;

@@ -56,6 +56,7 @@ function clearBoardColums(todo, prog, feed, done){
   done.innerHTML = "";
 }
 
+
 /**
  * This function fills the respective columns with the tasks.
  * 
@@ -74,6 +75,7 @@ function fillBoardColums(tasks, todo, prog, feed, done){
     if (task.status === "done") done.innerHTML += cardHtml;
   });
 }
+
 
 /**
  * This function checks whether empty fields exist and places a No Tasks container there.
@@ -255,9 +257,6 @@ function findTask(inputTaskValue){
 }
 
 
-// Search all tasks
-
-
 /**
  * Shows error message if no tasks were found, otherwise clears error states.
  * 
@@ -265,7 +264,7 @@ function findTask(inputTaskValue){
  */
 function foundTasks(foundAny) {
   if (!foundAny) {
-    searchError();
+    addRedBorderAndTextFalseInput("find-task", "search-error-message", "No Task found!");
   } else {
     removeRedBorderAndTextFalseInput("find-task", "search-error-message")
   }
@@ -300,6 +299,7 @@ function getNewStatusInfo(newStatus, taskKey){
   };
   patchTaskDataToApi(collectedStatusInfo, `tasks/${taskKey.apiKey}`);
 }
+
 
 /**
  * This function patches the new status of the respective task into the database.
@@ -342,6 +342,7 @@ async function checkEmptyColumsExists(){
   checkEmptyColums(todo, prog, feed, done);
 }
 
+
 /**
  * This function takes the newly updated tasks from the API
  * 
@@ -349,24 +350,6 @@ async function checkEmptyColumsExists(){
 async function resetTaskApi(){
   return await getDataFromServer("tasks", tasksFromApi);
 }
-
-
-/**
- * Initializes the drag-and-drop system once the DOM is fully loaded.
- * Adds event listeners for drag-and-drop to all columns.
- * 
- */
-  document.addEventListener("DOMContentLoaded", () => {
-    let columns = document.querySelectorAll(".board-rendered");
-
-    columns.forEach(column => {
-        column.addEventListener("dragover", dragover);
-        column.addEventListener("drop", dropTask);
-    });
-
-    document.addEventListener("dragstart", dragstart);
-    document.addEventListener("dragend", dragend);
-});
 
 
 /**
@@ -379,6 +362,7 @@ function dragstart(event){
     event.dataTransfer.setData("text/plain", event.target.id);
     event.target.classList.add("dragging");
 }
+
 
 /**
  * Allows a task card to be dragged over a column.
@@ -393,6 +377,7 @@ function dragover(event){
         column.appendChild(draggingCard);
     }
 }
+
 
 /**
  * Manages the logic for moving a task card to a new column via drag-and-drop.
@@ -415,6 +400,7 @@ function dropTask(event){
     taskCard.classList.remove("dragging");
     hideEmptyContentTasks(taskId);
 }
+
 
 /**
  * Hides the "no tasks" message when a task is moved into a column.
@@ -479,16 +465,6 @@ async function openTask(taskApiKey){
   addMissingKeys(task, 'subtasks', []);
   taskRef.innerHTML = await getTaskOverlayTemp(task);
   openOverlayMenu('task-overlay-menu', 'task-overlay-mask-container');
-}
-
-
-/**
- * This function is called when no matching tasks are found.
- * It adds a red border to the search input and shows an error message.
- * 
- */
-function searchError() {
-  addRedBorderAndTextFalseInput("find-task", "search-error-message", "No Task found!")
 }
 
 

@@ -238,7 +238,7 @@
               </div>
               </a>
             </div>
-            <div id="boardToDoCard" class="board-rendered task-column" data-status="todo"></div>
+            <div id="boardToDoCard" ondragover="dragover(event)" ondrop="dropTask(event)" class="board-rendered task-column" data-status="todo"></div>
           </div>
 
           <!-- 2) In progress -->
@@ -306,6 +306,7 @@
             </div>
             <div
               id="boardInprogressCard"
+              ondragover="dragover(event)" ondrop="dropTask(event)"
               class="board-rendered inprogress-card task-column" data-status="todo"></div>
           </div>
 
@@ -372,14 +373,14 @@
               </div>
               </a>
             </div>
-            <div id="boardAwaitFeedbackCard" class="board-rendered task-column" data-status="todo"></div>
+            <div id="boardAwaitFeedbackCard" ondragover="dragover(event)" ondrop="dropTask(event)" class="board-rendered task-column" data-status="todo"></div>
           </div>
           <!-- 4) Done -->
           <div class="board-single-task-container column" >
             <div class="board-task-header-container">
               <span>Done</span>
             </div>
-            <div id="boardDoneCard" class="board-rendered task-column" data-status="todo"></div>
+            <div id="boardDoneCard" ondragover="dragover(event)" ondrop="dropTask(event)" class="board-rendered task-column" data-status="todo"></div>
           </div>
         </div>
         <section id="loading-spinner" class="loading-spinner-mask flex-ctr-ctr d-none">
