@@ -34,9 +34,6 @@
     width: 100px;
 }
 
-.add-task-footer {
-  left: 40px;
-}
 
 .contacts-content,
 .contacts-first-letter,
@@ -120,23 +117,21 @@
 .add-contact-formular-wrapper {
     padding-right: 28px;
 }
+
+.add-task-footer {
+  left: calc(232px + 40px);
+  width: calc(100vw - 232px - 80px);
+}
+
+.add-task-footer-overlay {
+  left: 60px;
+  right: 60px;
+  width: auto;
+}
 }
 
 
 @media (max-width: 1350px) {
-
-  .add-task-overlay {
-    min-width: 90vw;
-  }
-
-  .add-task-footer-overlay {
-    width: auto;
-    min-width: 80vw
-  }
-
-  .info-input-field-container {
-    min-width: 80vw;
-  }
 
   .info-input-field-container-edit-task-overlay {
     min-width: auto;

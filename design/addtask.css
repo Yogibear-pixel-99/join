@@ -19,7 +19,7 @@
 .add-task-form-content {
   display: flex;
   flex-direction: column;
-  
+  overflow: hidden;
 }
 
 .info-input-field-container {
@@ -27,7 +27,6 @@
   gap: 40px;
   justify-content: space-between;
   max-width: 1000px;
-  min-width: 1000px;
   margin-bottom: 140px;
 }
 
@@ -490,10 +489,10 @@ box-shadow: none;
   position: absolute;
   bottom: 20px;
   left: 312px;
+  width: calc(100vw - 232px - 160px);
+  max-width: 1000px;
   display: flex;
   justify-content: space-between;
-  width: 80vw;
-  max-width: 1000px;
   background-color: var(--main-background);
   padding: 20px 0 0 0;
   border-bottom: solid 40px var(--main-background);

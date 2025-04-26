@@ -113,11 +113,9 @@ function checkDayAndMonthValid(day, month, wholeUserDate, dateNow) {
   const maxDay = maxDaysInMonth[month];
   if (month + 1 < 1 || month + 1 > 12 || day < 1 || day > maxDay) {
     addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Enter a valid date");
-    // setTimeout(() => {resetValueFromInputField("due-date");}, 50);
     dateValid = false;
   } else if (wholeUserDate < dateNow) {
     addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Date must be in the future");
-    // setTimeout(() => {resetValueFromInputField("due-date");}, 50);
     dateValid = false;
   }
   return dateValid;
@@ -234,11 +232,7 @@ async function addTask(event) {
   event.preventDefault();
   await collectAllTaskInfos();
   await postDataToApi("tasks", collectedFormInfos);
-  toggleAddedButton(
-    "task-added-overlay-button",
-    "task-added-overlay-button-show",
-    "d-none"
-  );
+  toggleAddedButton("task-added-overlay-button", "task-added-overlay-button-show", "d-none");
   setTimeout(() => {
     window.location.href = "../html/board.html";
   }, 1500);
@@ -295,7 +289,7 @@ function createNewTask(event) {
   let dueDate = document.getElementById("due-date").value.trim();
   savedCategory = document.getElementById("categoryDropdown").value;
   getTaskStatus();
-  if (title.trim() == "" || dueDate == "" || savedCategory == "") {
+  if (title.trim() == "" || dueDate == "" || !checkIfDateIsValid() || savedCategory == "") {
     event.preventDefault();
     titleRedBorder(title);
     dateRedBorder(dueDate);
@@ -368,12 +362,12 @@ function titleRedBorder(title) {
  */
 function dateRedBorder(dueDate) {
   if (dueDate == "") {
-    addRedBorderAndTextFalseInputAddTask(
-      "due-date",
-      "date-error-message",
-      "This field is required."
+    addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "This field is required."
     );
-  } else {
+  } else if (!checkIfDateIsValid()) {
+    addRedBorderAndTextFalseInputAddTask("due-date", "date-error-message", "Enter a valid date."
+    );
+   } else {
     removeRedBorderAndTextFalseInputAddTask("due-date", "date-error-message");
   }
 }

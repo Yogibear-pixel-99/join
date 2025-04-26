@@ -198,9 +198,12 @@ input[type="checkbox"]:checked::after {
 }
 
 .add-task-footer-overlay {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   margin-top: auto;
+  width: auto;
+  right: 60px;
 }
 
 .add-task-main-content-edit-task-overlay {
