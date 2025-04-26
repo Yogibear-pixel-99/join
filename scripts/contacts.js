@@ -157,17 +157,14 @@ function animateContactMenu() {
  */
 async function createNewContact(event) {
   event.preventDefault();
-  if (
-    checkContactFormValidation("user-email-input", "phone-input", "add-contact-error")
-  ) {
-    await getNewContactTemp();
-    collectFormInformation("new-contact-form");
-    if (await checkIfDataAlreadyExists("user-email-input", "contacts")) {
-      addRedBorderAndTextFalseInput("user-email-input", "add-contact-error", "Contact/Email already exists!");
-    } else {
-      await postContactToApiAndShowInMenu();
-      removeAndSetInititalsBackgroundColorClass("", "edit-contact-overlay-initials-wrapper");
-    }
+  if (checkContactFormValidation('add-contact-input-field', 'user-email-input', 'phone-input', 'add-contact-error')) {
+  await getNewContactTemp();
+  collectFormInformation("new-contact-form");
+  if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
+    addRedBorderAndTextFalseInput("user-email-input", "add-contact-error", "Contact/Email already exists!");
+  } else {
+    await postContactToApiAndShowInMenu();
+    removeAndSetInititalsBackgroundColorClass('', 'edit-contact-overlay-initials-wrapper');
   }
 }
 
@@ -185,27 +182,36 @@ function emptyFormInputFields(id) {
 
 
 /**
+ * 
  * Checks the validation of the add/edit contact form
- *
- * @param {string} formEmailId - The id of the form container
- * @param {string} formPhoneId - The id of the form container
- * @returns - Returns a boolean.
+ * 
+ * @param {string} formNameId - The id of the input container
+ * @param {string} formEmailId - The id of the input container
+ * @param {string} formPhoneId - The id of the input container
+ * @param {string} errorId - The id of the error container
+ * @returns 
  */
-function checkContactFormValidation(formEmailId, formPhoneId, errorId) {
+function checkContactFormValidation(formNameId, formEmailId, formPhoneId, errorId){
+  let nameRef = document.getElementById(formNameId);
   let emailRef = document.getElementById(formEmailId);
   let phoneRef = document.getElementById(formPhoneId);
-  removeRedBorderAndTextFalseInput(formPhoneId, errorId, "Not valid phone number");
-  removeRedBorderAndTextFalseInput(formEmailId, errorId, "Not a valid email address");
-  if (!testIfPhoneNrIsValid(phoneRef.value.trim())) {
-    addRedBorderAndTextFalseInput(formPhoneId, errorId, "Not valid phone number");
+  removeRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
+  removeRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address');
+  removeRedBorderAndTextFalseInput(formNameId, errorId, 'Not a valid email address');
+    if (!testIfPhoneNrIsValid(phoneRef.value.trim())) {
+    addRedBorderAndTextFalseInput(formPhoneId, errorId, 'Not valid phone number');
     return false;
   }
-  if (!testIfEmailIsValid(emailRef.value.trim())) {
-    addRedBorderAndTextFalseInput(formEmailId, errorId, "Not a valid email address");
+  if (!testIfEmailIsValid(emailRef.value.trim())){
+    addRedBorderAndTextFalseInput(formEmailId, errorId, 'Not a valid email address');
     return false;
   }
+  if (nameRef.value.length <= 4) {
+    addRedBorderAndTextFalseInput(formNameId, errorId, 'Type in a minimum of five letters.');
+    return false  }
   return true;
 }
+
 
 
 /**
@@ -358,16 +364,17 @@ function toggleSaveEditedContactButton() {
  */
 async function saveEditedContact(event, contactKey) {
   event.preventDefault();
-  if (checkContactFormValidation("edit-user-email-input", "edit-user-phone-input", "edit-contact-error")) {
-    getContactInfosToFetch();
-    await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
-    await sortAndRenderContacts();
-    let editedContact = contactsFromApi.find((element) => element.apiKey === contactKey);
-    closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
-    scrollToNewContact(`contact-${editedContact.id}`);
-    openContactInFloatMenu(editedContact.id,editedContact.name.charAt(0).toUpperCase());
-  }
-}
+  if (checkContactFormValidation('edit-user-name-input', 'edit-user-email-input', 'edit-user-phone-input', 'edit-contact-error')){
+  getContactInfosToFetch();
+  await patchDataToApi(`contacts/${contactKey}`, collectedFormInfos);
+  await sortAndRenderContacts();
+  let editedContact = contactsFromApi.find(
+    (element) => element.apiKey === contactKey
+  );
+  closeOverlayMenu("edit-contact-overlay", "edit-contact-mask-container");
+  scrollToNewContact(`contact-${editedContact.id}`);
+  openContactInFloatMenu(editedContact.id, editedContact.name.charAt(0).toUpperCase());
+}}
 
 
 /**
