@@ -142,6 +142,10 @@
 
 @media (max-width: 350px) {
 
+  .add-task-footer {
+    left: 12px;
+  }
+
   .add-contact-overlay-content-left,
   .add-contact-overlay-content-right {
     width: 100vw;
