@@ -57,14 +57,9 @@ function addSubtaskValueToArray() {
   let subtaskOutput = document.getElementById("added-subtasks");
   let subtaskInput = document.getElementById("subtasks-input");
   let allSubtasks = Array.from(
-    document.getElementsByClassName("subtask-input"),
-    (element) => element.value
-  );
+    document.getElementsByClassName("subtask-input"),(element) => element.value);
   const userInput = subtaskInput.value.trim();
-  if (
-    allSubtasks.length != 0 &&
-    allSubtasks.some((element) => element === userInput)
-  ) {
+  if (allSubtasks.length != 0 && allSubtasks.some((element) => element === userInput)) {
     getAddSubtaskError(subtaskInput, "Subtask already exists");
   } else if (userInput.trim() == "") {
     getAddSubtaskError(subtaskInput, "Type in a subtask");
