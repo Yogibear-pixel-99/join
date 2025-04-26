@@ -106,7 +106,7 @@ if (window.innerWidth >= 1025){
 /**
  * Changes the container visability in mobile mode. All contact list and open single contact in the float menu.
  */
-function switchFloatingContactAndContactsInMobile(){
+async function switchFloatingContactAndContactsInMobile(){
   const allContactsRef = document.getElementById('contacts-container-wrapper');
   const contactsFloatRef = document.getElementById('floating-contact-container');
   const floatComputedStyle = window.getComputedStyle(contactsFloatRef);
@@ -160,13 +160,25 @@ async function createNewContact(event){
   await getNewContactTemp();
   collectFormInformation("new-contact-form");
   if (await checkIfDataAlreadyExists("user-email-input", "contacts")){
-    addRedBorderAndTextFalseInput("user-email-input", "input-alert-message", "Contact/Email already exists!");
-    // setTimeout(() => removeRedBorderAndTextFalseInput("user-email-input", "input-alert-message"), 3000);
+    addRedBorderAndTextFalseInput("user-email-input", "add-contact-error", "Contact/Email already exists!");
   } else {
     await postContactToApiAndShowInMenu();
     removeAndSetInititalsBackgroundColorClass('', 'edit-contact-overlay-initials-wrapper');
   }
 }}
+
+
+/**
+ * Collect all input fields and sets no value to the fields.
+ * 
+ * @param {string} id - The id of the form container.
+ */
+function emptyFormInputFields(id){
+  let ref = document.getElementById(id);
+  let inputs = ref.querySelectorAll('input');
+      inputs.forEach((element) => {
+        element.value = ''});
+}
 
 
 /**
@@ -197,9 +209,11 @@ function checkContactFormValidation(formEmailId, formPhoneId, errorId){
  * Removes die initals from the add contact form and sets the button to disable.
  */
 function resetAddContactForm(){
-  removeAndSetInititalsBackgroundColorClass('add-contact-overlay-initials-wrapper', '');
   let buttonRef = document.getElementById('create-contact-button');
-      disableButton(buttonRef);
+  disableButton(buttonRef);
+  resetForm('new-contact-form');
+  // emptyFormInputFields('new-contact-form');
+  removeAndSetInititalsBackgroundColorClass('add-contact-overlay-initials-wrapper', '');
     }
 
 
