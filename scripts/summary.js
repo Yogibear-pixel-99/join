@@ -2,14 +2,10 @@
  * Initialize the whol summary, getting user data and show greeting message.
  */
 async function initSummary() {
-  setTimeout(() => {
-    removeDisplayNone("loading-spinner");
-  }, 100);
+  setTimeout(() => {removeDisplayNone("loading-spinner");}, 100);
   await getUserSummaryInfo();
   showGreeting();
-  setTimeout(() => {
-    addDisplayNone("loading-spinner");
-  }, 100);
+  setTimeout(() => {addDisplayNone("loading-spinner");}, 100);
 }
 
 
@@ -174,12 +170,8 @@ function urgentCounter() {
 function getClosestDate() {
   if (tasksFromApi.length != 0) {
     const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-    let sortedDateArray = tasksFromApi.map((element) =>
-      element.date.split("/").reverse().join()
-    );
-    sortedDateArray = sortedDateArray
-      .map((element) => element.replace(/,/g, ""))
-      .sort((a, b) => a - b);
+    let sortedDateArray = tasksFromApi.map((element) => element.date.split("/").reverse().join());
+    sortedDateArray = sortedDateArray.map((element) => element.replace(/,/g, "")).sort((a, b) => a - b);
     let newestDate = sortedDateArray[0];
     let year = newestDate.slice(0, 4);
     let month = months[getMonthNumber(newestDate.slice(4, 6)) - 1];
@@ -243,21 +235,13 @@ function showGreeting() {
 function addGreetingAnimation(userName) {
   if (window.innerWidth <= 1024) {
     let nameRef = document.getElementById("summary-greeting-text-overlay-user");
-    let guestRefContent = document.getElementById(
-      "summary-greeting-overlay-guest"
-    );
-    let userRefContent = document.getElementById(
-      "summary-greeting-overlay-user"
-    );
+    let guestRefContent = document.getElementById("summary-greeting-overlay-guest");
+    let userRefContent = document.getElementById("summary-greeting-overlay-user");
     let greeting = getTime();
     ref = document.querySelectorAll(".greeting-text");
-    ref.forEach((element) => {
-      element.innerText = greeting;
-    });
+    ref.forEach((element) => {element.innerText = greeting;});
     nameRef.innerText = userName;
-    userName !== "Guest" && userName
-      ? showGreetingAnimation(userRefContent)
-      : showGreetingAnimation(guestRefContent);
+    userName !== "Guest" && userName ? showGreetingAnimation(userRefContent) : showGreetingAnimation(guestRefContent);
   }
 }
 

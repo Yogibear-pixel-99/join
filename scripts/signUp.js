@@ -189,9 +189,7 @@ function checkSignUpValidation() {
   const nameRef = document.getElementById("sign-up-name").value;
   const mailRef = document.getElementById("user-email-input").value;
   const pwRef = document.getElementById("sign-up-password").value;
-  const pwConfirmRef = document.getElementById(
-    "sign-up-password-confirm"
-  ).value;
+  const pwConfirmRef = document.getElementById("sign-up-password-confirm").value;
   const checkPrivacy = document.getElementById("accept-privacy");
   if (nameRef != "" && mailRef != "" && pwRef != "" && pwConfirmRef != "" && checkPrivacy.checked == true) {
     return true;
