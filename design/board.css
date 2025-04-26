@@ -44,8 +44,8 @@
     display: none; 
   }
   
-  /* Fallback für ältere Browser */
-  -ms-overflow-style: none;  /* IE/Edge < 80 */
+ 
+  -ms-overflow-style: none; 
 }
 
 .board-single-task-container {

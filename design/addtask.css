@@ -597,8 +597,8 @@ box-shadow: none;
 }
 
 .textareaAddTask:focus {
-  border-color: #719ECE;  /* Blauton anpassen */
-  outline: none;           /* Standard-Outline entfernen */
+  border-color: #719ECE;  
+  outline: none;           
 }
 
 .create-task-overlay {

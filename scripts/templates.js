@@ -7,6 +7,7 @@
 function renderSubtaskTemp(subtask){
   return `<div id="${subtask}" class="subtask-container-wrapper">
               <input
+                onkeydown="enterKey(event)"
                 onblur="deleteSubtaskIfEmpty(this, '${subtask}')"
                 id="input-${subtask}"
                 class="subtask-input" 
