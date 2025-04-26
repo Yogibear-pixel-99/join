@@ -55,9 +55,7 @@ async function getTaskAssignedUsers(task) {
 async function getSubtasksForTaskOverlay(task) {
   let content = "";
   await getDataFromServer(`tasks/${task.apiKey}/subtasks`, subtasksFromApi);
-  subtasksFromApi.forEach(
-    (subtask) => (content += getSubtaskForTaskOverlayTemp(task, subtask))
-  );
+  subtasksFromApi.forEach((subtask) => (content += getSubtaskForTaskOverlayTemp(task, subtask)));
   return content;
 }
 
@@ -82,9 +80,7 @@ function checkIfSubtaskIsDone(subtask) {
 async function changeSubTaskCheckedApi(SUB_URL, id) {
   let inputRef = document.getElementById(id);
   let isChecked = {};
-  inputRef.checked
-    ? (isChecked = { "finished": true })
-    : (isChecked = { "finished": false });
+  inputRef.checked ? (isChecked = { "finished": true }) : (isChecked = { "finished": false });
   await patchDataToApi(SUB_URL, isChecked);
   initBoard();
 }
@@ -99,9 +95,7 @@ async function overlayDeleteTask(taskApiKey) {
   let taskRef = document.getElementById("task-overlay-menu");
   await deleteDataFromApi("tasks/", taskApiKey);
   closeOverlayMenu("task-overlay-menu", "task-overlay-mask-container");
-  setTimeout(() => {
-    taskRef.innerHTML = "";
-  }, 1000);
+  setTimeout(() => {taskRef.innerHTML = "";}, 1000);
   initBoard();
 }
 
@@ -117,15 +111,9 @@ function overlayEditTask(taskApiKey) {
   taskRef.innerHTML = getEditTaskTemp(taskData);
   renderAssignToDropdown();
   renderCategoryOptions();
-  setTimeout(() => {
-    setPriorityButtonContainer(taskData);
-  }, 1);
-  setTimeout(() => {
-    setAssignedUsersToDropdown(taskData);
-  }, 1);
-  setTimeout(() => {
-    showSubtaskInEditOverlay(taskData);
-  }, 1);
+  setTimeout(() => {setPriorityButtonContainer(taskData);}, 1);
+  setTimeout(() => {setAssignedUsersToDropdown(taskData);}, 1);
+  setTimeout(() => {showSubtaskInEditOverlay(taskData);}, 1);
 }
 
 

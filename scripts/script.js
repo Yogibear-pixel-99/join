@@ -98,15 +98,9 @@ function openOverlayMenu(overlayId, maskId) {
   const mask = document.getElementById(maskId);
   const mainContent = document.getElementById("main-container");
   overlay.classList.remove("d-none");
-  setTimeout(() => {
-    overlay.classList.remove("standard-overlay-hide");
-  }, 100);
-  setTimeout(() => {
-    mask.classList.remove("d-none");
-  }, 100);
-  setTimeout(() => {
-    mainContent.classList.add("disable-pointer-events");
-  }, 100);
+  setTimeout(() => {overlay.classList.remove("standard-overlay-hide");}, 100);
+  setTimeout(() => {mask.classList.remove("d-none");}, 100);
+  setTimeout(() => {mainContent.classList.add("disable-pointer-events");}, 100);
 }
 
 
@@ -122,12 +116,8 @@ function closeOverlayMenu(overlayId, maskId) {
   const mainContent = document.getElementById("main-container");
   overlay.classList.add("standard-overlay-hide");
   mask.classList.add("d-none");
-  setTimeout(() => {
-    mainContent.classList.remove("disable-pointer-events");
-  }, 300);
-  setTimeout(() => {
-    overlay.classList.add("d-none");
-  }, 200);
+  setTimeout(() => {mainContent.classList.remove("disable-pointer-events");}, 300);
+  setTimeout(() => {overlay.classList.add("d-none");}, 200);
 }
 
 
@@ -254,9 +244,7 @@ function setInitialsToHeader() {
   if (emailIndex === null) {
     headerInitialsREF.innerText = "G";
   } else {
-    headerInitialsREF.innerText = returnInitials(
-      usersFromApi[emailIndex].name
-    ).slice(0, 2);
+    headerInitialsREF.innerText = returnInitials(usersFromApi[emailIndex].name).slice(0, 2);
   }
 }
 
@@ -277,18 +265,10 @@ function resetAddTaskForm() {
  *
  */
 function toggleAddedButton(containerId, showClass, hideClass) {
-  setTimeout(() => {
-    toggleClassToContainer(containerId, hideClass);
-  }, 1);
-  setTimeout(() => {
-    toggleClassToContainer(containerId, showClass);
-  }, 100);
-  setTimeout(() => {
-    toggleClassToContainer(containerId, showClass);
-  }, 1600);
-  setTimeout(() => {
-    toggleClassToContainer(containerId, hideClass);
-  }, 1800);
+  setTimeout(() => {toggleClassToContainer(containerId, hideClass);}, 1);
+  setTimeout(() => {toggleClassToContainer(containerId, showClass);}, 100);
+  setTimeout(() => {toggleClassToContainer(containerId, showClass);}, 1600);
+  setTimeout(() => {toggleClassToContainer(containerId, hideClass);}, 1800);
 }
 
 
@@ -369,11 +349,7 @@ function testIfPhoneNrIsValid(value) {
  * @param {string} errorMessage - The error Message
  * @param {string} messageContainer - The element that displays the error message
  */
-function addRedBorderAndTextFalseInputAddTask(
-  borderContainer,
-  messageContainer,
-  errorMessage
-) {
+function addRedBorderAndTextFalseInputAddTask(borderContainer,messageContainer,errorMessage) {
   const contentRef = document.getElementById(borderContainer);
   const textRef = document.getElementById(messageContainer);
   contentRef.classList.add("red-border-inputfield");
@@ -388,10 +364,7 @@ function addRedBorderAndTextFalseInputAddTask(
  * @param {string} borderContainer - The element at which the red border is removed
  * @param {string} messageContainer - The element that displays the error message
  */
-function removeRedBorderAndTextFalseInputAddTask(
-  borderContainer,
-  messageContainer
-) {
+function removeRedBorderAndTextFalseInputAddTask(borderContainer,messageContainer) {
   const contentRef = document.getElementById(borderContainer);
   const textRef = document.getElementById(messageContainer);
   contentRef.classList.remove("red-border-inputfield");
