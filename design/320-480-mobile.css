@@ -412,6 +412,12 @@
     left: 60px;
     right: 60px;
   }
+
+  /* BOARD */
+  .dropdown-tasks-menu div{
+    height: 30px;
+
+  }
 }
 
 

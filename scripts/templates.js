@@ -95,7 +95,7 @@ function getSingleTaskCardForBoardTemp(task, assignedHTML, priorityHTML, allSubT
                   </svg>
                   <div class="dropdown-tasks-menu d-none" id="dropdown-${task.apiKey}">
                    <div class="header-dropdown-link-mobile">
-                   <div class="dropdown-text">Move to</div>
+                   <div class="dropdown-tasks-text">Move to</div>
                    </div>
                     <div onclick="noClose(event); changeStatusMobile('todo', '${task.apiKey}')" id="tasks-todo-${task.apiKey}" class="">
                    <div class="dropdown-tasks-text">To-Do</div>
