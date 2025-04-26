@@ -404,3 +404,14 @@ function removeRedBorderAddTask() {
   removeRedBorderAndTextFalseInputAddTask("categoryDropdown", "category-error-message");
 }
 
+
+/**
+ * Handles the Enter key press event by removing focus from the active element.
+ * 
+ * @param {KeyboardEvent} event - The keyboard event object
+ */
+function enterKey (event) {
+  if (event.key === "Enter" || event.keyCode === 13) {
+    event.target.blur(); 
+  }
+}
