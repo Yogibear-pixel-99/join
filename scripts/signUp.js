@@ -1,9 +1,9 @@
 /**
  * Shows an error message and red border if the values are not valid, calls a fetch function if they are.
- * 
+ *
  * @param {Object} event - The default object to prevent from default.
  */
-async function signUpNewUser(event){
+async function signUpNewUser(event) {
   event.preventDefault();
     removeAllErrorsFromSignUp();
     if (checkNameLength('sign-up-name', 4)){
@@ -68,7 +68,7 @@ function checkPasswordLength(){
 /**
  * Collects the values from the sign up form, creates a template, fetches the user data to the api, shows a sign up button and redirect to the login page.
  */
-async function collectNewUserValuesAndPost(){
+async function collectNewUserValuesAndPost() {
   getNewUserTemp();
   collectFormInformation("sign-up-form");
   await postDataToApi("users", collectedFormInfos);
@@ -83,7 +83,7 @@ async function collectNewUserValuesAndPost(){
 /**
  * An empty user template for the sign up function to fetch to the api.
  */
-function getNewUserTemp(){
+function getNewUserTemp() {
   collectedFormInfos = {
     name: "",
     email: "",
@@ -100,15 +100,15 @@ function getNewUserTemp(){
 
 /**
  * Checks if the new sign up password value is the same as the confirm password value.
- * 
+ *
  * @returns - A boolean.
  */
-function checkIfPasswordIsSameAsConfirm(){
+function checkIfPasswordIsSameAsConfirm() {
   const newUserPassword = document.getElementById("sign-up-password").value;
   const newUserPasswordConfirm = document.getElementById(
     "sign-up-password-confirm"
   ).value;
-  if (newUserPassword !== newUserPasswordConfirm){
+  if (newUserPassword !== newUserPasswordConfirm) {
     return true;
   } else {
     return false;
@@ -119,7 +119,7 @@ function checkIfPasswordIsSameAsConfirm(){
 /**
  * Sets the main content brightness to 50%.
  */
-function mainContentBrightness50(){
+function mainContentBrightness50() {
   const ref = document.getElementById("main-container");
   ref.classList.add("darken-background");
 }
@@ -127,11 +127,11 @@ function mainContentBrightness50(){
 
 /**
  * Adds a class to show the overlay button container.
- * 
+ *
  * @param {string} buttonId - The id of the button container to show.
  * @param {string} buttonText - The text displayed in the button.
  */
-function showOverlayButton(buttonId, buttonText){
+function showOverlayButton(buttonId, buttonText) {
   const ref = document.getElementById(buttonId);
   ref.innerText = buttonText;
   ref.classList.add("overlay-button-show");
@@ -140,10 +140,10 @@ function showOverlayButton(buttonId, buttonText){
 
 /**
  * Removes a class to hide the overlay button container.
- * 
+ *
  * @param {string} buttonId - The container id of the button.
  */
-function hideOverlayButton(buttonId){
+function hideOverlayButton(buttonId) {
   const ref = document.getElementById(buttonId);
   ref.classList.remove("overlay-button-show");
 }
@@ -152,7 +152,7 @@ function hideOverlayButton(buttonId){
 /**
  * Redirect to the login page.
  */
-function redirectToLogIn(){
+function redirectToLogIn() {
   window.location.href = "../html/index.html";
 }
 
@@ -160,38 +160,40 @@ function redirectToLogIn(){
 /**
  * Toggles the sign up button in desktop and mobile version.
  */
-function toggleSignUpButton(){
+function toggleSignUpButton() {
   const valid = checkSignUpValidation();
-  const buttonRef = document.getElementById('sign-up-button');
-    if (valid && window.innerWidth > 1025){
-      buttonRef.disabled = false;
-      buttonRef.classList.add('dark-button');
-      buttonRef.classList.remove('dark-button-signup');
-    } else if (valid && window.innerWidth <= 1024){
+  const buttonRef = document.getElementById("sign-up-button");
+  if (valid && window.innerWidth > 1025) {
     buttonRef.disabled = false;
-    buttonRef.classList.add('dark-signup-mobile-button');
-    buttonRef.classList.remove('dark-button-signup');
+    buttonRef.classList.add("dark-button");
+    buttonRef.classList.remove("dark-button-signup");
+  } else if (valid && window.innerWidth <= 1024) {
+    buttonRef.disabled = false;
+    buttonRef.classList.add("dark-signup-mobile-button");
+    buttonRef.classList.remove("dark-button-signup");
   } else {
-      buttonRef.disabled = true;
-      buttonRef.classList.remove('dark-button');
-      buttonRef.classList.remove('dark-signup-mobile-button');
-      buttonRef.classList.add('dark-button-signup');
-    }
+    buttonRef.disabled = true;
+    buttonRef.classList.remove("dark-button");
+    buttonRef.classList.remove("dark-signup-mobile-button");
+    buttonRef.classList.add("dark-button-signup");
+  }
 }
 
 
 /**
  * Checks if all form fields are filled in and privacy is checked.
- * 
+ *
  * @returns - A boolean.
  */
-function checkSignUpValidation(){
-  const nameRef = document.getElementById('sign-up-name').value;
-  const mailRef = document.getElementById('user-email-input').value;
-  const pwRef = document.getElementById('sign-up-password').value;
-  const pwConfirmRef = document.getElementById('sign-up-password-confirm').value;
-  const checkPrivacy = document.getElementById('accept-privacy');
-  if (nameRef != '' && mailRef != '' && pwRef != '' && pwConfirmRef != '' && checkPrivacy.checked == true) {
+function checkSignUpValidation() {
+  const nameRef = document.getElementById("sign-up-name").value;
+  const mailRef = document.getElementById("user-email-input").value;
+  const pwRef = document.getElementById("sign-up-password").value;
+  const pwConfirmRef = document.getElementById(
+    "sign-up-password-confirm"
+  ).value;
+  const checkPrivacy = document.getElementById("accept-privacy");
+  if (nameRef != "" && mailRef != "" && pwRef != "" && pwConfirmRef != "" && checkPrivacy.checked == true) {
     return true;
   } else {
     return false;
@@ -201,35 +203,39 @@ function checkSignUpValidation(){
 
 /**
  * Changes the source of the password icon in the sign up form.
- * 
+ *
  * @param {string} inputContainerId - The id of the input container.
  * @param {string} iconContainerId - The id of the logo container.
  */
-function changePasswordIcon(inputContainerId, iconContainerId){
-  let ref = document.getElementById(inputContainerId).value
-      if (ref !== ""){
-        setIconToContent(iconContainerId, '../assets/icons/visibility_off.svg');
-      } else {
-        setIconToContent(iconContainerId, '../assets/icons/lock.svg')
-      }
+function changePasswordIcon(inputContainerId, iconContainerId) {
+  let ref = document.getElementById(inputContainerId).value;
+  if (ref !== "") {
+    setIconToContent(iconContainerId, "../assets/icons/visibility_off.svg");
+  } else {
+    setIconToContent(iconContainerId, "../assets/icons/lock.svg");
+  }
 }
 
 
 /**
  * Changes the visibility of the password value in the input field by changing the input field type.
- * 
+ *
  * @param {string} inputId - The id of the input container.
  * @param {string} logoId - The id of the logo container.
  */
-function showHidePassword(inputId, logoId){
+function showHidePassword(inputId, logoId) {
   let text = document.getElementById(inputId);
   let logo = document.getElementById(logoId);
-  if (text.value){
-  switch (text.type == "password"){
-    case true : text.type = "text"; logo.src = '../assets/icons/visibility-eye.svg';
-    break;
-    case false : text.type = "password"; logo.src = '../assets/icons/visibility_off.svg';
-    break;
+  if (text.value) {
+    switch (text.type == "password") {
+      case true:
+        text.type = "text";
+        logo.src = "../assets/icons/visibility-eye.svg";
+        break;
+      case false:
+        text.type = "password";
+        logo.src = "../assets/icons/visibility_off.svg";
+        break;
     }
   }
 }
@@ -237,11 +243,11 @@ function showHidePassword(inputId, logoId){
 
 /**
  * Sets a icon source to all containers specified by a class name.
- * 
+ *
  * @param {string} iconClassName - The class name of all needed HTML containers.
  * @param {string} source - The source address of the needed icon.
  */
-function setIconToContent(iconContainerId, source){
+function setIconToContent(iconContainerId, source) {
   let iconRef = document.getElementById(iconContainerId);
-      iconRef.src = (source);
+  iconRef.src = source;
 }
