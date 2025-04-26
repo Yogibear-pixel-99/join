@@ -38,6 +38,11 @@
     }
   }
 
+  .main-content-legal,
+  .main-content-privacy {
+    padding: 8px;
+  }
+
   .form-container {
     margin: 0;
     padding: 16px;

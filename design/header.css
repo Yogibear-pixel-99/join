@@ -93,10 +93,6 @@
 background-color: var(--hover-darkblue);
 }
 
-.privacy-policy-header {
-    padding-top: 50px;
-}
-
 .loading-spinner-mask-summary {
     color: rgb(42, 54, 71);
     position: absolute;
