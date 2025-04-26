@@ -103,7 +103,7 @@
   .add-contact-overlay-content-left,
   .add-contact-overlay-content-right {
     max-width: 396px;
-    width: 90vw;
+    width: 90dvw;
     padding: 66px 24px;
   }
 
@@ -145,7 +145,7 @@
 
   .add-contact-overlay-content-left,
   .add-contact-overlay-content-right {
-    width: 100vw;
+    width: 100dvw;
   }
 
   .close-icon-contact-mobile-overlay {

@@ -35,7 +35,10 @@ async function getTaskAssignedUsers(task) {
       const userEmail = task.assignTo[userIndex];
       usersFromApi.find((element) => {
         if (element.email === userEmail) {
-          content += getAssignedUserTaskOverlayTemp(element.name, returnInitials(element.name));
+          content += getAssignedUserTaskOverlayTemp(
+            element.name,
+            returnInitials(element.name)
+          );
         }
       });
     }
