@@ -520,7 +520,7 @@ function testIfEmailIsValid(value){
  */
 function testIfPhoneNrIsValid(value){
   let valid = false;
-  let regEx = /^(?:\+|0)[a-zA-Z\s]*$/
+  let regEx = /^(?:\+|0)\d+$/
     if (regEx.test(value)) {
       valid = true;
     }

@@ -61,6 +61,13 @@ hr {
   overflow-x: hidden;
 }
 
+
+.info-input-field-container-right::-webkit-scrollbar {
+  width: thin;
+  display: block;
+}
+
+
 .info-input-field-container-left {
   gap: 24px;
   height: 425px;

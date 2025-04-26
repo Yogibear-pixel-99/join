@@ -773,20 +773,15 @@ h1 {
     padding: 13px 21px;
 }
 
-.cancel-button {
-    display: none;
+.cancel-button,
+.create-button {
+    width: auto;
+    padding: 18px 10px;
 }
 
 .placeholder-alert-message {
     display: none;
 }
-
-.create-button {
-    padding: 18px 10px;
-    justify-self: center;
-    margin-top: 15px;
-}
-
 
 
 /* HELP */
