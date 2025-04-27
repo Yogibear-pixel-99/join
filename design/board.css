@@ -478,3 +478,32 @@
 .dropdown-tasks-menu {
   display: none;
 }
+
+
+
+@media (max-height: 900px) {
+
+
+  .main-content-board {
+    padding: 8px;
+  }
+
+
+  .bottom-board-tasks {
+    max-height: calc(100dvh - 360px);
+  }
+
+  
+  .dropdown-tasks-menu div {
+    height: 30px;
+  }
+
+  .task-card {
+    gap: 6px;
+  }
+
+  .task-card * {
+    font-size: 12px;
+  }
+
+}

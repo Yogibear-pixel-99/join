@@ -91,3 +91,19 @@
 .mobile-guest-text {
   width: 100px !important;
 }
+
+
+
+@media (max-height: 750px) {
+
+  
+  .join-logo-navbar {
+    margin: 40px 66px 40px;
+  }
+
+  .navbar-link-container {
+    padding-top: 12px;
+  }
+
+  
+}

@@ -287,3 +287,39 @@ input[type="checkbox"]:checked::after {
   padding: 16px;
   font-weight: 700;
 }
+
+
+
+@media (max-height: 1000px) {
+
+
+  .task-overlay-container {
+    overflow-y: auto;
+    border: solid var(--main-background) 40px;
+    padding: 0 !important;
+  }
+
+  .add-task-overlay {
+    height: 95vh;
+    overflow: hidden;
+  }
+
+  .input-field-container-right {
+    height: 55vh;
+    overflow-y: auto !important;
+  }
+}
+
+
+
+@media (max-height: 950px) {
+
+  .info-input-field-container-right { 
+   height: 50dvh;
+  }
+ 
+  .info-input-field-container-right-overlay {
+   height: 600px;
+  }
+ }
+ 

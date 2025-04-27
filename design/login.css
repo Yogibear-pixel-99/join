@@ -233,3 +233,41 @@ input[type="checkbox"] {
 .remember {
   margin-right: 0 !important;
 }
+
+
+
+@media (max-height: 900px) {
+
+
+  .sign-up-form {
+    gap: 16px;
+  }
+
+
+
+}
+
+
+
+
+@media (max-height: 750px) {
+  
+
+  .sign-up-join-logo {
+    left: 33px;
+    top: 33px;
+  }
+
+  
+  .sign-up-join-logo {
+    height: 50px;
+    width: 42px;
+    top: 16px;
+    left: 16px;
+  }
+
+  .login-policy-legal {
+    padding: 12px 0;
+  }
+
+}
