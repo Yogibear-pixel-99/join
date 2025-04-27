@@ -509,6 +509,35 @@
 
 }
 
+
+@media (max-width: 1024px) {
+
+
+
+
+  .board-add-task-icon-wrapper-mobile {
+    display: flex;
+  }
+
+  .board-add-task-icon-wrapper {
+    display: none;
+  }
+
+  .top-board {
+    margin: 0 0 26px 0;
+  }
+
+  .board-header-hide-desktop {
+    margin: 0 0 40px 0;
+  }
+
+
+
+}
+
+
+
+
 @media (max-height: 900px) {
 
 

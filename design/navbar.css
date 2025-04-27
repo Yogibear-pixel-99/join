@@ -92,6 +92,48 @@
   width: 100px !important;
 }
 
+@media (max-width: 1024px) {
+
+
+
+
+  .desktop-navbar {
+    display: none;
+  }
+
+  .mobile-navbar {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--join-dark);
+    padding: 0 64px;
+    height: 76px;
+    align-items: center;
+    z-index: 1900;
+  }
+
+  .mobile-navbar a {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 16px;
+    width: 80px;
+    height: 76px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-navbar a:active {
+    background-color: var(--navbar-active-link);
+  }
+
+
+}
 
 
 @media (max-height: 750px) {

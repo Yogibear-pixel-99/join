@@ -396,6 +396,43 @@
 
 }
 
+
+@media (max-width: 1024px) {
+
+
+
+
+  .welcome-summary {
+    display: none;
+  }
+
+  .main-content-summary {
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    align-items: center;
+  }
+
+
+  .bottom-summary {
+    width: 100%;
+  }
+
+  .summary-wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  .bottom-top-summary,
+  .bottom-middle-summary,
+  .bottom-end-summary {
+    width: 70%;
+    justify-content: space-between;
+  }
+
+
+}
+
 @media (max-height: 900px) {
   .main-content-summary {
     padding: 8px;
