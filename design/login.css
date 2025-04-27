@@ -4,6 +4,7 @@
   border-radius: 16px;
   padding: 12px;
   transform: translate(-12px, -12px);
+
 }
 
 .sign-up-join-logo:active {
@@ -11,6 +12,7 @@
   border-radius: 16px;
   padding: 12px;
   transform: translate(-12px, -12px);
+
 }
 
 .login-logo {
@@ -22,96 +24,96 @@
 }
 
 .login-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 66px 120px;
-  gap: 40px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 66px 120px;
+    gap: 40px;
 }
 
 .login-header span {
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;    
 }
 
 .login-policy-legal {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  padding: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 40px;
 }
 .login-policy-legal a {
   color: var(--navbar-color);
 }
 
 .login-policy-legal a:hover {
-  color: var(--light-blue);
-  cursor: pointer;
+    color: var(--light-blue);
+    cursor: pointer;
 }
 
 .form-header {
-  font-size: 60px;
-  font-weight: 700;
+    font-size: 60px;
+    font-weight: 700;
 }
 
 .login-separator {
-  width: 150px;
-  height: 3px;
-  background-color: var(--light-blue);
-  margin: 20px;
+    width: 150px;
+    height: 3px;
+    background-color: var(--light-blue);
+    margin: 20px;
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .form-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-color: white;
-  padding: 48px 115px;
-  border-radius: 30px;
-  box-shadow: 0 0 14px 3px #0000000a;
-  z-index: 820;
-}
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 48px 115px;
+    border-radius: 30px;
+    box-shadow: 0 0 14px 3px #0000000A;
+    z-index: 820;
+  }
 
 .login-button-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 35px;
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
 }
 
 .input-field-container {
-  border: 1px solid var(--input-field-grey);
-  border-radius: 10px;
-  font-size: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 422px;
-  height: 48px;
-  padding: 0 21px;
-  margin-bottom: 6px;
+    border: 1px solid var(--input-field-grey);
+    border-radius: 10px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 422px;
+    height: 48px;
+    padding: 0 21px;
+    margin-bottom: 6px;
 }
 
 .login-input-field {
-  border: none;
-  font-size: 20px;
-  flex: 1;
+    border: none;
+    font-size: 20px;
+    flex: 1;
 }
 
 .input-logo {
-  height: 24px;
-  width: 24px;
+    height: 24px;
+    width: 24px;
 }
 
 .input-logo:hover {
@@ -119,113 +121,109 @@
 }
 
 input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--join-dark);
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: white;
-  margin-right: 20px;
-}
-
-input[type="checkbox"]:checked::after {
-  content: "✔";
-  font-size: 24px;
-  color: black;
-  display: block;
-  text-align: center;
-  line-height: 12px;
-}
-
-.main-log-in-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.input-alert-message {
-  display: inline-block;
-  height: 20px;
-}
-
-.overlay-button {
-  width: 312px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100dvh);
-  z-index: 2000;
-  transition: 250ms ease-out;
-  border-radius: 20px;
-  height: 74px;
-  padding: 0 25px;
-  font-weight: 400;
-  font-size: 20px;
-}
-
-.login-error-message {
-  min-height: 18px;
-}
-
-.overlay-button-show {
-  transform: translate(-50%, -50%);
-}
-
-.darken-background {
-  animation-name: brightness50;
-  animation-duration: 150ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes brightness50 {
-  0% {
-    filter: brightness(100%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--join-dark);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: white;
+    margin-right: 20px;
   }
-  100% {
-    filter: brightness(50%);
+  
+  input[type="checkbox"]:checked::after {
+    content: "✔";
+    font-size: 24px;
+    color: black;
+    display: block;
+    text-align: center;
+    line-height: 12px;
   }
-}
 
-.dark-button-signup-check {
-  width: 180px;
-  padding: 15px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 21px;
-  font-family: inter;
-  border: none;
-  color: white;
-  background-color: var(--join-dark);
-}
+  .main-log-in-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.dark-button-signup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--grey-hover);
-  color: white;
-  padding: 15px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 21px;
-  font-family: inter;
-  border: none;
-}
+  .input-alert-message {
+    display: inline-block;
+    height: 20px;
+  }
 
-.guest-login-mobile {
-  display: none;
-}
+  .overlay-button {
+    width: 312px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100dvh);
+    z-index: 2000;
+    transition: 250ms ease-out;
+    border-radius: 20px;
+    height: 74px;
+    padding: 0 25px;
+    font-weight: 400;
+    font-size: 20px;
+  }
 
-.password-confirm-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  .login-error-message {
+    min-height: 18px;
+  }
+
+  .overlay-button-show {
+    transform: translate(-50%, -50%);
+  }
+
+  .darken-background {
+    animation-name: brightness50;
+    animation-duration: 150ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes brightness50 {
+    0% {filter: brightness(100%)}
+    100% {filter: brightness(50%)}
+  }
+
+  .dark-button-signup-check {
+    width: 180px;
+    padding: 15px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 21px;
+    font-family: inter;
+    border: none;
+    color: white;
+    background-color: var(--join-dark);
+  }
+
+  .dark-button-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey-hover);
+    color: white;
+    padding: 15px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 21px;
+    font-family: inter;
+    border: none;
+  }
+  
+  .guest-login-mobile {
+    display: none;
+  }
+
+  .password-confirm-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .remember-wrapper {
@@ -234,188 +232,4 @@ input[type="checkbox"]:checked::after {
 
 .remember {
   margin-right: 0 !important;
-}
-
-@media (max-width: 650px) {
-  .sign-up-join-logo {
-    left: 33px;
-    top: 33px;
-  }
-}
-
-@media (max-width: 480px) {
-  .form-container {
-    margin: 0;
-    padding: 8px;
-    width: 294px;
-  }
-
-  .login-input-field {
-    width: auto;
-    font-size: 14px;
-  }
-
-  .input-wrapper input {
-    font-size: 14px;
-  }
-}
-
-@media (max-height: 900px) {
-  .sign-up-form {
-    gap: 16px;
-  }
-
-  .login-input-field {
-    font-size: 14px;
-  }
-
-  .login-input-field::placeholder {
-    font-size: 14px;
-  }
-
-  .guest-login-mobile {
-    display: flex;
-  }
-
-  .guest-login-desktop {
-    display: none;
-  }
-
-  .login-signup-button-mobile {
-    font-size: 16px;
-    padding: 15px 16px;
-  }
-
-  .login-header {
-    padding: 0;
-    justify-content: center;
-  }
-
-  .form-header {
-    font-size: 47px;
-  }
-
-  .login-form {
-    gap: 0;
-    flex: 1;
-    justify-content: flex-start;
-  }
-
-  .login-separator {
-    margin: 16px 0;
-    width: 88px;
-    height: 3px;
-  }
-
-  .form-container {
-    margin: 16px auto;
-    padding: 32px;
-    transform: translate(-50%, -55%);
-  }
-
-  .login-button-container {
-    flex-direction: column;
-    margin: 16px 0 0;
-  }
-
-  .input-field-container {
-    width: auto;
-  }
-
-  .input-bottom-field-container {
-    margin: 32px 0 8px;
-  }
-
-  .login-error-message {
-    position: static;
-    font-size: 12px;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  .login-button-container {
-    gap: 21px;
-  }
-
-  .login-policy-legal {
-    display: flex;
-    gap: 0;
-    justify-content: center;
-    padding: 30px 0;
-    text-align: center;
-    gap: 32px;
-  }
-
-  .sign-up-join-logo:hover {
-    box-sizing: content-box;
-    background-color: var(--grey-hover);
-    border-radius: 16px;
-    padding: 12px;
-    transform: translate(-12px, -12px);
-  }
-
-  .sign-up-join-logo:active {
-    box-sizing: content-box;
-    background-color: var(--grey-hover);
-    border-radius: 16px;
-    padding: 12px;
-    transform: translate(-12px, -12px);
-  }
-
-  .sign-up-join-logo {
-    width: 64px;
-    height: 78px;
-  }
-
-  .sign-up-form {
-    gap: 24px;
-  }
-
-  .sign-up-container {
-    transform: translate(-50%, -45%);
-    padding: 32px;
-  }
-
-  .dark-button-signup {
-    height: 51px;
-    font-size: 16px;
-  }
-
-  .dark-signup-mobile-button {
-    width: 180px;
-    height: 51px;
-    font-size: 16px;
-  }
-
-  .dark-signup-mobile-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--join-dark);
-    color: white;
-    padding: 15px 16px;
-    border-radius: 8px;
-    font-weight: 700;
-
-    font-family: inter;
-    border: none;
-  }
-}
-
-@media (max-height: 750px) {
-  .sign-up-join-logo {
-    left: 33px;
-    top: 33px;
-  }
-
-  .sign-up-join-logo {
-    height: 50px;
-    width: 42px;
-    top: 16px;
-    left: 16px;
-  }
-
-  .login-policy-legal {
-    padding: 12px 0;
-  }
 }

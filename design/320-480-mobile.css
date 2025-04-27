@@ -1,0 +1,184 @@
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 47px;
+    padding: 0;
+  }
+
+  @keyframes main-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 32px;
+      left: 32px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
+  }
+
+  .main-content-legal,
+.main-content-privacy {
+    padding: 8px;
+}
+
+  .form-container {
+    margin: 0;
+    padding: 8px;
+    width: 294px;
+  }
+
+  .login-input-field {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .input-wrapper input {
+    font-size: 14px;
+  }
+
+  .mobile-navbar {
+    padding: 0 0px;
+  }
+
+  .contact-container-wrapper {
+    min-width: 280px;
+  }
+
+  .main-content-summary {
+    padding: 8px;
+  }
+
+  .bottom-top-summary,
+  .bottom-middle-summary,
+  .bottom-end-summary {
+    width: 100%;
+  }
+
+  .bottom-end-summary {
+    gap: 8px;
+  }
+
+  .main-content-board {
+    padding: 8px;
+  }
+
+  .main-content-addtask {
+    padding: 8px;
+  }
+
+  .btn-importance-container {
+    flex-wrap: wrap;
+  }
+
+  .add-task-button-container {
+    gap: 16px;
+  }
+
+  .btn-importance-container {
+    justify-content: center;
+  }
+
+  .btn-importance-container label {
+    width: 100%;
+    max-width: 282px;
+  }
+
+  .floating-contact-container-wrapper {
+    padding: 8px;
+  }
+
+  .add-contact-overlay-content-left,
+  .add-contact-overlay-content-right {
+    max-width: 396px;
+    width: 90dvw;
+    padding: 66px 24px;
+  }
+
+  .contacts-content {
+    padding: 8px 0 8px 8px;
+  }
+
+  .task-overlay-container {
+    max-height: 98dvh;
+    max-width: 98vw;
+    padding: 0;
+  }
+
+  .single-contact {
+    padding: 10px 0;
+  }
+
+  .contact-overlay-alert {
+    width: 200px;
+  }
+
+  .add-contact-overlay-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .task-overlay-container {
+    border: solid var(--main-background) 16px !important;
+  }
+
+  .mobile-guest-text {
+    width: 80px !important;
+  }
+}
+
+
+@media (max-width: 350px) {
+
+  .add-contact-overlay-content-left,
+  .add-contact-overlay-content-right {
+    width: 100dvw;
+  }
+
+  .close-icon-contact-mobile-overlay {
+    transform: translate(0, -98px);
+}
+
+.main-content-board {
+  padding: 8px !important;
+}
+}
+
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 47px;
+  }
+}
+
+
+@media (max-width: 340px) {
+  .addTask-button-container button,
+  .btns-addtask {
+    font-size: 16px !important;
+    font-weight: 600;
+  }
+
+  .clear-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .btns-addtask img {
+    width: 22px;
+    height: 22px;
+  }
+}

@@ -221,7 +221,7 @@ input[type="checkbox"]:checked::after {
   max-width: 600px;
   margin: 0;
   min-width: auto;
-  overflow-y: scroll;
+  overflow-y:scroll;
   overflow-x: hidden;
 }
 
@@ -286,88 +286,4 @@ input[type="checkbox"]:checked::after {
   font-size: 21px;
   padding: 16px;
   font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .task-overlay-container {
-    max-width: 525px;
-    width: 95vw;
-  }
-
-  .task-overlay-container h1 {
-    font-size: 36px;
-    font-weight: 700;
-  }
-
-  .overlay-task-header-text {
-    font-size: 16px;
-    padding: 4px 16px;
-  }
-
-  .overlay-task-body {
-    font-size: 16px;
-    font-weight: 400px;
-  }
-
-  .close-icon-wrapper {
-    width: 24px;
-    height: 24px;
-    top: 34px;
-  }
-
-  .close-icon-wrapper svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .font16-weight400-768px {
-    font-size: 16px;
-    font-weight: 400;
-  }
-}
-
-@media (max-width: 480px) {
-  .task-overlay-container {
-    max-height: 98dvh;
-    max-width: 98vw;
-    padding: 0;
-  }
-}
-
-@media (max-width: 400px) {
-  .task-overlay-container {
-    border: solid var(--main-background) 16px !important;
-  }
-
-  .mobile-guest-text {
-    width: 80px !important;
-  }
-}
-
-@media (max-height: 1000px) {
-  .task-overlay-container {
-    overflow-y: auto;
-    border: solid var(--main-background) 40px;
-    padding: 0 !important;
-  }
-
-  .add-task-overlay {
-    height: 95vh;
-    overflow: hidden;
-  }
-
-  .input-field-container-right {
-    height: 55vh;
-    overflow-y: auto !important;
-  }
-}
-
-@media (max-height: 950px) {
-  .info-input-field-container-right {
-    height: 50dvh;
-  }
-
-  .info-input-field-container-right-overlay {
-    height: 600px;
-  }
 }

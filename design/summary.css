@@ -19,11 +19,11 @@
 }
 
 .summary-content-header {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  height: 120px;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    height: 120px;
+    margin-bottom: 20px;
 }
 
 .main-content-header-summary {
@@ -61,7 +61,7 @@
   transform-origin: left center;
   transform: scale(1.07);
   background-color: var(--join-dark);
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
   cursor: pointer;
 }
 
@@ -93,6 +93,7 @@
   margin-block-end: 0;
 }
 
+
 .done-summary,
 .to-do-summary {
   display: flex;
@@ -107,6 +108,7 @@
   transition: transform 0.2s ease;
 }
 
+
 .done-summary {
   transform-origin: right center;
 }
@@ -114,7 +116,7 @@
 .done-summary:hover {
   transform: scale(1.07);
   background-color: var(--join-dark);
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
   cursor: pointer;
 }
 
@@ -173,7 +175,7 @@
 .urgent-summary:hover {
   transform: scale(1.02);
   background-color: var(--join-dark);
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
   cursor: pointer;
 }
 
@@ -245,7 +247,7 @@
 }
 
 .bottom-end-left-box-summary {
-  transform-origin: left center;
+transform-origin: left center;
 }
 
 .bottom-end-right-box-summary,
@@ -269,13 +271,12 @@
 .bottom-end-left-box-summary:hover {
   transform: scale(1.07);
   background-color: var(--join-dark);
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
   cursor: pointer;
 }
 
 .bottom-end-left-box-summary:hover .end-quantity-summary,
-.bottom-end-left-box-summary:hover .end-text-summary,
-.bottom-end-middle-box-summary:hover .end-text-summary,
+.bottom-end-left-box-summary:hover .end-text-summary,.bottom-end-middle-box-summary:hover .end-text-summary,
 .bottom-end-middle-box-summary:hover .end-quantity-summary,
 .bottom-end-right-box-summary:hover .end-quantity-summary,
 .bottom-end-right-box-summary:hover .end-text-summary {
@@ -286,7 +287,7 @@
 .bottom-end-right-box-summary:hover {
   transform: scale(1.07);
   background-color: var(--join-dark);
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.46);
   cursor: pointer;
 }
 
@@ -307,6 +308,7 @@
   margin-block-end: 0;
 }
 
+
 .summary-greeting-animation {
   animation-name: greeting;
   animation-duration: 3000ms;
@@ -315,15 +317,9 @@
 }
 
 @keyframes greeting {
-  0% {
-    filter: opacity(100%);
-  }
-  50% {
-    filter: opacity(100%);
-  }
-  100% {
-    filter: opacity(0%);
-  }
+  0% {filter: opacity(100%);}
+  50% {filter: opacity(100%);}
+  100% {filter: opacity(0%);}
 }
 
 .greeting-overlay {
@@ -354,243 +350,4 @@
   font-size: 47px;
   font-weight: 700;
   color: var(--light-blue);
-}
-
-@media (max-width: 1350px) {
-  .welcome-text-summary {
-    font-size: 47px;
-  }
-
-  .welcome-name-summary {
-    font-size: 61px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 450px;
-  }
-}
-
-@media (max-width: 1150px) {
-  .main-content,
-  .main-content-summary {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .welcome-summary {
-    display: none;
-  }
-
-  .main-content-summary {
-    display: flex;
-    flex-direction: column;
-    width: 100dvw;
-    align-items: center;
-  }
-
-  .bottom-summary {
-    width: 100%;
-  }
-
-  .summary-wrapper {
-    width: 100%;
-    align-items: center;
-  }
-
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 70%;
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 768px) {
-  .line-summary-desktop {
-    display: none;
-  }
-
-  .line-summary-mobile {
-    display: block;
-    height: 3px;
-    width: 50px;
-  }
-
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 90%;
-  }
-
-  .summary-wrapper {
-    gap: 20px;
-  }
-
-  .summary-wrapper h2 {
-    font-size: 47px;
-    font-weight: 600;
-  }
-
-  .text-summary,
-  .deadline-summary,
-  .end-text-summary {
-    font-size: 14px;
-  }
-
-  .date-summary {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .to-do-summary,
-  .done-summary,
-  .urgent-summary,
-  .bottom-end-left-box-summary,
-  .bottom-end-middle-box-summary,
-  .bottom-end-right-box-summary {
-    border-radius: 20px;
-    gap: 10px;
-    height: 110px;
-  }
-
-  .content-summary {
-    gap: 0;
-  }
-
-  .to-do-summary svg,
-  .done-summary svg {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-content-summary {
-    padding: 8px;
-  }
-
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 100%;
-  }
-
-  .bottom-end-summary {
-    gap: 8px;
-  }
-}
-
-@media (max-height: 900px) {
-  .main-content-summary {
-    padding: 8px;
-  }
-
-  .main-content-header-summary-mobile {
-    margin-bottom: 10px;
-  }
-
-  .summary-wrapper {
-    gap: 8px;
-  }
-
-  .main-content-header-summary {
-    margin-bottom: 20px;
-  }
-
-  .main-content-header-summary-mobile {
-    margin-bottom: 10px;
-  }
-
-  .main-content-header-summary-mobile {
-    margin-bottom: 10px;
-  }
-
-  .summary-wrapper {
-    gap: 8px;
-  }
-
-  .main-content-header-summary {
-    margin-bottom: 20px;
-  }
-
-  .main-content-header-summary-mobile,
-  .board-header-hide-desktop,
-  .add-task-header {
-    margin-bottom: 20px;
-  }
-
-  .main-content-header-summary {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 60px;
-  }
-
-  .line-summary-desktop {
-    display: none;
-  }
-
-  .line-summary-mobile {
-    display: block;
-    height: 3px;
-    width: 50px;
-  }
-
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 90%;
-  }
-
-  .summary-wrapper {
-    gap: 20px;
-  }
-
-  .summary-wrapper h2 {
-    font-size: 47px;
-    font-weight: 600;
-  }
-
-  .text-summary,
-  .deadline-summary,
-  .end-text-summary {
-    font-size: 14px;
-  }
-
-  .date-summary {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .to-do-summary,
-  .done-summary,
-  .urgent-summary,
-  .bottom-end-left-box-summary,
-  .bottom-end-middle-box-summary,
-  .bottom-end-right-box-summary {
-    border-radius: 20px;
-    gap: 10px;
-    height: 110px;
-  }
-
-  .content-summary {
-    gap: 0;
-  }
-
-  .to-do-summary svg,
-  .done-summary svg {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-height: 680px) {
-  .summary-wrapper {
-    gap: 8px;
-  }
 }
