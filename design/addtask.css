@@ -862,30 +862,45 @@ hr {
   }
 }
 
-
-
 @media (max-width: 768px) {
-    
-
   .add-task-header {
     font-size: 47px;
-}
+  }
 
-
-.info-input-field-container label,
-.info-input-field-container input::placeholder,
-.prio-urgent.active,
-.prio-medium.active,
-.prio-low.active {
+  .info-input-field-container label,
+  .info-input-field-container input::placeholder,
+  .prio-urgent.active,
+  .prio-medium.active,
+  .prio-low.active {
     font-size: 16px;
-}
+  }
 
-.main-content-addtask {
+  .main-content-addtask {
     padding: 40px 20px;
+  }
 }
 
+@media (max-width: 480px) {
+  .main-content-addtask {
+    padding: 8px;
+  }
 
+  .btn-importance-container {
+    flex-wrap: wrap;
+  }
 
+  .add-task-button-container {
+    gap: 16px;
+  }
+
+  .btn-importance-container {
+    justify-content: center;
+  }
+
+  .btn-importance-container label {
+    width: 100%;
+    max-width: 282px;
+  }
 }
 
 @media (max-height: 750px) {

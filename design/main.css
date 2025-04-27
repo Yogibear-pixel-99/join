@@ -114,35 +114,25 @@ body {
   font-weight: 400;
 }
 
-
-
-
 @media (max-width: 1350px) {
-  
-
-
-
   .main-content-header {
     flex-direction: column;
     height: auto;
     align-items: flex-start;
-}
+  }
 
-.line-desktop {
-   display: none;
-}
+  .line-desktop {
+    display: none;
+  }
 
-.line-mobile {
+  .line-mobile {
     display: block;
     height: 2px;
     width: 100px;
+  }
 }
-}
-
 
 @media (max-width: 1200px) {
-
-
   .main-content-summary,
   .main-content {
     padding: 40px;
@@ -150,8 +140,6 @@ body {
   .main-content-contacts {
     padding: 0;
   }
-  
-
 }
 
 @media (max-width: 1024px) {
@@ -209,7 +197,6 @@ body {
     margin-top: 16px;
   }
 
-
   h1 {
     font-size: 47px;
   }
@@ -229,7 +216,6 @@ body {
     align-self: flex-start;
   }
 
-  
   .board-main-container {
     display: flex;
     flex-direction: column;
@@ -243,7 +229,7 @@ body {
   .column-link-mobile {
     display: block;
   }
-  
+
   .hide-mobile-768 {
     display: none;
   }
@@ -252,41 +238,94 @@ body {
     font-size: 47px;
   }
 
-  
-
   .margin-bottom-12 {
     margin-bottom: 12px;
+  }
 }
-
-}
-
-
 
 @media (max-width: 768px) {
-    
+  .main-content-legal,
+  .main-content-privacy {
+    padding: 40px 20px;
+  }
 
+  .main-content-summary {
+    padding: 40px 20px;
+  }
+
+  .main-content-header-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 47px;
+    padding: 0;
+  }
+
+  @keyframes main-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 32px;
+      left: 32px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
+  }
 
   .main-content-legal,
   .main-content-privacy {
-      padding: 40px 20px;
+    padding: 8px;
   }
-  
-  .main-content-summary {
-      padding: 40px 20px;
+
+  @media (max-width: 350px) {
+    .main-content-board {
+      padding: 8px !important;
+    }
   }
-  
-  .main-content-header-summary {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 60px;
-  }
-  
-
-
-
 }
 
+@media (max-width: 340px) {
+  .addTask-button-container button,
+  .btns-addtask {
+    font-size: 16px !important;
+    font-weight: 600;
+  }
+
+  .clear-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .btns-addtask img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 47px;
+  }
+}
 
 @media (max-height: 900px) {
   @keyframes main-logo {
