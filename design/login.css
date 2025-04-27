@@ -234,14 +234,13 @@ input[type="checkbox"] {
   margin-right: 0 !important;
 }
 
-@media (max-width: 1024px) {
 
+@media (max-width: 650px) {
 
-
-
-
-
-
+  .sign-up-join-logo {
+      left: 33px;
+      top: 33px;
+  }
 }
 
 @media (max-height: 900px) {

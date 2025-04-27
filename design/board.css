@@ -536,6 +536,16 @@
 }
 
 
+@media (max-width: 768px) {
+    
+
+
+  .main-content-board {
+    padding: 40px 20px 40px;
+}
+
+
+}
 
 
 @media (max-height: 900px) {

@@ -862,6 +862,32 @@ hr {
   }
 }
 
+
+
+@media (max-width: 768px) {
+    
+
+  .add-task-header {
+    font-size: 47px;
+}
+
+
+.info-input-field-container label,
+.info-input-field-container input::placeholder,
+.prio-urgent.active,
+.prio-medium.active,
+.prio-low.active {
+    font-size: 16px;
+}
+
+.main-content-addtask {
+    padding: 40px 20px;
+}
+
+
+
+}
+
 @media (max-height: 750px) {
   .info-input-field-container-left {
     height: 50dvh;

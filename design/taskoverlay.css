@@ -290,6 +290,51 @@ input[type="checkbox"]:checked::after {
 
 
 
+@media (max-width: 768px) {
+    
+
+
+
+  .task-overlay-container {
+    max-width: 525px;
+    width: 95vw;
+}
+
+.task-overlay-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.overlay-task-header-text {
+    font-size: 16px;
+    padding: 4px 16px;
+}
+
+.overlay-task-body {
+    font-size: 16px;
+    font-weight: 400px;
+}
+
+.close-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    top: 34px;
+}
+
+.close-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+}
+
+.font16-weight400-768px {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+}
+
+
 @media (max-height: 1000px) {
 
 
