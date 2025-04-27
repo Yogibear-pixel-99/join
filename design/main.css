@@ -114,6 +114,49 @@ body {
   font-weight: 400;
 }
 
+
+
+
+@media (max-width: 1350px) {
+  
+
+
+
+  .main-content-header {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+}
+
+.line-desktop {
+   display: none;
+}
+
+.line-mobile {
+    display: block;
+    height: 2px;
+    width: 100px;
+}
+}
+
+
+@media (max-width: 1200px) {
+
+
+  .main-content-summary,
+  .main-content {
+    padding: 40px;
+  }
+  .main-content-contacts {
+    padding: 0;
+  }
+  
+
+}
+
+
+
+
 @media (max-height: 900px) {
   @keyframes main-logo {
     0% {

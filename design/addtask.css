@@ -638,6 +638,33 @@ box-shadow: none;
 
 
 
+@media (max-width: 1350px) {
+  
+
+  .info-input-field-container {
+    gap: 0;
+}
+
+
+
+}
+
+
+
+@media (max-width: 1200px) {
+
+  .add-task-footer {
+    left: 40px;
+    bottom: 20px;
+    right: 40px;
+  }
+  
+
+.info-input-field-container {
+  gap: 10px;
+}
+
+}
 
 @media (max-height: 750px) {
   
