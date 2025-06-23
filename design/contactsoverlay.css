@@ -1,207 +1,217 @@
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .mask-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 900;
-    transition: 400ms ease-in-out;
-    background-color: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 900;
+  transition: 400ms ease-in-out;
+  background-color: rgb(0, 0, 0, 0.5);
 }
 
 .standard-overlay-hide {
-    transform: translate(100dvw, -50%) !important;
-    z-index: 1500;
+  transform: translate(100dvw, -50%) !important;
+  z-index: 1500;
 }
 
 .standard-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    transition: 400ms ease-in-out;
-    z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  transition: 400ms ease-in-out;
+  z-index: 1000;
 }
 
 .add-contact-overlay-content-left {
-    width: 467px;
-    height: 594px;
-    background-color: var(--join-dark);
-    color: white;
-    padding: 66px 48px;
-    border-radius: 30px 0 0 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
+  width: 467px;
+  height: 594px;
+  background-color: var(--join-dark);
+  color: white;
+  padding: 66px 48px;
+  border-radius: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
 }
 
 .add-contact-overlay-join-logo {
-    width: 56px;
-    height: 66px;
+  width: 56px;
+  height: 66px;
 }
 
 .add-contact-overlay-header-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .add-contact-overlay-header {
-    font-size: 61px;
-    font-weight: 700;
+  font-size: 61px;
+  font-weight: 700;
 }
 
 .add-contact-overlay-header-text {
-    font-size: 27px;
+  font-size: 27px;
 }
 
 .add-contact-overlay-header-separator {
-    height: 3px;
-    width: 90px;
-    background-color: var(--light-blue);
+  height: 3px;
+  width: 90px;
+  background-color: var(--light-blue);
 }
 
 .add-contact-overlay-content-right {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 745px;
-    height: 594px;
-    background-color: white;
-    border-radius: 0 30px 30px 0;
-    flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 745px;
+  height: 594px;
+  background-color: white;
+  border-radius: 0 30px 30px 0;
+  flex: 1;
 }
 
 .add-contact-overlay-img-wrapper {
-    width: 120px;
-    height: 120px;
-    background-color: #D1D1D1;
-    border-radius: 70px;
-    border: solid 3px white;
-    margin: 0 40px 38px 80px;
-    font-size: 47px;
-    font-weight: 500;
-    color: white;
+  width: 120px;
+  height: 120px;
+  background-color: #d1d1d1;
+  border-radius: 70px;
+  border: solid 3px white;
+  margin: 0 40px 38px 80px;
+  font-size: 47px;
+  font-weight: 500;
+  color: white;
 }
 
 .add-contact-overlay-img-wrapper svg {
-    width: 42px;
-    height: 42px;
+  width: 42px;
+  height: 42px;
 }
 
 .add-contact-overlay-img-wrapper svg path {
-    fill: white;
+  fill: white;
 }
 
 .add-contact-overlay-form {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    width: 422px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 422px;
 }
 
 .form-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    padding: 16px;
-    border-radius: 10px;
-    height: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 10px;
+  height: 51px;
 }
 
 .svg-wrapper {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .cancel-button {
-    transition: 100ms ease-in-out;
-    width: 126px;
+  transition: 100ms ease-in-out;
+  width: 126px;
 }
 
 .create-button {
-    width: 214px;
+  width: 214px;
 }
 
 .add-contact-overlay-form-button-wrapper {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
 .no-border {
-    border: none;
+  border: none;
 }
 
 .input-wrapper {
-    border: 1px solid var(--input-field-grey);
-    border-radius: 10px;
-    padding: 13px 21px;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+  border: 1px solid var(--input-field-grey);
+  border-radius: 10px;
+  padding: 13px 21px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .input-wrapper input {
-    flex: 1;
-    font-size: 20px;
+  flex: 1;
+  font-size: 20px;
 }
 
 .add-contact-formular-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-right: 40px;
 }
 
 .close-icon-wrapper {
-    width: 32px;
-    height: 32px;
-    border-radius: 56px;
-    align-self: self-end;
+  width: 32px;
+  height: 32px;
+  border-radius: 56px;
+  align-self: self-end;
 }
 
 .close-icon-wrapper:hover {
-    background-color: #D1D1D1;
-    cursor: pointer;
+  background-color: #d1d1d1;
+  cursor: pointer;
 }
 
 .close-icon-white {
-    display: none;
+  display: none;
 }
 
 .create-button > span {
-    font-size: 21px;
-    font-weight: 700;
+  font-size: 21px;
+  font-weight: 700;
 }
 
 .cancel-button > span {
-    font-size: 20px;
-    font-weight: 400;
-    transition: 200ms !important;
-    transition: ease !important;
+  font-size: 20px;
+  font-weight: 400;
+  transition: 200ms !important;
+  transition: ease !important;
 }
 
-
 .cancel-button:hover,
-.cancel-button:hover > div > svg *{
-    fill: var(--light-blue);
-    border-color: var(--light-blue);
-    color: var(--light-blue);
+.cancel-button:hover > div > svg * {
+  fill: var(--light-blue);
+  border-color: var(--light-blue);
+  color: var(--light-blue);
 }
 
 .contact-overlay-alert {
-    position: absolute;
-    height: 32px;
-    bottom: 0;
-    width: 300px;
-    transform: translate(-12px, 32px);
+  position: absolute;
+  height: 32px;
+  bottom: 0;
+  width: 300px;
+  transform: translate(-12px, 32px);
+}
+
+@media (max-width: 350px) {
+  .add-contact-overlay-content-left,
+  .add-contact-overlay-content-right {
+    width: 100dvw;
+  }
+
+  .close-icon-contact-mobile-overlay {
+    transform: translate(0, -68px);
+  }
 }

@@ -287,3 +287,9 @@ input[type="checkbox"]:checked::after {
   padding: 16px;
   font-weight: 700;
 }
+
+@media (max-width: 400px) {
+  .task-overlay-container {
+    border: solid var(--main-background) 16px !important;
+  }
+}

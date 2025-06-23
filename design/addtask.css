@@ -602,3 +602,16 @@ box-shadow: none;
     background-color: rgb(0, 0, 0, 0.5);
 }
 
+@media (max-width: 480px) {
+
+
+
+
+  .form-container {
+    margin: 0;
+    padding: 8px;
+    width: 294px;
+  }
+
+
+}
