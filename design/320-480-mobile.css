@@ -1,9 +1,4 @@
 @media (max-width: 480px) {
-
-
-
-
-
   .login-input-field {
     width: auto;
     font-size: 14px;
@@ -15,24 +10,6 @@
 
   .mobile-navbar {
     padding: 0 0px;
-  }
-
-  .contact-container-wrapper {
-    min-width: 280px;
-  }
-
-  .main-content-summary {
-    padding: 8px;
-  }
-
-  .bottom-top-summary,
-  .bottom-middle-summary,
-  .bottom-end-summary {
-    width: 100%;
-  }
-
-  .bottom-end-summary {
-    gap: 8px;
   }
 
   .main-content-board {
@@ -64,13 +41,6 @@
     padding: 8px;
   }
 
-  .add-contact-overlay-content-left,
-  .add-contact-overlay-content-right {
-    max-width: 396px;
-    width: 90dvw;
-    padding: 66px 24px;
-  }
-
   .contacts-content {
     padding: 8px 0 8px 8px;
   }
@@ -93,7 +63,6 @@
     width: 100%;
   }
 }
-
 
 /* @media (max-width: 320px) {
   h1 {

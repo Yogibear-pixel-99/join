@@ -114,8 +114,27 @@ body {
   font-weight: 400;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1350px) {
+  .main-content-header {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+  }
+}
 
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .main-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
   h1 {
     font-size: 47px;
     padding: 0;
@@ -146,9 +165,9 @@ body {
   }
 
   .main-content-legal,
-.main-content-privacy {
+  .main-content-privacy {
     padding: 8px;
-}
+  }
 }
 
 @media (max-width: 400px) {

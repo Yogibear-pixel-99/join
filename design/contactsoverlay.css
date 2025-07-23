@@ -205,6 +205,50 @@ body {
   transform: translate(-12px, 32px);
 }
 
+@media (max-width: 1350px) {
+  .add-contact-overlay-img-wrapper {
+    display: none;
+  }
+
+  .add-contact-overlay-content-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 540px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content-contacts {
+    padding: 0;
+  }
+
+  .contact-container-wrapper {
+    min-width: 360px;
+  }
+
+  .add-contact-button-desktop {
+    width: 300px;
+  }
+
+  .floating-contact-container-wrapper {
+    padding: 40px 0 40px 40px;
+  }
+
+  .add-contact-formular-wrapper {
+    padding-right: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-contact-overlay-content-left,
+  .add-contact-overlay-content-right {
+    max-width: 396px;
+    width: 90dvw;
+    padding: 66px 24px;
+  }
+}
+
 @media (max-width: 350px) {
   .add-contact-overlay-content-left,
   .add-contact-overlay-content-right {

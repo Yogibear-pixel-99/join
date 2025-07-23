@@ -221,7 +221,7 @@ input[type="checkbox"]:checked::after {
   max-width: 600px;
   margin: 0;
   min-width: auto;
-  overflow-y:scroll;
+  overflow-y: scroll;
   overflow-x: hidden;
 }
 
@@ -286,6 +286,12 @@ input[type="checkbox"]:checked::after {
   font-size: 21px;
   padding: 16px;
   font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .add-task-overlay {
+    min-width: 430px;
+  }
 }
 
 @media (max-width: 400px) {

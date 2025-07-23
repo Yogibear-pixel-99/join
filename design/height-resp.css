@@ -1,6 +1,4 @@
 @media (max-height: 1000px) {
-
-
   .task-overlay-container {
     overflow-y: auto;
     border: solid var(--main-background) 40px;
@@ -19,14 +17,13 @@
 }
 
 @media (max-height: 950px) {
+  .info-input-field-container-right {
+    height: 50dvh;
+  }
 
- .info-input-field-container-right { 
-  height: 50dvh;
- }
-
- .info-input-field-container-right-overlay {
-  height: 600px;
- }
+  .info-input-field-container-right-overlay {
+    height: 600px;
+  }
 }
 
 @media (max-height: 900px) {
@@ -225,11 +222,10 @@
 
   .info-input-field-container-right-overlay {
     height: 55vh;
-   }
+  }
 }
 
 @media (max-width: 1024px) and (max-height: 900px) {
-
 }
 
 @media (max-height: 750px) {
@@ -324,16 +320,6 @@
 @media screen and (orientation: landscape) and (max-width: 2000px) and (max-height: 650px) {
   .landscape-overlay {
     display: flex;
-  }
-}
-
-@media schree and (max-width: 768px) and (max-height: 856px) {
-  .add-contact-overlay-content-left {
-    height: 300px;
-  }
-
-  .add-contact-overlay-img-wrapper {
-    top: 300px;
   }
 }
 
