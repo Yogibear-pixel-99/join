@@ -233,3 +233,169 @@ input[type="checkbox"] {
 .remember {
   margin-right: 0 !important;
 }
+
+@media (max-width: 1024px) {
+  
+
+
+
+
+
+  .guest-login,
+  .mobile-login-button {
+    padding: 4px;
+    width: 180px;
+    height: 51px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+
+
+
+
+  .main-log-in-container {
+    justify-content: flex-end;
+  }
+
+  .remember-wrapper {
+    margin-top: 16px;
+  }
+
+  .login-input-field {
+    font-size: 14px;
+  }
+
+  .login-input-field::placeholder {
+    font-size: 14px;
+  }
+
+  .guest-login-mobile {
+    display: flex;
+  }
+
+  .guest-login-desktop {
+    display: none;
+  }
+
+  .login-signup-button-mobile {
+    font-size: 16px;
+    padding: 15px 16px;
+  }
+
+  .login-header {
+    padding: 0;
+    justify-content: center;
+  }
+
+  .form-header {
+    font-size: 47px;
+  }
+
+  .login-form {
+    gap: 0;
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .login-separator {
+    margin: 16px 0;
+    width: 88px;
+    height: 3px;
+  }
+
+  .form-container {
+    margin: 16px auto;
+    padding: 32px;
+    transform: translate(-50%, -55%);
+  }
+
+  .login-button-container {
+    flex-direction: column;
+    margin: 16px 0 0;
+  }
+
+  .input-field-container {
+    width: auto;
+  }
+
+  .input-bottom-field-container {
+    margin: 32px 0 8px;
+  }
+
+  .login-error-message {
+    position: static;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .login-button-container {
+    gap: 21px;
+  }
+
+  .login-policy-legal {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    padding: 30px 0;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .sign-up-join-logo:hover {
+    box-sizing: content-box;
+    background-color: var(--grey-hover);
+    border-radius: 16px;
+    padding: 12px;
+    transform: translate(-12px, -12px);
+  }
+
+  .sign-up-join-logo:active {
+    box-sizing: content-box;
+    background-color: var(--grey-hover);
+    border-radius: 16px;
+    padding: 12px;
+    transform: translate(-12px, -12px);
+  }
+
+  .sign-up-join-logo {
+    width: 64px;
+    height: 78px;
+  }
+
+  .sign-up-form {
+    gap: 24px;
+  }
+
+  .sign-up-container {
+    transform: translate(-50%, -45%);
+    padding: 32px;
+  }
+
+  .dark-button-signup {
+    height: 51px;
+    font-size: 16px;
+  }
+
+  .dark-signup-mobile-button {
+    width: 180px;
+    height: 51px;
+    font-size: 16px;
+  }
+
+  .dark-signup-mobile-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--join-dark);
+    color: white;
+    padding: 15px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+
+    font-family: inter;
+    border: none;
+  }
+
+}

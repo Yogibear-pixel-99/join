@@ -134,6 +134,56 @@ body {
   }
 }
 
+@media (max-width: 1024px) {
+
+.hide-desktop {
+    display: block;
+  }
+
+  .error-message {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hide-desktop-flex {
+    display: flex !important;
+  }
+
+  .hide-mobile-flex {
+    display: none !important;
+  }
+
+    .main-content {
+    padding: 40px;
+    width: 100dvw;
+  }
+
+  
+  h1 {
+    font-size: 47px;
+  }
+
+  
+  .hide-mobile-1024 {
+    display: none;
+  }
+
+  .column-link-mobile {
+    display: block;
+  }
+
+
+
+  .hide-mobile-768 {
+    display: none;
+  }
+
+
+}
+
+
+
+
 @media (max-width: 480px) {
   h1 {
     font-size: 47px;

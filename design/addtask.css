@@ -641,6 +641,126 @@ hr {
   }
 }
 
+@media (max-width: 1024px) {
+  .dropdown-menu {
+    top: 76px;
+  }
+
+  .dropdown-menu a:active,
+  .dropdown-text:active {
+    background: var(--hover-darkblue);
+    border-radius: 16px;
+  }
+
+
+  .add-task-main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .add-task-form-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  }
+
+  .add-task-header {
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+
+  .add-task-main-content {
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(100dvh - 160px);
+  }
+
+  .add-task-form-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 100px;
+  }
+
+  .add-task-footer {
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+
+  .add-task-button-mobile {
+    width: 40px;
+    height: 40px;
+  }
+
+  
+
+  .info-input-field-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .info-input-field-container-left,
+  .info-input-field-container-right {
+    width: 100%;
+    padding: 0;
+    gap: 16px;
+    overflow: hidden !important;
+    height: auto !important;
+  }
+
+  .info-input-field-container input,
+  .info-input-field-container textarea,
+  .info-input-field-container select {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 16px;
+  }
+
+  .add-task-separator {
+    display: none;
+  }
+
+  .required-wrapper {
+    display: none;
+  }
+
+  .added-subtasks {
+    max-height: none;
+  }
+
+  .addTask-button-container {
+    margin-top: 24px;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    width: fit-content;
+  }
+
+  .btns-addtask {
+    min-width: fit-content;
+  }
+
+  .addTask-button-container button,
+  .light-button.btns-addtask {
+    font-size: 21px;
+    padding: 16px;
+    font-weight: 700;
+  }
+
+  .add-task-overlay {
+    display: none;
+  }
+
+}
+
 @media (max-width: 480px) {
   .form-container {
     margin: 0;

@@ -384,6 +384,60 @@
   }
 }
 
+
+@media (max-width: 1024px) {
+  
+
+  .main-content-summary {
+    padding: 40px;
+    width: 100dvw;
+  }
+
+  .welcome-summary {
+    display: none;
+  }
+
+  .main-content-summary {
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    align-items: center;
+  }
+
+  
+  .loading-spinner-mask-summary {
+    color: rgb(42, 54, 71);
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    height: calc(100dvh - 80px);
+    background-color: rgba(42, 54, 71, 0.4);
+    z-index: 980;
+  }
+
+  .main-content-header-summary {
+    align-self: flex-start;
+  }
+
+  .bottom-summary {
+    width: 100%;
+  }
+
+  .summary-wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  .bottom-top-summary,
+  .bottom-middle-summary,
+  .bottom-end-summary {
+    width: 70%;
+    justify-content: space-between;
+  }
+
+}
+
 @media (max-width: 480px) {
   .main-content-summary {
     padding: 8px;

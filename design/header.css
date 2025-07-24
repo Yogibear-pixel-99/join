@@ -149,3 +149,36 @@
     flex-wrap: nowrap;
   }
 }
+
+@media (max-width: 1024px) {
+  .header-dropdown-link-mobile {
+    display: flex !important;
+  }
+
+
+
+
+  .header-container {
+    position: relative;
+    z-index: 1800;
+    padding: 20px 40px;
+    height: auto;
+    min-height: 80px;
+  }
+
+  .header-logo-mobile {
+    display: block;
+  }
+
+  .header-initials {
+    width: 40px;
+    height: 40px;
+  }
+
+  .help-logo,
+  .header-text {
+    display: none;
+  }
+
+
+}

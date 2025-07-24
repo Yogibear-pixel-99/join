@@ -294,6 +294,18 @@ input[type="checkbox"]:checked::after {
   }
 }
 
+@media (max-width: 1024px) {
+  
+
+
+  .add-task-overlay {
+    display: none;
+  }
+
+
+
+}
+
 @media (max-width: 400px) {
   .task-overlay-container {
     border: solid var(--main-background) 16px !important;
