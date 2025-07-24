@@ -132,3 +132,12 @@
     background-color: var(--navbar-active-link);
   }
 }
+
+
+@media (max-width: 768px) {
+    
+.mobile-navbar {
+    padding: 0 32px;
+}
+
+}

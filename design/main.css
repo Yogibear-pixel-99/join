@@ -182,6 +182,27 @@ body {
 }
 
 
+@media (max-width: 768px) {
+    
+
+.main-content-legal,
+.main-content-privacy {
+    padding: 40px 20px;
+}
+
+.main-content-summary {
+    padding: 40px 20px;
+}
+
+.main-content-header-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 60px;
+}
+
+
+}
 
 
 @media (max-width: 480px) {

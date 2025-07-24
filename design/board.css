@@ -482,17 +482,12 @@
 }
 
 @media (max-width: 1024px) {
-  
-
-
-
   .board-main-container {
     display: flex;
     flex-direction: column;
     height: 100dvh;
   }
 
-  
   .board-add-task-icon-wrapper-mobile {
     display: flex;
   }
@@ -508,7 +503,6 @@
   .board-header-hide-desktop {
     margin: 0 0 40px 0;
   }
-
 
   .search-container-mobile {
     display: flex;
@@ -526,7 +520,6 @@
     border: none;
     width: 100%;
   }
-
 
   .main-content-board {
     display: flex;
@@ -547,8 +540,6 @@
   .board-header-hide-desktop {
     display: flex;
   }
-
-  
 
   .main-header {
     font-size: 47px;
@@ -643,5 +634,14 @@
     width: 0;
     overflow: hidden;
   }
+}
+
+
+@media (max-width: 768px) {
+
+.main-content-board {
+    padding: 40px 20px 40px;
+}
+
 
 }
