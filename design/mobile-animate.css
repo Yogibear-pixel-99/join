@@ -1,176 +1,322 @@
 .mobile-login-mask {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 900;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+}
+
+.login-logo {
+  position: absolute;
+  top: 66px;
+  left: 66px;
+  transform: translate(0%, 0%);
+  animation-name: main-logo;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  z-index: 1000;
+}
+
+@keyframes main-logo {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 274px;
+    height: 334px;
   }
-  
-  .login-logo {
-      position: absolute;
+  40% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 274px;
+    height: 334px;
+  }
+  100% {
+    top: 66px;
+    left: 66px;
+    transform: translate(0%, 0%);
+    width: 100px;
+    height: 122px;
+  }
+}
+
+@keyframes show-content {
+  0% {
+    filter: opacity(0%);
+  }
+  40% {
+    filter: opacity(0%);
+  }
+  100% {
+    filter: opacity(100%);
+  }
+}
+
+.animate-show-container {
+  filter: opacity(0%);
+  animation-name: show-content;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  @keyframes main-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
       top: 66px;
       left: 66px;
       transform: translate(0%, 0%);
-      animation-name: main-logo;
-      animation-duration: 800ms;
-      animation-iteration-count: 1;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in-out;
-      z-index: 1000;
+      width: 64px;
+      height: 78px;
+    }
   }
 
-@keyframes main-logo {
-    0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px; height: 334px;}
-    40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px; height: 334px;}
-    100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 100px; height: 122px;}
-  }
-  
-  @keyframes show-content {
-    0% {filter: opacity(0%);}
-    40% {filter: opacity(0%);}
-    100% {filter: opacity(100%);}
-  }
-  
-  .animate-show-container {
-    filter: opacity(0%);
-    animation-name: show-content;
+  .mobile-login-mask {
+    background-color: var(--join-dark);
+    display: block;
+    animation-name: login-mask;
     animation-duration: 800ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    filter: opacity(100%);
+  }
+
+  @keyframes login-mask {
+    0% {
+      filter: opacity(100%);
+    }
+    40% {
+      filter: opacity(100%);
+    }
+    100% {
+      filter: opacity(0%);
+      display: none;
+    }
+  }
+
+  .join-logo-color-change {
+    fill: white;
+    animation-name: logo-color;
+    animation-duration: 1100ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
   }
 
-
-@media (max-width: 1024px) {
-
-@keyframes main-logo {
-    0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-    40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-    100% {top: 66px; left: 66px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+  @keyframes logo-color {
+    0% {
+      fill: #ffffff;
+    }
+    20% {
+      fill: #ffffff;
+    }
+    100% {
+      fill: #2a3647;
+    }
   }
 
-.mobile-login-mask {
-background-color: var(--join-dark);
-display: block;
-animation-name: login-mask;
-animation-duration: 800ms;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-animation-timing-function: ease-in-out;
-filter: opacity(100%);
+  .mobile-login-maincontainer-dark {
+    animation-name: bg-mobile-dark;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes bg-mobile-dark {
+    0% {
+      filter: brightness(0%);
+    }
+    100% {
+      filter: brightness(100%);
+    }
+  }
 }
 
-@keyframes login-mask {
-0% {filter: opacity(100%);}
-40% {filter: opacity(100%);}
-100% {filter: opacity(0%); display: none;}
-}
+@media (max-height: 900px) {
 
-.join-logo-color-change {
-fill: white;
-animation-name: logo-color;
-animation-duration: 1100ms;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-animation-timing-function: ease-in-out;
+  @keyframes main-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 20px;
+      left: 20px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
+  }
 }
-
-@keyframes logo-color {
-0% {fill: #FFFFFF;}
-20% {fill: #FFFFFF;}
-100% {fill: #2A3647;}
-}
-
-.mobile-login-maincontainer-dark {
-animation-name: bg-mobile-dark;
-animation-duration: 1200ms;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-animation-timing-function: ease-in-out;
-}
-
-@keyframes bg-mobile-dark {
-0% {filter: brightness(0%);}
-100% {filter: brightness(100%);}
-}
-}
-
 
 @media (max-height: 756px) {
-
   @keyframes main-logo {
-      0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      100% {top: 33px; left: 33px; transform: translate(0%, 0%); width: 64px; height: 78px;}
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
     }
-  
-  .mobile-login-mask {
-  background-color: var(--join-dark);
-  display: block;
-  animation-name: login-mask;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  filter: opacity(100%);
-  }
-  
-  @keyframes login-mask {
-  0% {filter: opacity(100%);}
-  40% {filter: opacity(100%);}
-  100% {filter: opacity(0%); display: none;}
-  }
-  
-  .join-logo-color-change {
-  fill: white;
-  animation-name: logo-color;
-  animation-duration: 1100ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  }
-  
-  @keyframes logo-color {
-  0% {fill: #FFFFFF;}
-  20% {fill: #FFFFFF;}
-  100% {fill: #2A3647;}
-  }
-  
-  .mobile-login-maincontainer-dark {
-  animation-name: bg-mobile-dark;
-  animation-duration: 1200ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  }
-  
-  @keyframes bg-mobile-dark {
-  0% {filter: brightness(0%);}
-  100% {filter: brightness(100%);}
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 33px;
+      left: 33px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
   }
 
+  .mobile-login-mask {
+    background-color: var(--join-dark);
+    display: block;
+    animation-name: login-mask;
+    animation-duration: 800ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    filter: opacity(100%);
+  }
+
+  @keyframes login-mask {
+    0% {
+      filter: opacity(100%);
+    }
+    40% {
+      filter: opacity(100%);
+    }
+    100% {
+      filter: opacity(0%);
+      display: none;
+    }
+  }
+
+  .join-logo-color-change {
+    fill: white;
+    animation-name: logo-color;
+    animation-duration: 1100ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes logo-color {
+    0% {
+      fill: #ffffff;
+    }
+    20% {
+      fill: #ffffff;
+    }
+    100% {
+      fill: #2a3647;
+    }
+  }
+
+  .mobile-login-maincontainer-dark {
+    animation-name: bg-mobile-dark;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes bg-mobile-dark {
+    0% {
+      filter: brightness(0%);
+    }
+    100% {
+      filter: brightness(100%);
+    }
+  }
 }
 
-  @media (max-width: 650px) {
-
-    @keyframes main-logo {
-      0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-      100% {top: 33px; left: 33px; transform: translate(0%, 0%); width: 64px; height: 78px;}
-    }
-
-  }
-
-
-  
-@media (max-height: 750px) {
-
+@media (max-width: 650px) {
   @keyframes main-logo {
-    0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-    40% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 122px;}
-    100% {top: 16px; left: 16px; transform: translate(0%, 0%); width: 42px; height: 50px;}
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 33px;
+      left: 33px;
+      transform: translate(0%, 0%);
+      width: 64px;
+      height: 78px;
+    }
   }
-  
+}
+
+@media (max-height: 750px) {
+  @keyframes main-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    40% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 122px;
+    }
+    100% {
+      top: 16px;
+      left: 16px;
+      transform: translate(0%, 0%);
+      width: 42px;
+      height: 50px;
+    }
   }
+}

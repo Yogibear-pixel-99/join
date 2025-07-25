@@ -135,8 +135,7 @@ body {
 }
 
 @media (max-width: 1024px) {
-
-.hide-desktop {
+  .hide-desktop {
     display: block;
   }
 
@@ -153,57 +152,45 @@ body {
     display: none !important;
   }
 
-    .main-content {
+  .main-content {
     padding: 40px;
     width: 100dvw;
   }
 
-  
   h1 {
     font-size: 47px;
   }
 
-  
   .hide-mobile-1024 {
-    display: none;
+    display: none !important;
   }
 
   .column-link-mobile {
     display: block;
   }
 
-
-
   .hide-mobile-768 {
     display: none;
   }
-
-
 }
-
 
 @media (max-width: 768px) {
-    
-
-.main-content-legal,
-.main-content-privacy {
+  .main-content-legal,
+  .main-content-privacy {
     padding: 40px 20px;
-}
+  }
 
-.main-content-summary {
+  .main-content-summary {
     padding: 40px 20px;
-}
+  }
 
-.main-content-header-summary {
+  .main-content-header-summary {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
     margin-bottom: 60px;
+  }
 }
-
-
-}
-
 
 @media (max-width: 480px) {
   h1 {
@@ -250,5 +237,31 @@ body {
 @media (max-width: 350px) {
   .main-content-board {
     padding: 8px !important;
+  }
+}
+
+@media (max-height: 900px) {
+
+  .main-content-legal,
+  .main-content-privacy {
+    padding: 8px;
+  }
+
+}
+
+
+
+@media (max-height: 750px) {
+
+  .main-header {
+    padding: 0;
+  }
+
+}
+
+
+@media screen and (orientation: landscape) and (max-width: 2000px) and (max-height: 650px) {
+  .landscape-overlay {
+    display: flex;
   }
 }

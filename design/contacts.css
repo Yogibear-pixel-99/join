@@ -432,10 +432,7 @@
   }
 }
 
-
 @media (max-width: 1024px) {
-
-
   .close-icon-contact-mobile-overlay {
     transform: translate(0, -98px);
   }
@@ -530,7 +527,6 @@
     gap: 54px;
   }
 
-  
   .floating-menu-back-button,
   .floating-menu-options-edit-delete-button {
     display: flex;
@@ -608,9 +604,9 @@
     display: block;
   }
 
-    .margin-bottom-12 {
-        margin-bottom: 12px;
-    }
+  .margin-bottom-12 {
+    margin-bottom: 12px;
+  }
 
   .close-icon-dark {
     display: none;
@@ -642,7 +638,6 @@
     margin-top: 15px;
   }
 
-  
   .input-wrapper {
     height: 41px;
     padding: 13px 21px;
@@ -657,10 +652,7 @@
   .placeholder-alert-message {
     display: none;
   }
-
 }
-
-
 
 @media (max-width: 1150px) {
   .floating-contact-container-wrapper {
@@ -691,4 +683,116 @@
   .single-contact {
     padding: 10px 0;
   }
+}
+
+@media (max-width: 768px) {
+  .main-content-contacts {
+    padding: 0;
+  }
+
+  .contact-container-wrapper {
+    padding: 0;
+  }
+
+  .contacts-content {
+    padding: 8px 24px 24px 24px;
+  }
+
+  .floating-contact-container-wrapper {
+    padding: 40px 0 20px 20px;
+  }
+
+  .header-contacts-floatin-mobile {
+    font-size: 47px;
+  }
+
+  .contacts-text {
+    font-size: 20px;
+  }
+
+  .line-mobile {
+    width: 90px;
+  }
+
+  .floating-initials-wrapper {
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  .floating-full-name {
+    font-size: 47px;
+  }
+
+  .floating-contact-header {
+    gap: 20px;
+  }
+
+  .floating-full-name {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .floating-single-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .contact-info {
+    margin: 0;
+  }
+
+  .floating-mail-phone {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-wrapper input {
+    font-size: 14px;
+  }
+
+  .floating-contact-container-wrapper {
+    padding: 8px;
+  }
+
+  .contacts-content {
+    padding: 8px 0 8px 8px;
+  }
+
+  .single-contact {
+    padding: 10px 0;
+  }
+}
+
+@media (max-height: 900px) {
+  .floating-contact-container-wrapper {
+    padding: 8px;
+  }
+}
+
+@media (max-height: 750px) {
+
+.contact-created-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    margin-top: 0;
+    transform: translate(-50%, 100dvh);
+    text-align: center;
+  }
+
+  .contact-created-button-show {
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  .header-contacts-floatin-mobile {
+    padding: 0;
+  }
+
 }

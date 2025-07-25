@@ -295,19 +295,60 @@ input[type="checkbox"]:checked::after {
 }
 
 @media (max-width: 1024px) {
-  
-
-
   .add-task-overlay {
     display: none;
   }
+}
 
-
-
+@media (max-width: 480px) {
+  .task-overlay-container {
+    max-height: 98dvh;
+    max-width: 98vw;
+    padding: 0;
+  }
 }
 
 @media (max-width: 400px) {
   .task-overlay-container {
     border: solid var(--main-background) 16px !important;
   }
+}
+
+@media (max-height: 1000px) {
+  .task-overlay-container {
+    overflow-y: auto;
+    border: solid var(--main-background) 40px;
+    padding: 0 !important;
+  }
+
+  
+  .add-task-overlay {
+    height: 95vh;
+    overflow: hidden;
+  }
+
+  .input-field-container-right {
+    height: 55vh;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-height: 950px) {
+  .info-input-field-container-right {
+    height: 50dvh;
+  }
+
+  .info-input-field-container-right-overlay {
+    height: 600px;
+  }
+}
+
+@media (max-height: 900px) {
+
+
+  .add-task-footer-overlay {
+    left: 40px;
+    right: 40px;
+  }
+
 }

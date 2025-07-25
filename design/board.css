@@ -636,12 +636,40 @@
   }
 }
 
-
 @media (max-width: 768px) {
-
-.main-content-board {
+  .main-content-board {
     padding: 40px 20px 40px;
+  }
 }
 
+@media (max-width: 480px) {
+  .main-content-board {
+    padding: 8px;
+  }
+}
 
+@media (max-height: 900px) {
+  .task-card {
+    gap: 6px;
+  }
+
+  .task-card * {
+    font-size: 12px;
+  }
+
+  .main-content-board {
+    padding: 8px;
+  }
+
+  .board-header-hide-desktop {
+    margin-bottom: 20px;
+  }
+
+  .bottom-board-tasks {
+    max-height: calc(100dvh - 360px);
+  }
+
+  .dropdown-tasks-menu div {
+    height: 30px;
+  }
 }

@@ -757,55 +757,52 @@ hr {
 }
 
 @media (max-width: 768px) {
-
-
-.add-task-header {
+  .add-task-header {
     font-size: 47px;
-}
+  }
 
-.info-input-field-container label,
-.info-input-field-container input::placeholder,
-.prio-urgent.active,
-.prio-medium.active,
-.prio-low.active {
+  .info-input-field-container label,
+  .info-input-field-container input::placeholder,
+  .prio-urgent.active,
+  .prio-medium.active,
+  .prio-low.active {
     font-size: 16px;
-}
+  }
 
-.main-content-addtask {
+  .main-content-addtask {
     padding: 40px 20px;
-}
+  }
 
-.task-overlay-container {
+  .task-overlay-container {
     max-width: 525px;
     width: 95vw;
-}
+  }
 
-.task-overlay-container h1 {
+  .task-overlay-container h1 {
     font-size: 36px;
     font-weight: 700;
-}
+  }
 
-.overlay-task-header-text {
+  .overlay-task-header-text {
     font-size: 16px;
     padding: 4px 16px;
-}
+  }
 
-.overlay-task-body {
+  .overlay-task-body {
     font-size: 16px;
     font-weight: 400px;
-}
+  }
 
-.close-icon-wrapper {
+  .close-icon-wrapper {
     width: 24px;
     height: 24px;
     top: 34px;
-}
+  }
 
-.close-icon-wrapper svg {
+  .close-icon-wrapper svg {
     width: 14px;
     height: 14px;
-}
-
+  }
 }
 
 @media (max-width: 480px) {
@@ -813,5 +810,69 @@ hr {
     margin: 0;
     padding: 8px;
     width: 294px;
+  }
+
+  .input-wrapper input {
+    font-size: 14px;
+  }
+
+  .main-content-addtask {
+    padding: 8px;
+  }
+
+  .btn-importance-container {
+    flex-wrap: wrap;
+  }
+
+  .add-task-button-container {
+    gap: 16px;
+  }
+
+  .btn-importance-container {
+    justify-content: center;
+  }
+
+  .btn-importance-container label {
+    width: 100%;
+    max-width: 282px;
+  }
+}
+
+@media (max-height: 900px) {
+  .add-task-footer {
+    left: 8px;
+    bottom: 20px;
+    right: 8px;
+  }
+
+  .main-content-addtask {
+    padding: 8px;
+  }
+
+  .add-task-header {
+    margin-bottom: 20px;
+  }
+
+  .info-input-field-container-right {
+    height: 55vh;
+    overflow-y: auto !important;
+  }
+
+  .info-input-field-container-right-overlay {
+    height: 55vh;
+  }
+}
+
+@media (max-height: 750px) {
+
+
+  .info-input-field-container-left {
+    height: 50dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+    .add-task-header {
+    padding: 0;
   }
 }
