@@ -60,6 +60,7 @@ function setGuestOrUserNavbar() {
 function removeUserFromLocalStorage() {
   sessionStorage.removeItem("indexOfUser");
   sessionStorage.removeItem("userLoggedIn");
+  sessionStorage.removeItem("firstVisit");
   localStorage.removeItem("joinUserEmail");
 }
 

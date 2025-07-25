@@ -5,6 +5,7 @@ async function initSummary() {
   setTimeout(() => {removeDisplayNone("loading-spinner");}, 100);
   await getUserSummaryInfo();
   showGreeting();
+  setUserFirstSummaryVisit();
   setTimeout(() => {addDisplayNone("loading-spinner");}, 100);
 }
 
@@ -233,16 +234,34 @@ function showGreeting() {
  * @param {string} userName - The name of the logged in user.
  */
 function addGreetingAnimation(userName) {
+  if (checkIfFirstVisit()) return;
   if (window.innerWidth <= 1024) {
     let nameRef = document.getElementById("summary-greeting-text-overlay-user");
     let guestRefContent = document.getElementById("summary-greeting-overlay-guest");
     let userRefContent = document.getElementById("summary-greeting-overlay-user");
     let greeting = getTime();
-    ref = document.querySelectorAll(".greeting-text");
+    let ref = document.querySelectorAll(".greeting-text");
     ref.forEach((element) => {element.innerText = greeting;});
     nameRef.innerText = userName;
     userName !== "Guest" && userName ? showGreetingAnimation(userRefContent) : showGreetingAnimation(guestRefContent);
   }
+}
+
+/**
+ * Sets a boolean to the session storage, to save the first visit for the greeting text.
+ */
+function setUserFirstSummaryVisit(){
+  sessionStorage.setItem("firstVisit", true);
+}
+
+
+/**
+ * Checks if the user has already visited/logged in. Information is for the greeting animation.
+ * 
+ * @returns - A boolean.
+ */
+function checkIfFirstVisit(){
+  return sessionStorage.getItem("firstVisit");
 }
 
 
