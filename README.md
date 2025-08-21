@@ -33,4 +33,4 @@ Task bearbeiten / löschen
 „In Progress“ → aktuell in Arbeit
 „Done“ → abgeschlossen
 
-https://www.puercherjoachim.com/join
+https://www.puercherjoachim.com/join/html
