@@ -16,29 +16,21 @@ Mit Login- und Sign-up-System, intuitiver Benutzeroberfläche und flexiblen Funk
 🛠️ Tech Stack
 
 Frontend: HTML, CSS, JavaScript
-
 Sign Up → neuen User erstellen
-
 Login → bestehender Account
-
 Logout
 
 👥 Contact Management
-
 Kontakte hinzufügen / bearbeiten / löschen
 
 📝 Tasks
-
 Task erstellen (Titel, Beschreibung, Kontakt, Deadline, Priorität)
-
 Task per Drag & Drop in andere Spalte verschieben
-
 Task bearbeiten / löschen
 
 📊 Kanban Board
-
 „To Do“ → Aufgaben starten
-
 „In Progress“ → aktuell in Arbeit
-
 „Done“ → abgeschlossen
+
+https://www.puercherjoachim.com/join
