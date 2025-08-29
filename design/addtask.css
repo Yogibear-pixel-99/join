@@ -642,15 +642,7 @@ hr {
 }
 
 @media (max-width: 1024px) {
-  .dropdown-menu {
-    top: 76px;
-  }
 
-  .dropdown-menu a:active,
-  .dropdown-text:active {
-    background: var(--hover-darkblue);
-    border-radius: 16px;
-  }
 
   .add-task-main-container {
     display: flex;

@@ -437,6 +437,10 @@
     transform: translate(0, -98px);
   }
 
+      .dropdown-menu {
+    top: 80px;
+  }
+
   .contacts-main {
     background-color: white;
   }
