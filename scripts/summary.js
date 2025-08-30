@@ -191,11 +191,8 @@ function getClosestDate() {
  * @returns - A integer to use for an arrayposition.
  */
 function getMonthNumber(month) {
-  if (month.charAt(0) === "0") {
-    month = month.replace("0", "");
     return parseInt(month);
   }
-}
 
 
 /**
